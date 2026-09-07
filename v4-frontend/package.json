@@ -1,0 +1,17 @@
+{
+  "name": "morgentidende-v4-frontend",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@astrojs/cloudflare": "latest",
+    "@supabase/supabase-js": "latest",
+    "astro": "latest",
+    "marked": "latest",
+    "sanitize-html": "latest"
+  }
+}
