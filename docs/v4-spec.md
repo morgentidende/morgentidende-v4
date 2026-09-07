@@ -144,3 +144,9 @@ Almindelige redaktionelle kvalitetsproblemer skal være warnings/fixes, ikke gat
 - Når kode ændres eller erstattes, skal tidligere overflødig, duplikeret eller død kode fjernes i samme omgang, så v4 ikke langsomt ophober legacy-kode.
 - Historik må gerne bevares i commits, audit-log eller dokumentation; den gamle kode behøver ikke blive liggende aktivt i produktionskoden for historiens skyld.
 - Ved refaktorering foretrækkes én tydelig aktiv implementation frem for parallelle gamle og nye spor.
+
+## Permanent modelregel for redaktionelt arbejde
+- Ved autonom research, artikelskrivning, kommentarer, redaktionel slutbearbejdning og udgivelse bruges altid den bedst mulige tilgængelige model: Astra med mindst medium reasoning (højere efter behov).
+- Reglen gælder også artikler og kommentarer, som brugeren bestiller direkte i chatten og beder ChatGPT skrive og udgive.
+- Der må ikke automatisk nedgraderes til en svagere model for at spare tid, tokens eller omkostninger. Hvis det krævede modelniveau ikke kan vælges eller verificeres, skal det oplyses åbent; der må ikke påstås en modelindstilling, som ikke er verificeret.
+- Den redaktionelle motor skal læse denne regel og CMS-indstillingen editorial_model_policy før autonomt arbejde. Modelvalg skal håndteres i den kørende agents modelkonfiguration; en tekstregel alene ændrer ikke runtime-modellen.
