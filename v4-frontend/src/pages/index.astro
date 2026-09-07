@@ -10,7 +10,9 @@ let loadError = '';
 
 if (v4Supabase) {
   const [articlesResult, categoriesResult] = await Promise.all([
-    v4Supabase.from('v4_public_articles').select('*').order('published_at', { ascending: false }).limit(32),
+    // Fetch a broad enough pool that bursts of Viden/Liv publishing cannot crowd
+    // ordinary news out of the front-page news stream before category filtering.
+    v4Supabase.from('v4_public_articles').select('*').order('published_at', { ascending: false }).limit(120),
     v4Supabase.from('v4_public_categories').select('*').order('sort_order', { ascending: true })
   ]);
   if (articlesResult.error) loadError = articlesResult.error.message;
@@ -31,7 +33,10 @@ const usedIds = new Set([lead?.id, ...followups.map((a) => a.id)].filter(Boolean
 const stream = others.filter((a) => !usedIds.has(a.id));
 const viden = stream.filter((a) => categoryById.get(a.category_id) === 'Viden').slice(0, 4);
 const liv = stream.filter((a) => categoryById.get(a.category_id) === 'Liv').slice(0, 4);
-const news = stream.filter((a) => !['Viden', 'Liv'].includes(categoryById.get(a.category_id))).slice(0, 12);
+// Front-page news stream must never contain magazine material.
+const news = stream
+  .filter((a) => !['Viden', 'Liv'].includes(categoryById.get(a.category_id)))
+  .slice(0, 14);
 ---
 <V4Layout>
   <div class="v4-shell">
