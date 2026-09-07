@@ -15,11 +15,16 @@ Morgentidende v4 skal være markant simplere end v3. ChatGPT er den redaktionell
 ## Artikelkrav
 - Alle artikler skal have hero.
 - Rigtige fotos er førstevalg til nyheder.
-- Hero skal have dokumenteret lovlig brugsret og metadata for kilde/licens/credit.
+- Hero skal have dokumenteret lovlig brugsret og metadata for kilde/licens/credit internt, også når kreditering ikke vises for læseren.
+- Ved nye hero-fotos prioriteres og bruges som udgangspunkt kun billeder med licens/vilkår, hvor offentlig attribution ikke er et krav, fx CC0/public domain eller tjenester med en verificeret licens uden krediteringskrav.
+- Billeder med BY-/attributionskrav, fx CC BY og CC BY-SA, må kun bruges, hvis et passende no-attribution-alternativ ikke med rimelighed kan findes; hvis de bruges, skal den krævede kreditering vises korrekt.
+- Unsplash-billeder må kun bruges uden synlig kreditering, når brugen sker under selve Unsplash-licensen; hvis billedet leveres via Unsplash API, skal API-vilkårenes krediteringskrav følges.
 - Brugeren kan foreslå eller levere URL til hero; den skal verificeres før brug.
 - Hvis foreslået hero ikke kan verificeres, findes automatisk et lovligt alternativ i stedet for at afvise artiklen.
 - Forklarende AI-grafik kan bruges inde i artikler og efter behov som hero i især Viden.
 - Manchet: højst 2 sætninger og cirka 20 ord samlet.
+- Almindelige nyheder og Kommentarer må ikke slutte med en særskilt kildeliste. Kilder skal i stedet indarbejdes naturligt i brødteksten med formuleringer som “ifølge ...”, “fremgår det af ...”, “oplyser ...” eller tilsvarende, når det er journalistisk naturligt.
+- Forskningsartikler, typisk i Viden og Liv, skal derimod have en tydelig kildesektion nederst med de centrale studier, papers eller andre forskningskilder.
 - Læs også vises kun inde i artikelteksten ved direkte relation til samme sag.
 - Relaterede artikler gemmes struktureret via article_relations/story_cluster.
 - Når en Kommentar eller anden egentlig opfølgning kobles direkte til en lead-/hovedartikel, skal relationen oprettes automatisk begge veje, så begge artikler viser hinanden i Læs også. Duplikater må ikke oprettes, og eksisterende relationer skal bevares.
