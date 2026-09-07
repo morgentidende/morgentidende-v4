@@ -109,6 +109,21 @@ html[data-theme='dark'] .v4-article-body a:focus-visible {
   color: #e0d5f4;
 }
 
+/* Article subheads: clearly subordinate to the main headline on all screens. */
+.v4-article-body h2 {
+  margin: 2.1em 0 .55em;
+  font-family: var(--v4-serif);
+  font-size: 28px;
+  line-height: 1.2;
+  letter-spacing: -.015em;
+}
+.v4-article-body h3 {
+  margin: 1.8em 0 .5em;
+  font-family: var(--v4-serif);
+  font-size: 22px;
+  line-height: 1.25;
+}
+
 /* Search/News trust metadata */
 .v4-article-meta {
   display: flex;
@@ -211,6 +226,15 @@ html[data-theme='dark'] .v4-article-body a:focus-visible {
     font-size: 28px;
     line-height: 1.08;
     letter-spacing: -.02em;
+  }
+  .v4-article-body h2 {
+    margin-top: 1.9em;
+    font-size: 22px;
+    line-height: 1.22;
+  }
+  .v4-article-body h3 {
+    font-size: 19px;
+    line-height: 1.25;
   }
   .v4-article-meta { font-size: 12px; gap: 5px 10px; }
   .v4-info-page { padding-top: 32px; padding-bottom: 52px; }
