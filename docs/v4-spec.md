@@ -146,7 +146,8 @@ Almindelige redaktionelle kvalitetsproblemer skal være warnings/fixes, ikke gat
 - Ved refaktorering foretrækkes én tydelig aktiv implementation frem for parallelle gamle og nye spor.
 
 ## Permanent modelregel for redaktionelt arbejde
-- Ved autonom research, artikelskrivning, kommentarer, redaktionel slutbearbejdning og udgivelse bruges altid den bedst mulige tilgængelige model: Astra med mindst medium reasoning (højere efter behov).
+- Ved autonom research, artikelskrivning, kommentarer, redaktionel slutbearbejdning og udgivelse bruges altid den mest intelligente tilgængelige model/runtime på det pågældende tidspunkt, eksempelvis GPT-5.6 High, Astra eller en senere model, der vurderes stærkere.
+- Brug høj eller den højeste relevante reasoning-indstilling, når platformen giver mulighed for det. Kvalitet prioriteres over pris, tokenforbrug og latenstid i redaktionelt arbejde.
 - Reglen gælder også artikler og kommentarer, som brugeren bestiller direkte i chatten og beder ChatGPT skrive og udgive.
 - Der må ikke automatisk nedgraderes til en svagere model for at spare tid, tokens eller omkostninger. Hvis det krævede modelniveau ikke kan vælges eller verificeres, skal det oplyses åbent; der må ikke påstås en modelindstilling, som ikke er verificeret.
-- Den redaktionelle motor skal læse denne regel og CMS-indstillingen editorial_model_policy før autonomt arbejde. Modelvalg skal håndteres i den kørende agents modelkonfiguration; en tekstregel alene ændrer ikke runtime-modellen.
+- Den redaktionelle motor skal læse denne regel og CMS-indstillingen `editorial_model_policy` før autonomt arbejde. Modelvalg skal håndteres i den kørende agents modelkonfiguration; en tekstregel eller databaseindstilling alene ændrer ikke runtime-modellen.
