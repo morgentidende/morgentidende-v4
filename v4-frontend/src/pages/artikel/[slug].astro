@@ -1,0 +1,153 @@
+---
+import V4Layout from '../../layouts/V4Layout.astro';
+import V4Card from '../../components/V4Card.astro';
+import { v4Supabase } from '../../lib/v4-supabase';
+import { marked } from 'marked';
+import sanitizeHtml from 'sanitize-html';
+
+const { slug } = Astro.params;
+let article: any = null;
+let related: any[] = [];
+let recommendations: any[] = [];
+let categories: any[] = [];
+
+if (v4Supabase && slug) {
+  const articleResult = await v4Supabase
+    .from('v4_public_articles')
+    .select('*')
+    .eq('slug', slug)
+    .maybeSingle();
+  article = articleResult.data;
+
+  const categoriesResult = await v4Supabase
+    .from('v4_public_categories')
+    .select('*')
+    .order('sort_order', { ascending: true });
+  categories = categoriesResult.data || [];
+
+  if (article) {
+    const relationResult = await v4Supabase
+      .from('v4_public_relations')
+      .select('related_article_id, relation_type, sort_order')
+      .eq('article_id', article.id)
+      .order('sort_order', { ascending: true });
+    const relatedIds = (relationResult.data || []).map((r) => r.related_article_id);
+    if (relatedIds.length) {
+      const relatedResult = await v4Supabase
+        .from('v4_public_articles')
+        .select('*')
+        .in('id', relatedIds);
+      const byId = new Map((relatedResult.data || []).map((a) => [a.id, a]));
+      related = relatedIds.map((id) => byId.get(id)).filter(Boolean);
+    }
+
+    const recResult = await v4Supabase
+      .from('v4_public_articles')
+      .select('*')
+      .neq('id', article.id)
+      .order('published_at', { ascending: false })
+      .limit(28);
+    recommendations = recResult.data || [];
+  }
+}
+
+if (!article) {
+  Astro.response.status = 404;
+}
+
+const categoryById = new Map(categories.map((c) => [c.id, c.name]));
+const category = article ? categoryById.get(article.category_id) : '';
+const bodyHtml = article
+  ? sanitizeHtml(await marked.parse(article.body_markdown || ''), {
+      allowedTags: sanitizeHtml.defaults.allowedTags.concat(['img', 'figure', 'figcaption']),
+      allowedAttributes: {
+        ...sanitizeHtml.defaults.allowedAttributes,
+        img: ['src', 'alt', 'title', 'loading'],
+        a: ['href', 'title', 'target', 'rel']
+      }
+    })
+  : '';
+
+const directRelated = related.slice(0, 2);
+const relatedIds = new Set(related.map((a) => a.id));
+const firstSix = recommendations
+  .filter((a) => !relatedIds.has(a.id))
+  .sort((a, b) => {
+    const aScore = (a.story_cluster_id && a.story_cluster_id === article?.story_cluster_id ? 4 : 0) + (a.category_id === article?.category_id ? 2 : 0);
+    const bScore = (b.story_cluster_id && b.story_cluster_id === article?.story_cluster_id ? 4 : 0) + (b.category_id === article?.category_id ? 2 : 0);
+    return bScore - aScore;
+  })
+  .slice(0, 6);
+const viden = recommendations.filter((a) => categoryById.get(a.category_id) === 'Viden').slice(0, 4);
+const liv = recommendations.filter((a) => categoryById.get(a.category_id) === 'Liv').slice(0, 4);
+const used = new Set([...firstSix, ...viden, ...liv, ...related].map((a) => a.id));
+const finalEight = recommendations.filter((a) => !used.has(a.id)).slice(0, 8);
+---
+<V4Layout title={article ? `${article.headline} – Morgentidende` : 'Ikke fundet – Morgentidende'} description={article?.deck}>
+  {article ? (
+    <>
+      <header class="v4-article-header">
+        {category ? <div class="v4-kicker">{category}</div> : null}
+        <h1 class="v4-article-title">{article.headline}</h1>
+        {article.deck ? <p class="v4-article-deck">{article.deck}</p> : null}
+      </header>
+
+      {article.hero_url ? (
+        <figure class="v4-article-hero">
+          <img src={article.hero_url} alt={article.hero_alt || ''} />
+          {(article.hero_credit || article.hero_license) ? (
+            <figcaption class="v4-hero-credit">
+              {article.hero_credit ? `Foto: ${article.hero_credit}` : ''}
+              {article.hero_credit && article.hero_license ? ' · ' : ''}
+              {article.hero_license || ''}
+            </figcaption>
+          ) : null}
+        </figure>
+      ) : null}
+
+      <article class="v4-article-body">
+        <div set:html={bodyHtml} />
+        {directRelated.length ? (
+          <aside class="v4-read-also">
+            <strong>Læs også</strong>
+            {directRelated.map((item) => (
+              <div><a href={`/artikel/${item.slug}`}>{item.headline}</a></div>
+            ))}
+          </aside>
+        ) : null}
+      </article>
+
+      <div class="v4-shell">
+        <section class="v4-section">
+          <div class="v4-grid-3">
+            {firstSix.map((item) => <V4Card article={item} categoryName={categoryById.get(item.category_id)} />)}
+          </div>
+        </section>
+
+        <section class="v4-section v4-magazine v4-magazine--viden">
+          <div class="v4-kicker">MAGASIN</div>
+          <h2 class="v4-section-title">Viden</h2>
+          <div class="v4-grid-4">
+            {viden.map((item) => <V4Card article={item} />)}
+          </div>
+        </section>
+
+        <section class="v4-section v4-magazine v4-magazine--liv">
+          <div class="v4-kicker">MAGASIN</div>
+          <h2 class="v4-section-title">Liv</h2>
+          <div class="v4-grid-4">
+            {liv.map((item) => <V4Card article={item} />)}
+          </div>
+        </section>
+
+        <section class="v4-section">
+          <div class="v4-grid-4">
+            {finalEight.map((item) => <V4Card article={item} categoryName={categoryById.get(item.category_id)} />)}
+          </div>
+        </section>
+      </div>
+    </>
+  ) : (
+    <div class="v4-shell"><div class="v4-empty">Artiklen blev ikke fundet.</div></div>
+  )}
+</V4Layout>
