@@ -23,7 +23,7 @@ const {
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=DM+Sans:wght@400;500;600;700&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet" />
   </head>
   <body>
-    <header class="v4-masthead">
+    <div class="v4-masthead-top">
       <div class="v4-masthead__inner">
         <a href="/" class="v4-brand" aria-label="Morgentidende forside">
           <img class="v4-brand__sun" src="/morgentidende-sun.png" alt="" width="64" height="64" />
@@ -34,6 +34,8 @@ const {
           <a class="v4-login" href="/login">Login</a>
         </div>
       </div>
+    </div>
+    <header class="v4-masthead v4-masthead--below-sticky">
       <div class="v4-meta-row">
         <span id="v4-date"></span>
         <span>DANMARKS NYE AVIS</span>
