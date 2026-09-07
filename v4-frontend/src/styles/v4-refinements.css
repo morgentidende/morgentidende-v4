@@ -88,6 +88,27 @@ html[data-theme='dark'] .v4-category-header--liv {
   object-fit: contain;
 }
 
+/* Article-body hyperlinks: visibly links, in Morgentidende's purple. */
+.v4-article-body a {
+  color: #2b2340;
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: .14em;
+  text-decoration-color: currentColor;
+}
+.v4-article-body a:hover,
+.v4-article-body a:focus-visible {
+  color: #493b68;
+  text-decoration-thickness: 2px;
+}
+html[data-theme='dark'] .v4-article-body a {
+  color: #c9b9e8;
+}
+html[data-theme='dark'] .v4-article-body a:hover,
+html[data-theme='dark'] .v4-article-body a:focus-visible {
+  color: #e0d5f4;
+}
+
 /* Search/News trust metadata */
 .v4-article-meta {
   display: flex;
