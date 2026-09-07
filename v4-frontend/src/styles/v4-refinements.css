@@ -217,20 +217,22 @@ html[data-theme='dark'] .v4-article-body a:focus-visible {
   .v4-magazine .v4-section-title { font-size: 30px; }
   .v4-story-related { width: calc(100% - 28px); margin-bottom: 38px; }
   .v4-story-related__grid {
-    display: grid;
-    grid-auto-flow: column;
-    grid-auto-columns: minmax(230px, 78vw);
-    grid-template-columns: none;
-    overflow-x: auto;
-    gap: 14px;
-    padding-bottom: 8px;
-    scroll-snap-type: x proximity;
+    grid-template-columns: 1fr;
+    gap: 0;
+    overflow: visible;
+    padding-bottom: 0;
   }
   .v4-story-related__grid .v4-card {
     grid-template-columns: 108px minmax(0, 1fr);
     gap: 10px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--v4-rule);
+  }
+  .v4-story-related__grid .v4-card:first-child { padding-top: 0; }
+  .v4-story-related__grid .v4-card:last-child {
+    padding-bottom: 0;
+    border-bottom: 0;
   }
   .v4-story-related__grid .v4-card__media { width: 108px; }
   .v4-story-related__grid .v4-card__headline { font-size: 17px; }
-  .v4-story-related__grid > * { scroll-snap-align: start; }
 }
