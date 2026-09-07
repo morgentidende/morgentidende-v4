@@ -7,15 +7,15 @@
 }
 
 .v4-magazine--viden {
-  color: #f7f1e7;
-  background: linear-gradient(135deg, #153943 0%, #1d4b52 54%, #243f46 100%);
-  box-shadow: inset 0 4px 0 #d8a33d, 0 18px 46px rgba(20, 24, 31, .12);
+  color: #f8f3e9;
+  background: linear-gradient(135deg, #071626 0%, #0d243d 48%, #15385a 100%);
+  box-shadow: inset 0 4px 0 #d8a33d, 0 18px 46px rgba(7, 22, 38, .2);
 }
 
 .v4-magazine--liv {
   color: #fff6f1;
-  background: linear-gradient(135deg, #6a344f 0%, #84465e 54%, #704354 100%);
-  box-shadow: inset 0 4px 0 #e4b45a, 0 18px 46px rgba(20, 24, 31, .12);
+  background: linear-gradient(135deg, #5a263f 0%, #793a56 48%, #9a5a6c 100%);
+  box-shadow: inset 0 4px 0 #e4b45a, 0 18px 46px rgba(62, 25, 43, .16);
 }
 
 .v4-magazine .v4-section-title {
@@ -25,57 +25,78 @@
   letter-spacing: -.02em;
 }
 
-.v4-magazine .v4-kicker {
-  color: #efc76e;
-}
-
+.v4-magazine .v4-kicker { color: #efc76e; }
 .v4-magazine .v4-card__headline,
-.v4-magazine .v4-card__deck {
-  color: inherit;
-}
-
-.v4-magazine .v4-card__deck {
-  opacity: .78;
-}
-
+.v4-magazine .v4-card__deck { color: inherit; }
+.v4-magazine .v4-card__deck { opacity: .78; }
 .v4-magazine .v4-card__media {
   background: rgba(255,255,255,.08);
-  box-shadow: 0 10px 24px rgba(0,0,0,.14);
+  box-shadow: 0 10px 24px rgba(0,0,0,.18);
 }
 
 .v4-category-header--viden {
-  color: #f7f1e7;
-  background: linear-gradient(135deg, #153943, #244e55);
+  color: #f8f3e9;
+  background: linear-gradient(135deg, #071626 0%, #0d243d 52%, #15385a 100%);
   border-color: rgba(216, 163, 61, .36);
 }
 
 .v4-category-header--liv {
   color: #fff6f1;
-  background: linear-gradient(135deg, #6a344f, #86485f);
+  background: linear-gradient(135deg, #5a263f 0%, #793a56 52%, #9a5a6c 100%);
   border-color: rgba(228, 180, 90, .38);
 }
 
 .v4-category-header--viden p,
-.v4-category-header--liv p {
-  color: currentColor;
-  opacity: .78;
-}
+.v4-category-header--liv p { color: currentColor; opacity: .8; }
 
 html[data-theme='dark'] .v4-magazine--viden,
 html[data-theme='dark'] .v4-category-header--viden {
-  background: linear-gradient(135deg, #102e36, #173f46);
+  background: linear-gradient(135deg, #050f1b 0%, #0a1d31 52%, #102d49 100%);
 }
 
 html[data-theme='dark'] .v4-magazine--liv,
 html[data-theme='dark'] .v4-category-header--liv {
-  background: linear-gradient(135deg, #51273c, #673449);
+  background: linear-gradient(135deg, #441b30 0%, #612d47 52%, #7b4258 100%);
+}
+
+/* Editorial graphics must fit inside the hero rather than be cropped like photography. */
+.v4-article-hero--graphic {
+  aspect-ratio: 16 / 9;
+  background: #071626;
+}
+.v4-article-hero--graphic img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Story-cluster related articles: all siblings, horizontally with their hero. */
+.v4-story-related {
+  width: min(980px, calc(100% - 40px));
+  margin: 24px auto 52px;
+  padding-top: 18px;
+  border-top: 1px solid var(--v4-rule);
+}
+.v4-story-related__label {
+  margin-bottom: 16px;
+  color: var(--v4-gold);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.v4-story-related__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 20px;
+}
+.v4-story-related__grid .v4-card__headline {
+  font-size: clamp(16px, 1.2vw, 20px);
 }
 
 /* Article newsletter aligns with the article hero on laptop. */
 @media (min-width: 901px) {
-  .v4-article-newsletter {
-    width: min(980px, calc(100% - 40px));
-  }
+  .v4-article-newsletter { width: min(980px, calc(100% - 40px)); }
 }
 
 /* On mobile, article headline matches the lead headline size on the front page. */
@@ -85,8 +106,17 @@ html[data-theme='dark'] .v4-category-header--liv {
     line-height: 1.08;
     letter-spacing: -.02em;
   }
-
-  .v4-magazine .v4-section-title {
-    font-size: 30px;
+  .v4-magazine .v4-section-title { font-size: 30px; }
+  .v4-story-related { width: calc(100% - 28px); margin-bottom: 38px; }
+  .v4-story-related__grid {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(210px, 76vw);
+    grid-template-columns: none;
+    overflow-x: auto;
+    gap: 14px;
+    padding-bottom: 8px;
+    scroll-snap-type: x proximity;
   }
+  .v4-story-related__grid > * { scroll-snap-align: start; }
 }
