@@ -1,6 +1,7 @@
 ---
 import V4Layout from '../layouts/V4Layout.astro';
 import V4Card from '../components/V4Card.astro';
+import NewsletterSignup from '../components/NewsletterSignup.astro';
 import { v4Supabase } from '../lib/v4-supabase';
 
 let articles: any[] = [];
@@ -41,14 +42,14 @@ const news = stream.filter((a) => !['Viden', 'Liv'].includes(categoryById.get(a.
         {breaking ? <div class="v4-breaking-label">BREAKING · SENESTE NYT</div> : null}
         <div class="v4-lead-layout">
           <div class="v4-lead-main">
-            <V4Card article={lead} categoryName={categoryById.get(lead.category_id)} />
+            <V4Card article={lead} categoryName={categoryById.get(lead.category_id)} showDeck={false} />
           </div>
           {followups.length ? (
             <div class="v4-followups-block">
               <div class="v4-followups-label">Læs også</div>
               <div class="v4-followups">
                 {followups.map((article) => (
-                  <V4Card article={article} categoryName={categoryById.get(article.category_id)} />
+                  <V4Card article={article} categoryName={categoryById.get(article.category_id)} showDeck={false} />
                 ))}
               </div>
             </div>
@@ -61,7 +62,7 @@ const news = stream.filter((a) => !['Viden', 'Liv'].includes(categoryById.get(a.
       <section class="v4-section">
         <div class="v4-grid-3">
           {news.slice(0, 6).map((article) => (
-            <V4Card article={article} categoryName={categoryById.get(article.category_id)} />
+            <V4Card article={article} categoryName={categoryById.get(article.category_id)} showDeck={false} />
           ))}
         </div>
       </section>
@@ -72,7 +73,7 @@ const news = stream.filter((a) => !['Viden', 'Liv'].includes(categoryById.get(a.
       <h2 class="v4-section-title">Viden</h2>
       {viden.length ? (
         <div class="v4-grid-4">
-          {viden.map((article) => <V4Card article={article} />)}
+          {viden.map((article) => <V4Card article={article} showDeck={false} />)}
         </div>
       ) : <div class="v4-empty">Viden-blokken er klar til artikler.</div>}
     </section>
@@ -82,16 +83,18 @@ const news = stream.filter((a) => !['Viden', 'Liv'].includes(categoryById.get(a.
       <h2 class="v4-section-title">Liv</h2>
       {liv.length ? (
         <div class="v4-grid-4">
-          {liv.map((article) => <V4Card article={article} />)}
+          {liv.map((article) => <V4Card article={article} showDeck={false} />)}
         </div>
       ) : <div class="v4-empty">Liv-blokken er klar til artikler.</div>}
     </section>
+
+    <NewsletterSignup />
 
     {news.length > 6 ? (
       <section class="v4-section">
         <div class="v4-grid-4">
           {news.slice(6, 14).map((article) => (
-            <V4Card article={article} categoryName={categoryById.get(article.category_id)} />
+            <V4Card article={article} categoryName={categoryById.get(article.category_id)} showDeck={false} />
           ))}
         </div>
       </section>

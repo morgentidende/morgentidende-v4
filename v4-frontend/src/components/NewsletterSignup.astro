@@ -1,0 +1,40 @@
+---
+interface Props {
+  variant?: 'daily' | 'weekly';
+  magazineName?: 'Viden' | 'Liv';
+}
+
+const { variant = 'daily', magazineName = 'Viden' } = Astro.props;
+const isWeekly = variant === 'weekly';
+const title = isWeekly ? `Ugens bedste fra ${magazineName}` : 'Få Morgentidende på mail';
+const description = isWeekly
+  ? `Hver søndag kl. 06 samler vi ugens mest spændende artikler fra ${magazineName} i én rolig udgave.`
+  : 'Start dagen opdateret – eller få overblikket, når dagen er ved at være slut. Vi samler det vigtigste fra de seneste 24 timer.';
+---
+<aside class:list={['v4-newsletter', isWeekly && 'v4-newsletter--weekly']} aria-label={title}>
+  <div class="v4-newsletter__copy">
+    <div class="v4-kicker">{isWeekly ? `${magazineName} på mail` : 'Dagligt nyhedsbrief'}</div>
+    <h2>{title}</h2>
+    <p>{description}</p>
+    {isWeekly ? (
+      <p class="v4-newsletter__formats">Læs direkte i indbakken · Åbn magasinet på nettet · Hent som PDF til din e-reader</p>
+    ) : null}
+  </div>
+  <form class="v4-newsletter-form" data-newsletter-form>
+    <label for={`newsletter-email-${variant}-${magazineName}`}>Din e-mail</label>
+    <div class="v4-newsletter-form__row">
+      <input id={`newsletter-email-${variant}-${magazineName}`} name="email" type="email" autocomplete="email" placeholder="navn@eksempel.dk" required />
+      <button type="submit">{isWeekly ? 'Skriv mig på listen' : 'Tilmeld'}</button>
+    </div>
+    {!isWeekly ? (
+      <fieldset>
+        <legend>Hvornår vil du have briefet?</legend>
+        <label><input type="radio" name="delivery_time" value="06:00" checked /> Kl. 06</label>
+        <label><input type="radio" name="delivery_time" value="20:00" /> Kl. 20</label>
+      </fieldset>
+    ) : <input type="hidden" name="delivery_time" value="Sunday 06:00" />}
+    <input type="hidden" name="newsletter" value={isWeekly ? magazineName.toLowerCase() : 'daily'} />
+    <p class="v4-newsletter-form__note">Tilmeldingen bliver aktiveret, når mailtjenesten kobles på før lanceringen.</p>
+    <p class="v4-newsletter-form__status" data-newsletter-status aria-live="polite"></p>
+  </form>
+</aside>

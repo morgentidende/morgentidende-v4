@@ -1,6 +1,7 @@
 ---
 import V4Layout from '../../layouts/V4Layout.astro';
 import V4Card from '../../components/V4Card.astro';
+import NewsletterSignup from '../../components/NewsletterSignup.astro';
 import { v4Supabase } from '../../lib/v4-supabase';
 import { marked } from 'marked';
 import sanitizeHtml from 'sanitize-html';
@@ -116,6 +117,12 @@ const finalEight = recommendations.filter((a) => !used.has(a.id)).slice(0, 8);
           </aside>
         ) : null}
       </article>
+
+      {category === 'Viden' || category === 'Liv' ? (
+        <div class="v4-article-newsletter">
+          <NewsletterSignup variant="weekly" magazineName={category} />
+        </div>
+      ) : null}
 
       <div class="v4-shell">
         <section class="v4-section">

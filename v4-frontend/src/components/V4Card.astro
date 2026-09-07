@@ -2,8 +2,9 @@
 interface Props {
   article: any;
   categoryName?: string;
+  showDeck?: boolean;
 }
-const { article, categoryName } = Astro.props;
+const { article, categoryName, showDeck = true } = Astro.props;
 const headline = article.frontpage_headline || article.headline;
 const accent = article.headline_accent_text?.trim();
 let before = headline;
@@ -28,5 +29,5 @@ if (accent) {
       {before}<span class="v4-card__accent">{highlighted}</span>{after}
     </a>
   </h2>
-  {article.deck ? <p class="v4-card__deck">{article.deck}</p> : null}
+  {showDeck && article.deck ? <p class="v4-card__deck">{article.deck}</p> : null}
 </article>
