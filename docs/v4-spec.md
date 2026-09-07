@@ -25,6 +25,8 @@ Morgentidende v4 skal være markant simplere end v3. ChatGPT er den redaktionell
 - Manchet: højst 2 sætninger og cirka 20 ord samlet.
 - Almindelige nyheder og Kommentarer må ikke slutte med en særskilt kildeliste. Kilder skal i stedet indarbejdes naturligt i brødteksten med formuleringer som “ifølge ...”, “fremgår det af ...”, “oplyser ...” eller tilsvarende, når det er journalistisk naturligt.
 - Forskningsartikler, typisk i Viden og Liv, skal derimod have en tydelig kildesektion nederst med de centrale studier, papers eller andre forskningskilder.
+- Artikler bygget på personlige erfaringer og øjenvidneberetninger skal indeholde direkte, verificerbare citater fra de omtalte personer, når sådanne citater findes i troværdige kilder. Det er ikke tilstrækkeligt kun at parafrasere deres oplevelser. Citater må ikke opfindes, sammenstykkes eller løsnes fra den dokumenterede kontekst, og kilden skal nævnes naturligt i brødteksten.
+- Ved artikler med flere personlige cases eller øjenvidner bør flere af de centrale personer komme direkte til orde med egne citater, så teksten ikke reducerer deres erfaringer til journalistens referat alene.
 - Læs også vises kun inde i artikelteksten ved direkte relation til samme sag.
 - Relaterede artikler gemmes struktureret via article_relations/story_cluster.
 - Når en Kommentar eller anden egentlig opfølgning kobles direkte til en lead-/hovedartikel, skal relationen oprettes automatisk begge veje, så begge artikler viser hinanden i Læs også. Duplikater må ikke oprettes, og eksisterende relationer skal bevares.
