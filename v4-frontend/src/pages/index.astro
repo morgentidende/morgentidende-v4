@@ -43,11 +43,16 @@ const news = stream.filter((a) => !['Viden', 'Liv'].includes(categoryById.get(a.
           <div class="v4-lead-main">
             <V4Card article={lead} categoryName={categoryById.get(lead.category_id)} />
           </div>
-          <div class="v4-followups">
-            {followups.map((article) => (
-              <V4Card article={article} categoryName={categoryById.get(article.category_id)} />
-            ))}
-          </div>
+          {followups.length ? (
+            <div class="v4-followups-block">
+              <div class="v4-followups-label">Læs også</div>
+              <div class="v4-followups">
+                {followups.map((article) => (
+                  <V4Card article={article} categoryName={categoryById.get(article.category_id)} />
+                ))}
+              </div>
+            </div>
+          ) : null}
         </div>
       </section>
     ) : null}
