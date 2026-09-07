@@ -1,0 +1,32 @@
+---
+interface Props {
+  article: any;
+  categoryName?: string;
+}
+const { article, categoryName } = Astro.props;
+const headline = article.frontpage_headline || article.headline;
+const accent = article.headline_accent_text?.trim();
+let before = headline;
+let highlighted = '';
+let after = '';
+if (accent) {
+  const index = headline.toLocaleLowerCase('da-DK').indexOf(accent.toLocaleLowerCase('da-DK'));
+  if (index >= 0) {
+    before = headline.slice(0, index);
+    highlighted = headline.slice(index, index + accent.length);
+    after = headline.slice(index + accent.length);
+  }
+}
+---
+<article class="v4-card">
+  <a class="v4-card__media" href={`/artikel/${article.slug}`}>
+    {article.hero_url ? <img src={article.hero_url} alt={article.hero_alt || ''} loading="lazy" /> : null}
+  </a>
+  {categoryName ? <div class="v4-kicker">{categoryName}</div> : null}
+  <h2 class="v4-card__headline">
+    <a href={`/artikel/${article.slug}`}>
+      {before}<span class="v4-card__accent">{highlighted}</span>{after}
+    </a>
+  </h2>
+  {article.deck ? <p class="v4-card__deck">{article.deck}</p> : null}
+</article>
