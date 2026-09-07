@@ -60,7 +60,7 @@ button { font: inherit; }
 .v4-card { display: flex; flex-direction: column; min-width: 0; }
 .v4-card__media { aspect-ratio: 3 / 2; overflow: hidden; background: #d7d1c8; }
 .v4-card__media img { width: 100%; height: 100%; object-fit: cover; }
-.v4-card__headline { font-family: var(--v4-serif); margin: 9px 0 0; font-size: clamp(18px, 1.5vw, 28px); line-height: 1.14; }
+.v4-card__headline { font-family: var(--v4-serif); margin: 9px 0 0; font-size: clamp(17px, 1.35vw, 25px); line-height: 1.14; }
 .v4-card__accent { color: var(--v4-life); }
 .v4-card__deck { color: var(--v4-muted); margin: 9px 0 0; line-height: 1.45; }
 
@@ -73,16 +73,20 @@ button { font: inherit; }
 .v4-breaking-box { box-shadow: inset 5px 0 0 var(--v4-gold); }
 .v4-breaking-label { display: inline-flex; align-items: center; gap: 8px; background: var(--v4-gold); color: #17140c; border-radius: 999px; padding: 6px 10px; font-weight: 700; font-size: 12px; letter-spacing: .08em; }
 .v4-lead-layout { display: grid; grid-template-columns: 1fr; gap: 24px; }
-.v4-lead-main .v4-card__headline { font-size: clamp(30px, 4vw, 58px); }
-.v4-followups { border-top: 1px solid var(--v4-rule); padding-top: 20px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
-.v4-followups article + article { border-left: 1px solid var(--v4-rule); padding-left: 22px; }
+.v4-lead-main .v4-card__headline { font-size: clamp(28px, 3.5vw, 50px); }
+.v4-followups { border-top: 1px solid var(--v4-rule); padding-top: 20px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.v4-followups article { display: grid; grid-template-columns: 112px minmax(0, 1fr); gap: 12px; align-items: start; }
+.v4-followups .v4-card__media { width: 112px; aspect-ratio: 4 / 3; grid-row: 1 / span 3; }
+.v4-followups .v4-card__headline { margin-top: 0; font-size: clamp(15px, 1.05vw, 19px); line-height: 1.16; }
+.v4-followups .v4-card__deck { display: none; }
+.v4-followups article + article { border-left: 1px solid var(--v4-rule); padding-left: 18px; }
 
 .v4-magazine { padding: 28px; border: 1px solid var(--v4-rule); background: var(--v4-surface); }
 .v4-magazine--viden { box-shadow: inset 0 4px 0 var(--v4-knowledge); }
 .v4-magazine--liv { box-shadow: inset 0 4px 0 var(--v4-life); }
 
 .v4-article-header { width: min(980px, calc(100% - 40px)); margin: 48px auto 0; }
-.v4-article-title { font-family: var(--v4-serif); font-size: clamp(40px, 6vw, 74px); line-height: 1.02; letter-spacing: -.035em; margin: 10px 0 16px; }
+.v4-article-title { font-family: var(--v4-serif); font-size: clamp(36px, 5.3vw, 66px); line-height: 1.02; letter-spacing: -.035em; margin: 10px 0 16px; }
 .v4-article-deck { font-family: var(--v4-serif); font-size: clamp(19px, 2vw, 25px); line-height: 1.42; margin: 0; color: var(--v4-muted); }
 .v4-article-hero { width: min(1180px, calc(100% - 40px)); margin: 30px auto 0; }
 .v4-article-hero img { width: 100%; max-height: 680px; object-fit: cover; }
@@ -103,6 +107,8 @@ button { font: inherit; }
   .v4-meta-row { display: none; }
   .v4-nav { justify-content: flex-start; overflow-x: auto; gap: 22px; white-space: nowrap; }
   .v4-followups { grid-template-columns: 1fr; }
+  .v4-followups article { grid-template-columns: 132px minmax(0, 1fr); }
+  .v4-followups .v4-card__media { width: 132px; }
   .v4-followups article + article { border-left: 0; border-top: 1px solid var(--v4-rule); padding-left: 0; padding-top: 18px; }
   .v4-grid-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
@@ -114,6 +120,9 @@ button { font: inherit; }
   .v4-shell { width: min(100% - 28px, var(--v4-max)); padding-top: 24px; }
   .v4-grid-3, .v4-grid-4 { grid-template-columns: 1fr; gap: 22px; }
   .v4-magazine .v4-grid-4 > :nth-child(n+4) { display: none; }
-  .v4-card__headline { font-size: 22px; }
+  .v4-card__headline { font-size: 20px; }
+  .v4-followups article { grid-template-columns: 108px minmax(0, 1fr); gap: 10px; }
+  .v4-followups .v4-card__media { width: 108px; }
+  .v4-followups .v4-card__headline { font-size: 17px; }
   .v4-lead-box, .v4-breaking-box, .v4-magazine { padding: 16px; }
 }
