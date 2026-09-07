@@ -95,19 +95,65 @@ const liv = recommendations.filter((a) => categoryById.get(a.category_id) === 'L
 const used = new Set([...firstSix, ...viden, ...liv, ...storyRelated].map((a) => a.id));
 const finalEight = recommendations.filter((a) => !used.has(a.id)).slice(0, 8);
 const heroIsGraphic = /\.(svg|png)(\?|$)/i.test(article?.hero_url || '') && (article?.hero_credit === 'Morgentidende grafik' || (article?.hero_url || '').includes('dsa-big-brother'));
+const canonical = article ? new URL(`/artikel/${article.slug}`, Astro.site || Astro.url.origin).toString() : undefined;
+const publishedDate = article?.published_at ? new Date(article.published_at) : null;
+const updatedDate = article?.updated_at ? new Date(article.updated_at) : publishedDate;
+const formatDateTime = (value: Date) => new Intl.DateTimeFormat('da-DK', {
+  day: 'numeric', month: 'long', year: 'numeric', hour: '2-digit', minute: '2-digit', timeZone: 'Europe/Copenhagen'
+}).format(value);
+const articleTitle = article ? `${article.headline} – Morgentidende` : 'Ikke fundet – Morgentidende';
+const newsArticleLd = article ? {
+  '@context': 'https://schema.org',
+  '@type': 'NewsArticle',
+  headline: article.headline,
+  description: article.deck || undefined,
+  datePublished: article.published_at,
+  dateModified: article.updated_at || article.published_at,
+  mainEntityOfPage: canonical,
+  image: article.hero_url ? [article.hero_url] : undefined,
+  articleSection: category || undefined,
+  author: {
+    '@type': 'Person',
+    name: article.author_name || 'Morgentidende'
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: 'Morgentidende',
+    url: new URL('/', Astro.site || Astro.url.origin).toString(),
+    logo: {
+      '@type': 'ImageObject',
+      url: new URL('/morgentidende-sun.png', Astro.site || Astro.url.origin).toString()
+    }
+  }
+} : undefined;
 ---
-<V4Layout title={article ? `${article.headline} – Morgentidende` : 'Ikke fundet – Morgentidende'} description={article?.deck}>
+<V4Layout
+  title={articleTitle}
+  description={article?.deck || article?.headline}
+  canonical={canonical}
+  image={article?.hero_url}
+  type="article"
+  noindex={!article}
+  jsonLd={newsArticleLd}
+>
   {article ? (
     <>
       <header class="v4-article-header">
         {category ? <div class="v4-kicker">{category}</div> : null}
         <h1 class="v4-article-title">{article.headline}</h1>
         {article.deck ? <p class="v4-article-deck">{article.deck}</p> : null}
+        <div class="v4-article-meta">
+          {article.author_name ? <span>Af {article.author_name}</span> : <span>Morgentidende</span>}
+          {publishedDate ? <time datetime={article.published_at}>Udgivet {formatDateTime(publishedDate)}</time> : null}
+          {updatedDate && publishedDate && updatedDate.getTime() > publishedDate.getTime() + 60000 ? (
+            <time datetime={article.updated_at}>Opdateret {formatDateTime(updatedDate)}</time>
+          ) : null}
+        </div>
       </header>
 
       {article.hero_url ? (
         <figure class:list={["v4-article-hero", heroIsGraphic && "v4-article-hero--graphic"]}>
-          <img src={article.hero_url} alt={article.hero_alt || ''} />
+          <img src={article.hero_url} alt={article.hero_alt || article.headline} />
           {(article.hero_credit || article.hero_license) && article.hero_credit !== 'Morgentidende grafik' ? (
             <figcaption class="v4-hero-credit">
               {article.hero_credit ? `Foto: ${article.hero_credit}` : ''}
