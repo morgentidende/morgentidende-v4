@@ -1,0 +1,68 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+}
+const {
+  title = 'Morgentidende',
+  description = 'Morgentidende – få begge sider af sagen i Danmarks nye avis'
+} = Astro.props;
+---
+<!doctype html>
+<html lang="da" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/src/styles/v4.css" />
+  </head>
+  <body>
+    <header class="v4-masthead">
+      <div class="v4-masthead__inner">
+        <a href="/" class="v4-brand" aria-label="Morgentidende forside">
+          <span class="v4-brand__sun" aria-hidden="true">◒</span>
+          <span class="v4-brand__word">Morgentidende</span>
+        </a>
+        <div class="v4-masthead__actions">
+          <button class="v4-theme-toggle" type="button" id="theme-toggle">Mørk/Lys</button>
+          <a class="v4-login" href="/login">Login</a>
+        </div>
+      </div>
+      <div class="v4-meta-row">
+        <span id="v4-date"></span>
+        <span>DANMARKS NYE AVIS</span>
+      </div>
+      <nav class="v4-nav" aria-label="Hovednavigation">
+        <a href="/kategori/indland">Indland</a>
+        <a href="/kategori/udland">Udland</a>
+        <a href="/kategori/penge">Penge</a>
+        <a href="/kategori/kultur">Kultur</a>
+        <a href="/kategori/viden">Viden</a>
+        <a href="/kategori/liv">Liv</a>
+      </nav>
+    </header>
+    <main>
+      <slot />
+    </main>
+    <script is:inline>
+      const root = document.documentElement;
+      const saved = localStorage.getItem('mt-v4-theme');
+      if (saved === 'dark' || saved === 'light') root.dataset.theme = saved;
+      document.getElementById('theme-toggle')?.addEventListener('click', () => {
+        const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+        root.dataset.theme = next;
+        localStorage.setItem('mt-v4-theme', next);
+      });
+      const dateEl = document.getElementById('v4-date');
+      if (dateEl) {
+        dateEl.textContent = new Intl.DateTimeFormat('da-DK', {
+          weekday: 'long', day: 'numeric', month: 'long', year: 'numeric'
+        }).format(new Date()).toUpperCase();
+      }
+    </script>
+  </body>
+</html>
