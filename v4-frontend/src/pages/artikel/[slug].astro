@@ -32,7 +32,7 @@ if (v4Supabase && slug) {
       .select('related_article_id, relation_type, sort_order')
       .eq('article_id', article.id)
       .order('sort_order', { ascending: true });
-    const relatedIds = (relationResult.data || []).map((r) => r.related_article_id);
+    const relatedIds = Array.from(new Set((relationResult.data || []).map((r) => r.related_article_id)));
     if (relatedIds.length) {
       const relatedResult = await v4Supabase
         .from('v4_public_articles')
