@@ -93,12 +93,12 @@ html[data-theme='dark'] .v4-magazine--viden { background: linear-gradient(135deg
 html[data-theme='dark'] .v4-magazine--liv { background: linear-gradient(135deg, #3b2636 0%, #2d2630 100%); }
 
 .v4-article-header { width: min(980px, calc(100% - 40px)); margin: 48px auto 0; }
-.v4-article-title { font-family: var(--v4-serif); font-size: clamp(36px, 5.3vw, 66px); line-height: 1.02; letter-spacing: -.035em; margin: 10px 0 16px; }
-.v4-article-deck { font-family: var(--v4-serif); font-size: clamp(19px, 2vw, 25px); line-height: 1.42; margin: 0; color: var(--v4-muted); }
-.v4-article-hero { width: min(1180px, calc(100% - 40px)); aspect-ratio: 3 / 2; margin: 30px auto 0; overflow: hidden; background: #d7d1c8; }
+.v4-article-title { font-family: var(--v4-serif); font-size: clamp(28px, 3.5vw, 50px); line-height: 1.06; letter-spacing: -.025em; margin: 10px 0 16px; }
+.v4-article-deck { font-family: var(--v4-serif); font-size: clamp(18px, 1.8vw, 23px); line-height: 1.42; margin: 0; color: var(--v4-muted); }
+.v4-article-hero { width: min(980px, calc(100% - 40px)); aspect-ratio: 3 / 2; margin: 30px auto 0; overflow: hidden; background: #d7d1c8; }
 .v4-article-hero img { width: 100%; height: 100%; object-fit: cover; }
 .v4-hero-credit { color: var(--v4-muted); font-size: 12px; margin-top: 8px; }
-.v4-article-body { width: min(720px, calc(100% - 40px)); margin: 38px auto; font-family: var(--v4-serif); font-size: 19px; line-height: 1.75; }
+.v4-article-body { width: min(720px, calc(100% - 40px)); margin: 38px auto; font-family: var(--v4-serif); font-size: 18px; line-height: 1.75; }
 .v4-article-body p { margin: 0 0 1.35em; }
 .v4-read-also { margin: 34px 0; padding: 18px 20px; border-top: 1px solid var(--v4-rule); border-bottom: 1px solid var(--v4-rule); font-family: var(--v4-sans); }
 .v4-read-also strong { color: var(--v4-gold); }
@@ -172,6 +172,8 @@ html[data-theme='dark'] .v4-category-header--liv { background: linear-gradient(1
   .v4-grid-3, .v4-grid-4 { grid-template-columns: 1fr; gap: 22px; }
   .v4-magazine .v4-grid-4 > :nth-child(n+4) { display: none; }
   .v4-card__headline { font-size: 20px; }
+  .v4-article-title { font-size: 20px; line-height: 1.14; letter-spacing: 0; }
+  .v4-article-deck { font-size: 19px; }
   .v4-followups article { grid-template-columns: 108px minmax(0, 1fr); gap: 10px; }
   .v4-followups .v4-card__media { width: 108px; }
   .v4-followups .v4-card__headline { font-size: 17px; }
