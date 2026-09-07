@@ -93,8 +93,8 @@ button { font: inherit; }
 .v4-article-header { width: min(980px, calc(100% - 40px)); margin: 48px auto 0; }
 .v4-article-title { font-family: var(--v4-serif); font-size: clamp(36px, 5.3vw, 66px); line-height: 1.02; letter-spacing: -.035em; margin: 10px 0 16px; }
 .v4-article-deck { font-family: var(--v4-serif); font-size: clamp(19px, 2vw, 25px); line-height: 1.42; margin: 0; color: var(--v4-muted); }
-.v4-article-hero { width: min(1180px, calc(100% - 40px)); margin: 30px auto 0; }
-.v4-article-hero img { width: 100%; max-height: 680px; object-fit: cover; }
+.v4-article-hero { width: min(1180px, calc(100% - 40px)); aspect-ratio: 3 / 2; margin: 30px auto 0; overflow: hidden; background: #d7d1c8; }
+.v4-article-hero img { width: 100%; height: 100%; object-fit: cover; }
 .v4-hero-credit { color: var(--v4-muted); font-size: 12px; margin-top: 8px; }
 .v4-article-body { width: min(720px, calc(100% - 40px)); margin: 38px auto; font-family: var(--v4-serif); font-size: 19px; line-height: 1.75; }
 .v4-article-body p { margin: 0 0 1.35em; }
