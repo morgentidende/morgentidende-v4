@@ -137,3 +137,10 @@ Almindelige redaktionelle kvalitetsproblemer skal være warnings/fixes, ikke gat
 - Offentlige læsere får kun adgang til eksplicitte v4-public views.
 - CMS/admin-write sker server-side med mindst mulige rettigheder.
 - Artikelhistorik/versionering bevares.
+
+## Udviklings- og QA-regler
+- Alle designændringer skal efter implementering kontrolleres i både mobil- og laptoplayout. En ændring regnes ikke som visuelt færdig, før begge formater er gennemgået.
+- Responsive fejl må ikke blot skjules med generel overflow, hvis den underliggende layoutfejl kan fjernes; kilden til overflow skal rettes.
+- Når kode ændres eller erstattes, skal tidligere overflødig, duplikeret eller død kode fjernes i samme omgang, så v4 ikke langsomt ophober legacy-kode.
+- Historik må gerne bevares i commits, audit-log eller dokumentation; den gamle kode behøver ikke blive liggende aktivt i produktionskoden for historiens skyld.
+- Ved refaktorering foretrækkes én tydelig aktiv implementation frem for parallelle gamle og nye spor.
