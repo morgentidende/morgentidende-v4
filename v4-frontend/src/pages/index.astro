@@ -51,9 +51,9 @@ const categoryName = (categoryId: string | null | undefined) => categoryById.get
 const categorySlug = (categoryId: string | null | undefined) => categoryById.get(categoryId)?.slug;
 
 const breaking = articles.find((a) => a.is_breaking && (!a.breaking_until || new Date(a.breaking_until) > new Date()));
-const analysisLead = articles.find((a) => a.is_lead && categorySlug(a.category_id) === 'analyse');
-const lead = breaking || analysisLead;
-const leadType = breaking ? 'breaking' : analysisLead ? 'analysis' : null;
+const themeLead = articles.find((a) => a.is_lead && categorySlug(a.category_id) === 'tema');
+const lead = breaking || themeLead;
+const leadType = breaking ? 'breaking' : themeLead ? 'theme' : null;
 
 if (!lead && articles.length > 0) {
   console.error('frontpage_lead_missing', {
@@ -116,7 +116,7 @@ const homeJsonLd = {
     {lead ? (
       <section class={leadType === 'breaking' ? 'v4-breaking-box' : 'v4-lead-box'}>
         {leadType === 'breaking' ? <div class="v4-lead-label v4-lead-label--breaking">BREAKING · SENESTE NYT</div> : null}
-        {leadType === 'analysis' ? <div class="v4-lead-label v4-lead-label--analysis">ANALYSE</div> : null}
+        {leadType === 'theme' ? <div class="v4-lead-label v4-lead-label--analysis">TEMA</div> : null}
         <div class="v4-lead-layout">
           <div class="v4-lead-main">
             <V4Card
