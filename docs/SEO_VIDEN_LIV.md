@@ -1,13 +1,16 @@
-# SEO-standard for Viden og Liv
+# SEO- og redaktionel standard for Viden og Liv
 
-Målet er, at flertallet af artikler i Viden og Liv er evergreen-indhold, som kan hente relevant Google-trafik i måneder eller år. SEO må ikke ske på bekostning af troværdighed eller læseoplevelse.
+Målet er, at flertallet af artikler i Viden og Liv er evergreen-indhold, som kan hente relevant Google-trafik i måneder eller år. SEO må ikke ske på bekostning af troværdighed, journalistisk kvalitet eller læseoplevelse. Dette dokument er den autoritative standard for Viden og Liv.
 
 ## Redaktionel hovedregel
 
 - Mindst 70 % af nye Viden- og Liv-artikler bør være evergreen eller semi-evergreen.
 - Evergreen-emner vælges ud fra reelle læserspørgsmål og varig nytte, ikke kun aktuelle trends.
 - Skriv people-first: artiklen skal løse læserens spørgsmål fuldt ud, også hvis læseren aldrig kom fra Google.
+- Artikler skal have høj delbarhed gennem reel nytte, overraskende eller nye oplysninger, konkrete råd, følelsesmæssig relevans, identitetsrelevans, nysgerrighed eller tydelig betydning for læserens liv.
+- Rubrikker må være stærkt nysgerrighedsskabende, men må aldrig love mere end dokumentationen kan bære.
 - Ingen kunstig keyword stuffing, generiske SEO-afsnit eller omskrivning af konkurrenters artikler uden selvstændig værdi.
+- Kvalitet, præcision og korrekthed har altid forrang for clickbait og delbarhed.
 
 ## Rubrik og søgeintention
 
@@ -42,7 +45,7 @@ Prioritér varige forklarende emner inden for blandt andet:
 - biologi og aldring
 - forklaringer af nye teknologier og forskningsfelter
 
-Aktuelle forskningsnyheder kan bruges som indgang, men bør ofte løftes til en mere varig forklarende artikel, hvis emnet har langsigtet søgepotentiale.
+Viden skal gøre kompleks forskning, teknologi og fremtidstendenser forståelige, konkrete og samtaleværdige. Aktuelle forskningsnyheder kan bruges som indgang, men bør ofte løftes til en mere varig forklarende artikel, hvis emnet har langsigtet søgepotentiale.
 
 ## Liv
 
@@ -55,10 +58,13 @@ Prioritér varige praktiske emner inden for blandt andet:
 - privatøkonomi
 - aldring og livsstil
 
-Sundheds- og privatøkonomiindhold er YMYL. Her kræves ekstra tydelig kildebrug, forsigtig formulering og høj faglig præcision.
+Liv skal gøre dokumenteret viden om sundhed, psykologi, relationer, privatøkonomi og livskvalitet praktisk anvendelig og delbar. Sundheds- og privatøkonomiindhold er YMYL. Her kræves ekstra tydelig kildebrug, forsigtig formulering og høj faglig præcision.
 
-## Troværdighed / E-E-A-T
+Sundhedsartikler må gerne fokusere tydeligt på dokumenterede fordele, når det er historiens vinkel, men må ikke skjule afgørende kontraindikationer, overdrive evidens eller give risikabel individuel medicinsk vejledning.
 
+## Kilder og troværdighed / E-E-A-T
+
+- Forskningsbaserede Viden- og Liv-artikler skal have en kort kildesektion med de centrale studier eller faglige kilder.
 - Kilder skal kunne identificeres og helst linkes direkte fra artiklen.
 - Primær forskning, myndigheder, faglige selskaber og originale rapporter prioriteres over sekundære omtaler.
 - Angiv korrekt forfatter/byline. Hvis der senere indføres faglig reviewer, skal reviewer og kvalifikation fremgå synligt.
@@ -76,11 +82,17 @@ Sundheds- og privatøkonomiindhold er YMYL. Her kræves ekstra tydelig kildebrug
 - Viden- og Liv-kategorierne fungerer som emnehubs og skal have beskrivende SEO-titler og beskrivelser.
 - Relaterede evergreen-artikler bør linke til hinanden med beskrivende ankertekst.
 - Når flere artikler dækker samme overordnede emne, bør én stærk hovedartikel være den primære destination, mens mere specifikke artikler linker tilbage til den.
+- Mod slutningen af brødteksten bør der, når en reelt relevant artikel findes, være 1-2 naturlige prosasætninger, som inviterer læseren videre til mindst én beslægtet Morgentidende-artikel. Linket skal være en del af den journalistiske prosa og ikke et kunstigt SEO-link.
+- Hvis ingen passende intern destination findes, må der ikke indsættes et irrelevant link alene for SEO.
+- Brødtekstlinks skal være tydeligt genkendelige som links i avisens design.
 
 ## Teknisk SEO
 
 - Én canonical URL pr. artikel.
-- `Article`/`NewsArticle` structured data med korrekt headline, image, datePublished, dateModified, author, publisher og articleSection.
+- Sproget angives som `da-DK` i HTML og structured data.
+- Viden/Liv-evergreens bruger `Article`; egentlige nyheder bruger `NewsArticle`.
+- Structured data skal have korrekt headline, image, datePublished, dateModified, author, publisher, inLanguage og articleSection.
+- Navngivne menneskelige forfattere markeres som `Person`; Morgentidende/redaktionen markeres som `Organization`.
 - Breadcrumb structured data på artikelsider.
 - XML-sitemap for alle indekserbare artikler; news-sitemap kun til nyligt publiceret nyhedsindhold.
 - `.workers.dev` skal forblive noindex indtil det rigtige domæne er live.
