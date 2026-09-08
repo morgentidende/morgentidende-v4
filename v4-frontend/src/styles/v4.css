@@ -186,9 +186,6 @@ html[data-theme='dark'] .v4-category-header--liv { background: linear-gradient(1
   .v4-masthead__actions { grid-column: 1; justify-self: start; width: 100%; }
   .v4-theme-toggle, .v4-login { padding: calc(4px + 3px * var(--v4-masthead-rest)) calc(6px + 4px * var(--v4-masthead-rest)); font-size: calc(12px + 2px * var(--v4-masthead-rest)); }
   .v4-nav { padding-top: calc(18px * var(--v4-masthead-rest)); }
-  .v4-masthead.is-compact .v4-masthead__inner { grid-template-columns: minmax(0, 1fr) auto; gap: 8px; }
-  .v4-masthead.is-compact .v4-brand { grid-column: 1; gap: 8px; }
-  .v4-masthead.is-compact .v4-masthead__actions { grid-column: 2; justify-self: end; width: auto; gap: 6px; }
   .v4-shell { width: min(100% - 28px, var(--v4-max)); padding-top: 24px; }
   .v4-grid-3, .v4-grid-4 { grid-template-columns: 1fr; gap: 22px; }
   .v4-magazine .v4-grid-4 > :nth-child(n+4) { display: none; }

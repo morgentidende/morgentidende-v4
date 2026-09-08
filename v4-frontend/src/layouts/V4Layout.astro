@@ -83,7 +83,7 @@ const {
           masthead.style.setProperty('--v4-masthead-progress', '0');
           masthead.classList.remove('is-compact');
           const expandedHeight = masthead.offsetHeight;
-          const compactHeight = window.innerWidth <= 640 ? 47 : window.innerWidth <= 900 ? 53 : 61;
+          const compactHeight = window.innerWidth <= 640 ? 71 : window.innerWidth <= 900 ? 53 : 61;
           collapseDistance = Math.max(90, expandedHeight - compactHeight);
           mastheadSpacer.style.height = `${expandedHeight}px`;
           requestMastheadUpdate();
