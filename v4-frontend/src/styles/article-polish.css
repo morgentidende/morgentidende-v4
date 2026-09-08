@@ -37,11 +37,45 @@
   margin-top: 34px;
 }
 
+.v4-article-brief {
+  width: min(700px, calc(100% - 40px));
+  margin: 30px auto 0;
+  padding: 20px 22px 18px;
+  border-top: 3px solid var(--v4-gold);
+  background: color-mix(in srgb, var(--v4-surface) 88%, var(--v4-bg) 12%);
+}
+
+.v4-article-brief__title {
+  margin-bottom: 10px;
+  color: var(--v4-gold);
+  font-family: var(--v4-sans);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.v4-article-brief ul {
+  margin: 0;
+  padding-left: 20px;
+  font-family: var(--v4-sans);
+  font-size: 15px;
+  line-height: 1.52;
+}
+
+.v4-article-brief li + li {
+  margin-top: 7px;
+}
+
 .v4-article-body {
   width: min(700px, calc(100% - 40px));
   margin: 42px auto 34px;
   font-size: 19px;
   line-height: 1.78;
+}
+
+.v4-article-brief + .v4-article-body {
+  margin-top: 30px;
 }
 
 .v4-article-body h2,
@@ -73,6 +107,38 @@
   text-decoration: underline;
   text-decoration-color: color-mix(in srgb, var(--v4-gold) 70%, transparent);
   text-underline-offset: 3px;
+}
+
+.v4-inline-related {
+  margin: 1.9em 0;
+  padding: 14px 0 13px;
+  border-top: 1px solid var(--v4-rule);
+  border-bottom: 1px solid var(--v4-rule);
+  font-family: var(--v4-sans);
+}
+
+.v4-inline-related__label {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--v4-gold);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.v4-inline-related a {
+  display: inline;
+  font-family: var(--v4-serif);
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.35;
+  text-decoration: none;
+}
+
+.v4-inline-related a:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--v4-gold);
 }
 
 .v4-article-signoff {
@@ -139,11 +205,34 @@
     margin-top: 24px;
   }
 
+  .v4-article-brief {
+    width: calc(100% - 28px);
+    margin-top: 22px;
+    padding: 16px 16px 15px;
+  }
+
+  .v4-article-brief ul {
+    font-size: 14px;
+  }
+
   .v4-article-body {
     width: calc(100% - 28px);
     margin-top: 30px;
     font-size: 18px;
     line-height: 1.72;
+  }
+
+  .v4-article-brief + .v4-article-body {
+    margin-top: 24px;
+  }
+
+  .v4-inline-related {
+    margin: 1.65em 0;
+    padding: 12px 0;
+  }
+
+  .v4-inline-related a {
+    font-size: 16px;
   }
 
   .v4-article-signoff {
