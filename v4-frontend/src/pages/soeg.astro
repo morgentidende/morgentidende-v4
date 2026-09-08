@@ -1,0 +1,69 @@
+---
+import V4Layout from '../layouts/V4Layout.astro';
+import V4Card from '../components/V4Card.astro';
+import { v4Supabase } from '../lib/v4-supabase';
+import '../styles/search.css';
+
+const rawQ = Astro.url.searchParams.get('q') || '';
+const q = rawQ.trim().replace(/[,%()]/g, ' ').replace(/\s+/g, ' ').slice(0, 120);
+let results: any[] = [];
+let categories: any[] = [];
+
+if (v4Supabase && q.length >= 2) {
+  const pattern = `%${q}%`;
+  const [articlesResult, categoriesResult] = await Promise.all([
+    v4Supabase
+      .from('v4_public_articles')
+      .select('id,slug,category_id,story_cluster_id,headline,frontpage_headline,headline_accent_text,deck,hero_url,hero_alt,published_at')
+      .or(`headline.ilike.${pattern},deck.ilike.${pattern},body_markdown.ilike.${pattern}`)
+      .order('published_at', { ascending: false })
+      .limit(40),
+    v4Supabase
+      .from('v4_public_categories')
+      .select('id,name')
+  ]);
+
+  results = articlesResult.data || [];
+  categories = categoriesResult.data || [];
+}
+
+const categoryById = new Map(categories.map((c) => [c.id, c.name]));
+const title = q ? `Søg: ${q} – Morgentidende` : 'Søg – Morgentidende';
+---
+<V4Layout title={title} description="Søg i Morgentidendes artikler">
+  <section class="v4-search-page">
+    <div class="v4-kicker">Arkiv</div>
+    <h1>Søg i Morgentidende</h1>
+
+    <form class="v4-search-form" method="get" action="/soeg">
+      <input
+        type="search"
+        name="q"
+        value={rawQ}
+        placeholder="Søg efter emne, person eller begivenhed"
+        aria-label="Søg i Morgentidende"
+        minlength="2"
+        maxlength="120"
+        autofocus
+      />
+      <button type="submit">Søg</button>
+    </form>
+
+    {q.length === 1 ? (
+      <p class="v4-search-empty">Skriv mindst to tegn.</p>
+    ) : q ? (
+      <>
+        <p class="v4-search-summary">{results.length} {results.length === 1 ? 'resultat' : 'resultater'} for “{q}”</p>
+        {results.length ? (
+          <div class="v4-grid-3">
+            {results.map((item) => <V4Card article={item} categoryName={categoryById.get(item.category_id)} />)}
+          </div>
+        ) : (
+          <p class="v4-search-empty">Ingen artikler matcher din søgning.</p>
+        )}
+      </>
+    ) : (
+      <p class="v4-search-empty">Søg frit i rubrikker, manchetter og artikeltekst.</p>
+    )}
+  </section>
+</V4Layout>
