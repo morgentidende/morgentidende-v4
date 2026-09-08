@@ -2,52 +2,116 @@
 import V4Layout from '../layouts/V4Layout.astro';
 import V4Card from '../components/V4Card.astro';
 import NewsletterSignup from '../components/NewsletterSignup.astro';
-import '../styles/lead-label-hotfix.css';
+import '../styles/lead-labels.css';
+import { imageVariant } from '../lib/image-delivery';
 import { v4Supabase } from '../lib/v4-supabase';
-
-Astro.response.headers.set('Cache-Control', 'public, max-age=0, s-maxage=30, stale-while-revalidate=60');
-Astro.response.headers.set('Cloudflare-CDN-Cache-Control', 'public, max-age=30, stale-while-revalidate=60');
 
 let articles: any[] = [];
 let categories: any[] = [];
-let loadError = '';
+let loadError = false;
 
 if (v4Supabase) {
   const [articlesResult, categoriesResult] = await Promise.all([
     v4Supabase
       .from('v4_public_articles')
-      .select('id,slug,category_id,story_cluster_id,headline,frontpage_headline,headline_accent_text,deck,hero_url,hero_alt,is_lead,is_breaking,breaking_until,published_at')
+      .select('id,slug,category_id,story_cluster_id,headline,frontpage_headline,headline_accent_text,hero_url,hero_alt,is_lead,is_breaking,breaking_until')
       .order('published_at', { ascending: false })
-      .limit(120),
-    v4Supabase.from('v4_public_categories').select('id,name,sort_order').order('sort_order', { ascending: true })
+      .limit(60),
+    v4Supabase
+      .from('v4_public_categories')
+      .select('id,slug,name,sort_order')
+      .order('sort_order', { ascending: true })
   ]);
-  if (articlesResult.error) loadError = articlesResult.error.message;
-  else articles = articlesResult.data || [];
-  if (!categoriesResult.error) categories = categoriesResult.data || [];
+
+  if (articlesResult.error) {
+    loadError = true;
+    console.error('frontpage_articles_query_failed', {
+      code: articlesResult.error.code,
+      message: articlesResult.error.message
+    });
+  } else {
+    articles = articlesResult.data || [];
+  }
+
+  if (categoriesResult.error) {
+    console.error('frontpage_categories_query_failed', {
+      code: categoriesResult.error.code,
+      message: categoriesResult.error.message
+    });
+  } else {
+    categories = categoriesResult.data || [];
+  }
 } else {
-  loadError = 'Supabase-miljøvariabler mangler.';
+  loadError = true;
+  console.error('frontpage_supabase_unavailable');
 }
 
-const categoryById = new Map(categories.map((c) => [c.id, c.name]));
+const categoryById = new Map(categories.map((c) => [c.id, c]));
+const categoryName = (categoryId: string | null | undefined) => categoryById.get(categoryId)?.name;
+const categorySlug = (categoryId: string | null | undefined) => categoryById.get(categoryId)?.slug;
+
 const breaking = articles.find((a) => a.is_breaking && (!a.breaking_until || new Date(a.breaking_until) > new Date()));
-const analysisLead = articles.find((a) => a.is_lead && categoryById.get(a.category_id) === 'Analyse');
+const analysisLead = articles.find((a) => a.is_lead && categorySlug(a.category_id) === 'analyse');
 const lead = breaking || analysisLead;
 const leadType = breaking ? 'breaking' : analysisLead ? 'analysis' : null;
+
+if (!lead && articles.length > 0) {
+  console.error('frontpage_lead_missing', {
+    articleCount: articles.length,
+    breakingCount: articles.filter((a) => a.is_breaking).length,
+    leadFlagCount: articles.filter((a) => a.is_lead).length
+  });
+}
+
 const others = lead ? articles.filter((a) => a.id !== lead.id) : articles;
 const followups = lead?.story_cluster_id
   ? others.filter((a) => a.story_cluster_id === lead.story_cluster_id).slice(0, 4)
   : lead ? others.slice(0, 3) : [];
 const usedIds = new Set([lead?.id, ...followups.map((a) => a.id)].filter(Boolean));
 const stream = others.filter((a) => !usedIds.has(a.id));
-const viden = stream.filter((a) => categoryById.get(a.category_id) === 'Viden').slice(0, 4);
-const liv = stream.filter((a) => categoryById.get(a.category_id) === 'Liv').slice(0, 4);
+const viden = stream.filter((a) => categorySlug(a.category_id) === 'viden').slice(0, 4);
+const liv = stream.filter((a) => categorySlug(a.category_id) === 'liv').slice(0, 4);
 const news = stream
-  .filter((a) => !['Viden', 'Liv'].includes(categoryById.get(a.category_id)))
+  .filter((a) => !['viden', 'liv'].includes(categorySlug(a.category_id)))
   .slice(0, 14);
+
+const origin = Astro.url.origin;
+const canonical = `${origin}/`;
+const leadPreloadImage = imageVariant(lead?.hero_url, 1200);
+const homeJsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'NewsMediaOrganization',
+      '@id': `${origin}/#organization`,
+      name: 'Morgentidende',
+      url: canonical,
+      logo: {
+        '@type': 'ImageObject',
+        url: `${origin}/morgentidende-sun.png`
+      }
+    },
+    {
+      '@type': 'WebSite',
+      '@id': `${origin}/#website`,
+      name: 'Morgentidende',
+      url: canonical,
+      publisher: { '@id': `${origin}/#organization` },
+      inLanguage: 'da-DK'
+    }
+  ]
+};
 ---
-<V4Layout image={lead?.hero_url}>
+<V4Layout
+  title="Morgentidende"
+  description="Morgentidende – få begge sider af sagen i Danmarks nye avis"
+  canonical={canonical}
+  image={lead?.hero_url}
+  preloadImage={leadPreloadImage}
+  jsonLd={homeJsonLd}
+>
   <div class="v4-shell">
-    {loadError && articles.length === 0 ? <div class="v4-empty">V4 frontend er klar. {loadError}</div> : null}
+    {loadError && articles.length === 0 ? <div class="v4-empty">Indholdet kunne ikke hentes lige nu. Prøv igen om et øjeblik.</div> : null}
 
     {lead ? (
       <section class={leadType === 'breaking' ? 'v4-breaking-box' : 'v4-lead-box'}>
@@ -57,7 +121,6 @@ const news = stream
           <div class="v4-lead-main">
             <V4Card
               article={lead}
-              categoryName={categoryById.get(lead.category_id)}
               showDeck={false}
               imageLoading="eager"
               imageFetchPriority="high"
@@ -65,10 +128,13 @@ const news = stream
           </div>
           {followups.length ? (
             <div class="v4-followups-block">
-              <div class="v4-followups-label">Læs også</div>
               <div class="v4-followups">
                 {followups.map((article) => (
-                  <V4Card article={article} categoryName={categoryById.get(article.category_id)} showDeck={false} />
+                  <V4Card
+                    article={article}
+                    showDeck={false}
+                    imageLoading="eager"
+                  />
                 ))}
               </div>
             </div>
@@ -81,7 +147,12 @@ const news = stream
       <section class="v4-section">
         <div class="v4-grid-3">
           {news.slice(0, 6).map((article) => (
-            <V4Card article={article} categoryName={categoryById.get(article.category_id)} showDeck={false} />
+            <V4Card
+              article={article}
+              categoryName={categoryName(article.category_id)}
+              showDeck={false}
+              imageLoading="eager"
+            />
           ))}
         </div>
       </section>
@@ -94,7 +165,9 @@ const news = stream
       <h2 class="v4-section-title">Viden</h2>
       {viden.length ? (
         <div class="v4-grid-4">
-          {viden.map((article) => <V4Card article={article} showDeck={false} />)}
+          {viden.map((article) => (
+            <V4Card article={article} showDeck={false} imageLoading="eager" />
+          ))}
         </div>
       ) : <div class="v4-empty">Viden-blokken er klar til artikler.</div>}
     </section>
@@ -104,7 +177,9 @@ const news = stream
       <h2 class="v4-section-title">Liv</h2>
       {liv.length ? (
         <div class="v4-grid-4">
-          {liv.map((article) => <V4Card article={article} showDeck={false} />)}
+          {liv.map((article) => (
+            <V4Card article={article} showDeck={false} imageLoading="eager" />
+          ))}
         </div>
       ) : <div class="v4-empty">Liv-blokken er klar til artikler.</div>}
     </section>
@@ -113,7 +188,12 @@ const news = stream
       <section class="v4-section">
         <div class="v4-grid-4">
           {news.slice(6, 14).map((article) => (
-            <V4Card article={article} categoryName={categoryById.get(article.category_id)} showDeck={false} />
+            <V4Card
+              article={article}
+              categoryName={categoryName(article.category_id)}
+              showDeck={false}
+              imageLoading="eager"
+            />
           ))}
         </div>
       </section>

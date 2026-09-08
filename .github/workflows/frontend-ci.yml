@@ -4,6 +4,7 @@ on:
   pull_request:
     paths:
       - 'v4-frontend/**'
+      - 'supabase/**'
       - '.github/workflows/frontend-ci.yml'
   workflow_dispatch:
 
@@ -11,6 +12,64 @@ permissions:
   contents: read
 
 jobs:
+  security-guardrails:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+
+      - name: Reject obvious committed secrets
+        shell: bash
+        run: |
+          set -euo pipefail
+          if grep -RInE --exclude='*.md' 'SUPABASE_SERVICE_ROLE_KEY|-----BEGIN (RSA |EC |OPENSSH )?PRIVATE KEY-----' v4-frontend supabase; then
+            echo 'Potential secret or private key found in application content.'
+            exit 1
+          fi
+          if grep -RInE --exclude='*.md' --include='*.env*' --include='*.ts' --include='*.js' --include='*.astro' 'service_role[[:space:]]*[:=]' v4-frontend; then
+            echo 'Potential Supabase service-role credential found in frontend content.'
+            exit 1
+          fi
+
+      - name: Enforce public-view-only frontend data access
+        shell: bash
+        run: |
+          set -euo pipefail
+          if grep -RInE --include='*.astro' --include='*.ts' --include='*.js' "\\.from\\('(articles|categories|story_clusters|article_relations|article_versions|site_settings|reader_profiles)'\\)" v4-frontend/src; then
+            echo 'Frontend must read public content through v4_public_* views, not base tables.'
+            exit 1
+          fi
+
+      - name: Pre-launch SEO and error-route guardrails
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -f v4-frontend/src/pages/404.astro
+          test -f v4-frontend/src/pages/500.astro
+          test -f v4-frontend/src/pages/robots.txt.ts
+          test -f v4-frontend/src/pages/sitemap.xml.ts
+          test -f v4-frontend/src/pages/news-sitemap.xml.ts
+          test -f v4-frontend/public/.well-known/security.txt
+          test ! -f v4-frontend/public/robots.txt
+          test ! -f v4-frontend/public/robots.production.txt
+          test ! -f v4-frontend/public/security.txt
+          grep -q "workers.dev" v4-frontend/src/middleware.ts
+          grep -q "X-Robots-Tag" v4-frontend/src/middleware.ts
+          grep -q "NewsArticle" 'v4-frontend/src/pages/artikel/[slug].astro'
+          if grep -q "site:[[:space:]]*['\"]https://morgentidende.dk" v4-frontend/astro.config.mjs; then
+            echo 'Do not hardcode morgentidende.dk as Astro site before domain cutover.'
+            exit 1
+          fi
+
+      - name: Frontpage lead regression guardrails
+        shell: bash
+        run: |
+          set -euo pipefail
+          grep -q "select('id,slug,name,sort_order')" v4-frontend/src/pages/index.astro
+          grep -q "categorySlug(a.category_id) === 'analyse'" v4-frontend/src/pages/index.astro
+          grep -q "frontpage_lead_missing" v4-frontend/src/pages/index.astro
+          test -f supabase/migrations/20260908130000_restore_analysis_lead.sql
+
   build:
     runs-on: ubuntu-latest
     defaults:

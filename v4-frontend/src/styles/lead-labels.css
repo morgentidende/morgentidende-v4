@@ -1,7 +1,7 @@
 .v4-lead-box,
 .v4-breaking-box {
   position: relative;
-  padding-top: 54px;
+  padding-top: 52px;
 }
 
 .v4-lead-box {
@@ -24,25 +24,18 @@
   font-size: 16px;
   line-height: 1;
   font-weight: 700;
-  letter-spacing: .08em;
+  letter-spacing: .06em;
   text-transform: uppercase;
 }
 
 .v4-lead-label--analysis {
   background: #7a4d8f;
-  color: #fff;
+  color: #fffaf4;
 }
 
 .v4-lead-label--breaking {
   background: #d8a33d;
   color: #17140c;
-}
-
-/* In the lead box, the top Analyse/Breaking label is the only navigation label. */
-.v4-lead-main > .v4-card > .v4-kicker,
-.v4-followups .v4-kicker,
-.v4-followups-label {
-  display: none;
 }
 
 html[data-theme='dark'] .v4-lead-box {
@@ -51,13 +44,13 @@ html[data-theme='dark'] .v4-lead-box {
 
 html[data-theme='dark'] .v4-lead-label--analysis {
   background: #9a647f;
-  color: #fff;
+  color: #fffaf4;
 }
 
 @media (max-width: 640px) {
   .v4-lead-box,
   .v4-breaking-box {
-    padding-top: 50px;
+    padding-top: 48px;
   }
 
   .v4-lead-label {

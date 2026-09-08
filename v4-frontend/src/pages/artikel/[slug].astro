@@ -2,12 +2,10 @@
 import V4Layout from '../../layouts/V4Layout.astro';
 import V4Card from '../../components/V4Card.astro';
 import NewsletterSignup from '../../components/NewsletterSignup.astro';
+import { imageSrcSet, imageVariant } from '../../lib/image-delivery';
 import { v4Supabase } from '../../lib/v4-supabase';
 import { marked } from 'marked';
 import sanitizeHtml from 'sanitize-html';
-
-Astro.response.headers.set('Cache-Control', 'public, max-age=0, s-maxage=60, stale-while-revalidate=120');
-Astro.response.headers.set('Cloudflare-CDN-Cache-Control', 'public, max-age=60, stale-while-revalidate=120');
 
 const { slug } = Astro.params;
 let article: any = null;
@@ -20,7 +18,7 @@ const articleFields = 'id,slug,category_id,story_cluster_id,headline,deck,body_m
 const cardFields = 'id,slug,category_id,story_cluster_id,headline,frontpage_headline,headline_accent_text,deck,hero_url,hero_alt,published_at';
 
 if (v4Supabase && slug) {
-  const [articleResult, categoriesResult] = await Promise.all([
+  const [articleResult, categoriesResult, recommendationsResult] = await Promise.all([
     v4Supabase
       .from('v4_public_articles')
       .select(articleFields)
@@ -28,12 +26,30 @@ if (v4Supabase && slug) {
       .maybeSingle(),
     v4Supabase
       .from('v4_public_categories')
-      .select('id,name,sort_order')
-      .order('sort_order', { ascending: true })
+      .select('id,name,slug,sort_order')
+      .order('sort_order', { ascending: true }),
+    v4Supabase
+      .from('v4_public_articles')
+      .select(cardFields)
+      .order('published_at', { ascending: false })
+      .limit(29)
   ]);
+
+  if (articleResult.error) {
+    console.error('article_query_failed', { slug, code: articleResult.error.code, message: articleResult.error.message });
+  }
+  if (categoriesResult.error) {
+    console.error('article_categories_query_failed', { slug, code: categoriesResult.error.code, message: categoriesResult.error.message });
+  }
+  if (recommendationsResult.error) {
+    console.error('article_recommendations_query_failed', { slug, code: recommendationsResult.error.code, message: recommendationsResult.error.message });
+  }
 
   article = articleResult.data;
   categories = categoriesResult.data || [];
+  recommendations = (recommendationsResult.data || [])
+    .filter((item) => item.id !== article?.id)
+    .slice(0, 28);
 
   if (article) {
     const relationQuery = v4Supabase
@@ -49,23 +65,18 @@ if (v4Supabase && slug) {
           .eq('story_cluster_id', article.story_cluster_id)
           .neq('id', article.id)
           .order('published_at', { ascending: true })
-      : Promise.resolve({ data: [] });
+      : Promise.resolve({ data: [], error: null });
 
-    const recommendationsQuery = v4Supabase
-      .from('v4_public_articles')
-      .select(cardFields)
-      .neq('id', article.id)
-      .order('published_at', { ascending: false })
-      .limit(28);
+    const [relationResult, clusterResult] = await Promise.all([relationQuery, clusterQuery]);
 
-    const [relationResult, clusterResult, recResult] = await Promise.all([
-      relationQuery,
-      clusterQuery,
-      recommendationsQuery
-    ]);
+    if (relationResult.error) {
+      console.error('article_relations_query_failed', { slug, code: relationResult.error.code, message: relationResult.error.message });
+    }
+    if ('error' in clusterResult && clusterResult.error) {
+      console.error('article_cluster_query_failed', { slug, code: clusterResult.error.code, message: clusterResult.error.message });
+    }
 
     clusterRelated = clusterResult.data || [];
-    recommendations = recResult.data || [];
 
     const relatedIds = Array.from(new Set((relationResult.data || []).map((r) => r.related_article_id)));
     if (relatedIds.length && !clusterRelated.length) {
@@ -73,6 +84,11 @@ if (v4Supabase && slug) {
         .from('v4_public_articles')
         .select(cardFields)
         .in('id', relatedIds);
+
+      if (relatedResult.error) {
+        console.error('article_related_articles_query_failed', { slug, code: relatedResult.error.code, message: relatedResult.error.message });
+      }
+
       const byId = new Map((relatedResult.data || []).map((a) => [a.id, a]));
       related = relatedIds.map((id) => byId.get(id)).filter(Boolean);
     }
@@ -82,7 +98,9 @@ if (v4Supabase && slug) {
 if (!article) Astro.response.status = 404;
 
 const categoryById = new Map(categories.map((c) => [c.id, c.name]));
+const categorySlugById = new Map(categories.map((c) => [c.id, c.slug]));
 const category = article ? categoryById.get(article.category_id) : '';
+const categorySlug = article ? categorySlugById.get(article.category_id) : '';
 const bodyHtml = article
   ? sanitizeHtml(await marked.parse(article.body_markdown || ''), {
       allowedTags: sanitizeHtml.defaults.allowedTags.concat(['img', 'figure', 'figcaption']),
@@ -109,30 +127,65 @@ const liv = recommendations.filter((a) => categoryById.get(a.category_id) === 'L
 const used = new Set([...firstSix, ...viden, ...liv, ...storyRelated].map((a) => a.id));
 const finalEight = recommendations.filter((a) => !used.has(a.id)).slice(0, 8);
 const heroIsGraphic = /\.(svg|png)(\?|$)/i.test(article?.hero_url || '') && (article?.hero_credit === 'Morgentidende grafik' || (article?.hero_url || '').includes('dsa-big-brother'));
-const canonical = article ? new URL(`/artikel/${article.slug}`, Astro.site || Astro.url.origin).toString() : undefined;
+const heroImageSrc = imageVariant(article?.hero_url, 1200);
+const heroImageSrcSet = imageSrcSet(article?.hero_url, [640, 900, 1200, 1600]);
+const siteOrigin = Astro.site || Astro.url.origin;
+const canonical = article ? new URL(`/artikel/${article.slug}`, siteOrigin).toString() : undefined;
 const publishedDate = article?.published_at ? new Date(article.published_at) : null;
 const updatedDate = article?.updated_at ? new Date(article.updated_at) : publishedDate;
 const formatDateTime = (value: Date) => new Intl.DateTimeFormat('da-DK', {
   day: 'numeric', month: 'long', year: 'numeric', hour: '2-digit', minute: '2-digit', timeZone: 'Europe/Copenhagen'
 }).format(value);
 const articleTitle = article ? `${article.headline} – Morgentidende` : 'Ikke fundet – Morgentidende';
-const newsArticleLd = article ? {
-  '@context': 'https://schema.org',
-  '@type': 'NewsArticle',
+const isEvergreenMagazine = category === 'Viden' || category === 'Liv';
+const authorName = article?.author_name?.trim();
+const authorLd = authorName && authorName.toLocaleLowerCase('da-DK') !== 'morgentidende'
+  ? { '@type': 'Person', name: authorName }
+  : { '@type': 'Organization', name: 'Morgentidende', url: new URL('/', siteOrigin).toString() };
+const articleLd = article ? {
+  '@type': isEvergreenMagazine ? 'Article' : 'NewsArticle',
   headline: article.headline,
   description: article.deck || undefined,
+  inLanguage: 'da-DK',
   datePublished: article.published_at,
   dateModified: article.updated_at || article.published_at,
   mainEntityOfPage: canonical,
   image: article.hero_url ? [article.hero_url] : undefined,
   articleSection: category || undefined,
-  author: { '@type': 'Person', name: article.author_name || 'Morgentidende' },
+  author: authorLd,
   publisher: {
     '@type': 'Organization',
     name: 'Morgentidende',
-    url: new URL('/', Astro.site || Astro.url.origin).toString(),
-    logo: { '@type': 'ImageObject', url: new URL('/morgentidende-sun.png', Astro.site || Astro.url.origin).toString() }
+    url: new URL('/', siteOrigin).toString(),
+    logo: { '@type': 'ImageObject', url: new URL('/morgentidende-sun.png', siteOrigin).toString() }
   }
+} : undefined;
+const breadcrumbLd = article && canonical ? {
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Morgentidende',
+      item: new URL('/', siteOrigin).toString()
+    },
+    ...(category && categorySlug ? [{
+      '@type': 'ListItem',
+      position: 2,
+      name: category,
+      item: new URL(`/kategori/${categorySlug}`, siteOrigin).toString()
+    }] : []),
+    {
+      '@type': 'ListItem',
+      position: category && categorySlug ? 3 : 2,
+      name: article.headline,
+      item: canonical
+    }
+  ]
+} : undefined;
+const pageJsonLd = articleLd ? {
+  '@context': 'https://schema.org',
+  '@graph': [articleLd, ...(breadcrumbLd ? [breadcrumbLd] : [])]
 } : undefined;
 ---
 <V4Layout
@@ -140,9 +193,10 @@ const newsArticleLd = article ? {
   description={article?.deck || article?.headline}
   canonical={canonical}
   image={article?.hero_url}
+  preloadImage={heroImageSrc}
   type="article"
   noindex={!article}
-  jsonLd={newsArticleLd}
+  jsonLd={pageJsonLd}
 >
   {article ? (
     <>
@@ -151,7 +205,7 @@ const newsArticleLd = article ? {
         <h1 class="v4-article-title">{article.headline}</h1>
         {article.deck ? <p class="v4-article-deck">{article.deck}</p> : null}
         <div class="v4-article-meta">
-          {article.author_name ? <span>Af {article.author_name}</span> : <span>Morgentidende</span>}
+          {authorName ? <span>Af {authorName}</span> : <span>Morgentidende</span>}
           {publishedDate ? <time datetime={article.published_at}>Udgivet {formatDateTime(publishedDate)}</time> : null}
           {updatedDate && publishedDate && updatedDate.getTime() > publishedDate.getTime() + 60000 ? <time datetime={article.updated_at}>Opdateret {formatDateTime(updatedDate)}</time> : null}
         </div>
@@ -159,7 +213,17 @@ const newsArticleLd = article ? {
 
       {article.hero_url ? (
         <figure class:list={["v4-article-hero", heroIsGraphic && "v4-article-hero--graphic"]}>
-          <img src={article.hero_url} alt={article.hero_alt || article.headline} loading="eager" fetchpriority="high" decoding="async" />
+          <img
+            src={heroImageSrc}
+            srcset={heroImageSrcSet}
+            sizes="(max-width: 1020px) calc(100vw - 40px), 980px"
+            alt={article.hero_alt || article.headline}
+            loading="eager"
+            fetchpriority="high"
+            decoding="async"
+            width="1200"
+            height="800"
+          />
           {(article.hero_credit || article.hero_license) && article.hero_credit !== 'Morgentidende grafik' ? (
             <figcaption class="v4-hero-credit">
               {article.hero_credit ? `Foto: ${article.hero_credit}` : ''}

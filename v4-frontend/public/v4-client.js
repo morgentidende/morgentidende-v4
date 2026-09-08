@@ -1,23 +1,11 @@
 // External client script so CSP can forbid inline executable JavaScript.
 const root = document.documentElement;
-const saved = localStorage.getItem('mt-v4-theme');
-if (saved === 'dark' || saved === 'light') root.dataset.theme = saved;
 
 document.getElementById('theme-toggle')?.addEventListener('click', () => {
   const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
   root.dataset.theme = next;
   localStorage.setItem('mt-v4-theme', next);
 });
-
-const dateEl = document.getElementById('v4-date');
-if (dateEl) {
-  dateEl.textContent = new Intl.DateTimeFormat('da-DK', {
-    weekday: 'long',
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric'
-  }).format(new Date()).toUpperCase();
-}
 
 const lower = document.querySelector('.v4-masthead-lower');
 const topbar = document.querySelector('.v4-masthead-top');
@@ -75,13 +63,3 @@ if (lower && topbar) {
   window.addEventListener('resize', measure, { passive: true });
   window.addEventListener('load', measure, { once: true });
 }
-
-document.querySelectorAll('[data-newsletter-form]').forEach((form) => {
-  form.addEventListener('submit', (event) => {
-    event.preventDefault();
-    const status = form.querySelector('[data-newsletter-status]');
-    if (status) {
-      status.textContent = 'Tak – formularen er klar, og tilmeldingen åbner før lanceringen.';
-    }
-  });
-});

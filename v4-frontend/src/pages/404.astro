@@ -1,0 +1,18 @@
+---
+import V4Layout from '../layouts/V4Layout.astro';
+Astro.response.status = 404;
+---
+<V4Layout
+  title="Siden blev ikke fundet – Morgentidende"
+  description="Den side, du leder efter, findes ikke eller er blevet flyttet."
+  noindex={true}
+>
+  <div class="v4-shell">
+    <section class="v4-error-page" aria-labelledby="error-title">
+      <div class="v4-kicker">404</div>
+      <h1 id="error-title">Siden blev ikke fundet</h1>
+      <p>Adressen kan være forkert, eller siden kan være blevet flyttet.</p>
+      <a class="v4-error-link" href="/">Gå til Morgentidendes forside</a>
+    </section>
+  </div>
+</V4Layout>
