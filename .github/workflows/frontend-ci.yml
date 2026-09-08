@@ -4,6 +4,7 @@ on:
   pull_request:
     paths:
       - 'v4-frontend/**'
+      - 'supabase/**'
       - '.github/workflows/frontend-ci.yml'
   workflow_dispatch:
 
@@ -11,6 +12,33 @@ permissions:
   contents: read
 
 jobs:
+  security-guardrails:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+
+      - name: Reject obvious committed secrets
+        shell: bash
+        run: |
+          set -euo pipefail
+          if grep -RInE --exclude-dir=.git --exclude='*.md' \
+            '(SUPABASE_SERVICE_ROLE_KEY|service_role["'"'[:space:]]*[:=]|-----BEGIN (RSA |EC |OPENSSH )?PRIVATE KEY-----)' .; then
+            echo 'Potential secret or service-role credential found in repository content.'
+            exit 1
+          fi
+
+      - name: Enforce public-view-only frontend data access
+        shell: bash
+        run: |
+          set -euo pipefail
+          if grep -RInE --include='*.astro' --include='*.ts' --include='*.js' \
+            "\.from\('(articles|categories|story_clusters|article_relations|article_versions|site_settings|reader_profiles)'\)" \
+            v4-frontend/src; then
+            echo 'Frontend must read public content through v4_public_* views, not base tables.'
+            exit 1
+          fi
+
   build:
     runs-on: ubuntu-latest
     defaults:
