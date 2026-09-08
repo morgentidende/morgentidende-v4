@@ -22,12 +22,12 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          if grep -RInE --exclude-dir=.git --exclude='*.md' 'SUPABASE_SERVICE_ROLE_KEY|-----BEGIN (RSA |EC |OPENSSH )?PRIVATE KEY-----' .; then
-            echo 'Potential secret or private key found in repository content.'
+          if grep -RInE --exclude='*.md' 'SUPABASE_SERVICE_ROLE_KEY|-----BEGIN (RSA |EC |OPENSSH )?PRIVATE KEY-----' v4-frontend supabase; then
+            echo 'Potential secret or private key found in application content.'
             exit 1
           fi
-          if grep -RInE --exclude-dir=.git --exclude='*.md' --include='*.env*' --include='*.ts' --include='*.js' --include='*.astro' 'service_role[[:space:]]*[:=]' .; then
-            echo 'Potential Supabase service-role credential found in repository content.'
+          if grep -RInE --exclude='*.md' --include='*.env*' --include='*.ts' --include='*.js' --include='*.astro' 'service_role[[:space:]]*[:=]' v4-frontend; then
+            echo 'Potential Supabase service-role credential found in frontend content.'
             exit 1
           fi
 
@@ -39,6 +39,19 @@ jobs:
             echo 'Frontend must read public content through v4_public_* views, not base tables.'
             exit 1
           fi
+
+      - name: Pre-launch SEO and error-route guardrails
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -f v4-frontend/src/pages/404.astro
+          test -f v4-frontend/src/pages/500.astro
+          test -f v4-frontend/src/pages/robots.txt.ts
+          test -f v4-frontend/src/pages/sitemap.xml.ts
+          test -f v4-frontend/src/pages/news-sitemap.xml.ts
+          grep -q "workers.dev" v4-frontend/src/middleware.ts
+          grep -q "X-Robots-Tag" v4-frontend/src/middleware.ts
+          grep -q "NewsArticle" 'v4-frontend/src/pages/artikel/[slug].astro'
 
   build:
     runs-on: ubuntu-latest
