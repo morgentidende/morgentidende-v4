@@ -51,7 +51,13 @@ const news = stream
         {breaking ? <div class="v4-breaking-label">BREAKING · SENESTE NYT</div> : null}
         <div class="v4-lead-layout">
           <div class="v4-lead-main">
-            <V4Card article={lead} categoryName={categoryById.get(lead.category_id)} showDeck={false} priorityImage={true} />
+            <V4Card
+              article={lead}
+              categoryName={categoryById.get(lead.category_id)}
+              showDeck={false}
+              imageLoading="eager"
+              imageFetchPriority="high"
+            />
           </div>
           {followups.length ? (
             <div class="v4-followups-block">
