@@ -116,6 +116,14 @@
     letter-spacing: -.025em;
   }
 
+  .v4-article-title--long {
+    font-size: clamp(29px, 8.2vw, 34px);
+  }
+
+  .v4-article-title--very-long {
+    font-size: clamp(27px, 7.5vw, 31px);
+  }
+
   .v4-article-deck {
     font-size: 18px;
     line-height: 1.5;

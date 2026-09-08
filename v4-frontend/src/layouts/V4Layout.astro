@@ -1,6 +1,7 @@
 ---
 import '../styles/v4.css';
 import '../styles/footer-newsletter.css';
+import '../styles/search.css';
 
 interface Props {
   title?: string;
@@ -65,6 +66,9 @@ const safeJsonLd = jsonLd
             <span class="v4-brand__word">Morgentidende</span>
           </a>
           <div class="v4-masthead__actions">
+            <a class="v4-login v4-search-action" href="/soeg" aria-label="Søg i Morgentidende" title="Søg">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"></circle><path d="M16 16l4 4"></path></svg>
+            </a>
             <button class="v4-theme-toggle" type="button" id="theme-toggle">Mørk/Lys</button>
             <a class="v4-login" href="/login">Login</a>
           </div>
