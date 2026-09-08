@@ -1,5 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://morgentidende.dk/sitemap.xml
-Sitemap: https://morgentidende.dk/news-sitemap.xml
