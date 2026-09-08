@@ -1,26 +1,14 @@
 ---
 import '../styles/v4.css';
-import '../styles/v4-refinements.css';
 
 interface Props {
   title?: string;
   description?: string;
-  canonical?: string;
-  image?: string;
-  type?: 'website' | 'article';
-  noindex?: boolean;
-  jsonLd?: Record<string, any> | Record<string, any>[];
 }
 const {
   title = 'Morgentidende',
-  description = 'Morgentidende – få begge sider af sagen i Danmarks nye avis',
-  canonical,
-  image,
-  type = 'website',
-  noindex = false,
-  jsonLd
+  description = 'Morgentidende – få begge sider af sagen i Danmarks nye avis'
 } = Astro.props;
-const canonicalUrl = canonical || new URL(Astro.url.pathname, Astro.site || Astro.url.origin).toString();
 ---
 <!doctype html>
 <html lang="da" data-theme="light">
@@ -28,27 +16,15 @@ const canonicalUrl = canonical || new URL(Astro.url.pathname, Astro.site || Astr
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <meta name="description" content={description} />
-    {noindex ? <meta name="robots" content="noindex,follow" /> : <meta name="robots" content="index,follow,max-image-preview:large" />}
-    <link rel="canonical" href={canonicalUrl} />
-    <meta property="og:locale" content="da_DK" />
-    <meta property="og:site_name" content="Morgentidende" />
-    <meta property="og:type" content={type} />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:url" content={canonicalUrl} />
-    {image ? <meta property="og:image" content={image} /> : null}
-    <meta name="twitter:card" content={image ? 'summary_large_image' : 'summary'} />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
-    {image ? <meta name="twitter:image" content={image} /> : null}
     <title>{title}</title>
-    {jsonLd ? <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} /> : null}
+    <link rel="icon" href="/favicon.png" type="image/png" sizes="64x64" />
+    <link rel="shortcut icon" href="/favicon.ico" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=DM+Sans:wght@400;500;600;700&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet" />
   </head>
   <body>
-    <div class="v4-masthead-top">
+    <header class="v4-masthead">
       <div class="v4-masthead__inner">
         <a href="/" class="v4-brand" aria-label="Morgentidende forside">
           <img class="v4-brand__sun" src="/morgentidende-sun.png" alt="" width="64" height="64" />
@@ -59,8 +35,6 @@ const canonicalUrl = canonical || new URL(Astro.url.pathname, Astro.site || Astr
           <a class="v4-login" href="/login">Login</a>
         </div>
       </div>
-    </div>
-    <header class="v4-masthead v4-masthead--below-sticky">
       <div class="v4-meta-row">
         <span id="v4-date"></span>
         <span>DANMARKS NYE AVIS</span>
@@ -80,9 +54,6 @@ const canonicalUrl = canonical || new URL(Astro.url.pathname, Astro.site || Astr
     <footer class="v4-footer">
       <div class="v4-footer__inner">
         <a href="/" class="v4-footer__brand">Morgentidende</a>
-        <nav aria-label="Om Morgentidende">
-          <a href="/om">Om Morgentidende</a> · <a href="/redaktionelle-principper">Redaktionelle principper</a> · <a href="/kontakt">Kontakt</a>
-        </nav>
         <p>© Alt materiale på denne side er omfattet af gældende lov om ophavsret.</p>
       </div>
     </footer>
