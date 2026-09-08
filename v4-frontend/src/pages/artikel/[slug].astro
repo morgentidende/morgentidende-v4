@@ -6,13 +6,17 @@ import { v4Supabase } from '../../lib/v4-supabase';
 import { marked } from 'marked';
 import sanitizeHtml from 'sanitize-html';
 
-const cardFields = 'id,slug,category_id,story_cluster_id,headline,frontpage_headline,headline_accent_text,deck,hero_url,hero_alt,published_at';
+Astro.response.headers.set('Cache-Control', 'public, max-age=0, s-maxage=60, stale-while-revalidate=120');
+Astro.response.headers.set('Cloudflare-CDN-Cache-Control', 'public, max-age=60, stale-while-revalidate=120');
+
 const { slug } = Astro.params;
 let article: any = null;
 let related: any[] = [];
 let clusterRelated: any[] = [];
 let recommendations: any[] = [];
 let categories: any[] = [];
+
+const cardFields = 'id,slug,category_id,story_cluster_id,headline,frontpage_headline,headline_accent_text,deck,hero_url,hero_alt,published_at';
 
 if (v4Supabase && slug) {
   const articleResult = await v4Supabase
@@ -24,7 +28,7 @@ if (v4Supabase && slug) {
 
   const categoriesResult = await v4Supabase
     .from('v4_public_categories')
-    .select('id,name')
+    .select('id,name,sort_order')
     .order('sort_order', { ascending: true });
   categories = categoriesResult.data || [];
 
@@ -64,9 +68,7 @@ if (v4Supabase && slug) {
   }
 }
 
-if (!article) {
-  Astro.response.status = 404;
-}
+if (!article) Astro.response.status = 404;
 
 const categoryById = new Map(categories.map((c) => [c.id, c.name]));
 const category = article ? categoryById.get(article.category_id) : '';
@@ -113,18 +115,12 @@ const newsArticleLd = article ? {
   mainEntityOfPage: canonical,
   image: article.hero_url ? [article.hero_url] : undefined,
   articleSection: category || undefined,
-  author: {
-    '@type': 'Person',
-    name: article.author_name || 'Morgentidende'
-  },
+  author: { '@type': 'Person', name: article.author_name || 'Morgentidende' },
   publisher: {
     '@type': 'Organization',
     name: 'Morgentidende',
     url: new URL('/', Astro.site || Astro.url.origin).toString(),
-    logo: {
-      '@type': 'ImageObject',
-      url: new URL('/morgentidende-sun.png', Astro.site || Astro.url.origin).toString()
-    }
+    logo: { '@type': 'ImageObject', url: new URL('/morgentidende-sun.png', Astro.site || Astro.url.origin).toString() }
   }
 } : undefined;
 ---
@@ -146,15 +142,13 @@ const newsArticleLd = article ? {
         <div class="v4-article-meta">
           {article.author_name ? <span>Af {article.author_name}</span> : <span>Morgentidende</span>}
           {publishedDate ? <time datetime={article.published_at}>Udgivet {formatDateTime(publishedDate)}</time> : null}
-          {updatedDate && publishedDate && updatedDate.getTime() > publishedDate.getTime() + 60000 ? (
-            <time datetime={article.updated_at}>Opdateret {formatDateTime(updatedDate)}</time>
-          ) : null}
+          {updatedDate && publishedDate && updatedDate.getTime() > publishedDate.getTime() + 60000 ? <time datetime={article.updated_at}>Opdateret {formatDateTime(updatedDate)}</time> : null}
         </div>
       </header>
 
       {article.hero_url ? (
         <figure class:list={["v4-article-hero", heroIsGraphic && "v4-article-hero--graphic"]}>
-          <img src={article.hero_url} alt={article.hero_alt || article.headline} loading="eager" fetchpriority="high" />
+          <img src={article.hero_url} alt={article.hero_alt || article.headline} loading="eager" fetchpriority="high" decoding="async" />
           {(article.hero_credit || article.hero_license) && article.hero_credit !== 'Morgentidende grafik' ? (
             <figcaption class="v4-hero-credit">
               {article.hero_credit ? `Foto: ${article.hero_credit}` : ''}
@@ -165,58 +159,27 @@ const newsArticleLd = article ? {
         </figure>
       ) : null}
 
-      <article class="v4-article-body">
-        <div set:html={bodyHtml} />
-      </article>
+      <article class="v4-article-body"><div set:html={bodyHtml} /></article>
 
       {storyRelated.length ? (
         <section class="v4-story-related">
           <div class="v4-story-related__label">Læs også</div>
           <div class="v4-story-related__grid">
-            {storyRelated.map((item) => (
-              <V4Card article={item} categoryName={categoryById.get(item.category_id)} />
-            ))}
+            {storyRelated.map((item) => <V4Card article={item} categoryName={categoryById.get(item.category_id)} />)}
           </div>
         </section>
       ) : null}
 
       {category === 'Viden' || category === 'Liv' ? (
-        <div class="v4-article-newsletter">
-          <NewsletterSignup variant="weekly" magazineName={category} />
-        </div>
+        <div class="v4-article-newsletter"><NewsletterSignup variant="weekly" magazineName={category} /></div>
       ) : null}
 
       <div class="v4-shell">
-        <section class="v4-section">
-          <div class="v4-grid-3">
-            {firstSix.map((item) => <V4Card article={item} categoryName={categoryById.get(item.category_id)} />)}
-          </div>
-        </section>
-
-        <section class="v4-section v4-magazine v4-magazine--viden">
-          <div class="v4-kicker">MAGASIN</div>
-          <h2 class="v4-section-title">Viden</h2>
-          <div class="v4-grid-4">
-            {viden.map((item) => <V4Card article={item} />)}
-          </div>
-        </section>
-
-        <section class="v4-section v4-magazine v4-magazine--liv">
-          <div class="v4-kicker">MAGASIN</div>
-          <h2 class="v4-section-title">Liv</h2>
-          <div class="v4-grid-4">
-            {liv.map((item) => <V4Card article={item} />)}
-          </div>
-        </section>
-
-        <section class="v4-section">
-          <div class="v4-grid-4">
-            {finalEight.map((item) => <V4Card article={item} categoryName={categoryById.get(item.category_id)} />)}
-          </div>
-        </section>
+        <section class="v4-section"><div class="v4-grid-3">{firstSix.map((item) => <V4Card article={item} categoryName={categoryById.get(item.category_id)} />)}</div></section>
+        <section class="v4-section v4-magazine v4-magazine--viden"><div class="v4-kicker">MAGASIN</div><h2 class="v4-section-title">Viden</h2><div class="v4-grid-4">{viden.map((item) => <V4Card article={item} />)}</div></section>
+        <section class="v4-section v4-magazine v4-magazine--liv"><div class="v4-kicker">MAGASIN</div><h2 class="v4-section-title">Liv</h2><div class="v4-grid-4">{liv.map((item) => <V4Card article={item} />)}</div></section>
+        <section class="v4-section"><div class="v4-grid-4">{finalEight.map((item) => <V4Card article={item} categoryName={categoryById.get(item.category_id)} />)}</div></section>
       </div>
     </>
-  ) : (
-    <div class="v4-shell"><div class="v4-empty">Artiklen blev ikke fundet.</div></div>
-  )}
+  ) : <div class="v4-shell"><div class="v4-empty">Artiklen blev ikke fundet.</div></div>}
 </V4Layout>
