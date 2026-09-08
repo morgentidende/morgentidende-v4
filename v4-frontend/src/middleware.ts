@@ -21,6 +21,11 @@ const CONTENT_SECURITY_POLICY = [
 
 const SENSITIVE_PATH_PREFIXES = ['/login', '/auth', '/admin'];
 
+const setEdgeCache = (headers: Headers, edgeSeconds: number, staleSeconds: number) => {
+  headers.set('Cache-Control', `public, max-age=0, s-maxage=${edgeSeconds}, stale-while-revalidate=${staleSeconds}`);
+  headers.set('Cloudflare-CDN-Cache-Control', `public, max-age=${edgeSeconds}, stale-while-revalidate=${staleSeconds}`);
+};
+
 export const onRequest = defineMiddleware(async (context, next) => {
   const requestId = crypto.randomUUID();
   let response: Response;
@@ -42,6 +47,7 @@ export const onRequest = defineMiddleware(async (context, next) => {
   }
 
   const headers = new Headers(response.headers);
+  const pathname = context.url.pathname;
 
   headers.set('Content-Security-Policy', CONTENT_SECURITY_POLICY);
   headers.set('Strict-Transport-Security', 'max-age=31536000; includeSubDomains');
@@ -61,8 +67,21 @@ export const onRequest = defineMiddleware(async (context, next) => {
     headers.set('X-Robots-Tag', 'noindex, nofollow, noarchive');
   }
 
-  if (SENSITIVE_PATH_PREFIXES.some((prefix) => context.url.pathname.startsWith(prefix))) {
+  // One authoritative runtime cache policy for SSR pages.
+  // The front page is deliberately freshest so a new Breaking lead cannot sit behind a long edge TTL.
+  if (response.status >= 200 && response.status < 400) {
+    if (pathname === '/') {
+      setEdgeCache(headers, 10, 20);
+    } else if (pathname.startsWith('/artikel/')) {
+      setEdgeCache(headers, 30, 60);
+    } else if (pathname.startsWith('/kategori/')) {
+      setEdgeCache(headers, 30, 60);
+    }
+  }
+
+  if (SENSITIVE_PATH_PREFIXES.some((prefix) => pathname.startsWith(prefix))) {
     headers.set('Cache-Control', 'no-store, max-age=0');
+    headers.delete('Cloudflare-CDN-Cache-Control');
     headers.set('Pragma', 'no-cache');
   }
 
@@ -70,7 +89,7 @@ export const onRequest = defineMiddleware(async (context, next) => {
     console.error('morgentidende_server_response', {
       requestId,
       method: context.request.method,
-      pathname: context.url.pathname,
+      pathname,
       status: response.status
     });
   }
