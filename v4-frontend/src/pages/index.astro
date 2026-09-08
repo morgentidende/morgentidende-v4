@@ -169,7 +169,7 @@ const homeJsonLd = {
       {viden.length ? (
         <div class="v4-grid-4">
           {viden.map((article) => (
-            <V4Card article={article} showDeck={false} imageLoading="eager" imageFetchPriority="low" />
+            <V4Card article={article} showDeck={false} imageLoading="eager" />
           ))}
         </div>
       ) : <div class="v4-empty">Viden-blokken er klar til artikler.</div>}
@@ -181,7 +181,7 @@ const homeJsonLd = {
       {liv.length ? (
         <div class="v4-grid-4">
           {liv.map((article) => (
-            <V4Card article={article} showDeck={false} imageLoading="eager" imageFetchPriority="low" />
+            <V4Card article={article} showDeck={false} imageLoading="eager" />
           ))}
         </div>
       ) : <div class="v4-empty">Liv-blokken er klar til artikler.</div>}
@@ -198,7 +198,6 @@ const homeJsonLd = {
               categoryName={categoryName(article.category_id)}
               showDeck={false}
               imageLoading="eager"
-              imageFetchPriority="low"
             />
           ))}
         </div>
