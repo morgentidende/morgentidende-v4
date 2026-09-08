@@ -49,9 +49,17 @@ jobs:
           test -f v4-frontend/src/pages/robots.txt.ts
           test -f v4-frontend/src/pages/sitemap.xml.ts
           test -f v4-frontend/src/pages/news-sitemap.xml.ts
+          test -f v4-frontend/public/.well-known/security.txt
+          test ! -f v4-frontend/public/robots.txt
+          test ! -f v4-frontend/public/robots.production.txt
+          test ! -f v4-frontend/public/security.txt
           grep -q "workers.dev" v4-frontend/src/middleware.ts
           grep -q "X-Robots-Tag" v4-frontend/src/middleware.ts
           grep -q "NewsArticle" 'v4-frontend/src/pages/artikel/[slug].astro'
+          if grep -q "site:[[:space:]]*['\"]https://morgentidende.dk" v4-frontend/astro.config.mjs; then
+            echo 'Do not hardcode morgentidende.dk as Astro site before domain cutover.'
+            exit 1
+          fi
 
   build:
     runs-on: ubuntu-latest
