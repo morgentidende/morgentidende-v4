@@ -28,6 +28,14 @@ const safeJsonLd = jsonLd
       .replace(/\u2028/g, '\\u2028')
       .replace(/\u2029/g, '\\u2029')
   : null;
+
+const mastheadDate = new Intl.DateTimeFormat('da-DK', {
+  weekday: 'long',
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+  timeZone: 'Europe/Copenhagen'
+}).format(new Date()).toUpperCase();
 ---
 <!doctype html>
 <html lang="da" data-theme="light">
@@ -71,7 +79,7 @@ const safeJsonLd = jsonLd
       </div>
       <div class="v4-masthead-lower">
         <div class="v4-meta-row">
-          <span id="v4-date"></span>
+          <span>{mastheadDate}</span>
           <span>DANMARKS NYE AVIS</span>
         </div>
         <nav class="v4-nav" aria-label="Hovednavigation">
