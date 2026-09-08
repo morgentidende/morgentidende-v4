@@ -67,81 +67,89 @@ const {
         root.dataset.theme = next;
         localStorage.setItem('mt-v4-theme', next);
       });
+
       const dateEl = document.getElementById('v4-date');
       if (dateEl) {
         dateEl.textContent = new Intl.DateTimeFormat('da-DK', {
           weekday: 'long', day: 'numeric', month: 'long', year: 'numeric'
         }).format(new Date()).toUpperCase();
       }
+
       const masthead = document.querySelector('.v4-masthead');
+      const mastheadInner = document.querySelector('.v4-masthead__inner');
       const mastheadSpacer = document.querySelector('.v4-masthead-spacer');
-      if (masthead && mastheadSpacer) {
-        let collapseDistance = 240;
-        let currentProgress = 0;
-        let targetProgress = 0;
-        let animationFrame = 0;
-        let previousTime = 0;
+      const metaRow = document.querySelector('.v4-meta-row');
+      const nav = document.querySelector('.v4-nav');
+      const brand = document.querySelector('.v4-brand');
+
+      if (masthead && mastheadInner && mastheadSpacer && nav) {
+        let maxTravel = 120;
+        let ticking = false;
         const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
-        const renderMasthead = (progress) => {
-          masthead.style.setProperty('--v4-masthead-progress', progress.toFixed(4));
-          masthead.classList.toggle('is-compact', progress >= .999);
-        };
+        masthead.style.setProperty('--v4-masthead-progress', '0');
+        masthead.style.willChange = 'clip-path';
+        nav.style.willChange = 'transform';
+        if (metaRow) metaRow.style.willChange = 'transform';
+        mastheadInner.style.willChange = 'transform';
+        if (brand) brand.style.willChange = 'transform';
 
-        const animateMasthead = (time) => {
-          const elapsed = previousTime ? Math.min(50, time - previousTime) : 16;
-          previousTime = time;
-          const blend = 1 - Math.exp(-elapsed / 145);
-          currentProgress += (targetProgress - currentProgress) * blend;
+        const renderMasthead = () => {
+          const rawTravel = Math.min(maxTravel, Math.max(0, window.scrollY));
+          const travel = reducedMotion.matches && rawTravel > 0 ? maxTravel : rawTravel;
+          const progress = maxTravel > 0 ? travel / maxTravel : 1;
 
-          if (Math.abs(targetProgress - currentProgress) < .001) {
-            currentProgress = targetProgress;
-            renderMasthead(currentProgress);
-            animationFrame = 0;
-            previousTime = 0;
-            return;
+          masthead.style.clipPath = `inset(0 0 ${travel}px 0)`;
+          nav.style.transform = `translate3d(0, ${-travel}px, 0)`;
+          if (metaRow && getComputedStyle(metaRow).display !== 'none') {
+            metaRow.style.transform = `translate3d(0, ${-travel}px, 0)`;
           }
 
-          renderMasthead(currentProgress);
-          animationFrame = window.requestAnimationFrame(animateMasthead);
+          const innerLift = Math.min(18, travel * .16);
+          mastheadInner.style.transform = `translate3d(0, ${-innerLift}px, 0)`;
+          if (brand) {
+            const scale = 1 - (.16 * progress);
+            brand.style.transform = `scale(${scale})`;
+            brand.style.transformOrigin = window.innerWidth <= 900 ? 'left center' : 'center center';
+          }
+
+          nav.style.pointerEvents = progress >= .995 ? 'none' : '';
+          ticking = false;
         };
 
-        const updateMastheadTarget = () => {
-          const rawProgress = Math.min(1, Math.max(0, window.scrollY / collapseDistance));
-          targetProgress = reducedMotion.matches && rawProgress > 0 ? 1 : rawProgress;
-
-          if (reducedMotion.matches) {
-            if (animationFrame) window.cancelAnimationFrame(animationFrame);
-            animationFrame = 0;
-            previousTime = 0;
-            currentProgress = targetProgress;
-            renderMasthead(currentProgress);
-          } else if (!animationFrame) {
-            animationFrame = window.requestAnimationFrame(animateMasthead);
+        const requestRender = () => {
+          if (!ticking) {
+            ticking = true;
+            requestAnimationFrame(renderMasthead);
           }
         };
 
         const measureMasthead = () => {
-          if (animationFrame) window.cancelAnimationFrame(animationFrame);
-          animationFrame = 0;
-          previousTime = 0;
-          renderMasthead(0);
-          const expandedHeight = masthead.offsetHeight;
-          const minimumDistance = window.innerWidth <= 640 ? 190 : window.innerWidth <= 900 ? 210 : 240;
-          collapseDistance = Math.max(minimumDistance, expandedHeight * .9);
+          masthead.style.clipPath = 'none';
+          nav.style.transform = 'none';
+          if (metaRow) metaRow.style.transform = 'none';
+          mastheadInner.style.transform = 'none';
+          if (brand) brand.style.transform = 'none';
+
+          const expandedHeight = masthead.getBoundingClientRect().height;
+          const innerRect = mastheadInner.getBoundingClientRect();
+          const mastheadRect = masthead.getBoundingClientRect();
+          const styles = getComputedStyle(masthead);
+          const bottomPadding = parseFloat(styles.paddingBottom) || 0;
+          const compactHeight = Math.ceil(innerRect.bottom - mastheadRect.top + bottomPadding);
+
+          maxTravel = Math.max(48, expandedHeight - compactHeight);
           mastheadSpacer.style.height = `${expandedHeight}px`;
-          const rawProgress = Math.min(1, Math.max(0, window.scrollY / collapseDistance));
-          targetProgress = reducedMotion.matches && rawProgress > 0 ? 1 : rawProgress;
-          currentProgress = targetProgress;
-          renderMasthead(currentProgress);
+          requestRender();
         };
 
         measureMasthead();
-        window.addEventListener('scroll', updateMastheadTarget, { passive: true });
-        window.addEventListener('load', measureMasthead, { once: true });
+        window.addEventListener('scroll', requestRender, { passive: true });
         window.addEventListener('resize', measureMasthead, { passive: true });
-        reducedMotion.addEventListener('change', updateMastheadTarget);
+        window.addEventListener('load', measureMasthead, { once: true });
+        reducedMotion.addEventListener('change', requestRender);
       }
+
       document.querySelectorAll('[data-newsletter-form]').forEach((form) => {
         form.addEventListener('submit', (event) => {
           event.preventDefault();
