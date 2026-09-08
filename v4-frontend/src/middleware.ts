@@ -20,8 +20,18 @@ const CONTENT_SECURITY_POLICY = [
 ].join('; ');
 
 const SENSITIVE_PATH_PREFIXES = ['/login', '/auth', '/admin'];
+const CANONICAL_HOST = 'morgentidende.dk';
+const REDIRECT_HOSTS = new Set([
+  'www.morgentidende.dk',
+  'morgentidende-v4.morgentidende.workers.dev'
+]);
 
 export const onRequest = defineMiddleware(async (context, next) => {
+  if (REDIRECT_HOSTS.has(context.url.hostname)) {
+    const target = new URL(context.url.pathname + context.url.search, `https://${CANONICAL_HOST}`);
+    return Response.redirect(target, 301);
+  }
+
   const response = await next();
   const headers = new Headers(response.headers);
 
