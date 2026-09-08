@@ -16,30 +16,59 @@ let clusterRelated: any[] = [];
 let recommendations: any[] = [];
 let categories: any[] = [];
 
+const articleFields = 'id,slug,category_id,story_cluster_id,headline,deck,body_markdown,author_name,hero_url,hero_alt,hero_credit,hero_license,published_at,updated_at';
 const cardFields = 'id,slug,category_id,story_cluster_id,headline,frontpage_headline,headline_accent_text,deck,hero_url,hero_alt,published_at';
 
 if (v4Supabase && slug) {
-  const articleResult = await v4Supabase
-    .from('v4_public_articles')
-    .select('*')
-    .eq('slug', slug)
-    .maybeSingle();
-  article = articleResult.data;
+  const [articleResult, categoriesResult] = await Promise.all([
+    v4Supabase
+      .from('v4_public_articles')
+      .select(articleFields)
+      .eq('slug', slug)
+      .maybeSingle(),
+    v4Supabase
+      .from('v4_public_categories')
+      .select('id,name,sort_order')
+      .order('sort_order', { ascending: true })
+  ]);
 
-  const categoriesResult = await v4Supabase
-    .from('v4_public_categories')
-    .select('id,name,sort_order')
-    .order('sort_order', { ascending: true });
+  article = articleResult.data;
   categories = categoriesResult.data || [];
 
   if (article) {
-    const relationResult = await v4Supabase
+    const relationQuery = v4Supabase
       .from('v4_public_relations')
       .select('related_article_id,sort_order')
       .eq('article_id', article.id)
       .order('sort_order', { ascending: true });
+
+    const clusterQuery = article.story_cluster_id
+      ? v4Supabase
+          .from('v4_public_articles')
+          .select(cardFields)
+          .eq('story_cluster_id', article.story_cluster_id)
+          .neq('id', article.id)
+          .order('published_at', { ascending: true })
+      : Promise.resolve({ data: [] });
+
+    const recommendationsQuery = v4Supabase
+      .from('v4_public_articles')
+      .select(cardFields)
+      .neq('id', article.id)
+      .order('published_at', { ascending: false })
+      .limit(28);
+
+    const [relationResult, clusterResult, recResult] = await Promise.all([
+      relationQuery,
+      clusterQuery,
+      recommendationsQuery
+    ]);
+
+    clusterRelated = clusterResult.data || [];
+    recommendations = recResult.data || [];
+
     const relatedIds = Array.from(new Set((relationResult.data || []).map((r) => r.related_article_id)));
-    if (relatedIds.length) {
+    if (relatedIds.length && !clusterRelated.length) {
       const relatedResult = await v4Supabase
         .from('v4_public_articles')
         .select(cardFields)
@@ -47,24 +76,6 @@ if (v4Supabase && slug) {
       const byId = new Map((relatedResult.data || []).map((a) => [a.id, a]));
       related = relatedIds.map((id) => byId.get(id)).filter(Boolean);
     }
-
-    if (article.story_cluster_id) {
-      const clusterResult = await v4Supabase
-        .from('v4_public_articles')
-        .select(cardFields)
-        .eq('story_cluster_id', article.story_cluster_id)
-        .neq('id', article.id)
-        .order('published_at', { ascending: true });
-      clusterRelated = clusterResult.data || [];
-    }
-
-    const recResult = await v4Supabase
-      .from('v4_public_articles')
-      .select(cardFields)
-      .neq('id', article.id)
-      .order('published_at', { ascending: false })
-      .limit(28);
-    recommendations = recResult.data || [];
   }
 }
 
