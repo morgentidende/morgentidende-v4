@@ -33,6 +33,11 @@ html[data-theme='dark'] {
 * { box-sizing: border-box; }
 html { background: var(--v4-bg); color: var(--v4-ink); overflow-x: clip; }
 body { margin: 0; min-width: 0; width: 100%; font-family: var(--v4-sans); background: var(--v4-bg); color: var(--v4-ink); overflow-x: clip; }
+html[data-theme='dark'],
+html[data-theme='dark'] body {
+  background-color: var(--v4-bg);
+  background-image: linear-gradient(180deg, #0b121d 0%, #111a27 46%, #0d1420 100%);
+}
 a { color: inherit; text-decoration: none; }
 img { max-width: 100%; display: block; }
 button { font: inherit; }
