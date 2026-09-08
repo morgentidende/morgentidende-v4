@@ -29,11 +29,11 @@
 }
 
 html[data-theme='dark'] .v4-magazine--viden {
-  background: linear-gradient(135deg, #111c28 0%, #17283a 100%);
+  background: linear-gradient(135deg, #172638 0%, #20384e 100%);
 }
 
 html[data-theme='dark'] .v4-magazine--liv {
-  background: linear-gradient(135deg, #392733 0%, #4b3440 100%);
+  background: linear-gradient(135deg, #432e3a 0%, #5a3b49 100%);
 }
 
 @media (max-width: 640px) {
