@@ -81,12 +81,12 @@ const categoryJsonLd = category ? {
         {articles.length ? (
           <section class="v4-section">
             <div class="v4-grid-3">
-              {articles.map((article, index) => (
+              {articles.map((article) => (
                 <V4Card
                   article={article}
                   showDeck={true}
                   imageLoading="eager"
-                  imageFetchPriority={index < 9 ? 'auto' : 'low'}
+                  imageFetchPriority="auto"
                 />
               ))}
             </div>
