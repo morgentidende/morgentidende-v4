@@ -40,6 +40,7 @@ const {
     <title>{title}</title>
     <link rel="icon" href="/favicon.png" type="image/png" sizes="64x64" />
     <link rel="shortcut icon" href="/favicon.ico" />
+    {image ? <link rel="preload" as="image" href={image} fetchpriority="high" /> : null}
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&family=DM+Sans:wght@400;600;700&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet" />
