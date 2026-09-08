@@ -84,7 +84,7 @@ if (!article) Astro.response.status = 404;
 
 const categoryById = new Map(categories.map((c) => [c.id, c.name]));
 const category = article ? categoryById.get(article.category_id) : '';
-const bodyHtml = article
+const rawBodyHtml = article
   ? sanitizeHtml(await marked.parse(article.body_markdown || ''), {
       allowedTags: sanitizeHtml.defaults.allowedTags.concat(['img', 'figure', 'figcaption']),
       allowedAttributes: {
@@ -97,6 +97,56 @@ const bodyHtml = article
 
 const storyRelated = clusterRelated.length ? clusterRelated : related;
 const storyRelatedIds = new Set(storyRelated.map((a) => a.id));
+
+const escapeHtml = (value = '') => value
+  .replace(/&/g, '&amp;')
+  .replace(/</g, '&lt;')
+  .replace(/>/g, '&gt;')
+  .replace(/"/g, '&quot;')
+  .replace(/'/g, '&#039;');
+
+const inlineRelatedCandidates = storyRelated.slice(0, 2);
+const paragraphCount = (rawBodyHtml.match(/<\/p>/g) || []).length;
+const inlineRelated = paragraphCount >= 4 ? inlineRelatedCandidates : [];
+const remainingStoryRelated = storyRelated.slice(inlineRelated.length);
+
+const inlineRelatedMarkup = (item: any) => `
+  <aside class="v4-inline-related" aria-label="Læs også">
+    <span class="v4-inline-related__label">Læs også</span>
+    <a href="/artikel/${encodeURIComponent(item.slug)}">${escapeHtml(item.headline || '')}</a>
+  </aside>`;
+
+const injectAfterParagraph = (html: string, paragraphNumber: number, insertion: string) => {
+  let seen = 0;
+  return html.replace(/<\/p>/g, (match) => {
+    seen += 1;
+    return seen === paragraphNumber ? `${match}${insertion}` : match;
+  });
+};
+
+let bodyHtml = rawBodyHtml;
+if (inlineRelated[0]) bodyHtml = injectAfterParagraph(bodyHtml, 3, inlineRelatedMarkup(inlineRelated[0]));
+if (inlineRelated[1] && paragraphCount >= 8) bodyHtml = injectAfterParagraph(bodyHtml, 7, inlineRelatedMarkup(inlineRelated[1]));
+
+const plainBody = (article?.body_markdown || '')
+  .replace(/!\[[^\]]*\]\([^)]*\)/g, ' ')
+  .replace(/\[([^\]]+)\]\([^)]*\)/g, '$1')
+  .replace(/[#>*_`~\-]+/g, ' ')
+  .replace(/\s+/g, ' ')
+  .trim();
+const wordCount = plainBody ? plainBody.split(/\s+/).length : 0;
+const summaryCandidates = [article?.deck || '', ...plainBody.split(/(?<=[.!?])\s+/)]
+  .map((sentence) => sentence.trim())
+  .filter((sentence) => sentence.length >= 45 && sentence.length <= 190);
+const briefPoints: string[] = [];
+for (const sentence of summaryCandidates) {
+  const normalized = sentence.toLocaleLowerCase('da-DK').replace(/[^a-zæøå0-9]+/g, ' ').trim();
+  if (!normalized || briefPoints.some((point) => point.toLocaleLowerCase('da-DK').replace(/[^a-zæøå0-9]+/g, ' ').trim() === normalized)) continue;
+  briefPoints.push(sentence);
+  if (briefPoints.length === 3) break;
+}
+const showBrief = wordCount >= 700 && briefPoints.length >= 2;
+
 const firstThree = recommendations
   .filter((a) => !storyRelatedIds.has(a.id))
   .sort((a, b) => {
@@ -175,6 +225,13 @@ const newsArticleLd = article ? {
         </figure>
       ) : null}
 
+      {showBrief ? (
+        <aside class="v4-article-brief" aria-label="Kort fortalt">
+          <div class="v4-article-brief__title">Kort fortalt</div>
+          <ul>{briefPoints.map((point) => <li>{point}</li>)}</ul>
+        </aside>
+      ) : null}
+
       <article class="v4-article-body"><div set:html={bodyHtml} /></article>
 
       <div class="v4-article-signoff">Morgentidende giver dig argumenterne. Hvad du mener om dem, er op til dig.</div>
@@ -185,11 +242,11 @@ const newsArticleLd = article ? {
           : <NewsletterSignup />}
       </div>
 
-      {storyRelated.length ? (
+      {remainingStoryRelated.length ? (
         <section class="v4-story-related">
-          <div class="v4-story-related__label">Læs også</div>
+          <div class="v4-story-related__label">Mere om sagen</div>
           <div class="v4-story-related__grid">
-            {storyRelated.map((item) => <V4Card article={item} categoryName={categoryById.get(item.category_id)} />)}
+            {remainingStoryRelated.map((item) => <V4Card article={item} categoryName={categoryById.get(item.category_id)} />)}
           </div>
         </section>
       ) : null}
