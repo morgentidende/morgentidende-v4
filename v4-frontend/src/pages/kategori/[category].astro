@@ -85,7 +85,8 @@ const categoryJsonLd = category ? {
                 <V4Card
                   article={article}
                   showDeck={true}
-                  imageLoading={index < 9 ? 'eager' : 'lazy'}
+                  imageLoading="eager"
+                  imageFetchPriority={index < 9 ? 'auto' : 'low'}
                 />
               ))}
             </div>
