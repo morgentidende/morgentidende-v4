@@ -65,13 +65,3 @@ if (lower && topbar) {
   window.addEventListener('resize', measure, { passive: true });
   window.addEventListener('load', measure, { once: true });
 }
-
-document.querySelectorAll('[data-newsletter-form]').forEach((form) => {
-  form.addEventListener('submit', (event) => {
-    event.preventDefault();
-    const status = form.querySelector('[data-newsletter-status]');
-    if (status) {
-      status.textContent = 'Tak – formularen er klar, og tilmeldingen åbner før lanceringen.';
-    }
-  });
-});
