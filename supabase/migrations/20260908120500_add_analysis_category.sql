@@ -19,14 +19,44 @@ set
   sort_order = excluded.sort_order,
   active = excluded.active;
 
-with current_analysis_lead as (
-  select id
-  from public.articles
-  where is_lead = true
-    and is_breaking = false
-  order by published_at desc nulls last, created_at desc
-  limit 1
-)
-update public.articles
-set category_id = (select id from public.categories where slug = 'analyse')
-where id in (select id from current_analysis_lead);
+-- Remove legacy non-breaking leads that are not analyses.
+update public.articles a
+set is_lead = false,
+    lead_rank = null
+where a.is_lead = true
+  and a.is_breaking = false
+  and not exists (
+    select 1
+    from public.categories c
+    where c.id = a.category_id
+      and c.slug = 'analyse'
+  );
+
+create or replace function public.enforce_lead_type()
+returns trigger
+language plpgsql
+security invoker
+set search_path = public
+as $$
+begin
+  if new.is_lead = true and new.is_breaking = false then
+    if new.category_id is null or not exists (
+      select 1
+      from public.categories c
+      where c.id = new.category_id
+        and c.slug = 'analyse'
+    ) then
+      raise exception 'A non-breaking lead must belong to the Analyse category';
+    end if;
+  end if;
+
+  return new;
+end;
+$$;
+
+revoke all on function public.enforce_lead_type() from public, anon, authenticated;
+
+drop trigger if exists articles_enforce_lead_type on public.articles;
+create trigger articles_enforce_lead_type
+before insert or update of is_lead, is_breaking, category_id on public.articles
+for each row execute function public.enforce_lead_type();
