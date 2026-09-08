@@ -38,13 +38,6 @@
   color: #17140c;
 }
 
-/* The top Analyse/Breaking badge is the only label inside the lead box. */
-.v4-lead-main > .v4-card > .v4-kicker,
-.v4-followups .v4-kicker,
-.v4-followups-label {
-  display: none;
-}
-
 html[data-theme='dark'] .v4-lead-box {
   box-shadow: inset 5px 0 0 #9a647f;
 }
