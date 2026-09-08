@@ -72,6 +72,27 @@ const {
           weekday: 'long', day: 'numeric', month: 'long', year: 'numeric'
         }).format(new Date()).toUpperCase();
       }
+      const masthead = document.querySelector('.v4-masthead');
+      if (masthead) {
+        let compact = false;
+        let ticking = false;
+        const updateMasthead = () => {
+          const shouldCompact = compact ? window.scrollY > 20 : window.scrollY > 90;
+          if (shouldCompact !== compact) {
+            compact = shouldCompact;
+            masthead.classList.toggle('is-compact', compact);
+          }
+          ticking = false;
+        };
+        const requestMastheadUpdate = () => {
+          if (!ticking) {
+            ticking = true;
+            window.requestAnimationFrame(updateMasthead);
+          }
+        };
+        updateMasthead();
+        window.addEventListener('scroll', requestMastheadUpdate, { passive: true });
+      }
       document.querySelectorAll('[data-newsletter-form]').forEach((form) => {
         form.addEventListener('submit', (event) => {
           event.preventDefault();
