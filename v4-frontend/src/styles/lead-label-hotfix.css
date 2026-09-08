@@ -1,7 +1,7 @@
 .v4-lead-box,
 .v4-breaking-box {
   position: relative;
-  padding-top: 48px;
+  padding-top: 54px;
 }
 
 .v4-lead-box {
@@ -18,13 +18,13 @@
   left: 24px;
   display: inline-flex;
   align-items: center;
-  min-height: 24px;
-  padding: 5px 9px;
+  min-height: 30px;
+  padding: 7px 10px;
   border-radius: 0;
-  font-size: 10px;
+  font-size: 16px;
   line-height: 1;
   font-weight: 700;
-  letter-spacing: .09em;
+  letter-spacing: .08em;
   text-transform: uppercase;
 }
 
@@ -50,13 +50,13 @@ html[data-theme='dark'] .v4-lead-label--analysis {
 @media (max-width: 640px) {
   .v4-lead-box,
   .v4-breaking-box {
-    padding-top: 42px;
+    padding-top: 50px;
   }
 
   .v4-lead-label {
     left: 18px;
-    min-height: 22px;
-    padding: 5px 8px;
-    font-size: 9px;
+    min-height: 28px;
+    padding: 6px 9px;
+    font-size: 16px;
   }
 }
