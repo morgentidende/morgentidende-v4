@@ -19,6 +19,15 @@ const {
   noindex = false,
   jsonLd
 } = Astro.props;
+
+const safeJsonLd = jsonLd
+  ? JSON.stringify(jsonLd)
+      .replace(/</g, '\\u003c')
+      .replace(/>/g, '\\u003e')
+      .replace(/&/g, '\\u0026')
+      .replace(/\u2028/g, '\\u2028')
+      .replace(/\u2029/g, '\\u2029')
+  : null;
 ---
 <!doctype html>
 <html lang="da" data-theme="light">
@@ -44,7 +53,7 @@ const {
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&family=DM+Sans:wght@400;600;700&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet" />
-    {jsonLd ? <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} /> : null}
+    {safeJsonLd ? <script type="application/ld+json" set:html={safeJsonLd} /> : null}
   </head>
   <body>
     <header class="v4-masthead">
@@ -85,86 +94,6 @@ const {
         <p>© Alt materiale på denne side er omfattet af gældende lov om ophavsret.</p>
       </div>
     </footer>
-    <script is:inline>
-      const root = document.documentElement;
-      const saved = localStorage.getItem('mt-v4-theme');
-      if (saved === 'dark' || saved === 'light') root.dataset.theme = saved;
-      document.getElementById('theme-toggle')?.addEventListener('click', () => {
-        const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
-        root.dataset.theme = next;
-        localStorage.setItem('mt-v4-theme', next);
-      });
-
-      const dateEl = document.getElementById('v4-date');
-      if (dateEl) {
-        dateEl.textContent = new Intl.DateTimeFormat('da-DK', {
-          weekday: 'long', day: 'numeric', month: 'long', year: 'numeric'
-        }).format(new Date()).toUpperCase();
-      }
-
-      const lower = document.querySelector('.v4-masthead-lower');
-      const topbar = document.querySelector('.v4-masthead-top');
-      const brand = document.querySelector('.v4-masthead-top .v4-brand');
-      if (lower && topbar) {
-        let ticking = false;
-        let lowerHeight = lower.getBoundingClientRect().height;
-        let scrollDistance = lowerHeight;
-
-        const updateMeasurements = () => {
-          lowerHeight = lower.getBoundingClientRect().height;
-          if (window.innerWidth <= 640) {
-            scrollDistance = 140;
-          } else if (window.innerWidth <= 900) {
-            scrollDistance = 110;
-          } else {
-            scrollDistance = lowerHeight;
-          }
-        };
-
-        const render = () => {
-          const progress = Math.min(1, Math.max(0, window.scrollY / scrollDistance));
-          const travel = lowerHeight * progress;
-          lower.style.transform = `translate3d(0, ${-travel}px, 0)`;
-          lower.style.pointerEvents = progress >= .999 ? 'none' : 'auto';
-
-          if (brand) {
-            const maxScaleChange = window.innerWidth <= 640 ? 0.06 : 0.12;
-            const scale = 1 - (maxScaleChange * progress);
-            brand.style.transform = `scale(${scale})`;
-          }
-
-          topbar.style.boxShadow = progress > .02
-            ? `0 8px 22px rgb(8 14 22 / ${0.16 * progress})`
-            : 'none';
-          ticking = false;
-        };
-
-        const requestRender = () => {
-          if (!ticking) {
-            ticking = true;
-            requestAnimationFrame(render);
-          }
-        };
-
-        const measure = () => {
-          updateMeasurements();
-          requestRender();
-        };
-
-        updateMeasurements();
-        render();
-        window.addEventListener('scroll', requestRender, { passive:true });
-        window.addEventListener('resize', measure, { passive:true });
-        window.addEventListener('load', measure, { once:true });
-      }
-
-      document.querySelectorAll('[data-newsletter-form]').forEach((form) => {
-        form.addEventListener('submit', (event) => {
-          event.preventDefault();
-          const status = form.querySelector('[data-newsletter-status]');
-          if (status) status.textContent = 'Tak – formularen er klar, og tilmeldingen åbner før lanceringen.';
-        });
-      });
-    </script>
+    <script src="/v4-client.js" defer></script>
   </body>
 </html>
