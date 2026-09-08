@@ -22,31 +22,158 @@ const {
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=DM+Sans:wght@400;500;600;700&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet" />
+    <style is:inline>
+      /* Two-layer masthead: the lower band scrolls behind the fixed top band. */
+      .v4-masthead {
+        position: fixed !important;
+        inset: 0 0 auto 0 !important;
+        z-index: 100 !important;
+        width: 100% !important;
+        height: 0 !important;
+        padding: 0 !important;
+        background: transparent !important;
+        border: 0 !important;
+        box-shadow: none !important;
+        overflow: visible !important;
+        pointer-events: none;
+        transform: none !important;
+      }
+
+      .v4-masthead-top {
+        position: relative;
+        z-index: 2;
+        height: 96px;
+        padding: 18px max(24px, calc((100vw - var(--v4-max)) / 2));
+        display: flex;
+        align-items: center;
+        background: linear-gradient(115deg, var(--v4-navy), var(--v4-purple));
+        color: #f8f4ec;
+        border-bottom: 1px solid rgba(255,255,255,.14);
+        pointer-events: auto;
+        transform: translateZ(0);
+      }
+
+      .v4-masthead-top .v4-masthead__inner {
+        width: 100%;
+        display: grid;
+        grid-template-columns: minmax(0,1fr) auto minmax(0,1fr);
+        align-items: center;
+        gap: 24px;
+      }
+
+      .v4-masthead-top .v4-brand {
+        grid-column: 2;
+        display: inline-flex;
+        align-items: center;
+        gap: 16px;
+        transform-origin: center center;
+        will-change: transform;
+      }
+
+      .v4-masthead-top .v4-brand__sun {
+        width: 58px !important;
+        height: 58px !important;
+      }
+
+      .v4-masthead-top .v4-brand__word {
+        font-size: clamp(44px,6vw,72px) !important;
+      }
+
+      .v4-masthead-top .v4-masthead__actions {
+        grid-column: 3;
+        justify-self: end;
+      }
+
+      .v4-masthead-lower {
+        position: fixed;
+        z-index: 1;
+        top: 96px;
+        left: 0;
+        width: 100%;
+        height: 98px;
+        padding: 0 max(24px, calc((100vw - var(--v4-max)) / 2));
+        background: linear-gradient(115deg, var(--v4-navy), var(--v4-purple));
+        color: #f8f4ec;
+        border-bottom: 1px solid rgba(255,255,255,.14);
+        pointer-events: auto;
+        transform: translate3d(0,0,0);
+        will-change: transform;
+      }
+
+      .v4-masthead-lower .v4-meta-row {
+        height: 54px !important;
+        margin: 0 !important;
+        padding: 18px 0 !important;
+        border-top: 1px solid rgba(255,255,255,.18);
+        border-bottom: 1px solid rgba(255,255,255,.18);
+        opacity: 1 !important;
+        transform: none !important;
+      }
+
+      .v4-masthead-lower .v4-nav {
+        height: 44px !important;
+        margin: 0 !important;
+        padding: 16px 0 0 !important;
+        opacity: 1 !important;
+        transform: none !important;
+        overflow: visible !important;
+      }
+
+      .v4-masthead-spacer { height: 194px !important; }
+
+      @media (max-width:900px) {
+        .v4-masthead-top { height: 78px; padding: 13px 20px; }
+        .v4-masthead-top .v4-masthead__inner { grid-template-columns:minmax(0,1fr) auto; gap:16px; }
+        .v4-masthead-top .v4-brand { grid-column:1; transform-origin:left center; }
+        .v4-masthead-top .v4-brand__sun { width:44px !important; height:44px !important; }
+        .v4-masthead-top .v4-brand__word { font-size:clamp(36px,9vw,54px) !important; }
+        .v4-masthead-top .v4-masthead__actions { grid-column:2; }
+        .v4-masthead-lower { top:78px; height:52px; padding:0 20px; }
+        .v4-masthead-lower .v4-meta-row { display:none !important; }
+        .v4-masthead-lower .v4-nav { height:52px !important; padding-top:17px !important; justify-content:flex-start; overflow-x:auto !important; overflow-y:hidden !important; white-space:nowrap; }
+        .v4-masthead-spacer { height:130px !important; }
+      }
+
+      @media (max-width:640px) {
+        .v4-masthead-top { height:72px; padding:10px 14px; }
+        .v4-masthead-top .v4-brand__sun { width:38px !important; height:38px !important; }
+        .v4-masthead-top .v4-brand__word { font-size:clamp(32px,9.8vw,44px) !important; }
+        .v4-masthead-top .v4-theme-toggle,
+        .v4-masthead-top .v4-login { font-size:12px; padding:5px 7px; }
+        .v4-masthead-lower { top:72px; height:50px; padding:0 14px; }
+        .v4-masthead-lower .v4-nav { height:50px !important; padding-top:16px !important; gap:22px; }
+        .v4-masthead-spacer { height:122px !important; }
+      }
+    </style>
   </head>
   <body>
     <header class="v4-masthead">
-      <div class="v4-masthead__inner">
-        <a href="/" class="v4-brand" aria-label="Morgentidende forside">
-          <img class="v4-brand__sun" src="/morgentidende-sun.png" alt="" width="64" height="64" />
-          <span class="v4-brand__word">Morgentidende</span>
-        </a>
-        <div class="v4-masthead__actions">
-          <button class="v4-theme-toggle" type="button" id="theme-toggle">Mørk/Lys</button>
-          <a class="v4-login" href="/login">Login</a>
+      <div class="v4-masthead-top">
+        <div class="v4-masthead__inner">
+          <a href="/" class="v4-brand" aria-label="Morgentidende forside">
+            <img class="v4-brand__sun" src="/morgentidende-sun.png" alt="" width="64" height="64" />
+            <span class="v4-brand__word">Morgentidende</span>
+          </a>
+          <div class="v4-masthead__actions">
+            <button class="v4-theme-toggle" type="button" id="theme-toggle">Mørk/Lys</button>
+            <a class="v4-login" href="/login">Login</a>
+          </div>
         </div>
       </div>
-      <div class="v4-meta-row">
-        <span id="v4-date"></span>
-        <span>DANMARKS NYE AVIS</span>
+      <div class="v4-masthead-lower">
+        <div class="v4-meta-row">
+          <span id="v4-date"></span>
+          <span>DANMARKS NYE AVIS</span>
+        </div>
+        <nav class="v4-nav" aria-label="Hovednavigation">
+          <a href="/kategori/indland">Indland</a>
+          <a href="/kategori/udland">Udland</a>
+          <a href="/kategori/penge">Penge</a>
+          <a href="/kategori/kultur">Kultur</a>
+          <a href="/kategori/viden">Viden</a>
+          <a href="/kategori/liv">Liv</a>
+        </nav>
       </div>
-      <nav class="v4-nav" aria-label="Hovednavigation">
-        <a href="/kategori/indland">Indland</a>
-        <a href="/kategori/udland">Udland</a>
-        <a href="/kategori/penge">Penge</a>
-        <a href="/kategori/kultur">Kultur</a>
-        <a href="/kategori/viden">Viden</a>
-        <a href="/kategori/liv">Liv</a>
-      </nav>
     </header>
     <div class="v4-masthead-spacer" aria-hidden="true"></div>
     <main>
@@ -75,79 +202,46 @@ const {
         }).format(new Date()).toUpperCase();
       }
 
-      const masthead = document.querySelector('.v4-masthead');
-      const mastheadInner = document.querySelector('.v4-masthead__inner');
-      const mastheadSpacer = document.querySelector('.v4-masthead-spacer');
-      const metaRow = document.querySelector('.v4-meta-row');
-      const nav = document.querySelector('.v4-nav');
-      const brand = document.querySelector('.v4-brand');
-
-      if (masthead && mastheadInner && mastheadSpacer && nav) {
-        let maxTravel = 120;
+      const lower = document.querySelector('.v4-masthead-lower');
+      const topbar = document.querySelector('.v4-masthead-top');
+      const brand = document.querySelector('.v4-masthead-top .v4-brand');
+      if (lower && topbar) {
         let ticking = false;
-        const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+        let lowerHeight = lower.getBoundingClientRect().height;
 
-        masthead.style.setProperty('--v4-masthead-progress', '0');
-        masthead.style.willChange = 'clip-path';
-        nav.style.willChange = 'transform';
-        if (metaRow) metaRow.style.willChange = 'transform';
-        mastheadInner.style.willChange = 'transform';
-        if (brand) brand.style.willChange = 'transform';
+        const render = () => {
+          const travel = Math.min(lowerHeight, Math.max(0, window.scrollY));
+          const progress = lowerHeight ? travel / lowerHeight : 1;
+          lower.style.transform = `translate3d(0, ${-travel}px, 0)`;
+          lower.style.pointerEvents = progress >= .999 ? 'none' : 'auto';
 
-        const renderMasthead = () => {
-          const rawTravel = Math.min(maxTravel, Math.max(0, window.scrollY));
-          const travel = reducedMotion.matches && rawTravel > 0 ? maxTravel : rawTravel;
-          const progress = maxTravel > 0 ? travel / maxTravel : 1;
-
-          masthead.style.clipPath = `inset(0 0 ${travel}px 0)`;
-          nav.style.transform = `translate3d(0, ${-travel}px, 0)`;
-          if (metaRow && getComputedStyle(metaRow).display !== 'none') {
-            metaRow.style.transform = `translate3d(0, ${-travel}px, 0)`;
-          }
-
-          const innerLift = Math.min(18, travel * .16);
-          mastheadInner.style.transform = `translate3d(0, ${-innerLift}px, 0)`;
           if (brand) {
-            const scale = 1 - (.16 * progress);
+            const scale = 1 - (0.12 * progress);
             brand.style.transform = `scale(${scale})`;
-            brand.style.transformOrigin = window.innerWidth <= 900 ? 'left center' : 'center center';
           }
 
-          nav.style.pointerEvents = progress >= .995 ? 'none' : '';
+          topbar.style.boxShadow = progress > .02
+            ? `0 8px 22px rgb(8 14 22 / ${0.16 * progress})`
+            : 'none';
           ticking = false;
         };
 
         const requestRender = () => {
           if (!ticking) {
             ticking = true;
-            requestAnimationFrame(renderMasthead);
+            requestAnimationFrame(render);
           }
         };
 
-        const measureMasthead = () => {
-          masthead.style.clipPath = 'none';
-          nav.style.transform = 'none';
-          if (metaRow) metaRow.style.transform = 'none';
-          mastheadInner.style.transform = 'none';
-          if (brand) brand.style.transform = 'none';
-
-          const expandedHeight = masthead.getBoundingClientRect().height;
-          const innerRect = mastheadInner.getBoundingClientRect();
-          const mastheadRect = masthead.getBoundingClientRect();
-          const styles = getComputedStyle(masthead);
-          const bottomPadding = parseFloat(styles.paddingBottom) || 0;
-          const compactHeight = Math.ceil(innerRect.bottom - mastheadRect.top + bottomPadding);
-
-          maxTravel = Math.max(48, expandedHeight - compactHeight);
-          mastheadSpacer.style.height = `${expandedHeight}px`;
+        const measure = () => {
+          lowerHeight = lower.getBoundingClientRect().height;
           requestRender();
         };
 
-        measureMasthead();
-        window.addEventListener('scroll', requestRender, { passive: true });
-        window.addEventListener('resize', measureMasthead, { passive: true });
-        window.addEventListener('load', measureMasthead, { once: true });
-        reducedMotion.addEventListener('change', requestRender);
+        render();
+        window.addEventListener('scroll', requestRender, { passive:true });
+        window.addEventListener('resize', measure, { passive:true });
+        window.addEventListener('load', measure, { once:true });
       }
 
       document.querySelectorAll('[data-newsletter-form]').forEach((form) => {
