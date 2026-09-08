@@ -9,9 +9,9 @@ const isWeekly = variant === 'weekly';
 const title = isWeekly ? `Ugens bedste fra ${magazineName}` : 'Få Morgentidende på mail';
 const description = isWeekly
   ? `Hver søndag kl. 06 samler vi ugens mest spændende artikler fra ${magazineName} i én rolig udgave.`
-  : 'Start dagen opdateret – eller få overblikket, når dagen er ved at være slut. Vi samler det vigtigste fra de seneste 24 timer.';
+  : 'Få dagens vigtigste historier direkte i indbakken.';
 ---
-<aside class:list={['v4-newsletter', isWeekly && 'v4-newsletter--weekly']} aria-label={title}>
+<aside class:list={['v4-newsletter', !isWeekly && 'v4-newsletter--daily', isWeekly && 'v4-newsletter--weekly']} aria-label={title}>
   <div class="v4-newsletter__copy">
     <div class="v4-kicker">{isWeekly ? `${magazineName} på mail` : 'Dagligt nyhedsbrief'}</div>
     <h2>{title}</h2>
@@ -38,3 +38,73 @@ const description = isWeekly
     <p class="v4-newsletter-form__status" data-newsletter-status aria-live="polite"></p>
   </form>
 </aside>
+
+<style>
+  .v4-newsletter--daily {
+    padding: clamp(20px, 3vw, 30px);
+    grid-template-columns: minmax(0, 1.1fr) minmax(320px, .9fr);
+    gap: clamp(24px, 4vw, 46px);
+  }
+
+  .v4-newsletter--daily .v4-newsletter__copy h2 {
+    margin: 5px 0 8px;
+    font-size: clamp(26px, 2.6vw, 36px);
+  }
+
+  .v4-newsletter--daily .v4-newsletter__copy > p {
+    max-width: 520px;
+    line-height: 1.42;
+  }
+
+  .v4-newsletter--daily .v4-kicker {
+    font-size: 11px;
+    opacity: .88;
+  }
+
+  .v4-newsletter--daily .v4-newsletter-form > label {
+    margin-bottom: 6px;
+    font-size: 13px;
+  }
+
+  .v4-newsletter--daily .v4-newsletter-form input[type='email'] {
+    padding: 11px 12px;
+  }
+
+  .v4-newsletter--daily .v4-newsletter-form button {
+    padding: 11px 20px;
+    min-width: 88px;
+  }
+
+  .v4-newsletter--daily .v4-newsletter-form fieldset {
+    margin-top: 10px;
+    gap: 16px;
+  }
+
+  .v4-newsletter--daily .v4-newsletter-form legend {
+    margin-bottom: 5px;
+    font-size: 12px;
+    opacity: .82;
+  }
+
+  .v4-newsletter--daily .v4-newsletter-form fieldset label {
+    font-size: 12px;
+    opacity: .88;
+  }
+
+  .v4-newsletter--daily .v4-newsletter-form__note {
+    margin-top: 7px;
+    font-size: 11px;
+    opacity: .72;
+  }
+
+  @media (max-width: 640px) {
+    .v4-newsletter--daily {
+      padding: 18px 16px;
+      gap: 18px;
+    }
+
+    .v4-newsletter--daily .v4-newsletter__copy h2 {
+      font-size: 27px;
+    }
+  }
+</style>
