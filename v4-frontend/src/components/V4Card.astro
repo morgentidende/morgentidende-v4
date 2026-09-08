@@ -3,8 +3,16 @@ interface Props {
   article: any;
   categoryName?: string;
   showDeck?: boolean;
+  imageLoading?: 'eager' | 'lazy';
+  imageFetchPriority?: 'high' | 'low' | 'auto';
 }
-const { article, categoryName, showDeck = true } = Astro.props;
+const {
+  article,
+  categoryName,
+  showDeck = true,
+  imageLoading = 'lazy',
+  imageFetchPriority = 'auto'
+} = Astro.props;
 const headline = article.frontpage_headline || article.headline;
 const accent = article.headline_accent_text?.trim();
 let before = headline;
@@ -21,7 +29,14 @@ if (accent) {
 ---
 <article class="v4-card">
   <a class="v4-card__media" href={`/artikel/${article.slug}`}>
-    {article.hero_url ? <img src={article.hero_url} alt={article.hero_alt || ''} loading="lazy" /> : null}
+    {article.hero_url ? (
+      <img
+        src={article.hero_url}
+        alt={article.hero_alt || ''}
+        loading={imageLoading}
+        fetchpriority={imageFetchPriority}
+      />
+    ) : null}
   </a>
   {categoryName ? <div class="v4-kicker">{categoryName}</div> : null}
   <h2 class="v4-card__headline">
