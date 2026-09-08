@@ -1,5 +1,6 @@
 ---
 import '../styles/v4.css';
+import '../styles/footer-newsletter.css';
 
 interface Props {
   title?: string;
@@ -91,6 +92,16 @@ const safeJsonLd = jsonLd
     </main>
     <footer class="v4-footer">
       <div class="v4-footer__inner">
+        <div class="v4-footer__newsletter">
+          <div class="v4-footer__newsletter-copy">Få Morgentidende på mail</div>
+          <form class="v4-footer__newsletter-form" data-newsletter-form>
+            <input id="footer-newsletter-email" name="email" type="email" autocomplete="email" placeholder="Din e-mail" aria-label="Din e-mail" required />
+            <input type="hidden" name="delivery_time" value="06:00" />
+            <input type="hidden" name="newsletter" value="daily" />
+            <button type="submit">Tilmeld</button>
+            <p class="v4-footer__newsletter-status" data-newsletter-status aria-live="polite"></p>
+          </form>
+        </div>
         <a href="/" class="v4-footer__brand">Morgentidende</a>
         <nav aria-label="Om Morgentidende">
           <a href="/om-morgentidende">Om Morgentidende</a>
