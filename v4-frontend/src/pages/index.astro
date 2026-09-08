@@ -6,9 +6,6 @@ import '../styles/lead-labels.css';
 import { imageVariant } from '../lib/image-delivery';
 import { v4Supabase } from '../lib/v4-supabase';
 
-Astro.response.headers.set('Cache-Control', 'public, max-age=0, s-maxage=30, stale-while-revalidate=60');
-Astro.response.headers.set('Cloudflare-CDN-Cache-Control', 'public, max-age=30, stale-while-revalidate=60');
-
 let articles: any[] = [];
 let categories: any[] = [];
 let loadError = false;
