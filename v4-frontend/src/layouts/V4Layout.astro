@@ -43,8 +43,10 @@ const mastheadDate = new Intl.DateTimeFormat('da-DK', {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <meta name="description" content={description} />
-    {noindex ? <meta name="robots" content="noindex,nofollow" /> : null}
+    <meta name="robots" content={noindex ? 'noindex,nofollow' : 'index,follow,max-image-preview:large'} />
     {canonical ? <link rel="canonical" href={canonical} /> : null}
+    <meta property="og:site_name" content="Morgentidende" />
+    <meta property="og:locale" content="da_DK" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content={type} />
