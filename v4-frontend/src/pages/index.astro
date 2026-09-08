@@ -121,7 +121,6 @@ const homeJsonLd = {
           <div class="v4-lead-main">
             <V4Card
               article={lead}
-              categoryName={categoryName(lead.category_id)}
               showDeck={false}
               imageLoading="eager"
               imageFetchPriority="high"
@@ -129,12 +128,10 @@ const homeJsonLd = {
           </div>
           {followups.length ? (
             <div class="v4-followups-block">
-              <div class="v4-followups-label">Læs også</div>
               <div class="v4-followups">
                 {followups.map((article) => (
                   <V4Card
                     article={article}
-                    categoryName={categoryName(article.category_id)}
                     showDeck={false}
                     imageLoading="eager"
                   />
