@@ -1,12 +1,25 @@
 ---
+import { v4Supabase } from '../lib/v4-supabase';
+
 interface Props {
-  topics?: string[];
+  slug: string;
 }
 
-const topics = (Astro.props.topics || [])
-  .map((topic) => topic?.trim())
-  .filter(Boolean)
-  .slice(0, 3);
+const { slug } = Astro.props;
+let topics: string[] = [];
+
+if (v4Supabase && slug) {
+  const result = await v4Supabase
+    .from('v4_public_articles')
+    .select('topics')
+    .eq('slug', slug)
+    .maybeSingle();
+
+  topics = (result.data?.topics || [])
+    .map((topic: string) => topic?.trim())
+    .filter(Boolean)
+    .slice(0, 3);
+}
 ---
 {topics.length ? (
   <nav class="v4-article-topics" aria-label="Emner">
