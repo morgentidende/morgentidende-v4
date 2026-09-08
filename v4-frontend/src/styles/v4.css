@@ -202,10 +202,10 @@ html[data-theme='dark'] .v4-category-header--liv { background: linear-gradient(1
   .v4-masthead.is-compact .v4-masthead__inner { grid-template-columns: minmax(0, 1fr) auto; gap: 8px; }
   .v4-masthead.is-compact .v4-brand { grid-column: 1; gap: 8px; }
   .v4-masthead.is-compact .v4-brand__sun { width: 30px; height: 30px; }
-  .v4-masthead.is-compact .v4-brand__word { font-size: clamp(27px, 8vw, 32px); }
+  .v4-masthead.is-compact .v4-brand__word { font-size: clamp(25px, 7.4vw, 30px); }
   .v4-masthead.is-compact .v4-masthead__actions { grid-column: 2; justify-self: end; width: auto; gap: 6px; }
   .v4-masthead.is-compact .v4-theme-toggle,
-  .v4-masthead.is-compact .v4-login { padding: 5px 8px; font-size: 13px; }
+  .v4-masthead.is-compact .v4-login { padding: 4px 6px; font-size: 12px; }
   .v4-shell { width: min(100% - 28px, var(--v4-max)); padding-top: 24px; }
   .v4-grid-3, .v4-grid-4 { grid-template-columns: 1fr; gap: 22px; }
   .v4-magazine .v4-grid-4 > :nth-child(n+4) { display: none; }
