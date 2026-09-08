@@ -17,6 +17,14 @@ if (v4Supabase && categorySlug) {
     .select('id,slug,name,description')
     .eq('slug', categorySlug)
     .maybeSingle();
+
+  if (categoryResult.error) {
+    console.error('category_query_failed', {
+      categorySlug,
+      code: categoryResult.error.code,
+      message: categoryResult.error.message
+    });
+  }
   category = categoryResult.data;
 
   if (category) {
@@ -26,6 +34,14 @@ if (v4Supabase && categorySlug) {
       .eq('category_id', category.id)
       .order('published_at', { ascending: false })
       .limit(40);
+
+    if (articlesResult.error) {
+      console.error('category_articles_query_failed', {
+        categorySlug,
+        code: articlesResult.error.code,
+        message: articlesResult.error.message
+      });
+    }
     articles = articlesResult.data || [];
   }
 }
@@ -36,6 +52,7 @@ const isMagazine = category?.name === 'Viden' || category?.name === 'Liv';
 <V4Layout
   title={category ? `${category.name} – Morgentidende` : 'Ikke fundet – Morgentidende'}
   description={category?.description || (category ? `Seneste nyt fra ${category.name} på Morgentidende.` : '')}
+  noindex={!category}
 >
   <div class="v4-shell">
     {category ? (
@@ -48,7 +65,13 @@ const isMagazine = category?.name === 'Viden' || category?.name === 'Liv';
         {articles.length ? (
           <section class="v4-section">
             <div class="v4-grid-3">
-              {articles.map((article) => <V4Card article={article} showDeck={true} />)}
+              {articles.map((article, index) => (
+                <V4Card
+                  article={article}
+                  showDeck={true}
+                  imageLoading={index < 9 ? 'eager' : 'lazy'}
+                />
+              ))}
             </div>
           </section>
         ) : <div class="v4-empty">Der er endnu ingen artikler i denne sektion.</div>}
