@@ -48,6 +48,7 @@ const {
         <a href="/kategori/liv">Liv</a>
       </nav>
     </header>
+    <div class="v4-masthead-spacer" aria-hidden="true"></div>
     <main>
       <slot />
     </main>
@@ -73,19 +74,25 @@ const {
         }).format(new Date()).toUpperCase();
       }
       const masthead = document.querySelector('.v4-masthead');
-      if (masthead) {
-        let compact = false;
+      const mastheadSpacer = document.querySelector('.v4-masthead-spacer');
+      if (masthead && mastheadSpacer) {
         let ticking = false;
-        let collapseAt = masthead.offsetHeight + 24;
-        const measureExpandedMasthead = () => {
-          if (!compact) collapseAt = masthead.offsetHeight + 24;
+        let collapseDistance = 200;
+        const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+        const measureMasthead = () => {
+          masthead.style.setProperty('--v4-masthead-progress', '0');
+          masthead.classList.remove('is-compact');
+          const expandedHeight = masthead.offsetHeight;
+          const compactHeight = window.innerWidth <= 640 ? 47 : window.innerWidth <= 900 ? 53 : 61;
+          collapseDistance = Math.max(90, expandedHeight - compactHeight);
+          mastheadSpacer.style.height = `${expandedHeight}px`;
+          requestMastheadUpdate();
         };
         const updateMasthead = () => {
-          const shouldCompact = compact ? window.scrollY > 1 : window.scrollY > collapseAt;
-          if (shouldCompact !== compact) {
-            compact = shouldCompact;
-            masthead.classList.toggle('is-compact', compact);
-          }
+          const rawProgress = Math.min(1, Math.max(0, window.scrollY / collapseDistance));
+          const progress = reducedMotion.matches && rawProgress > 0 ? 1 : rawProgress;
+          masthead.style.setProperty('--v4-masthead-progress', progress.toFixed(4));
+          masthead.classList.toggle('is-compact', progress >= .995);
           ticking = false;
         };
         const requestMastheadUpdate = () => {
@@ -94,10 +101,11 @@ const {
             window.requestAnimationFrame(updateMasthead);
           }
         };
-        updateMasthead();
+        measureMasthead();
         window.addEventListener('scroll', requestMastheadUpdate, { passive: true });
-        window.addEventListener('load', measureExpandedMasthead, { once: true });
-        window.addEventListener('resize', measureExpandedMasthead, { passive: true });
+        window.addEventListener('load', measureMasthead, { once: true });
+        window.addEventListener('resize', measureMasthead, { passive: true });
+        reducedMotion.addEventListener('change', requestMastheadUpdate);
       }
       document.querySelectorAll('[data-newsletter-form]').forEach((form) => {
         form.addEventListener('submit', (event) => {
