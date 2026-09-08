@@ -1,0 +1,18 @@
+---
+import V4Layout from '../layouts/V4Layout.astro';
+Astro.response.status = 500;
+---
+<V4Layout
+  title="Der opstod en fejl – Morgentidende"
+  description="Der opstod en midlertidig teknisk fejl."
+  noindex={true}
+>
+  <div class="v4-shell">
+    <section class="v4-error-page" aria-labelledby="error-title">
+      <div class="v4-kicker">Midlertidig fejl</div>
+      <h1 id="error-title">Siden kunne ikke vises</h1>
+      <p>Prøv igen om et øjeblik. Hvis problemet fortsætter, arbejder vi på at få siden tilbage.</p>
+      <a class="v4-error-link" href="/">Gå til Morgentidendes forside</a>
+    </section>
+  </div>
+</V4Layout>
