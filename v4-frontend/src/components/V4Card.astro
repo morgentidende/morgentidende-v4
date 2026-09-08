@@ -12,8 +12,8 @@ const {
   article,
   categoryName,
   showDeck = true,
-  imageLoading = 'lazy',
-  imageFetchPriority = 'auto'
+  imageLoading = 'eager',
+  imageFetchPriority = 'low'
 } = Astro.props;
 const headline = article.frontpage_headline || article.headline;
 const accent = article.headline_accent_text?.trim();
