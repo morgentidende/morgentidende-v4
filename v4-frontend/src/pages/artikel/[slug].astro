@@ -26,7 +26,7 @@ if (v4Supabase && slug) {
       .maybeSingle(),
     v4Supabase
       .from('v4_public_categories')
-      .select('id,name,sort_order')
+      .select('id,name,slug,sort_order')
       .order('sort_order', { ascending: true }),
     v4Supabase
       .from('v4_public_articles')
@@ -98,7 +98,9 @@ if (v4Supabase && slug) {
 if (!article) Astro.response.status = 404;
 
 const categoryById = new Map(categories.map((c) => [c.id, c.name]));
+const categorySlugById = new Map(categories.map((c) => [c.id, c.slug]));
 const category = article ? categoryById.get(article.category_id) : '';
+const categorySlug = article ? categorySlugById.get(article.category_id) : '';
 const bodyHtml = article
   ? sanitizeHtml(await marked.parse(article.body_markdown || ''), {
       allowedTags: sanitizeHtml.defaults.allowedTags.concat(['img', 'figure', 'figcaption']),
@@ -127,30 +129,63 @@ const finalEight = recommendations.filter((a) => !used.has(a.id)).slice(0, 8);
 const heroIsGraphic = /\.(svg|png)(\?|$)/i.test(article?.hero_url || '') && (article?.hero_credit === 'Morgentidende grafik' || (article?.hero_url || '').includes('dsa-big-brother'));
 const heroImageSrc = imageVariant(article?.hero_url, 1200);
 const heroImageSrcSet = imageSrcSet(article?.hero_url, [640, 900, 1200, 1600]);
-const canonical = article ? new URL(`/artikel/${article.slug}`, Astro.site || Astro.url.origin).toString() : undefined;
+const siteOrigin = Astro.site || Astro.url.origin;
+const canonical = article ? new URL(`/artikel/${article.slug}`, siteOrigin).toString() : undefined;
 const publishedDate = article?.published_at ? new Date(article.published_at) : null;
 const updatedDate = article?.updated_at ? new Date(article.updated_at) : publishedDate;
 const formatDateTime = (value: Date) => new Intl.DateTimeFormat('da-DK', {
   day: 'numeric', month: 'long', year: 'numeric', hour: '2-digit', minute: '2-digit', timeZone: 'Europe/Copenhagen'
 }).format(value);
 const articleTitle = article ? `${article.headline} – Morgentidende` : 'Ikke fundet – Morgentidende';
-const newsArticleLd = article ? {
-  '@context': 'https://schema.org',
-  '@type': 'NewsArticle',
+const isEvergreenMagazine = category === 'Viden' || category === 'Liv';
+const authorName = article?.author_name?.trim();
+const authorLd = authorName && authorName.toLocaleLowerCase('da-DK') !== 'morgentidende'
+  ? { '@type': 'Person', name: authorName }
+  : { '@type': 'Organization', name: 'Morgentidende', url: new URL('/', siteOrigin).toString() };
+const articleLd = article ? {
+  '@type': isEvergreenMagazine ? 'Article' : 'NewsArticle',
   headline: article.headline,
   description: article.deck || undefined,
+  inLanguage: 'da-DK',
   datePublished: article.published_at,
   dateModified: article.updated_at || article.published_at,
   mainEntityOfPage: canonical,
   image: article.hero_url ? [article.hero_url] : undefined,
   articleSection: category || undefined,
-  author: { '@type': 'Person', name: article.author_name || 'Morgentidende' },
+  author: authorLd,
   publisher: {
     '@type': 'Organization',
     name: 'Morgentidende',
-    url: new URL('/', Astro.site || Astro.url.origin).toString(),
-    logo: { '@type': 'ImageObject', url: new URL('/morgentidende-sun.png', Astro.site || Astro.url.origin).toString() }
+    url: new URL('/', siteOrigin).toString(),
+    logo: { '@type': 'ImageObject', url: new URL('/morgentidende-sun.png', siteOrigin).toString() }
   }
+} : undefined;
+const breadcrumbLd = article && canonical ? {
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Morgentidende',
+      item: new URL('/', siteOrigin).toString()
+    },
+    ...(category && categorySlug ? [{
+      '@type': 'ListItem',
+      position: 2,
+      name: category,
+      item: new URL(`/kategori/${categorySlug}`, siteOrigin).toString()
+    }] : []),
+    {
+      '@type': 'ListItem',
+      position: category && categorySlug ? 3 : 2,
+      name: article.headline,
+      item: canonical
+    }
+  ]
+} : undefined;
+const pageJsonLd = articleLd ? {
+  '@context': 'https://schema.org',
+  '@graph': [articleLd, ...(breadcrumbLd ? [breadcrumbLd] : [])]
 } : undefined;
 ---
 <V4Layout
@@ -161,7 +196,7 @@ const newsArticleLd = article ? {
   preloadImage={heroImageSrc}
   type="article"
   noindex={!article}
-  jsonLd={newsArticleLd}
+  jsonLd={pageJsonLd}
 >
   {article ? (
     <>
@@ -170,7 +205,7 @@ const newsArticleLd = article ? {
         <h1 class="v4-article-title">{article.headline}</h1>
         {article.deck ? <p class="v4-article-deck">{article.deck}</p> : null}
         <div class="v4-article-meta">
-          {article.author_name ? <span>Af {article.author_name}</span> : <span>Morgentidende</span>}
+          {authorName ? <span>Af {authorName}</span> : <span>Morgentidende</span>}
           {publishedDate ? <time datetime={article.published_at}>Udgivet {formatDateTime(publishedDate)}</time> : null}
           {updatedDate && publishedDate && updatedDate.getTime() > publishedDate.getTime() + 60000 ? <time datetime={article.updated_at}>Opdateret {formatDateTime(updatedDate)}</time> : null}
         </div>
