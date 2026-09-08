@@ -46,11 +46,24 @@ if (v4Supabase && categorySlug) {
 if (!category) Astro.response.status = 404;
 const isMagazine = category?.name === 'Viden' || category?.name === 'Liv';
 const canonical = category ? `${Astro.url.origin}/kategori/${category.slug}` : undefined;
+const magazineSeo = category?.slug === 'viden'
+  ? {
+      title: 'Viden: forskning, teknologi og videnskab – Morgentidende',
+      description: 'Viden samler forklarende artikler om forskning, teknologi, AI, sundhedsvidenskab, rumfart og nye opdagelser – skrevet til at kunne forstås og bruges.'
+    }
+  : category?.slug === 'liv'
+    ? {
+        title: 'Liv: sundhed, psykologi og hverdagsliv – Morgentidende',
+        description: 'Liv samler brugbare artikler om sundhed, søvn, træning, psykologi, parforhold, privatøkonomi og et bedre hverdagsliv – med vægt på dokumentation.'
+      }
+    : null;
+const seoTitle = category ? (magazineSeo?.title || `${category.name} – Morgentidende`) : 'Ikke fundet – Morgentidende';
+const seoDescription = category ? (magazineSeo?.description || category.description || `Seneste nyt fra ${category.name} på Morgentidende.`) : '';
 const categoryJsonLd = category ? {
   '@context': 'https://schema.org',
   '@type': 'CollectionPage',
-  name: `${category.name} – Morgentidende`,
-  description: category.description || `Seneste nyt fra ${category.name} på Morgentidende.`,
+  name: seoTitle,
+  description: seoDescription,
   url: canonical,
   inLanguage: 'da-DK',
   isPartOf: {
@@ -61,8 +74,8 @@ const categoryJsonLd = category ? {
 } : undefined;
 ---
 <V4Layout
-  title={category ? `${category.name} – Morgentidende` : 'Ikke fundet – Morgentidende'}
-  description={category?.description || (category ? `Seneste nyt fra ${category.name} på Morgentidende.` : '')}
+  title={seoTitle}
+  description={seoDescription}
   canonical={canonical}
   noindex={!category}
   jsonLd={categoryJsonLd}
