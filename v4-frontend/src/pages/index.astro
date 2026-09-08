@@ -18,7 +18,10 @@ if (v4Supabase) {
       .select('id,slug,category_id,story_cluster_id,headline,frontpage_headline,headline_accent_text,deck,hero_url,hero_alt,is_lead,is_breaking,breaking_until,published_at')
       .order('published_at', { ascending: false })
       .limit(120),
-    v4Supabase.from('v4_public_categories').select('id,name,sort_order').order('sort_order', { ascending: true })
+    v4Supabase
+      .from('v4_public_categories')
+      .select('id,slug,name,sort_order')
+      .order('sort_order', { ascending: true })
   ]);
 
   if (articlesResult.error) {
@@ -44,21 +47,33 @@ if (v4Supabase) {
   console.error('frontpage_supabase_unavailable');
 }
 
-const categoryById = new Map(categories.map((c) => [c.id, c.name]));
+const categoryById = new Map(categories.map((c) => [c.id, c]));
+const categoryName = (categoryId: string | null | undefined) => categoryById.get(categoryId)?.name;
+const categorySlug = (categoryId: string | null | undefined) => categoryById.get(categoryId)?.slug;
+
 const breaking = articles.find((a) => a.is_breaking && (!a.breaking_until || new Date(a.breaking_until) > new Date()));
-const analysisLead = articles.find((a) => a.is_lead && categoryById.get(a.category_id) === 'Analyse');
+const analysisLead = articles.find((a) => a.is_lead && categorySlug(a.category_id) === 'analyse');
 const lead = breaking || analysisLead;
 const leadType = breaking ? 'breaking' : analysisLead ? 'analysis' : null;
+
+if (!lead && articles.length > 0) {
+  console.error('frontpage_lead_missing', {
+    articleCount: articles.length,
+    breakingCount: articles.filter((a) => a.is_breaking).length,
+    leadFlagCount: articles.filter((a) => a.is_lead).length
+  });
+}
+
 const others = lead ? articles.filter((a) => a.id !== lead.id) : articles;
 const followups = lead?.story_cluster_id
   ? others.filter((a) => a.story_cluster_id === lead.story_cluster_id).slice(0, 4)
   : lead ? others.slice(0, 3) : [];
 const usedIds = new Set([lead?.id, ...followups.map((a) => a.id)].filter(Boolean));
 const stream = others.filter((a) => !usedIds.has(a.id));
-const viden = stream.filter((a) => categoryById.get(a.category_id) === 'Viden').slice(0, 4);
-const liv = stream.filter((a) => categoryById.get(a.category_id) === 'Liv').slice(0, 4);
+const viden = stream.filter((a) => categorySlug(a.category_id) === 'viden').slice(0, 4);
+const liv = stream.filter((a) => categorySlug(a.category_id) === 'liv').slice(0, 4);
 const news = stream
-  .filter((a) => !['Viden', 'Liv'].includes(categoryById.get(a.category_id)))
+  .filter((a) => !['viden', 'liv'].includes(categorySlug(a.category_id)))
   .slice(0, 14);
 
 const origin = Astro.url.origin;
@@ -105,7 +120,7 @@ const homeJsonLd = {
           <div class="v4-lead-main">
             <V4Card
               article={lead}
-              categoryName={categoryById.get(lead.category_id)}
+              categoryName={categoryName(lead.category_id)}
               showDeck={false}
               imageLoading="eager"
               imageFetchPriority="high"
@@ -118,7 +133,7 @@ const homeJsonLd = {
                 {followups.map((article) => (
                   <V4Card
                     article={article}
-                    categoryName={categoryById.get(article.category_id)}
+                    categoryName={categoryName(article.category_id)}
                     showDeck={false}
                     imageLoading="eager"
                   />
@@ -136,7 +151,7 @@ const homeJsonLd = {
           {news.slice(0, 6).map((article) => (
             <V4Card
               article={article}
-              categoryName={categoryById.get(article.category_id)}
+              categoryName={categoryName(article.category_id)}
               showDeck={false}
               imageLoading="eager"
             />
@@ -171,7 +186,7 @@ const homeJsonLd = {
       <section class="v4-section">
         <div class="v4-grid-4">
           {news.slice(6, 14).map((article) => (
-            <V4Card article={article} categoryName={categoryById.get(article.category_id)} showDeck={false} />
+            <V4Card article={article} categoryName={categoryName(article.category_id)} showDeck={false} />
           ))}
         </div>
       </section>
