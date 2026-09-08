@@ -29,8 +29,8 @@
 }
 
 .v4-lead-label--analysis {
-  background: #e8e1d5;
-  color: #33233f;
+  background: #7a4d8f;
+  color: #fffaf4;
 }
 
 .v4-lead-label--breaking {
@@ -43,8 +43,8 @@ html[data-theme='dark'] .v4-lead-box {
 }
 
 html[data-theme='dark'] .v4-lead-label--analysis {
-  background: #d8d0c4;
-  color: #2b1f35;
+  background: #9a647f;
+  color: #fffaf4;
 }
 
 @media (max-width: 640px) {
