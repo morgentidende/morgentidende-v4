@@ -104,9 +104,7 @@ const firstSix = recommendations
     return bScore - aScore;
   })
   .slice(0, 6);
-const viden = recommendations.filter((a) => categoryById.get(a.category_id) === 'Viden').slice(0, 4);
-const liv = recommendations.filter((a) => categoryById.get(a.category_id) === 'Liv').slice(0, 4);
-const used = new Set([...firstSix, ...viden, ...liv, ...storyRelated].map((a) => a.id));
+const used = new Set([...firstSix, ...storyRelated].map((a) => a.id));
 const finalEight = recommendations.filter((a) => !used.has(a.id)).slice(0, 8);
 const heroIsGraphic = /\.(svg|png)(\?|$)/i.test(article?.hero_url || '') && (article?.hero_credit === 'Morgentidende grafik' || (article?.hero_url || '').includes('dsa-big-brother'));
 const canonical = article ? new URL(`/artikel/${article.slug}`, Astro.site || Astro.url.origin).toString() : undefined;
@@ -116,6 +114,8 @@ const formatDateTime = (value: Date) => new Intl.DateTimeFormat('da-DK', {
   day: 'numeric', month: 'long', year: 'numeric', hour: '2-digit', minute: '2-digit', timeZone: 'Europe/Copenhagen'
 }).format(value);
 const articleTitle = article ? `${article.headline} – Morgentidende` : 'Ikke fundet – Morgentidende';
+const authorName = article?.author_name?.trim();
+const showAuthor = authorName && authorName.toLocaleLowerCase('da-DK') !== 'morgentidende';
 const newsArticleLd = article ? {
   '@context': 'https://schema.org',
   '@type': 'NewsArticle',
@@ -126,7 +126,9 @@ const newsArticleLd = article ? {
   mainEntityOfPage: canonical,
   image: article.hero_url ? [article.hero_url] : undefined,
   articleSection: category || undefined,
-  author: { '@type': 'Person', name: article.author_name || 'Morgentidende' },
+  author: showAuthor
+    ? { '@type': 'Person', name: authorName }
+    : { '@type': 'Organization', name: 'Morgentidende', url: new URL('/', Astro.site || Astro.url.origin).toString() },
   publisher: {
     '@type': 'Organization',
     name: 'Morgentidende',
@@ -151,7 +153,7 @@ const newsArticleLd = article ? {
         <h1 class="v4-article-title">{article.headline}</h1>
         {article.deck ? <p class="v4-article-deck">{article.deck}</p> : null}
         <div class="v4-article-meta">
-          {article.author_name ? <span>Af {article.author_name}</span> : <span>Morgentidende</span>}
+          {showAuthor ? <span>Af {authorName}</span> : null}
           {publishedDate ? <time datetime={article.published_at}>Udgivet {formatDateTime(publishedDate)}</time> : null}
           {updatedDate && publishedDate && updatedDate.getTime() > publishedDate.getTime() + 60000 ? <time datetime={article.updated_at}>Opdateret {formatDateTime(updatedDate)}</time> : null}
         </div>
@@ -189,8 +191,6 @@ const newsArticleLd = article ? {
 
       <div class="v4-shell">
         <section class="v4-section"><div class="v4-grid-3">{firstSix.map((item) => <V4Card article={item} categoryName={categoryById.get(item.category_id)} />)}</div></section>
-        <section class="v4-section v4-magazine v4-magazine--viden"><div class="v4-kicker">MAGASIN</div><h2 class="v4-section-title">Viden</h2><div class="v4-grid-4">{viden.map((item) => <V4Card article={item} />)}</div></section>
-        <section class="v4-section v4-magazine v4-magazine--liv"><div class="v4-kicker">MAGASIN</div><h2 class="v4-section-title">Liv</h2><div class="v4-grid-4">{liv.map((item) => <V4Card article={item} />)}</div></section>
         <section class="v4-section"><div class="v4-grid-4">{finalEight.map((item) => <V4Card article={item} categoryName={categoryById.get(item.category_id)} />)}</div></section>
       </div>
     </>
