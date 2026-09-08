@@ -13,7 +13,7 @@ const {
   categoryName,
   showDeck = true,
   imageLoading = 'eager',
-  imageFetchPriority = 'low'
+  imageFetchPriority = 'auto'
 } = Astro.props;
 const headline = article.frontpage_headline || article.headline;
 const accent = article.headline_accent_text?.trim();
@@ -40,7 +40,7 @@ if (accent) {
         alt={article.hero_alt || ''}
         loading={imageLoading}
         fetchpriority={imageFetchPriority}
-        decoding="async"
+        decoding="auto"
         width="1200"
         height="800"
         sizes="(max-width: 640px) calc(100vw - 28px), (max-width: 1000px) 50vw, 33vw"
