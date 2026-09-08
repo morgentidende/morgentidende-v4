@@ -76,7 +76,7 @@ const {
       const masthead = document.querySelector('.v4-masthead');
       const mastheadSpacer = document.querySelector('.v4-masthead-spacer');
       if (masthead && mastheadSpacer) {
-        let collapseDistance = 200;
+        let collapseDistance = 240;
         let currentProgress = 0;
         let targetProgress = 0;
         let animationFrame = 0;
@@ -91,7 +91,7 @@ const {
         const animateMasthead = (time) => {
           const elapsed = previousTime ? Math.min(50, time - previousTime) : 16;
           previousTime = time;
-          const blend = 1 - Math.exp(-elapsed / 120);
+          const blend = 1 - Math.exp(-elapsed / 145);
           currentProgress += (targetProgress - currentProgress) * blend;
 
           if (Math.abs(targetProgress - currentProgress) < .001) {
@@ -127,8 +127,8 @@ const {
           previousTime = 0;
           renderMasthead(0);
           const expandedHeight = masthead.offsetHeight;
-          const compactHeight = window.innerWidth <= 640 ? 71 : window.innerWidth <= 900 ? 53 : 61;
-          collapseDistance = Math.max(90, expandedHeight - compactHeight);
+          const minimumDistance = window.innerWidth <= 640 ? 190 : window.innerWidth <= 900 ? 210 : 240;
+          collapseDistance = Math.max(minimumDistance, expandedHeight * .9);
           mastheadSpacer.style.height = `${expandedHeight}px`;
           const rawProgress = Math.min(1, Math.max(0, window.scrollY / collapseDistance));
           targetProgress = reducedMotion.matches && rawProgress > 0 ? 1 : rawProgress;
