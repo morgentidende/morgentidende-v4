@@ -4,6 +4,7 @@ import V4Card from '../components/V4Card.astro';
 import NewsletterSignup from '../components/NewsletterSignup.astro';
 import { v4Supabase } from '../lib/v4-supabase';
 
+const cardFields = 'id,slug,category_id,story_cluster_id,headline,frontpage_headline,headline_accent_text,deck,hero_url,hero_alt,is_lead,is_breaking,breaking_until,published_at';
 let articles: any[] = [];
 let categories: any[] = [];
 let loadError = '';
@@ -12,8 +13,9 @@ if (v4Supabase) {
   const [articlesResult, categoriesResult] = await Promise.all([
     // Fetch a broad enough pool that bursts of Viden/Liv publishing cannot crowd
     // ordinary news out of the front-page news stream before category filtering.
-    v4Supabase.from('v4_public_articles').select('*').order('published_at', { ascending: false }).limit(120),
-    v4Supabase.from('v4_public_categories').select('*').order('sort_order', { ascending: true })
+    // Only card fields are fetched; full article bodies are never needed here.
+    v4Supabase.from('v4_public_articles').select(cardFields).order('published_at', { ascending: false }).limit(120),
+    v4Supabase.from('v4_public_categories').select('id,name').order('sort_order', { ascending: true })
   ]);
   if (articlesResult.error) loadError = articlesResult.error.message;
   else articles = articlesResult.data || [];
@@ -33,7 +35,6 @@ const usedIds = new Set([lead?.id, ...followups.map((a) => a.id)].filter(Boolean
 const stream = others.filter((a) => !usedIds.has(a.id));
 const viden = stream.filter((a) => categoryById.get(a.category_id) === 'Viden').slice(0, 4);
 const liv = stream.filter((a) => categoryById.get(a.category_id) === 'Liv').slice(0, 4);
-// Front-page news stream must never contain magazine material.
 const news = stream
   .filter((a) => !['Viden', 'Liv'].includes(categoryById.get(a.category_id)))
   .slice(0, 14);
@@ -47,7 +48,13 @@ const news = stream
         {breaking ? <div class="v4-breaking-label">BREAKING · SENESTE NYT</div> : null}
         <div class="v4-lead-layout">
           <div class="v4-lead-main">
-            <V4Card article={lead} categoryName={categoryById.get(lead.category_id)} showDeck={false} />
+            <V4Card
+              article={lead}
+              categoryName={categoryById.get(lead.category_id)}
+              showDeck={false}
+              imageLoading="eager"
+              imageFetchPriority="high"
+            />
           </div>
           {followups.length ? (
             <div class="v4-followups-block">
