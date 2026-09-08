@@ -4,18 +4,21 @@ import V4Card from '../components/V4Card.astro';
 import NewsletterSignup from '../components/NewsletterSignup.astro';
 import { v4Supabase } from '../lib/v4-supabase';
 
-const cardFields = 'id,slug,category_id,story_cluster_id,headline,frontpage_headline,headline_accent_text,deck,hero_url,hero_alt,is_lead,is_breaking,breaking_until,published_at';
+Astro.response.headers.set('Cache-Control', 'public, max-age=0, s-maxage=30, stale-while-revalidate=60');
+Astro.response.headers.set('Cloudflare-CDN-Cache-Control', 'public, max-age=30, stale-while-revalidate=60');
+
 let articles: any[] = [];
 let categories: any[] = [];
 let loadError = '';
 
 if (v4Supabase) {
   const [articlesResult, categoriesResult] = await Promise.all([
-    // Fetch a broad enough pool that bursts of Viden/Liv publishing cannot crowd
-    // ordinary news out of the front-page news stream before category filtering.
-    // Only card fields are fetched; full article bodies are never needed here.
-    v4Supabase.from('v4_public_articles').select(cardFields).order('published_at', { ascending: false }).limit(120),
-    v4Supabase.from('v4_public_categories').select('id,name').order('sort_order', { ascending: true })
+    v4Supabase
+      .from('v4_public_articles')
+      .select('id,slug,category_id,story_cluster_id,headline,frontpage_headline,headline_accent_text,deck,hero_url,hero_alt,is_lead,is_breaking,breaking_until,published_at')
+      .order('published_at', { ascending: false })
+      .limit(120),
+    v4Supabase.from('v4_public_categories').select('id,name,sort_order').order('sort_order', { ascending: true })
   ]);
   if (articlesResult.error) loadError = articlesResult.error.message;
   else articles = articlesResult.data || [];
@@ -48,13 +51,7 @@ const news = stream
         {breaking ? <div class="v4-breaking-label">BREAKING · SENESTE NYT</div> : null}
         <div class="v4-lead-layout">
           <div class="v4-lead-main">
-            <V4Card
-              article={lead}
-              categoryName={categoryById.get(lead.category_id)}
-              showDeck={false}
-              imageLoading="eager"
-              imageFetchPriority="high"
-            />
+            <V4Card article={lead} categoryName={categoryById.get(lead.category_id)} showDeck={false} priorityImage={true} />
           </div>
           {followups.length ? (
             <div class="v4-followups-block">
