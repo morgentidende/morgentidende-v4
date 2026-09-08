@@ -9,16 +9,6 @@ document.getElementById('theme-toggle')?.addEventListener('click', () => {
   localStorage.setItem('mt-v4-theme', next);
 });
 
-const dateEl = document.getElementById('v4-date');
-if (dateEl) {
-  dateEl.textContent = new Intl.DateTimeFormat('da-DK', {
-    weekday: 'long',
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric'
-  }).format(new Date()).toUpperCase();
-}
-
 const lower = document.querySelector('.v4-masthead-lower');
 const topbar = document.querySelector('.v4-masthead-top');
 const brand = document.querySelector('.v4-masthead-top .v4-brand');
