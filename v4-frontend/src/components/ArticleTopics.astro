@@ -1,0 +1,70 @@
+---
+interface Props {
+  topics?: string[];
+}
+
+const topics = (Astro.props.topics || [])
+  .map((topic) => topic?.trim())
+  .filter(Boolean)
+  .slice(0, 3);
+---
+{topics.length ? (
+  <nav class="v4-article-topics" aria-label="Emner">
+    <span class="v4-article-topics__label">Emner</span>
+    <div class="v4-article-topics__list">
+      {topics.map((topic) => (
+        <a href={`/emne/${encodeURIComponent(topic)}`}>{topic}</a>
+      ))}
+    </div>
+  </nav>
+) : null}
+
+<style>
+  .v4-article-topics {
+    width: min(700px, calc(100% - 40px));
+    margin: 0 auto 24px;
+    font-family: var(--v4-sans);
+  }
+
+  .v4-article-topics__label {
+    display: block;
+    margin-bottom: 9px;
+    color: var(--v4-muted);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+  }
+
+  .v4-article-topics__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+  }
+
+  .v4-article-topics a {
+    padding: 7px 10px;
+    border: 1px solid var(--v4-rule);
+    background: var(--v4-surface);
+    font-size: 13px;
+    line-height: 1;
+    transition: border-color .18s ease, color .18s ease;
+  }
+
+  .v4-article-topics a:hover {
+    border-color: var(--v4-gold);
+    color: var(--v4-gold);
+  }
+
+  @media (max-width: 640px) {
+    .v4-article-topics {
+      width: calc(100% - 28px);
+      margin-bottom: 20px;
+    }
+
+    .v4-article-topics a {
+      padding: 7px 9px;
+      font-size: 12px;
+    }
+  }
+</style>
