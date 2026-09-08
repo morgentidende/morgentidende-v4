@@ -59,7 +59,7 @@ const mastheadDate = new Intl.DateTimeFormat('da-DK', {
     <meta name="twitter:description" content={description} />
     {image ? <meta name="twitter:image" content={image} /> : null}
     <title>{title}</title>
-    <script src="/theme-init.js"></script>
+    <script is:inline src="/theme-init.js"></script>
     <link rel="icon" href="/favicon.png" type="image/png" sizes="64x64" />
     <link rel="shortcut icon" href="/favicon.ico" />
     {preloadImage ? <link rel="preload" as="image" href={preloadImage} fetchpriority="high" /> : null}
