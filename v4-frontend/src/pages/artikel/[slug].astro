@@ -117,6 +117,8 @@ const formatDateTime = (value: Date) => new Intl.DateTimeFormat('da-DK', {
 const articleTitle = article ? `${article.headline} – Morgentidende` : 'Ikke fundet – Morgentidende';
 const authorName = article?.author_name?.trim();
 const showAuthor = authorName && authorName.toLocaleLowerCase('da-DK') !== 'morgentidende';
+const headlineIsLong = (article?.headline?.length || 0) > 72;
+const headlineIsVeryLong = (article?.headline?.length || 0) > 105;
 const newsArticleLd = article ? {
   '@context': 'https://schema.org',
   '@type': 'NewsArticle',
@@ -151,7 +153,7 @@ const newsArticleLd = article ? {
     <>
       <header class="v4-article-header">
         {category ? <div class="v4-kicker">{category}</div> : null}
-        <h1 class="v4-article-title">{article.headline}</h1>
+        <h1 class:list={['v4-article-title', headlineIsLong && 'v4-article-title--long', headlineIsVeryLong && 'v4-article-title--very-long']}>{article.headline}</h1>
         {article.deck ? <p class="v4-article-deck">{article.deck}</p> : null}
         <div class="v4-article-meta">
           {showAuthor ? <span>Af {authorName}</span> : null}
