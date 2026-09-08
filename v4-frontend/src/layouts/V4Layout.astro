@@ -62,6 +62,8 @@ const mastheadDate = new Intl.DateTimeFormat('da-DK', {
     <link rel="icon" href="/favicon.png" type="image/png" sizes="64x64" />
     <link rel="shortcut icon" href="/favicon.ico" />
     {preloadImage ? <link rel="preload" as="image" href={preloadImage} fetchpriority="high" /> : null}
+    <link rel="preconnect" href="https://commons.wikimedia.org" />
+    <link rel="preconnect" href="https://images.pexels.com" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet" />
@@ -72,7 +74,7 @@ const mastheadDate = new Intl.DateTimeFormat('da-DK', {
       <div class="v4-masthead-top">
         <div class="v4-masthead__inner">
           <a href="/" class="v4-brand" aria-label="Morgentidende forside">
-            <img class="v4-brand__sun" src="/morgentidende-sun.png" alt="" width="64" height="64" decoding="async" />
+            <img class="v4-brand__sun" src="/morgentidende-sun.png" alt="" width="64" height="64" decoding="auto" />
             <span class="v4-brand__word">Morgentidende</span>
           </a>
           <div class="v4-masthead__actions">
