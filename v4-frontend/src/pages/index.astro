@@ -78,12 +78,23 @@ const news = stream
     ) : null}
 
     {news.length ? (
-      <section class="v4-section">
-        <div class="v4-grid-3">
-          {news.slice(0, 6).map((article) => (
+      <section class="v4-section v4-frontpage-news">
+        <div class="v4-grid-3 v4-frontpage-primary">
+          {news.slice(0, 3).map((article) => (
             <V4Card article={article} categoryName={categoryById.get(article.category_id)} showDeck={false} />
           ))}
         </div>
+
+        {news.length > 3 ? (
+          <>
+            <div class="v4-frontpage-tier-divider" aria-hidden="true"></div>
+            <div class="v4-grid-4 v4-frontpage-secondary">
+              {news.slice(3, 7).map((article) => (
+                <V4Card article={article} categoryName={categoryById.get(article.category_id)} showDeck={false} />
+              ))}
+            </div>
+          </>
+        ) : null}
       </section>
     ) : null}
 
@@ -109,10 +120,10 @@ const news = stream
       ) : <div class="v4-empty">Liv-blokken er klar til artikler.</div>}
     </section>
 
-    {news.length > 6 ? (
+    {news.length > 7 ? (
       <section class="v4-section">
         <div class="v4-grid-4">
-          {news.slice(6, 14).map((article) => (
+          {news.slice(7, 14).map((article) => (
             <V4Card article={article} categoryName={categoryById.get(article.category_id)} showDeck={false} />
           ))}
         </div>
@@ -120,3 +131,63 @@ const news = stream
     ) : null}
   </div>
 </V4Layout>
+
+<style>
+  .v4-frontpage-tier-divider {
+    width: 78%;
+    height: 1px;
+    margin: 30px auto;
+    background: var(--v4-rule);
+  }
+
+  @media (max-width: 640px) {
+    .v4-frontpage-tier-divider {
+      width: 82%;
+      margin: 26px auto;
+    }
+
+    .v4-frontpage-secondary {
+      gap: 0;
+    }
+
+    .v4-frontpage-secondary :global(.v4-card) {
+      display: grid;
+      grid-template-columns: minmax(0, 42%) minmax(0, 1fr);
+      grid-template-rows: auto 1fr;
+      column-gap: 14px;
+      align-items: start;
+      padding: 18px 0;
+    }
+
+    .v4-frontpage-secondary :global(.v4-card:first-child) {
+      padding-top: 0;
+    }
+
+    .v4-frontpage-secondary :global(.v4-card + .v4-card) {
+      border-top: 1px solid var(--v4-rule);
+    }
+
+    .v4-frontpage-secondary :global(.v4-card__media) {
+      grid-column: 1;
+      grid-row: 1 / span 2;
+      width: 100%;
+      min-height: 112px;
+      aspect-ratio: 4 / 3;
+    }
+
+    .v4-frontpage-secondary :global(.v4-kicker) {
+      grid-column: 2;
+      grid-row: 1;
+      margin: 1px 0 7px;
+      font-size: 11px;
+    }
+
+    .v4-frontpage-secondary :global(.v4-card__headline) {
+      grid-column: 2;
+      grid-row: 2;
+      margin: 0;
+      font-size: clamp(19px, 5.3vw, 22px);
+      line-height: 1.14;
+    }
+  }
+</style>
