@@ -1,5 +1,0 @@
-User-agent: *
-Disallow: /
-
-# Pre-launch: keep the temporary workers.dev site out of search indexes.
-# Replace this file when morgentidende.dk becomes the canonical production domain.
