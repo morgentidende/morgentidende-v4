@@ -29,11 +29,13 @@ if (v4Supabase) {
 
 const categoryById = new Map(categories.map((c) => [c.id, c.name]));
 const breaking = articles.find((a) => a.is_breaking && (!a.breaking_until || new Date(a.breaking_until) > new Date()));
-const lead = breaking || articles.find((a) => a.is_lead) || articles[0];
-const others = articles.filter((a) => a.id !== lead?.id);
+const analysisLead = articles.find((a) => a.is_lead && categoryById.get(a.category_id) === 'Analyse');
+const lead = breaking || analysisLead;
+const leadType = breaking ? 'breaking' : analysisLead ? 'analysis' : null;
+const others = lead ? articles.filter((a) => a.id !== lead.id) : articles;
 const followups = lead?.story_cluster_id
   ? others.filter((a) => a.story_cluster_id === lead.story_cluster_id).slice(0, 4)
-  : others.slice(0, 3);
+  : lead ? others.slice(0, 3) : [];
 const usedIds = new Set([lead?.id, ...followups.map((a) => a.id)].filter(Boolean));
 const stream = others.filter((a) => !usedIds.has(a.id));
 const viden = stream.filter((a) => categoryById.get(a.category_id) === 'Viden').slice(0, 4);
@@ -47,8 +49,9 @@ const news = stream
     {loadError && articles.length === 0 ? <div class="v4-empty">V4 frontend er klar. {loadError}</div> : null}
 
     {lead ? (
-      <section class={breaking ? 'v4-breaking-box' : 'v4-lead-box'}>
-        {breaking ? <div class="v4-breaking-label">BREAKING · SENESTE NYT</div> : null}
+      <section class={leadType === 'breaking' ? 'v4-breaking-box' : 'v4-lead-box'}>
+        {leadType === 'breaking' ? <div class="v4-breaking-label">BREAKING · SENESTE NYT</div> : null}
+        {leadType === 'analysis' ? <div class="v4-breaking-label">ANALYSE</div> : null}
         <div class="v4-lead-layout">
           <div class="v4-lead-main">
             <V4Card
