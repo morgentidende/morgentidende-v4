@@ -48,11 +48,27 @@ if (v4Supabase && categorySlug) {
 
 if (!category) Astro.response.status = 404;
 const isMagazine = category?.name === 'Viden' || category?.name === 'Liv';
+const canonical = category ? `${Astro.url.origin}/kategori/${category.slug}` : undefined;
+const categoryJsonLd = category ? {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: `${category.name} – Morgentidende`,
+  description: category.description || `Seneste nyt fra ${category.name} på Morgentidende.`,
+  url: canonical,
+  inLanguage: 'da-DK',
+  isPartOf: {
+    '@type': 'WebSite',
+    name: 'Morgentidende',
+    url: `${Astro.url.origin}/`
+  }
+} : undefined;
 ---
 <V4Layout
   title={category ? `${category.name} – Morgentidende` : 'Ikke fundet – Morgentidende'}
   description={category?.description || (category ? `Seneste nyt fra ${category.name} på Morgentidende.` : '')}
+  canonical={canonical}
   noindex={!category}
+  jsonLd={categoryJsonLd}
 >
   <div class="v4-shell">
     {category ? (
