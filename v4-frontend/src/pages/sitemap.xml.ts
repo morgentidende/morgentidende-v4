@@ -3,8 +3,8 @@ import { v4Supabase } from '../lib/v4-supabase';
 
 const escapeXml = (value: string) => value.replace(/[<>&'\"]/g, (char) => ({'<':'&lt;','>':'&gt;','&':'&amp;',"'":'&apos;','\"':'&quot;'}[char] || char));
 
-export const GET: APIRoute = async ({ site }) => {
-  const origin = (site || new URL('https://morgentidende.dk')).origin;
+export const GET: APIRoute = async ({ request }) => {
+  const origin = new URL(request.url).origin;
   const staticPaths = ['/', '/om', '/redaktionelle-principper', '/kontakt'];
   let articles: any[] = [];
   let categories: any[] = [];
