@@ -61,6 +61,15 @@ jobs:
             exit 1
           fi
 
+      - name: Frontpage lead regression guardrails
+        shell: bash
+        run: |
+          set -euo pipefail
+          grep -q "select('id,slug,name,sort_order')" v4-frontend/src/pages/index.astro
+          grep -q "categorySlug(a.category_id) === 'analyse'" v4-frontend/src/pages/index.astro
+          grep -q "frontpage_lead_missing" v4-frontend/src/pages/index.astro
+          test -f supabase/migrations/20260908130000_restore_analysis_lead.sql
+
   build:
     runs-on: ubuntu-latest
     defaults:
