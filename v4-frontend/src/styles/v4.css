@@ -13,7 +13,7 @@
   --v4-max: 1060px;
   --v4-serif: 'Libre Baskerville', Georgia, serif;
   --v4-logo: 'Cormorant Garamond', 'Libre Baskerville', Georgia, serif;
-  --v4-sans: 'DM Sans', system-ui, sans-serif;
+  --v4-sans: system-ui, sans-serif;
 }
 
 html[data-theme='dark'] {
@@ -164,11 +164,9 @@ button { font: inherit; }
 .v4-lead-box, .v4-breaking-box { border: 1px solid var(--v4-rule); padding: 24px; background: var(--v4-surface); }
 .v4-lead-box { box-shadow: inset 5px 0 0 var(--v4-life); }
 .v4-breaking-box { box-shadow: inset 5px 0 0 var(--v4-gold); }
-.v4-breaking-label { display: inline-flex; align-items: center; gap: 8px; background: var(--v4-gold); color: #17140c; border-radius: 999px; padding: 6px 10px; font-weight: 700; font-size: 12px; letter-spacing: .08em; }
 .v4-lead-layout { display: grid; grid-template-columns: 1fr; gap: 24px; }
 .v4-lead-main .v4-card__headline { font-size: clamp(28px, 3.5vw, 50px); }
 .v4-followups-block { border-top: 1px solid var(--v4-rule); padding-top: 14px; }
-.v4-followups-label { color: var(--v4-gold); text-transform: uppercase; letter-spacing: .12em; font-size: 12px; font-weight: 700; margin-bottom: 12px; }
 .v4-followups { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
 .v4-followups article { display: grid; grid-template-columns: 112px minmax(0, 1fr); gap: 12px; align-items: start; }
 .v4-followups .v4-card__media { width: 112px; aspect-ratio: 4 / 3; grid-row: 1 / span 3; }
