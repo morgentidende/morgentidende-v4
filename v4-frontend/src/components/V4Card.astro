@@ -1,4 +1,6 @@
 ---
+import { imageSrcSet, imageVariant } from '../lib/image-delivery';
+
 interface Props {
   article: any;
   categoryName?: string;
@@ -15,6 +17,8 @@ const {
 } = Astro.props;
 const headline = article.frontpage_headline || article.headline;
 const accent = article.headline_accent_text?.trim();
+const cardImageSrc = imageVariant(article.hero_url, 800);
+const cardImageSrcSet = imageSrcSet(article.hero_url, [420, 640, 800, 1200]);
 let before = headline;
 let highlighted = '';
 let after = '';
@@ -31,14 +35,15 @@ if (accent) {
   <a class="v4-card__media" href={`/artikel/${article.slug}`}>
     {article.hero_url ? (
       <img
-        src={article.hero_url}
+        src={cardImageSrc}
+        srcset={cardImageSrcSet}
         alt={article.hero_alt || ''}
         loading={imageLoading}
         fetchpriority={imageFetchPriority}
         decoding="async"
         width="1200"
         height="800"
-        sizes="(max-width: 640px) 100vw, (max-width: 1000px) 50vw, 33vw"
+        sizes="(max-width: 640px) calc(100vw - 28px), (max-width: 1000px) 50vw, 33vw"
       />
     ) : null}
   </a>
