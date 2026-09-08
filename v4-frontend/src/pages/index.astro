@@ -9,7 +9,7 @@ Astro.response.headers.set('Cloudflare-CDN-Cache-Control', 'public, max-age=30, 
 
 let articles: any[] = [];
 let categories: any[] = [];
-let loadError = '';
+let loadError = false;
 
 if (v4Supabase) {
   const [articlesResult, categoriesResult] = await Promise.all([
@@ -20,11 +20,28 @@ if (v4Supabase) {
       .limit(120),
     v4Supabase.from('v4_public_categories').select('id,name,sort_order').order('sort_order', { ascending: true })
   ]);
-  if (articlesResult.error) loadError = articlesResult.error.message;
-  else articles = articlesResult.data || [];
-  if (!categoriesResult.error) categories = categoriesResult.data || [];
+
+  if (articlesResult.error) {
+    loadError = true;
+    console.error('frontpage_articles_query_failed', {
+      code: articlesResult.error.code,
+      message: articlesResult.error.message
+    });
+  } else {
+    articles = articlesResult.data || [];
+  }
+
+  if (categoriesResult.error) {
+    console.error('frontpage_categories_query_failed', {
+      code: categoriesResult.error.code,
+      message: categoriesResult.error.message
+    });
+  } else {
+    categories = categoriesResult.data || [];
+  }
 } else {
-  loadError = 'Supabase-miljøvariabler mangler.';
+  loadError = true;
+  console.error('frontpage_supabase_unavailable');
 }
 
 const categoryById = new Map(categories.map((c) => [c.id, c.name]));
@@ -46,7 +63,7 @@ const news = stream
 ---
 <V4Layout image={lead?.hero_url}>
   <div class="v4-shell">
-    {loadError && articles.length === 0 ? <div class="v4-empty">V4 frontend er klar. {loadError}</div> : null}
+    {loadError && articles.length === 0 ? <div class="v4-empty">Indholdet kunne ikke hentes lige nu. Prøv igen om et øjeblik.</div> : null}
 
     {lead ? (
       <section class={leadType === 'breaking' ? 'v4-breaking-box' : 'v4-lead-box'}>
@@ -67,7 +84,12 @@ const news = stream
               <div class="v4-followups-label">Læs også</div>
               <div class="v4-followups">
                 {followups.map((article) => (
-                  <V4Card article={article} categoryName={categoryById.get(article.category_id)} showDeck={false} />
+                  <V4Card
+                    article={article}
+                    categoryName={categoryById.get(article.category_id)}
+                    showDeck={false}
+                    imageLoading="eager"
+                  />
                 ))}
               </div>
             </div>
@@ -80,7 +102,12 @@ const news = stream
       <section class="v4-section">
         <div class="v4-grid-3">
           {news.slice(0, 6).map((article) => (
-            <V4Card article={article} categoryName={categoryById.get(article.category_id)} showDeck={false} />
+            <V4Card
+              article={article}
+              categoryName={categoryById.get(article.category_id)}
+              showDeck={false}
+              imageLoading="eager"
+            />
           ))}
         </div>
       </section>
