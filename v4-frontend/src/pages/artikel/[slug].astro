@@ -5,6 +5,7 @@ import NewsletterSignup from '../../components/NewsletterSignup.astro';
 import { v4Supabase } from '../../lib/v4-supabase';
 import { marked } from 'marked';
 import sanitizeHtml from 'sanitize-html';
+import '../../styles/article-polish.css';
 
 Astro.response.headers.set('Cache-Control', 'public, max-age=0, s-maxage=60, stale-while-revalidate=120');
 Astro.response.headers.set('Cloudflare-CDN-Cache-Control', 'public, max-age=60, stale-while-revalidate=120');
@@ -96,16 +97,16 @@ const bodyHtml = article
 
 const storyRelated = clusterRelated.length ? clusterRelated : related;
 const storyRelatedIds = new Set(storyRelated.map((a) => a.id));
-const firstSix = recommendations
+const firstThree = recommendations
   .filter((a) => !storyRelatedIds.has(a.id))
   .sort((a, b) => {
     const aScore = (a.story_cluster_id && a.story_cluster_id === article?.story_cluster_id ? 4 : 0) + (a.category_id === article?.category_id ? 2 : 0);
     const bScore = (b.story_cluster_id && b.story_cluster_id === article?.story_cluster_id ? 4 : 0) + (b.category_id === article?.category_id ? 2 : 0);
     return bScore - aScore;
   })
-  .slice(0, 6);
-const used = new Set([...firstSix, ...storyRelated].map((a) => a.id));
-const finalEight = recommendations.filter((a) => !used.has(a.id)).slice(0, 8);
+  .slice(0, 3);
+const used = new Set([...firstThree, ...storyRelated].map((a) => a.id));
+const finalFour = recommendations.filter((a) => !used.has(a.id)).slice(0, 4);
 const heroIsGraphic = /\.(svg|png)(\?|$)/i.test(article?.hero_url || '') && (article?.hero_credit === 'Morgentidende grafik' || (article?.hero_url || '').includes('dsa-big-brother'));
 const canonical = article ? new URL(`/artikel/${article.slug}`, Astro.site || Astro.url.origin).toString() : undefined;
 const publishedDate = article?.published_at ? new Date(article.published_at) : null;
@@ -174,6 +175,8 @@ const newsArticleLd = article ? {
 
       <article class="v4-article-body"><div set:html={bodyHtml} /></article>
 
+      <div class="v4-article-signoff">Morgentidende giver dig argumenterne. Hvad du mener om dem, er op til dig.</div>
+
       <div class="v4-article-newsletter">
         {category === 'Viden' || category === 'Liv'
           ? <NewsletterSignup variant="weekly" magazineName={category} />
@@ -190,8 +193,17 @@ const newsArticleLd = article ? {
       ) : null}
 
       <div class="v4-shell">
-        <section class="v4-section"><div class="v4-grid-3">{firstSix.map((item) => <V4Card article={item} categoryName={categoryById.get(item.category_id)} />)}</div></section>
-        <section class="v4-section"><div class="v4-grid-4">{finalEight.map((item) => <V4Card article={item} categoryName={categoryById.get(item.category_id)} />)}</div></section>
+        {firstThree.length ? (
+          <section class="v4-section v4-article-recommendations">
+            <h2 class="v4-article-recommendations__title">Mere fra Morgentidende</h2>
+            <div class="v4-grid-3">{firstThree.map((item) => <V4Card article={item} categoryName={categoryById.get(item.category_id)} />)}</div>
+          </section>
+        ) : null}
+        {finalFour.length ? (
+          <section class="v4-article-recommendations--secondary">
+            <div class="v4-grid-4">{finalFour.map((item) => <V4Card article={item} categoryName={categoryById.get(item.category_id)} />)}</div>
+          </section>
+        ) : null}
       </div>
     </>
   ) : <div class="v4-shell"><div class="v4-empty">Artiklen blev ikke fundet.</div></div>}
