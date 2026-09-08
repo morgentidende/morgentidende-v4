@@ -3,8 +3,8 @@ import { v4Supabase } from '../lib/v4-supabase';
 
 const escapeXml = (value: string) => value.replace(/[<>&'\"]/g, (char) => ({'<':'&lt;','>':'&gt;','&':'&amp;',"'":'&apos;','\"':'&quot;'}[char] || char));
 
-export const GET: APIRoute = async ({ site }) => {
-  const origin = (site || new URL('https://morgentidende.dk')).origin;
+export const GET: APIRoute = async ({ request }) => {
+  const origin = new URL(request.url).origin;
   let articles: any[] = [];
   if (v4Supabase) {
     const cutoff = new Date(Date.now() - 48 * 60 * 60 * 1000).toISOString();
