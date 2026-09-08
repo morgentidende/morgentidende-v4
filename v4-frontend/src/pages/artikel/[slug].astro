@@ -2,6 +2,7 @@
 import V4Layout from '../../layouts/V4Layout.astro';
 import V4Card from '../../components/V4Card.astro';
 import NewsletterSignup from '../../components/NewsletterSignup.astro';
+import ArticleTopics from '../../components/ArticleTopics.astro';
 import { v4Supabase } from '../../lib/v4-supabase';
 import { marked } from 'marked';
 import sanitizeHtml from 'sanitize-html';
@@ -233,6 +234,8 @@ const newsArticleLd = article ? {
       ) : null}
 
       <article class="v4-article-body"><div set:html={bodyHtml} /></article>
+
+      <ArticleTopics slug={article.slug} />
 
       <div class="v4-article-signoff">Morgentidende giver dig argumenterne. Hvad du mener om dem, er op til dig.</div>
 
