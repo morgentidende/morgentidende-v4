@@ -60,8 +60,40 @@ const liv = stream.filter((a) => categoryById.get(a.category_id) === 'Liv').slic
 const news = stream
   .filter((a) => !['Viden', 'Liv'].includes(categoryById.get(a.category_id)))
   .slice(0, 14);
+
+const origin = Astro.url.origin;
+const canonical = `${origin}/`;
+const homeJsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'NewsMediaOrganization',
+      '@id': `${origin}/#organization`,
+      name: 'Morgentidende',
+      url: canonical,
+      logo: {
+        '@type': 'ImageObject',
+        url: `${origin}/morgentidende-sun.png`
+      }
+    },
+    {
+      '@type': 'WebSite',
+      '@id': `${origin}/#website`,
+      name: 'Morgentidende',
+      url: canonical,
+      publisher: { '@id': `${origin}/#organization` },
+      inLanguage: 'da-DK'
+    }
+  ]
+};
 ---
-<V4Layout image={lead?.hero_url}>
+<V4Layout
+  title="Morgentidende"
+  description="Morgentidende – få begge sider af sagen i Danmarks nye avis"
+  canonical={canonical}
+  image={lead?.hero_url}
+  jsonLd={homeJsonLd}
+>
   <div class="v4-shell">
     {loadError && articles.length === 0 ? <div class="v4-empty">Indholdet kunne ikke hentes lige nu. Prøv igen om et øjeblik.</div> : null}
 
