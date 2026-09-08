@@ -13,7 +13,7 @@
 - [ ] Broken-link scan on deployed site
 
 ## Security
-- [ ] Branch/ruleset protection verified
+- [x] Branch/ruleset protection verified
 - [ ] CSP, HSTS and security headers verified on deployed production response
 - [x] Supabase RLS/public-view privilege audit
 - [x] CI guardrail against service-role/private keys in application code
