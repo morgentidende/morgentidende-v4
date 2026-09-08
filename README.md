@@ -2,17 +2,18 @@
 
 Morgentidende – få begge sider af sagen i Danmarks nye avis.
 
-## Struktur
-- `v4-frontend/` – Astro/Cloudflare frontend for Morgentidende v4.
-- `supabase/migrations/` – versioneret v4 database-schema og sikkerhed.
-- `docs/v4-spec.md` – produkt-, design- og redaktionsspecifikation.
+## Autoritativ struktur
+- `v4-frontend/` – aktiv Astro/Cloudflare-frontend.
+- `supabase/migrations/` – database- og sikkerhedshistorik. Migrationsfiler bevares som versionshistorik og må ikke behandles som parallel aktiv applikationslogik.
+- `docs/v4-spec.md` – gældende produkt-, design-, udviklings- og redaktionsregler.
+- `docs/magazine-editorial-policy.md` – supplerende gældende regler for Viden og Liv.
 
-## Principper
+## Arkitektur
 - ChatGPT er den redaktionelle motor.
 - Supabase håndterer artikler, scheduling, relationer, læser-login og versionshistorik.
-- Cloudflare bruges til v4-frontend/deployment og senere scheduler/medielag.
-- Ingen secrets må ligge i dette offentlige repo.
+- Cloudflare driver frontend/deployment.
+- Ingen secrets må ligge i det offentlige repo.
 - Offentlige læsere får kun adgang til eksplicitte `v4_public_*` views.
 
-## Status
-V4 core schema, RLS/sikkerhed, public views og første frontend-skelet er oprettet.
+## Vedligeholdelsesregel
+Der skal kun være én aktiv implementation af en funktion eller designmekanisme. Når kode eller regler erstattes, fjernes den gamle aktive version i samme ændring. Historik bevares i Git/audit-log i stedet for som dead code eller konkurrerende regler.
