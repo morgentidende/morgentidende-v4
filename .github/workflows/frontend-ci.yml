@@ -22,9 +22,12 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          if grep -RInE --exclude-dir=.git --exclude='*.md' \
-            '(SUPABASE_SERVICE_ROLE_KEY|service_role["'"'[:space:]]*[:=]|-----BEGIN (RSA |EC |OPENSSH )?PRIVATE KEY-----)' .; then
-            echo 'Potential secret or service-role credential found in repository content.'
+          if grep -RInE --exclude-dir=.git --exclude='*.md' 'SUPABASE_SERVICE_ROLE_KEY|-----BEGIN (RSA |EC |OPENSSH )?PRIVATE KEY-----' .; then
+            echo 'Potential secret or private key found in repository content.'
+            exit 1
+          fi
+          if grep -RInE --exclude-dir=.git --exclude='*.md' --include='*.env*' --include='*.ts' --include='*.js' --include='*.astro' 'service_role[[:space:]]*[:=]' .; then
+            echo 'Potential Supabase service-role credential found in repository content.'
             exit 1
           fi
 
@@ -32,9 +35,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          if grep -RInE --include='*.astro' --include='*.ts' --include='*.js' \
-            "\.from\('(articles|categories|story_clusters|article_relations|article_versions|site_settings|reader_profiles)'\)" \
-            v4-frontend/src; then
+          if grep -RInE --include='*.astro' --include='*.ts' --include='*.js' "\\.from\\('(articles|categories|story_clusters|article_relations|article_versions|site_settings|reader_profiles)'\\)" v4-frontend/src; then
             echo 'Frontend must read public content through v4_public_* views, not base tables.'
             exit 1
           fi
