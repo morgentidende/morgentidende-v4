@@ -69,7 +69,7 @@ button { font: inherit; }
 .v4-meta-row { max-height: calc(54px * var(--v4-masthead-rest)); margin-top: calc(28px * var(--v4-masthead-rest)); padding: calc(18px * var(--v4-masthead-rest)) 0; overflow: hidden; border-top: 1px solid rgba(255,255,255,.18); border-bottom: 1px solid rgba(255,255,255,.18); display: flex; justify-content: space-between; font-size: 12px; letter-spacing: .14em; opacity: var(--v4-masthead-rest); transform: translateY(calc(-10px * var(--v4-masthead-progress))); }
 .v4-nav { max-height: calc(44px * var(--v4-masthead-rest)); display: flex; justify-content: center; gap: 34px; padding-top: calc(20px * var(--v4-masthead-rest)); overflow: hidden; font-size: 16px; opacity: var(--v4-masthead-rest); transform: translateY(calc(-14px * var(--v4-masthead-progress))); }
 .v4-nav a:hover { color: var(--v4-gold-soft); }
-.v4-masthead.is-compact .v4-nav { visibility: hidden; pointer-events: none; }
+.v4-masthead.is-compact .v4-nav { pointer-events: none; }
 
 .v4-shell { width: min(var(--v4-max), calc(100% - 40px)); margin: 0 auto; padding: 38px 0 72px; }
 .v4-section { border-top: 1px solid var(--v4-rule); padding-top: 20px; margin-top: 34px; }

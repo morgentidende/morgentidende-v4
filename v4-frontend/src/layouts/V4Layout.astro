@@ -76,36 +76,71 @@ const {
       const masthead = document.querySelector('.v4-masthead');
       const mastheadSpacer = document.querySelector('.v4-masthead-spacer');
       if (masthead && mastheadSpacer) {
-        let ticking = false;
         let collapseDistance = 200;
+        let currentProgress = 0;
+        let targetProgress = 0;
+        let animationFrame = 0;
+        let previousTime = 0;
         const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+        const renderMasthead = (progress) => {
+          masthead.style.setProperty('--v4-masthead-progress', progress.toFixed(4));
+          masthead.classList.toggle('is-compact', progress >= .999);
+        };
+
+        const animateMasthead = (time) => {
+          const elapsed = previousTime ? Math.min(50, time - previousTime) : 16;
+          previousTime = time;
+          const blend = 1 - Math.exp(-elapsed / 120);
+          currentProgress += (targetProgress - currentProgress) * blend;
+
+          if (Math.abs(targetProgress - currentProgress) < .001) {
+            currentProgress = targetProgress;
+            renderMasthead(currentProgress);
+            animationFrame = 0;
+            previousTime = 0;
+            return;
+          }
+
+          renderMasthead(currentProgress);
+          animationFrame = window.requestAnimationFrame(animateMasthead);
+        };
+
+        const updateMastheadTarget = () => {
+          const rawProgress = Math.min(1, Math.max(0, window.scrollY / collapseDistance));
+          targetProgress = reducedMotion.matches && rawProgress > 0 ? 1 : rawProgress;
+
+          if (reducedMotion.matches) {
+            if (animationFrame) window.cancelAnimationFrame(animationFrame);
+            animationFrame = 0;
+            previousTime = 0;
+            currentProgress = targetProgress;
+            renderMasthead(currentProgress);
+          } else if (!animationFrame) {
+            animationFrame = window.requestAnimationFrame(animateMasthead);
+          }
+        };
+
         const measureMasthead = () => {
-          masthead.style.setProperty('--v4-masthead-progress', '0');
-          masthead.classList.remove('is-compact');
+          if (animationFrame) window.cancelAnimationFrame(animationFrame);
+          animationFrame = 0;
+          previousTime = 0;
+          renderMasthead(0);
           const expandedHeight = masthead.offsetHeight;
           const compactHeight = window.innerWidth <= 640 ? 71 : window.innerWidth <= 900 ? 53 : 61;
           collapseDistance = Math.max(90, expandedHeight - compactHeight);
           mastheadSpacer.style.height = `${expandedHeight}px`;
-          requestMastheadUpdate();
-        };
-        const updateMasthead = () => {
           const rawProgress = Math.min(1, Math.max(0, window.scrollY / collapseDistance));
-          const progress = reducedMotion.matches && rawProgress > 0 ? 1 : rawProgress;
-          masthead.style.setProperty('--v4-masthead-progress', progress.toFixed(4));
-          masthead.classList.toggle('is-compact', progress >= .995);
-          ticking = false;
+          targetProgress = reducedMotion.matches && rawProgress > 0 ? 1 : rawProgress;
+          currentProgress = targetProgress;
+          renderMasthead(currentProgress);
         };
-        const requestMastheadUpdate = () => {
-          if (!ticking) {
-            ticking = true;
-            window.requestAnimationFrame(updateMasthead);
-          }
-        };
+
         measureMasthead();
-        window.addEventListener('scroll', requestMastheadUpdate, { passive: true });
+        window.addEventListener('scroll', updateMastheadTarget, { passive: true });
         window.addEventListener('load', measureMasthead, { once: true });
         window.addEventListener('resize', measureMasthead, { passive: true });
-        reducedMotion.addEventListener('change', requestMastheadUpdate);
+        reducedMotion.addEventListener('change', updateMastheadTarget);
       }
       document.querySelectorAll('[data-newsletter-form]').forEach((form) => {
         form.addEventListener('submit', (event) => {
