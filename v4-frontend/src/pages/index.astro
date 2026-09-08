@@ -121,7 +121,8 @@ const news = stream
     </section>
 
     {news.length > 7 ? (
-      <section class="v4-section">
+      <section class="v4-section v4-latest-section">
+        <h2 class="v4-latest-title">Seneste nyt</h2>
         <div class="v4-grid-4">
           {news.slice(7, 14).map((article) => (
             <V4Card article={article} categoryName={categoryById.get(article.category_id)} showDeck={false} />
@@ -140,6 +141,21 @@ const news = stream
     background: var(--v4-rule);
   }
 
+  .v4-frontpage-secondary {
+    gap: 24px;
+  }
+
+  .v4-frontpage-secondary :global(.v4-card__headline) {
+    font-size: clamp(18px, 1.45vw, 27px);
+  }
+
+  .v4-latest-title {
+    margin: 0 0 20px;
+    font-family: var(--v4-serif);
+    font-size: clamp(26px, 3vw, 36px);
+    line-height: 1.05;
+  }
+
   @media (max-width: 640px) {
     .v4-frontpage-tier-divider {
       width: 82%;
@@ -152,7 +168,7 @@ const news = stream
 
     .v4-frontpage-secondary :global(.v4-card) {
       display: grid;
-      grid-template-columns: minmax(0, 42%) minmax(0, 1fr);
+      grid-template-columns: minmax(0, 45%) minmax(0, 1fr);
       grid-template-rows: auto 1fr;
       column-gap: 14px;
       align-items: start;
@@ -171,7 +187,7 @@ const news = stream
       grid-column: 1;
       grid-row: 1 / span 2;
       width: 100%;
-      min-height: 112px;
+      min-height: 118px;
       aspect-ratio: 4 / 3;
     }
 
@@ -186,8 +202,13 @@ const news = stream
       grid-column: 2;
       grid-row: 2;
       margin: 0;
-      font-size: clamp(19px, 5.3vw, 22px);
+      font-size: clamp(20px, 5.6vw, 23px);
       line-height: 1.14;
+    }
+
+    .v4-latest-title {
+      margin-bottom: 16px;
+      font-size: 28px;
     }
   }
 </style>
