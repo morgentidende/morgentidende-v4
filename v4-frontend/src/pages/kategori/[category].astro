@@ -4,7 +4,9 @@ import V4Card from '../../components/V4Card.astro';
 import NewsletterSignup from '../../components/NewsletterSignup.astro';
 import { v4Supabase } from '../../lib/v4-supabase';
 
-const cardFields = 'id,slug,category_id,headline,frontpage_headline,headline_accent_text,deck,hero_url,hero_alt,published_at';
+Astro.response.headers.set('Cache-Control', 'public, max-age=0, s-maxage=60, stale-while-revalidate=120');
+Astro.response.headers.set('Cloudflare-CDN-Cache-Control', 'public, max-age=60, stale-while-revalidate=120');
+
 const { category: categorySlug } = Astro.params;
 let category: any = null;
 let articles: any[] = [];
@@ -20,7 +22,7 @@ if (v4Supabase && categorySlug) {
   if (category) {
     const articlesResult = await v4Supabase
       .from('v4_public_articles')
-      .select(cardFields)
+      .select('id,slug,headline,frontpage_headline,headline_accent_text,deck,hero_url,hero_alt,published_at')
       .eq('category_id', category.id)
       .order('published_at', { ascending: false })
       .limit(40);
