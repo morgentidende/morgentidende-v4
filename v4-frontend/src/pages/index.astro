@@ -2,6 +2,7 @@
 import V4Layout from '../layouts/V4Layout.astro';
 import V4Card from '../components/V4Card.astro';
 import NewsletterSignup from '../components/NewsletterSignup.astro';
+import { imageVariant } from '../lib/image-delivery';
 import { v4Supabase } from '../lib/v4-supabase';
 
 Astro.response.headers.set('Cache-Control', 'public, max-age=0, s-maxage=30, stale-while-revalidate=60');
@@ -78,6 +79,7 @@ const news = stream
 
 const origin = Astro.url.origin;
 const canonical = `${origin}/`;
+const leadPreloadImage = imageVariant(lead?.hero_url, 1200);
 const homeJsonLd = {
   '@context': 'https://schema.org',
   '@graph': [
@@ -107,6 +109,7 @@ const homeJsonLd = {
   description="Morgentidende – få begge sider af sagen i Danmarks nye avis"
   canonical={canonical}
   image={lead?.hero_url}
+  preloadImage={leadPreloadImage}
   jsonLd={homeJsonLd}
 >
   <div class="v4-shell">
