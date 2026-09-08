@@ -6,6 +6,7 @@ import { v4Supabase } from '../../lib/v4-supabase';
 import { marked } from 'marked';
 import sanitizeHtml from 'sanitize-html';
 
+const cardFields = 'id,slug,category_id,story_cluster_id,headline,frontpage_headline,headline_accent_text,deck,hero_url,hero_alt,published_at';
 const { slug } = Astro.params;
 let article: any = null;
 let related: any[] = [];
@@ -23,21 +24,21 @@ if (v4Supabase && slug) {
 
   const categoriesResult = await v4Supabase
     .from('v4_public_categories')
-    .select('*')
+    .select('id,name')
     .order('sort_order', { ascending: true });
   categories = categoriesResult.data || [];
 
   if (article) {
     const relationResult = await v4Supabase
       .from('v4_public_relations')
-      .select('related_article_id, relation_type, sort_order')
+      .select('related_article_id,sort_order')
       .eq('article_id', article.id)
       .order('sort_order', { ascending: true });
     const relatedIds = Array.from(new Set((relationResult.data || []).map((r) => r.related_article_id)));
     if (relatedIds.length) {
       const relatedResult = await v4Supabase
         .from('v4_public_articles')
-        .select('*')
+        .select(cardFields)
         .in('id', relatedIds);
       const byId = new Map((relatedResult.data || []).map((a) => [a.id, a]));
       related = relatedIds.map((id) => byId.get(id)).filter(Boolean);
@@ -46,7 +47,7 @@ if (v4Supabase && slug) {
     if (article.story_cluster_id) {
       const clusterResult = await v4Supabase
         .from('v4_public_articles')
-        .select('*')
+        .select(cardFields)
         .eq('story_cluster_id', article.story_cluster_id)
         .neq('id', article.id)
         .order('published_at', { ascending: true });
@@ -55,7 +56,7 @@ if (v4Supabase && slug) {
 
     const recResult = await v4Supabase
       .from('v4_public_articles')
-      .select('*')
+      .select(cardFields)
       .neq('id', article.id)
       .order('published_at', { ascending: false })
       .limit(28);
@@ -153,7 +154,7 @@ const newsArticleLd = article ? {
 
       {article.hero_url ? (
         <figure class:list={["v4-article-hero", heroIsGraphic && "v4-article-hero--graphic"]}>
-          <img src={article.hero_url} alt={article.hero_alt || article.headline} />
+          <img src={article.hero_url} alt={article.hero_alt || article.headline} loading="eager" fetchpriority="high" />
           {(article.hero_credit || article.hero_license) && article.hero_credit !== 'Morgentidende grafik' ? (
             <figcaption class="v4-hero-credit">
               {article.hero_credit ? `Foto: ${article.hero_credit}` : ''}
