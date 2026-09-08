@@ -1,3 +1,4 @@
+// External client script so CSP can forbid inline executable JavaScript.
 const root = document.documentElement;
 const saved = localStorage.getItem('mt-v4-theme');
 if (saved === 'dark' || saved === 'light') root.dataset.theme = saved;
