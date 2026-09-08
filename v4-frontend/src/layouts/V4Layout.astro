@@ -4,10 +4,20 @@ import '../styles/v4.css';
 interface Props {
   title?: string;
   description?: string;
+  canonical?: string;
+  image?: string;
+  type?: 'website' | 'article';
+  noindex?: boolean;
+  jsonLd?: Record<string, unknown>;
 }
 const {
   title = 'Morgentidende',
-  description = 'Morgentidende – få begge sider af sagen i Danmarks nye avis'
+  description = 'Morgentidende – få begge sider af sagen i Danmarks nye avis',
+  canonical,
+  image,
+  type = 'website',
+  noindex = false,
+  jsonLd
 } = Astro.props;
 ---
 <!doctype html>
@@ -16,12 +26,24 @@ const {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <meta name="description" content={description} />
+    {noindex ? <meta name="robots" content="noindex,nofollow" /> : null}
+    {canonical ? <link rel="canonical" href={canonical} /> : null}
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content={type} />
+    {canonical ? <meta property="og:url" content={canonical} /> : null}
+    {image ? <meta property="og:image" content={image} /> : null}
+    <meta name="twitter:card" content={image ? 'summary_large_image' : 'summary'} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    {image ? <meta name="twitter:image" content={image} /> : null}
     <title>{title}</title>
     <link rel="icon" href="/favicon.png" type="image/png" sizes="64x64" />
     <link rel="shortcut icon" href="/favicon.ico" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=DM+Sans:wght@400;500;600;700&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet" />
+    {jsonLd ? <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} /> : null}
   </head>
   <body>
     <header class="v4-masthead">
