@@ -159,7 +159,15 @@ const newsArticleLd = article ? {
 
       {article.hero_url ? (
         <figure class:list={["v4-article-hero", heroIsGraphic && "v4-article-hero--graphic"]}>
-          <img src={article.hero_url} alt={article.hero_alt || article.headline} loading="eager" fetchpriority="high" decoding="async" />
+          <img
+            src={article.hero_url}
+            alt={article.hero_alt || article.headline}
+            loading="eager"
+            fetchpriority="high"
+            decoding="async"
+            width="1200"
+            height="800"
+          />
           {(article.hero_credit || article.hero_license) && article.hero_credit !== 'Morgentidende grafik' ? (
             <figcaption class="v4-hero-credit">
               {article.hero_credit ? `Foto: ${article.hero_credit}` : ''}
