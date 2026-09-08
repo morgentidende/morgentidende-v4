@@ -1,4 +1,0 @@
-Contact: mailto:security@morgentidende.dk
-Preferred-Languages: da, en
-Canonical: https://morgentidende.dk/.well-known/security.txt
-Expires: 2027-09-08T00:00:00.000Z
