@@ -20,21 +20,19 @@ const description = isWeekly
       <p class="v4-newsletter__formats">Læs direkte i indbakken · Åbn magasinet på nettet · Hent som PDF til din e-reader</p>
     ) : null}
   </div>
-  <form class="v4-newsletter-form" data-newsletter-form>
+  <form class="v4-newsletter-form" aria-disabled="true">
     <label for={`newsletter-email-${variant}-${magazineName}`}>Din e-mail</label>
     <div class="v4-newsletter-form__row">
-      <input id={`newsletter-email-${variant}-${magazineName}`} name="email" type="email" autocomplete="email" placeholder="navn@eksempel.dk" required />
-      <button type="submit">{isWeekly ? 'Skriv mig på listen' : 'Tilmeld'}</button>
+      <input id={`newsletter-email-${variant}-${magazineName}`} name="email" type="email" autocomplete="email" placeholder="navn@eksempel.dk" disabled />
+      <button type="button" disabled>Åbner snart</button>
     </div>
     {!isWeekly ? (
-      <fieldset>
+      <fieldset disabled>
         <legend>Hvornår vil du have briefet?</legend>
         <label><input type="radio" name="delivery_time" value="06:00" checked /> Kl. 06</label>
         <label><input type="radio" name="delivery_time" value="20:00" /> Kl. 20</label>
       </fieldset>
-    ) : <input type="hidden" name="delivery_time" value="Sunday 06:00" />}
-    <input type="hidden" name="newsletter" value={isWeekly ? magazineName.toLowerCase() : 'daily'} />
-    <p class="v4-newsletter-form__note">Tilmeldingen bliver aktiveret, når mailtjenesten kobles på før lanceringen.</p>
-    <p class="v4-newsletter-form__status" data-newsletter-status aria-live="polite"></p>
+    ) : null}
+    <p class="v4-newsletter-form__note">Tilmeldingen åbner, når mailtjenesten kobles på før lanceringen.</p>
   </form>
 </aside>
