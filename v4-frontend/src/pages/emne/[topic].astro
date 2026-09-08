@@ -1,0 +1,93 @@
+---
+import V4Layout from '../../layouts/V4Layout.astro';
+import V4Card from '../../components/V4Card.astro';
+import { v4Supabase } from '../../lib/v4-supabase';
+
+const rawTopic = Astro.params.topic || '';
+let topic = '';
+try {
+  topic = decodeURIComponent(rawTopic).trim().slice(0, 80);
+} catch {
+  topic = rawTopic.trim().slice(0, 80);
+}
+
+let results: any[] = [];
+let categories: any[] = [];
+
+if (v4Supabase && topic) {
+  const [articlesResult, categoriesResult] = await Promise.all([
+    v4Supabase
+      .from('v4_public_articles')
+      .select('id,slug,category_id,story_cluster_id,headline,frontpage_headline,headline_accent_text,deck,hero_url,hero_alt,published_at')
+      .contains('topics', [topic])
+      .order('published_at', { ascending: false })
+      .limit(60),
+    v4Supabase
+      .from('v4_public_categories')
+      .select('id,name')
+  ]);
+
+  results = articlesResult.data || [];
+  categories = categoriesResult.data || [];
+}
+
+if (!topic) Astro.response.status = 404;
+
+const categoryById = new Map(categories.map((c) => [c.id, c.name]));
+const title = topic ? `${topic} – Emne – Morgentidende` : 'Emne – Morgentidende';
+const canonical = topic ? new URL(`/emne/${encodeURIComponent(topic)}`, Astro.site || Astro.url.origin).toString() : undefined;
+---
+<V4Layout title={title} description={`Seneste artikler om ${topic} på Morgentidende`} canonical={canonical} noindex={!topic}>
+  <section class="v4-topic-page">
+    <div class="v4-kicker">Emne</div>
+    <h1>{topic}</h1>
+    <p class="v4-topic-summary">{results.length} {results.length === 1 ? 'artikel' : 'artikler'}</p>
+
+    {results.length ? (
+      <div class="v4-grid-3">
+        {results.map((item) => <V4Card article={item} categoryName={categoryById.get(item.category_id)} />)}
+      </div>
+    ) : (
+      <p class="v4-topic-empty">Der er endnu ingen publicerede artikler under dette emne.</p>
+    )}
+  </section>
+</V4Layout>
+
+<style>
+  .v4-topic-page {
+    width: min(var(--v4-max), calc(100% - 40px));
+    margin: 48px auto 0;
+    padding-bottom: 72px;
+  }
+
+  .v4-topic-page h1 {
+    margin: 8px 0 10px;
+    font-family: var(--v4-serif);
+    font-size: clamp(36px, 4.5vw, 58px);
+    line-height: 1.04;
+  }
+
+  .v4-topic-summary {
+    margin: 0 0 28px;
+    color: var(--v4-muted);
+    font-size: 14px;
+  }
+
+  .v4-topic-empty {
+    padding-top: 24px;
+    border-top: 1px solid var(--v4-rule);
+    color: var(--v4-muted);
+  }
+
+  @media (max-width: 640px) {
+    .v4-topic-page {
+      width: calc(100% - 28px);
+      margin-top: 32px;
+      padding-bottom: 48px;
+    }
+
+    .v4-topic-page h1 {
+      font-size: 34px;
+    }
+  }
+</style>
