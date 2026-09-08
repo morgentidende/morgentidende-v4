@@ -236,6 +236,12 @@ const pageJsonLd = articleLd ? {
 
       <article class="v4-article-body"><div set:html={bodyHtml} /></article>
 
+      <div class="v4-article-newsletter">
+        {category === 'Viden' || category === 'Liv'
+          ? <NewsletterSignup variant="weekly" magazineName={category} />
+          : <NewsletterSignup />}
+      </div>
+
       {storyRelated.length ? (
         <section class="v4-story-related">
           <div class="v4-story-related__label">Læs også</div>
@@ -243,10 +249,6 @@ const pageJsonLd = articleLd ? {
             {storyRelated.map((item) => <V4Card article={item} categoryName={categoryById.get(item.category_id)} />)}
           </div>
         </section>
-      ) : null}
-
-      {category === 'Viden' || category === 'Liv' ? (
-        <div class="v4-article-newsletter"><NewsletterSignup variant="weekly" magazineName={category} /></div>
       ) : null}
 
       <div class="v4-shell">
