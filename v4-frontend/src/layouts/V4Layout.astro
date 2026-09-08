@@ -76,8 +76,12 @@ const {
       if (masthead) {
         let compact = false;
         let ticking = false;
+        let collapseAt = masthead.offsetHeight + 24;
+        const measureExpandedMasthead = () => {
+          if (!compact) collapseAt = masthead.offsetHeight + 24;
+        };
         const updateMasthead = () => {
-          const shouldCompact = compact ? window.scrollY > 20 : window.scrollY > 90;
+          const shouldCompact = compact ? window.scrollY > 1 : window.scrollY > collapseAt;
           if (shouldCompact !== compact) {
             compact = shouldCompact;
             masthead.classList.toggle('is-compact', compact);
@@ -92,6 +96,8 @@ const {
         };
         updateMasthead();
         window.addEventListener('scroll', requestMastheadUpdate, { passive: true });
+        window.addEventListener('load', measureExpandedMasthead, { once: true });
+        window.addEventListener('resize', measureExpandedMasthead, { passive: true });
       }
       document.querySelectorAll('[data-newsletter-form]').forEach((form) => {
         form.addEventListener('submit', (event) => {
