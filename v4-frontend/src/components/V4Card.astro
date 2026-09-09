@@ -7,13 +7,15 @@ interface Props {
   showDeck?: boolean;
   imageLoading?: 'eager' | 'lazy';
   imageFetchPriority?: 'high' | 'low' | 'auto';
+  cardClass?: string;
 }
 const {
   article,
   categoryName,
   showDeck = true,
   imageLoading = 'lazy',
-  imageFetchPriority = 'auto'
+  imageFetchPriority = 'auto',
+  cardClass = ''
 } = Astro.props;
 const headline = article.frontpage_headline || article.headline;
 const accent = article.headline_accent_text?.trim();
@@ -29,7 +31,7 @@ if (accent) {
   }
 }
 ---
-<article class="v4-card">
+<article class:list={['v4-card', cardClass]}>
   <a class="v4-card__media" href={`/artikel/${article.slug}`}>
     {article.hero_url ? (
       <img
