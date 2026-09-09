@@ -1,13 +1,3 @@
 ---
-export const prerender = true;
-import V4Layout from '../layouts/V4Layout.astro';
+return Astro.redirect('/om-morgentidende', 301);
 ---
-<V4Layout title="Om Morgentidende" description="Læs om Morgentidendes formål, redaktionelle profil og arbejdsform.">
-  <div class="v4-shell">
-    <div class="v4-kicker">OM AVISEN</div>
-    <h1>Morgentidende</h1>
-    <p>Morgentidende er en dansk digital avis med fokus på aktuelle nyheder, analyser og perspektiver. Vi prioriterer emner med stor betydning for danske læsere og arbejder for at gøre komplekse historier klare, veldokumenterede og lette at følge.</p>
-    <p>Redaktionen lægger vægt på tydelig kildebrug, skelnen mellem nyhed og kommentar samt rettelser, når væsentlige fejl bliver opdaget.</p>
-    <p>Læs mere om vores arbejdsform under <a href="/redaktionelle-principper">Redaktionelle principper</a>.</p>
-  </div>
-</V4Layout>
