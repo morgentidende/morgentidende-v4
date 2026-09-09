@@ -42,9 +42,20 @@ const usedIds = new Set([lead?.id, ...followups.map((a) => a.id)].filter(Boolean
 const stream = others.filter((a) => !usedIds.has(a.id));
 const viden = stream.filter((a) => categoryById.get(a.category_id) === 'Viden').slice(0, 4);
 const liv = stream.filter((a) => categoryById.get(a.category_id) === 'Liv').slice(0, 4);
-const news = stream
-  .filter((a) => !['Viden', 'Liv'].includes(categoryById.get(a.category_id)))
-  .slice(0, 14);
+
+const newsCandidates = stream.filter((a) => !['Viden', 'Liv'].includes(categoryById.get(a.category_id)));
+const leadPublishedAt = lead?.published_at ? new Date(lead.published_at).getTime() : Number.NaN;
+const leadAgeMs = Number.isFinite(leadPublishedAt) ? Date.now() - leadPublishedAt : Number.POSITIVE_INFINITY;
+const formerLeadGraceActive = Boolean(lead) && leadAgeMs >= 0 && leadAgeMs <= 2 * 60 * 60 * 1000;
+const formerLead = lead
+  ? newsCandidates.find((a) => a.is_lead && a.story_cluster_id !== lead.story_cluster_id)
+  : null;
+let orderedNews = [...newsCandidates];
+if (formerLeadGraceActive && formerLead) {
+  orderedNews = orderedNews.filter((a) => a.id !== formerLead.id);
+  orderedNews.splice(Math.min(3, orderedNews.length), 0, formerLead);
+}
+const news = orderedNews.slice(0, 14);
 ---
 <V4Layout image={lead?.hero_url}>
   <div class="v4-shell">
@@ -91,7 +102,12 @@ const news = stream
             <div class="v4-frontpage-tier-divider" aria-hidden="true"></div>
             <div class="v4-grid-4 v4-frontpage-secondary">
               {news.slice(3, 7).map((article) => (
-                <V4Card article={article} categoryName={categoryById.get(article.category_id)} showDeck={false} />
+                <V4Card
+                  article={article}
+                  categoryName={categoryById.get(article.category_id)}
+                  showDeck={false}
+                  cardClass={formerLeadGraceActive && article.id === formerLead?.id ? 'v4-card--former-lead' : undefined}
+                />
               ))}
             </div>
           </>
@@ -150,6 +166,15 @@ const news = stream
     font-size: clamp(18px, 1.45vw, 27px);
   }
 
+  .v4-frontpage-secondary :global(.v4-card--former-lead) {
+    grid-column: span 2;
+  }
+
+  .v4-frontpage-secondary :global(.v4-card--former-lead .v4-card__headline) {
+    font-size: clamp(24px, 2.1vw, 34px);
+    line-height: 1.08;
+  }
+
   .v4-latest-title {
     margin: 0 0 20px;
     font-family: var(--v4-serif);
@@ -176,6 +201,10 @@ const news = stream
       padding: 18px 0;
     }
 
+    .v4-frontpage-secondary :global(.v4-card--former-lead) {
+      grid-column: auto;
+    }
+
     .v4-frontpage-secondary :global(.v4-card:first-child) {
       padding-top: 0;
     }
@@ -199,7 +228,8 @@ const news = stream
       font-size: 11px;
     }
 
-    .v4-frontpage-secondary :global(.v4-card__headline) {
+    .v4-frontpage-secondary :global(.v4-card__headline),
+    .v4-frontpage-secondary :global(.v4-card--former-lead .v4-card__headline) {
       grid-column: 2;
       grid-row: 2;
       margin: 0;
