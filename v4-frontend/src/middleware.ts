@@ -5,7 +5,7 @@ const CONTENT_SECURITY_POLICY = [
   "base-uri 'self'",
   "object-src 'none'",
   "frame-ancestors 'none'",
-  "frame-src 'none'",
+  "frame-src https://www.youtube-nocookie.com",
   "form-action 'self'",
   "script-src 'self'",
   "script-src-attr 'none'",
