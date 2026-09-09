@@ -1,0 +1,115 @@
+.v4-lead-box,
+.v4-breaking-box {
+  position: relative;
+  padding-top: 54px;
+}
+
+.v4-lead-box {
+  box-shadow: inset 5px 0 0 #7a4d8f;
+}
+
+.v4-breaking-box {
+  box-shadow: inset 5px 0 0 var(--v4-gold);
+}
+
+.v4-lead-label {
+  position: absolute;
+  top: 0;
+  left: 24px;
+  display: inline-flex;
+  align-items: center;
+  min-height: 30px;
+  padding: 7px 10px;
+  border-radius: 0;
+  font-size: 16px;
+  line-height: 1;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.v4-lead-label--theme {
+  background: #7a4d8f;
+  color: #fff;
+}
+
+.v4-lead-label--breaking {
+  background: #d8a33d;
+  color: #17140c;
+}
+
+.v4-lead-main > .v4-card > .v4-kicker,
+.v4-followups .v4-kicker,
+.v4-followups-label {
+  display: none;
+}
+
+html[data-theme='dark'] .v4-lead-box {
+  box-shadow: inset 5px 0 0 #9a647f;
+}
+
+html[data-theme='dark'] .v4-lead-label--theme {
+  background: #9a647f;
+  color: #fff;
+}
+
+.v4-magazine {
+  padding: 24px;
+  border-color: color-mix(in srgb, var(--v4-rule) 78%, var(--v4-gold) 22%);
+}
+
+.v4-magazine--viden {
+  background: linear-gradient(135deg, #132333 0%, #193247 100%);
+  box-shadow: inset 0 2px 0 rgba(216,163,61,.72);
+}
+
+.v4-magazine--liv {
+  background: linear-gradient(135deg, #4a2f3d 0%, #62404f 100%);
+  box-shadow: inset 0 2px 0 rgba(228,180,90,.72);
+}
+
+.v4-magazine .v4-section-title {
+  margin: 5px 0 18px;
+  font-size: clamp(30px,3.4vw,46px);
+}
+
+.v4-magazine .v4-kicker {
+  color: rgba(239,199,110,.82);
+  font-size: 11px;
+  letter-spacing: .12em;
+}
+
+.v4-magazine .v4-card__media {
+  box-shadow: none;
+}
+
+html[data-theme='dark'] .v4-magazine--viden {
+  background: linear-gradient(135deg, #172638 0%, #20384e 100%);
+}
+
+html[data-theme='dark'] .v4-magazine--liv {
+  background: linear-gradient(135deg, #432e3a 0%, #5a3b49 100%);
+}
+
+@media (max-width: 640px) {
+  .v4-lead-box,
+  .v4-breaking-box {
+    padding-top: 50px;
+  }
+
+  .v4-lead-label {
+    left: 18px;
+    min-height: 28px;
+    padding: 6px 9px;
+    font-size: 16px;
+  }
+
+  .v4-magazine {
+    padding: 16px;
+  }
+
+  .v4-magazine .v4-section-title {
+    font-size: 28px;
+    margin-bottom: 16px;
+  }
+}
