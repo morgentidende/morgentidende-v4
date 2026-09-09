@@ -1,5 +1,6 @@
 ---
 import '../styles/story-related.css';
+import { responsiveImage } from '../lib/media';
 
 interface Props {
   article: any;
@@ -7,6 +8,7 @@ interface Props {
   showDeck?: boolean;
   imageLoading?: 'eager' | 'lazy';
   imageFetchPriority?: 'high' | 'low' | 'auto';
+  imageSizes?: string;
   cardClass?: string;
 }
 const {
@@ -15,10 +17,12 @@ const {
   showDeck = true,
   imageLoading = 'lazy',
   imageFetchPriority = 'auto',
+  imageSizes = '(max-width: 640px) calc(100vw - 28px), (max-width: 900px) 50vw, 25vw',
   cardClass = ''
 } = Astro.props;
 const headline = article.frontpage_headline || article.headline;
 const accent = article.headline_accent_text?.trim();
+const hero = responsiveImage(article.hero_url, [320, 480, 640, 960, 1280]);
 let before = headline;
 let highlighted = '';
 let after = '';
@@ -35,7 +39,9 @@ if (accent) {
   <a class="v4-card__media" href={`/artikel/${article.slug}`}>
     {article.hero_url ? (
       <img
-        src={article.hero_url}
+        src={hero.src}
+        srcset={hero.srcset}
+        sizes={hero.srcset ? imageSizes : undefined}
         alt={article.hero_alt || ''}
         loading={imageLoading}
         fetchpriority={imageFetchPriority}
