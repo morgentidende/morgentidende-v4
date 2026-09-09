@@ -1,5 +1,5 @@
 name = "morgentidende-media-ingest"
-main = "src/index.ts"
+main = "src/queue-entry.ts"
 compatibility_date = "2026-09-01"
 workers_dev = true
 
@@ -10,6 +10,9 @@ bucket_name = "morgentidende-media"
 [vars]
 MEDIA_PUBLIC_BASE_URL = "https://media.morgentidende.dk"
 MEDIA_MAX_BYTES = "20971520"
+
+[triggers]
+crons = ["*/5 * * * *"]
 
 # Secrets required at deploy time (never commit values):
 # MEDIA_INGEST_TOKEN
