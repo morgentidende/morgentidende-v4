@@ -13,6 +13,7 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     defaults:
       run:
         working-directory: v4-frontend
@@ -26,7 +27,7 @@ jobs:
           node-version: '22'
 
       - name: Install dependencies
-        run: npm install --no-fund
+        run: npm install --no-fund --no-audit
 
       - name: Audit production dependencies
         run: npm audit --omit=dev --audit-level=high
