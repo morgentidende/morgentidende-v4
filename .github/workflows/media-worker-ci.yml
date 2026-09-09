@@ -1,0 +1,28 @@
+name: Media Worker CI
+
+on:
+  pull_request:
+    paths:
+      - 'workers/media-ingest/**'
+      - '.github/workflows/media-worker-ci.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'workers/media-ingest/**'
+
+permissions:
+  contents: read
+
+jobs:
+  dry-run:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: workers/media-ingest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install --ignore-scripts --no-audit --no-fund
+      - run: npx wrangler deploy --dry-run --outdir /tmp/media-worker-build

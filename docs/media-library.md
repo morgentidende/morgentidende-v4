@@ -6,22 +6,49 @@ Morgentidende skal som hovedregel levere egne kopier af hero-billeder, når lice
 ## Arkitektur
 1. **Media-agent** finder eller genererer hero.
 2. **Rettighedstjek** afgør om kommerciel brug og lokal arkivering er tilladt.
-3. **Supabase `media_assets`** gemmer kilde, licens, credit, rettighedsstatus, checksum og lagringsmetadata.
-4. **Cloudflare R2** gemmer én masterfil pr. asset.
-5. **`media.morgentidende.dk`** er custom domain til R2 og den kanoniske leverings-URL.
-6. **Cloudflare Image Transformations** genererer responsive størrelser og moderne formater ved levering. Vi gemmer ikke manuelle 320/640/960/1600-kopier.
-7. **Frontend** bruger `srcset` på interne media-URLs. Eksterne legacy-URLs fungerer uændret under migrationen.
+3. **Media ingest Worker** henter den godkendte master, beregner SHA-256, deduplikerer og skriver til R2.
+4. **Supabase `media_assets`** gemmer kilde, licens, credit, rettighedsstatus, checksum og lagringsmetadata.
+5. **Cloudflare R2** gemmer én masterfil pr. asset.
+6. **`media.morgentidende.dk`** er custom domain til R2 og den kanoniske leverings-URL.
+7. **Cloudflare Image Transformations** genererer responsive størrelser og moderne formater ved levering. Vi gemmer ikke manuelle 320/640/960/1600-kopier.
+8. **Frontend** bruger `srcset` på interne media-URLs. Eksterne legacy-URLs fungerer uændret under migrationen.
 
 ## R2-konfiguration
 - Bucket: `morgentidende-media`
 - Custom domain: `media.morgentidende.dk`
 - `r2.dev` public access bør være slået fra, når custom domain virker.
 - Objektkeys er content-hash-baserede og immutable, fx `heroes/2026/09/<sha256>.jpg`.
-- Uploadede objekter bør få `Cache-Control: public, max-age=31536000, immutable`.
+- Uploadede objekter får `Cache-Control: public, max-age=31536000, immutable`.
 - Ingen tokens, access keys eller secrets må ligge i repo eller Supabase-tabeller.
 
+## Automatisk Media-agent ingest
+Worker-koden ligger i `workers/media-ingest` og har et autentificeret endpoint `POST /ingest`.
+
+Media-agenten sender kun et billede til ingest, når rettighedstjekket allerede har fastslået:
+- `commercial_use_allowed = true`
+- `local_storage_allowed = true`
+
+Payload indeholder mindst `source_url` og de to rettighedsflags. Når muligt medsendes også `article_id`, kilde/provider, licens, credit, alt-tekst og dokumentation i `metadata`.
+
+Workerens ansvar:
+1. afviser ukrypterede eller åbenlyst lokale/private source-URL'er,
+2. henter kun understøttede billedformater,
+3. håndhæver filstørrelsesgrænse,
+4. beregner SHA-256,
+5. genbruger eksisterende `media_assets`-record ved identisk fil,
+6. uploader master til R2 med immutable cache-header,
+7. opretter en `ready` media-record i Supabase,
+8. kobler asset og intern `hero_url` direkte på artiklen, hvis `article_id` er sendt med.
+
+Workerens secrets ligger kun i Cloudflare:
+- `MEDIA_INGEST_TOKEN`
+- `SUPABASE_URL`
+- `SUPABASE_SERVICE_ROLE_KEY`
+
+R2 forbindes via bindingen `MEDIA_BUCKET`; ingen R2 access key skal ligge i Worker-koden.
+
 ## Cloudflare Images
-På zonen `morgentidende.dk` aktiveres **Images > Transformations**. Frontend bruger derefter URL'er i formen:
+På zonen `morgentidende.dk` er **Images > Transformations** aktiv. Frontend bruger URL'er i formen:
 
 `/cdn-cgi/image/width=640,fit=cover,format=auto,quality=82/https://media.morgentidende.dk/...`
 
@@ -41,7 +68,7 @@ Hvis en artikel har `hero_media_id`, blokerer databasen publicering, hvis asset 
 ## Migrering af eksisterende heros
 Eksisterende `hero_url` beholdes som fallback. Migrering sker gradvist:
 1. verificer licensen igen,
-2. hent masterfil,
+2. send den godkendte master gennem ingest-flowet,
 3. beregn SHA-256 og genbrug eksisterende asset ved dublet,
 4. upload til R2,
 5. opret `media_assets`-record,
