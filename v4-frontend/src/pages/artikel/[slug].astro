@@ -135,7 +135,6 @@ const plainBody = (article?.body_markdown || '')
   .replace(/[#>*_`~\-]+/g, ' ')
   .replace(/\s+/g, ' ')
   .trim();
-const wordCount = plainBody ? plainBody.split(/\s+/).length : 0;
 const summaryCandidates = [article?.deck || '', ...plainBody.split(/(?<=[.!?])\s+/)]
   .map((sentence) => sentence.trim())
   .filter((sentence) => sentence.length >= 45 && sentence.length <= 190);
@@ -146,7 +145,7 @@ for (const sentence of summaryCandidates) {
   briefPoints.push(sentence);
   if (briefPoints.length === 3) break;
 }
-const showBrief = wordCount >= 700 && briefPoints.length >= 2;
+const showBrief = briefPoints.length >= 2;
 
 const firstThree = recommendations
   .filter((a) => !storyRelatedIds.has(a.id))
@@ -213,6 +212,13 @@ const newsArticleLd = article ? {
         </div>
       </header>
 
+      {showBrief ? (
+        <aside class="v4-article-brief" aria-label="Sagen kort">
+          <div class="v4-article-brief__title">Sagen kort</div>
+          <ul>{briefPoints.map((point) => <li>{point}</li>)}</ul>
+        </aside>
+      ) : null}
+
       {article.hero_url ? (
         <figure class:list={["v4-article-hero", heroIsGraphic && "v4-article-hero--graphic"]}>
           <img src={article.hero_url} alt={article.hero_alt || article.headline} loading="eager" fetchpriority="high" decoding="async" />
@@ -224,13 +230,6 @@ const newsArticleLd = article ? {
             </figcaption>
           ) : null}
         </figure>
-      ) : null}
-
-      {showBrief ? (
-        <aside class="v4-article-brief" aria-label="Kort fortalt">
-          <div class="v4-article-brief__title">Kort fortalt</div>
-          <ul>{briefPoints.map((point) => <li>{point}</li>)}</ul>
-        </aside>
       ) : null}
 
       <article class="v4-article-body"><div set:html={bodyHtml} /></article>
