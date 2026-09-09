@@ -33,7 +33,6 @@ const runSmokeTest = async () => {
     headers: {
       authorization: `Bearer ${process.env.MEDIA_INGEST_TOKEN}`,
       "content-type": "application/json",
-      "x-media-smoke-test": "1",
     },
     body: JSON.stringify({
       source_url: smokeSource,
