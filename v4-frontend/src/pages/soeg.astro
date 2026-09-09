@@ -4,6 +4,9 @@ import V4Card from '../components/V4Card.astro';
 import { v4Supabase } from '../lib/v4-supabase';
 import '../styles/search.css';
 
+Astro.response.headers.set('Cache-Control', 'public, max-age=0, s-maxage=30, stale-while-revalidate=60');
+Astro.response.headers.set('Cloudflare-CDN-Cache-Control', 'public, max-age=30, stale-while-revalidate=60');
+
 const rawQ = Astro.url.searchParams.get('q') || '';
 const q = rawQ.trim().replace(/[,%()]/g, ' ').replace(/\s+/g, ' ').slice(0, 120);
 let results: any[] = [];
