@@ -5,7 +5,7 @@ const escapeXml = (value: string) => value.replace(/[<>&'\"]/g, (char) => ({'<':
 
 export const GET: APIRoute = async ({ site }) => {
   const origin = (site || new URL('https://morgentidende.dk')).origin;
-  const staticPaths = ['/', '/om', '/redaktionelle-principper', '/kontakt'];
+  const staticPaths = ['/', '/om-morgentidende', '/redaktionelle-principper', '/kontakt', '/stoet-morgentidende'];
   let articles: any[] = [];
   let categories: any[] = [];
   if (v4Supabase) {

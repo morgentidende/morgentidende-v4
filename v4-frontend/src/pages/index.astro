@@ -2,8 +2,7 @@
 import V4Layout from '../layouts/V4Layout.astro';
 import V4Card from '../components/V4Card.astro';
 import NewsletterSignup from '../components/NewsletterSignup.astro';
-import '../styles/lead-label-hotfix.css';
-import '../styles/frontpage-magazine-tonedown.css';
+import '../styles/frontpage.css';
 import { v4Supabase } from '../lib/v4-supabase';
 
 Astro.response.headers.set('Cache-Control', 'public, max-age=0, s-maxage=30, stale-while-revalidate=60');
@@ -64,7 +63,7 @@ const news = orderedNews.slice(0, 14);
     {lead ? (
       <section class={leadType === 'breaking' ? 'v4-breaking-box' : 'v4-lead-box'}>
         {leadType === 'breaking' ? <div class="v4-lead-label v4-lead-label--breaking">BREAKING · SENESTE NYT</div> : null}
-        {leadType === 'theme' ? <div class="v4-lead-label v4-lead-label--analysis">TEMA</div> : null}
+        {leadType === 'theme' ? <div class="v4-lead-label v4-lead-label--theme">TEMA</div> : null}
         <div class="v4-lead-layout">
           <div class="v4-lead-main">
             <V4Card
