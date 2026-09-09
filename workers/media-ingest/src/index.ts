@@ -8,7 +8,7 @@ interface Env {
 }
 
 type IngestRequest = {
-  source_url: string;
+  source_url?: string;
   article_id?: string;
   source_provider?: string;
   source_asset_id?: string;
@@ -113,7 +113,7 @@ const attachAssetToArticle = async (
     hero_media_id: asset.id,
     hero_url: asset.delivery_url,
     hero_alt: input.alt_text || null,
-    hero_source_url: input.source_url,
+    hero_source_url: input.source_url || null,
     hero_credit: input.credit_text || null,
     hero_license: input.license_name || null,
     hero_license_url: input.license_url || null
@@ -137,7 +137,7 @@ const insertAsset = async (
   const row = {
     status: 'ready',
     asset_kind: 'hero',
-    source_url: input.source_url,
+    source_url: input.source_url || null,
     source_provider: input.source_provider || null,
     source_asset_id: input.source_asset_id || null,
     license_name: input.license_name || null,
@@ -176,35 +176,20 @@ const insertAsset = async (
   return rows[0];
 };
 
-const ingest = async (request: Request, env: Env) => {
-  let input: IngestRequest;
-  try {
-    input = await request.json<IngestRequest>();
-  } catch {
-    return json({ error: 'invalid_json' }, 400);
-  }
+const validateRights = (input: IngestRequest) => {
+  return Boolean(input.commercial_use_allowed && input.local_storage_allowed);
+};
 
-  if (!input?.source_url) return json({ error: 'source_url_required' }, 400);
-  if (!input.commercial_use_allowed || !input.local_storage_allowed) {
-    return json({ error: 'archive_rights_required' }, 422);
-  }
-  if (isUnsafeSourceUrl(input.source_url)) return json({ error: 'source_url_not_allowed' }, 400);
-
-  const source = await fetch(input.source_url, {
-    redirect: 'follow',
-    headers: { 'user-agent': 'MorgentidendeMedia/1.0' }
-  });
-  if (!source.ok) return json({ error: 'source_fetch_failed', status: source.status }, 422);
-
-  const mime = (source.headers.get('content-type') || '').split(';')[0].trim().toLowerCase();
+const storeBytes = async (
+  env: Env,
+  input: IngestRequest,
+  bytes: ArrayBuffer,
+  mime: string
+) => {
   const ext = extensionFor(mime);
   if (!ext) return json({ error: 'unsupported_image_type', mime }, 415);
 
-  const declaredLength = Number(source.headers.get('content-length') || '0');
   const maxBytes = Number(env.MEDIA_MAX_BYTES || '20971520');
-  if (declaredLength > maxBytes) return json({ error: 'image_too_large' }, 413);
-
-  const bytes = await source.arrayBuffer();
   if (bytes.byteLength === 0) return json({ error: 'empty_image' }, 422);
   if (bytes.byteLength > maxBytes) return json({ error: 'image_too_large' }, 413);
 
@@ -244,7 +229,10 @@ const ingest = async (request: Request, env: Env) => {
     });
   } catch (error) {
     const racedDuplicate = await findAssetByHash(env, sha256);
-    if (!racedDuplicate) throw error;
+    if (!racedDuplicate) {
+      await env.MEDIA_BUCKET.delete(storageKey);
+      throw error;
+    }
     asset = racedDuplicate;
   }
 
@@ -256,6 +244,68 @@ const ingest = async (request: Request, env: Env) => {
     asset,
     transformed_example: `https://morgentidende.dk/cdn-cgi/image/width=960,fit=cover,format=auto,quality=82/${deliveryUrl}`
   }, 201);
+};
+
+const ingest = async (request: Request, env: Env) => {
+  let input: IngestRequest;
+  try {
+    input = await request.json<IngestRequest>();
+  } catch {
+    return json({ error: 'invalid_json' }, 400);
+  }
+
+  if (!input?.source_url) return json({ error: 'source_url_required' }, 400);
+  if (!validateRights(input)) return json({ error: 'archive_rights_required' }, 422);
+  if (isUnsafeSourceUrl(input.source_url)) return json({ error: 'source_url_not_allowed' }, 400);
+
+  const source = await fetch(input.source_url, {
+    redirect: 'follow',
+    headers: { 'user-agent': 'MorgentidendeMedia/1.0' }
+  });
+  if (!source.ok) return json({ error: 'source_fetch_failed', status: source.status }, 422);
+
+  const mime = (source.headers.get('content-type') || '').split(';')[0].trim().toLowerCase();
+  const declaredLength = Number(source.headers.get('content-length') || '0');
+  const maxBytes = Number(env.MEDIA_MAX_BYTES || '20971520');
+  if (declaredLength > maxBytes) return json({ error: 'image_too_large' }, 413);
+
+  return storeBytes(env, input, await source.arrayBuffer(), mime);
+};
+
+const upload = async (request: Request, env: Env) => {
+  const contentType = request.headers.get('content-type') || '';
+  if (!contentType.toLowerCase().startsWith('multipart/form-data')) {
+    return json({ error: 'multipart_form_required' }, 415);
+  }
+
+  const form = await request.formData();
+  const file = form.get('file');
+  const metadataRaw = form.get('metadata');
+  if (!(file instanceof File)) return json({ error: 'file_required' }, 400);
+  if (typeof metadataRaw !== 'string') return json({ error: 'metadata_required' }, 400);
+
+  let input: IngestRequest;
+  try {
+    input = JSON.parse(metadataRaw) as IngestRequest;
+  } catch {
+    return json({ error: 'invalid_metadata_json' }, 400);
+  }
+
+  if (!validateRights(input)) return json({ error: 'archive_rights_required' }, 422);
+  const mime = (file.type || '').split(';')[0].trim().toLowerCase();
+  if (!extensionFor(mime)) return json({ error: 'unsupported_image_type', mime }, 415);
+
+  const maxBytes = Number(env.MEDIA_MAX_BYTES || '20971520');
+  if (file.size > maxBytes) return json({ error: 'image_too_large' }, 413);
+
+  input.source_provider = input.source_provider || 'openai_image_generation';
+  input.metadata = {
+    ...(input.metadata || {}),
+    ingest_mode: 'direct_upload',
+    original_filename: file.name || null
+  };
+
+  return storeBytes(env, input, await file.arrayBuffer(), mime);
 };
 
 export default {
@@ -270,6 +320,7 @@ export default {
 
     try {
       if (request.method === 'POST' && url.pathname === '/ingest') return await ingest(request, env);
+      if (request.method === 'POST' && url.pathname === '/upload') return await upload(request, env);
       return json({ error: 'not_found' }, 404);
     } catch (error) {
       console.error('media_ingest_error', error);
