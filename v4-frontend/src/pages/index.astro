@@ -219,8 +219,41 @@ const news = orderedNews.slice(0, 15);
       grid-column: auto;
     }
 
+    .v4-frontpage-secondary :global(.v4-card:first-child) {
+      padding-top: 0;
+    }
+
+    .v4-frontpage-secondary :global(.v4-card + .v4-card) {
+      border-top: 1px solid var(--v4-rule);
+    }
+
+    .v4-frontpage-secondary :global(.v4-card__media) {
+      grid-column: 1;
+      grid-row: 1 / span 2;
+      width: 100%;
+      min-height: 118px;
+      aspect-ratio: 4 / 3;
+    }
+
+    .v4-frontpage-secondary :global(.v4-kicker) {
+      grid-column: 2;
+      grid-row: 1;
+      margin: 1px 0 7px;
+      font-size: 11px;
+    }
+
+    .v4-frontpage-secondary :global(.v4-card__headline),
     .v4-frontpage-secondary :global(.v4-card--former-lead .v4-card__headline) {
-      font-size: clamp(20px, 5.7vw, 28px);
+      grid-column: 2;
+      grid-row: 2;
+      margin: 0;
+      font-size: clamp(20px, 5.6vw, 23px);
+      line-height: 1.14;
+    }
+
+    .v4-latest-title {
+      margin-bottom: 16px;
+      font-size: 28px;
     }
   }
 </style>
