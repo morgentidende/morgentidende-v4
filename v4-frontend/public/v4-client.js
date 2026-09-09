@@ -85,3 +85,45 @@ document.querySelectorAll('[data-newsletter-form]').forEach((form) => {
     }
   });
 });
+
+// Turn explicit editorial YouTube links into privacy-enhanced responsive embeds.
+// Only links whose visible text starts with "Se video:" are transformed.
+document.querySelectorAll('.v4-article-body a').forEach((link) => {
+  const label = (link.textContent || '').trim();
+  if (!label.toLocaleLowerCase('da-DK').startsWith('se video:')) return;
+
+  let url;
+  try {
+    url = new URL(link.href);
+  } catch {
+    return;
+  }
+
+  let videoId = '';
+  if (url.hostname === 'youtu.be') {
+    videoId = url.pathname.split('/').filter(Boolean)[0] || '';
+  } else if (url.hostname.endsWith('youtube.com')) {
+    videoId = url.searchParams.get('v') || '';
+    if (!videoId && url.pathname.startsWith('/shorts/')) videoId = url.pathname.split('/')[2] || '';
+    if (!videoId && url.pathname.startsWith('/embed/')) videoId = url.pathname.split('/')[2] || '';
+  }
+
+  if (!/^[A-Za-z0-9_-]{6,20}$/.test(videoId)) return;
+
+  const frame = document.createElement('div');
+  frame.className = 'v4-video-embed';
+  frame.style.cssText = 'position:relative;width:100%;aspect-ratio:16/9;margin:2rem 0;overflow:hidden;border-radius:14px;background:#000;';
+
+  const iframe = document.createElement('iframe');
+  iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}`;
+  iframe.title = label.replace(/^Se video:\s*/i, '') || 'Video';
+  iframe.loading = 'lazy';
+  iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+  iframe.referrerPolicy = 'strict-origin-when-cross-origin';
+  iframe.allowFullscreen = true;
+  iframe.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;border:0;';
+
+  frame.appendChild(iframe);
+  const paragraph = link.closest('p');
+  (paragraph || link).replaceWith(frame);
+});
