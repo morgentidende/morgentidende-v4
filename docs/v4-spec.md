@@ -21,6 +21,12 @@ Denne fil indeholder kun de regler, der er gældende nu. Historiske løsninger, 
 - Hero skal have dokumenteret lovlig brugsret og interne metadata for kilde, licens og credit.
 - No-attribution-licenser foretrækkes. Billeder med obligatorisk attribution bruges kun, når et passende alternativ ikke med rimelighed kan findes, og krediteres da korrekt.
 - Hvis et foreslået hero ikke kan verificeres, findes automatisk et lovligt alternativ.
+- Før et hero vælges eller udskiftes, kontrolleres den aktuelle forside. Hero-valget skal både passe til den enkelte artikel og forbedre forsiden som visuel helhed.
+- Samme foto må ikke optræde to gange på samme forside. Meget ens fotos undgås også, selv når URL eller fotograf er forskellig.
+- I story clusters og magasinrækker tilstræbes tydelig motivvariation, fx person, sted, produkt, proces, dokument eller grafik frem for flere næsten ens bygninger, laboratorier, flag, skærme eller portrætter ved siden af hinanden.
+- Hvis to aktuelle forsidesider visuelt konkurrerer eller ligner hinanden for meget, vælges det stærkeste hero til den vigtigste artikel og et relevant alternativ til den anden.
+- Artikler om øjenvidner, personlige oplevelser eller andre personbårne beretninger bør som udgangspunkt have mennesker i heroen, når et relevant og lovligt foto findes.
+- Genkendelige ansigter bruges kun som hero i sådanne personbårne artikler, når den afbildede person faktisk er en af de personer, artiklen handler om eller citerer som personlig kilde. Ellers foretrækkes mennesker fotograferet mere anonymt, på afstand, bagfra, i profil, delvist skjult eller på anden måde uden et tydeligt identificerbart ansigt.
 - Forklarende AI-grafik kan bruges inde i artikler og efter behov som hero, især i Viden.
 - Manchet: højst 2 sætninger og cirka 20 ord samlet.
 - Almindelige nyheder og Kommentarer må ikke slutte med en særskilt kildeliste. Kilder indarbejdes naturligt i brødteksten.
