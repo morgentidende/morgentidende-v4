@@ -17,11 +17,17 @@ Denne fil indeholder kun de regler, der er gældende nu. Historiske løsninger, 
 
 ## Artikelkrav
 - Alle artikler skal have hero.
-- Rigtige fotos er førstevalg til nyheder.
+- **Midlertidig AI-hero-prøve:** Morgentidende skruer i en afgrænset prøveperiode markant op for AI-genererede heros for at gøre forsiden mere visuelt attraktiv og mere delbar.
+- AI-heros må gerne være fotorealistiske, når motivet er fiktivt eller generisk og ikke kan forveksles med dokumentation af en konkret virkelig hændelse.
+- AI-heros må ikke afbilde virkelige personer. Hvis en artikel handler om en konkret virkelig person, bruges et lovligt rigtigt foto, neutral grafik eller et konceptuelt AI-motiv uden personen.
+- AI-heros må ikke fremstille en konkret virkelig nyhedsbegivenhed som et fotografi, der kunne opfattes som dokumentation fra stedet.
+- AI-heros prioriteres især til Tema, Viden, Liv, Kommentar samt idé-, trend-, fremtids-, teknologi-, sundheds- og samfundshistorier, hvor et stærkt konceptuelt motiv kan løfte forsiden.
+- Rigtige fotos bruges fortsat, når den konkrete person, hændelse eller dokumentariske virkelighed er en væsentlig del af historiens journalistiske værdi.
+- AI-genererede heros mærkes i metadata/credit som AI-illustration eller tilsvarende og må aldrig krediteres som et ægte foto.
+- Effekten af prøveperioden vurderes efter kort tid ud fra forsidens visuelle kvalitet, klik og delingspotentiale; derefter kan reglen justeres eller ophæves.
 - Hero skal have dokumenteret lovlig brugsret og interne metadata for kilde, licens og credit.
 - No-attribution-licenser foretrækkes. Billeder med obligatorisk attribution bruges kun, når et passende alternativ ikke med rimelighed kan findes, og krediteres da korrekt.
 - Hvis et foreslået hero ikke kan verificeres, findes automatisk et lovligt alternativ.
-- Forklarende AI-grafik kan bruges inde i artikler og efter behov som hero, især i Viden.
 - Manchet: højst 2 sætninger og cirka 20 ord samlet.
 - Almindelige nyheder og Kommentarer må ikke slutte med en særskilt kildeliste. Kilder indarbejdes naturligt i brødteksten.
 - Forskningsartikler i Viden og Liv skal have en kort kildesektion nederst med centrale studier/papers og klikbare links.
