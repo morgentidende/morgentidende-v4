@@ -54,7 +54,7 @@ if (formerLeadGraceActive && formerLead) {
   orderedNews = orderedNews.filter((a) => a.id !== formerLead.id);
   orderedNews.splice(Math.min(3, orderedNews.length), 0, formerLead);
 }
-const news = orderedNews.slice(0, 14);
+const news = orderedNews.slice(0, 15);
 ---
 <V4Layout image={lead?.hero_url}>
   <div class="v4-shell">
@@ -69,7 +69,7 @@ const news = orderedNews.slice(0, 14);
             <V4Card
               article={lead}
               categoryName={categoryById.get(lead.category_id)}
-              showDeck={false}
+              showDeck={true}
               imageLoading="eager"
               imageFetchPriority="high"
             />
@@ -140,7 +140,7 @@ const news = orderedNews.slice(0, 14);
       <section class="v4-section v4-latest-section">
         <h2 class="v4-latest-title">Seneste nyt</h2>
         <div class="v4-grid-4">
-          {news.slice(7, 14).map((article) => (
+          {news.slice(7, 15).map((article) => (
             <V4Card article={article} categoryName={categoryById.get(article.category_id)} showDeck={false} />
           ))}
         </div>
@@ -150,6 +150,15 @@ const news = orderedNews.slice(0, 14);
 </V4Layout>
 
 <style>
+  .v4-lead-main :global(.v4-card__deck) {
+    max-width: 760px;
+    margin-top: 12px;
+    font-family: var(--v4-serif);
+    font-size: clamp(16px, 1.45vw, 20px);
+    line-height: 1.45;
+    color: var(--v4-muted);
+  }
+
   .v4-frontpage-tier-divider {
     width: 78%;
     height: 1px;
@@ -182,6 +191,12 @@ const news = orderedNews.slice(0, 14);
   }
 
   @media (max-width: 640px) {
+    .v4-lead-main :global(.v4-card__deck) {
+      margin-top: 10px;
+      font-size: 16px;
+      line-height: 1.42;
+    }
+
     .v4-frontpage-tier-divider {
       width: 82%;
       margin: 26px auto 22px;
