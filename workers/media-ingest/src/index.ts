@@ -55,17 +55,31 @@ const isAuthorized = (request: Request, env: Env) => {
   return Boolean(env.MEDIA_INGEST_TOKEN) && safeEqual(auth, expected);
 };
 
+const isPrivateIpv4 = (host: string) => {
+  const parts = host.split('.').map((part) => Number(part));
+  if (parts.length !== 4 || !parts.every((part) => Number.isInteger(part) && part >= 0 && part <= 255)) return false;
+  const [a, b] = parts;
+  if (a === 0 || a === 10 || a === 127) return true;
+  if (a === 169 && b === 254) return true;
+  if (a === 172 && b >= 16 && b <= 31) return true;
+  if (a === 192 && b === 168) return true;
+  if (a === 100 && b >= 64 && b <= 127) return true;
+  if (a === 198 && (b === 18 || b === 19)) return true;
+  if (a >= 224) return true;
+  return false;
+};
+
 const isUnsafeSourceUrl = (raw: string) => {
   try {
     const url = new URL(raw);
     if (url.protocol !== 'https:') return true;
-    const host = url.hostname.toLowerCase();
-    if (host === 'localhost' || host.endsWith('.localhost')) return true;
-    if (/^(127\.|10\.|0\.|169\.254\.|192\.168\.)/.test(host)) return true;
-    const parts = host.split('.').map(Number);
-    if (parts.length === 4 && parts.every(Number.isFinite)) {
-      if (parts[0] === 172 && parts[1] >= 16 && parts[1] <= 31) return true;
-    }
+    if (url.username || url.password) return true;
+    if (url.port && url.port !== '443') return true;
+
+    const host = url.hostname.toLowerCase().replace(/^\[/, '').replace(/\]$/, '');
+    if (!host || host === 'localhost' || host.endsWith('.localhost') || host.endsWith('.local')) return true;
+    if (host.includes(':')) return true; // Reject literal IPv6 destinations; normal DNS hostnames remain allowed.
+    if (isPrivateIpv4(host)) return true;
     return false;
   } catch {
     return true;
@@ -76,8 +90,10 @@ const hex = (buffer: ArrayBuffer) => Array.from(new Uint8Array(buffer))
   .map((byte) => byte.toString(16).padStart(2, '0'))
   .join('');
 
+const normalizeMime = (mime: string) => mime.split(';')[0].trim().toLowerCase();
+
 const extensionFor = (mime: string) => {
-  const normalized = mime.split(';')[0].trim().toLowerCase();
+  const normalized = normalizeMime(mime);
   const map: Record<string, string> = {
     'image/jpeg': 'jpg',
     'image/png': 'png',
@@ -86,6 +102,36 @@ const extensionFor = (mime: string) => {
     'image/gif': 'gif'
   };
   return map[normalized] || null;
+};
+
+const ascii = (bytes: Uint8Array, start: number, length: number) => Array.from(bytes.slice(start, start + length))
+  .map((byte) => String.fromCharCode(byte))
+  .join('');
+
+const imageSignatureMatches = (buffer: ArrayBuffer, mime: string) => {
+  const bytes = new Uint8Array(buffer, 0, Math.min(buffer.byteLength, 64));
+  const normalized = normalizeMime(mime);
+
+  if (normalized === 'image/jpeg') {
+    return bytes.length >= 3 && bytes[0] === 0xff && bytes[1] === 0xd8 && bytes[2] === 0xff;
+  }
+  if (normalized === 'image/png') {
+    const signature = [0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a];
+    return bytes.length >= signature.length && signature.every((byte, index) => bytes[index] === byte);
+  }
+  if (normalized === 'image/webp') {
+    return bytes.length >= 12 && ascii(bytes, 0, 4) === 'RIFF' && ascii(bytes, 8, 4) === 'WEBP';
+  }
+  if (normalized === 'image/gif') {
+    const header = ascii(bytes, 0, 6);
+    return header === 'GIF87a' || header === 'GIF89a';
+  }
+  if (normalized === 'image/avif') {
+    if (bytes.length < 16 || ascii(bytes, 4, 4) !== 'ftyp') return false;
+    const brands = ascii(bytes, 8, Math.min(bytes.length - 8, 48));
+    return brands.includes('avif') || brands.includes('avis');
+  }
+  return false;
 };
 
 const supabaseHeaders = (env: Env, extra: Record<string, string> = {}) => ({
@@ -176,9 +222,9 @@ const insertAsset = async (
   return rows[0];
 };
 
-const validateRights = (input: IngestRequest) => {
-  return Boolean(input.commercial_use_allowed && input.local_storage_allowed);
-};
+const validateRights = (input: IngestRequest) => Boolean(
+  input.commercial_use_allowed && input.local_storage_allowed
+);
 
 const storeBytes = async (
   env: Env,
@@ -186,12 +232,16 @@ const storeBytes = async (
   bytes: ArrayBuffer,
   mime: string
 ) => {
-  const ext = extensionFor(mime);
-  if (!ext) return json({ error: 'unsupported_image_type', mime }, 415);
+  const normalizedMime = normalizeMime(mime);
+  const ext = extensionFor(normalizedMime);
+  if (!ext) return json({ error: 'unsupported_image_type', mime: normalizedMime }, 415);
 
   const maxBytes = Number(env.MEDIA_MAX_BYTES || '20971520');
   if (bytes.byteLength === 0) return json({ error: 'empty_image' }, 422);
   if (bytes.byteLength > maxBytes) return json({ error: 'image_too_large' }, 413);
+  if (!imageSignatureMatches(bytes, normalizedMime)) {
+    return json({ error: 'image_signature_mismatch', mime: normalizedMime }, 415);
+  }
 
   const sha256 = hex(await crypto.subtle.digest('SHA-256', bytes));
   const duplicate = await findAssetByHash(env, sha256);
@@ -209,7 +259,7 @@ const storeBytes = async (
 
   await env.MEDIA_BUCKET.put(storageKey, bytes, {
     httpMetadata: {
-      contentType: mime,
+      contentType: normalizedMime,
       cacheControl: 'public, max-age=31536000, immutable'
     },
     customMetadata: {
@@ -224,7 +274,7 @@ const storeBytes = async (
       sha256,
       storageKey,
       deliveryUrl,
-      mime,
+      mime: normalizedMime,
       byteSize: bytes.byteLength
     });
   } catch (error) {
@@ -246,6 +296,37 @@ const storeBytes = async (
   }, 201);
 };
 
+const fetchExternalImage = async (rawUrl: string) => {
+  let currentUrl = rawUrl;
+  const maxRedirects = 4;
+
+  for (let redirectCount = 0; redirectCount <= maxRedirects; redirectCount += 1) {
+    if (isUnsafeSourceUrl(currentUrl)) {
+      return { error: json({ error: 'source_url_not_allowed' }, 400) };
+    }
+
+    const response = await fetch(currentUrl, {
+      redirect: 'manual',
+      headers: { 'user-agent': 'MorgentidendeMedia/1.0' },
+      signal: AbortSignal.timeout(12_000)
+    });
+
+    if ([301, 302, 303, 307, 308].includes(response.status)) {
+      if (redirectCount === maxRedirects) {
+        return { error: json({ error: 'too_many_redirects' }, 422) };
+      }
+      const location = response.headers.get('location');
+      if (!location) return { error: json({ error: 'redirect_without_location' }, 422) };
+      currentUrl = new URL(location, currentUrl).toString();
+      continue;
+    }
+
+    return { response, finalUrl: currentUrl };
+  }
+
+  return { error: json({ error: 'too_many_redirects' }, 422) };
+};
+
 const ingest = async (request: Request, env: Env) => {
   let input: IngestRequest;
   try {
@@ -256,18 +337,21 @@ const ingest = async (request: Request, env: Env) => {
 
   if (!input?.source_url) return json({ error: 'source_url_required' }, 400);
   if (!validateRights(input)) return json({ error: 'archive_rights_required' }, 422);
-  if (isUnsafeSourceUrl(input.source_url)) return json({ error: 'source_url_not_allowed' }, 400);
 
-  const source = await fetch(input.source_url, {
-    redirect: 'follow',
-    headers: { 'user-agent': 'MorgentidendeMedia/1.0' }
-  });
+  const fetched = await fetchExternalImage(input.source_url);
+  if (fetched.error) return fetched.error;
+  const source = fetched.response!;
   if (!source.ok) return json({ error: 'source_fetch_failed', status: source.status }, 422);
 
-  const mime = (source.headers.get('content-type') || '').split(';')[0].trim().toLowerCase();
+  const mime = normalizeMime(source.headers.get('content-type') || '');
   const declaredLength = Number(source.headers.get('content-length') || '0');
   const maxBytes = Number(env.MEDIA_MAX_BYTES || '20971520');
   if (declaredLength > maxBytes) return json({ error: 'image_too_large' }, 413);
+
+  input.metadata = {
+    ...(input.metadata || {}),
+    fetched_final_url: fetched.finalUrl
+  };
 
   return storeBytes(env, input, await source.arrayBuffer(), mime);
 };
@@ -292,7 +376,7 @@ const upload = async (request: Request, env: Env) => {
   }
 
   if (!validateRights(input)) return json({ error: 'archive_rights_required' }, 422);
-  const mime = (file.type || '').split(';')[0].trim().toLowerCase();
+  const mime = normalizeMime(file.type || '');
   if (!extensionFor(mime)) return json({ error: 'unsupported_image_type', mime }, 415);
 
   const maxBytes = Number(env.MEDIA_MAX_BYTES || '20971520');
