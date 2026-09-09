@@ -40,8 +40,12 @@ Denne fil indeholder kun de regler, der er gældende nu. Historiske løsninger, 
 
 ## Rubrikker
 - Forsiderubrik og artikelrubrik kan være forskellige.
-- Forsiderubrikker må være moderat nysgerrighedsskabende, men må ikke love mere end artiklen leverer.
-- Rubrikken må tilbageholde konklusionen, men ikke skjule emnet.
+- Hovedreglen er **faktum først**: Når historien rummer et stærkt, verificeret faktum, tal, citat eller en konkret konsekvens, skal rubrikken som udgangspunkt sige det tydeligt i stedet for at skjule pointen for at lokke et klik frem.
+- Det mest opsigtsvækkende dokumenterede faktum bør stå tidligt i rubrikken, især på mobil og i deling på sociale platforme.
+- Rubrikker skal optimeres til deling: læseren skal kunne forstå, hvorfor historien er interessant, vredesvækkende, glædelig, overraskende eller nyttig allerede fra rubrikken.
+- Nysgerrighed må bruges, når selve afsløringen reelt bliver bedre af suspense, men den må ikke erstatte et stærkere konkret faktum, der allerede kan siges præcist.
+- Praktisk mål: cirka 70 % faktum-rubrikker, 20 % stærke citat-rubrikker og højst cirka 10 % rene nysgerrighedsrubrikker. Fordelingen er en redaktionel rettesnor, ikke en mekanisk kvote.
+- Rubrikker må aldrig love mere end dokumentationen kan bære, overdrive sikkerhed eller skære afgørende forbehold væk.
 - Tofarvede forsiderubrikker bruges kun, når et stærkt kort citat eller en formulering egner sig.
 - Accenttekst/citat i rubrik: 1–7 ord.
 - På artikelsiden bruges én rubrikfarve.
@@ -52,6 +56,7 @@ Aktive kategorier:
 - Udland
 - Penge
 - Kultur
+- Tema
 - Viden
 - Liv
 - Kommentar (ikke synlig i topmenu)
@@ -73,13 +78,14 @@ Viden og Liv er magasinsektioner:
 - En ny opfølgning kan forlænge breaking-status til 2 timer efter seneste opfølgning.
 - Brugeren kan overstyre breaking-status fra chatten.
 - Almindelig lead vises i egen roligere lead-kasse med relevante opfølgere.
+- Når en ny lead overtager, flyttes den seneste tidligere lead ned i det almindelige nyhedsflow. I de første 2 timer efter skiftet kan den prioriteres som første kort i den sekundære nyhedsrække og få større visuel vægt på desktop; derefter følger den normal kronologi.
 
 ## Design
 - Mørkeblå/navy/mørkelilla hovedpalette med diskret gul/guld accent.
 - Det godkendte aktuelle sol-logo i `v4-frontend/public/morgentidende-sun.png` er det autoritative logoasset.
 - Lys og mørk mode skal begge have tilstrækkelig kontrast.
 - Mørk/Lys-kontrol og Login ligger øverst til højre.
-- Login er læser-login og skal kunne udvides til betalt abonnement.
+- Login er læser-login til konto- og læserfunktioner; adgang til journalistisk indhold må ikke gøres afhængig af betaling.
 - Forsiden bruger lige grids, ikke masonry/forskudte kort.
 - Nyhedskort bruger konsistent hero-format/crop, som udgangspunkt 3:2.
 - Rubrikker har kontrolleret højde/linjeantal, så rækker forbliver visuelt lige.
