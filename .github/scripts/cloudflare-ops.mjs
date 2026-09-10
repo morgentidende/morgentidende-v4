@@ -35,7 +35,8 @@ const allowed = {
   zone_settings: { method: 'GET', path: '/zone/settings' },
   zone_rulesets: { method: 'GET', path: '/zone/rulesets' },
   worker_routes: { method: 'GET', path: '/zone/worker-routes' },
-  r2_buckets: { method: 'GET', path: '/r2/buckets' }
+  r2_buckets: { method: 'GET', path: '/r2/buckets' },
+  disable_legacy_v3: { method: 'POST', path: '/maintenance/disable-legacy-v3' }
 };
 
 let spec = allowed[action];
