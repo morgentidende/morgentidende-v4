@@ -21,11 +21,19 @@ if (v4Supabase) {
       .limit(64),
     v4Supabase.from('v4_public_categories').select('id,name,sort_order').order('sort_order', { ascending: true })
   ]);
-  if (articlesResult.error) loadError = true;
-  else articles = articlesResult.data || [];
-  if (!categoriesResult.error) categories = categoriesResult.data || [];
+  loadError = Boolean(articlesResult.error || categoriesResult.error);
+  if (!loadError) {
+    articles = articlesResult.data || [];
+    categories = categoriesResult.data || [];
+  }
 } else {
   loadError = true;
+}
+
+if (loadError) {
+  Astro.response.status = 503;
+  Astro.response.headers.set('Cache-Control', 'no-store');
+  Astro.response.headers.set('Cloudflare-CDN-Cache-Control', 'no-store');
 }
 
 const categoryById = new Map(categories.map((c) => [c.id, c.name]));
@@ -56,11 +64,11 @@ if (formerLeadGraceActive && formerLead) {
 }
 const news = orderedNews.slice(0, 15);
 ---
-<V4Layout image={lead?.hero_url}>
+<V4Layout image={lead?.hero_url} noindex={loadError}>
   <div class="v4-shell">
-    {loadError && articles.length === 0 ? <div class="v4-empty">Nyhederne kan ikke hentes lige nu. Prøv igen om et øjeblik.</div> : null}
+    {loadError ? <div class="v4-empty">Nyhederne kan ikke hentes lige nu. Prøv igen om et øjeblik.</div> : null}
 
-    {lead ? (
+    {!loadError && lead ? (
       <section class={leadType === 'breaking' ? 'v4-breaking-box' : 'v4-lead-box'}>
         {leadType === 'breaking' ? <div class="v4-lead-label v4-lead-label--breaking">BREAKING · SENESTE NYT</div> : null}
         {leadType === 'theme' ? <div class="v4-lead-label v4-lead-label--theme">TEMA</div> : null}
@@ -88,7 +96,7 @@ const news = orderedNews.slice(0, 15);
       </section>
     ) : null}
 
-    {news.length ? (
+    {!loadError && news.length ? (
       <section class="v4-section v4-frontpage-news">
         <div class="v4-grid-3 v4-frontpage-primary">
           {news.slice(0, 3).map((article) => (
@@ -114,29 +122,33 @@ const news = orderedNews.slice(0, 15);
       </section>
     ) : null}
 
-    <NewsletterSignup />
+    {!loadError ? <NewsletterSignup /> : null}
 
-    <section class="v4-section v4-magazine v4-magazine--viden">
-      <div class="v4-kicker">MAGASIN</div>
-      <h2 class="v4-section-title">Viden</h2>
-      {viden.length ? (
-        <div class="v4-grid-4">
-          {viden.map((article) => <V4Card article={article} showDeck={false} />)}
-        </div>
-      ) : <div class="v4-empty">Viden-blokken er klar til artikler.</div>}
-    </section>
+    {!loadError ? (
+      <section class="v4-section v4-magazine v4-magazine--viden">
+        <div class="v4-kicker">MAGASIN</div>
+        <h2 class="v4-section-title">Viden</h2>
+        {viden.length ? (
+          <div class="v4-grid-4">
+            {viden.map((article) => <V4Card article={article} showDeck={false} />)}
+          </div>
+        ) : <div class="v4-empty">Viden-blokken er klar til artikler.</div>}
+      </section>
+    ) : null}
 
-    <section class="v4-section v4-magazine v4-magazine--liv">
-      <div class="v4-kicker">MAGASIN</div>
-      <h2 class="v4-section-title">Liv</h2>
-      {liv.length ? (
-        <div class="v4-grid-4">
-          {liv.map((article) => <V4Card article={article} showDeck={false} />)}
-        </div>
-      ) : <div class="v4-empty">Liv-blokken er klar til artikler.</div>}
-    </section>
+    {!loadError ? (
+      <section class="v4-section v4-magazine v4-magazine--liv">
+        <div class="v4-kicker">MAGASIN</div>
+        <h2 class="v4-section-title">Liv</h2>
+        {liv.length ? (
+          <div class="v4-grid-4">
+            {liv.map((article) => <V4Card article={article} showDeck={false} />)}
+          </div>
+        ) : <div class="v4-empty">Liv-blokken er klar til artikler.</div>}
+      </section>
+    ) : null}
 
-    {news.length > 7 ? (
+    {!loadError && news.length > 7 ? (
       <section class="v4-section v4-latest-section">
         <h2 class="v4-latest-title">Seneste nyt</h2>
         <div class="v4-grid-4">
