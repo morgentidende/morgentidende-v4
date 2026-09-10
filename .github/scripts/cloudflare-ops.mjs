@@ -1,4 +1,5 @@
 import fs from 'node:fs/promises';
+import { createHash } from 'node:crypto';
 
 // Sends both supported admin-auth forms for compatibility with older deployments.
 const base = process.env.ADMIN_BASE_URL;
@@ -8,12 +9,27 @@ if (!base || !token) {
   process.exit(2);
 }
 
+const normalizedToken = token.trim();
+const localFingerprint = createHash('sha256').update(normalizedToken).digest('hex').slice(0, 12);
+
 const healthResponse = await fetch(`${base}/health`);
 const healthText = await healthResponse.text();
 console.log(JSON.stringify({
   probe: 'health',
   status: healthResponse.status,
   body: healthText
+}, null, 2));
+
+const fingerprintResponse = await fetch(`${base}/auth-fingerprint-temp`);
+const fingerprintText = await fingerprintResponse.text();
+let workerFingerprint;
+try { workerFingerprint = JSON.parse(fingerprintText); } catch { workerFingerprint = { raw: fingerprintText }; }
+console.log(JSON.stringify({
+  probe: 'auth_fingerprint',
+  status: fingerprintResponse.status,
+  github: { length: normalizedToken.length, fingerprint: localFingerprint },
+  worker: workerFingerprint,
+  match: fingerprintResponse.ok && workerFingerprint?.fingerprint === localFingerprint && workerFingerprint?.length === normalizedToken.length
 }, null, 2));
 
 const raw = await fs.readFile('cloudflare-ops/request.json', 'utf8');
@@ -51,8 +67,8 @@ if (!spec) {
 const response = await fetch(`${base}${spec.path}`, {
   method: spec.method,
   headers: {
-    'x-morgentidende-admin-token': token,
-    'authorization': `Bearer ${token}`,
+    'x-morgentidende-admin-token': normalizedToken,
+    'authorization': `Bearer ${normalizedToken}`,
     'content-type': 'application/json'
   }
 });
