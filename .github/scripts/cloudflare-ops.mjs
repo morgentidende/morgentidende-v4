@@ -8,6 +8,14 @@ if (!base || !token) {
   process.exit(2);
 }
 
+const healthResponse = await fetch(`${base}/health`);
+const healthText = await healthResponse.text();
+console.log(JSON.stringify({
+  probe: 'health',
+  status: healthResponse.status,
+  body: healthText
+}, null, 2));
+
 const raw = await fs.readFile('cloudflare-ops/request.json', 'utf8');
 const request = JSON.parse(raw);
 const action = request?.action;
