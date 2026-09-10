@@ -1,7 +1,5 @@
 import fs from 'node:fs/promises';
-import { createHash } from 'node:crypto';
 
-// Sends both supported admin-auth forms for compatibility with older deployments.
 const base = process.env.ADMIN_BASE_URL;
 const token = process.env.ADMIN_TOKEN;
 if (!base || !token) {
@@ -10,7 +8,6 @@ if (!base || !token) {
 }
 
 const normalizedToken = token.trim();
-const localFingerprint = createHash('sha256').update(normalizedToken).digest('hex').slice(0, 12);
 
 const healthResponse = await fetch(`${base}/health`);
 const healthText = await healthResponse.text();
@@ -18,18 +15,6 @@ console.log(JSON.stringify({
   probe: 'health',
   status: healthResponse.status,
   body: healthText
-}, null, 2));
-
-const fingerprintResponse = await fetch(`${base}/auth-fingerprint-temp`);
-const fingerprintText = await fingerprintResponse.text();
-let workerFingerprint;
-try { workerFingerprint = JSON.parse(fingerprintText); } catch { workerFingerprint = { raw: fingerprintText }; }
-console.log(JSON.stringify({
-  probe: 'auth_fingerprint',
-  status: fingerprintResponse.status,
-  github: { length: normalizedToken.length, fingerprint: localFingerprint },
-  worker: workerFingerprint,
-  match: fingerprintResponse.ok && workerFingerprint?.fingerprint === localFingerprint && workerFingerprint?.length === normalizedToken.length
 }, null, 2));
 
 const raw = await fs.readFile('cloudflare-ops/request.json', 'utf8');
@@ -46,7 +31,12 @@ const allowed = {
   zone_settings: { method: 'GET', path: '/zone/settings' },
   zone_rulesets: { method: 'GET', path: '/zone/rulesets' },
   worker_routes: { method: 'GET', path: '/zone/worker-routes' },
-  r2_buckets: { method: 'GET', path: '/r2/buckets' }
+  r2_buckets: { method: 'GET', path: '/r2/buckets' },
+  write_token_probe: {
+    method: 'POST',
+    path: '/zone/cache/purge',
+    body: { files: ['https://morgentidende.dk/__cf_write_token_probe__'] }
+  }
 };
 
 let spec = allowed[action];
@@ -70,7 +60,8 @@ const response = await fetch(`${base}${spec.path}`, {
     'x-morgentidende-admin-token': normalizedToken,
     'authorization': `Bearer ${normalizedToken}`,
     'content-type': 'application/json'
-  }
+  },
+  body: spec.body ? JSON.stringify(spec.body) : undefined
 });
 
 const text = await response.text();
