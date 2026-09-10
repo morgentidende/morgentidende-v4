@@ -1,0 +1,78 @@
+name: Passive security test
+
+on:
+  push:
+    branches:
+      - test/security-passive-20260910
+
+permissions:
+  contents: read
+
+jobs:
+  passive-security:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - name: Basic external security checks
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p security-results
+
+          check_status() {
+            local expected="$1"; shift
+            local url="$1"; shift
+            local code
+            code=$(curl -sS -o /tmp/body -w '%{http_code}' --max-time 20 "$@" "$url")
+            echo "$url -> $code" | tee -a security-results/http-status.txt
+            if [ "$code" != "$expected" ]; then
+              echo "Expected $expected, got $code for $url" >&2
+              cat /tmp/body >&2 || true
+              exit 1
+            fi
+          }
+
+          curl -sS -D security-results/home-headers.txt -o security-results/home.html --max-time 20 https://morgentidende.dk/
+          grep -qi '^content-security-policy:' security-results/home-headers.txt
+          grep -qi '^strict-transport-security:' security-results/home-headers.txt
+          grep -qi '^x-content-type-options:[[:space:]]*nosniff' security-results/home-headers.txt
+          grep -qi '^x-frame-options:[[:space:]]*DENY' security-results/home-headers.txt
+          grep -qi '^referrer-policy:' security-results/home-headers.txt
+
+          check_status 200 https://morgentidende-media-ingest.morgentidende.workers.dev/health
+          check_status 401 https://morgentidende-media-ingest.morgentidende.workers.dev/ingest -X POST -H 'content-type: application/json' --data '{}'
+          check_status 200 https://morgentidende-cloudflare-admin.morgentidende.workers.dev/health
+          check_status 401 https://morgentidende-cloudflare-admin.morgentidende.workers.dev/diagnostics/summary
+
+          payload='%3Cscript%3Ealert%281%29%3C%2Fscript%3E'
+          curl -sS --max-time 20 "https://morgentidende.dk/soeg?q=${payload}" -o security-results/xss-search.html
+          if grep -Fq '<script>alert(1)</script>' security-results/xss-search.html; then
+            echo 'Potential reflected XSS: raw script payload found in response' >&2
+            exit 1
+          fi
+
+          curl -sS -D security-results/login-headers.txt -o /dev/null --max-time 20 https://morgentidende.dk/login
+          grep -qi '^cache-control:.*no-store' security-results/login-headers.txt
+
+      - name: OWASP ZAP baseline passive scan
+        shell: bash
+        run: |
+          set -euo pipefail
+          docker run --rm -v "$PWD/security-results:/zap/wrk/:rw" \
+            ghcr.io/zaproxy/zaproxy:stable \
+            zap-baseline.py -t https://morgentidende.dk -m 2 -I -r zap-report.html -w zap-report.md || true
+
+      - name: Summarize ZAP findings
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ -f security-results/zap-report.md ]; then
+            sed -n '1,240p' security-results/zap-report.md
+          fi
+
+      - name: Upload security results
+        uses: actions/upload-artifact@v4
+        with:
+          name: passive-security-results
+          path: security-results/
+          retention-days: 3
