@@ -10,14 +10,22 @@ Astro.response.headers.set('Cloudflare-CDN-Cache-Control', 'public, max-age=60, 
 const { category: categorySlug } = Astro.params;
 let category: any = null;
 let articles: any[] = [];
+let backendUnavailable = false;
 
-if (v4Supabase && categorySlug) {
+if (!v4Supabase) {
+  backendUnavailable = true;
+} else if (categorySlug) {
   const categoryResult = await v4Supabase
     .from('v4_public_categories')
     .select('id,slug,name,description')
     .eq('slug', categorySlug)
     .maybeSingle();
-  category = categoryResult.data;
+
+  if (categoryResult.error) {
+    backendUnavailable = true;
+  } else {
+    category = categoryResult.data;
+  }
 
   if (category) {
     const articlesResult = await v4Supabase
@@ -26,15 +34,24 @@ if (v4Supabase && categorySlug) {
       .eq('category_id', category.id)
       .order('published_at', { ascending: false })
       .limit(40);
-    articles = articlesResult.data || [];
+
+    if (articlesResult.error) backendUnavailable = true;
+    else articles = articlesResult.data || [];
   }
 }
 
-if (!category) Astro.response.status = 404;
+if (backendUnavailable) Astro.response.status = 503;
+else if (!category) Astro.response.status = 404;
+
 const isMagazine = category?.name === 'Viden' || category?.name === 'Liv';
+const pageTitle = category
+  ? `${category.name} – Morgentidende`
+  : backendUnavailable
+    ? 'Midlertidigt utilgængelig – Morgentidende'
+    : 'Ikke fundet – Morgentidende';
 ---
 <V4Layout
-  title={category ? `${category.name} – Morgentidende` : 'Ikke fundet – Morgentidende'}
+  title={pageTitle}
   description={category?.description || (category ? `Seneste nyt fra ${category.name} på Morgentidende.` : '')}
 >
   <div class="v4-shell">
@@ -45,15 +62,19 @@ const isMagazine = category?.name === 'Viden' || category?.name === 'Liv';
           <h1>{category.name}</h1>
           {category.description ? <p>{category.description}</p> : null}
         </header>
-        {articles.length ? (
+        {backendUnavailable ? (
+          <div class="v4-empty">Nyhederne kan ikke hentes lige nu. Prøv igen om et øjeblik.</div>
+        ) : articles.length ? (
           <section class="v4-section">
             <div class="v4-grid-3">
               {articles.map((article) => <V4Card article={article} showDeck={true} />)}
             </div>
           </section>
         ) : <div class="v4-empty">Der er endnu ingen artikler i denne sektion.</div>}
-        {isMagazine ? <NewsletterSignup variant="weekly" magazineName={category.name} /> : null}
+        {isMagazine && !backendUnavailable ? <NewsletterSignup variant="weekly" magazineName={category.name} /> : null}
       </>
+    ) : backendUnavailable ? (
+      <div class="v4-empty">Nyhederne kan ikke hentes lige nu. Prøv igen om et øjeblik.</div>
     ) : <div class="v4-empty">Sektionen blev ikke fundet.</div>}
   </div>
 </V4Layout>
