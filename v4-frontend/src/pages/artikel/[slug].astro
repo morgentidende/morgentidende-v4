@@ -36,11 +36,9 @@ if (slug) {
         .order('sort_order', { ascending: true })
     ]);
 
-    backendError = Boolean(articleResult.error || categoriesResult.error);
-    if (!backendError) {
-      article = articleResult.data;
-      categories = categoriesResult.data || [];
-    }
+    backendError = Boolean(articleResult.error);
+    if (!backendError) article = articleResult.data;
+    if (!categoriesResult.error) categories = categoriesResult.data || [];
 
     if (article) {
       const relationQuery = v4Supabase
