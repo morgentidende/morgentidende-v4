@@ -13,42 +13,56 @@ try {
 
 let results: any[] = [];
 let categories: any[] = [];
+let backendError = false;
 
-if (v4Supabase && topic) {
-  const [articlesResult, categoriesResult] = await Promise.all([
-    v4Supabase
-      .from('v4_public_articles')
-      .select('id,slug,category_id,story_cluster_id,headline,frontpage_headline,headline_accent_text,deck,hero_url,hero_alt,published_at')
-      .contains('topics', [topic])
-      .order('published_at', { ascending: false })
-      .limit(60),
-    v4Supabase
-      .from('v4_public_categories')
-      .select('id,name')
-  ]);
+if (topic) {
+  if (v4Supabase) {
+    const [articlesResult, categoriesResult] = await Promise.all([
+      v4Supabase
+        .from('v4_public_articles')
+        .select('id,slug,category_id,story_cluster_id,headline,frontpage_headline,headline_accent_text,deck,hero_url,hero_alt,published_at')
+        .contains('topics', [topic])
+        .order('published_at', { ascending: false })
+        .limit(60),
+      v4Supabase
+        .from('v4_public_categories')
+        .select('id,name')
+    ]);
 
-  results = articlesResult.data || [];
-  categories = categoriesResult.data || [];
+    backendError = Boolean(articlesResult.error || categoriesResult.error);
+    if (!backendError) {
+      results = articlesResult.data || [];
+      categories = categoriesResult.data || [];
+    }
+  } else {
+    backendError = true;
+  }
 }
 
 if (!topic) Astro.response.status = 404;
+else if (backendError) Astro.response.status = 503;
 
 const categoryById = new Map(categories.map((c) => [c.id, c.name]));
 const title = topic ? `${topic} – Emne – Morgentidende` : 'Emne – Morgentidende';
 const canonical = topic ? new URL(`/emne/${encodeURIComponent(topic)}`, Astro.site || Astro.url.origin).toString() : undefined;
 ---
-<V4Layout title={title} description={`Seneste artikler om ${topic} på Morgentidende`} canonical={canonical} noindex={!topic}>
+<V4Layout title={title} description={`Seneste artikler om ${topic} på Morgentidende`} canonical={canonical} noindex={!topic || backendError}>
   <section class="v4-topic-page">
     <div class="v4-kicker">Emne</div>
     <h1>{topic}</h1>
-    <p class="v4-topic-summary">{results.length} {results.length === 1 ? 'artikel' : 'artikler'}</p>
-
-    {results.length ? (
-      <div class="v4-grid-3">
-        {results.map((item) => <V4Card article={item} categoryName={categoryById.get(item.category_id)} />)}
-      </div>
+    {backendError ? (
+      <p class="v4-topic-empty">Nyhederne kan ikke hentes lige nu. Prøv igen om et øjeblik.</p>
     ) : (
-      <p class="v4-topic-empty">Der er endnu ingen publicerede artikler under dette emne.</p>
+      <>
+        <p class="v4-topic-summary">{results.length} {results.length === 1 ? 'artikel' : 'artikler'}</p>
+        {results.length ? (
+          <div class="v4-grid-3">
+            {results.map((item) => <V4Card article={item} categoryName={categoryById.get(item.category_id)} />)}
+          </div>
+        ) : (
+          <p class="v4-topic-empty">Der er endnu ingen publicerede artikler under dette emne.</p>
+        )}
+      </>
     )}
   </section>
 </V4Layout>
