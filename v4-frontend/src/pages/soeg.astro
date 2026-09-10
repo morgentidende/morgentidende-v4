@@ -43,7 +43,7 @@ if (backendError) Astro.response.status = 503;
 const categoryById = new Map(categories.map((c) => [c.id, c.name]));
 const title = q ? `Søg: ${q} – Morgentidende` : 'Søg – Morgentidende';
 ---
-<V4Layout title={title} description="Søg i Morgentidendes artikler">
+<V4Layout title={title} description="Søg i Morgentidendes artikler" noindex={true}>
   <section class="v4-search-page">
     <div class="v4-kicker">Arkiv</div>
     <h1>Søg i Morgentidende</h1>
