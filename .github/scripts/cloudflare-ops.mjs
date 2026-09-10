@@ -42,7 +42,7 @@ if (!spec) {
 const response = await fetch(`${base}${spec.path}`, {
   method: spec.method,
   headers: {
-    authorization: `Bearer ${token}`,
+    'x-morgentidende-admin-token': token,
     'content-type': 'application/json'
   }
 });
