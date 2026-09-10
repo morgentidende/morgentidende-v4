@@ -23,6 +23,8 @@ const action = request?.action;
 
 const allowed = {
   diagnostics_summary: { method: 'GET', path: '/diagnostics/summary' },
+  exposure_diagnostics: { method: 'GET', path: '/diagnostics/exposure' },
+  security_diagnostics: { method: 'GET', path: '/diagnostics/security' },
   preview_trigger: { method: 'GET', path: '/workers/morgentidende-v4/preview-trigger' },
   preview_builds: { method: 'GET', path: '/workers/morgentidende-v4/builds' },
   frontend_triggers: { method: 'GET', path: '/workers/morgentidende-v4/triggers' },
