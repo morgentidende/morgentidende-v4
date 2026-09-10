@@ -3,6 +3,7 @@ interface Env {
   CF_API_TOKEN: string;
   ADMIN_TOKEN: string;
   ALLOWED_WORKERS?: string;
+  ALLOWED_ZONE?: string;
 }
 
 const json = (body: unknown, status = 200) => new Response(JSON.stringify(body), {
@@ -32,28 +33,47 @@ const cfHeaders = (env: Env, extra: Record<string, string> = {}) => ({
 });
 
 const allowedWorkerNames = (env: Env) => new Set(
-  (env.ALLOWED_WORKERS || 'morgentidende-v4,morgentidende-media-ingest')
+  (env.ALLOWED_WORKERS || 'morgentidende-v4,morgentidende-media-ingest,morgentidende-cloudflare-admin')
     .split(',')
     .map((value) => value.trim())
     .filter(Boolean)
 );
 
+const allowedZoneName = (env: Env) => (env.ALLOWED_ZONE || 'morgentidende.dk').trim().toLowerCase();
 const ensureWorkerAllowed = (env: Env, name: string) => allowedWorkerNames(env).has(name);
 
-const cfFetch = async (env: Env, path: string, init: RequestInit = {}) => {
-  const response = await fetch(`https://api.cloudflare.com/client/v4/accounts/${env.CF_ACCOUNT_ID}${path}`, {
+const cfApi = async (env: Env, path: string, init: RequestInit = {}) => {
+  const response = await fetch(`https://api.cloudflare.com/client/v4${path}`, {
     ...init,
     headers: cfHeaders(env, (init.headers || {}) as Record<string, string>)
   });
   const text = await response.text();
   let body: unknown;
   try { body = text ? JSON.parse(text) : null; } catch { body = { raw: text.slice(0, 1000) }; }
-  if (!response.ok) return { ok: false, status: response.status, body };
-  return { ok: true, status: response.status, body };
+  return { ok: response.ok, status: response.status, body };
+};
+
+const accountFetch = (env: Env, path: string, init: RequestInit = {}) =>
+  cfApi(env, `/accounts/${env.CF_ACCOUNT_ID}${path}`, init);
+
+const getZone = async (env: Env) => {
+  const name = allowedZoneName(env);
+  const result = await cfApi(env, `/zones?name=${encodeURIComponent(name)}&account.id=${encodeURIComponent(env.CF_ACCOUNT_ID)}`);
+  if (!result.ok) return { error: result };
+  const zones = (result.body as any)?.result || [];
+  const zone = zones.find((item: any) => String(item.name || '').toLowerCase() === name);
+  if (!zone?.id) return { error: { ok: false, status: 404, body: { error: 'zone_not_found' } } };
+  return { id: zone.id as string, zone };
+};
+
+const zoneFetch = async (env: Env, path: string, init: RequestInit = {}) => {
+  const zoneResult = await getZone(env);
+  if ('error' in zoneResult) return zoneResult.error;
+  return cfApi(env, `/zones/${encodeURIComponent(zoneResult.id)}${path}`, init);
 };
 
 const getWorkerTag = async (env: Env, workerName: string) => {
-  const result = await cfFetch(env, '/workers/scripts');
+  const result = await accountFetch(env, '/workers/scripts');
   if (!result.ok) return { error: result };
   const rows = (result.body as any)?.result || [];
   const worker = rows.find((row: any) => row.id === workerName);
@@ -64,7 +84,7 @@ const getWorkerTag = async (env: Env, workerName: string) => {
 const listTriggers = async (env: Env, workerName: string) => {
   const tagResult = await getWorkerTag(env, workerName);
   if ('error' in tagResult) return tagResult.error;
-  return cfFetch(env, `/builds/workers/${encodeURIComponent(tagResult.tag)}/triggers`);
+  return accountFetch(env, `/builds/workers/${encodeURIComponent(tagResult.tag)}/triggers`);
 };
 
 const getPreviewTrigger = async (env: Env, workerName: string) => {
@@ -101,11 +121,20 @@ const repairPreviewTrigger = async (env: Env, workerName: string) => {
     path_excludes: Array.isArray(trigger.path_excludes) ? trigger.path_excludes : []
   };
 
-  return cfFetch(env, `/builds/triggers/${encodeURIComponent(triggerUuid)}`, {
+  return accountFetch(env, `/builds/triggers/${encodeURIComponent(triggerUuid)}`, {
     method: 'PATCH',
     body: JSON.stringify(patch)
   });
 };
+
+const SAFE_ZONE_SETTINGS = new Set([
+  'always_use_https',
+  'automatic_https_rewrites',
+  'browser_check',
+  'min_tls_version',
+  'security_level',
+  'tls_1_3'
+]);
 
 export default {
   async fetch(request: Request, env: Env): Promise<Response> {
@@ -117,6 +146,91 @@ export default {
 
     if (!authorized(request, env)) return json({ error: 'unauthorized' }, 401);
     if (!env.CF_ACCOUNT_ID || !env.CF_API_TOKEN) return json({ error: 'cloudflare_credentials_missing' }, 503);
+
+    if (request.method === 'GET' && url.pathname === '/diagnostics/summary') {
+      const [scripts, r2, zone, settings, dns, rulesets, routes] = await Promise.all([
+        accountFetch(env, '/workers/scripts'),
+        accountFetch(env, '/r2/buckets'),
+        getZone(env),
+        zoneFetch(env, '/settings'),
+        zoneFetch(env, '/dns_records?per_page=100'),
+        zoneFetch(env, '/rulesets'),
+        zoneFetch(env, '/workers/routes')
+      ]);
+      return json({
+        workers: scripts.body,
+        r2: r2.body,
+        zone: 'error' in zone ? zone.error.body : zone.zone,
+        settings: settings.body,
+        dns: dns.body,
+        rulesets: rulesets.body,
+        worker_routes: routes.body
+      });
+    }
+
+    if (request.method === 'GET' && url.pathname === '/r2/buckets') {
+      const result = await accountFetch(env, '/r2/buckets');
+      return json(result.body, result.status);
+    }
+
+    if (request.method === 'GET' && url.pathname === '/zone') {
+      const result = await getZone(env);
+      return 'error' in result ? json(result.error.body, result.error.status) : json(result.zone);
+    }
+
+    if (request.method === 'GET' && url.pathname === '/zone/dns') {
+      const result = await zoneFetch(env, '/dns_records?per_page=100');
+      return json(result.body, result.status);
+    }
+
+    if (request.method === 'GET' && url.pathname === '/zone/settings') {
+      const result = await zoneFetch(env, '/settings');
+      return json(result.body, result.status);
+    }
+
+    if (request.method === 'GET' && url.pathname === '/zone/rulesets') {
+      const result = await zoneFetch(env, '/rulesets');
+      return json(result.body, result.status);
+    }
+
+    if (request.method === 'GET' && url.pathname === '/zone/worker-routes') {
+      const result = await zoneFetch(env, '/workers/routes');
+      return json(result.body, result.status);
+    }
+
+    if (request.method === 'PATCH' && url.pathname.startsWith('/zone/settings/')) {
+      const setting = decodeURIComponent(url.pathname.slice('/zone/settings/'.length));
+      if (!SAFE_ZONE_SETTINGS.has(setting)) return json({ error: 'setting_not_allowed' }, 403);
+      let body: any;
+      try { body = await request.json(); } catch { return json({ error: 'invalid_json' }, 400); }
+      if (!body || !Object.prototype.hasOwnProperty.call(body, 'value')) return json({ error: 'value_required' }, 400);
+      const result = await zoneFetch(env, `/settings/${encodeURIComponent(setting)}`, {
+        method: 'PATCH',
+        body: JSON.stringify({ value: body.value })
+      });
+      return json(result.body, result.status);
+    }
+
+    if (request.method === 'POST' && url.pathname === '/zone/cache/purge') {
+      let body: any;
+      try { body = await request.json(); } catch { return json({ error: 'invalid_json' }, 400); }
+      const files = Array.isArray(body?.files) ? body.files.filter((value: unknown) => typeof value === 'string').slice(0, 30) : [];
+      if (!files.length) return json({ error: 'files_required', note: 'Only explicit URL purges are allowed; purge_everything is intentionally disabled.' }, 400);
+      const allowedHost = allowedZoneName(env);
+      for (const value of files) {
+        try {
+          const candidate = new URL(value);
+          if (candidate.protocol !== 'https:' || !(candidate.hostname === allowedHost || candidate.hostname.endsWith(`.${allowedHost}`))) {
+            return json({ error: 'url_not_allowed', url: value }, 403);
+          }
+        } catch { return json({ error: 'invalid_url', url: value }, 400); }
+      }
+      const result = await zoneFetch(env, '/purge_cache', {
+        method: 'POST',
+        body: JSON.stringify({ files })
+      });
+      return json(result.body, result.status);
+    }
 
     const match = url.pathname.match(/^\/workers\/([^/]+)\/(triggers|preview-trigger|builds)$/);
     if (request.method === 'GET' && match) {
@@ -135,7 +249,7 @@ export default {
       if (action === 'builds') {
         const tagResult = await getWorkerTag(env, workerName);
         if ('error' in tagResult) return json(tagResult.error.body, tagResult.error.status);
-        const result = await cfFetch(env, `/builds/workers/${encodeURIComponent(tagResult.tag)}/builds`);
+        const result = await accountFetch(env, `/builds/workers/${encodeURIComponent(tagResult.tag)}/builds`);
         return json(result.body, result.status);
       }
     }
@@ -149,7 +263,7 @@ export default {
     if (request.method === 'GET' && logMatch) {
       const buildUuid = decodeURIComponent(logMatch[1]);
       if (!/^[0-9a-f-]{36}$/i.test(buildUuid)) return json({ error: 'invalid_build_uuid' }, 400);
-      const result = await cfFetch(env, `/builds/builds/${encodeURIComponent(buildUuid)}/logs`);
+      const result = await accountFetch(env, `/builds/builds/${encodeURIComponent(buildUuid)}/logs`);
       return json(result.body, result.status);
     }
 
