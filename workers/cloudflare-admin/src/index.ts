@@ -130,22 +130,49 @@ const getExposureDiagnostics = async (env: Env) => {
     ? (scripts.body as any).result.filter((row: any) => String(row?.id || '').startsWith('morgentidende-'))
     : [];
 
-  const subdomains = await Promise.all(workerRows.map(async (row: any) => {
+  const workers = await Promise.all(workerRows.map(async (row: any) => {
     const name = String(row.id || '');
-    const result = await accountFetchRead(env, `/workers/scripts/${encodeURIComponent(name)}/subdomain`);
+    const [subdomain, schedules] = await Promise.all([
+      accountFetchRead(env, `/workers/scripts/${encodeURIComponent(name)}/subdomain`),
+      accountFetchRead(env, `/workers/scripts/${encodeURIComponent(name)}/schedules`)
+    ]);
     return {
       worker: name,
-      status: result.status,
-      ok: result.ok,
-      subdomain: result.body
+      subdomain: { status: subdomain.status, ok: subdomain.ok, body: subdomain.body },
+      schedules: { status: schedules.status, ok: schedules.ok, body: schedules.body }
     };
   }));
 
   return {
     scripts: scripts.body,
     domains: domains.body,
-    subdomains
+    workers
   };
+};
+
+const getR2Diagnostics = async (env: Env) => {
+  const buckets = await accountFetchRead(env, '/r2/buckets');
+  const rows = Array.isArray((buckets.body as any)?.result?.buckets)
+    ? (buckets.body as any).result.buckets
+    : [];
+
+  const details = await Promise.all(rows.map(async (row: any) => {
+    const name = String(row?.name || '');
+    if (!name) return null;
+    const [customDomains, managedDomain, cors] = await Promise.all([
+      accountFetchRead(env, `/r2/buckets/${encodeURIComponent(name)}/domains/custom`),
+      accountFetchRead(env, `/r2/buckets/${encodeURIComponent(name)}/domains/managed`),
+      accountFetchRead(env, `/r2/buckets/${encodeURIComponent(name)}/cors`)
+    ]);
+    return {
+      bucket: name,
+      custom_domains: { status: customDomains.status, ok: customDomains.ok, body: customDomains.body },
+      managed_domain: { status: managedDomain.status, ok: managedDomain.ok, body: managedDomain.body },
+      cors: { status: cors.status, ok: cors.ok, body: cors.body }
+    };
+  }));
+
+  return { buckets: buckets.body, details: details.filter(Boolean) };
 };
 
 const getSecurityDiagnostics = async (env: Env) => {
@@ -243,6 +270,11 @@ export default {
 
     if (request.method === 'GET' && url.pathname === '/diagnostics/exposure') {
       const result = await getExposureDiagnostics(env);
+      return json(result);
+    }
+
+    if (request.method === 'GET' && url.pathname === '/diagnostics/r2') {
+      const result = await getR2Diagnostics(env);
       return json(result);
     }
 
