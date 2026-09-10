@@ -120,6 +120,59 @@ const getPreviewTrigger = async (env: Env, workerName: string) => {
   return { ok: true, status: 200, body: preview };
 };
 
+const getExposureDiagnostics = async (env: Env) => {
+  const [scripts, domains] = await Promise.all([
+    accountFetchRead(env, '/workers/scripts'),
+    accountFetchRead(env, '/workers/domains')
+  ]);
+
+  const workerRows = Array.isArray((scripts.body as any)?.result)
+    ? (scripts.body as any).result.filter((row: any) => String(row?.id || '').startsWith('morgentidende-'))
+    : [];
+
+  const subdomains = await Promise.all(workerRows.map(async (row: any) => {
+    const name = String(row.id || '');
+    const result = await accountFetchRead(env, `/workers/scripts/${encodeURIComponent(name)}/subdomain`);
+    return {
+      worker: name,
+      status: result.status,
+      ok: result.ok,
+      subdomain: result.body
+    };
+  }));
+
+  return {
+    scripts: scripts.body,
+    domains: domains.body,
+    subdomains
+  };
+};
+
+const getSecurityDiagnostics = async (env: Env) => {
+  const rulesets = await zoneFetchRead(env, '/rulesets');
+  if (!rulesets.ok) return { rulesets: rulesets.body, details: [] };
+
+  const rows = Array.isArray((rulesets.body as any)?.result) ? (rulesets.body as any).result : [];
+  const zoneOwned = rows.filter((row: any) => row?.kind === 'zone' && /^[0-9a-f]{32}$/i.test(String(row?.id || '')));
+  const details = await Promise.all(zoneOwned.map(async (row: any) => {
+    const id = String(row.id);
+    const result = await zoneFetchRead(env, `/rulesets/${encodeURIComponent(id)}`);
+    return {
+      id,
+      name: row.name,
+      phase: row.phase,
+      status: result.status,
+      ok: result.ok,
+      ruleset: result.body
+    };
+  }));
+
+  return {
+    rulesets: rulesets.body,
+    details
+  };
+};
+
 const repairPreviewTrigger = async (env: Env, workerName: string) => {
   if (workerName !== 'morgentidende-v4') {
     return { ok: false, status: 403, body: { error: 'repair_not_allowed_for_worker' } };
@@ -186,6 +239,16 @@ export default {
         rulesets: rulesets.body,
         worker_routes: routes.body
       });
+    }
+
+    if (request.method === 'GET' && url.pathname === '/diagnostics/exposure') {
+      const result = await getExposureDiagnostics(env);
+      return json(result);
+    }
+
+    if (request.method === 'GET' && url.pathname === '/diagnostics/security') {
+      const result = await getSecurityDiagnostics(env);
+      return json(result);
     }
 
     if (request.method === 'GET' && url.pathname === '/r2/buckets') {
