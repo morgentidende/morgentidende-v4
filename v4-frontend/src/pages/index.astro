@@ -10,7 +10,7 @@ Astro.response.headers.set('Cloudflare-CDN-Cache-Control', 'public, max-age=30, 
 
 let articles: any[] = [];
 let categories: any[] = [];
-let loadError = '';
+let loadError = false;
 
 if (v4Supabase) {
   const [articlesResult, categoriesResult] = await Promise.all([
@@ -21,11 +21,11 @@ if (v4Supabase) {
       .limit(64),
     v4Supabase.from('v4_public_categories').select('id,name,sort_order').order('sort_order', { ascending: true })
   ]);
-  if (articlesResult.error) loadError = articlesResult.error.message;
+  if (articlesResult.error) loadError = true;
   else articles = articlesResult.data || [];
   if (!categoriesResult.error) categories = categoriesResult.data || [];
 } else {
-  loadError = 'Supabase-miljøvariabler mangler.';
+  loadError = true;
 }
 
 const categoryById = new Map(categories.map((c) => [c.id, c.name]));
@@ -58,7 +58,7 @@ const news = orderedNews.slice(0, 15);
 ---
 <V4Layout image={lead?.hero_url}>
   <div class="v4-shell">
-    {loadError && articles.length === 0 ? <div class="v4-empty">V4 frontend er klar. {loadError}</div> : null}
+    {loadError && articles.length === 0 ? <div class="v4-empty">Nyhederne kan ikke hentes lige nu. Prøv igen om et øjeblik.</div> : null}
 
     {lead ? (
       <section class={leadType === 'breaking' ? 'v4-breaking-box' : 'v4-lead-box'}>
