@@ -11,24 +11,34 @@ const rawQ = Astro.url.searchParams.get('q') || '';
 const q = rawQ.trim().replace(/[,%()]/g, ' ').replace(/\s+/g, ' ').slice(0, 120);
 let results: any[] = [];
 let categories: any[] = [];
+let backendError = false;
 
-if (v4Supabase && q.length >= 2) {
-  const pattern = `%${q}%`;
-  const [articlesResult, categoriesResult] = await Promise.all([
-    v4Supabase
-      .from('v4_public_articles')
-      .select('id,slug,category_id,story_cluster_id,headline,frontpage_headline,headline_accent_text,deck,hero_url,hero_alt,published_at')
-      .or(`headline.ilike.${pattern},deck.ilike.${pattern},body_markdown.ilike.${pattern}`)
-      .order('published_at', { ascending: false })
-      .limit(40),
-    v4Supabase
-      .from('v4_public_categories')
-      .select('id,name')
-  ]);
+if (q.length >= 2) {
+  if (v4Supabase) {
+    const pattern = `%${q}%`;
+    const [articlesResult, categoriesResult] = await Promise.all([
+      v4Supabase
+        .from('v4_public_articles')
+        .select('id,slug,category_id,story_cluster_id,headline,frontpage_headline,headline_accent_text,deck,hero_url,hero_alt,published_at')
+        .or(`headline.ilike.${pattern},deck.ilike.${pattern},body_markdown.ilike.${pattern}`)
+        .order('published_at', { ascending: false })
+        .limit(40),
+      v4Supabase
+        .from('v4_public_categories')
+        .select('id,name')
+    ]);
 
-  results = articlesResult.data || [];
-  categories = categoriesResult.data || [];
+    backendError = Boolean(articlesResult.error || categoriesResult.error);
+    if (!backendError) {
+      results = articlesResult.data || [];
+      categories = categoriesResult.data || [];
+    }
+  } else {
+    backendError = true;
+  }
 }
+
+if (backendError) Astro.response.status = 503;
 
 const categoryById = new Map(categories.map((c) => [c.id, c.name]));
 const title = q ? `Søg: ${q} – Morgentidende` : 'Søg – Morgentidende';
@@ -52,7 +62,9 @@ const title = q ? `Søg: ${q} – Morgentidende` : 'Søg – Morgentidende';
       <button type="submit">Søg</button>
     </form>
 
-    {q.length === 1 ? (
+    {backendError ? (
+      <p class="v4-search-empty">Nyhederne kan ikke hentes lige nu. Prøv igen om et øjeblik.</p>
+    ) : q.length === 1 ? (
       <p class="v4-search-empty">Skriv mindst to tegn.</p>
     ) : q ? (
       <>
