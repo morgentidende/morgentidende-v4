@@ -40,8 +40,13 @@ if (!v4Supabase) {
   }
 }
 
-if (backendUnavailable) Astro.response.status = 503;
-else if (!category) Astro.response.status = 404;
+if (backendUnavailable) {
+  Astro.response.status = 503;
+  Astro.response.headers.set('Cache-Control', 'no-store');
+  Astro.response.headers.set('Cloudflare-CDN-Cache-Control', 'no-store');
+} else if (!category) {
+  Astro.response.status = 404;
+}
 
 const isMagazine = category?.name === 'Viden' || category?.name === 'Liv';
 const pageTitle = category
@@ -53,6 +58,7 @@ const pageTitle = category
 <V4Layout
   title={pageTitle}
   description={category?.description || (category ? `Seneste nyt fra ${category.name} på Morgentidende.` : '')}
+  noindex={backendUnavailable || !category}
 >
   <div class="v4-shell">
     {category ? (
