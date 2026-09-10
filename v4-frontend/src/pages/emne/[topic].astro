@@ -39,8 +39,13 @@ if (topic) {
   }
 }
 
-if (!topic) Astro.response.status = 404;
-else if (backendError) Astro.response.status = 503;
+if (!topic) {
+  Astro.response.status = 404;
+} else if (backendError) {
+  Astro.response.status = 503;
+  Astro.response.headers.set('Cache-Control', 'no-store');
+  Astro.response.headers.set('Cloudflare-CDN-Cache-Control', 'no-store');
+}
 
 const categoryById = new Map(categories.map((c) => [c.id, c.name]));
 const title = topic ? `${topic} – Emne – Morgentidende` : 'Emne – Morgentidende';
