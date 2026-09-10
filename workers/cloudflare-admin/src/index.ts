@@ -22,8 +22,11 @@ const safeEqual = (a: string, b: string) => {
 };
 
 const authorized = (request: Request, env: Env) => {
+  if (!env.ADMIN_TOKEN) return false;
+  const dedicatedHeader = request.headers.get('x-morgentidende-admin-token') || '';
+  if (safeEqual(dedicatedHeader, env.ADMIN_TOKEN)) return true;
   const auth = request.headers.get('authorization') || '';
-  return Boolean(env.ADMIN_TOKEN) && safeEqual(auth, `Bearer ${env.ADMIN_TOKEN}`);
+  return safeEqual(auth, `Bearer ${env.ADMIN_TOKEN}`);
 };
 
 const cfHeaders = (env: Env, extra: Record<string, string> = {}) => ({
