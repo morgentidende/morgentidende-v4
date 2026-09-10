@@ -1,0 +1,6 @@
+name = "morgentidende-cloudflare-admin"
+main = "src/index.ts"
+compatibility_date = "2026-09-10"
+
+[vars]
+ALLOWED_WORKERS = "morgentidende-v4,morgentidende-media-ingest"
