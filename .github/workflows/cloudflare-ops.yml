@@ -1,0 +1,26 @@
+name: Cloudflare Ops Bridge
+
+on:
+  push:
+    branches:
+      - ops/cloudflare
+    paths:
+      - cloudflare-ops/request.json
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Execute allowlisted Cloudflare operation
+        env:
+          ADMIN_TOKEN: ${{ secrets.CLOUDFLARE_ADMIN_TOKEN }}
+          ADMIN_BASE_URL: https://morgentidende-cloudflare-admin.morgentidende.workers.dev
+        run: node .github/scripts/cloudflare-ops.mjs
