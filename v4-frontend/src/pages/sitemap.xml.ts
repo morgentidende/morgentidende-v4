@@ -6,16 +6,28 @@ const escapeXml = (value: string) => value.replace(/[<>&'\"]/g, (char) => ({'<':
 export const GET: APIRoute = async ({ site }) => {
   const origin = (site || new URL('https://morgentidende.dk')).origin;
   const staticPaths = ['/', '/om-morgentidende', '/redaktionelle-principper', '/kontakt', '/stoet-morgentidende'];
-  let articles: any[] = [];
-  let categories: any[] = [];
-  if (v4Supabase) {
-    const [articleResult, categoryResult] = await Promise.all([
-      v4Supabase.from('v4_public_articles').select('slug,updated_at,published_at').order('published_at', { ascending: false }),
-      v4Supabase.from('v4_public_categories').select('slug').order('sort_order', { ascending: true })
-    ]);
-    articles = articleResult.data || [];
-    categories = categoryResult.data || [];
+
+  if (!v4Supabase) {
+    return new Response('Service unavailable', {
+      status: 503,
+      headers: { 'Content-Type': 'text/plain; charset=utf-8', 'Cache-Control': 'no-store' }
+    });
   }
+
+  const [articleResult, categoryResult] = await Promise.all([
+    v4Supabase.from('v4_public_articles').select('slug,updated_at,published_at').order('published_at', { ascending: false }),
+    v4Supabase.from('v4_public_categories').select('slug').order('sort_order', { ascending: true })
+  ]);
+
+  if (articleResult.error || categoryResult.error) {
+    return new Response('Service unavailable', {
+      status: 503,
+      headers: { 'Content-Type': 'text/plain; charset=utf-8', 'Cache-Control': 'no-store' }
+    });
+  }
+
+  const articles = articleResult.data || [];
+  const categories = categoryResult.data || [];
   const urls = [
     ...staticPaths.map((path) => ({ loc: `${origin}${path}`, lastmod: undefined })),
     ...categories.map((c) => ({ loc: `${origin}/kategori/${c.slug}`, lastmod: undefined })),
