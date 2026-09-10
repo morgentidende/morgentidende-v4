@@ -54,9 +54,19 @@ const newsCandidates = stream.filter((a) => !['Viden', 'Liv'].includes(categoryB
 const leadPublishedAt = lead?.published_at ? new Date(lead.published_at).getTime() : Number.NaN;
 const leadAgeMs = Number.isFinite(leadPublishedAt) ? Date.now() - leadPublishedAt : Number.POSITIVE_INFINITY;
 const formerLeadGraceActive = Boolean(lead) && leadAgeMs >= 0 && leadAgeMs <= 2 * 60 * 60 * 1000;
+
+// A new lead normally clears is_lead on the previous one. Infer the former lead
+// from the newest eligible article published before the current lead instead of
+// relying on the old article still carrying is_lead=true.
 const formerLead = lead
-  ? newsCandidates.find((a) => a.is_lead && a.story_cluster_id !== lead.story_cluster_id)
+  ? newsCandidates.find((a) => {
+      const publishedAt = a?.published_at ? new Date(a.published_at).getTime() : Number.NaN;
+      return Number.isFinite(publishedAt)
+        && publishedAt < leadPublishedAt
+        && a.story_cluster_id !== lead.story_cluster_id;
+    })
   : null;
+
 let orderedNews = [...newsCandidates];
 if (formerLeadGraceActive && formerLead) {
   orderedNews = orderedNews.filter((a) => a.id !== formerLead.id);
