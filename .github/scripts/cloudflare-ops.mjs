@@ -1,5 +1,6 @@
 import fs from 'node:fs/promises';
 
+// Sends both supported admin-auth forms for compatibility with older deployments.
 const base = process.env.ADMIN_BASE_URL;
 const token = process.env.ADMIN_TOKEN;
 if (!base || !token) {
