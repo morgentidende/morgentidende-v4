@@ -1,5 +1,4 @@
 {
-  "action": "build_logs",
-  "build_uuid": "c23d71e7-1359-4d6c-87e3-dd0c84aeae72",
-  "request_id": "2026-09-10T05:43:00Z"
+  "action": "diagnostics_summary",
+  "request_id": "2026-09-10T17:02:00+02:00"
 }
