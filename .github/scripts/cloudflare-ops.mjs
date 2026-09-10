@@ -25,18 +25,14 @@ const allowed = {
   diagnostics_summary: { method: 'GET', path: '/diagnostics/summary' },
   preview_trigger: { method: 'GET', path: '/workers/morgentidende-v4/preview-trigger' },
   preview_builds: { method: 'GET', path: '/workers/morgentidende-v4/builds' },
-  repair_preview: { method: 'POST', path: '/workers/morgentidende-v4/preview-trigger/repair' },
+  frontend_triggers: { method: 'GET', path: '/workers/morgentidende-v4/triggers' },
+  media_triggers: { method: 'GET', path: '/workers/morgentidende-media-ingest/triggers' },
   zone: { method: 'GET', path: '/zone' },
   zone_dns: { method: 'GET', path: '/zone/dns' },
   zone_settings: { method: 'GET', path: '/zone/settings' },
   zone_rulesets: { method: 'GET', path: '/zone/rulesets' },
   worker_routes: { method: 'GET', path: '/zone/worker-routes' },
-  r2_buckets: { method: 'GET', path: '/r2/buckets' },
-  write_token_probe: {
-    method: 'POST',
-    path: '/zone/cache/purge',
-    body: { files: ['https://morgentidende.dk/__cf_write_token_probe__'] }
-  }
+  r2_buckets: { method: 'GET', path: '/r2/buckets' }
 };
 
 let spec = allowed[action];
@@ -60,8 +56,7 @@ const response = await fetch(`${base}${spec.path}`, {
     'x-morgentidende-admin-token': normalizedToken,
     'authorization': `Bearer ${normalizedToken}`,
     'content-type': 'application/json'
-  },
-  body: spec.body ? JSON.stringify(spec.body) : undefined
+  }
 });
 
 const text = await response.text();
