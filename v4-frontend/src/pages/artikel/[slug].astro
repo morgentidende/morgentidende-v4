@@ -170,7 +170,8 @@ const firstThree = recommendations
 const used = new Set([...firstThree, ...storyRelated].map((a) => a.id));
 const finalFour = recommendations.filter((a) => !used.has(a.id)).slice(0, 4);
 const heroIsGraphic = /\.(svg|png)(\?|$)/i.test(article?.hero_url || '') && (article?.hero_credit === 'Morgentidende grafik' || (article?.hero_url || '').includes('dsa-big-brother'));
-const canonical = article ? new URL(`/artikel/${article.slug}`, Astro.site || Astro.url.origin).toString() : undefined;
+const siteBase = Astro.site || Astro.url.origin;
+const canonical = article ? new URL(`/artikel/${article.slug}`, siteBase).toString() : undefined;
 const publishedDate = article?.published_at ? new Date(article.published_at) : null;
 const updatedDate = article?.updated_at ? new Date(article.updated_at) : publishedDate;
 const formatDateTime = (value: Date) => new Intl.DateTimeFormat('da-DK', {
@@ -182,7 +183,8 @@ const articleTitle = article
     ? 'Midlertidigt utilgængelig – Morgentidende'
     : 'Ikke fundet – Morgentidende';
 const authorName = article?.author_name?.trim();
-const showAuthor = authorName && authorName.toLocaleLowerCase('da-DK') !== 'morgentidende';
+const hasNamedHumanAuthor = Boolean(authorName && authorName.toLocaleLowerCase('da-DK') !== 'morgentidende');
+const displayAuthorName = hasNamedHumanAuthor ? authorName : 'Morgentidende';
 const headlineIsLong = (article?.headline?.length || 0) > 72;
 const headlineIsVeryLong = (article?.headline?.length || 0) > 105;
 const newsArticleLd = article ? {
@@ -195,14 +197,16 @@ const newsArticleLd = article ? {
   mainEntityOfPage: canonical,
   image: article.hero_url ? [article.hero_url] : undefined,
   articleSection: category || undefined,
-  author: showAuthor
+  author: hasNamedHumanAuthor
     ? { '@type': 'Person', name: authorName }
-    : { '@type': 'Organization', name: 'Morgentidende', url: new URL('/', Astro.site || Astro.url.origin).toString() },
+    : { '@type': 'Organization', name: 'Morgentidende', url: new URL('/om-morgentidende', siteBase).toString() },
   publisher: {
-    '@type': 'Organization',
+    '@type': 'NewsMediaOrganization',
     name: 'Morgentidende',
-    url: new URL('/', Astro.site || Astro.url.origin).toString(),
-    logo: { '@type': 'ImageObject', url: new URL('/morgentidende-sun.png', Astro.site || Astro.url.origin).toString() }
+    url: new URL('/', siteBase).toString(),
+    email: 'redaktion@morgentidende.dk',
+    publishingPrinciples: new URL('/redaktionelle-principper', siteBase).toString(),
+    logo: { '@type': 'ImageObject', url: new URL('/morgentidende-sun.png', siteBase).toString() }
   }
 } : undefined;
 ---
@@ -222,7 +226,7 @@ const newsArticleLd = article ? {
         <h1 class:list={['v4-article-title', headlineIsLong && 'v4-article-title--long', headlineIsVeryLong && 'v4-article-title--very-long']}>{article.headline}</h1>
         {article.deck ? <p class="v4-article-deck">{article.deck}</p> : null}
         <div class="v4-article-meta">
-          {showAuthor ? <span>Af {authorName}</span> : null}
+          <span>Af {displayAuthorName}</span>
           {publishedDate ? <time datetime={article.published_at}>Udgivet {formatDateTime(publishedDate)}</time> : null}
           {updatedDate && publishedDate && updatedDate.getTime() > publishedDate.getTime() + 60000 ? <time datetime={article.updated_at}>Opdateret {formatDateTime(updatedDate)}</time> : null}
         </div>
