@@ -14,4 +14,7 @@ Denne regel gælder al autonom og manuelt bestilt artikelproduktion til magasine
 - Hård intern-linkregel: Hver Viden- og Liv-artikel skal mod slutningen af brødteksten have 1–2 naturlige prosasætninger, der inviterer læseren videre til mindst én relevant eksisterende Morgentidende-artikel om et beslægtet emne. Linket skal være en del af den journalistiske prosa, ikke blot en løs "Læs også"-etiket eller automatisk kort.
 - Den relaterede artikel skal være reelt relevant for emnet og vælges ud fra læserværdi, ikke kun SEO. Der må ikke indsættes et kunstigt link, hvis ingen passende artikel findes endnu; i så fald bør en relevant intern destination oprettes eller artiklen udgives uden et irrelevant link.
 - Brødtekstlinks skal fremstå som tydelige hyperlinks efter avisens designregel: understregede og i Morgentidendes mørke lilla i lys tilstand, med en læsbar lysere lilla variant i dark mode.
+- Sprogregel: Brug almindelige danske ord frem for engelske forkortelser og fagudtryk, når et naturligt dansk ord findes. Fx skal "hormonbehandling" som udgangspunkt bruges frem for "HRT".
+- Hvis en forkortelse eller et fagudtryk er nødvendigt, skal det forklares første gang det bruges. Eksempel: "den amerikanske lægemiddelmyndighed FDA (Food and Drug Administration)". Derefter kan forkortelsen bruges alene.
+- Forkortelser må ikke bruges blot fordi de er almindelige i engelsksprogede kilder. Læservenligt dansk har forrang.
 - Kvalitet og korrekthed har altid forrang. Høj delbarhed må ikke opnås ved faktuel forvrængning.
