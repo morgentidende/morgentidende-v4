@@ -117,8 +117,19 @@ const escapeHtml = (value = '') => value
   .replace(/"/g, '&quot;')
   .replace(/'/g, '&#039;');
 
+const ensureBodyImageAlt = (html: string, fallbackAlt: string) => html.replace(/<img\b([^>]*)>/gi, (tag, attributes) => {
+  const escapedFallback = escapeHtml(fallbackAlt || 'Illustration til artiklen');
+  if (/\balt\s*=\s*(["'])\s*\1/i.test(attributes)) {
+    return `<img${attributes.replace(/\balt\s*=\s*(["'])\s*\1/i, `alt="${escapedFallback}"`)}>`;
+  }
+  if (/\balt\s*=/i.test(attributes)) return tag;
+  return `<img${attributes} alt="${escapedFallback}">`;
+});
+
+const bodyWithImageAlt = ensureBodyImageAlt(rawBodyHtml, article?.headline || 'Illustration til artiklen');
+
 const inlineRelatedCandidates = storyRelated.slice(0, 2);
-const paragraphCount = (rawBodyHtml.match(/<\/p>/g) || []).length;
+const paragraphCount = (bodyWithImageAlt.match(/<\/p>/g) || []).length;
 const inlineRelated = paragraphCount >= 4 ? inlineRelatedCandidates : [];
 const remainingStoryRelated = storyRelated.slice(inlineRelated.length);
 
@@ -136,7 +147,7 @@ const injectAfterParagraph = (html: string, paragraphNumber: number, insertion: 
   });
 };
 
-let bodyHtml = rawBodyHtml;
+let bodyHtml = bodyWithImageAlt;
 if (inlineRelated[0]) bodyHtml = injectAfterParagraph(bodyHtml, 3, inlineRelatedMarkup(inlineRelated[0]));
 if (inlineRelated[1] && paragraphCount >= 8) bodyHtml = injectAfterParagraph(bodyHtml, 7, inlineRelatedMarkup(inlineRelated[1]));
 
@@ -204,14 +215,24 @@ const updatedDate = article?.updated_at ? new Date(article.updated_at) : publish
 const formatDateTime = (value: Date) => new Intl.DateTimeFormat('da-DK', {
   day: 'numeric', month: 'long', year: 'numeric', hour: '2-digit', minute: '2-digit', timeZone: 'Europe/Copenhagen'
 }).format(value);
+
+const makeSeoTitle = (headline = '', maxLength = 62) => {
+  const clean = headline.trim();
+  if (clean.length <= maxLength) return clean;
+  const candidate = clean.slice(0, maxLength - 1).replace(/\s+\S*$/, '').replace(/[,:;\-–—]+\s*$/, '').trim();
+  return `${candidate || clean.slice(0, maxLength - 1).trim()}…`;
+};
+
 const articleTitle = article
-  ? `${article.headline} – Morgentidende`
+  ? makeSeoTitle(article.headline)
   : backendError
     ? 'Midlertidigt utilgængelig – Morgentidende'
     : 'Ikke fundet – Morgentidende';
 const displayAuthorName = 'Redaktionen';
 const headlineIsLong = (article?.headline?.length || 0) > 72;
 const headlineIsVeryLong = (article?.headline?.length || 0) > 105;
+const logoUrl = new URL('/morgentidende-sun.png', siteBase).toString();
+const organizationLogo = { '@type': 'ImageObject', url: logoUrl };
 const newsArticleLd = article ? {
   '@context': 'https://schema.org',
   '@type': 'NewsArticle',
@@ -226,10 +247,12 @@ const newsArticleLd = article ? {
     '@type': 'Organization',
     name: 'Redaktionen',
     url: new URL('/om-morgentidende', siteBase).toString(),
+    logo: organizationLogo,
     parentOrganization: {
       '@type': 'NewsMediaOrganization',
       name: 'Morgentidende',
-      url: new URL('/', siteBase).toString()
+      url: new URL('/', siteBase).toString(),
+      logo: organizationLogo
     }
   },
   publisher: {
@@ -238,7 +261,7 @@ const newsArticleLd = article ? {
     url: new URL('/', siteBase).toString(),
     email: 'redaktion@morgentidende.dk',
     publishingPrinciples: new URL('/redaktionelle-principper', siteBase).toString(),
-    logo: { '@type': 'ImageObject', url: new URL('/morgentidende-sun.png', siteBase).toString() }
+    logo: organizationLogo
   }
 } : undefined;
 ---
