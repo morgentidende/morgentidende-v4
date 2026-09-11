@@ -29,6 +29,7 @@ Denne fil indeholder kun de regler, der er gældende nu. Historiske løsninger, 
 - No-attribution-licenser foretrækkes. Billeder med obligatorisk attribution bruges kun, når et passende alternativ ikke med rimelighed kan findes, og krediteres da korrekt.
 - Hvis et foreslået hero ikke kan verificeres, findes automatisk et lovligt alternativ.
 - Manchet: højst 2 sætninger og cirka 20 ord samlet.
+- **Markdown-regel:** Et almindeligt brødtekstafsnit må ikke begynde direkte med mønstret `tal.` (fx `11. september ...`), fordi markdown kan fortolke det som en nummereret liste og ændre tallet ved rendering. Omskriv i stedet naturligt, fx `Den 11. september ...`, medmindre der faktisk ønskes en nummereret liste.
 - Almindelige nyheder og Kommentarer må ikke slutte med en særskilt kildeliste. Kilder indarbejdes naturligt i brødteksten.
 - Forskningsartikler i Viden og Liv skal have en kort kildesektion nederst med centrale studier/papers og klikbare links.
 - Artikler bygget på personlige erfaringer eller øjenvidner skal bruge verificerbare direkte citater, når de findes. Citater må aldrig opfindes eller løsnes fra dokumenteret kontekst.
