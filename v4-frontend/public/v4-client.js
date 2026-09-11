@@ -77,11 +77,39 @@ if (lower && topbar) {
 }
 
 document.querySelectorAll('[data-newsletter-form]').forEach((form) => {
-  form.addEventListener('submit', (event) => {
+  form.addEventListener('submit', async (event) => {
     event.preventDefault();
     const status = form.querySelector('[data-newsletter-status]');
-    if (status) {
-      status.textContent = 'Tak – formularen er klar, og tilmeldingen åbner før lanceringen.';
+    const submit = form.querySelector('button[type="submit"]');
+    const data = new FormData(form);
+    const newsletter = String(data.get('newsletter') || 'daily');
+
+    if (newsletter !== 'daily') {
+      if (status) status.textContent = 'Viden og Liv får deres egne magasinnyhedsbreve senere.';
+      return;
+    }
+
+    const email = String(data.get('email') || '').trim();
+    if (!email) return;
+
+    if (submit) submit.disabled = true;
+    if (status) status.textContent = 'Sender bekræftelsesmail…';
+
+    try {
+      const response = await fetch('/api/newsletter/subscribe', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({ email, newsletter: 'daily', source: window.location.pathname })
+      });
+      const result = await response.json().catch(() => ({}));
+      if (!response.ok) throw new Error(result?.message || 'Tilmeldingen kunne ikke gennemføres.');
+
+      form.reset();
+      if (status) status.textContent = 'Tjek din indbakke – vi har sendt et link, som du skal bekræfte.';
+    } catch (error) {
+      if (status) status.textContent = error instanceof Error ? error.message : 'Tilmeldingen kunne ikke gennemføres.';
+    } finally {
+      if (submit) submit.disabled = false;
     }
   });
 });
