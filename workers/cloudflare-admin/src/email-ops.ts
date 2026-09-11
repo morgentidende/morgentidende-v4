@@ -80,7 +80,7 @@ export const handleEmailOps = async (request: Request, env: EmailEnv): Promise<R
   if (request.method === 'POST' && url.pathname === '/email/routing/enable') {
     const result = await cf(env, `${zoneBase}/email/routing/dns`, {
       method: 'POST',
-      body: JSON.stringify({ name: zoneName(env) })
+      body: JSON.stringify({})
     });
     return json(result.body, result.status);
   }
