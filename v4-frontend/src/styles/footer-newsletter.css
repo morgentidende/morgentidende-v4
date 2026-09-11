@@ -50,11 +50,23 @@
   cursor: pointer;
 }
 
-.v4-footer__newsletter-status {
+.v4-footer__newsletter-status,
+.v4-footer__newsletter-note {
   grid-column: 1 / -1;
   min-height: 0;
   margin: 0;
   font-size: 12px;
+  line-height: 1.45;
+}
+
+.v4-footer__newsletter-note {
+  color: rgba(248,244,236,.64);
+}
+
+.v4-footer__newsletter-note a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
 .v4-footer__main {

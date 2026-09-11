@@ -1,0 +1,47 @@
+---
+import V4Layout from '../../layouts/V4Layout.astro';
+import { v4Supabase } from '../../lib/v4-supabase';
+
+Astro.response.headers.set('Cache-Control', 'no-store');
+const token = Astro.url.searchParams.get('token') || '';
+let confirmed = false;
+
+if (token && v4Supabase) {
+  const { data, error } = await v4Supabase.rpc('newsletter_confirm_signup', { p_token: token });
+  confirmed = !error && data === true;
+}
+---
+<V4Layout title={confirmed ? 'Du er tilmeldt – Morgentidende' : 'Bekræftelse – Morgentidende'} noindex={true}>
+  <section class="newsletter-result">
+    <img src="/morgentidende-sun.png" width="64" height="64" alt="" />
+    <div class="v4-kicker">Morgentidende på mail</div>
+    <h1>{confirmed ? 'Velkommen om bord' : 'Linket kunne ikke bekræftes'}</h1>
+    {confirmed ? (
+      <>
+        <p>Din e-mail er bekræftet. Fra nu af får du Morgentidendes daglige nyhedsbrev kl. 06.</p>
+        <a href="/">Gå til forsiden</a>
+      </>
+    ) : (
+      <>
+        <p>Linket er udløbet, allerede brugt eller ugyldigt. Du kan tilmelde dig igen fra forsiden.</p>
+        <a href="/">Til forsiden</a>
+      </>
+    )}
+  </section>
+</V4Layout>
+
+<style>
+  .newsletter-result {
+    width: min(680px, calc(100% - 28px));
+    margin: 54px auto 90px;
+    padding: clamp(34px, 6vw, 62px);
+    text-align: center;
+    background: var(--v4-surface);
+    border-top: 4px solid var(--v4-gold);
+    box-shadow: 0 18px 60px rgba(10,18,30,.09);
+  }
+  .newsletter-result img { margin: 0 auto 18px; }
+  .newsletter-result h1 { margin: 10px 0 16px; font-family: var(--v4-serif); font-size: clamp(34px, 5vw, 52px); line-height: 1.05; }
+  .newsletter-result p { max-width: 520px; margin: 0 auto 26px; color: var(--v4-muted); font-size: 18px; line-height: 1.6; }
+  .newsletter-result a { display: inline-block; padding: 13px 20px; background: var(--v4-gold); color: #17140c; font-weight: 700; }
+</style>
