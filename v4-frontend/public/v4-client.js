@@ -86,6 +86,56 @@ document.querySelectorAll('[data-newsletter-form]').forEach((form) => {
   });
 });
 
+// Article sharing lives here because the site CSP blocks inline executable JavaScript.
+document.querySelectorAll('.v4-copy-link').forEach((button) => {
+  button.addEventListener('click', async () => {
+    const url = button.dataset.copyLink || window.location.href;
+    const label = button.querySelector('.v4-copy-label');
+
+    const showCopied = () => {
+      if (!label) return;
+      label.textContent = 'Link kopieret';
+      window.setTimeout(() => {
+        label.textContent = 'Kopier link';
+      }, 1800);
+    };
+
+    try {
+      if (navigator.clipboard?.writeText) {
+        await navigator.clipboard.writeText(url);
+        showCopied();
+        return;
+      }
+    } catch {
+      // Fall through to the legacy copy method below.
+    }
+
+    const textarea = document.createElement('textarea');
+    textarea.value = url;
+    textarea.setAttribute('readonly', '');
+    textarea.style.position = 'fixed';
+    textarea.style.opacity = '0';
+    textarea.style.pointerEvents = 'none';
+    document.body.appendChild(textarea);
+    textarea.select();
+    textarea.setSelectionRange(0, textarea.value.length);
+
+    let copied = false;
+    try {
+      copied = document.execCommand('copy');
+    } catch {
+      copied = false;
+    }
+    textarea.remove();
+
+    if (copied) {
+      showCopied();
+    } else {
+      window.prompt('Kopier link:', url);
+    }
+  });
+});
+
 // Google News transparency: use the publication itself as the visible byline
 // when an article has no separately named human author.
 const articleMeta = document.querySelector('.v4-article-meta');
