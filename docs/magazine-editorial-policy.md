@@ -8,6 +8,8 @@ Denne regel gælder al autonom og manuelt bestilt artikelproduktion til magasine
 - Nysgerrighed må gerne bruges som ekstra kraft, men må ikke erstatte et mere delbart konkret faktum og må aldrig love mere end dokumentationen kan bære.
 - Viden skal især gøre kompleks forskning, teknologi og fremtidstendenser forståelige, konkrete og samtaleværdige.
 - Liv skal især gøre dokumenteret viden om sundhed, psykologi, relationer, privatøkonomi og livskvalitet praktisk anvendelig og delbar.
+- Hård talregel: Viden- og Liv-artikler skal aktivt lede efter og bruge konkrete, meningsfulde tal, når kilderne giver dem — fx procenter, absolutte risici, antal deltagere, effektstørrelser, tidsforløb, priser, sandsynligheder eller sammenlignelige før/efter-tal. Tallene skal hjælpe læseren med at forstå størrelsen på en effekt eller et problem, ikke blot pynte teksten.
+- Når både relative og absolutte risici er tilgængelige og relevante, bør begge bruges, så små absolutte forskelle ikke kommer til at se større ud end de er. Tal må aldrig cherry-pickes eller bruges uden nødvendig kontekst.
 - Sundhedsartikler må gerne fokusere tydeligt på dokumenterede fordele, når det er historiens vinkel, men må ikke skjule afgørende kontraindikationer, overdrive evidens eller give risikabel individuel medicinsk vejledning.
 - Forskningsbaserede Viden- og Liv-artikler skal have en kort kildesektion nederst med de centrale studier eller faglige kilder.
 - Alle Viden- og Liv-artikler skal være 350–500 ord og SEO-optimeres ved publicering med tydelig søgeintention, naturlige søgeord, relevant metadata og intern linking uden keyword stuffing.
