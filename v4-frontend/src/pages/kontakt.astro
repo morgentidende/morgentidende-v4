@@ -1,12 +1,34 @@
 ---
 export const prerender = true;
 import V4Layout from '../layouts/V4Layout.astro';
+
+const base = Astro.site || new URL('https://morgentidende.dk');
+const contactLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ContactPage',
+  name: 'Kontakt Morgentidende',
+  url: new URL('/kontakt', base).toString(),
+  about: {
+    '@type': 'NewsMediaOrganization',
+    name: 'Morgentidende',
+    url: new URL('/', base).toString(),
+    email: 'redaktion@morgentidende.dk'
+  }
+};
 ---
-<V4Layout title="Kontakt – Morgentidende" description="Kontakt Morgentidende om tips, rettelser og generelle henvendelser.">
-  <div class="v4-shell">
-    <div class="v4-kicker">KONTAKT</div>
-    <h1>Kontakt Morgentidende</h1>
-    <p>Har du et tip, en rettelse eller en generel henvendelse, kan du kontakte redaktionen via avisens officielle kontaktkanal.</p>
-    <p>Indtil en offentlig redaktionsmail er sat op, kan henvendelser sendes gennem de kontaktoplysninger, der offentliggøres ved lanceringen.</p>
-  </div>
+<V4Layout title="Kontakt – Morgentidende" description="Kontakt Morgentidende om tips, rettelser og redaktionelle henvendelser." jsonLd={contactLd}>
+  <header class="v4-article-header">
+    <div class="v4-kicker">Kontakt</div>
+    <h1 class="v4-article-title">Kontakt Morgentidende</h1>
+  </header>
+
+  <article class="v4-article-body">
+    <p>Har du et tip, en rettelse, dokumentation eller en anden redaktionel henvendelse, kan du skrive direkte til Morgentidendes redaktion.</p>
+
+    <p><strong>E-mail:</strong> <a href="mailto:redaktion@morgentidende.dk">redaktion@morgentidende.dk</a></p>
+
+    <p>Rettelser og dokumenterede fejl prioriteres. Hvis din henvendelse gælder en konkret artikel, må du gerne skrive artiklens titel eller link i mailen.</p>
+
+    <p>Læs også vores <a href="/redaktionelle-principper">redaktionelle principper</a> og <a href="/om-morgentidende">om Morgentidende</a>.</p>
+  </article>
 </V4Layout>
