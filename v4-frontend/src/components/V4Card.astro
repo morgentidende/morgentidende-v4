@@ -48,6 +48,7 @@ if (accent) {
         decoding="async"
         width="1200"
         height="800"
+        onerror="this.onerror=null;this.removeAttribute('srcset');this.style.display='none';this.parentElement.classList.add('v4-card__media--failed')"
       />
     ) : null}
   </a>
@@ -59,3 +60,25 @@ if (accent) {
   </h2>
   {showDeck && article.deck ? <p class="v4-card__deck">{article.deck}</p> : null}
 </article>
+
+<style>
+  .v4-card__media--failed {
+    position: relative;
+    min-height: 120px;
+    background:
+      radial-gradient(circle at 24% 30%, rgba(216, 163, 61, .22), transparent 34%),
+      linear-gradient(135deg, #172638 0%, #251b2d 100%);
+  }
+
+  .v4-card__media--failed::after {
+    content: 'Morgentidende';
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    color: rgba(255, 255, 255, .52);
+    font-family: var(--v4-serif);
+    font-size: clamp(18px, 2vw, 30px);
+    letter-spacing: .01em;
+  }
+</style>
