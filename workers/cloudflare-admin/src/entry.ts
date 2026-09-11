@@ -1,4 +1,5 @@
 import app from './index';
+import { handleEmailOps } from './email-ops';
 
 export default {
   async fetch(request: Request, env: Record<string, unknown>, ctx: ExecutionContext): Promise<Response> {
@@ -16,10 +17,13 @@ export default {
     const normalizedRequest = new Request(request, { headers });
     const url = new URL(request.url);
     if (request.method === 'GET' && url.pathname === '/health') {
-      return new Response(JSON.stringify({ ok: true, service: 'morgentidende-cloudflare-admin', build: 'auth-normalize-20260910' }), {
+      return new Response(JSON.stringify({ ok: true, service: 'morgentidende-cloudflare-admin', build: 'email-ops-20260911' }), {
         headers: { 'content-type': 'application/json; charset=utf-8', 'cache-control': 'no-store' }
       });
     }
+
+    const emailResponse = await handleEmailOps(normalizedRequest, normalizedEnv as never);
+    if (emailResponse) return emailResponse;
 
     return app.fetch(normalizedRequest, normalizedEnv as never, ctx as never);
   }
