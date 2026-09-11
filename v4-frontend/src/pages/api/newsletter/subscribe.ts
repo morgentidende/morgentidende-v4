@@ -4,6 +4,7 @@ import { buildNewsletterConfirmationEmail } from '../../../lib/newsletter-email'
 
 const CONSENT_VERSION = 'daily-v1-2026-09-11';
 const CONSENT_TEXT = 'Jeg vil modtage Morgentidendes daglige nyhedsbrev kl. 06. Nyhedsbrevet kan indeholde annoncer og kommercielle links, herunder affiliate-links til produkter og tjenester fra tredjeparter. Jeg kan til enhver tid afmelde mig.';
+const NEWSLETTER_FROM = 'Morgentidende <nyhedsbrev@morgentidende.dk>';
 
 export const POST: APIRoute = async ({ request, site }) => {
   if (!v4Supabase) {
@@ -11,8 +12,7 @@ export const POST: APIRoute = async ({ request, site }) => {
   }
 
   const resendApiKey = import.meta.env.RESEND_API_KEY;
-  const fromEmail = import.meta.env.NEWSLETTER_FROM_EMAIL;
-  if (!resendApiKey || !fromEmail) {
+  if (!resendApiKey) {
     return new Response(JSON.stringify({ message: 'Nyhedsbrevet er ved at blive gjort klar. Prøv igen lidt senere.' }), { status: 503, headers: { 'content-type': 'application/json' } });
   }
 
@@ -52,7 +52,7 @@ export const POST: APIRoute = async ({ request, site }) => {
       'content-type': 'application/json'
     },
     body: JSON.stringify({
-      from: fromEmail,
+      from: NEWSLETTER_FROM,
       to: [email],
       subject: 'Bekræft dit nyhedsbrev fra Morgentidende',
       html: buildNewsletterConfirmationEmail(confirmationUrl.toString())
