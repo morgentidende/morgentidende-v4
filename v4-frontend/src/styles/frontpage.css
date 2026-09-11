@@ -91,6 +91,17 @@ html[data-theme='dark'] .v4-magazine--liv {
   background: linear-gradient(135deg, #432e3a 0%, #5a3b49 100%);
 }
 
+/* Keep ordinary front-page rows visually even. The former-lead marker is only
+   editorial metadata; it must not make a random card span two columns. */
+.v4-frontpage-secondary .v4-card--former-lead {
+  grid-column: auto !important;
+}
+
+.v4-frontpage-secondary .v4-card--former-lead .v4-card__headline {
+  font-size: clamp(18px, 1.45vw, 27px) !important;
+  line-height: inherit !important;
+}
+
 @media (max-width: 640px) {
   .v4-lead-box,
   .v4-breaking-box {
