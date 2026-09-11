@@ -19,7 +19,7 @@ let recommendations: any[] = [];
 let categories: any[] = [];
 let backendError = false;
 
-const articleFields = 'id,slug,category_id,story_cluster_id,headline,deck,body_markdown,author_name,hero_url,hero_alt,hero_credit,hero_license,published_at,updated_at';
+const articleFields = 'id,slug,category_id,story_cluster_id,headline,deck,body_markdown,author_name,hero_url,hero_alt,hero_credit,hero_license,published_at,updated_at,sagen_kort';
 const cardFields = 'id,slug,category_id,story_cluster_id,headline,frontpage_headline,headline_accent_text,deck,hero_url,hero_alt,published_at';
 
 if (slug) {
@@ -141,6 +141,10 @@ let bodyHtml = rawBodyHtml;
 if (inlineRelated[0]) bodyHtml = injectAfterParagraph(bodyHtml, 3, inlineRelatedMarkup(inlineRelated[0]));
 if (inlineRelated[1] && paragraphCount >= 8) bodyHtml = injectAfterParagraph(bodyHtml, 7, inlineRelatedMarkup(inlineRelated[1]));
 
+const storedBriefPoints = Array.isArray(article?.sagen_kort)
+  ? article.sagen_kort.map((point: unknown) => String(point || '').trim()).filter(Boolean).slice(0, 2)
+  : [];
+
 const plainBody = (article?.body_markdown || '')
   .replace(/!\[[^\]]*\]\([^)]*\)/g, ' ')
   .replace(/\[([^\]]+)\]\([^)]*\)/g, '$1')
@@ -150,14 +154,17 @@ const plainBody = (article?.body_markdown || '')
 const summaryCandidates = [article?.deck || '', ...plainBody.split(/(?<=[.!?])\s+/)]
   .map((sentence) => sentence.trim())
   .filter((sentence) => sentence.length >= 45 && sentence.length <= 190);
-const briefPoints: string[] = [];
+
+const fallbackBriefPoints: string[] = [];
 for (const sentence of summaryCandidates) {
   const normalized = sentence.toLocaleLowerCase('da-DK').replace(/[^a-zæøå0-9]+/g, ' ').trim();
-  if (!normalized || briefPoints.some((point) => point.toLocaleLowerCase('da-DK').replace(/[^a-zæøå0-9]+/g, ' ').trim() === normalized)) continue;
-  briefPoints.push(sentence);
-  if (briefPoints.length === 3) break;
+  if (!normalized || fallbackBriefPoints.some((point) => point.toLocaleLowerCase('da-DK').replace(/[^a-zæøå0-9]+/g, ' ').trim() === normalized)) continue;
+  fallbackBriefPoints.push(sentence);
+  if (fallbackBriefPoints.length === 2) break;
 }
-const showBrief = briefPoints.length >= 2;
+
+const briefPoints = storedBriefPoints.length === 2 ? storedBriefPoints : fallbackBriefPoints;
+const showBrief = briefPoints.length === 2;
 
 const firstThree = recommendations
   .filter((a) => !storyRelatedIds.has(a.id))
