@@ -1,0 +1,19 @@
+---
+import V4Layout from '../../layouts/V4Layout.astro';
+const ok = Astro.url.searchParams.get('status') === 'ok';
+---
+<V4Layout title="Afmeld nyhedsbrev – Morgentidende" noindex={true}>
+  <section class="newsletter-result">
+    <div class="v4-kicker">Nyhedsbrev</div>
+    <h1>{ok ? 'Du er afmeldt' : 'Afmeldingen kunne ikke findes'}</h1>
+    <p>{ok ? 'Du modtager ikke længere Morgentidendes daglige nyhedsbrev.' : 'Linket er ugyldigt eller allerede ændret. Skriv til redaktion@morgentidende.dk, hvis du har brug for hjælp.'}</p>
+    <a href="/">Til forsiden</a>
+  </section>
+</V4Layout>
+
+<style>
+  .newsletter-result { width:min(680px,calc(100% - 28px)); margin:54px auto 90px; padding:clamp(34px,6vw,62px); text-align:center; background:var(--v4-surface); border-top:4px solid var(--v4-gold); }
+  .newsletter-result h1 { margin:10px 0 16px; font-family:var(--v4-serif); font-size:clamp(34px,5vw,52px); line-height:1.05; }
+  .newsletter-result p { max-width:520px; margin:0 auto 26px; color:var(--v4-muted); font-size:18px; line-height:1.6; }
+  .newsletter-result a { display:inline-block; padding:13px 20px; background:var(--v4-gold); color:#17140c; font-weight:700; }
+</style>
