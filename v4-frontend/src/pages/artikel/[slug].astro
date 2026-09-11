@@ -176,16 +176,37 @@ for (const sentence of summaryCandidates) {
 const briefPoints = storedBriefPoints.length === 2 ? storedBriefPoints : fallbackBriefPoints;
 const showBrief = briefPoints.length === 2;
 
-const firstThree = recommendations
-  .filter((a) => !storyRelatedIds.has(a.id))
+const recommendationStopwords = new Set([
+  'eller', 'ikke', 'som', 'med', 'til', 'fra', 'for', 'der', 'den', 'det', 'de', 'en', 'et', 'har', 'kan', 'vil',
+  'skal', 'var', 'over', 'under', 'efter', 'før', 'sine', 'sin', 'sit', 'sig', 'mod', 'mere', 'nye', 'ny', 'om'
+]);
+const recommendationTerms = (value = '') => new Set(
+  value
+    .toLocaleLowerCase('da-DK')
+    .replace(/[^a-zæøå0-9]+/g, ' ')
+    .split(/\s+/)
+    .filter((term) => term.length >= 4 && !recommendationStopwords.has(term))
+);
+const articleTerms = recommendationTerms(`${article?.headline || ''} ${article?.deck || ''}`);
+const candidateRelevanceScore = (candidate: any) => {
+  const candidateTerms = recommendationTerms(`${candidate.headline || ''} ${candidate.deck || ''}`);
+  let overlap = 0;
+  for (const term of candidateTerms) if (articleTerms.has(term)) overlap += 1;
+  const sameCategory = candidate.category_id === article?.category_id ? 6 : 0;
+  return sameCategory + Math.min(overlap, 5) * 2;
+};
+const recommendationPool = recommendations.filter((candidate) => !storyRelatedIds.has(candidate.id));
+const relevantThree = [...recommendationPool]
   .sort((a, b) => {
-    const aScore = (a.story_cluster_id && a.story_cluster_id === article?.story_cluster_id ? 4 : 0) + (a.category_id === article?.category_id ? 2 : 0);
-    const bScore = (b.story_cluster_id && b.story_cluster_id === article?.story_cluster_id ? 4 : 0) + (b.category_id === article?.category_id ? 2 : 0);
-    return bScore - aScore;
+    const scoreDifference = candidateRelevanceScore(b) - candidateRelevanceScore(a);
+    if (scoreDifference !== 0) return scoreDifference;
+    return new Date(b.published_at || 0).getTime() - new Date(a.published_at || 0).getTime();
   })
   .slice(0, 3);
-const used = new Set([...firstThree, ...storyRelated].map((a) => a.id));
-const finalFour = recommendations.filter((a) => !used.has(a.id)).slice(0, 4);
+const usedRecommendationIds = new Set([...relevantThree, ...storyRelated].map((a) => a.id));
+const currentThree = recommendations
+  .filter((candidate) => !usedRecommendationIds.has(candidate.id))
+  .slice(0, 3);
 const heroIsGraphic = /\.(svg|png)(\?|$)/i.test(article?.hero_url || '') && (article?.hero_credit === 'Morgentidende grafik' || (article?.hero_url || '').includes('dsa-big-brother'));
 const siteBase = Astro.site || Astro.url.origin;
 const canonical = article ? new URL(`/artikel/${article.slug}`, siteBase).toString() : undefined;
@@ -347,15 +368,15 @@ const newsArticleLd = article ? {
       ) : null}
 
       <div class="v4-shell">
-        {firstThree.length ? (
+        {relevantThree.length ? (
           <section class="v4-section v4-article-recommendations">
-            <h2 class="v4-article-recommendations__title">Mere fra Morgentidende</h2>
-            <div class="v4-grid-3">{firstThree.map((item) => <V4Card article={item} categoryName={categoryById.get(item.category_id)} />)}</div>
+            <h2 class="v4-article-recommendations__title">Læs videre</h2>
+            <div class="v4-grid-3">{relevantThree.map((item) => <V4Card article={item} categoryName={categoryById.get(item.category_id)} />)}</div>
           </section>
         ) : null}
-        {finalFour.length ? (
+        {currentThree.length ? (
           <section class="v4-article-recommendations--secondary">
-            <div class="v4-grid-4">{finalFour.map((item) => <V4Card article={item} categoryName={categoryById.get(item.category_id)} />)}</div>
+            <div class="v4-grid-3">{currentThree.map((item) => <V4Card article={item} categoryName={categoryById.get(item.category_id)} />)}</div>
           </section>
         ) : null}
       </div>
