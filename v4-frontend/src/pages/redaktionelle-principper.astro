@@ -2,17 +2,40 @@
 export const prerender = true;
 import V4Layout from '../layouts/V4Layout.astro';
 ---
-<V4Layout title="Redaktionelle principper – Morgentidende" description="Morgentidendes principper for kilder, rettelser, kommentarer og redaktionel transparens.">
-  <div class="v4-shell v4-info-page">
-    <div class="v4-kicker">REDAKTIONEN</div>
-    <h1>Redaktionelle principper</h1>
+<V4Layout title="Redaktionelle principper – Morgentidende" description="Morgentidendes principper for kilder, fairness, rettelser, AI-brug og redaktionel transparens.">
+  <header class="v4-article-header">
+    <div class="v4-kicker">Redaktionen</div>
+    <h1 class="v4-article-title">Redaktionelle principper</h1>
+  </header>
+
+  <article class="v4-article-body">
+    <p>Morgentidende skal være tydelig om, hvad vi ved, hvad vi ikke ved, og hvor oplysningerne kommer fra. Vores mål er ikke at fortælle læseren, hvad der skal menes, men at gøre det lettere at forstå sagen og de vigtigste argumenter.</p>
+
     <h2>Kilder og dokumentation</h2>
-    <p>Vi tilstræber at bygge artikler på identificerbare og relevante kilder. Når en oplysning er usikker, omstridt eller baseret på en enkelt kilde, skal det fremgå af teksten.</p>
+    <p>Artikler skal så vidt muligt bygge på identificerbare, relevante og efterprøvelige kilder. Primære kilder som officielle dokumenter, domme, statistik, originale udtalelser og førstehåndsberetninger foretrækkes, når de er tilgængelige.</p>
+    <p>Er en oplysning usikker, omstridt eller kun understøttet af én kilde, skal det fremgå. En stærk rubrik må ikke være stærkere end dokumentationen bag den.</p>
+
+    <h2>Begge sider skal kunne høres</h2>
+    <p>Ved væsentlig uenighed skal relevante synspunkter gengives loyalt og konkret. Det betyder ikke, at alle påstande er lige godt dokumenteret, men læseren skal kunne se, hvad parterne faktisk argumenterer for.</p>
+    <p>Ved alvorlige eller belastende oplysninger tilstræber vi, at den berørte part får mulighed for at svare, eller at et allerede offentligt svar gengives tydeligt.</p>
+
     <h2>Nyhed, analyse og kommentar</h2>
-    <p>Fakta, analyse og holdning skal kunne skelnes. Kommentarstof må gerne være skarpt, men må ikke fremstille vurderinger som dokumenterede fakta.</p>
-    <h2>Forelæggelse og fairness</h2>
-    <p>Ved alvorlige eller belastende påstande tilstræber vi, at den berørte part får mulighed for at svare, og at relevante modargumenter eller væsentlig kontekst bliver gengivet.</p>
-    <h2>Rettelser</h2>
-    <p>Væsentlige faktuelle fejl skal rettes. Når en artikel ændres materielt efter publicering, bør opdateringstidspunktet fremgå tydeligt.</p>
-  </div>
+    <p>Nyheder skal skelne mellem dokumenterede oplysninger, vurderinger og citater. Analyse må fortolke og sætte begivenheder i sammenhæng, men skal gøre det klart, når der drages en vurdering frem for at gengive et faktum.</p>
+    <p>Kommentarstof er holdningsstof og må gerne være skarpt. Holdninger må dog ikke præsenteres som dokumenterede fakta.</p>
+
+    <h2>Sprog og overskrifter</h2>
+    <p>Rubrikker og manchetter skal være præcise nok til ikke at vildlede. Vi må gerne skrive levende og vække nysgerrighed, men ikke skjule afgørende forbehold eller gøre en historie mere dramatisk, end kilderne kan bære.</p>
+    <p>Vi tilstræber et klart dansk sprog og undgår unødvendige fagudtryk, når almindelige ord kan forklare det samme.</p>
+
+    <h2>AI og redaktionelt ansvar</h2>
+    <p>Morgentidende er en AI-drevet publikation. AI bruges til research, bearbejdning, skrivning, billedarbejde og teknisk produktion efter faste redaktionelle regler. Artikler udgives under bylinen <strong>Redaktionen</strong>, medmindre en særskilt navngiven forfatter er relevant.</p>
+    <p>AI ændrer ikke kravet om kildekritik, dokumentation eller rettelser. Avisen har ansvar for det publicerede indhold på samme måde, uanset hvilke værktøjer der er brugt i produktionen.</p>
+
+    <h2>Rettelser og opdateringer</h2>
+    <p>Væsentlige faktuelle fejl skal rettes hurtigt. Når en artikel ændres materielt efter publicering, skal et opdateringstidspunkt fremgå tydeligt. Mindre sproglige rettelser behøver ikke særskilt markering.</p>
+    <p>Dokumenterede fejl, tips og andre redaktionelle henvendelser kan sendes til <a href="mailto:redaktion@morgentidende.dk">redaktion@morgentidende.dk</a>.</p>
+
+    <h2>Uafhængighed</h2>
+    <p>Redaktionelle vurderinger må ikke købes. Annoncer og kommercielt indhold skal kunne skelnes fra redaktionelt stof, og økonomiske interesser må ikke skjules for læseren, når de er relevante for en artikel.</p>
+  </article>
 </V4Layout>

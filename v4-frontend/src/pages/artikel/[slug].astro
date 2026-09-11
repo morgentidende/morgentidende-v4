@@ -182,9 +182,7 @@ const articleTitle = article
   : backendError
     ? 'Midlertidigt utilgængelig – Morgentidende'
     : 'Ikke fundet – Morgentidende';
-const authorName = article?.author_name?.trim();
-const hasNamedHumanAuthor = Boolean(authorName && authorName.toLocaleLowerCase('da-DK') !== 'morgentidende');
-const displayAuthorName = hasNamedHumanAuthor ? authorName : 'Morgentidende';
+const displayAuthorName = 'Redaktionen';
 const headlineIsLong = (article?.headline?.length || 0) > 72;
 const headlineIsVeryLong = (article?.headline?.length || 0) > 105;
 const newsArticleLd = article ? {
@@ -197,9 +195,16 @@ const newsArticleLd = article ? {
   mainEntityOfPage: canonical,
   image: article.hero_url ? [article.hero_url] : undefined,
   articleSection: category || undefined,
-  author: hasNamedHumanAuthor
-    ? { '@type': 'Person', name: authorName }
-    : { '@type': 'Organization', name: 'Morgentidende', url: new URL('/om-morgentidende', siteBase).toString() },
+  author: {
+    '@type': 'Organization',
+    name: 'Redaktionen',
+    url: new URL('/om-morgentidende', siteBase).toString(),
+    parentOrganization: {
+      '@type': 'NewsMediaOrganization',
+      name: 'Morgentidende',
+      url: new URL('/', siteBase).toString()
+    }
+  },
   publisher: {
     '@type': 'NewsMediaOrganization',
     name: 'Morgentidende',
