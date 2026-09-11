@@ -60,6 +60,15 @@ const safeJsonLd = jsonLd
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&family=DM+Sans:wght@400;600;700&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet" />
+    <style is:inline>
+      @media (max-width: 640px) {
+        .v4-nav {
+          justify-content: space-between;
+          gap: 0;
+          overflow-x: hidden;
+        }
+      }
+    </style>
     {safeJsonLd ? <script type="application/ld+json" set:html={safeJsonLd} /> : null}
   </head>
   <body>
