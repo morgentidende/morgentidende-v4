@@ -86,6 +86,15 @@ document.querySelectorAll('[data-newsletter-form]').forEach((form) => {
   });
 });
 
+// Google News transparency: use the publication itself as the visible byline
+// when an article has no separately named human author.
+const articleMeta = document.querySelector('.v4-article-meta');
+if (articleMeta && !articleMeta.querySelector('span')) {
+  const byline = document.createElement('span');
+  byline.textContent = 'Af Morgentidende';
+  articleMeta.prepend(byline);
+}
+
 // Turn explicit editorial YouTube links into privacy-enhanced responsive embeds.
 // Only links whose visible text starts with "Se video:" are transformed.
 document.querySelectorAll('.v4-article-body a').forEach((link) => {
