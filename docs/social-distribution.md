@@ -1,40 +1,60 @@
 # Social distribution – Morgentidende
 
-Morgentidende automatiserer distribution til Facebook, Instagram og X, men publicerer ikke mekanisk samme artikel på alle platforme.
+Morgentidende automatiserer distribution til Facebook, Instagram, X og senere TikTok. Samme artikel må ikke publiceres mekanisk ens på alle platforme.
+
+## Grundprincip
+Hold kæden så kort som muligt. Færre led er bedre end flere.
+
+Standardflow:
+`Publish article → vælg platform → skriv platformstekst → vælg/generér medie → Metricool → platform`
+
+Tilføj kun ekstra worker, kø, billedlager eller transformationslag, hvis det løser et konkret problem, som ikke kan løses stabilt direkte. Avisens publicering må aldrig vente på social distribution.
 
 ## Platformvalg
-Hver publiceret artikel vurderes særskilt på:
-- breaking-værdi
-- debatpotentiale
-- visuel styrke
-- personlig relevans
-- forklaringsværdi
-
-Der produceres kun et opslag til en platform, når artiklen passer naturligt til platformens publikum.
+Hver artikel vurderes særskilt på breaking-værdi, debatpotentiale, visuel styrke, personlig relevans og forklaringsværdi.
 
 ### Facebook
-Prioritér bredt relevante og delbare historier, især Indland, privatøkonomi, sundhed, familie, kriminalitet, migration, menneskelige historier og større leads.
+Prioritér bredt relevante og delbare historier: Indland, privatøkonomi, sundhed, familie, kriminalitet, migration, menneskelige historier og større leads. Brug normalt artikel-link med stærk, platformstilpasset tekst og hero/preview.
 
 ### Instagram
-Prioritér visuelt stærke og let forklarlige historier, især Viden, AI, teknologi, rumfart, biler, økonomi, sundhed, parforhold og Liv. Brug helst hero eller carousel og platformstilpasset tekst frem for almindelige linkopslag.
+Prioritér visuelt stærke og let forklarlige historier, især Viden, Liv, AI, teknologi, rumfart, biler, økonomi, sundhed og parforhold.
+
+Hård regel for Viden/Liv:
+- Når en artikel egner sig til flere forklarende pointer, skal Instagram som udgangspunkt være en carousel, ikke bare ét hero-billede.
+- Brug typisk 4–7 kort; antal bestemmes af stoffet, ikke af en fast skabelon.
+- Kort 1: stærk hook/rubrik.
+- Midterkort: én klar pointe pr. kort, korte tekster, høj visuel læsbarhed.
+- Sidste kort: afrunding + invitation til at læse hele artiklen på morgentidende.dk.
+- AI-genererede visuals er tilladt frit til Viden og Liv, også fotorealistiske, så længe de ikke fremstiller virkelige personer som om billedet var ægte reportage.
+- Instagram-opslag med AI-genereret eller væsentligt AI-redigeret materiale markeres som AI-genereret, når platformen understøtter det.
+
+Hvis carousel-teknikken midlertidigt fejler, må fallback til ét billede bruges for at sikre publicering, men fejlen skal rettes bagefter. Fallback må ikke blive permanent standard.
 
 ### X
 Prioritér breaking, politik, EU, ytringsfrihed, migration, kriminalitet, internationale konflikter, økonomi, AI/tech, analyser og Kommentar.
 
+### TikTok
+Brug kun artikler, der kan omsættes til et tydeligt visuelt eller fortællende format. Undgå mekanisk genbrug af Instagram-kort uden platformstilpasning.
+
+## Medieregler
+- Almindelige nyheder: brug rigtige fotos med verificerede brugsrettigheder.
+- Viden og Liv: AI-genererede heros og SoMe-kort er tilladt og kan bruges offensivt.
+- Hero og SoMe-medier behøver ikke manuel forhåndsgodkendelse i chatten.
+- Brug eksisterende offentligt tilgængelige hero-URL'er direkte, når det er stabilt og lovligt.
+- Undgå GitHub som billed-mellemstation, medmindre der er en konkret teknisk grund.
+- Hvis egne genererede SoMe-kort kræver hosting, foretrækkes ét enkelt stabilt medielager frem for flere kopier eller services.
+
 ## Tekst og publicering
-- Hver platform får sin egen tekst. Identiske opslag på tværs af platforme er ikke tilladt.
-- Avisens publicering må aldrig forsinkes af social distribution.
-- Social distribution sker efter artikelpublicering og post-publish QA.
+- Hver platform får sin egen tekst.
+- Fejl ved én platform må ikke blokere de andre.
+- Social publicering sker efter artikelpublicering.
 - Platformvalg og platformstekst skal kunne auditeres.
-- Fejl ved én platform må ikke blokere de andre platforme.
-- Tokens, app-secrets og andre legitimationsoplysninger må aldrig ligge i GitHub eller Supabase-tabeller; de opbevares kun i secret storage.
-
-## Arkitektur
-`Publish → post-publish QA → Social Router → platformkø → Metricool → Facebook / Instagram / X`
-
-Social Router beslutter platformfit og skriver separate kladder til den private `social_posts`-kø. Publisheren sender platformsspecifikke opslag til Metricool. Metricool håndterer forbindelsen til de enkelte sociale netværk.
+- Tokens, app-secrets og loginoplysninger må aldrig ligge i GitHub eller almindelige Supabase-tabeller; kun i secret storage/connector-auth.
 
 ## Metricool
-Metricools scheduler-API bruges som fælles udgivelseslag. Det reducerer behovet for tre separate integrationslag og giver én kø til Facebook, Instagram og X. API-legitimationsoplysninger skal kun ligge server-side.
+Metricool er standardudgivelseslaget til sociale netværk. Brug Metricool direkte, når det kan løse opgaven; byg ikke parallelle Meta/X-integrationer uden et konkret behov.
 
-Instagram bør forbindes til Metricool via en professionel Instagram-konto koblet til en Facebook-side, da den forbindelse giver den mest komplette og stabile Meta-funktionalitet.
+Instagram skal være en professionel konto koblet til Morgentidendes Facebook-side.
+
+## Stabilitet før elegance
+Ved fejl vælges den korteste stabile fallback, så opslaget stadig kommer ud. Derefter rettes årsagen. Målet er færrest mulige bevægelige dele, ikke flest mulige automatiseringstrin.
