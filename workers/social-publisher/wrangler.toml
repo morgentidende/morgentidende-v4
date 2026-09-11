@@ -1,0 +1,12 @@
+name = "morgentidende-social-publisher"
+main = "src/index.ts"
+compatibility_date = "2026-09-11"
+
+[observability]
+enabled = true
+
+# Runtime secrets required before deploy:
+# SOCIAL_PUBLISHER_TOKEN
+# METRICOOL_TOKEN
+# METRICOOL_USER_ID
+# METRICOOL_BLOG_ID
