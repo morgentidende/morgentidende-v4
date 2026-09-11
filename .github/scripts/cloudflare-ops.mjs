@@ -35,7 +35,11 @@ const allowed = {
   zone_settings: { method: 'GET', path: '/zone/settings' },
   zone_rulesets: { method: 'GET', path: '/zone/rulesets' },
   worker_routes: { method: 'GET', path: '/zone/worker-routes' },
-  r2_buckets: { method: 'GET', path: '/r2/buckets' }
+  r2_buckets: { method: 'GET', path: '/r2/buckets' },
+  email_status: { method: 'GET', path: '/email/status' },
+  email_routing_enable: { method: 'POST', path: '/email/routing/enable' },
+  email_redaktion_rule: { method: 'POST', path: '/email/routing/redaktion-rule' },
+  email_sending_onboard: { method: 'POST', path: '/email/sending/onboard' }
 };
 
 let spec = allowed[action];
