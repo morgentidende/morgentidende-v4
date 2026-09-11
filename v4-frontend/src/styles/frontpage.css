@@ -83,6 +83,25 @@ html[data-theme='dark'] .v4-lead-label--theme {
   box-shadow: none;
 }
 
+/* Magazine cards need a hard text boundary so long Danish compounds never
+   intrude into the neighbouring column. Keep spacing consistent in Viden/Liv. */
+.v4-magazine .v4-grid-4 {
+  column-gap: 28px;
+  row-gap: 28px;
+}
+
+.v4-magazine .v4-card {
+  min-width: 0;
+  overflow: hidden;
+}
+
+.v4-magazine .v4-card__headline {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  word-break: normal;
+  hyphens: auto;
+}
+
 html[data-theme='dark'] .v4-magazine--viden {
   background: linear-gradient(135deg, #172638 0%, #20384e 100%);
 }
