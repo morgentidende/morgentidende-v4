@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="t d">
+  <title id="t">Kraftigt soludbrud mod Jorden</title>
+  <desc id="d">Illustration af Solen, et stort soludbrud og Jorden i rummet.</desc>
+  <defs>
+    <radialGradient id="space" cx="50%" cy="45%" r="75%">
+      <stop offset="0" stop-color="#17314c"/>
+      <stop offset="0.55" stop-color="#0a1728"/>
+      <stop offset="1" stop-color="#030711"/>
+    </radialGradient>
+    <radialGradient id="sun" cx="42%" cy="40%" r="60%">
+      <stop offset="0" stop-color="#fff6b0"/>
+      <stop offset="0.35" stop-color="#ffd94f"/>
+      <stop offset="0.7" stop-color="#ff8b1f"/>
+      <stop offset="1" stop-color="#c73a17"/>
+    </radialGradient>
+    <radialGradient id="earth" cx="35%" cy="30%" r="70%">
+      <stop offset="0" stop-color="#8dd7ff"/>
+      <stop offset="0.45" stop-color="#2f79b8"/>
+      <stop offset="1" stop-color="#0c2e58"/>
+    </radialGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="26"/></filter>
+    <filter id="soft"><feGaussianBlur stdDeviation="9"/></filter>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#space)"/>
+  <g fill="#fff" opacity=".8">
+    <circle cx="120" cy="140" r="2"/><circle cx="270" cy="210" r="1.6"/><circle cx="430" cy="96" r="1.8"/><circle cx="760" cy="120" r="1.4"/><circle cx="1010" cy="210" r="1.7"/><circle cx="1260" cy="110" r="1.5"/><circle cx="1460" cy="250" r="2"/><circle cx="1360" cy="690" r="1.6"/><circle cx="1120" cy="820" r="1.4"/><circle cx="520" cy="850" r="1.5"/>
+  </g>
+  <circle cx="345" cy="500" r="300" fill="#ff8b1f" opacity=".22" filter="url(#glow)"/>
+  <circle cx="345" cy="500" r="235" fill="url(#sun)"/>
+  <g fill="none" stroke-linecap="round">
+    <path d="M500 305 C690 200 780 300 870 240 C970 175 1040 225 1110 320" stroke="#ffcf43" stroke-width="34" opacity=".7" filter="url(#soft)"/>
+    <path d="M505 320 C700 220 790 330 885 260 C970 200 1035 245 1115 325" stroke="#fff08a" stroke-width="12" opacity=".9"/>
+    <path d="M500 645 C680 760 790 655 905 735 C1010 810 1105 760 1190 690" stroke="#ff8a36" stroke-width="30" opacity=".55" filter="url(#soft)"/>
+    <path d="M505 640 C680 735 800 640 910 715 C1015 785 1105 742 1195 680" stroke="#ffd764" stroke-width="10" opacity=".85"/>
+  </g>
+  <g transform="translate(1210 515)">
+    <circle r="138" fill="#4f9bd8" opacity=".25" filter="url(#glow)"/>
+    <circle r="100" fill="url(#earth)"/>
+    <path d="M-68 -32 C-30 -58 -5 -58 19 -34 C41 -13 64 -12 76 9 C52 23 31 33 14 53 C-12 71 -40 62 -50 39 C-69 18 -80 -8 -68 -32Z" fill="#77a95b" opacity=".9"/>
+    <path d="M20 -72 C48 -60 67 -45 79 -19 C55 -10 39 -14 20 -29 C6 -42 6 -57 20 -72Z" fill="#9fbd6a" opacity=".85"/>
+    <ellipse cx="-22" cy="-26" rx="57" ry="18" fill="#fff" opacity=".2" transform="rotate(-18)"/>
+  </g>
+  <path d="M610 480 C830 430 1010 430 1110 500" fill="none" stroke="#e6f4ff" stroke-width="3" opacity=".25" stroke-dasharray="12 18"/>
+</svg>
