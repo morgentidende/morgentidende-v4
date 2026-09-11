@@ -10,7 +10,14 @@ const organizationLd = {
   name: 'Morgentidende',
   url: new URL('/', base).toString(),
   logo: new URL('/morgentidende-sun.png', base).toString(),
-  publishingPrinciples: new URL('/redaktionelle-principper', base).toString()
+  email: 'redaktion@morgentidende.dk',
+  publishingPrinciples: new URL('/redaktionelle-principper', base).toString(),
+  contactPoint: {
+    '@type': 'ContactPoint',
+    contactType: 'redaktion',
+    email: 'redaktion@morgentidende.dk',
+    availableLanguage: ['da']
+  }
 };
 ---
 <V4Layout title={title} description={description} jsonLd={organizationLd}>
@@ -35,7 +42,9 @@ const organizationLd = {
 
     <p>Når en artikel ikke har en særskilt navngiven menneskelig forfatter, udgives den under organisationsbylinen <strong>Morgentidende</strong>. Dermed behøver hver artikel ikke få tildelt et opdigtet eller kunstigt personnavn.</p>
 
-    <p>Hver artikel viser en tydelig udgivelsesdato og eventuel opdateringsdato. Avisens <a href="/redaktionelle-principper">redaktionelle principper</a> beskriver de overordnede regler, og <a href="/kontakt">kontaktsiden</a> bruges til tips og rettelser.</p>
+    <p>Hver artikel viser en tydelig udgivelsesdato og eventuel opdateringsdato. Avisens <a href="/redaktionelle-principper">redaktionelle principper</a> beskriver de overordnede regler, og <a href="/kontakt">kontaktsiden</a> bruges til tips, rettelser og andre redaktionelle henvendelser.</p>
+
+    <p>Redaktionen kan kontaktes på <a href="mailto:redaktion@morgentidende.dk">redaktion@morgentidende.dk</a>.</p>
 
     <p><strong>Morgentidende vil hellere være lidt besværlig for magten end behagelig for den.</strong></p>
 
