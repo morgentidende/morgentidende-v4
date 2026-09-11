@@ -1,6 +1,7 @@
 ---
 import '../styles/v4.css';
 import '../styles/footer-newsletter.css';
+import '../styles/analytics-consent.css';
 
 interface Props {
   title?: string;
@@ -112,10 +113,23 @@ const safeJsonLd = jsonLd
         <a href="/" class="v4-footer__brand">Morgentidende</a>
         <nav aria-label="Om Morgentidende">
           <a href="/om-morgentidende">Om Morgentidende</a>
+          <button class="v4-footer__analytics-settings" type="button" data-analytics-settings>Cookievalg</button>
         </nav>
         <p>© Alt materiale på denne side er omfattet af gældende lov om ophavsret.</p>
       </div>
     </footer>
+
+    <aside class="analytics-consent" data-analytics-consent hidden aria-label="Valg af statistikcookies">
+      <div class="analytics-consent__inner">
+        <p class="analytics-consent__copy"><strong>Hjælp os med at forstå, hvad der bliver læst.</strong> Morgentidende bruger kun Google Analytics, hvis du accepterer. Afviser du, bliver der ikke indlæst Analytics.</p>
+        <div class="analytics-consent__actions">
+          <button class="analytics-consent__button" type="button" data-analytics-reject>Afvis</button>
+          <button class="analytics-consent__button analytics-consent__button--accept" type="button" data-analytics-accept>Accepter</button>
+        </div>
+      </div>
+    </aside>
+
     <script src="/v4-client.js" defer></script>
+    <script src="/ga4-consent.js" defer></script>
   </body>
 </html>
