@@ -3,8 +3,17 @@ import V4Layout from '../layouts/V4Layout.astro';
 
 const title = 'Om Morgentidende – Morgentidende';
 const description = 'Morgentidende giver begge sider af en sag en reel stemme, stiller kritiske spørgsmål til magten og overlader konklusionen til læseren.';
+const base = Astro.site || new URL('https://morgentidende.dk');
+const organizationLd = {
+  '@context': 'https://schema.org',
+  '@type': 'NewsMediaOrganization',
+  name: 'Morgentidende',
+  url: new URL('/', base).toString(),
+  logo: new URL('/morgentidende-sun.png', base).toString(),
+  publishingPrinciples: new URL('/redaktionelle-principper', base).toString()
+};
 ---
-<V4Layout title={title} description={description}>
+<V4Layout title={title} description={description} jsonLd={organizationLd}>
   <header class="v4-article-header">
     <div class="v4-kicker">Om avisen</div>
     <h1 class="v4-article-title">Om Morgentidende</h1>
@@ -20,6 +29,13 @@ const description = 'Morgentidende giver begge sider af en sag en reel stemme, s
     <p>Det betyder, at vi også dækker historier, vinkler og synspunkter, som andre medier undertiden går let hen over. Ikke for at være kontrære for kontrærens skyld, men fordi journalistik bliver fattigere, når alle stiller de samme spørgsmål til de samme mennesker.</p>
 
     <p>Vi tror på pluralisme. Ikke den pæne slags, hvor alle får lov at sige næsten det samme, men den rigtige slags, hvor relevante uenigheder får lov at stå tydeligt frem.</p>
+
+    <h2>Sådan bliver artiklerne lavet</h2>
+    <p>Morgentidende er en AI-drevet publikation. Artikler produceres af avisens AI-redaktion efter faste redaktionelle regler og kan efterkontrolleres og rettes efter udgivelse.</p>
+
+    <p>Når en artikel ikke har en særskilt navngiven menneskelig forfatter, udgives den under organisationsbylinen <strong>Morgentidende</strong>. Dermed behøver hver artikel ikke få tildelt et opdigtet eller kunstigt personnavn.</p>
+
+    <p>Hver artikel viser en tydelig udgivelsesdato og eventuel opdateringsdato. Avisens <a href="/redaktionelle-principper">redaktionelle principper</a> beskriver de overordnede regler, og <a href="/kontakt">kontaktsiden</a> bruges til tips og rettelser.</p>
 
     <p><strong>Morgentidende vil hellere være lidt besværlig for magten end behagelig for den.</strong></p>
 
