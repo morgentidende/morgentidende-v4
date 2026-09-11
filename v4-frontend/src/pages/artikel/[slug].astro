@@ -2,7 +2,6 @@
 import V4Layout from '../../layouts/V4Layout.astro';
 import V4Card from '../../components/V4Card.astro';
 import NewsletterSignup from '../../components/NewsletterSignup.astro';
-import ArticleTopics from '../../components/ArticleTopics.astro';
 import { v4Supabase } from '../../lib/v4-supabase';
 import { marked } from 'marked';
 import sanitizeHtml from 'sanitize-html';
@@ -19,7 +18,7 @@ let recommendations: any[] = [];
 let categories: any[] = [];
 let backendError = false;
 
-const articleFields = 'id,slug,category_id,story_cluster_id,headline,deck,body_markdown,author_name,hero_url,hero_alt,hero_credit,hero_license,published_at,updated_at,sagen_kort';
+const articleFields = 'id,slug,category_id,story_cluster_id,headline,deck,body_markdown,author_name,hero_url,hero_alt,hero_credit,hero_license,published_at,updated_at,sagen_kort,source_metadata';
 const cardFields = 'id,slug,category_id,story_cluster_id,headline,frontpage_headline,headline_accent_text,deck,hero_url,hero_alt,published_at';
 
 if (slug) {
@@ -179,6 +178,27 @@ const finalFour = recommendations.filter((a) => !used.has(a.id)).slice(0, 4);
 const heroIsGraphic = /\.(svg|png)(\?|$)/i.test(article?.hero_url || '') && (article?.hero_credit === 'Morgentidende grafik' || (article?.hero_url || '').includes('dsa-big-brother'));
 const siteBase = Astro.site || Astro.url.origin;
 const canonical = article ? new URL(`/artikel/${article.slug}`, siteBase).toString() : undefined;
+const facebookShareUrl = canonical ? `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(canonical)}` : '#';
+const imageSourceHosts = new Set(['commons.wikimedia.org', 'upload.wikimedia.org', 'unsplash.com', 'images.unsplash.com', 'pexels.com', 'pixabay.com', 'openverse.org']);
+const sourceItems = Array.isArray(article?.source_metadata)
+  ? article.source_metadata
+      .map((source: any) => {
+        const url = typeof source === 'string' ? source : source?.url;
+        if (!url || typeof url !== 'string') return null;
+        try {
+          const parsed = new URL(url);
+          if (!['http:', 'https:'].includes(parsed.protocol) || imageSourceHosts.has(parsed.hostname.toLowerCase())) return null;
+          const label = (typeof source === 'object' && (source.title || source.name))
+            ? String(source.title || source.name)
+            : parsed.hostname.replace(/^www\./, '');
+          return { url: parsed.toString(), label };
+        } catch {
+          return null;
+        }
+      })
+      .filter(Boolean)
+      .filter((source: any, index: number, all: any[]) => all.findIndex((candidate) => candidate.url === source.url) === index)
+  : [];
 const publishedDate = article?.published_at ? new Date(article.published_at) : null;
 const updatedDate = article?.updated_at ? new Date(article.updated_at) : publishedDate;
 const formatDateTime = (value: Date) => new Intl.DateTimeFormat('da-DK', {
@@ -266,7 +286,27 @@ const newsArticleLd = article ? {
 
       <article class="v4-article-body"><div set:html={bodyHtml} /></article>
 
-      <ArticleTopics slug={article.slug} />
+      {sourceItems.length ? (
+        <section class="v4-article-sources" aria-labelledby="article-sources-title">
+          <h2 id="article-sources-title">Kilder</h2>
+          <ul>
+            {sourceItems.map((source: any) => (
+              <li><a href={source.url} target="_blank" rel="noopener noreferrer">{source.label}</a></li>
+            ))}
+          </ul>
+        </section>
+      ) : null}
+
+      <div class="v4-article-share" aria-label="Del artikel">
+        <a class="v4-share-action" href={facebookShareUrl} target="_blank" rel="noopener noreferrer" aria-label="Del på Facebook">
+          <span class="v4-share-facebook" aria-hidden="true">f</span>
+          <span>Facebook</span>
+        </a>
+        <button class="v4-share-action v4-copy-link" type="button" data-copy-link={canonical || ''}>
+          <span class="v4-share-link-icon" aria-hidden="true">↗</span>
+          <span class="v4-copy-label">Kopier link</span>
+        </button>
+      </div>
 
       <div class="v4-article-newsletter">
         {category === 'Viden' || category === 'Liv'
@@ -303,3 +343,99 @@ const newsArticleLd = article ? {
     </div>
   )}
 </V4Layout>
+
+<style>
+  .v4-article-sources,
+  .v4-article-share {
+    width: min(100% - 32px, 760px);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .v4-article-sources {
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--v4-border, rgba(20, 24, 38, 0.16));
+  }
+
+  .v4-article-sources h2 {
+    margin: 0 0 .65rem;
+    font-size: .78rem;
+    line-height: 1;
+    text-transform: uppercase;
+    letter-spacing: .11em;
+  }
+
+  .v4-article-sources ul {
+    margin: 0;
+    padding-left: 1.15rem;
+  }
+
+  .v4-article-sources li {
+    margin: .35rem 0;
+    font-size: .94rem;
+  }
+
+  .v4-article-sources a {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .v4-article-share {
+    display: flex;
+    gap: 1.4rem;
+    align-items: center;
+    margin-top: 1.6rem;
+    margin-bottom: 1.8rem;
+  }
+
+  .v4-share-action {
+    display: inline-flex;
+    align-items: center;
+    gap: .48rem;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    font-size: .86rem;
+    font-weight: 650;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .v4-share-facebook {
+    display: inline-grid;
+    place-items: center;
+    width: 1.15rem;
+    height: 1.15rem;
+    background: currentColor;
+    color: var(--v4-bg, #fff);
+    font-family: Arial, sans-serif;
+    font-weight: 800;
+    line-height: 1;
+  }
+
+  .v4-share-link-icon {
+    font-size: 1.2rem;
+    line-height: 1;
+    transform: rotate(-45deg);
+  }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLButtonElement>('.v4-copy-link').forEach((button) => {
+    button.addEventListener('click', async () => {
+      const url = button.dataset.copyLink || window.location.href;
+      const label = button.querySelector<HTMLElement>('.v4-copy-label');
+      try {
+        await navigator.clipboard.writeText(url);
+        if (label) label.textContent = 'Link kopieret';
+        window.setTimeout(() => { if (label) label.textContent = 'Kopier link'; }, 1800);
+      } catch {
+        window.prompt('Kopier link:', url);
+      }
+    });
+  });
+</script>
