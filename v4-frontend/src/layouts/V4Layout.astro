@@ -111,14 +111,21 @@ const safeJsonLd = jsonLd
     <footer class="v4-footer">
       <div class="v4-footer__inner">
         <div class="v4-footer__newsletter">
-          <div class="v4-footer__newsletter-copy">Få Morgentidende på mail</div>
+          <div class="v4-footer__newsletter-copy">
+            <div class="v4-footer__newsletter-kicker">DAGLIGT NYHEDSBREV</div>
+            <div class="v4-footer__newsletter-title">Start dagen med Morgentidende</div>
+            <div class="v4-footer__newsletter-subtitle">Dagens vigtigste historier – kort og klart i din indbakke hver morgen kl. 06.</div>
+          </div>
           <form class="v4-footer__newsletter-form" data-newsletter-form>
-            <input id="footer-newsletter-email" name="email" type="email" autocomplete="email" placeholder="Din e-mail" aria-label="Din e-mail" required />
+            <label for="footer-newsletter-email">Din e-mail</label>
+            <div class="v4-footer__newsletter-fields">
+              <input id="footer-newsletter-email" name="email" type="email" autocomplete="email" placeholder="navn@eksempel.dk" aria-label="Din e-mail" required />
+              <button type="submit">Tilmeld</button>
+            </div>
             <input type="hidden" name="delivery_time" value="06:00" />
             <input type="hidden" name="newsletter" value="daily" />
-            <button type="submit">Tilmeld</button>
             <p class="v4-footer__newsletter-status" data-newsletter-status aria-live="polite"></p>
-            <p class="v4-footer__newsletter-note">Bekræftelse kræves. Nyhedsbrevet kan indeholde annoncer og affiliate-links. Du kan altid afmelde dig. <a href="/privatliv">Læs om privatliv.</a></p>
+            <p class="v4-footer__newsletter-note">Bekræft din e-mail – så er du med. Afmeld når som helst. <a href="/privatliv">Læs om privatliv.</a></p>
           </form>
         </div>
 
