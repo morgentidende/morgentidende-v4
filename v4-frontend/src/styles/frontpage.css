@@ -38,8 +38,8 @@
   color: #17140c;
 }
 
-.v4-lead-main > .v4-card > .v4-kicker,
-.v4-followups .v4-kicker,
+/* Lead and follow-up cards always keep their ordinary article category visible.
+   Breaking is a temporary lead status, never a replacement category. */
 .v4-followups-label {
   display: none;
 }
