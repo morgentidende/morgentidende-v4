@@ -3,16 +3,25 @@ import "jsr:@supabase/functions-js/edge-runtime.d.ts";
 const SUPABASE_URL = Deno.env.get("SUPABASE_URL")!;
 const SERVICE_KEY = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
 const EMERGENCY_HERO_URL = "https://morgentidende.dk/morgentidende-sun.png";
-
 const restHeaders = { apikey: SERVICE_KEY, Authorization: `Bearer ${SERVICE_KEY}`, "Content-Type": "application/json" };
+const RETRYABLE = new Set([429, 500, 502, 503, 504]);
+
+const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+
+async function restFetch(path: string, init: RequestInit = {}): Promise<Response> {
+  let response = await fetch(`${SUPABASE_URL}/rest/v1/${path}`, { ...init, headers: { ...restHeaders, ...(init.headers || {}) } });
+  if (RETRYABLE.has(response.status)) {
+    await sleep(250);
+    response = await fetch(`${SUPABASE_URL}/rest/v1/${path}`, { ...init, headers: { ...restHeaders, ...(init.headers || {}) } });
+  }
+  return response;
+}
 
 function normalizeEscapedMarkdown(markdown: string): string {
   let value = String(markdown ?? "");
   const hasRealNewlines = /\r?\n/.test(value);
   const escapedBreaks = (value.match(/\\n/g) || []).length;
-  if (!hasRealNewlines && escapedBreaks >= 2) {
-    value = value.replace(/\\r\\n/g, "\n").replace(/\\n/g, "\n").replace(/\\t/g, "\t");
-  }
+  if (!hasRealNewlines && escapedBreaks >= 2) value = value.replace(/\\r\\n/g, "\n").replace(/\\n/g, "\n").replace(/\\t/g, "\t");
   return value.replace(/\r\n/g, "\n");
 }
 
@@ -24,8 +33,7 @@ function stripOrdinaryBodyLinks(markdown: string): string {
 
 function stripTrailingManualSources(markdown: string, sourceMetadata: unknown): string {
   if (!Array.isArray(sourceMetadata) || sourceMetadata.length === 0) return String(markdown ?? "");
-  const value = String(markdown ?? "");
-  return value.replace(/\n{2,}#{2,4}\s+Kilder\s*\n[\s\S]*$/iu, "").trimEnd();
+  return String(markdown ?? "").replace(/\n{2,}#{2,4}\s+Kilder\s*\n[\s\S]*$/iu, "").trimEnd();
 }
 
 function normalizeHeroUrl(raw: string | null): string | null {
@@ -35,9 +43,7 @@ function normalizeHeroUrl(raw: string | null): string | null {
     for (const key of ["w", "width", "h", "height", "q", "quality", "fit", "fm", "format", "auto"]) u.searchParams.delete(key);
     u.hash = "";
     return u.toString();
-  } catch {
-    return raw.trim();
-  }
+  } catch { return raw.trim(); }
 }
 
 function deterministicWarnings(article: any): string[] {
@@ -62,7 +68,7 @@ function deterministicWarnings(article: any): string[] {
 }
 
 async function patch(path: string, body: unknown) {
-  const r = await fetch(`${SUPABASE_URL}/rest/v1/${path}`, { method: "PATCH", headers: { ...restHeaders, Prefer: "return=minimal" }, body: JSON.stringify(body) });
+  const r = await restFetch(path, { method: "PATCH", headers: { Prefer: "return=minimal" }, body: JSON.stringify(body) });
   if (!r.ok) throw new Error(`PATCH ${path}: ${r.status} ${await r.text()}`);
 }
 
@@ -80,7 +86,7 @@ async function heroLoads(url: string | null): Promise<boolean> {
 async function duplicateHeroOnFrontpage(article: any): Promise<boolean> {
   if (!article.hero_url) return false;
   const select = "id,hero_url,hero_media_id,published_at";
-  const r = await fetch(`${SUPABASE_URL}/rest/v1/v4_public_articles?select=${select}&id=neq.${article.id}&order=published_at.desc&limit=40`, { headers: restHeaders });
+  const r = await restFetch(`v4_public_articles?select=${select}&id=neq.${article.id}&order=published_at.desc&limit=40`);
   if (!r.ok) return false;
   const rows = await r.json();
   const normalized = normalizeHeroUrl(article.hero_url);
@@ -91,7 +97,7 @@ async function duplicateHeroOnFrontpage(article: any): Promise<boolean> {
 }
 
 Deno.serve(async () => {
-  const jobsResp = await fetch(`${SUPABASE_URL}/rest/v1/article_qa_runs?status=eq.pending&select=id,article_id,created_at&order=created_at.asc&limit=20`, { headers: restHeaders });
+  const jobsResp = await restFetch("article_qa_runs?status=eq.pending&select=id,article_id,created_at&order=created_at.asc&limit=20");
   if (!jobsResp.ok) return new Response(await jobsResp.text(), { status: 500 });
   const jobs = await jobsResp.json();
   const results: any[] = [];
@@ -100,7 +106,7 @@ Deno.serve(async () => {
     const started = Date.now();
     try {
       await patch(`article_qa_runs?id=eq.${job.id}&status=eq.pending`, { status: "running", started_at: new Date(started).toISOString(), engine: "deterministic-only", updated_at: new Date().toISOString() });
-      const aResp = await fetch(`${SUPABASE_URL}/rest/v1/articles?id=eq.${job.article_id}&select=id,headline,deck,body_markdown,hero_url,hero_media_id,source_metadata&limit=1`, { headers: restHeaders });
+      const aResp = await restFetch(`articles?id=eq.${job.article_id}&select=id,headline,deck,body_markdown,hero_url,hero_media_id,source_metadata&limit=1`);
       if (!aResp.ok) throw new Error(`article fetch ${aResp.status}`);
       const [article] = await aResp.json();
       if (!article) throw new Error("article_not_found");
@@ -122,7 +128,6 @@ Deno.serve(async () => {
       }
 
       const warnings = deterministicWarnings(article);
-
       const strippedBody = stripOrdinaryBodyLinks(article.body_markdown ?? "");
       if (strippedBody !== (article.body_markdown ?? "")) {
         await patch(`articles?id=eq.${article.id}`, { body_markdown: strippedBody, editorial_updated_at: new Date().toISOString() });
@@ -135,8 +140,7 @@ Deno.serve(async () => {
         article.hero_url = EMERGENCY_HERO_URL;
         article.hero_media_id = null;
         fixes.push("broken_hero_replaced_with_last_resort_emergency_hero");
-        warnings.push("broken_hero_url");
-        warnings.push("generic_emergency_hero_requires_replacement");
+        warnings.push("broken_hero_url", "generic_emergency_hero_requires_replacement");
       }
 
       if (await duplicateHeroOnFrontpage(article)) warnings.push("duplicate_frontpage_hero");
