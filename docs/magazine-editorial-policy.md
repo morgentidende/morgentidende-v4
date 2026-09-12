@@ -15,6 +15,7 @@ Denne fil ejer kun de regler, der er særlige for Viden og Liv. Fælles artikelk
 - Liv skal især gøre dokumenteret viden om sundhed, psykologi, relationer, privatøkonomi og livskvalitet praktisk anvendelig og delbar.
 - Hold begge magasinblokke friske. Før emnevalg skal de seneste Viden- og Liv-artikler sammenlignes; når to kandidater er omtrent lige stærke, foretrækkes det magasin, der har været længst uden en ny artikel eller er tydeligt underrepræsenteret i de seneste udgivelser. Der må aldrig vælges en svagere artikel alene for at skabe matematisk balance.
 - Korrekthed har forrang for delbarhed. Research skal dog stoppe, når centrale påstande og væsentlige forbehold er tilstrækkeligt dokumenteret.
+- Researchbaserede magasinartikler skal gemme deres eksterne kilder i `source_metadata`, så den eksisterende kildeliste nederst kan renderes. Kilder må ikke indsættes som almindelige hyperlinks i brødteksten.
 
 ## Tal og forskning
 
