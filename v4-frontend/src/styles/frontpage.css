@@ -1,3 +1,56 @@
+.v4-newsbar {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 18px;
+  margin: 20px 0 18px;
+  padding: 15px 18px;
+  border: 1px solid color-mix(in srgb, var(--v4-rule) 76%, var(--v4-gold) 24%);
+  background: linear-gradient(90deg, #132333 0%, #1d2234 58%, #2a2032 100%);
+}
+
+.v4-newsbar__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: #f2d27e;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .11em;
+  white-space: nowrap;
+}
+
+.v4-newsbar__pulse {
+  position: relative;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--v4-gold);
+  box-shadow: 0 0 0 0 rgba(216, 163, 61, .45);
+  animation: v4-news-pulse 2.2s ease-out infinite;
+}
+
+.v4-newsbar__headline {
+  min-width: 0;
+  color: var(--v4-text);
+  font-family: var(--v4-serif);
+  font-size: clamp(18px, 1.7vw, 25px);
+  line-height: 1.12;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.v4-newsbar__headline:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+@keyframes v4-news-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(216, 163, 61, .45); }
+  70%, 100% { box-shadow: 0 0 0 8px rgba(216, 163, 61, 0); }
+}
+
 .v4-lead-box,
 .v4-breaking-box {
   position: relative;
@@ -12,14 +65,20 @@
   box-shadow: inset 5px 0 0 var(--v4-gold);
 }
 
-.v4-lead-label {
+.v4-lead-label-row {
   position: absolute;
   top: 0;
   left: 24px;
+  display: flex;
+  align-items: stretch;
+  gap: 8px;
+}
+
+.v4-lead-label {
   display: inline-flex;
   align-items: center;
   min-height: 30px;
-  padding: 7px 10px;
+  padding: 7px 12px;
   border-radius: 0;
   font-size: 16px;
   line-height: 1;
@@ -28,7 +87,7 @@
   text-transform: uppercase;
 }
 
-.v4-lead-label--theme {
+.v4-lead-label--category {
   background: #7a4d8f;
   color: #fff;
 }
@@ -38,8 +97,9 @@
   color: #17140c;
 }
 
-/* Lead and follow-up cards always keep their ordinary article category visible.
-   Breaking is a temporary lead status, never a replacement category. */
+/* The main lead category lives in the large banner above the lead. Follow-up
+   cards keep their own ordinary category kicker. Breaking is a temporary status. */
+.v4-lead-main > .v4-card > .v4-kicker,
 .v4-followups-label {
   display: none;
 }
@@ -48,7 +108,7 @@ html[data-theme='dark'] .v4-lead-box {
   box-shadow: inset 5px 0 0 #9a647f;
 }
 
-html[data-theme='dark'] .v4-lead-label--theme {
+html[data-theme='dark'] .v4-lead-label--category {
   background: #9a647f;
   color: #fff;
 }
@@ -83,8 +143,6 @@ html[data-theme='dark'] .v4-lead-label--theme {
   box-shadow: none;
 }
 
-/* Magazine cards need a hard text boundary so long Danish compounds never
-   intrude into the neighbouring column. Keep spacing consistent in Viden/Liv. */
 .v4-magazine .v4-grid-4 {
   column-gap: 28px;
   row-gap: 28px;
@@ -110,8 +168,6 @@ html[data-theme='dark'] .v4-magazine--liv {
   background: linear-gradient(135deg, #432e3a 0%, #5a3b49 100%);
 }
 
-/* Keep ordinary front-page rows visually even. The former-lead marker is only
-   editorial metadata; it must not make a random card span two columns. */
 .v4-frontpage-secondary .v4-card--former-lead {
   grid-column: auto !important;
 }
@@ -121,14 +177,34 @@ html[data-theme='dark'] .v4-magazine--liv {
   line-height: inherit !important;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .v4-newsbar__pulse { animation: none; }
+}
+
 @media (max-width: 640px) {
+  .v4-newsbar {
+    grid-template-columns: 1fr;
+    gap: 7px;
+    margin: 14px 0 16px;
+    padding: 13px 14px;
+  }
+
+  .v4-newsbar__headline {
+    font-size: 20px;
+    line-height: 1.14;
+  }
+
   .v4-lead-box,
   .v4-breaking-box {
     padding-top: 50px;
   }
 
-  .v4-lead-label {
+  .v4-lead-label-row {
     left: 18px;
+    gap: 6px;
+  }
+
+  .v4-lead-label {
     min-height: 28px;
     padding: 6px 9px;
     font-size: 16px;
