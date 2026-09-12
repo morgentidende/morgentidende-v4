@@ -1,4 +1,4 @@
 {
-  "action": "security_diagnostics",
-  "request_id": "2026-09-12-security-audit"
+  "action": "zone_settings",
+  "request_id": "2026-09-12-zone-settings-audit"
 }
