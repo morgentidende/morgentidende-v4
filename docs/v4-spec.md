@@ -13,7 +13,7 @@ Historiske løsninger, tidligere designversioner, deaktiverede automations og ud
 
 ## Redaktionel drift
 - De aktive ChatGPT-Opgaver definerer den aktuelle udgivelsesrytme. Denne specifikation må ikke indføre en konkurrerende dagskvote eller få en planlagt normal kørsel til at springe publicering over.
-- Breaking og meget store nyheder kan publiceres straks. Ikke-breaking artikler bruger den aktive korte, fail-open prepublication-QA-buffer.
+- Alle artikler, også breaking, bruger den aktive korte, fail-open prepublication-QA-buffer på 2 minutter før de bliver synlige.
 - Artikler kan også bestilles, skrives og publiceres direkte fra ChatGPT-chatten.
 - Live-forsiden og ekstern URL-verifikation er diagnostik, ikke godkendelsesgates. Ved ekstern fejl bruges Supabase/CMS som autoritativ fallback.
 
@@ -68,6 +68,8 @@ Viden og Liv er magasinsektioner:
 - Breaking bruger gul/guld-accent, ikke alarmrød.
 - Breaking vises som story-cluster med hovedhistorie og relevante opfølgere.
 - En ny opfølgning kan forlænge breaking-status til 2 timer efter seneste opfølgning.
+- Når breaking-perioden udløber, forsvinder breaking-label og breaking-styling, men en artikel med `is_lead=true` forbliver almindelig lead, indtil en nyere lead overtager.
+- En aktiv breaking-forsidelead skal både have `is_breaking=true` og `is_lead=true`; opfølgere i samme breaking-cluster må ikke kunne overtage hovedlead-pladsen alene fordi de også er markeret breaking.
 - Brugeren kan overstyre breaking-status fra chatten.
 - Almindelig lead er præsentationsmetadata og er ikke bundet til kategorien Tema. En politisk eller almindelig nyhedsartikel kan være non-breaking lead i sin normale kategori.
 - Tema-leads beholder Tema-labelen; andre non-breaking leads bruger den almindelige lead-præsentation uden at blive tvangsflyttet til Tema.
@@ -98,9 +100,10 @@ Statusser:
 - `publish_at` bestemmer, hvornår en scheduled artikel bliver synlig.
 - Breaking/lead er metadata på artikler/story clusters og må ikke kobles unødvendigt til kategori.
 - `autopublish_enabled` er globalt nødstop for autonom publicering og bruges kun ved systemiske fejl, fx gentagne publiceringsfejl, dubletstorm, auth/CMS-fejl eller ødelagte data.
-- Ikke-breaking artikler har en 2-minutters prepublication-QA-buffer. `qa_release_at` er en hård release-deadline: journalistens slut-QA, teknisk QA-warning, timeout, 504 eller manglende ekstern live-verifikation må ikke forlænge bufferen.
+- Alle artikler, inklusive breaking og direkte chat-publicering, har en 2-minutters prepublication-QA-buffer. `qa_release_at` er en hård release-deadline: journalistens slut-QA, teknisk QA-warning, timeout, 504 eller manglende ekstern live-verifikation må ikke forlænge bufferen.
 - Redaktionelt slut-QA i bufferen udføres af den samme ChatGPT-journalist efter reglerne i `docs/editorial-core.md`.
-- Supabase `article-qa` er kun et deterministisk teknisk sikkerhedsnet. Det må ikke kalde betalte eksterne AI/API-tjenester. Det må automatisk udføre sikre tekniske fixes, fx fjerne almindelige eksterne brødtekstlinks og erstatte et brudt hero med fallback.
+- Supabase `article-qa` er kun et deterministisk teknisk sikkerhedsnet. Det må ikke kalde betalte eksterne AI/API-tjenester. Det må automatisk udføre sikre tekniske fixes, fx normalisere escaped markdown, fjerne almindelige eksterne brødtekstlinks og erstatte et brudt hero med fallback.
+- Midlertidige Supabase REST-fejl i teknisk QA retries én gang kort. Retry må aldrig forlænge `qa_release_at` eller blive en gate.
 - Supabase `v4_public_articles` er den autoritative første kontrol efter release. Ekstern åbning/crawl af URL er sekundær diagnostik og må højst give warning.
 - Den aktive Supabase-trigger/Edge Function-implementering ejer den tekniske QA-mekanik. Automationsprompter skal kun henvise til den centrale slut-QA-regel og må ikke kopiere dens checkliste eller genimplementere den tekniske QA.
 

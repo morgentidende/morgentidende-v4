@@ -27,7 +27,7 @@ Denne fil ejer kun de regler, som gælder på tværs af autonom artikelproduktio
 
 ## Journalistens eget slut-QA
 
-For ikke-breaking artikler bruger den samme ChatGPT-journalist den eksisterende korte prepublication-buffer til **ét frisk genlæs** af det færdige udkast, mens artiklen stadig er `scheduled`.
+For alle artikler, inklusive breaking og direkte chat-publicering, bruger den samme ChatGPT-journalist den eksisterende 2-minutters prepublication-buffer til **ét frisk genlæs** af det færdige udkast, mens artiklen endnu ikke er synlig.
 
 - Ret kun sikre fejl i rubrik, manchet, sprog, tegnsætning, gentagelser, markdown, `SAGEN KORT`, links og åbenlyse metadatafejl.
 - Kontrollér eksplicit, at `body_markdown` ikke indeholder en manuel `Kilder`-sektion, når `source_metadata` skal rendere den strukturerede kildeliste nederst.
