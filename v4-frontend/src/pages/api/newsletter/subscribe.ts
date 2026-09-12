@@ -1,5 +1,5 @@
 import type { APIRoute } from 'astro';
-import { v4Supabase } from '../../../lib/v4-supabase';
+import { v4SupabaseServer } from '../../../lib/v4-supabase-server';
 import { buildNewsletterConfirmationEmail } from '../../../lib/newsletter-email';
 
 const CONSENT_VERSION = 'daily-v1-2026-09-11';
@@ -7,7 +7,7 @@ const CONSENT_TEXT = 'Jeg vil modtage Morgentidendes daglige nyhedsbrev kl. 06. 
 const NEWSLETTER_FROM = 'Morgentidende <nyhedsbrev@morgentidende.dk>';
 
 export const POST: APIRoute = async ({ request, site }) => {
-  if (!v4Supabase) {
+  if (!v4SupabaseServer) {
     return new Response(JSON.stringify({ message: 'Nyhedsbrevet er midlertidigt utilgængeligt.' }), { status: 503, headers: { 'content-type': 'application/json' } });
   }
 
@@ -29,7 +29,7 @@ export const POST: APIRoute = async ({ request, site }) => {
     return new Response(JSON.stringify({ message: 'Indtast en gyldig e-mailadresse.' }), { status: 400, headers: { 'content-type': 'application/json' } });
   }
 
-  const { data, error } = await v4Supabase.rpc('newsletter_begin_signup', {
+  const { data, error } = await v4SupabaseServer.rpc('newsletter_begin_signup', {
     p_email: email,
     p_newsletter: 'daily',
     p_consent_version: CONSENT_VERSION,
