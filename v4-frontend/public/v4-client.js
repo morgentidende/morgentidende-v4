@@ -214,3 +214,11 @@ document.querySelectorAll('.v4-article-body a').forEach((link) => {
   const paragraph = link.closest('p');
   (paragraph || link).replaceWith(frame);
 });
+
+// Editorial rule: ordinary hyperlinks must never appear in article body text.
+// Keep only the deliberately injected internal "Læs også" links. Source links live
+// in the separate source list below the article and are therefore unaffected.
+document.querySelectorAll('.v4-article-body a').forEach((link) => {
+  if (link.closest('.v4-inline-related')) return;
+  link.replaceWith(...link.childNodes);
+});
