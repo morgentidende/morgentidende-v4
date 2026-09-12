@@ -187,7 +187,7 @@ html[data-theme='dark'] .v4-lead-label--category { background: #9a647f; color: #
 html[data-theme='dark'] .v4-magazine--viden { background: linear-gradient(135deg, #172638 0%, #20384e 100%); }
 html[data-theme='dark'] .v4-magazine--liv { background: linear-gradient(135deg, #432e3a 0%, #5a3b49 100%); }
 
-/* Lower-frontpage polish: stronger hierarchy, more breathing room, one newsletter. */
+/* Lower-frontpage polish: stronger hierarchy and more breathing room. */
 .v4-newsletter {
   margin-top: 42px;
   margin-bottom: 44px;
@@ -231,9 +231,24 @@ html[data-theme='dark'] .v4-magazine--liv { background: linear-gradient(135deg, 
   letter-spacing: .12em;
 }
 
-.v4-footer__newsletter { display: none; }
-.v4-footer { margin-top: 38px; }
-.v4-shell { padding-bottom: 68px; }
+/* The footer newsletter returns as a deliberately smaller final call-to-action. */
+.v4-footer__newsletter {
+  display: grid;
+  padding: 20px 26px;
+  gap: 30px;
+}
+
+.v4-footer__newsletter-title {
+  font-size: clamp(24px, 2vw, 31px);
+}
+
+.v4-footer__newsletter-subtitle {
+  margin-top: 7px;
+  font-size: 13px;
+}
+
+.v4-footer { margin-top: 42px; }
+.v4-shell { padding-bottom: 72px; }
 
 @media (prefers-reduced-motion: reduce) {
   .v4-newsbar__pulse::after { animation: none; }
@@ -288,5 +303,15 @@ html[data-theme='dark'] .v4-magazine--liv { background: linear-gradient(135deg, 
 
   .v4-latest-section .v4-grid-4 { row-gap: 26px; }
   .v4-latest-section .v4-card__headline { font-size: 20px; }
-  .v4-footer { margin-top: 28px; }
+
+  .v4-footer__newsletter {
+    padding: 18px;
+    gap: 18px;
+  }
+
+  .v4-footer__newsletter-title {
+    font-size: 25px;
+  }
+
+  .v4-footer { margin-top: 30px; }
 }
