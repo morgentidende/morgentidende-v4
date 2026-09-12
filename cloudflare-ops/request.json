@@ -1,4 +1,4 @@
 {
-  "action": "zone_dns",
-  "request_id": "2026-09-12-dns-audit"
+  "action": "zone_rulesets",
+  "request_id": "2026-09-12-waf-audit"
 }
