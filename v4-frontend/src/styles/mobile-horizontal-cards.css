@@ -1,10 +1,63 @@
 /*
- * Mobile horizontal news cards.
+ * Horizontal news cards.
  *
  * Keep thumbnails in a stable top-aligned column. Headline length may change
- * the row height, but must never move the thumbnail vertically. This avoids
- * the staggered / "hulter til bulter" effect created by per-card centering.
+ * the row height, but must never move the thumbnail vertically.
  */
+
+/* Desktop/tablet lead-package follow-ups: category sits above the thumbnail,
+ * not above the headline. The headline starts level with the thumbnail. */
+.v4-followups article[data-category] {
+  grid-template-columns: 112px minmax(0, 1fr) !important;
+  grid-template-rows: auto auto !important;
+  align-items: start !important;
+  column-gap: 12px !important;
+  row-gap: 6px !important;
+}
+
+.v4-followups article[data-category]::before {
+  content: attr(data-category);
+  grid-column: 1 !important;
+  grid-row: 1 !important;
+  display: block;
+  margin: 0;
+  color: var(--v4-gold);
+  font-family: var(--v4-sans);
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+}
+
+.v4-followups article[data-category] > .v4-kicker {
+  display: none !important;
+}
+
+.v4-followups article[data-category] > .v4-card__media {
+  grid-column: 1 !important;
+  grid-row: 2 !important;
+  width: 112px !important;
+  aspect-ratio: 4 / 3 !important;
+  align-self: start !important;
+}
+
+.v4-followups article[data-category] > .v4-card__headline {
+  grid-column: 2 !important;
+  grid-row: 2 !important;
+  margin: 0 !important;
+  align-self: start !important;
+}
+
+@media (max-width: 900px) and (min-width: 641px) {
+  .v4-followups article[data-category] {
+    grid-template-columns: 132px minmax(0, 1fr) !important;
+  }
+  .v4-followups article[data-category] > .v4-card__media {
+    width: 132px !important;
+  }
+}
+
 @media (max-width: 640px) {
   /* Lead-package follow-ups: category is its own full-width row above media + headline. */
   .v4-followups article {
@@ -13,14 +66,14 @@
     align-items: start !important;
     min-height: 0 !important;
     column-gap: 12px !important;
-    row-gap: 8px !important;
-    padding-block: 16px;
+    row-gap: 6px !important;
+    padding-block: 12px;
   }
 
   .v4-followups article::before {
     content: attr(data-category);
-    grid-column: 1 / -1;
-    grid-row: 1;
+    grid-column: 1 / -1 !important;
+    grid-row: 1 !important;
     display: block;
     min-width: 0;
     margin: 0;
