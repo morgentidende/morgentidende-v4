@@ -11,7 +11,6 @@ interface Props {
   imageFetchPriority?: 'high' | 'low' | 'auto';
   imageSizes?: string;
   cardClass?: string;
-  mobileCategoryAboveMedia?: boolean;
 }
 const {
   article,
@@ -20,8 +19,7 @@ const {
   imageLoading = 'lazy',
   imageFetchPriority = 'auto',
   imageSizes = '(max-width: 640px) calc(100vw - 28px), (max-width: 900px) 50vw, 25vw',
-  cardClass = '',
-  mobileCategoryAboveMedia = false
+  cardClass = ''
 } = Astro.props;
 const headline = article.frontpage_headline || article.headline;
 const accent = article.headline_accent_text?.trim();
@@ -38,8 +36,7 @@ if (accent) {
   }
 }
 ---
-<article class:list={['v4-card', cardClass, mobileCategoryAboveMedia && 'v4-card--mobile-category-above']}>
-  {mobileCategoryAboveMedia && categoryName ? <div class="v4-kicker v4-kicker--mobile-above">{categoryName}</div> : null}
+<article class:list={['v4-card', cardClass]} data-category={categoryName || undefined}>
   <a class="v4-card__media" href={`/artikel/${article.slug}`}>
     {article.hero_url ? (
       <img
@@ -56,7 +53,7 @@ if (accent) {
       />
     ) : null}
   </a>
-  {categoryName ? <div class="v4-kicker v4-kicker--standard">{categoryName}</div> : null}
+  {categoryName ? <div class="v4-kicker">{categoryName}</div> : null}
   <h2 class="v4-card__headline">
     <a href={`/artikel/${article.slug}`}>
       {before}<span class="v4-card__accent">{highlighted}</span>{after}
@@ -66,13 +63,6 @@ if (accent) {
 </article>
 
 <style>
-  .v4-kicker--mobile-above { display: none; }
-
-  @media (max-width: 640px) {
-    .v4-card--mobile-category-above .v4-kicker--mobile-above { display: block; }
-    .v4-card--mobile-category-above .v4-kicker--standard { display: none; }
-  }
-
   .v4-card__media--failed {
     position: relative;
     min-height: 120px;
