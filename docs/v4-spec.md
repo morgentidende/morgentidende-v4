@@ -4,19 +4,20 @@ Denne fil indeholder kun de regler, der er gældende nu. Historiske løsninger, 
 
 ## Arkitektur
 - ChatGPT er den redaktionelle motor.
-- Supabase er CMS/database for artikler, scheduling, relationer, læser-login og versionshistorik.
+- Supabase er CMS/database for artikler, scheduling, relationer og versionshistorik.
 - Cloudflare driver frontend/deployment.
 - Frontend læser publicerede data fra CMS; artikler må ikke publiceres ved at omskrive forsiden som rå HTML.
 - Redaktionelle gates skal holdes på et minimum. Tekniske lag skal være små, stabile og uden parallel legacy-logik.
 
 ## Redaktionel drift
-- 3–4 autonome redaktionskørsler dagligt med samlet mål om ca. 5–10 nye artikler pr. døgn.
-- Breaking og meget store nyheder kan publiceres straks. Andre artikler kan schedules.
+- De aktive ChatGPT-Opgaver definerer den aktuelle udgivelsesrytme. Denne specifikation må ikke indføre en konkurrerende dagskvote eller få en planlagt normal kørsel til at springe publicering over.
+- Breaking og meget store nyheder kan publiceres straks. Ikke-breaking artikler bruger den gældende korte, fail-open prepublication-QA-buffer.
 - Artikler kan også bestilles, skrives og publiceres direkte fra ChatGPT-chatten.
 - ChatGPT skal kunne fejlfinde publicering, frontend, metadata, scheduling og relationer via logs/health-data.
+- Live-forsiden og ekstern URL-verifikation er diagnostik, ikke godkendelsesgates. Ved ekstern fejl bruges Supabase/CMS som autoritativ fallback.
 
 ## Artikelkrav
-- Alle artikler skal have hero.
+- Alle artikler skal have hero. Hero-flowet skal være fail-open: et mislykket billedforsøg udløser automatisk en sikker fallback frem for at blokere en ellers publicerbar artikel.
 - **Midlertidig AI-hero-prøve:** Morgentidende skruer i en afgrænset prøveperiode markant op for AI-genererede heros for at gøre forsiden mere visuelt attraktiv og mere delbar.
 - AI-heros må gerne være fotorealistiske, når motivet er fiktivt eller generisk og ikke kan forveksles med dokumentation af en konkret virkelig hændelse.
 - AI-heros må ikke afbilde virkelige personer. Hvis en artikel handler om en konkret virkelig person, bruges et lovligt rigtigt foto, neutral grafik eller et konceptuelt AI-motiv uden personen.
@@ -25,13 +26,13 @@ Denne fil indeholder kun de regler, der er gældende nu. Historiske løsninger, 
 - Rigtige fotos bruges fortsat, når den konkrete person, hændelse eller dokumentariske virkelighed er en væsentlig del af historiens journalistiske værdi.
 - AI-genererede heros mærkes i metadata/credit som AI-illustration eller tilsvarende og må aldrig krediteres som et ægte foto.
 - Effekten af prøveperioden vurderes efter kort tid ud fra forsidens visuelle kvalitet, klik og delingspotentiale; derefter kan reglen justeres eller ophæves.
-- Hero skal have dokumenteret lovlig brugsret og interne metadata for kilde, licens og credit.
+- Eksterne hero-assets skal have dokumenteret lovlig brugsret og relevante metadata for kilde, licens og credit. AI-genererede assets skal have korrekte generation-/creditmetadata.
 - No-attribution-licenser foretrækkes. Billeder med obligatorisk attribution bruges kun, når et passende alternativ ikke med rimelighed kan findes, og krediteres da korrekt.
-- Hvis et foreslået hero ikke kan verificeres, findes automatisk et lovligt alternativ.
+- Hvis et foreslået hero ikke kan verificeres, findes automatisk et lovligt alternativ eller et sikkert illustrativt AI-motiv.
 - Manchet: højst 2 sætninger og cirka 20 ord samlet.
 - **Markdown-regel:** Et almindeligt brødtekstafsnit må ikke begynde direkte med mønstret `tal.` (fx `11. september ...`), fordi markdown kan fortolke det som en nummereret liste og ændre tallet ved rendering. Omskriv i stedet naturligt, fx `Den 11. september ...`, medmindre der faktisk ønskes en nummereret liste.
-- Almindelige nyheder og Kommentarer må ikke slutte med en særskilt kildeliste. Kilder indarbejdes naturligt i brødteksten.
-- Forskningsartikler i Viden og Liv skal have en kort kildesektion nederst med centrale studier/papers og klikbare links.
+- **Linkregel:** Der må ikke stå almindelige eksterne hyperlinks i artikelbrødteksten. Eksterne links hører kun hjemme i den diskrete kildeliste nederst. Bevidste interne `Læs også`-relationer er tilladt og skal normalt renderes via det strukturerede relationssystem.
+- Alle artikler med eksterne kilder skal have en kort kildeliste nederst med klikbare links. Hvis der reelt ikke er eksterne kilder, vises ingen tom kildeliste.
 - Artikler bygget på personlige erfaringer eller øjenvidner skal bruge verificerbare direkte citater, når de findes. Citater må aldrig opfindes eller løsnes fra dokumenteret kontekst.
 - Personlige beretninger og nyhedsartikler må ikke slutte moraliserende eller fortælle læseren, hvad vedkommende bør konkludere.
 - På politiske emner bruges data-first: relevante tal, primærkilder, citater, historik og væsentlige modstående oplysninger. Fakta holdes adskilt fra analyse og kommentar.
@@ -40,7 +41,7 @@ Denne fil indeholder kun de regler, der er gældende nu. Historiske løsninger, 
 - Kommentarstof må have tydelig holdning, men skal markeres som Kommentar og holde vurderinger adskilt fra dokumenterede fakta.
 
 ## Relaterede artikler
-- “Læs også” inde i brødteksten bruges kun ved direkte relation til samme sag.
+- “Læs også” inde i/omkring brødteksten bruges kun ved direkte relation til samme sag og genereres struktureret; almindelige prose-hyperlinks bruges ikke som anbefalingsmekanisme.
 - Relationer gemmes struktureret via `article_relations`/`story_cluster`.
 - Direkte lead/opfølgning-relationer oprettes begge veje automatisk.
 - Duplikater må ikke oprettes, og eksisterende relationer skal bevares.
@@ -84,15 +85,15 @@ Viden og Liv er magasinsektioner:
 - Breaking vises som story-cluster med hovedhistorie og relevante opfølgere.
 - En ny opfølgning kan forlænge breaking-status til 2 timer efter seneste opfølgning.
 - Brugeren kan overstyre breaking-status fra chatten.
-- Almindelig lead vises i egen roligere lead-kasse med relevante opfølgere.
+- Almindelig lead er præsentationsmetadata og er **ikke bundet til kategorien Tema**. En politisk eller almindelig nyhedsartikel kan være non-breaking lead i sin normale kategori.
+- Tema-leads beholder Tema-labelen; andre non-breaking leads bruger den almindelige lead-præsentation uden at blive tvangsflyttet til Tema.
 - Når en ny lead overtager, flyttes den seneste tidligere lead ned i det almindelige nyhedsflow. I de første 2 timer efter skiftet kan den prioriteres som første kort i den sekundære nyhedsrække og få større visuel vægt på desktop; derefter følger den normal kronologi.
 
 ## Design
 - Mørkeblå/navy/mørkelilla hovedpalette med diskret gul/guld accent.
 - Det godkendte aktuelle sol-logo i `v4-frontend/public/morgentidende-sun.png` er det autoritative logoasset.
 - Lys og mørk mode skal begge have tilstrækkelig kontrast.
-- Mørk/Lys-kontrol og Login ligger øverst til højre.
-- Login er læser-login til konto- og læserfunktioner; adgang til journalistisk indhold må ikke gøres afhængig af betaling.
+- Søgning og Mørk/Lys-kontrol ligger øverst til højre; der er ikke læser-login i den aktive løsning.
 - Forsiden bruger lige grids, ikke masonry/forskudte kort.
 - Nyhedskort bruger konsistent hero-format/crop, som udgangspunkt 3:2.
 - Rubrikker har kontrolleret højde/linjeantal, så rækker forbliver visuelt lige.
@@ -111,9 +112,11 @@ Statusser:
 - `unpublished`
 
 - `publish_at` bestemmer, hvornår en scheduled artikel bliver synlig.
-- Breaking/lead er metadata på artikler/story clusters.
+- Breaking/lead er metadata på artikler/story clusters og må ikke kobles unødvendigt til kategori.
 - `autopublish_enabled` er globalt nødstop for autonom publicering.
-- Nødstop bruges kun ved systemiske fejl, fx gentagne publiceringsfejl, dubletstorm, auth/CMS-fejl, ødelagte data eller gentagne hero/licens-fejl.
+- Nødstop bruges kun ved systemiske fejl, fx gentagne publiceringsfejl, dubletstorm, auth/CMS-fejl, ødelagte data eller anden klar systemisk risiko.
+- Ikke-breaking artikler har en 2-minutters prepublication-QA-buffer. `qa_release_at` er en hård release-deadline: QA-warning, timeout, 504, utilgængelig AI-motor eller manglende ekstern live-verifikation må ikke forlænge bufferen.
+- Supabase `v4_public_articles` er den autoritative første kontrol efter release. Ekstern åbning/crawl af URL er sekundær diagnostik og må højst give warning.
 
 ## Validering
 Hårde stop holdes på et minimum:
@@ -124,13 +127,12 @@ Hårde stop holdes på et minimum:
 
 Legitime hårde stop omfatter fx:
 - tom artikeltekst
-- ugyldig database-record
-- intet hero efter automatiske fallback-forsøg
-- udokumenterbare billedrettigheder uden brugbart alternativ
-- ugyldig publiceringstid
-- auth-/sikkerhedsfejl
+- ugyldig database-record, som ikke kan repareres automatisk
+- dokumenteret ulovlig eller vildledende mediebrug uden sikker fallback
+- ugyldig publiceringstid, som ikke kan normaliseres automatisk
+- auth-/sikkerhedsfejl, der gør en write-operation uforsvarlig eller umulig
 
-Almindelige redaktionelle kvalitetsproblemer håndteres som warnings/fixes, ikke gates.
+Følgende er **ikke** publiceringsgates og skal håndteres som warning/fix/fallback: ekstern live-verifikation, frontpage-read, ekstra citater/kilder efter tilstrækkelig dokumentation, SEO-finjustering, relationer, social distribution, logging og ikke-kritiske metadatafejl.
 
 ## Sikkerhed og anonymitet
 - Brugerens identitet må ikke eksponeres i repo, commits, metadata, domæne-setup eller offentlige systemer.
@@ -152,7 +154,7 @@ Almindelige redaktionelle kvalitetsproblemer håndteres som warnings/fixes, ikke
 
 ## Modelregel for redaktionelt arbejde
 - Autonom research, artikelskrivning, Kommentar, redaktionel slutbearbejdning og udgivelse bruger den mest intelligente faktisk tilgængelige model/runtime på det pågældende tidspunkt.
-- Høj eller højeste relevante reasoning-indstilling bruges, når platformen giver mulighed for det. Kvalitet prioriteres over pris, tokenforbrug og latenstid.
-- Der må ikke automatisk nedgraderes til en svagere model for at spare ressourcer.
-- Hvis modelniveauet ikke kan vælges eller verificeres, må systemet ikke påstå en bestemt modelindstilling.
-- Den redaktionelle motor læser denne regel og CMS-indstillingen `editorial_model_policy` før autonomt arbejde. Det faktiske modelvalg håndteres i den kørende agents runtime-konfiguration.
+- Høj eller højeste relevante reasoning-indstilling bruges, når platformen giver mulighed for det.
+- Der må ikke automatisk nedgraderes til en svagere model alene for at spare ressourcer.
+- Modelvalg eller manglende mulighed for at verificere et bestemt modelniveau må **ikke** være en publiceringsgate. Hvis den foretrukne runtime ikke kan vælges, bruges den bedste faktisk tilgængelige runtime uden at påstå en bestemt modelindstilling.
+- Den redaktionelle motor læser denne regel og CMS-indstillingen `editorial_model_policy` før autonomt arbejde, når de er tilgængelige. Midlertidig manglende adgang til regelsættet må ikke stoppe en kørsel, hvis de indlejrede hårde regler er tilstrækkelige til sikker publicering.
