@@ -1,7 +1,3 @@
-.v4-shell {
-  padding-bottom: 44px;
-}
-
 .v4-newsbar {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
