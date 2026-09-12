@@ -18,7 +18,7 @@ if (v4Supabase) {
       .from('v4_public_articles')
       .select('id,slug,category_id,story_cluster_id,headline,frontpage_headline,headline_accent_text,deck,hero_url,hero_alt,is_lead,is_breaking,breaking_until,published_at')
       .order('published_at', { ascending: false })
-      .limit(64),
+      .limit(160),
     v4Supabase.from('v4_public_categories').select('id,name,sort_order').order('sort_order', { ascending: true })
   ]);
   loadError = Boolean(articlesResult.error || categoriesResult.error);
