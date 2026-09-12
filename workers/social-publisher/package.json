@@ -6,6 +6,6 @@
     "check": "wrangler deploy --dry-run --outdir /tmp/social-publisher-build"
   },
   "devDependencies": {
-    "wrangler": "^4.37.1"
+    "wrangler": "4.37.1"
   }
 }
