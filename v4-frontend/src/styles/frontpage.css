@@ -7,7 +7,7 @@
   grid-template-columns: minmax(0, 1fr);
   align-items: start;
   gap: 7px;
-  margin: 20px 0 18px;
+  margin: 12px 0 22px;
   padding: 15px 18px;
   border: 1px solid color-mix(in srgb, var(--v4-rule) 76%, var(--v4-gold) 24%);
   background: linear-gradient(90deg, #132333 0%, #1d2234 58%, #2a2032 100%);
@@ -219,7 +219,7 @@ html[data-theme='dark'] .v4-magazine--liv {
   .v4-newsbar {
     grid-template-columns: 1fr;
     gap: 7px;
-    margin: 14px 0 16px;
+    margin: 10px 0 18px;
     padding: 13px 14px;
   }
 
