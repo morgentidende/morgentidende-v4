@@ -1,13 +1,13 @@
 ---
 import V4Layout from '../../layouts/V4Layout.astro';
-import { v4Supabase } from '../../lib/v4-supabase';
+import { v4SupabaseServer } from '../../lib/v4-supabase-server';
 
 Astro.response.headers.set('Cache-Control', 'no-store');
 const token = Astro.url.searchParams.get('token') || '';
 let confirmed = false;
 
-if (token && v4Supabase) {
-  const { data, error } = await v4Supabase.rpc('newsletter_confirm_signup', { p_token: token });
+if (token && v4SupabaseServer) {
+  const { data, error } = await v4SupabaseServer.rpc('newsletter_confirm_signup', { p_token: token });
   confirmed = !error && data === true;
 }
 ---
