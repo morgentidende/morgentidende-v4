@@ -1,3 +1,7 @@
+.v4-shell {
+  padding-bottom: 44px;
+}
+
 .v4-newsbar {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
@@ -208,6 +212,10 @@ html[data-theme='dark'] .v4-magazine--liv {
 }
 
 @media (max-width: 640px) {
+  .v4-shell {
+    padding-bottom: 36px;
+  }
+
   .v4-newsbar {
     grid-template-columns: 1fr;
     gap: 7px;
