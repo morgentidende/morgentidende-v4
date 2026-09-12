@@ -1,0 +1,35 @@
+# Morgentidende – fælles redaktionel kerne
+
+Denne fil ejer kun de regler, som gælder på tværs af autonom artikelproduktion. Opgavespecifikke regler må ikke kopiere denne kerne; de skal kun beskrive deres egen opgave.
+
+## Autoritet
+
+- **Fælles artikelkrav:** denne fil.
+- **Nyhedsprofil, politiske skalaer, discovery og bredt nyhedsmix:** `docs/news-editorial-profile-and-discovery.md`.
+- **Viden og Liv:** `docs/magazine-editorial-policy.md`.
+- **Produkt, frontend, CMS, publicering, QA-buffer og teknisk drift:** `docs/v4-spec.md` og den aktive Supabase-implementering.
+- Historiske filer, migrationshistorik og deaktiverede automations er ikke aktuelle regelsæt.
+
+## Fælles artikelkrav
+
+1. Verificér centrale faktuelle påstande med troværdige kilder; brug primærkilder, når de er relevante og tilgængelige. Discovery-, blog- og opinionskilder må bruges til at finde spor, men ikke som erstatning for dokumentation af centrale fakta.
+2. Opfind aldrig fakta, personer, citater, erfaringer eller kausalitet. Skeln tydeligt mellem dokumenterede fakta, påstande, analyse og kommentar.
+3. Skriv flydende, naturligt og klart dansk med velkendte ord og varieret sætningsrytme. Unødvendige metodeetiketter og fagudtryk undgås, medmindre de er nødvendige for forståelsen.
+4. Rubrikker følger **faktum først**: når historien rummer et stærkt verificeret faktum, tal, citat eller en konkret konsekvens, skal det som udgangspunkt frem tydeligt. Nysgerrighed må bruges, men må ikke skjule en stærkere dokumenteret pointe. Rubrik og manchet må aldrig love mere, end dokumentationen bærer.
+5. Manchetten er højst 2 sætninger og cirka 20 ord.
+6. `SAGEN KORT` består altid af præcis 2 tydeligt forskellige hovedpointer.
+7. `body_markdown` må ikke begynde med H1 eller gentage rubrikken. Et almindeligt afsnit må ikke begynde direkte med `tal.` hvis Markdown kan fejlfortolke det som en nummereret liste.
+8. Almindelige eksterne hyperlinks må ikke stå i brødteksten. Eksterne kilder vises i den diskrete kildeliste nederst. Interne anbefalinger bruger det strukturerede `Læs også`-relationssystem.
+9. Direkte citater og personlige erfaringer skal være verificerbare og gengives loyalt i deres dokumenterede kontekst.
+10. Alle artikler skal have et relevant hero. Mediebrug skal være lovlig og må ikke vildlede. Et mislykket hero-forsøg bruger en sikker fallback i stedet for at blokere en ellers publicerbar artikel. AI-billeder må ikke fremstille virkelige personer eller konkrete virkelige hændelser som dokumentariske fotografier.
+11. Stop research, når centrale påstande og væsentlige forbehold er tilstrækkeligt dokumenteret. Ekstra citater, ekstra kilder, SEO-finjustering og ekstern live-verifikation er ikke i sig selv publiceringsgates.
+
+## Drift for autonome journalister
+
+- Publicér gennem det aktive Supabase/CMS-flow; omskriv aldrig forsiden som rå HTML.
+- Følg den aktive tekniske publiceringslogik i `docs/v4-spec.md` og Supabase. Automationsprompter skal ikke genimplementere QA-buffer, hero-fallback eller andre tekniske mekanismer i tekst.
+- Supabase `v4_public_articles` er den autoritative første kontrol efter release. Ekstern webåbning er sekundær diagnostik.
+- En enkelt ikke-kritisk fejl må ikke få en journalist til at deaktivere sig selv.
+- Ved en reel kørselsfejl: log fejlen hvis muligt og afslut kørslen; ændr ikke tidsplanen eller deaktiver automationen.
+
+Målet er: **én regel, én ejer, én autoritativ implementering**.
