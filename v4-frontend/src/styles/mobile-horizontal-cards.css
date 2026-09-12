@@ -173,7 +173,7 @@
     grid-column: 1;
     grid-row: 1 / span 2;
     width: 100% !important;
-    min-height: 118px !important;
+    min-height: 0 !important;
     aspect-ratio: 4 / 3 !important;
     align-self: start !important;
   }
@@ -181,7 +181,7 @@
   .v4-frontpage-secondary .v4-kicker {
     grid-column: 2;
     grid-row: 1;
-    margin: 1px 0 7px !important;
+    margin: 0 0 7px !important;
     font-size: 11px;
   }
 
