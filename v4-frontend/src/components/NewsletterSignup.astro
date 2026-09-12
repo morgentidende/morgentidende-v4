@@ -6,10 +6,10 @@ interface Props {
 
 const { variant = 'daily', magazineName = 'Viden' } = Astro.props;
 const isWeekly = variant === 'weekly';
-const title = isWeekly ? `Ugens bedste fra ${magazineName}` : 'Få Morgentidende på mail';
+const title = isWeekly ? `Ugens bedste fra ${magazineName}` : 'Start dagen med Morgentidende';
 const description = isWeekly
   ? `Hver søndag kl. 06 samler vi ugens mest spændende artikler fra ${magazineName} i én rolig udgave.`
-  : 'Dagens vigtigste historier i din indbakke hver morgen kl. 06.';
+  : 'Dagens vigtigste historier – kort og klart i din indbakke hver morgen kl. 06.';
 ---
 <aside class:list={['v4-newsletter', !isWeekly && 'v4-newsletter--daily', isWeekly && 'v4-newsletter--weekly']} aria-label={title}>
   <div class="v4-newsletter__copy">
@@ -30,7 +30,7 @@ const description = isWeekly
     <input type="hidden" name="newsletter" value={isWeekly ? magazineName.toLowerCase() : 'daily'} />
     {!isWeekly ? (
       <p class="v4-newsletter-form__note">
-        Vi sender først nyhedsbrevet, når du har bekræftet din e-mail. Nyhedsbrevet kan indeholde annoncer og kommercielle links, herunder affiliate-links til produkter og tjenester fra tredjeparter. Du kan altid afmelde dig igen.
+        Bekræft din e-mail – så er du med. Afmeld når som helst.
       </p>
     ) : (
       <p class="v4-newsletter-form__note">Viden og Liv får deres egne magasinnyhedsbreve. Tilmeldingen åbner senere.</p>
@@ -41,9 +41,10 @@ const description = isWeekly
 
 <style>
   .v4-newsletter--daily {
-    padding: clamp(20px, 3vw, 30px);
-    grid-template-columns: minmax(0, 1.1fr) minmax(320px, .9fr);
-    gap: clamp(24px, 4vw, 46px);
+    padding: clamp(22px, 3.2vw, 32px);
+    grid-template-columns: minmax(0, 1.2fr) minmax(320px, .8fr);
+    gap: clamp(28px, 4.5vw, 52px);
+    align-items: center;
   }
 
   .v4-newsletter--daily .v4-newsletter__copy,
@@ -53,11 +54,12 @@ const description = isWeekly
 
   .v4-newsletter--daily .v4-newsletter__copy h2 {
     margin: 5px 0 8px;
-    font-size: clamp(26px, 2.6vw, 36px);
+    font-size: clamp(28px, 2.8vw, 39px);
+    line-height: 1.04;
   }
 
   .v4-newsletter--daily .v4-newsletter__copy > p {
-    max-width: 520px;
+    max-width: 560px;
     line-height: 1.42;
   }
 
@@ -67,24 +69,31 @@ const description = isWeekly
   }
 
   .v4-newsletter--daily .v4-newsletter-form > label {
-    margin-bottom: 6px;
+    margin-bottom: 7px;
     font-size: 13px;
   }
 
+  .v4-newsletter--daily .v4-newsletter-form__row {
+    gap: 10px;
+  }
+
   .v4-newsletter--daily .v4-newsletter-form input[type='email'] {
-    padding: 11px 12px;
+    min-height: 50px;
+    padding: 13px 14px;
+    font-size: 16px;
   }
 
   .v4-newsletter--daily .v4-newsletter-form button {
-    padding: 11px 20px;
-    min-width: 88px;
+    min-height: 50px;
+    padding: 12px 22px;
+    min-width: 92px;
   }
 
   .v4-newsletter--daily .v4-newsletter-form__note {
     margin: 9px 0 0;
     font-size: 11px;
-    line-height: 1.45;
-    opacity: .76;
+    line-height: 1.4;
+    opacity: .66;
   }
 
   .v4-newsletter--daily .v4-newsletter-form__status {
