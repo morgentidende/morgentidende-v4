@@ -10,7 +10,7 @@
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(190px, 240px);
   align-items: stretch;
-  gap: 34px;
+  gap: 24px;
 }
 
 .v4-footer__newsletter {
