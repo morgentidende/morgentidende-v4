@@ -66,8 +66,10 @@ if (loadError) {
 }
 
 const categoryById = new Map(categories.map((c) => [c.id, c.name]));
-const breaking = articles.find((a) => a.is_breaking && (!a.breaking_until || new Date(a.breaking_until) > new Date()));
-const standardLead = articles.find((a) => a.is_lead && !a.is_breaking);
+const now = new Date();
+const isActiveBreaking = (a: any) => Boolean(a?.is_breaking) && (!a.breaking_until || new Date(a.breaking_until) > now);
+const breaking = articles.find((a) => isActiveBreaking(a));
+const standardLead = articles.find((a) => a.is_lead && !isActiveBreaking(a));
 const lead = breaking || standardLead;
 const leadType = breaking ? 'breaking' : standardLead && categoryById.get(standardLead.category_id) === 'Tema' ? 'theme' : standardLead ? 'standard' : null;
 const others = lead ? articles.filter((a) => a.id !== lead.id) : articles;
