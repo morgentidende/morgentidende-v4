@@ -49,7 +49,7 @@
 
 .v4-newsbar__headline {
   min-width: 0;
-  color: var(--v4-text);
+  color: #f8f4ec;
   font-family: var(--v4-serif);
   font-size: clamp(18px, 1.7vw, 25px);
   line-height: 1.12;
