@@ -2,8 +2,8 @@ import type { APIRoute } from 'astro';
 import { v4SupabaseServer } from '../../../lib/v4-supabase-server';
 import { buildNewsletterConfirmationEmail } from '../../../lib/newsletter-email';
 
-const CONSENT_VERSION = 'daily-v1-2026-09-11';
-const CONSENT_TEXT = 'Jeg vil modtage Morgentidendes daglige nyhedsbrev kl. 06. Nyhedsbrevet kan indeholde annoncer og kommercielle links, herunder affiliate-links til produkter og tjenester fra tredjeparter. Jeg kan til enhver tid afmelde mig.';
+const CONSENT_VERSION = 'daily-v2-2026-09-12';
+const CONSENT_TEXT = 'Jeg vil modtage Morgentidendes daglige nyhedsbrev. Nyhedsbrevet kan indeholde annoncer og kommercielle links, herunder affiliate-links til produkter og tjenester fra tredjeparter. Jeg kan til enhver tid afmelde mig.';
 const NEWSLETTER_FROM = 'Morgentidende <nyhedsbrev@morgentidende.dk>';
 
 export const POST: APIRoute = async ({ request, site }) => {
