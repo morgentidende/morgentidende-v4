@@ -1,13 +1,15 @@
 /*
- * Horizontal news cards.
+ * Front-page horizontal news cards.
  *
- * Keep thumbnails in a stable top-aligned column. Headline length may change
- * the row height, but must never move the thumbnail vertically.
+ * This file is the single owner of horizontal-card geometry on the front page.
+ * Keep thumbnails on a stable top baseline. Headline length may change card
+ * height, but must never move the thumbnail vertically.
  */
 
-/* Desktop/tablet lead-package follow-ups: all three cards share the same
- * top baseline and internal geometry. The category track has a fixed height,
- * so every thumbnail starts on exactly the same horizontal line. */
+/* Desktop/tablet lead-package follow-ups: all cards share one baseline and
+ * identical internal geometry. Category sits above the thumbnail; headline
+ * starts level with the thumbnail. Separators are overlays and never steal
+ * width from card 2/3. */
 .v4-followups {
   align-items: start !important;
 }
@@ -87,7 +89,7 @@
 }
 
 @media (max-width: 640px) {
-  /* Lead-package follow-ups: category is its own full-width row above media + headline. */
+  /* Lead follow-ups: category is a full-width row above media + headline. */
   .v4-followups article {
     grid-template-columns: minmax(0, 34%) minmax(0, 1fr) !important;
     grid-template-rows: auto auto !important;
@@ -140,23 +142,55 @@
     line-height: 1.15;
   }
 
-  /* Lower front-page horizontal cards: stable top-aligned thumbnail column. */
+  /* Lower front-page horizontal cards: one stable implementation. */
+  .v4-frontpage-secondary {
+    gap: 0;
+  }
+
   .v4-frontpage-secondary .v4-card {
+    display: grid;
     grid-template-columns: minmax(0, 40%) minmax(0, 1fr) !important;
     grid-template-rows: auto 1fr !important;
     align-items: start !important;
     min-height: 0 !important;
     column-gap: 14px !important;
+    padding: 18px 0;
+  }
+
+  .v4-frontpage-secondary .v4-card--former-lead {
+    grid-column: auto !important;
+  }
+
+  .v4-frontpage-secondary .v4-card:first-child {
+    padding-top: 0;
+  }
+
+  .v4-frontpage-secondary .v4-card + .v4-card {
+    border-top: 1px solid var(--v4-rule);
   }
 
   .v4-frontpage-secondary .v4-card__media {
+    grid-column: 1;
+    grid-row: 1 / span 2;
     width: 100% !important;
-    min-height: 0 !important;
+    min-height: 118px !important;
     aspect-ratio: 4 / 3 !important;
     align-self: start !important;
   }
 
   .v4-frontpage-secondary .v4-kicker {
-    margin-top: 0 !important;
+    grid-column: 2;
+    grid-row: 1;
+    margin: 1px 0 7px !important;
+    font-size: 11px;
+  }
+
+  .v4-frontpage-secondary .v4-card__headline,
+  .v4-frontpage-secondary .v4-card--former-lead .v4-card__headline {
+    grid-column: 2;
+    grid-row: 2;
+    margin: 0 !important;
+    font-size: clamp(20px, 5.6vw, 23px) !important;
+    line-height: 1.14 !important;
   }
 }
