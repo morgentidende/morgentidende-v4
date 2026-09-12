@@ -1,4 +1,4 @@
 {
-  "action": "cf_allow_verified_bots",
-  "request_id": "2026-09-12-allow-verified-bots"
+  "action": "cf_bot_settings_audit",
+  "request_id": "2026-09-12-bot-settings-audit"
 }
