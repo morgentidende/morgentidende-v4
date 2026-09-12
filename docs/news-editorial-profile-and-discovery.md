@@ -321,3 +321,63 @@ Discovery-værdien skal vurderes efter **hvor ofte siden finder en konkret dokum
 - **5/1:** stofvalget domineres af kerneinteresserne, mens selve artiklerne skrives neutralt.
 
 Aktuel vurdering og indstilling: **2/2**.
+
+---
+
+# 3. Det øvrige nyhedsmix – høj dansk interesse
+
+Når næste artikel ikke bør være nationalkonservativ eller libertær efter Skala 1, skal discovery-listen med nichemedier ikke gennemgås. I stedet søges bredt i de største danske og internationale nyhedsmedier efter den stærkeste historie for danske læsere.
+
+Målet er ikke at fylde avisen med pligtstof. En bred nyhed skal have høj nyhedsværdi, konsekvens, menneskelig interesse, overraskelse eller nysgerrighed.
+
+## Høj prioritet
+
+- store danske hændelser: alvorlig kriminalitet, ulykker, katastrofer, retssager og markante nye statistikker
+- store internationale begivenheder: krig, magtskifter, USA, Kina, Rusland, Mellemøsten og Europa – især når konsekvenserne kan mærkes i Danmark
+- katastrofer og dramatiske hændelser: jordskælv, vulkanudbrud, flyulykker, ekstremvejr og store redningsaktioner
+- penge og økonomi: renter, boligpriser, pension, skat, job, store virksomheder, konkurser og markante prisændringer
+- forskning og samfundstal med en stærk historie: fx PISA, levealder, fødsler, kriminalitet, uddannelse eller tydelige ændringer i danskernes adfærd
+- geopolitik med reel betydning: fx Kina–Indien, USA–Kina, NATO, handel, nye alliancer eller militære gennembrud
+- store personer og institutioner: markante dødsfald, afskedigelser, retssager, magtkampe eller overraskende beslutninger
+- usædvanlige eller fascinerende historier, hvor en almindelig læser spontant vil tænke: "Det vidste jeg ikke – den vil jeg læse"
+
+## Lav prioritet
+
+- almindeligt Christiansborg-fnidder uden reel konsekvens
+- små udmeldinger og proceshistorier
+- rutinemæssige pressemeddelelser
+- udenlandske historier uden stærk konflikt, konsekvens eller menneskelig interesse
+- historier, der primært er interessante for journalister, embedsmænd og politikere selv
+
+## Interesse-test
+
+En almindelig bred nyhed bør normalt opfylde mindst 2 af disse 5 kriterier:
+
+1. Stor konsekvens
+2. Stærk konflikt eller dramatik
+3. Tæt på danskernes liv
+4. Betydelig overraskelse
+5. Stærk menneskelig eller nysgerrighedsmæssig appel
+
+Lead-kandidater bør normalt ramme mindst 3 af 5.
+
+## Procesregel før scanning
+
+Før Scan leder efter næste historie, afgøres først, om den næste plads ifølge Skala 1 bør bruges på en af avisens nationalkonservative/libertære kerneinteresser.
+
+- Hvis ja: brug discovery-listen og de relevante nichekilder som inspiration og følg videre til originale og uafhængige kilder.
+- Hvis nej: spring nichelisten over og scan de store danske og internationale medier direkte efter dagens stærkeste brede historie.
+
+## Trump-regel
+
+Artikler om Donald Trump skal som udgangspunkt være mere åbne for og mere sympatiske over for hans stærkeste dokumenterbare argumenter end den typiske danske mediedækning, uden at fakta bøjes.
+
+Det betyder bl.a., at artiklen aktivt skal undersøge, om der er en reel pointe bag en omstridt Trump-position, i stedet for automatisk at starte med modpartens framing. Ved fx handelskonflikter skal researchen undersøge handelsbalance, told, ikke-toldmæssige handelshindringer, særregler, subsidier, markedsadgang og gensidighed, før konklusionen formuleres.
+
+Trump-kritik og modargumenter skal fortsat gengives, når de er væsentlige, i den mængde den aktuelle Tone-skala tilsiger. Dokumentation vejer altid tungere end den ønskede vinkel.
+
+## Danske lokalmedier som discovery-kilde
+
+Danske lokal- og regionalmedier skal indgå i discovery, især fordi lokale medier kan opdage kriminalsager, vold, retssager, integrationsproblemer og andre hændelser før landsdækkende medier.
+
+Ved sager om indvandring, religion eller etnisk baggrund må baggrund aldrig antages ud fra navn, udseende eller rygter. Brug kun oplysninger, der er dokumenteret af politi, domstole, myndigheder, de involverede selv eller troværdige medier, og kun når baggrunden er journalistisk relevant.
