@@ -57,7 +57,7 @@ Deno.serve(async () => {
     const started = Date.now();
     try {
       await patch(`article_qa_runs?id=eq.${job.id}&status=eq.pending`, { status: "running", started_at: new Date(started).toISOString(), engine: "deterministic-only", updated_at: new Date().toISOString() });
-      const aResp = await fetch(`${SUPABASE_URL}/rest/v1/articles?id=eq.${job.article_id}&select=id,headline,deck,body_markdown,source_metadata,hero_url,hero_alt,hero_media_id,publish_at,published_at,is_breaking&limit=1`, { headers: restHeaders });
+      const aResp = await fetch(`${SUPABASE_URL}/rest/v1/articles?id=eq.${job.article_id}&select=id,headline,deck,body_markdown,hero_url&limit=1`, { headers: restHeaders });
       if (!aResp.ok) throw new Error(`article fetch ${aResp.status}`);
       const [article] = await aResp.json();
       if (!article) throw new Error("article_not_found");
