@@ -10,16 +10,9 @@ function normalizeEscapedMarkdown(markdown: string): string {
   let value = String(markdown ?? "");
   const hasRealNewlines = /\r?\n/.test(value);
   const escapedBreaks = (value.match(/\\n/g) || []).length;
-
-  // Only decode escaped structural whitespace when the body clearly arrived as a single escaped string.
-  // This avoids touching legitimate backslashes in otherwise normal markdown.
   if (!hasRealNewlines && escapedBreaks >= 2) {
-    value = value
-      .replace(/\\r\\n/g, "\n")
-      .replace(/\\n/g, "\n")
-      .replace(/\\t/g, "\t");
+    value = value.replace(/\\r\\n/g, "\n").replace(/\\n/g, "\n").replace(/\\t/g, "\t");
   }
-
   return value.replace(/\r\n/g, "\n");
 }
 
@@ -27,6 +20,24 @@ function stripOrdinaryBodyLinks(markdown: string): string {
   return String(markdown ?? "")
     .replace(/(?<!!)\[([^\]]+)\]\(https?:\/\/[^)]+\)/gi, "$1")
     .replace(/<a\b[^>]*>(.*?)<\/a>/gis, "$1");
+}
+
+function stripTrailingManualSources(markdown: string, sourceMetadata: unknown): string {
+  if (!Array.isArray(sourceMetadata) || sourceMetadata.length === 0) return String(markdown ?? "");
+  const value = String(markdown ?? "");
+  return value.replace(/\n{2,}#{2,4}\s+Kilder\s*\n[\s\S]*$/iu, "").trimEnd();
+}
+
+function normalizeHeroUrl(raw: string | null): string | null {
+  if (!raw) return null;
+  try {
+    const u = new URL(raw);
+    for (const key of ["w", "width", "h", "height", "q", "quality", "fit", "fm", "format", "auto"]) u.searchParams.delete(key);
+    u.hash = "";
+    return u.toString();
+  } catch {
+    return raw.trim();
+  }
 }
 
 function deterministicWarnings(article: any): string[] {
@@ -45,6 +56,7 @@ function deterministicWarnings(article: any): string[] {
   }
   if (/(^|\n)##\s+([^\n]+)\n\n##\s+\2($|\n)/iu.test(article.body_markdown ?? "")) warnings.push("duplicate_heading");
   if (/(?<!!)\[[^\]]+\]\(https?:\/\/[^)]+\)/i.test(article.body_markdown ?? "") || /<a\b[^>]*href=/i.test(article.body_markdown ?? "")) warnings.push("ordinary_body_hyperlink");
+  if (/\n{2,}#{2,4}\s+Kilder\s*\n/iu.test(article.body_markdown ?? "") && Array.isArray(article.source_metadata) && article.source_metadata.length) warnings.push("manual_source_section_with_structured_sources");
   if (!article.hero_url) warnings.push("missing_hero");
   return warnings;
 }
@@ -65,6 +77,19 @@ async function heroLoads(url: string | null): Promise<boolean> {
   } catch { return false; }
 }
 
+async function duplicateHeroOnFrontpage(article: any): Promise<boolean> {
+  if (!article.hero_url) return false;
+  const select = "id,hero_url,hero_media_id,published_at";
+  const r = await fetch(`${SUPABASE_URL}/rest/v1/v4_public_articles?select=${select}&id=neq.${article.id}&order=published_at.desc&limit=40`, { headers: restHeaders });
+  if (!r.ok) return false;
+  const rows = await r.json();
+  const normalized = normalizeHeroUrl(article.hero_url);
+  return rows.some((row: any) => {
+    if (article.hero_media_id && row.hero_media_id && article.hero_media_id === row.hero_media_id) return true;
+    return normalized && normalizeHeroUrl(row.hero_url) === normalized;
+  });
+}
+
 Deno.serve(async () => {
   const jobsResp = await fetch(`${SUPABASE_URL}/rest/v1/article_qa_runs?status=eq.pending&select=id,article_id,created_at&order=created_at.asc&limit=20`, { headers: restHeaders });
   if (!jobsResp.ok) return new Response(await jobsResp.text(), { status: 500 });
@@ -75,7 +100,7 @@ Deno.serve(async () => {
     const started = Date.now();
     try {
       await patch(`article_qa_runs?id=eq.${job.id}&status=eq.pending`, { status: "running", started_at: new Date(started).toISOString(), engine: "deterministic-only", updated_at: new Date().toISOString() });
-      const aResp = await fetch(`${SUPABASE_URL}/rest/v1/articles?id=eq.${job.article_id}&select=id,headline,deck,body_markdown,hero_url&limit=1`, { headers: restHeaders });
+      const aResp = await fetch(`${SUPABASE_URL}/rest/v1/articles?id=eq.${job.article_id}&select=id,headline,deck,body_markdown,hero_url,hero_media_id,source_metadata&limit=1`, { headers: restHeaders });
       if (!aResp.ok) throw new Error(`article fetch ${aResp.status}`);
       const [article] = await aResp.json();
       if (!article) throw new Error("article_not_found");
@@ -89,6 +114,13 @@ Deno.serve(async () => {
         fixes.push("escaped_markdown_whitespace_normalized");
       }
 
+      const withoutManualSources = stripTrailingManualSources(article.body_markdown ?? "", article.source_metadata);
+      if (withoutManualSources !== (article.body_markdown ?? "")) {
+        await patch(`articles?id=eq.${article.id}`, { body_markdown: withoutManualSources, editorial_updated_at: new Date().toISOString() });
+        article.body_markdown = withoutManualSources;
+        fixes.push("manual_source_section_removed");
+      }
+
       const warnings = deterministicWarnings(article);
 
       const strippedBody = stripOrdinaryBodyLinks(article.body_markdown ?? "");
@@ -100,9 +132,14 @@ Deno.serve(async () => {
 
       if (article.hero_url && !(await heroLoads(article.hero_url))) {
         await patch(`articles?id=eq.${article.id}`, { hero_url: EMERGENCY_HERO_URL, hero_media_id: null, hero_alt: "Morgentidende" });
-        fixes.push("broken_hero_replaced_with_emergency_fallback");
+        article.hero_url = EMERGENCY_HERO_URL;
+        article.hero_media_id = null;
+        fixes.push("broken_hero_replaced_with_last_resort_emergency_hero");
         warnings.push("broken_hero_url");
+        warnings.push("generic_emergency_hero_requires_replacement");
       }
+
+      if (await duplicateHeroOnFrontpage(article)) warnings.push("duplicate_frontpage_hero");
 
       const finished = Date.now();
       const finalWarnings = Array.from(new Set(warnings));
