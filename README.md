@@ -7,8 +7,10 @@ Morgentidende – få begge sider af sagen i Danmarks nye avis.
 - `supabase/migrations/` – database- og sikkerhedshistorik. Migrationsfiler bevares som versionshistorik og må ikke behandles som parallel aktiv applikationslogik.
 - `docs/v4-spec.md` – gældende produkt-, design-, CMS-, publicerings- og driftsregler.
 - `docs/editorial-core.md` – fælles artikelkrav for autonom artikelproduktion.
+- `docs/lead-package-policy.md` – særlige regler for leadpakker; gælder oven på den fælles artikelkerne.
 - `docs/news-editorial-profile-and-discovery.md` – gældende nyhedsprofil, politiske skalaer, discovery-kilder og bredt nyhedsmix.
 - `docs/magazine-editorial-policy.md` – supplerende gældende regler for de apolitiske magasiner Viden og Liv.
+- `docs/social-distribution.md` – gældende regler for social distribution og creator-desk.
 
 De aktive ChatGPT-automationer ejer kun deres opgavespecifikke mandat, tidsplan og logging-identitet. De skal referere til de centrale regelsæt frem for at kopiere fælles regler ind i lange prompter.
 
