@@ -108,32 +108,34 @@ const safeJsonLd = jsonLd
     </main>
     <footer class="v4-footer">
       <div class="v4-footer__inner">
-        <div class="v4-footer__newsletter">
-          <div class="v4-footer__newsletter-copy">
-            <div class="v4-footer__newsletter-kicker">DAGLIGT NYHEDSBREV</div>
-            <div class="v4-footer__newsletter-title">Start dagen med Morgentidende</div>
-            <div class="v4-footer__newsletter-subtitle">Dagens vigtigste historier – kort og klart i din indbakke hver morgen kl. 06.</div>
-          </div>
-          <form class="v4-footer__newsletter-form" data-newsletter-form>
-            <label for="footer-newsletter-email">Din e-mail</label>
-            <div class="v4-footer__newsletter-fields">
-              <input id="footer-newsletter-email" name="email" type="email" autocomplete="email" placeholder="navn@eksempel.dk" aria-label="Din e-mail" required />
-              <button type="submit">Tilmeld</button>
+        <div class="v4-footer__top">
+          <div class="v4-footer__newsletter">
+            <div class="v4-footer__newsletter-copy">
+              <div class="v4-footer__newsletter-kicker">DAGLIGT NYHEDSBREV</div>
+              <div class="v4-footer__newsletter-title">Start dagen med Morgentidende</div>
+              <div class="v4-footer__newsletter-subtitle">Dagens vigtigste historier – kort og klart i din indbakke hver morgen kl. 06.</div>
             </div>
-            <input type="hidden" name="delivery_time" value="06:00" />
-            <input type="hidden" name="newsletter" value="daily" />
-            <p class="v4-footer__newsletter-status" data-newsletter-status aria-live="polite"></p>
-            <p class="v4-footer__newsletter-note">Bekræft din e-mail – så er du med. Afmeld når som helst. <a href="/privatliv">Læs om privatliv.</a></p>
-          </form>
-        </div>
+            <form class="v4-footer__newsletter-form" data-newsletter-form>
+              <label for="footer-newsletter-email">Din e-mail</label>
+              <div class="v4-footer__newsletter-fields">
+                <input id="footer-newsletter-email" name="email" type="email" autocomplete="email" placeholder="navn@eksempel.dk" aria-label="Din e-mail" required />
+                <button type="submit">Tilmeld</button>
+              </div>
+              <input type="hidden" name="delivery_time" value="06:00" />
+              <input type="hidden" name="newsletter" value="daily" />
+              <p class="v4-footer__newsletter-status" data-newsletter-status aria-live="polite"></p>
+              <p class="v4-footer__newsletter-note">Bekræft din e-mail – så er du med. Afmeld når som helst. <a href="/privatliv">Læs om privatliv.</a></p>
+            </form>
+          </div>
 
-        <nav class="v4-footer__main" aria-label="Om Morgentidende">
-          <a href="/om-morgentidende">Om Morgentidende</a>
-          <a href="/redaktionelle-principper">Redaktionelle principper</a>
-          <a href="/kontakt">Kontakt</a>
-          <a href="/privatliv">Privatliv</a>
-          <button class="v4-footer__analytics-settings" type="button" data-analytics-settings>Cookievalg</button>
-        </nav>
+          <nav class="v4-footer__main" aria-label="Om Morgentidende">
+            <a href="/om-morgentidende">Om Morgentidende</a>
+            <a href="/redaktionelle-principper">Redaktionelle principper</a>
+            <a href="/kontakt">Kontakt</a>
+            <a href="/privatliv">Privatliv</a>
+            <button class="v4-footer__analytics-settings" type="button" data-analytics-settings>Cookievalg</button>
+          </nav>
+        </div>
 
         <div class="v4-footer__legal">
           <p>© Alt materiale på denne side er omfattet af gældende lov om ophavsret.</p>
