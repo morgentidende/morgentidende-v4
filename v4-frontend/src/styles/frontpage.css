@@ -28,7 +28,7 @@
   flex: 0 0 10px;
   border-radius: 50%;
   background: var(--v4-gold);
-  transform: translateY(-2px);
+  transform: translateY(-1.5px);
 }
 
 .v4-newsbar__pulse::after {
