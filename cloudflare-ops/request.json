@@ -1,4 +1,4 @@
 {
-  "action": "cf_disable_browser_check",
-  "request_id": "2026-09-12-disable-browser-integrity"
+  "action": "cf_custom_waf_audit",
+  "request_id": "2026-09-12-custom-waf-audit"
 }
