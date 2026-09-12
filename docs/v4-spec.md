@@ -30,6 +30,7 @@ Historiske løsninger, tidligere designversioner, deaktiverede automations og ud
 
 ## Artikeldata og relationer
 - Fælles artikelkrav, herunder `SAGEN KORT`, body-format, faktaverifikation, kildeliste, citater og linkregler, ejes af `docs/editorial-core.md`.
+- I den aktive database er `articles.sagen_kort` en genereret læsekolonne fra `editorial_metadata.sagen_kort`. Writers må derfor skrive de to punkter til `editorial_metadata.sagen_kort` og må aldrig forsøge at INSERT/UPDATE den genererede `sagen_kort`-kolonne direkte.
 - Relationer gemmes struktureret via `article_relations`/`story_cluster`.
 - Direkte lead/opfølgning-relationer oprettes begge veje automatisk.
 - Duplikater må ikke oprettes, og eksisterende relationer skal bevares.
