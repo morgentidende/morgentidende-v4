@@ -54,4 +54,13 @@
   .v4-story-related__grid .v4-card:last-child { padding-bottom: 0; border-bottom: 0; }
   .v4-story-related__grid .v4-card__media { width: 108px; }
   .v4-story-related__grid .v4-card__headline { font-size: 17px; }
+
+  /* Mobile lead follow-ups use equal-height rows so centered heroes form one calm column. */
+  .v4-followups { grid-auto-rows: 1fr; }
+  .v4-followups .v4-card {
+    min-height: 170px;
+    height: 100%;
+    align-content: center;
+  }
+  .v4-followups .v4-card__media { align-self: center; }
 }
