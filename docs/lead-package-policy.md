@@ -11,6 +11,14 @@ Denne fil ejer kun regler, der er særlige for leadpakker. Fælles artikelkrav o
 - I det fælles slut-QA kontrolleres også, at pakken fortsat består af 1 lead + 3 opfølgere, og at de strukturelle story-cluster/relationer er sat korrekt.
 - Publicér hver artikel, når den er klar. Én problematisk opfølger må ikke blokere de øvrige; færdiggør den manglende artikel via den gældende fallback-logik.
 
+## Hero-regel for leadpakker
+
+- De fire artikler i samme leadpakke skal som udgangspunkt have **fire forskellige hero-billeder**.
+- Den samme `hero_url` må ikke genbruges på to artikler i samme story cluster, medmindre der foreligger en konkret og usædvanlig redaktionel grund, og genbruget er eksplicit valgt frem for blot at være fallback eller søgegenbrug.
+- Media-fasen skal kontrollere hero-URL'er på tværs af hele pakken før publicering og søge et alternativt lovligt billede, hvis en URL allerede er brugt i pakken.
+- Hvis et perfekt billede ikke kan findes, er et lidt mindre oplagt men stadig faktuelt relevant og lovligt billede bedre end et synligt dublet-hero i samme pakke.
+- Leadets hero prioriteres højest. Opfølgere skal så vidt muligt afspejle deres egen særskilte vinkel frem for blot pakkens fælles emne.
+
 ## Politisk leadpakke
 
 - Emnevalg, vinkling og argumentvægt følger de aktuelle skalaer og regler i `docs/news-editorial-profile-and-discovery.md`.
