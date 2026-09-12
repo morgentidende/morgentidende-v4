@@ -1,4 +1,4 @@
 {
-  "action": "email_redaktion_rule",
-  "request_id": "2026-09-11T06:45:00+02:00"
+  "action": "zone_dns",
+  "request_id": "2026-09-12-dns-audit"
 }
