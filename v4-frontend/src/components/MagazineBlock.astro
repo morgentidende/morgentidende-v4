@@ -1,0 +1,20 @@
+---
+import V4Card from './V4Card.astro';
+
+interface Props {
+  name: 'Viden' | 'Liv';
+  articles: any[];
+}
+
+const { name, articles } = Astro.props;
+const slug = name.toLowerCase();
+---
+<section class={`v4-section v4-magazine v4-magazine--${slug}`}>
+  <div class="v4-kicker">MAGASIN</div>
+  <h2 class="v4-section-title">{name}</h2>
+  {articles.length ? (
+    <div class="v4-grid-4">
+      {articles.map((article) => <V4Card article={article} showDeck={false} />)}
+    </div>
+  ) : <div class="v4-empty">{name}-blokken er klar til artikler.</div>}
+</section>
