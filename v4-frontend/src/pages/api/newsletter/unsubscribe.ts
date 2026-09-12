@@ -1,9 +1,9 @@
 import type { APIRoute } from 'astro';
-import { v4Supabase } from '../../../lib/v4-supabase';
+import { v4SupabaseServer } from '../../../lib/v4-supabase-server';
 
 const unsubscribe = async (token: string) => {
-  if (!v4Supabase || !/^[0-9a-f-]{36}$/i.test(token)) return false;
-  const { data, error } = await v4Supabase.rpc('newsletter_unsubscribe', { p_token: token });
+  if (!v4SupabaseServer || !/^[0-9a-f-]{36}$/i.test(token)) return false;
+  const { data, error } = await v4SupabaseServer.rpc('newsletter_unsubscribe', { p_token: token });
   return !error && data === true;
 };
 
