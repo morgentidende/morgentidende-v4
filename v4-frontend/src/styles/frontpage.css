@@ -207,13 +207,64 @@ html[data-theme='dark'] .v4-magazine--liv {
   line-height: inherit !important;
 }
 
+/* Lower-frontpage polish: stronger hierarchy, more breathing room, one newsletter. */
+.v4-newsletter {
+  margin-top: 42px;
+  margin-bottom: 44px;
+}
+
+.v4-magazine--viden {
+  margin-top: 0;
+}
+
+.v4-magazine--liv {
+  margin-top: 46px;
+}
+
+.v4-latest-section {
+  margin-top: 48px;
+  padding-top: 28px;
+  border-top-width: 2px;
+}
+
+.v4-latest-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.v4-latest-title::before {
+  content: '';
+  width: 28px;
+  height: 4px;
+  flex: 0 0 28px;
+  background: var(--v4-gold);
+}
+
+.v4-latest-section .v4-grid-4 {
+  column-gap: 30px;
+  row-gap: 36px;
+}
+
+.v4-footer__newsletter {
+  display: none;
+}
+
+.v4-footer {
+  margin-top: 38px;
+}
+
+.v4-shell {
+  padding-bottom: 68px;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .v4-newsbar__pulse::after { animation: none; }
 }
 
 @media (max-width: 640px) {
   .v4-shell {
-    padding-bottom: 36px;
+    padding-bottom: 50px;
   }
 
   .v4-newsbar {
@@ -251,5 +302,27 @@ html[data-theme='dark'] .v4-magazine--liv {
   .v4-magazine .v4-section-title {
     font-size: 28px;
     margin-bottom: 16px;
+  }
+
+  .v4-newsletter {
+    margin-top: 32px;
+    margin-bottom: 34px;
+  }
+
+  .v4-magazine--liv {
+    margin-top: 34px;
+  }
+
+  .v4-latest-section {
+    margin-top: 36px;
+    padding-top: 22px;
+  }
+
+  .v4-latest-section .v4-grid-4 {
+    row-gap: 26px;
+  }
+
+  .v4-footer {
+    margin-top: 28px;
   }
 }
