@@ -25,7 +25,6 @@ if (v4Supabase) {
       .limit(64),
     v4Supabase.from('v4_public_categories').select('id,name,sort_order').order('sort_order', { ascending: true })
   ]);
-
   loadError = Boolean(articlesResult.error || categoriesResult.error);
   if (!loadError) {
     articles = articlesResult.data || [];
@@ -75,17 +74,18 @@ const others = lead ? articles.filter((a) => a.id !== lead.id) : articles;
 const followups = lead?.story_cluster_id
   ? others.filter((a) => a.story_cluster_id === lead.story_cluster_id).slice(0, 4)
   : lead ? others.slice(0, 3) : [];
-const usedIds = new Set([lead?.id, ...followups.map((a) => a.id)].filter(Boolean));
-const stream = others.filter((a) => !usedIds.has(a.id));
+const leadBoxIds = new Set([lead?.id, ...followups.map((a) => a.id)].filter(Boolean));
+const newsBarArticle = lead
+  ? articles.find((a) => !leadBoxIds.has(a.id) && !['Viden', 'Liv', 'Kommentar'].includes(categoryById.get(a.category_id)))
+  : null;
+const usedIds = new Set([...leadBoxIds, newsBarArticle?.id].filter(Boolean));
+const stream = articles.filter((a) => !usedIds.has(a.id));
 
 const newsCandidates = stream.filter((a) => !['Viden', 'Liv'].includes(categoryById.get(a.category_id)));
 const leadPublishedAt = lead?.published_at ? new Date(lead.published_at).getTime() : Number.NaN;
 const leadAgeMs = Number.isFinite(leadPublishedAt) ? Date.now() - leadPublishedAt : Number.POSITIVE_INFINITY;
 const formerLeadGraceActive = Boolean(lead) && leadAgeMs >= 0 && leadAgeMs <= 2 * 60 * 60 * 1000;
 
-// A new lead normally clears is_lead on the previous one. Infer the former lead
-// from the newest eligible article published before the current lead instead of
-// relying on the old article still carrying is_lead=true.
 const formerLead = lead
   ? newsCandidates.find((a) => {
       const publishedAt = a?.published_at ? new Date(a.published_at).getTime() : Number.NaN;
@@ -101,20 +101,32 @@ if (formerLeadGraceActive && formerLead) {
   orderedNews.splice(Math.min(3, orderedNews.length), 0, formerLead);
 }
 const news = orderedNews.slice(0, 15);
+const leadCategory = lead ? categoryById.get(lead.category_id) : null;
 ---
 <V4Layout image={lead?.hero_url} noindex={loadError}>
   <div class="v4-shell">
     {loadError ? <div class="v4-empty">Nyhederne kan ikke hentes lige nu. Prøv igen om et øjeblik.</div> : null}
 
+    {!loadError && newsBarArticle ? (
+      <aside class="v4-newsbar" aria-label="Seneste nyt">
+        <div class="v4-newsbar__label"><span class="v4-newsbar__pulse" aria-hidden="true"></span>SENESTE NYT</div>
+        <a class="v4-newsbar__headline" href={`/artikel/${newsBarArticle.slug}`}>
+          {newsBarArticle.frontpage_headline || newsBarArticle.headline}
+        </a>
+      </aside>
+    ) : null}
+
     {!loadError && lead ? (
       <section class={leadType === 'breaking' ? 'v4-breaking-box' : 'v4-lead-box'}>
-        {leadType === 'breaking' ? <div class="v4-lead-label v4-lead-label--breaking">BREAKING · SENESTE NYT</div> : null}
-        {leadType === 'theme' ? <div class="v4-lead-label v4-lead-label--theme">TEMA</div> : null}
+        <div class="v4-lead-label-row">
+          {leadCategory ? <div class="v4-lead-label v4-lead-label--category">{leadCategory}</div> : null}
+          {leadType === 'breaking' ? <div class="v4-lead-label v4-lead-label--breaking">BREAKING</div> : null}
+        </div>
         <div class="v4-lead-layout">
           <div class="v4-lead-main">
             <V4Card
               article={lead}
-              categoryName={categoryById.get(lead.category_id)}
+              categoryName={leadCategory}
               showDeck={true}
               imageLoading="eager"
               imageFetchPriority="high"
