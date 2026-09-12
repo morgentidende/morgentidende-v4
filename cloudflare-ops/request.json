@@ -1,4 +1,4 @@
 {
-  "action": "cf_audit",
-  "request_id": "2026-09-12-scoped-token-audit"
+  "action": "cf_disable_browser_check",
+  "request_id": "2026-09-12-disable-browser-integrity"
 }
