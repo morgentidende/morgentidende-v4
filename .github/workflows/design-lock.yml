@@ -1,0 +1,41 @@
+name: Design lock
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  protect-core-design:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Check protected design files
+        env:
+          PR_BODY: ${{ github.event.pull_request.body }}
+        run: |
+          set -euo pipefail
+          git fetch origin "${{ github.base_ref }}" --depth=1
+          changed="$(git diff --name-only "origin/${{ github.base_ref }}...HEAD")"
+
+          protected="$(printf '%s\n' "$changed" | grep -E '^(v4-frontend/src/styles/|v4-frontend/src/components/V4Card\.astro$|v4-frontend/src/pages/index\.astro$|v4-frontend/src/layouts/V4Layout\.astro$)' || true)"
+
+          if [ -z "$protected" ]; then
+            echo "No protected design files changed."
+            exit 0
+          fi
+
+          echo "Protected design files changed:"
+          printf '%s\n' "$protected"
+
+          if ! printf '%s' "${PR_BODY:-}" | grep -Fq '<!-- design-change-approved -->'; then
+            echo "::error::Core design is locked. A PR that changes protected design files requires explicit user approval and the marker <!-- design-change-approved --> in the PR body."
+            exit 1
+          fi
+
+          echo "Explicit design approval marker found."
