@@ -1,4 +1,4 @@
 {
-  "action": "frontend_triggers",
-  "request_id": "2026-09-12-frontend-trigger-audit"
+  "action": "cf_audit",
+  "request_id": "2026-09-12-scoped-token-audit"
 }
