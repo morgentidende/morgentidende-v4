@@ -10,7 +10,7 @@ Morgentidende – få begge sider af sagen i Danmarks nye avis.
 
 ## Arkitektur
 - ChatGPT er den redaktionelle motor.
-- Supabase håndterer artikler, scheduling, relationer, læser-login og versionshistorik.
+- Supabase håndterer artikler, scheduling, relationer og versionshistorik.
 - Cloudflare driver frontend/deployment.
 - Ingen secrets må ligge i det offentlige repo.
 - Offentlige læsere får kun adgang til eksplicitte `v4_public_*` views.
