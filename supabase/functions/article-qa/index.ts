@@ -6,6 +6,23 @@ const EMERGENCY_HERO_URL = "https://morgentidende.dk/morgentidende-sun.png";
 
 const restHeaders = { apikey: SERVICE_KEY, Authorization: `Bearer ${SERVICE_KEY}`, "Content-Type": "application/json" };
 
+function normalizeEscapedMarkdown(markdown: string): string {
+  let value = String(markdown ?? "");
+  const hasRealNewlines = /\r?\n/.test(value);
+  const escapedBreaks = (value.match(/\\n/g) || []).length;
+
+  // Only decode escaped structural whitespace when the body clearly arrived as a single escaped string.
+  // This avoids touching legitimate backslashes in otherwise normal markdown.
+  if (!hasRealNewlines && escapedBreaks >= 2) {
+    value = value
+      .replace(/\\r\\n/g, "\n")
+      .replace(/\\n/g, "\n")
+      .replace(/\\t/g, "\t");
+  }
+
+  return value.replace(/\r\n/g, "\n");
+}
+
 function stripOrdinaryBodyLinks(markdown: string): string {
   return String(markdown ?? "")
     .replace(/(?<!!)\[([^\]]+)\]\(https?:\/\/[^)]+\)/gi, "$1")
@@ -18,6 +35,7 @@ function deterministicWarnings(article: any): string[] {
   const leakPatterns = [/den (?:indvending|formulering) skal stå som/iu,/avisen(?:s)? egen konklusion/iu,/morgentidende (?:skal|må|bør)/iu,/redaktionel(?:le)? (?:regel|instruks|arbejdstekst)/iu,/skriv (?:artiklen|det|denne) (?:så|som|med)/iu];
   if (leakPatterns.some((p) => p.test(text))) warnings.push("possible_editorial_instruction_leakage");
   if (/\bfagfællebedømt\b|\bpeer[- ]reviewed\b|\brandomiseret\b|\bdobbeltblind\b/iu.test(text)) warnings.push("unnecessary_research_jargon");
+  if (/\\n(?:\\n)?#{1,6}\s|\\n\\n/.test(String(article.body_markdown ?? ""))) warnings.push("escaped_markdown_whitespace");
   const paragraphs = String(article.body_markdown ?? "").split(/\n\s*\n/).map((p) => p.replace(/\s+/g, " ").trim()).filter((p) => p.length > 50);
   const seen = new Set<string>();
   for (const p of paragraphs) {
@@ -62,8 +80,16 @@ Deno.serve(async () => {
       const [article] = await aResp.json();
       if (!article) throw new Error("article_not_found");
 
-      const warnings = deterministicWarnings(article);
       const fixes: string[] = [];
+      const originalBody = String(article.body_markdown ?? "");
+      const normalizedBody = normalizeEscapedMarkdown(originalBody);
+      if (normalizedBody !== originalBody) {
+        await patch(`articles?id=eq.${article.id}`, { body_markdown: normalizedBody, editorial_updated_at: new Date().toISOString() });
+        article.body_markdown = normalizedBody;
+        fixes.push("escaped_markdown_whitespace_normalized");
+      }
+
+      const warnings = deterministicWarnings(article);
 
       const strippedBody = stripOrdinaryBodyLinks(article.body_markdown ?? "");
       if (strippedBody !== (article.body_markdown ?? "")) {
