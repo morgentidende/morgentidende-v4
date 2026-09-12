@@ -5,14 +5,37 @@
  * the row height, but must never move the thumbnail vertically.
  */
 
-/* Desktop/tablet lead-package follow-ups: category sits above the thumbnail,
- * not above the headline. The headline starts level with the thumbnail. */
+/* Desktop/tablet lead-package follow-ups: all three cards must have identical
+ * internal geometry. Category sits above the thumbnail; headline starts level
+ * with the thumbnail. Separators must not steal width from card 2 and 3. */
+.v4-followups {
+  align-items: stretch;
+}
+
 .v4-followups article[data-category] {
-  grid-template-columns: 112px minmax(0, 1fr) !important;
+  position: relative;
+  grid-template-columns: minmax(96px, 38%) minmax(0, 1fr) !important;
   grid-template-rows: auto auto !important;
   align-items: start !important;
   column-gap: 12px !important;
   row-gap: 6px !important;
+  min-width: 0;
+  padding-left: 0 !important;
+}
+
+.v4-followups article[data-category] + article[data-category] {
+  border-left: 0 !important;
+  padding-left: 0 !important;
+}
+
+.v4-followups article[data-category] + article[data-category]::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -9px;
+  width: 1px;
+  background: var(--v4-rule);
 }
 
 .v4-followups article[data-category]::before {
@@ -37,7 +60,8 @@
 .v4-followups article[data-category] > .v4-card__media {
   grid-column: 1 !important;
   grid-row: 2 !important;
-  width: 112px !important;
+  width: 100% !important;
+  min-width: 0 !important;
   aspect-ratio: 4 / 3 !important;
   align-self: start !important;
 }
@@ -46,15 +70,13 @@
   grid-column: 2 !important;
   grid-row: 2 !important;
   margin: 0 !important;
+  min-width: 0;
   align-self: start !important;
 }
 
 @media (max-width: 900px) and (min-width: 641px) {
   .v4-followups article[data-category] {
-    grid-template-columns: 132px minmax(0, 1fr) !important;
-  }
-  .v4-followups article[data-category] > .v4-card__media {
-    width: 132px !important;
+    grid-template-columns: minmax(112px, 36%) minmax(0, 1fr) !important;
   }
 }
 
@@ -67,7 +89,11 @@
     min-height: 0 !important;
     column-gap: 12px !important;
     row-gap: 6px !important;
-    padding-block: 12px;
+    padding-block: 10px;
+  }
+
+  .v4-followups article + article::after {
+    display: none;
   }
 
   .v4-followups article::before {
