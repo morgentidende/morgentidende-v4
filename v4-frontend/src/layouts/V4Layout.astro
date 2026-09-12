@@ -1,6 +1,7 @@
 ---
 import '../styles/v4.css';
 import '../styles/footer-newsletter.css';
+import '../styles/masthead-polish.css';
 import '../styles/analytics-consent.css';
 
 interface Props {
@@ -79,6 +80,7 @@ const safeJsonLd = jsonLd
           <a href="/" class="v4-brand" aria-label="Morgentidende forside">
             <img class="v4-brand__sun" src="/morgentidende-sun.png" alt="" width="64" height="64" />
             <span class="v4-brand__word">Morgentidende</span>
+            <span class="v4-brand__tagline">Danmarks nye avis</span>
           </a>
           <div class="v4-masthead__actions">
             <a class="v4-login v4-search-action" href="/soeg" aria-label="Søg i Morgentidende" title="Søg">
@@ -89,10 +91,6 @@ const safeJsonLd = jsonLd
         </div>
       </div>
       <div class="v4-masthead-lower">
-        <div class="v4-meta-row">
-          <span id="v4-date"></span>
-          <span>DANMARKS NYE AVIS</span>
-        </div>
         <nav class="v4-nav" aria-label="Hovednavigation">
           <a href="/kategori/indland">Indland</a>
           <a href="/kategori/udland">Udland</a>
