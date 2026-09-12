@@ -4,10 +4,10 @@ Denne fil ejer kun de regler, som gælder på tværs af autonom artikelproduktio
 
 ## Autoritet
 
-- **Fælles artikelkrav:** denne fil.
+- **Fælles artikelkrav og journalistens eget slut-QA:** denne fil.
 - **Nyhedsprofil, politiske skalaer, discovery og bredt nyhedsmix:** `docs/news-editorial-profile-and-discovery.md`.
 - **Viden og Liv:** `docs/magazine-editorial-policy.md`.
-- **Produkt, frontend, CMS, publicering, QA-buffer og teknisk drift:** `docs/v4-spec.md` og den aktive Supabase-implementering.
+- **Produkt, frontend, CMS, publiceringsbuffer og teknisk QA:** `docs/v4-spec.md` og den aktive Supabase-implementering.
 - Historiske filer, migrationshistorik og deaktiverede automations er ikke aktuelle regelsæt.
 
 ## Fælles artikelkrav
@@ -24,10 +24,20 @@ Denne fil ejer kun de regler, som gælder på tværs af autonom artikelproduktio
 10. Alle artikler skal have et relevant hero. Mediebrug skal være lovlig og må ikke vildlede. Et mislykket hero-forsøg bruger en sikker fallback i stedet for at blokere en ellers publicerbar artikel. AI-billeder må ikke fremstille virkelige personer eller konkrete virkelige hændelser som dokumentariske fotografier.
 11. Stop research, når centrale påstande og væsentlige forbehold er tilstrækkeligt dokumenteret. Ekstra citater, ekstra kilder, SEO-finjustering og ekstern live-verifikation er ikke i sig selv publiceringsgates.
 
+## Journalistens eget slut-QA
+
+For ikke-breaking artikler bruger den samme ChatGPT-journalist den eksisterende korte prepublication-buffer til **ét frisk genlæs** af det færdige udkast, mens artiklen stadig er `scheduled`.
+
+- Ret kun sikre fejl i rubrik, manchet, sprog, tegnsætning, gentagelser, markdown, `SAGEN KORT`, links og åbenlyse metadatafejl.
+- Bevar journalistisk vinkel, dokumenterede fakta, evidensvurdering og citaters mening. Slut-QA er korrektur, ikke en ny redaktionel omskrivning.
+- Opgavespecifikke policies kan kræve ekstra kontrol af deres egne data, fx `source_metadata` for Viden/Liv eller story-cluster-relationer for leadpakker.
+- Slut-QA må aldrig forlænge `qa_release_at` eller blokere release. Hvis journalisten ikke når kontrollen, publiceres artiklen stadig ved den tekniske deadline.
+- Automationsprompter skal blot henvise til dette slut-QA; de må ikke kopiere checklisten.
+
 ## Drift for autonome journalister
 
 - Publicér gennem det aktive Supabase/CMS-flow; omskriv aldrig forsiden som rå HTML.
-- Følg den aktive tekniske publiceringslogik i `docs/v4-spec.md` og Supabase. Automationsprompter skal ikke genimplementere QA-buffer, hero-fallback eller andre tekniske mekanismer i tekst.
+- Følg den aktive tekniske publiceringslogik i `docs/v4-spec.md` og Supabase. Automationsprompter skal ikke genimplementere publiceringsbuffer, hero-fallback eller teknisk QA i tekst.
 - Supabase `v4_public_articles` er den autoritative første kontrol efter release. Ekstern webåbning er sekundær diagnostik.
 - En enkelt ikke-kritisk fejl må ikke få en journalist til at deaktivere sig selv.
 - Ved en reel kørselsfejl: log fejlen hvis muligt og afslut kørslen; ændr ikke tidsplanen eller deaktiver automationen.

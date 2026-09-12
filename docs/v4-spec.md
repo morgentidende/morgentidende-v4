@@ -98,9 +98,11 @@ Statusser:
 - `publish_at` bestemmer, hvornår en scheduled artikel bliver synlig.
 - Breaking/lead er metadata på artikler/story clusters og må ikke kobles unødvendigt til kategori.
 - `autopublish_enabled` er globalt nødstop for autonom publicering og bruges kun ved systemiske fejl, fx gentagne publiceringsfejl, dubletstorm, auth/CMS-fejl eller ødelagte data.
-- Ikke-breaking artikler har en 2-minutters prepublication-QA-buffer. `qa_release_at` er en hård release-deadline: QA-warning, timeout, 504, utilgængelig AI-motor eller manglende ekstern live-verifikation må ikke forlænge bufferen.
+- Ikke-breaking artikler har en 2-minutters prepublication-QA-buffer. `qa_release_at` er en hård release-deadline: journalistens slut-QA, teknisk QA-warning, timeout, 504 eller manglende ekstern live-verifikation må ikke forlænge bufferen.
+- Redaktionelt slut-QA i bufferen udføres af den samme ChatGPT-journalist efter reglerne i `docs/editorial-core.md`.
+- Supabase `article-qa` er kun et deterministisk teknisk sikkerhedsnet. Det må ikke kalde betalte eksterne AI/API-tjenester. Det må automatisk udføre sikre tekniske fixes, fx fjerne almindelige eksterne brødtekstlinks og erstatte et brudt hero med fallback.
 - Supabase `v4_public_articles` er den autoritative første kontrol efter release. Ekstern åbning/crawl af URL er sekundær diagnostik og må højst give warning.
-- Den aktive Supabase-trigger/Edge Function-implementering ejer selve QA-mekanikken; automationsprompter må ikke genimplementere den i tekst.
+- Den aktive Supabase-trigger/Edge Function-implementering ejer den tekniske QA-mekanik. Automationsprompter skal kun henvise til den centrale slut-QA-regel og må ikke kopiere dens checkliste eller genimplementere den tekniske QA.
 
 ## Validering
 Hårde stop holdes på et minimum:

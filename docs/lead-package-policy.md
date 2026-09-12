@@ -1,6 +1,6 @@
 # Morgentidende – leadpakker
 
-Denne fil ejer kun regler, der er særlige for leadpakker. Fælles artikelkrav ligger i `docs/editorial-core.md`; nyhedsprofil og politiske skalaer ligger i `docs/news-editorial-profile-and-discovery.md`; teknisk publicering ligger i `docs/v4-spec.md` og den aktive Supabase-implementering.
+Denne fil ejer kun regler, der er særlige for leadpakker. Fælles artikelkrav og generelt slut-QA ligger i `docs/editorial-core.md`; nyhedsprofil og politiske skalaer ligger i `docs/news-editorial-profile-and-discovery.md`; teknisk publicering ligger i `docs/v4-spec.md` og den aktive Supabase-implementering.
 
 ## Pakkeformat
 
@@ -8,6 +8,7 @@ Denne fil ejer kun regler, der er særlige for leadpakker. Fælles artikelkrav l
 - Leadet er pakkens hovedhistorie og skal kunne forstås selvstændigt.
 - De tre opfølgere skal være tydeligt forskellige og hver tilføre ny journalistisk værdi. Relevante spor kan være dokumentation/baggrund, konsekvenser, autentiske reaktioner eller personlige erfaringer, analyse, forklaring eller anden klart selvstændig vinkel.
 - Lead og opfølgere kobles strukturelt sammen via det aktive CMS/story-cluster-system.
+- I det fælles slut-QA kontrolleres også, at pakken fortsat består af 1 lead + 3 opfølgere, og at de strukturelle story-cluster/relationer er sat korrekt.
 - Publicér hver artikel, når den er klar. Én problematisk opfølger må ikke blokere de øvrige; færdiggør den manglende artikel via den gældende fallback-logik.
 
 ## Politisk leadpakke

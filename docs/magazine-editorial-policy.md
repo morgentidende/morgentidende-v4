@@ -1,6 +1,6 @@
 # Permanent magasinregel – Viden og Liv
 
-Denne fil ejer kun de regler, der er særlige for Viden og Liv. Fælles artikelkrav ligger i `docs/editorial-core.md`; teknisk publicering og QA ligger i `docs/v4-spec.md` og den aktive Supabase-implementering.
+Denne fil ejer kun de regler, der er særlige for Viden og Liv. Fælles artikelkrav og generelt slut-QA ligger i `docs/editorial-core.md`; teknisk publicering og QA ligger i `docs/v4-spec.md` og den aktive Supabase-implementering.
 
 ## Hård afgrænsning
 
@@ -16,6 +16,7 @@ Denne fil ejer kun de regler, der er særlige for Viden og Liv. Fælles artikelk
 - Hold begge magasinblokke friske. Før emnevalg skal de seneste Viden- og Liv-artikler sammenlignes; når to kandidater er omtrent lige stærke, foretrækkes det magasin, der har været længst uden en ny artikel eller er tydeligt underrepræsenteret i de seneste udgivelser. Der må aldrig vælges en svagere artikel alene for at skabe matematisk balance.
 - Korrekthed har forrang for delbarhed. Research skal dog stoppe, når centrale påstande og væsentlige forbehold er tilstrækkeligt dokumenteret.
 - Researchbaserede magasinartikler skal gemme deres eksterne kilder i `source_metadata`, så den eksisterende kildeliste nederst kan renderes. Kilder må ikke indsættes som almindelige hyperlinks i brødteksten.
+- I det fælles slut-QA kontrolleres for researchbaserede magasinartikler også, at `source_metadata` er udfyldt tilstrækkeligt til den renderede kildeliste.
 
 ## Tal og forskning
 
