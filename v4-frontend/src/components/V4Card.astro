@@ -36,7 +36,7 @@ if (accent) {
   }
 }
 ---
-<article class:list={['v4-card', cardClass]}>
+<article class:list={['v4-card', cardClass]} data-category={categoryName || undefined}>
   <a class="v4-card__media" href={`/artikel/${article.slug}`}>
     {article.hero_url ? (
       <img
