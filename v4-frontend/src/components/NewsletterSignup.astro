@@ -9,7 +9,7 @@ const isWeekly = variant === 'weekly';
 const title = isWeekly ? `Ugens bedste fra ${magazineName}` : 'Start dagen med Morgentidende';
 const description = isWeekly
   ? `Hver søndag kl. 06 samler vi ugens mest spændende artikler fra ${magazineName} i én rolig udgave.`
-  : 'Dagens vigtigste historier – kort og klart i din indbakke hver morgen kl. 06.';
+  : 'Dagens vigtigste historier – kort og klart i din indbakke.';
 ---
 <aside class:list={['v4-newsletter', !isWeekly && 'v4-newsletter--daily', isWeekly && 'v4-newsletter--weekly']} aria-label={title}>
   <div class="v4-newsletter__copy">
