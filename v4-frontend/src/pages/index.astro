@@ -38,9 +38,9 @@ if (loadError) {
 
 const categoryById = new Map(categories.map((c) => [c.id, c.name]));
 const breaking = articles.find((a) => a.is_breaking && (!a.breaking_until || new Date(a.breaking_until) > new Date()));
-const themeLead = articles.find((a) => a.is_lead && !a.is_breaking && categoryById.get(a.category_id) === 'Tema');
-const lead = breaking || themeLead;
-const leadType = breaking ? 'breaking' : themeLead ? 'theme' : null;
+const standardLead = articles.find((a) => a.is_lead && !a.is_breaking);
+const lead = breaking || standardLead;
+const leadType = breaking ? 'breaking' : standardLead && categoryById.get(standardLead.category_id) === 'Tema' ? 'theme' : standardLead ? 'standard' : null;
 const others = lead ? articles.filter((a) => a.id !== lead.id) : articles;
 const followups = lead?.story_cluster_id
   ? others.filter((a) => a.story_cluster_id === lead.story_cluster_id).slice(0, 4)
