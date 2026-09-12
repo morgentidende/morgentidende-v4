@@ -31,7 +31,7 @@ Hvert planlagt SoMe-opslag vurderes internt fra 1–10 på:
 5. delings-/gemmepotentiale
 6. samtalepotentiale
 
-Opslag under **7/10** skal som udgangspunkt forbedres før publicering, medmindre det er en vigtig breaking-historie, hvor hastighed vejer tungere.
+Opslag under **7/10** skal som udgangspunkt forbedres før publicering, medmindre det er en vigtig breaking-historie, hvor hastighed vejer tungere. Denne SoMe-vurdering må aldrig påvirke eller forsinke artikelpublicering.
 
 ## Platformvalg
 Hver artikel vurderes særskilt på breaking-værdi, debatpotentiale, visuel styrke, personlig relevans og forklaringsværdi.
@@ -50,7 +50,7 @@ Hård regel for Viden/Liv:
 - Kort 1: stærk hook/rubrik, der kan forstås på under ét sekund.
 - Midterkort: én klar pointe pr. kort, korte tekster, høj visuel læsbarhed.
 - Sidste kort: afrunding + invitation til at læse hele artiklen på morgentidende.dk.
-- AI-genererede visuals er tilladt frit til Viden og Liv, også fotorealistiske, så længe de ikke fremstiller virkelige personer som om billedet var ægte reportage.
+- AI-genererede visuals er tilladt til Viden og Liv, også fotorealistiske, så længe de ikke fremstiller virkelige personer eller konkrete virkelige hændelser som ægte reportage.
 - Instagram-opslag med AI-genereret eller væsentligt AI-redigeret materiale markeres som AI-genereret, når platformen understøtter det.
 
 Hvis carousel-teknikken midlertidigt fejler, må fallback til ét billede bruges for at sikre publicering, men fejlen skal rettes bagefter. Fallback må ikke blive permanent standard.
@@ -75,8 +75,9 @@ Brug kun artikler, der kan omsættes til et tydeligt visuelt eller fortællende 
 TikTok-videoer skal være mere direkte og hurtige end avisens øvrige SoMe-formater: stærk bevægelse eller tekst fra første sekund, korte sætninger, hyppige visuelle skift og tydeligt payoff. Stillbillede-carouseller kan bruges, når historien er ekstremt let at forstå visuelt, men video er førstevalg, når materialet egner sig til det.
 
 ## Medieregler
-- Almindelige nyheder: brug rigtige fotos med verificerede brugsrettigheder.
-- Viden og Liv: AI-genererede heros og SoMe-kort er tilladt og kan bruges offensivt.
+- Ved konkrete virkelige personer og hændelser foretrækkes et lovligt rigtigt foto, når den dokumentariske værdi er central.
+- AI-genererede illustrative/fotorealistiske motiver må bruges til generiske, konceptuelle og magasinprægede historier, men må aldrig udgive sig for dokumentation af en konkret virkelig person eller hændelse.
+- Et mislykket medieforsøg må ikke blokere artikelpublicering: brug en sikker lovlig fallback.
 - Hero og SoMe-medier behøver ikke manuel forhåndsgodkendelse i chatten.
 - Brug eksisterende offentligt tilgængelige hero-URL'er direkte, når det er stabilt og lovligt.
 - Undgå GitHub som billed-mellemstation, medmindre der er en konkret teknisk grund.
