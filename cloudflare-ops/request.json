@@ -1,4 +1,4 @@
 {
-  "action": "zone_settings",
-  "request_id": "2026-09-12-zone-settings-audit"
+  "action": "frontend_triggers",
+  "request_id": "2026-09-12-frontend-trigger-audit"
 }
