@@ -40,6 +40,13 @@ async function getZone() {
   return zone;
 }
 
+async function getCustomRuleset(zoneId) {
+  const rulesets = await cf(`/zones/${zoneId}/rulesets`);
+  const ruleset = (rulesets.result || []).find((r) => r.phase === 'http_request_firewall_custom');
+  if (!ruleset?.id) throw new Error('Zone custom WAF entry-point ruleset not found.');
+  return cf(`/zones/${zoneId}/rulesets/${ruleset.id}`);
+}
+
 async function directCloudflareAction() {
   const verify = await cf('/user/tokens/verify');
   const zone = await getZone();
@@ -71,36 +78,70 @@ async function directCloudflareAction() {
       body: JSON.stringify({ value: 'off' })
     });
     const after = await cf(`/zones/${zone.id}/settings/browser_check`);
-    console.log(JSON.stringify({
-      action,
-      zone: { id: zone.id, name: zone.name },
-      before: before?.result,
-      changed: changed?.result,
-      after: after?.result
-    }, null, 2));
+    console.log(JSON.stringify({ action, zone: { id: zone.id, name: zone.name }, before: before?.result, changed: changed?.result, after: after?.result }, null, 2));
     return;
   }
 
   if (action === 'cf_custom_waf_audit') {
-    const rulesets = await cf(`/zones/${zone.id}/rulesets`);
-    const custom = (rulesets.result || []).filter((r) => r.phase === 'http_request_firewall_custom');
-    const details = [];
-    for (const ruleset of custom) {
-      const full = await cf(`/zones/${zone.id}/rulesets/${ruleset.id}`);
-      details.push({
-        id: ruleset.id,
-        name: ruleset.name,
-        rules: (full?.result?.rules || []).map((r) => ({ id: r.id, action: r.action, enabled: r.enabled, description: r.description, expression: r.expression }))
+    const full = await getCustomRuleset(zone.id);
+    console.log(JSON.stringify({
+      action,
+      zone: { id: zone.id, name: zone.name },
+      custom_ruleset: {
+        id: full?.result?.id,
+        name: full?.result?.name,
+        rules: (full?.result?.rules || []).map((r) => ({ id: r.id, action: r.action, enabled: r.enabled, description: r.description, expression: r.expression, action_parameters: r.action_parameters }))
+      }
+    }, null, 2));
+    return;
+  }
+
+  if (action === 'cf_allow_verified_bots') {
+    const full = await getCustomRuleset(zone.id);
+    const ruleset = full.result;
+    const description = 'Allow verified bots and signed agents';
+    const existing = (ruleset.rules || []).find((r) => r.description === description);
+    if (!existing) {
+      await cf(`/zones/${zone.id}/rulesets/${ruleset.id}/rules`, {
+        method: 'POST',
+        body: JSON.stringify({
+          action: 'skip',
+          action_parameters: {
+            ruleset: 'current',
+            phases: ['http_request_firewall_managed', 'http_ratelimit'],
+            products: ['securityLevel', 'uaBlock', 'waf']
+          },
+          expression: '(cf.client.bot)',
+          description,
+          enabled: true,
+          position: { before: '' }
+        })
+      });
+    } else {
+      await cf(`/zones/${zone.id}/rulesets/${ruleset.id}/rules/${existing.id}`, {
+        method: 'PATCH',
+        body: JSON.stringify({ position: { before: '' } })
       });
     }
-    console.log(JSON.stringify({ action, zone: { id: zone.id, name: zone.name }, custom_rulesets: details }, null, 2));
+    const after = await getCustomRuleset(zone.id);
+    console.log(JSON.stringify({
+      action,
+      zone: { id: zone.id, name: zone.name },
+      rules: (after?.result?.rules || []).map((r, index) => ({ position: index + 1, id: r.id, action: r.action, enabled: r.enabled, description: r.description, expression: r.expression, action_parameters: r.action_parameters }))
+    }, null, 2));
+    return;
+  }
+
+  if (action === 'cf_bot_settings_audit') {
+    const bot = await cf(`/zones/${zone.id}/bot_management`);
+    console.log(JSON.stringify({ action, zone: { id: zone.id, name: zone.name }, bot_management: bot?.result }, null, 2));
     return;
   }
 
   throw new Error(`Unsupported direct Cloudflare action: ${String(action)}`);
 }
 
-if (['cf_audit', 'cf_disable_browser_check', 'cf_custom_waf_audit'].includes(action)) {
+if (['cf_audit', 'cf_disable_browser_check', 'cf_custom_waf_audit', 'cf_allow_verified_bots', 'cf_bot_settings_audit'].includes(action)) {
   try {
     await directCloudflareAction();
   } catch (error) {
