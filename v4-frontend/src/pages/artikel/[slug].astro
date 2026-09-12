@@ -3,6 +3,7 @@ import V4Layout from '../../layouts/V4Layout.astro';
 import V4Card from '../../components/V4Card.astro';
 import NewsletterSignup from '../../components/NewsletterSignup.astro';
 import { loadArticlePageData } from '../../lib/article-data';
+import { buildArticleRecommendations, buildBriefPoints } from '../../lib/article-view-helpers';
 import { marked } from 'marked';
 import sanitizeHtml from 'sanitize-html';
 import '../../styles/article-polish.css';
@@ -35,7 +36,6 @@ const rawBodyHtml = article
   : '';
 
 const storyRelated = clusterRelated.length ? clusterRelated : related;
-const storyRelatedIds = new Set(storyRelated.map((a) => a.id));
 
 const escapeHtml = (value = '') => value
   .replace(/&/g, '&amp;')
@@ -78,62 +78,10 @@ let bodyHtml = bodyWithImageAlt;
 if (inlineRelated[0]) bodyHtml = injectAfterParagraph(bodyHtml, 3, inlineRelatedMarkup(inlineRelated[0]));
 if (inlineRelated[1] && paragraphCount >= 8) bodyHtml = injectAfterParagraph(bodyHtml, 7, inlineRelatedMarkup(inlineRelated[1]));
 
-const storedBriefPoints = Array.isArray(article?.sagen_kort)
-  ? article.sagen_kort.map((point: unknown) => String(point || '').trim()).filter(Boolean).slice(0, 2)
-  : [];
-
-const plainBody = (article?.body_markdown || '')
-  .replace(/!\[[^\]]*\]\([^)]*\)/g, ' ')
-  .replace(/\[([^\]]+)\]\([^)]*\)/g, '$1')
-  .replace(/[#>*_`~\-]+/g, ' ')
-  .replace(/\s+/g, ' ')
-  .trim();
-const summaryCandidates = [article?.deck || '', ...plainBody.split(/(?<=[.!?])\s+/)]
-  .map((sentence) => sentence.trim())
-  .filter((sentence) => sentence.length >= 45 && sentence.length <= 190);
-
-const fallbackBriefPoints: string[] = [];
-for (const sentence of summaryCandidates) {
-  const normalized = sentence.toLocaleLowerCase('da-DK').replace(/[^a-zæøå0-9]+/g, ' ').trim();
-  if (!normalized || fallbackBriefPoints.some((point) => point.toLocaleLowerCase('da-DK').replace(/[^a-zæøå0-9]+/g, ' ').trim() === normalized)) continue;
-  fallbackBriefPoints.push(sentence);
-  if (fallbackBriefPoints.length === 2) break;
-}
-
-const briefPoints = storedBriefPoints.length === 2 ? storedBriefPoints : fallbackBriefPoints;
+const briefPoints = buildBriefPoints(article);
 const showBrief = briefPoints.length === 2;
 
-const recommendationStopwords = new Set([
-  'eller', 'ikke', 'som', 'med', 'til', 'fra', 'for', 'der', 'den', 'det', 'de', 'en', 'et', 'har', 'kan', 'vil',
-  'skal', 'var', 'over', 'under', 'efter', 'før', 'sine', 'sin', 'sit', 'sig', 'mod', 'mere', 'nye', 'ny', 'om'
-]);
-const recommendationTerms = (value = '') => new Set(
-  value
-    .toLocaleLowerCase('da-DK')
-    .replace(/[^a-zæøå0-9]+/g, ' ')
-    .split(/\s+/)
-    .filter((term) => term.length >= 4 && !recommendationStopwords.has(term))
-);
-const articleTerms = recommendationTerms(`${article?.headline || ''} ${article?.deck || ''}`);
-const candidateRelevanceScore = (candidate: any) => {
-  const candidateTerms = recommendationTerms(`${candidate.headline || ''} ${candidate.deck || ''}`);
-  let overlap = 0;
-  for (const term of candidateTerms) if (articleTerms.has(term)) overlap += 1;
-  const sameCategory = candidate.category_id === article?.category_id ? 6 : 0;
-  return sameCategory + Math.min(overlap, 5) * 2;
-};
-const recommendationPool = recommendations.filter((candidate) => !storyRelatedIds.has(candidate.id));
-const relevantThree = [...recommendationPool]
-  .sort((a, b) => {
-    const scoreDifference = candidateRelevanceScore(b) - candidateRelevanceScore(a);
-    if (scoreDifference !== 0) return scoreDifference;
-    return new Date(b.published_at || 0).getTime() - new Date(a.published_at || 0).getTime();
-  })
-  .slice(0, 3);
-const usedRecommendationIds = new Set([...relevantThree, ...storyRelated].map((a) => a.id));
-const currentThree = recommendations
-  .filter((candidate) => !usedRecommendationIds.has(candidate.id))
-  .slice(0, 3);
+const { relevantThree, currentThree } = buildArticleRecommendations(article, recommendations, storyRelated);
 const heroIsGraphic = /\.(svg|png)(\?|$)/i.test(article?.hero_url || '') && (article?.hero_credit === 'Morgentidende grafik' || (article?.hero_url || '').includes('dsa-big-brother'));
 const siteBase = Astro.site || Astro.url.origin;
 const canonical = article ? new URL(`/artikel/${article.slug}`, siteBase).toString() : undefined;
