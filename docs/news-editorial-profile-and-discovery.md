@@ -6,7 +6,7 @@ Denne fil gælder avisens almindelige nyheds-, analyse- og kommentarstof.
 
 ## Aktuel indstilling
 
-- **Skala 1 – Emneprioritering: 2/5**
+- **Skala 1 – Emneprioritering: 4/5**
 - **Skala 2 – Tone og argumentvægt: 2/5**
 
 Skalaerne kan ændres uafhængigt som et redaktionelt eksperiment.
@@ -320,7 +320,7 @@ Discovery-værdien skal vurderes efter **hvor ofte siden finder en konkret dokum
 - **4/4:** både stofvalg og tone har en stærk profil.
 - **5/1:** stofvalget domineres af kerneinteresserne, mens selve artiklerne skrives neutralt.
 
-Aktuel vurdering og indstilling: **2/2**.
+Aktuel vurdering og indstilling: **4/2**.
 
 ---
 
