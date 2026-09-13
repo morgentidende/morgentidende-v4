@@ -10,11 +10,11 @@ Denne fil ejer kun de regler, der er særlige for Viden og Liv. Fælles artikelk
 
 ## Redaktionel retning
 
-- Artikler skal vælges og vinkles med ekstremt højt delingspotentiale gennem stærk nytteværdi, overraskende eller nye oplysninger, konkrete råd, følelsesmæssig relevans, identitetsrelevans, nysgerrighed eller tydelig konsekvens for læserens liv.
+- Den fælles delbarhedsregel i `docs/editorial-core.md` gælder fuldt ud. For Viden og Liv skal delbarheden især komme fra stærk nytteværdi, overraskende eller nye oplysninger, konkrete råd, følelsesmæssig relevans, identitetsrelevans, nysgerrighed eller tydelig konsekvens for læserens liv.
 - Viden skal især gøre kompleks forskning, teknologi, naturvidenskab og fremtidstendenser forståelige, konkrete og samtaleværdige.
 - Liv skal især gøre dokumenteret viden om sundhed, psykologi, relationer, privatøkonomi og livskvalitet praktisk anvendelig og delbar.
 - Hold begge magasinblokke friske. Før emnevalg skal de seneste Viden- og Liv-artikler sammenlignes; når to kandidater er omtrent lige stærke, foretrækkes det magasin, der har været længst uden en ny artikel eller er tydeligt underrepræsenteret i de seneste udgivelser. Der må aldrig vælges en svagere artikel alene for at skabe matematisk balance.
-- Korrekthed har forrang for delbarhed. Research skal dog stoppe, når centrale påstande og væsentlige forbehold er tilstrækkeligt dokumenteret.
+- Research skal stoppe, når centrale påstande og væsentlige forbehold er tilstrækkeligt dokumenteret.
 - Researchbaserede magasinartikler skal gemme deres eksterne kilder i `source_metadata`, så den eksisterende kildeliste nederst kan renderes. Kilder må ikke indsættes som almindelige hyperlinks i brødteksten.
 - I det fælles slut-QA kontrolleres for researchbaserede magasinartikler også, at `source_metadata` er udfyldt tilstrækkeligt til den renderede kildeliste.
 
@@ -31,4 +31,4 @@ Denne fil ejer kun de regler, der er særlige for Viden og Liv. Fælles artikelk
 - Evergreen-artikler SEO-optimeres ved publicering med tydelig søgeintention, naturlige søgeord, relevant metadata, klare H2/H3-afsnit og et kort direkte svar tidligt i artiklen uden keyword stuffing.
 - Brug almindelige danske ord frem for engelske forkortelser og fagudtryk, når et naturligt dansk ord findes. Hvis en nødvendig forkortelse eller et fagudtryk bruges, forklares det første gang.
 
-Alle øvrige fælles krav – bl.a. faktaverifikation, rubrik/manchet, præcis 2 punkter i `SAGEN KORT`, links, kildeliste, citater, hero og fail-open-principper – arves fra `docs/editorial-core.md` og skal ikke gentages her.
+Alle øvrige fælles krav – bl.a. faktaverifikation, rubrik/manchet, præcis 2 punkter i `SAGEN KORT`, links, kildeliste, citater, hero, delbarhed og fail-open-principper – arves fra `docs/editorial-core.md` og skal ikke gentages her.
