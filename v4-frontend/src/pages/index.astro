@@ -30,6 +30,22 @@ const {
   formerLeadGraceActive,
   leadCategory
 } = buildFrontpageModel(articles, categories);
+
+const liveFollowups = liveCenter?.story_cluster_id
+  ? articles
+      .filter((article) => article.story_cluster_id === liveCenter.story_cluster_id)
+      .sort((a, b) => new Date(b.published_at).getTime() - new Date(a.published_at).getTime())
+      .slice(0, 3)
+  : [];
+
+const liveFollowupIds = new Set(liveFollowups.map((article) => article.id));
+const displacedLeadPackage = liveCenter && lead ? [lead, ...followups] : [];
+const frontpageNews = liveCenter
+  ? [...displacedLeadPackage, ...news]
+      .filter((article, index, all) => !liveFollowupIds.has(article.id) && all.findIndex((candidate) => candidate.id === article.id) === index)
+      .sort((a, b) => new Date(b.published_at).getTime() - new Date(a.published_at).getTime())
+      .slice(0, 15)
+  : news;
 ---
 <V4Layout image={lead?.hero_url} noindex={loadError}>
   <div class="v4-shell">
@@ -42,10 +58,10 @@ const {
       </aside>
     ) : null}
 
-    {!loadError && liveCenter ? <LiveCenter center={liveCenter} updates={liveUpdates} /> : null}
+    {!loadError && liveCenter ? <LiveCenter center={liveCenter} updates={liveUpdates} relatedArticles={liveFollowups} categoryById={categoryById} /> : null}
 
-    {!loadError && lead ? (
-      <section class:list={[leadType === 'breaking' ? 'v4-breaking-box' : 'v4-lead-box', liveCenter ? 'v4-lead-box--below-live' : null]}>
+    {!loadError && !liveCenter && lead ? (
+      <section class:list={[leadType === 'breaking' ? 'v4-breaking-box' : 'v4-lead-box']}>
         <div class="v4-lead-label-row">
           {leadCategory ? <div class="v4-lead-label v4-lead-label--category">{leadCategory}</div> : null}
           {leadType === 'breaking' ? <div class="v4-lead-label v4-lead-label--breaking">BREAKING</div> : null}
@@ -62,12 +78,12 @@ const {
       </section>
     ) : null}
 
-    {!loadError && news.length ? (
+    {!loadError && frontpageNews.length ? (
       <section class="v4-section v4-frontpage-news">
-        <div class="v4-grid-3 v4-frontpage-primary">{news.slice(0, 3).map((article) => <V4Card article={article} categoryName={categoryById.get(article.category_id)} showDeck={false} />)}</div>
-        {news.length > 3 ? (<>
+        <div class="v4-grid-3 v4-frontpage-primary">{frontpageNews.slice(0, 3).map((article) => <V4Card article={article} categoryName={categoryById.get(article.category_id)} showDeck={false} />)}</div>
+        {frontpageNews.length > 3 ? (<>
           <div class="v4-frontpage-tier-divider" aria-hidden="true"></div>
-          <div class="v4-grid-4 v4-frontpage-secondary">{news.slice(3, 7).map((article) => <V4Card article={article} categoryName={categoryById.get(article.category_id)} showDeck={false} cardClass={formerLeadGraceActive && article.id === formerLead?.id ? 'v4-card--former-lead' : undefined} />)}</div>
+          <div class="v4-grid-4 v4-frontpage-secondary">{frontpageNews.slice(3, 7).map((article) => <V4Card article={article} categoryName={categoryById.get(article.category_id)} showDeck={false} cardClass={formerLeadGraceActive && article.id === formerLead?.id ? 'v4-card--former-lead' : undefined} />)}</div>
         </>) : null}
       </section>
     ) : null}
@@ -88,10 +104,10 @@ const {
       </section>
     ) : null}
 
-    {!loadError && news.length > 7 ? (
+    {!loadError && frontpageNews.length > 7 ? (
       <section class="v4-section v4-latest-section">
         <h2 class="v4-latest-title">Seneste nyt</h2>
-        <div class="v4-grid-4">{news.slice(7, 15).map((article) => <V4Card article={article} categoryName={categoryById.get(article.category_id)} showDeck={false} />)}</div>
+        <div class="v4-grid-4">{frontpageNews.slice(7, 15).map((article) => <V4Card article={article} categoryName={categoryById.get(article.category_id)} showDeck={false} />)}</div>
       </section>
     ) : null}
   </div>
@@ -99,7 +115,6 @@ const {
 
 <style>
   .v4-lead-main :global(.v4-card__deck) { max-width: 760px; margin-top: 12px; font-family: var(--v4-serif); font-size: clamp(16px, 1.45vw, 20px); line-height: 1.45; color: var(--v4-muted); }
-  .v4-lead-box--below-live, .v4-breaking-box.v4-lead-box--below-live { margin-top: 34px; }
   .v4-frontpage-tier-divider { width: 78%; height: 1px; margin: 26px auto 22px; background: var(--v4-rule); }
   .v4-frontpage-secondary { gap: 24px; }
   .v4-frontpage-secondary :global(.v4-card__headline) { font-size: clamp(18px, 1.45vw, 27px); }
@@ -108,7 +123,6 @@ const {
   .v4-latest-title { margin: 0 0 20px; font-family: var(--v4-serif); font-size: clamp(26px, 3vw, 36px); line-height: 1.05; }
   @media (max-width: 640px) {
     .v4-lead-main :global(.v4-card__deck) { margin-top: 10px; font-size: 16px; line-height: 1.42; }
-    .v4-lead-box--below-live, .v4-breaking-box.v4-lead-box--below-live { margin-top: 26px; }
     .v4-frontpage-tier-divider { width: 82%; margin: 26px auto 22px; }
     .v4-frontpage-primary { row-gap: 20px; }
     .v4-latest-title { margin-bottom: 16px; font-size: 28px; }
