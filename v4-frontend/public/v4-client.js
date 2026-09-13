@@ -243,7 +243,13 @@ document.querySelectorAll('.livecenter__archive').forEach((archive) => {
 
   const syncArchiveToggle = () => {
     label.textContent = archive.open ? 'Se færre opdateringer' : 'Se alle opdateringer';
-    triangle.textContent = '▾';
+    triangle.textContent = archive.open ? '▲' : '▼';
+    triangle.style.display = 'inline-block';
+    triangle.style.marginLeft = '6px';
+    triangle.style.fontSize = '9px';
+    triangle.style.lineHeight = '1';
+    triangle.style.color = 'var(--v4-accent, #d6a72f)';
+    triangle.style.verticalAlign = '0.08em';
   };
 
   syncArchiveToggle();
