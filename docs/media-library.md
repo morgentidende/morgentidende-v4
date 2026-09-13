@@ -1,7 +1,21 @@
 # Morgentidende – internt billedarkiv
 
+Denne fil ejer reglerne for hero-rettigheder, lokal arkivering, medie-ingest og kreditering. Andre policies må kun henvise hertil og må ikke kopiere disse regler.
+
+## Hård regel for nye heros
+Alle nye hero-billeder skal før publicering:
+- være tilladt til gratis kommerciel brug,
+- være tilladt at kopiere og lagre lokalt,
+- være ingested i Morgentidendes eget mediearkiv,
+- have en `ready` record i `media_assets`,
+- bruges via den interne delivery URL og `hero_media_id`.
+
+Direkte hotlinking af et nyt hero fra Wikimedia, Openverse, Pexels, Unsplash eller andre eksterne billedhosts er ikke en gyldig publiceringsvej. Eksisterende legacy-artikler med eksterne `hero_url` er kun grandfathered, indtil de migreres.
+
+Hvis licensen kræver kreditering, skal korrekt credit og licensmetadata registreres på assettet. Krediteringen vises diskret **helt nederst i artiklen**, ikke under hero-billedet.
+
 ## Formål
-Morgentidende skal som hovedregel levere egne kopier af hero-billeder, når licensen tillader lokal lagring og kommerciel genbrug. Det reducerer hotlinking, eksterne fejl, langsomme tredjepartskilder og gør rettighedsdokumentation sporbar.
+Morgentidende leverer egne kopier af hero-billeder, når licensen tillader lokal lagring og kommerciel genbrug. Det reducerer hotlinking, eksterne fejl, langsomme tredjepartskilder og gør rettighedsdokumentation sporbar.
 
 ## Arkitektur
 1. **Media-agent** finder eller genererer hero.
@@ -11,7 +25,7 @@ Morgentidende skal som hovedregel levere egne kopier af hero-billeder, når lice
 5. **Cloudflare R2** gemmer én masterfil pr. asset.
 6. **`media.morgentidende.dk`** er custom domain til R2 og den kanoniske leverings-URL.
 7. **Cloudflare Image Transformations** genererer responsive størrelser og moderne formater ved levering. Vi gemmer ikke manuelle 320/640/960/1600-kopier.
-8. **Frontend** bruger `srcset` på interne media-URLs. Eksterne legacy-URLs fungerer uændret under migrationen.
+8. **Frontend** bruger `srcset` på interne media-URLs. Eksterne legacy-URLs fungerer kun som migrationskompatibilitet.
 
 ## R2-konfiguration
 - Bucket: `morgentidende-media`
@@ -29,6 +43,8 @@ Media-agenten sender kun et billede til ingest, når rettighedstjekket allerede 
 - `local_storage_allowed = true`
 
 Payload indeholder mindst `source_url` og de to rettighedsflags. Når muligt medsendes også `article_id`, kilde/provider, licens, credit, alt-tekst og dokumentation i `metadata`.
+
+Hvis `attribution_required = true`, skal `credit_text` være udfyldt korrekt. Manglende obligatorisk credit gør assettet uegnet til publicering.
 
 Workerens ansvar:
 1. afviser ukrypterede eller åbenlyst lokale/private source-URL'er,
@@ -52,7 +68,7 @@ På zonen `morgentidende.dk` er **Images > Transformations** aktiv. Frontend bru
 
 `/cdn-cgi/image/width=640,fit=cover,format=auto,quality=82/https://media.morgentidende.dk/...`
 
-Transformationer bruges kun for `media.morgentidende.dk`. Legacy-billeder fra eksterne kilder sendes direkte, indtil de er migreret lovligt til arkivet.
+Transformationer bruges for `media.morgentidende.dk`. Responsive størrelser genereres ved levering fra én arkiveret masterfil.
 
 ## Rettighedsgate
 Et asset må sættes til `ready`, når:
@@ -61,12 +77,17 @@ Et asset må sættes til `ready`, når:
 - en intern delivery URL findes,
 - licens/kilde/credit er registreret i det omfang kilden kræver det.
 
-Hvis en artikel har `hero_media_id`, blokerer databasen publicering, hvis asset ikke er `ready` eller mangler de nødvendige rettigheder.
+Databasen blokerer nye publiceringer uden `hero_media_id`. Når et media asset er tilknyttet, blokeres publicering også, hvis assettet ikke er `ready`, mangler kommercielle/lokale lagringsrettigheder, mangler obligatorisk credit eller hvis artiklens `hero_url` ikke matcher assettets interne delivery URL.
 
 `modifications_allowed` registreres særskilt. Hvis licensen ikke tillader bearbejdning, må redaktionen ikke bruge kreative crops eller andre transformationer, der ændrer værkets karakter. Almindelig teknisk skalering vurderes stadig efter den konkrete licens.
 
+## Kreditering
+Obligatorisk billedkreditering skal være korrekt men visuelt diskret. Den vises nederst i artiklen efter artikelens kildeliste og før delings-/anbefalingsmoduler. Der vises ikke længere credit direkte under heroen.
+
+Når metadata findes, bør krediteringen kunne indeholde fotograf/ophavsmand, kilde og licens med relevante links. Morgentidendes egne billeder/grafikker behøver ikke en særskilt synlig credit, medmindre en konkret rettighedsregel kræver det.
+
 ## Migrering af eksisterende heros
-Eksisterende `hero_url` beholdes som fallback. Migrering sker gradvist:
+Eksisterende eksterne `hero_url` beholdes midlertidigt som legacy-fallback. Migrering sker gradvist:
 1. verificer licensen igen,
 2. send den godkendte master gennem ingest-flowet,
 3. beregn SHA-256 og genbrug eksisterende asset ved dublet,
