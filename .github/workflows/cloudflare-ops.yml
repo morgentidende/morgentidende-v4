@@ -16,7 +16,7 @@ permissions:
 jobs:
   run:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 8
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -27,4 +27,23 @@ jobs:
           ADMIN_BASE_URL: https://morgentidende-cloudflare-admin.morgentidende.workers.dev
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ZONE_NAME: morgentidende.dk
-        run: node .github/scripts/cloudflare-ops.mjs
+        run: |
+          ACTION=$(node -e "const r=require('./cloudflare-ops/request.json'); process.stdout.write(String(r.action||''))")
+          if [ "$ACTION" != "r2_put_url" ]; then
+            node .github/scripts/cloudflare-ops.mjs
+            exit 0
+          fi
+
+          SOURCE_URL=$(node -e "const r=require('./cloudflare-ops/request.json'); const u=new URL(r.source_url); if (u.protocol!=='https:' || u.hostname!=='upload.wikimedia.org') process.exit(2); process.stdout.write(u.toString())")
+          curl --fail --location --silent --show-error "$SOURCE_URL" --output /tmp/hero.jpg
+          SHA=$(sha256sum /tmp/hero.jpg | awk '{print $1}')
+          BYTES=$(wc -c < /tmp/hero.jpg | tr -d ' ')
+          KEY="heroes/2026/09/${SHA}.jpg"
+
+          ACCOUNT_ID=$(node -e "fetch('https://api.cloudflare.com/client/v4/zones?name=morgentidende.dk&status=active&per_page=1',{headers:{authorization:'Bearer '+process.env.CLOUDFLARE_API_TOKEN}}).then(async r=>{const j=await r.json();const id=j.result?.[0]?.account?.id;if(!r.ok||j.success===false||!id){console.error(JSON.stringify(j));process.exit(1)}process.stdout.write(id)})")
+          export CLOUDFLARE_ACCOUNT_ID="$ACCOUNT_ID"
+
+          npx --yes wrangler@4.37.1 r2 object put "morgentidende-media/$KEY" --file=/tmp/hero.jpg --content-type=image/jpeg --remote
+          echo "R2_UPLOAD_SHA256=$SHA"
+          echo "R2_UPLOAD_BYTES=$BYTES"
+          echo "R2_UPLOAD_KEY=$KEY"
