@@ -70,3 +70,10 @@ grant select (
 
 grant select on public.v4_public_articles to anon;
 revoke all on public.v4_public_articles from authenticated;
+
+-- Operational smoke test after deployment:
+--   begin; set local role anon;
+--   select id, slug, headline from public.v4_public_articles limit 1;
+--   rollback;
+-- If a future public-view column is added without the matching column grant,
+-- this test fails immediately instead of surfacing later as a site-wide 503.
