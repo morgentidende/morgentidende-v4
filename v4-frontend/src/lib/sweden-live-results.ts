@@ -144,6 +144,34 @@ function findBestPartyArray(root: unknown): PartyRow[] {
   return best.rows.sort((a, b) => b.percent - a.percent);
 }
 
+function findSeatsByParty(root: unknown): Map<string, number> {
+  const best = new Map<string, { seats: number; score: number }>();
+
+  const walk = (node: unknown, path: string[] = []) => {
+    if (Array.isArray(node)) {
+      node.forEach((item, index) => walk(item, [...path, String(index)]));
+      return;
+    }
+    if (!node || typeof node !== 'object') return;
+
+    const obj = node as Record<string, any>;
+    const code = detectPartyCode(obj);
+    if (code) {
+      const seats = pickNumeric(obj, /(mandatantal|antalmandat|mandat|utjamningsmandat|fasta?mandat)/, [0, 349]);
+      if (seats !== null) {
+        const score = contextScore(path, obj);
+        const previous = best.get(code);
+        if (!previous || score >= previous.score) best.set(code, { seats: Math.round(seats), score });
+      }
+    }
+
+    for (const [key, value] of Object.entries(obj)) walk(value, [...path, key]);
+  };
+
+  walk(root);
+  return new Map([...best.entries()].map(([code, value]) => [PARTY_NAMES[code], value.seats]));
+}
+
 export async function loadOfficialSwedenResults(current: LiveResult | null | undefined): Promise<LiveResult> {
   try {
     const response = await fetch(ZIP_URL, {
@@ -153,7 +181,13 @@ export async function loadOfficialSwedenResults(current: LiveResult | null | und
     if (!response.ok) return current || {};
     const jsonText = await extractZipText(await response.arrayBuffer(), MANDATE_FILE_SUFFIX);
     if (!jsonText) return current || {};
-    const parties = findBestPartyArray(JSON.parse(jsonText));
+
+    const json = JSON.parse(jsonText);
+    const seatMap = findSeatsByParty(json);
+    const parties = findBestPartyArray(json).map((party) => ({
+      ...party,
+      ...(typeof party.seats === 'number' ? {} : seatMap.has(party.name) ? { seats: seatMap.get(party.name) } : {}),
+    }));
     if (parties.length < 6) return current || {};
 
     const redBloc = new Set(['Socialdemokraterna', 'Vänsterpartiet', 'Miljöpartiet', 'Centerpartiet']);
