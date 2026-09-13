@@ -31,7 +31,9 @@ Morgentidende leverer egne kopier af hero-billeder, når licensen tillader lokal
 ## Hastighed og hero-garanti
 Fast path er den normale publiceringsvej og skal forsøges straks, så et godkendt hero normalt arkiveres på få sekunder i stedet for at vente på et cronjob.
 
-Fallback-køen er kun et sikkerhedsnet. Workerens cron kører hver 30. minut og behandler strandede jobs. Queue-retries kalder kerne-ingest direkte og må ikke oprette nye fallback-jobs rekursivt.
+Chat/ops-publicering bruger samme `/ingest`-endpoint og samme rettigheds-, R2- og Supabase-logik som øvrige media-agenter. Den må ikke skrive hero-filer direkte til R2 som en alternativ publiceringsvej. Den normale ops-vej kalder workerens fast path direkte; Cloudflare-administration bruges kun som selvreparation, hvis ops-tokenet en dag er roteret eller mangler.
+
+Fallback-køen er kun et sikkerhedsnet. Workerens cron kører hvert 4. minut og behandler strandede jobs. Queue-retries kalder kerne-ingest direkte og må ikke oprette nye fallback-jobs rekursivt.
 
 Artikler må fortsat ikke publiceres uden et fungerende arkiveret hero. Databasens `hero_media_id`-gate er derfor bevidst bevaret. Hurtigere ingest må aldrig omgå rettighedstjekket eller sænke kravene til heroens journalistiske relevans.
 
@@ -42,6 +44,7 @@ Artikler må fortsat ikke publiceres uden et fungerende arkiveret hero. Database
 - Objektkeys er content-hash-baserede og immutable, fx `heroes/2026/09/<sha256>.jpg`.
 - Uploadede objekter får `Cache-Control: public, max-age=31536000, immutable`.
 - Ingen tokens, access keys eller secrets må ligge i repo eller Supabase-tabeller.
+- GitHub/Cloudflare ops-tokenet behøver ikke R2 Write til normal artikelpublicering; R2-skrivning sker gennem Worker-bindingen `MEDIA_BUCKET`.
 
 ## Automatisk Media-agent ingest
 Worker-koden ligger i `workers/media-ingest` og har et autentificeret endpoint `POST /ingest`.
@@ -64,14 +67,15 @@ Workerens fast path:
 7. opretter en `ready` media-record i Supabase,
 8. kobler asset og intern `hero_url` direkte på artiklen, hvis `article_id` er sendt med.
 
-Hvis fast path fejler midlertidigt på netværk, upstream rate-limit eller serverfejl, returnerer endpointet `202` med `queued: true`, og fallback-jobbet bliver forsøgt igen af den sjældne cron. Et succesfuldt fast-path ingest returnerer assettet direkte. Permanente validerings- og rettighedsfejl returneres straks og køes ikke.
+Hvis fast path fejler midlertidigt på netværk, upstream rate-limit eller serverfejl, returnerer endpointet `202` med `queued: true`, og fallback-jobbet bliver forsøgt igen af cronjobbet. Et succesfuldt fast-path ingest returnerer assettet direkte. Permanente validerings- og rettighedsfejl returneres straks og køes ikke.
 
 Workerens secrets ligger kun i Cloudflare:
 - `MEDIA_INGEST_TOKEN`
+- `OPS_MEDIA_TOKEN` (ops/chat-adgang; separat fra den interne media-agent-token)
 - `SUPABASE_URL`
 - `SUPABASE_SERVICE_ROLE_KEY`
 
-R2 forbindes via bindingen `MEDIA_BUCKET`; ingen R2 access key skal ligge i Worker-koden.
+R2 forbindes via bindingen `MEDIA_BUCKET`; ingen R2 access key skal ligge i Worker-koden eller i GitHub Actions til normal ingest.
 
 ## Cloudflare Images
 På zonen `morgentidende.dk` er **Images > Transformations** aktiv. Frontend bruger URL'er i formen:
