@@ -1,0 +1,90 @@
+.livecenter__archive summary::marker {
+  color: var(--v4-text);
+}
+
+.livecenter__archive summary span {
+  color: var(--v4-text) !important;
+}
+
+@media (max-width: 640px) {
+  .livecenter {
+    padding: 15px 12px 17px !important;
+  }
+
+  .livecenter__header {
+    margin-bottom: 14px !important;
+  }
+
+  .livecenter__title {
+    font-size: clamp(28px, 8vw, 36px) !important;
+    line-height: .98 !important;
+  }
+
+  .livecenter__deck {
+    font-size: 14.5px !important;
+    line-height: 1.36 !important;
+  }
+
+  .livecenter__grid {
+    gap: 12px !important;
+  }
+
+  .livecenter__panel {
+    border-left-color: color-mix(in srgb, var(--v4-accent, #d6a72f) 15%, var(--v4-rule)) !important;
+    border-right-color: color-mix(in srgb, var(--v4-accent, #d6a72f) 15%, var(--v4-rule)) !important;
+  }
+
+  .livecenter__results {
+    padding: 12px 12px 11px !important;
+  }
+
+  .livecenter__feed {
+    padding: 12px 12px 10px !important;
+  }
+
+  .livecenter__section-head {
+    margin-bottom: 8px !important;
+  }
+
+  .livecenter__update {
+    grid-template-columns: 40px minmax(0, 1fr) !important;
+    gap: 7px !important;
+    padding: 9px 0 !important;
+  }
+
+  .livecenter__update--latest h3 {
+    font-size: 19px !important;
+  }
+
+  .livecenter__update h3 {
+    font-size: 17px !important;
+    line-height: 1.06 !important;
+  }
+
+  .livecenter__update p {
+    font-size: 12.25px !important;
+    line-height: 1.36 !important;
+    -webkit-line-clamp: 2 !important;
+  }
+
+  .livecenter__archive summary {
+    padding: 9px 0 0 !important;
+  }
+
+  .livecenter__results:not(:has(.livecenter__big-number)):not(:has(.livecenter__party-table)):not(:has(.livecenter__blocks)) .livecenter__result-status {
+    padding: 8px 0 4px !important;
+    border-bottom: 0 !important;
+  }
+
+  .livecenter__results:not(:has(.livecenter__big-number)):not(:has(.livecenter__party-table)):not(:has(.livecenter__blocks)) .livecenter__result-status strong {
+    font-size: 23px !important;
+  }
+
+  .livecenter__results:not(:has(.livecenter__big-number)):not(:has(.livecenter__party-table)):not(:has(.livecenter__blocks)) .livecenter__result-status p {
+    margin-top: 4px !important;
+  }
+
+  .livecenter__results:not(:has(.livecenter__big-number)):not(:has(.livecenter__party-table)):not(:has(.livecenter__blocks)) .livecenter__source {
+    display: none !important;
+  }
+}
