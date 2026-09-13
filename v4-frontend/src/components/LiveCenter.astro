@@ -128,6 +128,7 @@ const resultUpdatedAt = center?.result_updated_at ? fmtTime(center.result_update
   .livecenter__results {
     position: sticky;
     top: 92px;
+    margin-top: 64px;
     padding: 20px 22px 18px;
     border: 1px solid color-mix(in srgb, var(--v4-accent, #d6a72f) 34%, var(--v4-rule));
     border-top: 4px solid var(--v4-accent, #d6a72f);
@@ -172,7 +173,7 @@ const resultUpdatedAt = center?.result_updated_at ? fmtTime(center.result_update
     .livecenter__header { margin-bottom: 22px; }
     .livecenter__title { font-size: clamp(34px, 10vw, 46px); }
     .livecenter__grid { display: flex; flex-direction: column; gap: 25px; }
-    .livecenter__results { order: -1; position: static; width: 100%; padding: 17px 16px 15px; }
+    .livecenter__results { order: -1; position: static; width: 100%; margin-top: 0; padding: 17px 16px 15px; }
     .livecenter__feed { width: 100%; }
     .livecenter__update { grid-template-columns: 48px minmax(0, 1fr); gap: 10px; }
     .livecenter__update p { font-size: 14px; }
