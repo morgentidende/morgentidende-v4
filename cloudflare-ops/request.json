@@ -1,5 +1,4 @@
 {
-  "action": "r2_put_url",
-  "request_id": "2026-09-13-followup3-schengen-hero",
-  "source_url": "https://upload.wikimedia.org/wikipedia/commons/8/8f/EU_Germany_border_sign_at_Denmark_border.jpg"
+  "action": "cf_bot_settings_audit",
+  "request_id": "2026-09-13-ops-reset-after-r2-test"
 }
