@@ -18,14 +18,22 @@ Hvis licensen kræver kreditering, skal korrekt credit og licensmetadata registr
 Morgentidende leverer egne kopier af hero-billeder, når licensen tillader lokal lagring og kommerciel genbrug. Det reducerer hotlinking, eksterne fejl, langsomme tredjepartskilder og gør rettighedsdokumentation sporbar.
 
 ## Arkitektur
-1. **Media-agent** finder eller genererer hero.
+1. **Media-agent** finder eller genererer det bedste relevante hero efter den redaktionelle hero-prioritet. Hastighed må ikke bruges som begrundelse for at vælge et dårligere eller mere generisk motiv.
 2. **Rettighedstjek** afgør om kommerciel brug og lokal arkivering er tilladt.
-3. **Media ingest Worker** henter den godkendte master, beregner SHA-256, deduplikerer og skriver til R2.
-4. **Supabase `media_assets`** gemmer kilde, licens, credit, rettighedsstatus, checksum og lagringsmetadata.
-5. **Cloudflare R2** gemmer én masterfil pr. asset.
-6. **`media.morgentidende.dk`** er custom domain til R2 og den kanoniske leverings-URL.
-7. **Cloudflare Image Transformations** genererer responsive størrelser og moderne formater ved levering. Vi gemmer ikke manuelle 320/640/960/1600-kopier.
-8. **Frontend** bruger `srcset` på interne media-URLs. Eksterne legacy-URLs fungerer kun som migrationskompatibilitet.
+3. **Fast path:** Media ingest Worker kaldes straks via `POST /ingest`. Den godkendte master hentes, SHA-256 beregnes, dubletter genbruges, filen skrives til R2 og artiklen får `hero_media_id` + intern `hero_url` i samme flow.
+4. **Fallback queue:** Kun hvis fast path rammer en midlertidig teknisk fejl, gemmes samme ingest-payload i `media_ingest_jobs` til senere retry. Permanente fejl som ugyldige rettigheder, ugyldig URL eller ikke-understøttet filtype må ikke skjules som queue-jobs.
+5. **Supabase `media_assets`** gemmer kilde, licens, credit, rettighedsstatus, checksum og lagringsmetadata.
+6. **Cloudflare R2** gemmer én masterfil pr. asset.
+7. **`media.morgentidende.dk`** er custom domain til R2 og den kanoniske leverings-URL.
+8. **Cloudflare Image Transformations** genererer responsive størrelser og moderne formater ved levering. Vi gemmer ikke manuelle 320/640/960/1600-kopier.
+9. **Frontend** bruger `srcset` på interne media-URLs. Eksterne legacy-URLs fungerer kun som migrationskompatibilitet.
+
+## Hastighed og hero-garanti
+Fast path er den normale publiceringsvej og skal forsøges straks, så et godkendt hero normalt arkiveres på få sekunder i stedet for at vente på et cronjob.
+
+Fallback-køen er kun et sikkerhedsnet. Workerens cron kører hver 30. minut og behandler strandede jobs. Queue-retries kalder kerne-ingest direkte og må ikke oprette nye fallback-jobs rekursivt.
+
+Artikler må fortsat ikke publiceres uden et fungerende arkiveret hero. Databasens `hero_media_id`-gate er derfor bevidst bevaret. Hurtigere ingest må aldrig omgå rettighedstjekket eller sænke kravene til heroens journalistiske relevans.
 
 ## R2-konfiguration
 - Bucket: `morgentidende-media`
@@ -46,7 +54,7 @@ Payload indeholder mindst `source_url` og de to rettighedsflags. Når muligt med
 
 Hvis `attribution_required = true`, skal `credit_text` være udfyldt korrekt. Manglende obligatorisk credit gør assettet uegnet til publicering.
 
-Workerens ansvar:
+Workerens fast path:
 1. afviser ukrypterede eller åbenlyst lokale/private source-URL'er,
 2. henter kun understøttede billedformater,
 3. håndhæver filstørrelsesgrænse,
@@ -55,6 +63,8 @@ Workerens ansvar:
 6. uploader master til R2 med immutable cache-header,
 7. opretter en `ready` media-record i Supabase,
 8. kobler asset og intern `hero_url` direkte på artiklen, hvis `article_id` er sendt med.
+
+Hvis fast path fejler midlertidigt på netværk, upstream rate-limit eller serverfejl, returnerer endpointet `202` med `queued: true`, og fallback-jobbet bliver forsøgt igen af den sjældne cron. Et succesfuldt fast-path ingest returnerer assettet direkte. Permanente validerings- og rettighedsfejl returneres straks og køes ikke.
 
 Workerens secrets ligger kun i Cloudflare:
 - `MEDIA_INGEST_TOKEN`
