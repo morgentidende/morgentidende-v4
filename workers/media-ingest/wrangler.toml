@@ -12,7 +12,7 @@ MEDIA_PUBLIC_BASE_URL = "https://media.morgentidende.dk"
 MEDIA_MAX_BYTES = "20971520"
 
 [triggers]
-crons = ["*/5 * * * *"]
+crons = ["*/30 * * * *"]
 
 # Secrets required at deploy time (never commit values):
 # MEDIA_INGEST_TOKEN
