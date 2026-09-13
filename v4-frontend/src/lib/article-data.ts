@@ -1,6 +1,6 @@
 import { v4Supabase } from './v4-supabase';
 
-const articleFields = 'id,slug,category_id,story_cluster_id,headline,deck,body_markdown,author_name,hero_url,hero_alt,hero_credit,hero_license,published_at,updated_at,sagen_kort,source_metadata';
+const articleFields = 'id,slug,category_id,story_cluster_id,headline,deck,body_markdown,author_name,hero_url,hero_alt,hero_credit,hero_source_url,hero_license,hero_license_url,published_at,updated_at,sagen_kort,source_metadata';
 const cardFields = 'id,slug,category_id,story_cluster_id,headline,frontpage_headline,headline_accent_text,deck,hero_url,hero_alt,published_at';
 
 const mergeStoryRelated = (explicitRelated: any[], clusterRelated: any[]) => {
