@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Ungarn og Spanien: EU-grænsekontrol og bøder</title>
+  <desc id="desc">Redaktionel illustration med Ungarns og Spaniens farver, et grænsehegn og EU-stjerner. Grafikken fremhæver 15 milliarder kroner brugt af Ungarn, 7 milliarder kroner i EU-bøder og 857 millioner kroner i ny støtte til Spanien.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0c1730"/>
+      <stop offset="1" stop-color="#25183f"/>
+    </linearGradient>
+    <linearGradient id="hu" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ce2939"/>
+      <stop offset="0.33" stop-color="#ce2939"/>
+      <stop offset="0.34" stop-color="#ffffff"/>
+      <stop offset="0.66" stop-color="#ffffff"/>
+      <stop offset="0.67" stop-color="#477050"/>
+      <stop offset="1" stop-color="#477050"/>
+    </linearGradient>
+    <linearGradient id="es" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#aa151b"/>
+      <stop offset="0.24" stop-color="#aa151b"/>
+      <stop offset="0.25" stop-color="#f1bf00"/>
+      <stop offset="0.74" stop-color="#f1bf00"/>
+      <stop offset="0.75" stop-color="#aa151b"/>
+      <stop offset="1" stop-color="#aa151b"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="12" stdDeviation="16" flood-opacity="0.35"/></filter>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <circle cx="800" cy="420" r="245" fill="#10245a" opacity="0.92"/>
+  <g fill="#f7d24b" transform="translate(800 420)">
+    <g id="star"><path d="M0-174 7-153 29-153 11-140 18-119 0-132-18-119-11-140-29-153-7-153Z"/></g>
+    <use href="#star" transform="rotate(30)"/><use href="#star" transform="rotate(60)"/><use href="#star" transform="rotate(90)"/><use href="#star" transform="rotate(120)"/><use href="#star" transform="rotate(150)"/><use href="#star" transform="rotate(180)"/><use href="#star" transform="rotate(210)"/><use href="#star" transform="rotate(240)"/><use href="#star" transform="rotate(270)"/><use href="#star" transform="rotate(300)"/><use href="#star" transform="rotate(330)"/>
+  </g>
+  <rect x="80" y="95" width="520" height="610" rx="28" fill="url(#hu)" opacity="0.97" filter="url(#shadow)"/>
+  <rect x="1000" y="95" width="520" height="610" rx="28" fill="url(#es)" opacity="0.97" filter="url(#shadow)"/>
+  <rect x="80" y="95" width="520" height="610" rx="28" fill="#08152c" opacity="0.55"/>
+  <rect x="1000" y="95" width="520" height="610" rx="28" fill="#08152c" opacity="0.48"/>
+  <g stroke="#d8dbe6" stroke-width="8" opacity="0.92">
+    <line x1="0" y1="650" x2="1600" y2="650"/>
+    <line x1="120" y1="585" x2="120" y2="760"/><line x1="250" y1="585" x2="250" y2="760"/><line x1="380" y1="585" x2="380" y2="760"/><line x1="510" y1="585" x2="510" y2="760"/><line x1="640" y1="585" x2="640" y2="760"/><line x1="770" y1="585" x2="770" y2="760"/><line x1="900" y1="585" x2="900" y2="760"/><line x1="1030" y1="585" x2="1030" y2="760"/><line x1="1160" y1="585" x2="1160" y2="760"/><line x1="1290" y1="585" x2="1290" y2="760"/><line x1="1420" y1="585" x2="1420" y2="760"/>
+    <line x1="0" y1="605" x2="1600" y2="735"/><line x1="0" y1="735" x2="1600" y2="605"/>
+  </g>
+  <g font-family="Arial, Helvetica, sans-serif" fill="#fff">
+    <text x="340" y="175" text-anchor="middle" font-size="42" font-weight="700">UNGARN</text>
+    <text x="1260" y="175" text-anchor="middle" font-size="42" font-weight="700">SPANIEN</text>
+    <text x="340" y="335" text-anchor="middle" font-size="86" font-weight="800">15 MIA.</text>
+    <text x="340" y="395" text-anchor="middle" font-size="32" font-weight="700">KR. PÅ GRÆNSEN</text>
+    <text x="340" y="505" text-anchor="middle" font-size="72" font-weight="800">7 MIA.</text>
+    <text x="340" y="560" text-anchor="middle" font-size="28" font-weight="700">KR. I EU-BØDER</text>
+    <text x="1260" y="335" text-anchor="middle" font-size="78" font-weight="800">2,7 MIA.</text>
+    <text x="1260" y="395" text-anchor="middle" font-size="30" font-weight="700">KR. FRA EU TIL GRÆNSER</text>
+    <text x="1260" y="505" text-anchor="middle" font-size="64" font-weight="800">+857 MIO.</text>
+    <text x="1260" y="560" text-anchor="middle" font-size="28" font-weight="700">KR. EFTER CEUTA</text>
+  </g>
+  <rect x="495" y="760" width="610" height="82" rx="41" fill="#101933" stroke="#f7d24b" stroke-width="3"/>
+  <text x="800" y="812" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="31" font-weight="700" fill="#f7d24b">TO EU-GRÆNSER · TO VIDT FORSKELLIGE REGNINGER</text>
+</svg>
