@@ -1,4 +1,5 @@
-.livecenter__archive summary::marker {
+.livecenter__archive summary::marker,
+.livecenter__archive summary span {
   color: var(--v4-text);
 }
 
@@ -16,7 +17,7 @@
   }
 
   .livecenter__title {
-    font-size: clamp(28px, 8vw, 36px) !important;
+    font-size: clamp(27px, 7.4vw, 34px) !important;
     line-height: .98 !important;
   }
 
@@ -46,14 +47,14 @@
     margin-bottom: 8px !important;
   }
 
+  .livecenter__section-head h2 {
+    font-size: 22px !important;
+  }
+
   .livecenter__update {
     grid-template-columns: 40px minmax(0, 1fr) !important;
     gap: 7px !important;
     padding: 9px 0 !important;
-  }
-
-  .livecenter__update--latest h3 {
-    font-size: 19px !important;
   }
 
   .livecenter__update h3 {
@@ -61,17 +62,23 @@
     line-height: 1.06 !important;
   }
 
-  .livecenter__update:not(.livecenter__update--archive) p {
+  .livecenter__update--latest h3 {
+    font-size: 19px !important;
+  }
+
+  .livecenter__update:not(.livecenter__update--archive) p,
+  .livecenter__update--archive p {
     font-size: 12.25px !important;
     line-height: 1.36 !important;
+  }
+
+  .livecenter__update:not(.livecenter__update--archive) p {
     -webkit-line-clamp: 2 !important;
     overflow: hidden !important;
   }
 
   .livecenter__update--archive p {
     display: block !important;
-    font-size: 12.25px !important;
-    line-height: 1.36 !important;
     -webkit-line-clamp: unset !important;
     overflow: visible !important;
   }
@@ -99,9 +106,9 @@
 
   .livecenter__block-summary {
     font-family: inherit !important;
-    font-size: 12.75px !important;
-    line-height: 1.4 !important;
-    font-weight: 600 !important;
+    font-size: 12.5px !important;
+    line-height: 1.42 !important;
+    font-weight: 500 !important;
     color: var(--v4-muted) !important;
   }
 
