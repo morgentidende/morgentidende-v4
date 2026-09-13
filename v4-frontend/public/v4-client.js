@@ -246,10 +246,10 @@ document.querySelectorAll('.livecenter__archive').forEach((archive) => {
     triangle.textContent = archive.open ? '▲' : '▼';
     triangle.style.display = 'inline-block';
     triangle.style.marginLeft = '6px';
-    triangle.style.fontSize = '9px';
+    triangle.style.fontSize = '18px';
     triangle.style.lineHeight = '1';
-    triangle.style.color = 'var(--v4-accent, #d6a72f)';
-    triangle.style.verticalAlign = '0.08em';
+    triangle.style.color = '#000';
+    triangle.style.verticalAlign = '-0.08em';
   };
 
   syncArchiveToggle();
