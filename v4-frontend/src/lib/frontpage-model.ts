@@ -21,9 +21,7 @@ export function buildFrontpageModel(articles: Article[], categories: Category[],
   const others = lead ? articles.filter((article) => article.id !== lead.id) : articles;
   const followups = lead?.story_cluster_id
     ? others.filter((article) => article.story_cluster_id === lead.story_cluster_id).slice(0, 4)
-    : lead
-      ? others.slice(0, 3)
-      : [];
+    : [];
 
   const leadBoxIds = new Set([lead?.id, ...followups.map((article) => article.id)].filter(Boolean));
   const newsBarArticle = lead
