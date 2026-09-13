@@ -1,6 +1,7 @@
 ---
 import V4Layout from '../layouts/V4Layout.astro';
 import V4Card from '../components/V4Card.astro';
+import LiveCenter from '../components/LiveCenter.astro';
 import NewsletterSignup from '../components/NewsletterSignup.astro';
 import '../styles/frontpage.css';
 import '../styles/mobile-horizontal-cards.css';
@@ -10,7 +11,7 @@ import { buildFrontpageModel } from '../lib/frontpage-model';
 Astro.response.headers.set('Cache-Control', 'public, max-age=0, s-maxage=30, stale-while-revalidate=60');
 Astro.response.headers.set('Cloudflare-CDN-Cache-Control', 'public, max-age=30, stale-while-revalidate=60');
 
-const { articles, categories, viden, liv, loadError } = await loadFrontpageData();
+const { articles, categories, viden, liv, liveCenter, liveUpdates, loadError } = await loadFrontpageData();
 
 if (loadError) {
   Astro.response.status = 503;
@@ -41,8 +42,10 @@ const {
       </aside>
     ) : null}
 
+    {!loadError && liveCenter ? <LiveCenter center={liveCenter} updates={liveUpdates} /> : null}
+
     {!loadError && lead ? (
-      <section class={leadType === 'breaking' ? 'v4-breaking-box' : 'v4-lead-box'}>
+      <section class:list={[leadType === 'breaking' ? 'v4-breaking-box' : 'v4-lead-box', liveCenter ? 'v4-lead-box--below-live' : null]}>
         <div class="v4-lead-label-row">
           {leadCategory ? <div class="v4-lead-label v4-lead-label--category">{leadCategory}</div> : null}
           {leadType === 'breaking' ? <div class="v4-lead-label v4-lead-label--breaking">BREAKING</div> : null}
@@ -96,6 +99,7 @@ const {
 
 <style>
   .v4-lead-main :global(.v4-card__deck) { max-width: 760px; margin-top: 12px; font-family: var(--v4-serif); font-size: clamp(16px, 1.45vw, 20px); line-height: 1.45; color: var(--v4-muted); }
+  .v4-lead-box--below-live, .v4-breaking-box.v4-lead-box--below-live { margin-top: 34px; }
   .v4-frontpage-tier-divider { width: 78%; height: 1px; margin: 26px auto 22px; background: var(--v4-rule); }
   .v4-frontpage-secondary { gap: 24px; }
   .v4-frontpage-secondary :global(.v4-card__headline) { font-size: clamp(18px, 1.45vw, 27px); }
@@ -104,6 +108,7 @@ const {
   .v4-latest-title { margin: 0 0 20px; font-family: var(--v4-serif); font-size: clamp(26px, 3vw, 36px); line-height: 1.05; }
   @media (max-width: 640px) {
     .v4-lead-main :global(.v4-card__deck) { margin-top: 10px; font-size: 16px; line-height: 1.42; }
+    .v4-lead-box--below-live, .v4-breaking-box.v4-lead-box--below-live { margin-top: 26px; }
     .v4-frontpage-tier-divider { width: 82%; margin: 26px auto 22px; }
     .v4-frontpage-primary { row-gap: 20px; }
     .v4-latest-title { margin-bottom: 16px; font-size: 28px; }
