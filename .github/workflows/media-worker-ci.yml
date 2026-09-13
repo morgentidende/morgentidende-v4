@@ -15,7 +15,7 @@ permissions:
   contents: read
 
 jobs:
-  dry-run:
+  build-and-deploy:
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -32,7 +32,7 @@ jobs:
       - name: Install dependencies
         run: npm ci --ignore-scripts --no-audit --no-fund
 
-      - name: Dry-run Worker deploy
+      - name: Validate media worker build
         run: npx wrangler deploy --dry-run --outdir /tmp/media-worker-build
 
       - name: Resolve Cloudflare account
@@ -44,13 +44,7 @@ jobs:
           echo "CLOUDFLARE_ACCOUNT_ID=$ACCOUNT_ID" >> "$GITHUB_ENV"
 
       - name: Deploy media worker
-        id: deploy
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-        continue-on-error: true
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
         run: npx wrangler deploy
-
-      - name: Warn when deploy permission is missing
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main' && steps.deploy.outcome == 'failure'
-        run: echo '::warning::Media Worker was built successfully but not deployed. CLOUDFLARE_API_TOKEN needs Workers Scripts Edit permission.'
