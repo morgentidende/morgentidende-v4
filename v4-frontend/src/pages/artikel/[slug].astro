@@ -12,7 +12,7 @@ Astro.response.headers.set('Cache-Control', 'public, max-age=0, s-maxage=60, sta
 Astro.response.headers.set('Cloudflare-CDN-Cache-Control', 'public, max-age=60, stale-while-revalidate=120');
 
 const { slug } = Astro.params;
-const { article, related, clusterRelated, recommendations, categories, backendError } = await loadArticlePageData(slug);
+const { article, storyRelated, recommendations, categories, backendError } = await loadArticlePageData(slug);
 
 if (backendError) {
   Astro.response.status = 503;
@@ -24,7 +24,6 @@ if (backendError) {
 
 const categoryById = new Map(categories.map((c) => [c.id, c.name]));
 const category = article ? categoryById.get(article.category_id) : '';
-const storyRelated = clusterRelated.length ? clusterRelated : related;
 const { bodyHtml, remainingStoryRelated } = await buildArticleBody(article, storyRelated);
 const briefPoints = buildBriefPoints(article);
 const showBrief = briefPoints.length === 2;
