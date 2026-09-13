@@ -156,19 +156,27 @@ export async function loadOfficialSwedenResults(current: LiveResult | null | und
     const parties = findBestPartyArray(JSON.parse(jsonText));
     if (parties.length < 6) return current || {};
 
-    const redGreen = new Set(['Socialdemokraterna', 'Vänsterpartiet', 'Miljöpartiet', 'Centerpartiet']);
-    const tido = new Set(['Moderaterna', 'Sverigedemokraterna', 'Kristdemokraterna', 'Liberalerna']);
-    const redGreenSeats = parties.filter((p) => redGreen.has(p.name)).reduce((sum, p) => sum + (p.seats || 0), 0);
-    const tidoSeats = parties.filter((p) => tido.has(p.name)).reduce((sum, p) => sum + (p.seats || 0), 0);
-    const blocks = redGreenSeats + tidoSeats > 0 ? [
-      { name: 'Rød-grønne', seats: redGreenSeats }, { name: 'Tidö-partierne', seats: tidoSeats },
+    const redBloc = new Set(['Socialdemokraterna', 'Vänsterpartiet', 'Miljöpartiet', 'Centerpartiet']);
+    const blueBloc = new Set(['Moderaterna', 'Sverigedemokraterna', 'Kristdemokraterna', 'Liberalerna']);
+    const redSeats = parties.filter((p) => redBloc.has(p.name)).reduce((sum, p) => sum + (p.seats || 0), 0);
+    const blueSeats = parties.filter((p) => blueBloc.has(p.name)).reduce((sum, p) => sum + (p.seats || 0), 0);
+    const hasMandates = redSeats + blueSeats > 0;
+    const blocks = hasMandates ? [
+      { name: 'Rød blok', seats: redSeats },
+      { name: 'Blå blok', seats: blueSeats },
     ] : [];
+    const blockSummary = hasMandates
+      ? redSeats === blueSeats
+        ? `Blokkene står lige. 175 mandater kræves for flertal.`
+        : `${redSeats > blueSeats ? 'Rød blok' : 'Blå blok'} fører med ${Math.abs(redSeats - blueSeats)} mandat${Math.abs(redSeats - blueSeats) === 1 ? '' : 'er'}. 175 kræves for flertal.`
+      : undefined;
 
     return {
       ...(current || {}), phase: 'counting', headline: 'Foreløbigt valgresultat', counted_label: 'Optællingen er i gang',
       subheadline: 'Officielle, foreløbige tal fra Valmyndigheten. Resultatet ændrer sig løbende.',
       parties: parties.map(({ name, percent, change }) => ({ name, percent, ...(typeof change === 'number' ? { change } : {}) })),
-      ...(blocks.length ? { blocks } : {}), source_url: ZIP_URL, fetched_at: new Date().toISOString(),
+      ...(blocks.length ? { blocks } : {}), ...(blockSummary ? { block_summary: blockSummary } : {}),
+      source_url: ZIP_URL, fetched_at: new Date().toISOString(),
     };
   } catch {
     return current || {};
