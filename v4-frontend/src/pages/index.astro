@@ -8,6 +8,7 @@ import '../styles/mobile-horizontal-cards.css';
 import '../styles/livecenter-mobile.css';
 import { loadFrontpageData } from '../lib/frontpage-data';
 import { buildFrontpageModel } from '../lib/frontpage-model';
+import { loadOfficialSwedenResults } from '../lib/sweden-live-results';
 
 Astro.response.headers.set('Cache-Control', 'public, max-age=0, s-maxage=30, stale-while-revalidate=60');
 Astro.response.headers.set('Cloudflare-CDN-Cache-Control', 'public, max-age=30, stale-while-revalidate=60');
@@ -19,6 +20,19 @@ if (loadError) {
   Astro.response.headers.set('Cache-Control', 'no-store');
   Astro.response.headers.set('Cloudflare-CDN-Cache-Control', 'no-store');
 }
+
+const liveCenterWithResults = liveCenter?.slug === 'sverige-valg-2026'
+  ? (() => {
+      const resultPromise = loadOfficialSwedenResults(liveCenter.result_data);
+      return resultPromise.then((result_data) => ({
+        ...liveCenter,
+        result_data,
+        result_updated_at: result_data?.fetched_at || liveCenter.result_updated_at,
+      }));
+    })()
+  : Promise.resolve(liveCenter);
+
+const resolvedLiveCenter = await liveCenterWithResults;
 
 const {
   categoryById,
@@ -32,16 +46,16 @@ const {
   leadCategory
 } = buildFrontpageModel(articles, categories);
 
-const liveFollowups = liveCenter?.story_cluster_id
+const liveFollowups = resolvedLiveCenter?.story_cluster_id
   ? articles
-      .filter((article) => article.story_cluster_id === liveCenter.story_cluster_id)
+      .filter((article) => article.story_cluster_id === resolvedLiveCenter.story_cluster_id)
       .sort((a, b) => new Date(b.published_at).getTime() - new Date(a.published_at).getTime())
       .slice(0, 3)
   : [];
 
 const liveFollowupIds = new Set(liveFollowups.map((article) => article.id));
-const displacedLeadPackage = liveCenter && lead ? [lead, ...followups] : [];
-const frontpageNews = liveCenter
+const displacedLeadPackage = resolvedLiveCenter && lead ? [lead, ...followups] : [];
+const frontpageNews = resolvedLiveCenter
   ? [...displacedLeadPackage, ...news]
       .filter((article, index, all) => !liveFollowupIds.has(article.id) && all.findIndex((candidate) => candidate.id === article.id) === index)
       .sort((a, b) => new Date(b.published_at).getTime() - new Date(a.published_at).getTime())
@@ -59,9 +73,9 @@ const frontpageNews = liveCenter
       </aside>
     ) : null}
 
-    {!loadError && liveCenter ? <LiveCenter center={liveCenter} updates={liveUpdates} relatedArticles={liveFollowups} categoryById={categoryById} /> : null}
+    {!loadError && resolvedLiveCenter ? <LiveCenter center={resolvedLiveCenter} updates={liveUpdates} relatedArticles={liveFollowups} categoryById={categoryById} /> : null}
 
-    {!loadError && !liveCenter && lead ? (
+    {!loadError && !resolvedLiveCenter && lead ? (
       <section class:list={[leadType === 'breaking' ? 'v4-breaking-box' : 'v4-lead-box']}>
         <div class="v4-lead-label-row">
           {leadCategory ? <div class="v4-lead-label v4-lead-label--category">{leadCategory}</div> : null}
