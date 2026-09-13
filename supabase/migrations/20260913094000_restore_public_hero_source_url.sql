@@ -55,5 +55,18 @@ where status = 'published'::public.article_status
   and published_at is not null
   and published_at <= now();
 
+-- security_invoker means anon must also be allowed to read every underlying
+-- column referenced by the view (including the status visibility predicate).
+-- Keep this explicit list aligned with the public view instead of granting
+-- table-wide SELECT, so private editorial columns remain inaccessible.
+grant select (
+  id, slug, kind, category_id, story_cluster_id, headline, frontpage_headline,
+  headline_accent_text, deck, body_markdown, author_name, author_title,
+  author_portrait_url, hero_url, hero_alt, hero_source_url, hero_credit,
+  hero_license, hero_license_url, is_lead, lead_rank, is_breaking,
+  breaking_last_update_at, breaking_until, published_at, created_at,
+  editorial_updated_at, updated_at, topics, sagen_kort, source_metadata, status
+) on public.articles to anon;
+
 grant select on public.v4_public_articles to anon;
 revoke all on public.v4_public_articles from authenticated;
