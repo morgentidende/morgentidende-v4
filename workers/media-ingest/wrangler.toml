@@ -2,6 +2,7 @@ name = "morgentidende-media-ingest"
 main = "src/ops-entry.ts"
 compatibility_date = "2026-09-01"
 workers_dev = true
+preview_urls = false
 
 [[r2_buckets]]
 binding = "MEDIA_BUCKET"
