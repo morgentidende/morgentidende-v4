@@ -47,10 +47,20 @@ const resultUpdatedAt = center?.result_updated_at ? fmtTime(center.result_update
         {visibleUpdates.map((update, index) => (
           <article class:list={['livecenter__update', index === 0 && 'livecenter__update--latest']}>
             <time datetime={update.published_at}>{fmtTime(update.published_at)}</time>
-            <div>
-              <h3>{update.headline}</h3>
-              <p>{update.body}</p>
-            </div>
+            <details class="livecenter__update-details">
+              <summary>
+                <h3>{update.headline}</h3>
+                <p class="livecenter__update-teaser">{update.body}</p>
+                <span class="livecenter__update-toggle">
+                  <span class="livecenter__update-toggle-open">Læs hele opdateringen</span>
+                  <span class="livecenter__update-toggle-close">Skjul opdateringen</span>
+                  <span class="livecenter__update-toggle-arrow" aria-hidden="true">↓</span>
+                </span>
+              </summary>
+              <div class="livecenter__update-full">
+                <p>{update.body}</p>
+              </div>
+            </details>
           </article>
         ))}
       </div>
@@ -310,6 +320,61 @@ const resultUpdatedAt = center?.result_updated_at ? fmtTime(center.result_update
 
   .livecenter__update:not(.livecenter__update--latest):not(.livecenter__update--archive) p {
     -webkit-line-clamp: 2;
+  }
+
+  .livecenter__update-details {
+    min-width: 0;
+  }
+
+  .livecenter__update-details summary {
+    cursor: pointer;
+    list-style: none;
+  }
+
+  .livecenter__update-details summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .livecenter__update-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 6px;
+    font-size: 11px;
+    font-weight: 800;
+    color: var(--v4-text);
+  }
+
+  .livecenter__update-toggle-close {
+    display: none;
+  }
+
+  .livecenter__update-toggle-arrow {
+    transition: transform .15s ease;
+  }
+
+  .livecenter__update-details[open] .livecenter__update-teaser,
+  .livecenter__update-details[open] .livecenter__update-toggle-open {
+    display: none;
+  }
+
+  .livecenter__update-details[open] .livecenter__update-toggle-close {
+    display: inline;
+  }
+
+  .livecenter__update-details[open] .livecenter__update-toggle-arrow {
+    transform: rotate(180deg);
+  }
+
+  .livecenter__update-full {
+    padding-top: 7px;
+  }
+
+  .livecenter__update-full p {
+    display: block;
+    -webkit-line-clamp: unset;
+    overflow: visible;
+    color: var(--v4-text);
   }
 
   .livecenter__archive {
@@ -587,6 +652,10 @@ const resultUpdatedAt = center?.result_updated_at ? fmtTime(center.result_update
     .livecenter__source {
       font-size: 12.5px;
       line-height: 1.4;
+    }
+
+    .livecenter__update-toggle {
+      font-size: 11px;
     }
 
     .livecenter__keypoints {
