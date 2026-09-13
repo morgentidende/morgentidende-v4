@@ -198,18 +198,21 @@ export async function loadOfficialSwedenResults(current: LiveResult | null | und
     const blocks = hasMandates ? [
       { name: 'Rød blok', seats: redSeats },
       { name: 'Blå blok', seats: blueSeats },
-    ] : [];
+    ] : [
+      { name: 'Rød blok', seats: 'Afventer' },
+      { name: 'Blå blok', seats: 'Afventer' },
+    ];
     const blockSummary = hasMandates
       ? redSeats === blueSeats
         ? `Blokkene står lige. 175 mandater kræves for flertal.`
         : `${redSeats > blueSeats ? 'Rød blok' : 'Blå blok'} fører med ${Math.abs(redSeats - blueSeats)} mandat${Math.abs(redSeats - blueSeats) === 1 ? '' : 'er'}. 175 kræves for flertal.`
-      : undefined;
+      : 'Valmyndigheten har endnu ikke offentliggjort den foreløbige mandatfordeling. Den kommer normalt omkring kl. 23 på valgaftenen.';
 
     return {
       ...(current || {}), phase: 'counting', headline: 'Foreløbigt valgresultat', counted_label: 'Optællingen er i gang',
       subheadline: 'Officielle, foreløbige tal fra Valmyndigheten. Resultatet ændrer sig løbende.',
       parties: parties.map(({ name, percent, change }) => ({ name, percent, ...(typeof change === 'number' ? { change } : {}) })),
-      ...(blocks.length ? { blocks } : {}), ...(blockSummary ? { block_summary: blockSummary } : {}),
+      blocks, block_summary: blockSummary,
       source_url: ZIP_URL, fetched_at: new Date().toISOString(),
     };
   } catch {
