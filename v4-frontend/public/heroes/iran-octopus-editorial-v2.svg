@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+<title id="title">Iran som mørk blæksprutte over jordkloden</title>
+<desc id="desc">Alvorlig satirisk redaktionel illustration i tusch- og akvarelstil af en ayatollah som mørk blæksprutte, hvis fangarme rækker ud over verden.</desc>
+<defs>
+  <filter id="paper" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency=".7" numOctaves="2" seed="7" result="n"/><feColorMatrix in="n" type="saturate" values="0"/><feComponentTransfer><feFuncA type="table" tableValues="0 .08"/></feComponentTransfer></filter>
+  <filter id="ink" x="-20%" y="-20%" width="140%" height="140%"><feTurbulence type="fractalNoise" baseFrequency=".015" numOctaves="2" seed="19" result="noise"/><feDisplacementMap in="SourceGraphic" in2="noise" scale="7" xChannelSelector="R" yChannelSelector="G"/></filter>
+  <radialGradient id="sea" cx="45%" cy="34%" r="70%"><stop offset="0" stop-color="#7fa7b9"/><stop offset=".55" stop-color="#507d95"/><stop offset="1" stop-color="#2f5b73"/></radialGradient>
+  <linearGradient id="land" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#9cab75"/><stop offset="1" stop-color="#667955"/></linearGradient>
+</defs>
+<rect width="1600" height="900" fill="#efe9dc"/><rect width="1600" height="900" fill="#fff" filter="url(#paper)"/>
+<g opacity=".55" fill="#6d8090"><path d="M20 155 C140 70 255 120 350 85 C470 40 610 55 720 110 C835 60 990 90 1080 70 C1240 40 1360 105 1580 70 L1600 0 0 0Z"/></g>
+<g opacity=".35" fill="#695b50"><path d="M0 260 C120 190 240 235 350 180 C430 145 500 195 585 160 C690 115 790 160 860 145 C985 120 1095 150 1200 120 C1340 80 1450 150 1600 115 L1600 0 0 0Z"/></g>
+<g transform="translate(800 625)" filter="url(#ink)">
+  <circle r="286" fill="url(#sea)" stroke="#1d2326" stroke-width="9"/>
+  <path d="M-235 -45 C-190 -95 -125 -110 -70 -80 C-30 -105 20 -105 70 -74 C110 -35 90 10 42 30 C12 42 -18 72 -48 115 C-92 120 -145 88 -175 53 C-220 45 -250 5 -235 -45Z" fill="url(#land)" stroke="#38453e" stroke-width="5"/>
+  <path d="M-65 -180 C-20 -215 50 -207 105 -175 C145 -155 195 -125 220 -90 C195 -62 165 -50 130 -58 C95 -30 60 -10 20 -20 C-15 -45 -32 -92 -65 -105 C-90 -125 -92 -158 -65 -180Z" fill="url(#land)" stroke="#38453e" stroke-width="5"/>
+  <path d="M40 5 C110 8 160 45 176 112 C163 160 132 210 82 243 C42 205 15 150 3 96 C-8 54 4 20 40 5Z" fill="url(#land)" stroke="#38453e" stroke-width="5"/>
+</g>
+<g filter="url(#ink)" fill="#171719" stroke="#0a0a0b" stroke-width="14" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M745 395 C610 395 530 365 420 300 C330 246 252 210 165 213 C102 216 71 251 82 294 C94 341 160 345 222 318 C299 284 358 294 437 342"/>
+  <path d="M705 430 C570 438 485 435 365 460 C257 482 185 532 102 610 C70 640 64 685 93 708 C127 735 174 704 211 667 C277 600 360 574 486 562"/>
+  <path d="M723 460 C592 495 535 565 476 655 C432 724 382 779 300 824 C266 843 249 872 267 890 C289 911 324 895 358 879 C475 825 567 741 624 654"/>
+  <path d="M856 395 C995 392 1062 351 1174 291 C1268 241 1370 210 1480 235 C1535 248 1561 281 1548 319 C1532 365 1470 366 1415 337 C1344 300 1284 311 1194 357"/>
+  <path d="M880 432 C1005 450 1105 460 1218 509 C1332 558 1394 615 1479 704 C1510 736 1514 777 1484 799 C1448 826 1401 794 1363 751 C1299 681 1218 647 1094 614"/>
+  <path d="M878 470 C1002 512 1070 575 1138 669 C1190 742 1247 797 1334 837 C1371 854 1387 883 1369 902 C1349 922 1312 908 1278 892 C1156 836 1062 754 994 658"/>
+  <path d="M785 496 C737 558 706 636 699 744 C695 808 710 845 746 848 C788 850 805 810 804 750 C802 668 822 585 845 518"/>
+  <path d="M833 497 C880 558 906 641 914 741 C919 802 903 844 869 846 C829 849 812 811 814 752 C815 669 798 585 779 522"/>
+</g>
+<g font-family="Georgia, serif" font-weight="700" font-size="34" fill="#f0e7d6" letter-spacing="1"><text x="196" y="250" transform="rotate(14 196 250)">TERROR</text><text x="240" y="552" transform="rotate(-14 240 552)">PROXYER</text><text x="362" y="742" transform="rotate(-24 362 742)">VÅBEN</text><text x="1182" y="266" transform="rotate(-14 1182 266)">PÅVIRKNING</text><text x="1180" y="553" transform="rotate(15 1180 553)">ATOMPROGRAM</text><text x="1112" y="748" transform="rotate(23 1112 748)">KORRUPTION</text><text x="620" y="716" transform="rotate(84 620 716)">CYBER</text></g>
+<g transform="translate(800 265)" filter="url(#ink)">
+  <ellipse cx="0" cy="-86" rx="156" ry="98" fill="#111" stroke="#090909" stroke-width="11"/>
+  <path d="M-78 -62 C-95 -20 -92 42 -55 88 C-25 123 28 125 60 88 C94 48 100 -16 76 -61 C34 -90 -37 -92 -78 -62Z" fill="#b98c71" stroke="#211713" stroke-width="9"/>
+  <path d="M-54 64 C-88 104 -88 154 -54 189 C-27 216 24 214 53 186 C85 154 84 106 53 65 C30 91 10 104 0 108 C-10 104 -31 92 -54 64Z" fill="#e3ded0" stroke="#282624" stroke-width="8"/>
+  <path d="M-44 10 Q-20 -4 -4 8 M4 8 Q23 -5 48 9" fill="none" stroke="#1b1715" stroke-width="8"/>
+  <circle cx="-23" cy="15" r="6" fill="#171515"/><circle cx="26" cy="15" r="6" fill="#171515"/>
+  <path d="M-26 48 Q0 59 27 46" fill="none" stroke="#5e3e32" stroke-width="6"/>
+  <path d="M-25 -125 L0 -170 L25 -125 Z" fill="#9c2f28" opacity=".8"/>
+</g>
+<g fill="#1d1d1f" opacity=".8"><circle cx="90" cy="170" r="22"/><circle cx="128" cy="150" r="16"/><rect x="65" y="188" width="90" height="80"/><path d="M94 187 L82 125 L94 125 L110 187Z"/><circle cx="1510" cy="160" r="18"/><rect x="1484" y="178" width="52" height="106"/></g>
+<g stroke="#3b3b3c" stroke-width="8" fill="none" opacity=".8"><path d="M70 815 l70 -120 l46 120"/><path d="M140 695 l30 -70"/><path d="M1450 780 l38 -118 l38 118"/><path d="M1488 662 l38 -58"/></g>
+<g fill="#745748" opacity=".35"><circle cx="160" cy="330" r="75"/><circle cx="1408" cy="358" r="82"/><circle cx="1370" cy="795" r="95"/><circle cx="205" cy="770" r="87"/></g>
+</svg>
