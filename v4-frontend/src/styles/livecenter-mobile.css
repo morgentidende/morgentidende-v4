@@ -18,7 +18,7 @@
 
   .livecenter__title {
     font-size: clamp(27px, 7.4vw, 34px) !important;
-    line-height: .98 !important;
+    line-height: 1.02 !important;
   }
 
   .livecenter__deck {
@@ -59,7 +59,7 @@
 
   .livecenter__update h3 {
     font-size: 17px !important;
-    line-height: 1.06 !important;
+    line-height: 1.1 !important;
   }
 
   .livecenter__update--latest h3 {
