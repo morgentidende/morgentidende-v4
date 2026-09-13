@@ -1,11 +1,13 @@
 ---
-const { center, updates = [] } = Astro.props;
+import V4Card from './V4Card.astro';
+const { center, updates = [], relatedArticles = [], categoryById = new Map() } = Astro.props;
 const result = center?.result_data || {};
 const parties = Array.isArray(result.parties) ? result.parties : [];
 const blocks = Array.isArray(result.blocks) ? result.blocks : [];
 const fmtTime = (value) => value ? new Intl.DateTimeFormat('da-DK', { hour: '2-digit', minute: '2-digit', timeZone: 'Europe/Copenhagen' }).format(new Date(value)) : null;
 const latestUpdateAt = updates[0]?.published_at ? fmtTime(updates[0].published_at) : null;
 const resultUpdatedAt = center?.result_updated_at ? fmtTime(center.result_updated_at) : null;
+const followups = relatedArticles.slice(0, 3);
 ---
 <section class="livecenter" aria-labelledby="livecenter-title">
   <header class="livecenter__header">
@@ -90,6 +92,15 @@ const resultUpdatedAt = center?.result_updated_at ? fmtTime(center.result_update
       </div>
     </aside>
   </div>
+
+  {followups.length ? (
+    <div class="livecenter__followups">
+      <div class="livecenter__followups-label">Følg valget</div>
+      <div class="livecenter__followups-grid">
+        {followups.map((article) => <V4Card article={article} categoryName={categoryById.get(article.category_id)} showDeck={false} />)}
+      </div>
+    </div>
+  ) : null}
 </section>
 
 <style>
@@ -144,7 +155,7 @@ const resultUpdatedAt = center?.result_updated_at ? fmtTime(center.result_update
     padding: 15px 17px;
     background: color-mix(in srgb, var(--v4-accent, #d6a72f) 10%, transparent);
     border: 1px solid color-mix(in srgb, var(--v4-accent, #d6a72f) 28%, var(--v4-rule));
-    border-left: 4px solid var(--v4-accent, #d6a72f);
+    border-top: 4px solid var(--v4-accent, #d6a72f);
   }
   .livecenter__keypoints-title { margin-bottom: 7px; font-size: 11px; font-weight: 900; letter-spacing: .09em; text-transform: uppercase; }
   .livecenter__keypoints ul { margin: 0; padding-left: 19px; display: grid; gap: 5px; font-size: 14px; line-height: 1.35; }
@@ -168,6 +179,10 @@ const resultUpdatedAt = center?.result_updated_at ? fmtTime(center.result_update
   .livecenter__block-row strong { font-family: var(--v4-serif); font-size: 24px; }
   .livecenter__block-summary { margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--v4-rule); font-family: var(--v4-serif); font-size: 20px; font-weight: 700; }
   .livecenter__source { margin-top: 20px; padding-top: 12px; border-top: 1px solid var(--v4-rule); font-size: 11px; line-height: 1.45; color: var(--v4-muted); }
+  .livecenter__followups { margin-top: 28px; padding-top: 18px; border-top: 1px solid color-mix(in srgb, var(--v4-accent, #d6a72f) 34%, var(--v4-rule)); }
+  .livecenter__followups-label { margin-bottom: 12px; font-size: 11px; font-weight: 900; letter-spacing: .1em; text-transform: uppercase; color: var(--v4-accent, #d6a72f); }
+  .livecenter__followups-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
+  .livecenter__followups-grid :global(.v4-card__headline) { font-size: clamp(19px, 1.55vw, 26px); }
   @media (max-width: 780px) {
     .livecenter { margin-top: 12px; padding: 20px 16px 24px; }
     .livecenter__header { margin-bottom: 22px; }
@@ -178,5 +193,6 @@ const resultUpdatedAt = center?.result_updated_at ? fmtTime(center.result_update
     .livecenter__update { grid-template-columns: 48px minmax(0, 1fr); gap: 10px; }
     .livecenter__update p { font-size: 14px; }
     .livecenter__meta { gap: 8px 14px; }
+    .livecenter__followups-grid { grid-template-columns: 1fr; gap: 18px; }
   }
 </style>
