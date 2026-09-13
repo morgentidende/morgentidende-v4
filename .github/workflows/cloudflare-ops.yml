@@ -29,21 +29,30 @@ jobs:
           CLOUDFLARE_ZONE_NAME: morgentidende.dk
         run: |
           ACTION=$(node -e "const r=require('./cloudflare-ops/request.json'); process.stdout.write(String(r.action||''))")
-          if [ "$ACTION" != "r2_put_url" ]; then
+          if [ "$ACTION" != "media_ingest_url" ]; then
             node .github/scripts/cloudflare-ops.mjs
             exit 0
           fi
 
-          SOURCE_URL=$(node -e "const r=require('./cloudflare-ops/request.json'); const u=new URL(r.source_url); if (u.protocol!=='https:' || u.hostname!=='upload.wikimedia.org') process.exit(2); process.stdout.write(u.toString())")
-          curl --fail --location --silent --show-error "$SOURCE_URL" --output /tmp/hero.jpg
-          SHA=$(sha256sum /tmp/hero.jpg | awk '{print $1}')
-          BYTES=$(wc -c < /tmp/hero.jpg | tr -d ' ')
-          KEY="heroes/2026/09/${SHA}.jpg"
-
           ACCOUNT_ID=$(node -e "fetch('https://api.cloudflare.com/client/v4/zones?name=morgentidende.dk&status=active&per_page=1',{headers:{authorization:'Bearer '+process.env.CLOUDFLARE_API_TOKEN}}).then(async r=>{const j=await r.json();const id=j.result?.[0]?.account?.id;if(!r.ok||j.success===false||!id){console.error(JSON.stringify(j));process.exit(1)}process.stdout.write(id)})")
           export CLOUDFLARE_ACCOUNT_ID="$ACCOUNT_ID"
 
-          npx --yes wrangler@4.37.1 r2 object put "morgentidende-media/$KEY" --file=/tmp/hero.jpg --content-type=image/jpeg --remote
-          echo "R2_UPLOAD_SHA256=$SHA"
-          echo "R2_UPLOAD_BYTES=$BYTES"
-          echo "R2_UPLOAD_KEY=$KEY"
+          OPS_TOKEN=$(node -e "const c=require('node:crypto'); process.stdout.write(c.createHash('sha256').update('morgentidende-media-ops:'+process.env.ADMIN_TOKEN).digest('hex'))")
+          printf '%s' "$OPS_TOKEN" | npx --yes wrangler@4.37.1 secret put OPS_MEDIA_TOKEN --name morgentidende-media-ingest
+
+          node - <<'NODE' > /tmp/media-payload.json
+          const r = require('./cloudflare-ops/request.json');
+          const p = r.payload;
+          if (!p || typeof p !== 'object') throw new Error('payload_required');
+          if (!/^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(String(p.article_id || ''))) throw new Error('valid_article_id_required');
+          const u = new URL(String(p.source_url || ''));
+          if (u.protocol !== 'https:') throw new Error('https_source_required');
+          if (p.commercial_use_allowed !== true || p.local_storage_allowed !== true) throw new Error('archive_rights_required');
+          process.stdout.write(JSON.stringify(p));
+          NODE
+
+          curl --fail-with-body --silent --show-error \
+            -X POST 'https://morgentidende-media-ingest.morgentidende.workers.dev/ingest' \
+            -H "Authorization: Bearer $OPS_TOKEN" \
+            -H 'Content-Type: application/json' \
+            --data-binary @/tmp/media-payload.json
