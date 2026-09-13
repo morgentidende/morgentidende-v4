@@ -1,17 +1,27 @@
 ---
 import V4Card from './V4Card.astro';
+
 const { center, updates = [], relatedArticles = [], categoryById = new Map() } = Astro.props;
 const result = center?.result_data || {};
 const parties = Array.isArray(result.parties) ? result.parties : [];
 const blocks = Array.isArray(result.blocks) ? result.blocks : [];
-const fmtTime = (value) => value ? new Intl.DateTimeFormat('da-DK', { hour: '2-digit', minute: '2-digit', timeZone: 'Europe/Copenhagen' }).format(new Date(value)) : null;
+const fmtTime = (value) => value
+  ? new Intl.DateTimeFormat('da-DK', {
+      hour: '2-digit',
+      minute: '2-digit',
+      timeZone: 'Europe/Copenhagen',
+    }).format(new Date(value))
+  : null;
 const latestUpdateAt = updates[0]?.published_at ? fmtTime(updates[0].published_at) : null;
 const resultUpdatedAt = center?.result_updated_at ? fmtTime(center.result_updated_at) : null;
 const followups = relatedArticles.slice(0, 3);
 ---
+
 <section class="livecenter" aria-labelledby="livecenter-title">
   <header class="livecenter__header">
-    <div class="livecenter__eyebrow"><span class="livecenter__dot" aria-hidden="true"></span>{center.label}</div>
+    <div class="livecenter__eyebrow">
+      <span class="livecenter__dot" aria-hidden="true"></span>{center.label}
+    </div>
     <h1 id="livecenter-title" class="livecenter__title">{center.title}</h1>
     {center.deck ? <p class="livecenter__deck">{center.deck}</p> : null}
     <div class="livecenter__meta">
@@ -22,19 +32,21 @@ const followups = relatedArticles.slice(0, 3);
 
   <div class="livecenter__grid">
     <section class="livecenter__feed" aria-labelledby="livecenter-feed-title">
-      <div class="livecenter__section-head">
-        <div>
-          <div class="livecenter__section-kicker">LIVE</div>
-          <h2 id="livecenter-feed-title">Seneste fra valget</h2>
+      <div class="livecenter__panel livecenter__panel--feed">
+        <div class="livecenter__section-head">
+          <div>
+            <div class="livecenter__section-kicker">LIVE</div>
+            <h2 id="livecenter-feed-title">Seneste fra valget</h2>
+          </div>
         </div>
-      </div>
 
-      {center.key_points?.length ? (
-        <div class="livecenter__keypoints">
-          <div class="livecenter__keypoints-title">Vigtigst lige nu</div>
-          <ul>{center.key_points.slice(0, 3).map((point) => <li>{point}</li>)}</ul>
-        </div>
-      ) : null}
+        {center.key_points?.length ? (
+          <div class="livecenter__keypoints">
+            <div class="livecenter__keypoints-title">Vigtigst lige nu</div>
+            <ul>{center.key_points.slice(0, 3).map((point) => <li>{point}</li>)}</ul>
+          </div>
+        ) : null}
+      </div>
 
       <div class="livecenter__updates">
         {updates.slice(0, 4).map((update) => (
@@ -49,7 +61,7 @@ const followups = relatedArticles.slice(0, 3);
       </div>
     </section>
 
-    <aside class="livecenter__results" aria-labelledby="livecenter-results-title">
+    <aside class="livecenter__panel livecenter__results" aria-labelledby="livecenter-results-title">
       <div class="livecenter__section-head">
         <div>
           <div class="livecenter__section-kicker livecenter__section-kicker--results">RESULTAT</div>
@@ -58,7 +70,9 @@ const followups = relatedArticles.slice(0, 3);
       </div>
 
       <div class="livecenter__result-status">
-        {typeof result.counted_pct === 'number' && result.counted_pct > 0 ? <div class="livecenter__big-number">{result.counted_pct}<span>%</span></div> : null}
+        {typeof result.counted_pct === 'number' && result.counted_pct > 0
+          ? <div class="livecenter__big-number">{result.counted_pct}<span>%</span></div>
+          : null}
         <div>
           <strong>{result.counted_label || result.headline || 'Afventer optælling'}</strong>
           {result.subheadline ? <p>{result.subheadline}</p> : null}
@@ -71,7 +85,12 @@ const followups = relatedArticles.slice(0, 3);
             <div class="livecenter__party-row" role="row">
               <strong role="cell">{party.name}</strong>
               <span role="cell">{party.percent}%</span>
-              <span class:list={["livecenter__change", party.change > 0 ? 'is-up' : party.change < 0 ? 'is-down' : '']}>{party.change > 0 ? '+' : ''}{party.change ?? ''}</span>
+              <span class:list={[
+                'livecenter__change',
+                party.change > 0 ? 'is-up' : party.change < 0 ? 'is-down' : '',
+              ]}>
+                {party.change > 0 ? '+' : ''}{party.change ?? ''}
+              </span>
             </div>
           ))}
         </div>
@@ -81,9 +100,13 @@ const followups = relatedArticles.slice(0, 3);
         <div class="livecenter__blocks">
           <div class="livecenter__blocks-title">Mandater</div>
           {blocks.map((block) => (
-            <div class="livecenter__block-row"><span>{block.name}</span><strong>{block.seats}</strong></div>
+            <div class="livecenter__block-row">
+              <span>{block.name}</span><strong>{block.seats}</strong>
+            </div>
           ))}
-          {result.block_summary ? <div class="livecenter__block-summary">{result.block_summary}</div> : null}
+          {result.block_summary
+            ? <div class="livecenter__block-summary">{result.block_summary}</div>
+            : null}
         </div>
       ) : null}
 
@@ -97,7 +120,13 @@ const followups = relatedArticles.slice(0, 3);
     <div class="livecenter__followups">
       <div class="livecenter__followups-label">Følg valget</div>
       <div class="livecenter__followups-grid">
-        {followups.map((article) => <V4Card article={article} categoryName={categoryById.get(article.category_id)} showDeck={false} />)}
+        {followups.map((article) => (
+          <V4Card
+            article={article}
+            categoryName={categoryById.get(article.category_id)}
+            showDeck={false}
+          />
+        ))}
       </div>
     </div>
   ) : null}
@@ -114,7 +143,12 @@ const followups = relatedArticles.slice(0, 3);
       color-mix(in srgb, var(--v4-text) 1.5%, transparent);
     box-shadow: 0 12px 34px color-mix(in srgb, var(--v4-text) 7%, transparent);
   }
-  .livecenter__header { max-width: 1020px; margin-bottom: 26px; }
+
+  .livecenter__header {
+    max-width: 1020px;
+    margin-bottom: 26px;
+  }
+
   .livecenter__eyebrow {
     display: inline-flex;
     align-items: center;
@@ -129,70 +163,332 @@ const followups = relatedArticles.slice(0, 3);
     text-transform: uppercase;
     color: var(--v4-accent, #d6a72f);
   }
-  .livecenter__dot { width: 8px; height: 8px; border-radius: 50%; background: currentColor; box-shadow: 0 0 0 4px color-mix(in srgb, currentColor 15%, transparent); }
-  .livecenter__title { max-width: 980px; margin: 0; font-family: var(--v4-serif); font-size: clamp(36px, 4.5vw, 60px); line-height: .98; letter-spacing: -.035em; }
-  .livecenter__deck { max-width: 860px; margin: 13px 0 0; font-family: var(--v4-serif); font-size: clamp(17px, 1.5vw, 20px); line-height: 1.42; color: var(--v4-muted); }
-  .livecenter__meta { display: flex; gap: 18px; flex-wrap: wrap; margin-top: 13px; font-size: 12px; font-weight: 700; color: var(--v4-muted); }
-  .livecenter__grid { display: grid; grid-template-columns: minmax(0, 1.12fr) minmax(310px, .88fr); gap: 30px; align-items: start; }
-  .livecenter__feed, .livecenter__results { min-width: 0; }
-  .livecenter__feed { padding-right: 2px; }
+
+  .livecenter__dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: currentColor;
+    box-shadow: 0 0 0 4px color-mix(in srgb, currentColor 15%, transparent);
+  }
+
+  .livecenter__title {
+    max-width: 980px;
+    margin: 0;
+    font-family: var(--v4-serif);
+    font-size: clamp(36px, 4.5vw, 60px);
+    line-height: .98;
+    letter-spacing: -.035em;
+  }
+
+  .livecenter__deck {
+    max-width: 860px;
+    margin: 13px 0 0;
+    font-family: var(--v4-serif);
+    font-size: clamp(17px, 1.5vw, 20px);
+    line-height: 1.42;
+    color: var(--v4-muted);
+  }
+
+  .livecenter__meta {
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+    margin-top: 13px;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--v4-muted);
+  }
+
+  .livecenter__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.12fr) minmax(310px, .88fr);
+    gap: 30px;
+    align-items: start;
+  }
+
+  .livecenter__feed,
   .livecenter__results {
-    position: sticky;
-    top: 92px;
-    margin-top: 73px;
+    min-width: 0;
+  }
+
+  .livecenter__feed {
+    padding-right: 2px;
+  }
+
+  .livecenter__panel {
+    margin: 0;
     padding: 20px 22px 18px;
     border: 1px solid color-mix(in srgb, var(--v4-accent, #d6a72f) 34%, var(--v4-rule));
     border-top: 4px solid var(--v4-accent, #d6a72f);
     background: color-mix(in srgb, var(--v4-accent, #d6a72f) 5%, transparent);
     box-shadow: 0 8px 24px color-mix(in srgb, var(--v4-text) 5%, transparent);
   }
-  .livecenter__section-head { display: flex; justify-content: space-between; align-items: end; margin-bottom: 15px; }
-  .livecenter__section-kicker { margin-bottom: 5px; font-size: 11px; font-weight: 900; letter-spacing: .12em; color: #c7362f; }
-  .livecenter__section-kicker--results { color: var(--v4-accent, #d6a72f); }
-  .livecenter__section-head h2 { margin: 0; font-family: var(--v4-serif); font-size: clamp(26px, 2.4vw, 35px); line-height: 1; }
-  .livecenter__keypoints {
-    margin-bottom: 20px;
-    padding: 15px 17px;
-    background: color-mix(in srgb, var(--v4-accent, #d6a72f) 10%, transparent);
-    border: 1px solid color-mix(in srgb, var(--v4-accent, #d6a72f) 28%, var(--v4-rule));
-    border-top: 4px solid var(--v4-accent, #d6a72f);
+
+  .livecenter__panel--feed {
+    padding: 17px 17px 15px;
+    background: color-mix(in srgb, var(--v4-accent, #d6a72f) 8%, transparent);
   }
-  .livecenter__keypoints-title { margin-bottom: 7px; font-size: 11px; font-weight: 900; letter-spacing: .09em; text-transform: uppercase; }
-  .livecenter__keypoints ul { margin: 0; padding-left: 19px; display: grid; gap: 5px; font-size: 14px; line-height: 1.35; }
-  .livecenter__update { display: grid; grid-template-columns: 58px minmax(0, 1fr); gap: 14px; padding: 18px 0; border-top: 1px solid var(--v4-rule); }
-  .livecenter__update:first-child { border-top: 3px solid var(--v4-text); }
-  .livecenter__update time { padding-top: 3px; font-variant-numeric: tabular-nums; font-size: 13px; font-weight: 900; color: var(--v4-muted); }
-  .livecenter__update h3 { margin: 0 0 7px; font-family: var(--v4-serif); font-size: clamp(20px, 1.9vw, 27px); line-height: 1.08; }
-  .livecenter__update p { margin: 0; font-size: 14px; line-height: 1.52; color: var(--v4-muted); }
-  .livecenter__result-status { display: grid; grid-template-columns: auto 1fr; gap: 18px; align-items: center; padding: 18px 0 20px; border-top: 3px solid var(--v4-text); border-bottom: 1px solid var(--v4-rule); }
-  .livecenter__big-number { font-family: var(--v4-serif); font-size: clamp(54px, 6vw, 84px); font-weight: 700; line-height: .8; letter-spacing: -.06em; }
-  .livecenter__big-number span { margin-left: 3px; font-size: .38em; }
-  .livecenter__result-status strong { display: block; font-family: var(--v4-serif); font-size: clamp(21px, 2vw, 29px); line-height: 1.04; }
-  .livecenter__result-status p { margin: 8px 0 0; font-size: 13px; line-height: 1.4; color: var(--v4-muted); }
-  .livecenter__party-table { margin-top: 18px; }
-  .livecenter__party-row { display: grid; grid-template-columns: 1fr 70px 58px; gap: 10px; padding: 9px 0; border-bottom: 1px solid var(--v4-rule); font-variant-numeric: tabular-nums; }
-  .livecenter__party-row span { text-align: right; }
-  .livecenter__change { color: var(--v4-muted); }
-  .livecenter__blocks { margin-top: 22px; padding-top: 15px; border-top: 2px solid var(--v4-text); }
-  .livecenter__blocks-title { margin-bottom: 8px; font-size: 11px; font-weight: 900; letter-spacing: .09em; text-transform: uppercase; }
-  .livecenter__block-row { display: flex; justify-content: space-between; gap: 20px; padding: 7px 0; font-size: 17px; }
-  .livecenter__block-row strong { font-family: var(--v4-serif); font-size: 24px; }
-  .livecenter__block-summary { margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--v4-rule); font-family: var(--v4-serif); font-size: 20px; font-weight: 700; }
-  .livecenter__source { margin-top: 20px; padding-top: 12px; border-top: 1px solid var(--v4-rule); font-size: 11px; line-height: 1.45; color: var(--v4-muted); }
-  .livecenter__followups { margin-top: 28px; padding-top: 18px; border-top: 1px solid color-mix(in srgb, var(--v4-accent, #d6a72f) 34%, var(--v4-rule)); }
-  .livecenter__followups-label { margin-bottom: 12px; font-size: 11px; font-weight: 900; letter-spacing: .1em; text-transform: uppercase; color: var(--v4-accent, #d6a72f); }
-  .livecenter__followups-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
-  .livecenter__followups-grid :global(.v4-card__headline) { font-size: clamp(19px, 1.55vw, 26px); }
+
+  .livecenter__section-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    margin-bottom: 15px;
+  }
+
+  .livecenter__section-kicker {
+    margin-bottom: 5px;
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: .12em;
+    color: #c7362f;
+  }
+
+  .livecenter__section-kicker--results {
+    color: var(--v4-accent, #d6a72f);
+  }
+
+  .livecenter__section-head h2 {
+    margin: 0;
+    font-family: var(--v4-serif);
+    font-size: clamp(26px, 2.4vw, 35px);
+    line-height: 1;
+  }
+
+  .livecenter__keypoints-title {
+    margin-bottom: 7px;
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: .09em;
+    text-transform: uppercase;
+  }
+
+  .livecenter__keypoints ul {
+    margin: 0;
+    padding-left: 19px;
+    display: grid;
+    gap: 5px;
+    font-size: 14px;
+    line-height: 1.35;
+  }
+
+  .livecenter__updates {
+    margin-top: 20px;
+  }
+
+  .livecenter__update {
+    display: grid;
+    grid-template-columns: 58px minmax(0, 1fr);
+    gap: 14px;
+    padding: 18px 0;
+    border-top: 1px solid var(--v4-rule);
+  }
+
+  .livecenter__update:first-child {
+    border-top: 3px solid var(--v4-text);
+  }
+
+  .livecenter__update time {
+    padding-top: 3px;
+    font-variant-numeric: tabular-nums;
+    font-size: 13px;
+    font-weight: 900;
+    color: var(--v4-muted);
+  }
+
+  .livecenter__update h3 {
+    margin: 0 0 7px;
+    font-family: var(--v4-serif);
+    font-size: clamp(20px, 1.9vw, 27px);
+    line-height: 1.08;
+  }
+
+  .livecenter__update p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.52;
+    color: var(--v4-muted);
+  }
+
+  .livecenter__result-status {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 18px;
+    align-items: center;
+    padding: 18px 0 20px;
+    border-top: 3px solid var(--v4-text);
+    border-bottom: 1px solid var(--v4-rule);
+  }
+
+  .livecenter__big-number {
+    font-family: var(--v4-serif);
+    font-size: clamp(54px, 6vw, 84px);
+    font-weight: 700;
+    line-height: .8;
+    letter-spacing: -.06em;
+  }
+
+  .livecenter__big-number span {
+    margin-left: 3px;
+    font-size: .38em;
+  }
+
+  .livecenter__result-status strong {
+    display: block;
+    font-family: var(--v4-serif);
+    font-size: clamp(21px, 2vw, 29px);
+    line-height: 1.04;
+  }
+
+  .livecenter__result-status p {
+    margin: 8px 0 0;
+    font-size: 13px;
+    line-height: 1.4;
+    color: var(--v4-muted);
+  }
+
+  .livecenter__party-table {
+    margin-top: 18px;
+  }
+
+  .livecenter__party-row {
+    display: grid;
+    grid-template-columns: 1fr 70px 58px;
+    gap: 10px;
+    padding: 9px 0;
+    border-bottom: 1px solid var(--v4-rule);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .livecenter__party-row span {
+    text-align: right;
+  }
+
+  .livecenter__change {
+    color: var(--v4-muted);
+  }
+
+  .livecenter__blocks {
+    margin-top: 22px;
+    padding-top: 15px;
+    border-top: 2px solid var(--v4-text);
+  }
+
+  .livecenter__blocks-title {
+    margin-bottom: 8px;
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: .09em;
+    text-transform: uppercase;
+  }
+
+  .livecenter__block-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 7px 0;
+    font-size: 17px;
+  }
+
+  .livecenter__block-row strong {
+    font-family: var(--v4-serif);
+    font-size: 24px;
+  }
+
+  .livecenter__block-summary {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid var(--v4-rule);
+    font-family: var(--v4-serif);
+    font-size: 20px;
+    font-weight: 700;
+  }
+
+  .livecenter__source {
+    margin-top: 20px;
+    padding-top: 12px;
+    border-top: 1px solid var(--v4-rule);
+    font-size: 11px;
+    line-height: 1.45;
+    color: var(--v4-muted);
+  }
+
+  .livecenter__followups {
+    margin-top: 28px;
+    padding-top: 18px;
+    border-top: 1px solid color-mix(in srgb, var(--v4-accent, #d6a72f) 34%, var(--v4-rule));
+  }
+
+  .livecenter__followups-label {
+    margin-bottom: 12px;
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--v4-accent, #d6a72f);
+  }
+
+  .livecenter__followups-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+  }
+
+  .livecenter__followups-grid :global(.v4-card__headline) {
+    font-size: clamp(19px, 1.55vw, 26px);
+  }
+
   @media (max-width: 780px) {
-    .livecenter { margin-top: 12px; padding: 20px 16px 24px; }
-    .livecenter__header { margin-bottom: 22px; }
-    .livecenter__title { font-size: clamp(34px, 10vw, 46px); }
-    .livecenter__grid { display: flex; flex-direction: column; gap: 25px; }
-    .livecenter__results { order: -1; position: static; width: 100%; margin-top: 0; padding: 17px 16px 15px; }
-    .livecenter__feed { width: 100%; }
-    .livecenter__update { grid-template-columns: 48px minmax(0, 1fr); gap: 10px; }
-    .livecenter__update p { font-size: 14px; }
-    .livecenter__meta { gap: 8px 14px; }
-    .livecenter__followups-grid { grid-template-columns: 1fr; gap: 18px; }
+    .livecenter {
+      margin-top: 12px;
+      padding: 20px 16px 24px;
+    }
+
+    .livecenter__header {
+      margin-bottom: 22px;
+    }
+
+    .livecenter__title {
+      font-size: clamp(34px, 10vw, 46px);
+    }
+
+    .livecenter__grid {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+
+    .livecenter__results {
+      order: -1;
+      width: 100%;
+      padding: 17px 16px 15px;
+    }
+
+    .livecenter__feed {
+      width: 100%;
+    }
+
+    .livecenter__panel--feed {
+      padding: 17px 16px 15px;
+    }
+
+    .livecenter__update {
+      grid-template-columns: 48px minmax(0, 1fr);
+      gap: 10px;
+    }
+
+    .livecenter__update p {
+      font-size: 14px;
+    }
+
+    .livecenter__meta {
+      gap: 8px 14px;
+    }
+
+    .livecenter__followups-grid {
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
   }
 </style>
