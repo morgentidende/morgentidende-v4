@@ -3,10 +3,24 @@ import { v4Supabase } from './v4-supabase';
 const articleFields = 'id,slug,category_id,story_cluster_id,headline,deck,body_markdown,author_name,hero_url,hero_alt,hero_credit,hero_license,published_at,updated_at,sagen_kort,source_metadata';
 const cardFields = 'id,slug,category_id,story_cluster_id,headline,frontpage_headline,headline_accent_text,deck,hero_url,hero_alt,published_at';
 
+const mergeStoryRelated = (explicitRelated: any[], clusterRelated: any[]) => {
+  const seen = new Set<string>();
+  const merged: any[] = [];
+
+  for (const item of [...explicitRelated, ...clusterRelated]) {
+    if (!item?.id || seen.has(item.id)) continue;
+    seen.add(item.id);
+    merged.push(item);
+  }
+
+  return merged;
+};
+
 export async function loadArticlePageData(slug?: string) {
   let article: any = null;
   let related: any[] = [];
   let clusterRelated: any[] = [];
+  let storyRelated: any[] = [];
   let recommendations: any[] = [];
   let categories: any[] = [];
   let backendError = false;
@@ -62,7 +76,7 @@ export async function loadArticlePageData(slug?: string) {
         recommendations = recResult.data || [];
 
         const relatedIds = Array.from(new Set((relationResult.data || []).map((relation: any) => relation.related_article_id)));
-        if (relatedIds.length && !clusterRelated.length) {
+        if (relatedIds.length) {
           const relatedResult = await v4Supabase
             .from('v4_public_articles')
             .select(cardFields)
@@ -70,11 +84,13 @@ export async function loadArticlePageData(slug?: string) {
           const byId = new Map((relatedResult.data || []).map((item) => [item.id, item]));
           related = relatedIds.map((id) => byId.get(id)).filter(Boolean);
         }
+
+        storyRelated = mergeStoryRelated(related, clusterRelated);
       }
     } else {
       backendError = true;
     }
   }
 
-  return { article, related, clusterRelated, recommendations, categories, backendError };
+  return { article, related, clusterRelated, storyRelated, recommendations, categories, backendError };
 }
