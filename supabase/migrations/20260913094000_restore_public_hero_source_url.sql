@@ -19,7 +19,6 @@ select
   author_portrait_url,
   hero_url,
   hero_alt,
-  hero_source_url,
   hero_credit,
   hero_license,
   hero_license_url,
@@ -49,7 +48,8 @@ select
       ) as source_item(value)
     ),
     '[]'::jsonb
-  ) as source_metadata
+  ) as source_metadata,
+  hero_source_url
 from public.articles
 where status = 'published'::public.article_status
   and published_at is not null
