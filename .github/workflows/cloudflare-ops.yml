@@ -34,12 +34,6 @@ jobs:
             exit 0
           fi
 
-          ACCOUNT_ID=$(node -e "fetch('https://api.cloudflare.com/client/v4/zones?name=morgentidende.dk&status=active&per_page=1',{headers:{authorization:'Bearer '+process.env.CLOUDFLARE_API_TOKEN}}).then(async r=>{const j=await r.json();const id=j.result?.[0]?.account?.id;if(!r.ok||j.success===false||!id){console.error(JSON.stringify(j));process.exit(1)}process.stdout.write(id)})")
-          export CLOUDFLARE_ACCOUNT_ID="$ACCOUNT_ID"
-
-          OPS_TOKEN=$(node -e "const c=require('node:crypto'); process.stdout.write(c.createHash('sha256').update('morgentidende-media-ops:'+process.env.ADMIN_TOKEN).digest('hex'))")
-          printf '%s' "$OPS_TOKEN" | npx --yes wrangler@4.37.1 secret put OPS_MEDIA_TOKEN --name morgentidende-media-ingest
-
           node - <<'NODE' > /tmp/media-payload.json
           const r = require('./cloudflare-ops/request.json');
           const p = r.payload;
@@ -51,8 +45,31 @@ jobs:
           process.stdout.write(JSON.stringify(p));
           NODE
 
-          curl --fail-with-body --silent --show-error \
-            -X POST 'https://morgentidende-media-ingest.morgentidende.workers.dev/ingest' \
-            -H "Authorization: Bearer $OPS_TOKEN" \
-            -H 'Content-Type: application/json' \
-            --data-binary @/tmp/media-payload.json
+          OPS_TOKEN=$(node -e "const c=require('node:crypto'); process.stdout.write(c.createHash('sha256').update('morgentidende-media-ops:'+process.env.ADMIN_TOKEN).digest('hex'))")
+
+          ingest() {
+            curl --silent --show-error \
+              -o /tmp/media-response.json \
+              -w '%{http_code}' \
+              -X POST 'https://morgentidende-media-ingest.morgentidende.workers.dev/ingest' \
+              -H "Authorization: Bearer $OPS_TOKEN" \
+              -H 'Content-Type: application/json' \
+              --data-binary @/tmp/media-payload.json
+          }
+
+          STATUS=$(ingest)
+
+          # Normal path does not touch Cloudflare administration at all. If the
+          # ops token is ever rotated or lost, repair it once and retry.
+          if [ "$STATUS" = "401" ]; then
+            ACCOUNT_ID=$(node -e "fetch('https://api.cloudflare.com/client/v4/zones?name=morgentidende.dk&status=active&per_page=1',{headers:{authorization:'Bearer '+process.env.CLOUDFLARE_API_TOKEN}}).then(async r=>{const j=await r.json();const id=j.result?.[0]?.account?.id;if(!r.ok||j.success===false||!id){console.error(JSON.stringify(j));process.exit(1)}process.stdout.write(id)})")
+            export CLOUDFLARE_ACCOUNT_ID="$ACCOUNT_ID"
+            printf '%s' "$OPS_TOKEN" | npx --yes wrangler@4.37.1 secret put OPS_MEDIA_TOKEN --name morgentidende-media-ingest >/dev/null
+            STATUS=$(ingest)
+          fi
+
+          cat /tmp/media-response.json
+          if [ "$STATUS" -lt 200 ] || [ "$STATUS" -ge 300 ]; then
+            echo "media_ingest_http_status=$STATUS" >&2
+            exit 1
+          fi
