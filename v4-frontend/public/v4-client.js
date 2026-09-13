@@ -222,3 +222,30 @@ document.querySelectorAll('.v4-article-body a').forEach((link) => {
   if (link.closest('.v4-inline-related')) return;
   link.replaceWith(...link.childNodes);
 });
+
+// Keep the live archive control explicit in both states.
+document.querySelectorAll('.livecenter__archive').forEach((archive) => {
+  const summary = archive.querySelector('summary');
+  if (!summary) return;
+
+  let label = summary.querySelector('.livecenter__archive-label');
+  let triangle = summary.querySelector('.livecenter__archive-triangle');
+
+  if (!label || !triangle) {
+    summary.textContent = '';
+    label = document.createElement('span');
+    label.className = 'livecenter__archive-label';
+    triangle = document.createElement('span');
+    triangle.className = 'livecenter__archive-triangle';
+    triangle.setAttribute('aria-hidden', 'true');
+    summary.append(label, triangle);
+  }
+
+  const syncArchiveToggle = () => {
+    label.textContent = archive.open ? 'Se færre opdateringer' : 'Se alle opdateringer';
+    triangle.textContent = '▾';
+  };
+
+  syncArchiveToggle();
+  archive.addEventListener('toggle', syncArchiveToggle);
+});
