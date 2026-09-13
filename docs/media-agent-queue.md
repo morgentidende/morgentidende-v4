@@ -16,17 +16,22 @@ AI-heros sendes direkte som fil til `POST /upload` som `multipart/form-data`:
 
 Det fjerner behovet for midlertidig offentlig URL eller staging-tjeneste. Workeren gemmer filen direkte i R2, deduplikerer på SHA-256, opretter `media_assets` og knytter asset til artiklen, når `article_id` er medsendt.
 
+## Fast path er den eneste normale indgang
+Ved både chatstyret og autonom publicering skal `/ingest` eller `/upload` bruges direkte. Et URL-baseret hero-forsøg skal derfor altid gennem den synkrone `/ingest`-vej først.
+
+`media_ingest_jobs` er **ikke** en alternativ normal indgang til mediearkivet. Et job må kun oprettes som fallback efter en dokumenteret midlertidig fejl fra fast path, fx HTTP 5xx eller `source_fetch_failed` med upstream 408, 425, 429 eller 5xx.
+
+Den gamle generelle `enqueue_media_ingest_job`-RPC er deaktiveret for `service_role`, og direkte `INSERT` i køtabellen er blokeret. Fallback-job oprettes kun gennem `enqueue_media_ingest_fallback`, som validerer både arkivrettigheder og at den forudgående fejl faktisk var midlertidig. Det forhindrer, at en normal hero ved en fejl bliver lagt direkte i kø og dermed unødigt forsinket.
+
+## Fallback-kø
+Cloudflare Workerens cron-trigger kører hvert **4. minut** og claimer højst 10 jobs ad gangen. Køen er kun et sikkerhedsnet for fast-path-fejl; normale heros skal som udgangspunkt være færdige i samme request.
+
+Ved en transient fejl prøves der igen efter cirka **4, 12 og 30 minutter**. Et job får højst tre køforsøg. Jobs, der sidder fast i `processing` i mere end 15 minutter, frigives automatisk eller markeres `failed` efter tredje forsøg.
+
+Køtabellen og RPC-funktionerne er ikke offentlige. `anon` og `authenticated` har ingen adgang; Workerens `service_role` kan claime og opdatere jobs, men kan ikke omgå fallback-valideringen ved selv at indsætte nye køjobs.
+
 ## Udgiv nu
-Ved chatstyret publicering skal `/ingest` eller `/upload` bruges direkte, så hero behandles med det samme. Artikeltekst/research og hero-generation bør køre parallelt, og publicering må ikke vente på den fem-minutters kø, når brugeren har bedt om udgivelse nu.
-
-## Baggrundskø
-Supabase-køen `enqueue_media_ingest_job(article_id, payload)` beholdes til autonome opgaver, batch-arbejde og retries. Den er URL-baseret og egner sig især til eksterne billeder.
-
-Cloudflare Workerens cron-trigger kører hvert femte minut, claimer højst fem jobs ad gangen og sender dem gennem den samme validerede ingest-logik som `POST /ingest`. Ved succes sættes jobbet til `done`, asset-id gemmes, og artiklen får automatisk `hero_media_id` og intern `hero_url`.
-
-Fejl retries automatisk op til tre forsøg. Jobs, der sidder fast i `processing` i mere end 15 minutter, frigives automatisk eller markeres `failed` efter tredje forsøg.
-
-Køtabellen og RPC-funktionerne er kun tilgængelige for `service_role`; anon/authenticated har ingen adgang.
+Når brugeren beder om udgivelse nu, skal artikeltekst/research og hero-arbejde så vidt muligt køre parallelt. Publicering må ikke planlægges omkring cron-køen. Hvis fast path lykkes, tilknyttes `hero_media_id` straks, hvorefter den normale 2-minutters prepublication-QA-buffer kan begynde.
 
 ## Faste metadata
 Begge veje skal medtage, når relevant: `source_provider`, `source_asset_id`, `license_name`, `license_url`, `credit_text`, `rights_notes`, `rights_expires_at`, `modifications_allowed`, `attribution_required`, `alt_text` og `metadata`.
