@@ -33,6 +33,10 @@ const { relevantThree, currentThree } = buildArticleRecommendations(article, rec
 const heroIsGraphic = /\.(svg|png)(\?|$)/i.test(article?.hero_url || '') && (article?.hero_credit === 'Morgentidende grafik' || (article?.hero_url || '').includes('dsa-big-brother'));
 const siteBase = Astro.site || Astro.url.origin;
 const sourceItems = buildSourceItems(article);
+const showHeroCredit = Boolean(
+  article?.hero_credit &&
+  !['Morgentidende', 'Morgentidende grafik'].includes(article.hero_credit)
+);
 const {
   canonical,
   facebookShareUrl,
@@ -77,13 +81,6 @@ const {
       {article.hero_url ? (
         <figure class:list={["v4-article-hero", heroIsGraphic && "v4-article-hero--graphic"]}>
           <img src={article.hero_url} alt={article.hero_alt || article.headline} loading="eager" fetchpriority="high" decoding="async" />
-          {(article.hero_credit || article.hero_license) && article.hero_credit !== 'Morgentidende grafik' ? (
-            <figcaption class="v4-hero-credit">
-              {article.hero_credit ? `Foto: ${article.hero_credit}` : ''}
-              {article.hero_credit && article.hero_license ? ' · ' : ''}
-              {article.hero_license || ''}
-            </figcaption>
-          ) : null}
         </figure>
       ) : null}
 
@@ -98,6 +95,19 @@ const {
             ))}
           </ul>
         </section>
+      ) : null}
+
+      {showHeroCredit ? (
+        <div class="v4-article-image-credit" aria-label="Billedkreditering">
+          <span>Billede: </span>
+          {article.hero_source_url ? (
+            <a href={article.hero_source_url} target="_blank" rel="noopener noreferrer">{article.hero_credit}</a>
+          ) : article.hero_credit}
+          {article.hero_license ? <span> · {article.hero_license}</span> : null}
+          {article.hero_license_url ? (
+            <span> · <a href={article.hero_license_url} target="_blank" rel="noopener noreferrer">Licens</a></span>
+          ) : null}
+        </div>
       ) : null}
 
       <div class="v4-article-share" aria-label="Del artikel">
@@ -149,6 +159,7 @@ const {
 
 <style>
   .v4-article-sources,
+  .v4-article-image-credit,
   .v4-article-share {
     width: min(100% - 32px, 760px);
     margin-left: auto;
@@ -179,9 +190,17 @@ const {
     font-size: .94rem;
   }
 
-  .v4-article-sources a {
+  .v4-article-sources a,
+  .v4-article-image-credit a {
     text-decoration: underline;
     text-underline-offset: 2px;
+  }
+
+  .v4-article-image-credit {
+    margin-top: 1rem;
+    font-size: .72rem;
+    line-height: 1.35;
+    color: var(--v4-muted);
   }
 
   .v4-article-share {
