@@ -1,5 +1,5 @@
 name = "morgentidende-media-ingest"
-main = "src/queue-entry.ts"
+main = "src/ops-entry.ts"
 compatibility_date = "2026-09-01"
 workers_dev = true
 
@@ -16,5 +16,6 @@ crons = ["*/4 * * * *"]
 
 # Secrets required at deploy time (never commit values):
 # MEDIA_INGEST_TOKEN
+# OPS_MEDIA_TOKEN
 # SUPABASE_URL
 # SUPABASE_SERVICE_ROLE_KEY
