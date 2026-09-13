@@ -291,6 +291,54 @@ Listen er kurateret til nationalkonservative, frihedsorienterede, klassisk liber
 109. **Foundation for Economic Education** — `fee.org` — klassisk liberal økonomi og frihedsorienterede forklaringer.
 110. **Quillette** — `quillette.com` — heterodoks kultur, identitet, videnskab og ytringsfrihed.
 
+## Asien
+
+111. **The Nation Thailand** — `nationthailand.com` — Thailand, politik og sikkerhed; særlig nyttig til oprøret og islamistisk vold i Sydthailand.
+112. **Bangkok Post** — `bangkokpost.com` — bred thailandsk nyhedsdækning, sikkerhed, grænser og Sydthailand.
+113. **Philippine Daily Inquirer** — `inquirer.net` — Filippinerne, Mindanao, Bangsamoro, terror og national politik.
+114. **Philstar** — `philstar.com` — Filippinerne, kriminalitet, sikkerhed, Mindanao og politik.
+115. **Manila Bulletin** — `mb.com.ph` — Filippinerne, lokal sikkerhed, terrorbekæmpelse og politik.
+116. **TOLOnews** — `tolonews.com` — Afghanistan, Taliban, ISIS-K, sikkerhed og samfund.
+117. **Pajhwok Afghan News** — `pajhwok.com` — lokal afghansk nyhedsdækning, provinser, Taliban og sikkerhed.
+118. **Amu TV** — `amu.tv` — Afghanistan med kritisk dækning af Taliban, menneskerettigheder, sikkerhed og diaspora.
+119. **Dawn** — `dawn.com` — Pakistan, TTP, Balochistan, Afghanistan-grænsen, islamisme og politik.
+120. **The Express Tribune** — `tribune.com.pk` — Pakistan, terror, sikkerhed, politik og regionale konflikter.
+121. **The Indian Express** — `indianexpress.com` — Indien, Kashmir, terrorbekæmpelse, islamisme, Pakistan og national politik.
+122. **Times of India** — `timesofindia.indiatimes.com` — bred indisk nyhedsdækning med stærk lokal rækkevidde; sikkerhed, terror og kriminalitet.
+123. **Hindustan Times** — `hindustantimes.com` — Indien, Kashmir, sikkerhed, religion og national politik.
+124. **ANTARA News** — `antaranews.com` — indonesisk nationalt nyhedsbureau; hurtige lokale historier om sikkerhed, terror og politik.
+125. **The Jakarta Post** — `thejakartapost.com` — Indonesien, politisk islam, terror, religion og national politik.
+126. **Jakarta Globe** — `jakartaglobe.id` — Indonesien, politik, sikkerhed, religion og økonomi.
+127. **Detik** — `detik.com` — meget hurtig indonesisk nyhedsstrøm; terror, kriminalitet, religion og lokale hændelser.
+128. **The Daily Star** — `thedailystar.net` — Bangladesh, islamisme, religiøs vold, politik og sekularisme.
+129. **Dhaka Tribune** — `dhakatribune.com` — Bangladesh, sikkerhed, religion, politik og menneskerettigheder.
+130. **Malay Mail** — `malaymail.com` — Malaysia, politisk islam, religion, sharia-debatter og national politik.
+131. **New Straits Times** — `nst.com.my` — Malaysia, sikkerhed, religion, politik og regionalt stof.
+132. **Free Malaysia Today** — `freemalaysiatoday.com` — Malaysia, frihedsrettigheder, politisk islam og samfund.
+
+## Afrika
+
+133. **Garowe Online** — `garoweonline.com` — Somalia og Afrikas Horn; al-Shabaab, ISIS-Somalia, Puntland og regional sikkerhed.
+134. **Hiiraan Online** — `hiiraan.com` — Somalia, al-Shabaab, terrorangreb, politik og regionale sikkerhedshændelser.
+135. **Premium Times Nigeria** — `premiumtimesng.com` — Nigeria, Boko Haram, ISWAP, sikkerhed, korruption og politik.
+136. **Daily Trust** — `dailytrust.com` — Nigeria og Sahel; Boko Haram/ISWAP, banditvold, religion og sikkerhed.
+137. **Africanews** — `africanews.com` — panafrikansk nyhedsstrøm med konflikter, kup, terror og politik på tværs af kontinentet.
+138. **APA News** — `apanews.net` — afrikansk nyhedsbureau; Vestafrika, Sahel, sikkerhed og politik.
+139. **The EastAfrican** — `theeastafrican.co.ke` — Østafrika, regional politik, Somalia, al-Shabaab og grænseoverskridende sikkerhed.
+140. **Nation Africa** — `nation.africa` — Kenya og Østafrika; al-Shabaab, kriminalitet, politik og regionale konflikter.
+141. **The Standard Kenya** — `standardmedia.co.ke` — Kenya, terror, sikkerhed, Somalia-grænsen og national politik.
+142. **Club of Mozambique** — `clubofmozambique.com` — Mozambique, Cabo Delgado, islamistisk oprør og lokal politik.
+143. **Daily Monitor Uganda** — `monitor.co.ug` — Uganda og Great Lakes; ADF, sikkerhed, politik og regionale konflikter.
+144. **Actualite.cd** — `actualite.cd` — DR Congo, ADF, væbnede grupper, politik og sikkerhed.
+
+## Terror- og konflikt-radarer
+
+145. **ACLED** — `acleddata.com` — konfliktdata og hændelsesregistrering; bruges til at opdage mønstre og kontrollere geografisk udvikling.
+146. **Long War Journal** — `longwarjournal.org` — jihadistiske grupper og terrornetværk; discovery-first og følg videre til primærkilder.
+147. **Critical Threats Project** — `criticalthreats.org` — løbende analyser af jihadistiske og andre sikkerhedstrusler; discovery/analyse, verificér konkrete hændelser.
+148. **U.S. Africa Command (AFRICOM)** — `africom.mil` — primærkilde til amerikanske operationer og vurderinger i Afrika; supplér med uafhængige kilder.
+149. **U.S. Central Command (CENTCOM)** — `centcom.mil` — primærkilde til amerikanske operationer i bl.a. Afghanistan-/Pakistan-nære og mellemøstlige konfliktzoner; supplér med uafhængige kilder.
+
 ---
 
 # Praktisk scan-prioritering
@@ -308,6 +356,10 @@ Prioritér især sider, der ofte linker til originale dokumenter eller opdager k
 - Centraleuropa: Do Rzeczy, wPolityce, Mandiner, Brussels Signal, European Conservative
 - UK/Irland: Spectator, Spiked, Guido Fawkes, Migration Watch, Free Speech Union, Gript, The Burkean
 - USA/internationalt: Reason, National Review, City Journal, Free Press, Jihad Watch, Gatestone, Cato
+- Sydasien/Afghanistan: Dawn, TOLOnews, Pajhwok, Amu TV, Indian Express, Express Tribune
+- Sydøstasien: Nation Thailand, Bangkok Post, Philippine Daily Inquirer, Philstar, ANTARA, Detik, Jakarta Post
+- Afrika/Horn/Sahel: Garowe Online, Hiiraan Online, Premium Times, Daily Trust, Nation Africa, EastAfrican, Africanews, Club of Mozambique
+- Konfliktradarer: ACLED, Long War Journal, Critical Threats Project; AFRICOM/CENTCOM bruges som primærkilder, ikke som eneste dokumentation
 
 Discovery-værdien skal vurderes efter **hvor ofte siden finder en konkret dokumenterbar historie**, ikke efter hvor enig Morgentidende er med dens holdninger.
 
