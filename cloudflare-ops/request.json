@@ -1,4 +1,24 @@
 {
-  "action": "cf_bot_settings_audit",
-  "request_id": "2026-09-13-ops-reset-after-r2-test"
+  "action": "media_ingest_url",
+  "request_id": "2026-09-13-followup3-schengen-hero",
+  "payload": {
+    "article_id": "67580e69-c735-4d1f-98cc-f5e5235a51b8",
+    "source_url": "https://upload.wikimedia.org/wikipedia/commons/8/8f/EU_Germany_border_sign_at_Denmark_border.jpg",
+    "source_provider": "Wikimedia Commons",
+    "source_asset_id": "File:EU Germany border sign at Denmark border.jpg",
+    "license_name": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "credit_text": "Jonfr",
+    "rights_notes": "Wikimedia Commons file by Jonfr, licensed CC BY-SA 3.0; commercial reuse and local archival permitted with attribution/share-alike.",
+    "commercial_use_allowed": true,
+    "local_storage_allowed": true,
+    "modifications_allowed": true,
+    "attribution_required": true,
+    "alt_text": "EU-skilt ved den tysk-danske grænse nær Padborg.",
+    "metadata": {
+      "commons_page": "https://commons.wikimedia.org/wiki/File:EU_Germany_border_sign_at_Denmark_border.jpg",
+      "photographed_at": "2014-05-16",
+      "context": "EU- og Tysklandsskilt nær den dansk-tyske grænse ved Harrislee-Padborg"
+    }
+  }
 }
