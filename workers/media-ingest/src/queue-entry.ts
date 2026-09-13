@@ -19,6 +19,7 @@ type QueueJob = {
 type ErrorBody = {
   error?: string;
   status?: number;
+  http_status?: number;
 };
 
 const supabaseHeaders = (env: Env, extra: Record<string, string> = {}) => ({
@@ -29,8 +30,9 @@ const supabaseHeaders = (env: Env, extra: Record<string, string> = {}) => ({
 });
 
 const retryAt = (attempts: number) => {
-  const minutes = Math.min(120, Math.max(1, attempts) * 30);
-  return new Date(Date.now() + minutes * 60_000).toISOString();
+  const retryMinutes = [4, 12, 30];
+  const index = Math.max(0, Math.min(retryMinutes.length - 1, attempts - 1));
+  return new Date(Date.now() + retryMinutes[index] * 60_000).toISOString();
 };
 
 const patchJob = async (env: Env, id: string, patch: Record<string, unknown>) => {
@@ -50,24 +52,24 @@ const enqueueFallback = async (
   const articleId = typeof payload.article_id === 'string' ? payload.article_id : null;
   const { article_id: _articleId, ...jobPayload } = payload;
 
-  const response = await fetch(`${env.SUPABASE_URL}/rest/v1/media_ingest_jobs?select=id`, {
+  const response = await fetch(`${env.SUPABASE_URL}/rest/v1/rpc/enqueue_media_ingest_fallback`, {
     method: 'POST',
-    headers: supabaseHeaders(env, { Prefer: 'return=representation' }),
+    headers: supabaseHeaders(env),
     body: JSON.stringify({
-      article_id: articleId,
-      payload: jobPayload,
-      result: { queued_after_fast_path_failure: failure },
+      p_article_id: articleId,
+      p_payload: jobPayload,
+      p_failure: failure,
     }),
   });
 
   if (!response.ok) {
     const detail = await response.text();
-    throw new Error(`queue_insert_failed:${response.status}:${detail.slice(0, 300)}`);
+    throw new Error(`queue_fallback_rpc_failed:${response.status}:${detail.slice(0, 300)}`);
   }
 
-  const rows = await response.json<Array<{ id: string }>>();
-  if (!rows[0]?.id) throw new Error('queue_insert_returned_no_job');
-  return rows[0].id;
+  const jobId = await response.json<string>();
+  if (!jobId) throw new Error('queue_fallback_rpc_returned_no_job');
+  return jobId;
 };
 
 const claimJobs = async (env: Env): Promise<QueueJob[]> => {
@@ -107,11 +109,19 @@ const handleFastIngest = async (request: Request, env: Env): Promise<Response> =
     return worker.fetch(request, env);
   }
 
+  // Every normal URL-based hero goes through the synchronous ingest first.
+  // The queue is intentionally reachable only after this attempt returns a
+  // transient failure; it is not an alternate entry point for normal ingest.
   const response = await worker.fetch(request, env);
   if (response.ok) return response;
 
-  const failure = await parseErrorBody(response);
-  if (!isTransientIngestFailure(response, failure)) return response;
+  const parsedFailure = await parseErrorBody(response);
+  if (!isTransientIngestFailure(response, parsedFailure)) return response;
+
+  const failure: ErrorBody = {
+    ...parsedFailure,
+    http_status: response.status,
+  };
 
   try {
     const jobId = await enqueueFallback(env, payload, failure);
