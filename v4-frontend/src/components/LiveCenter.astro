@@ -126,7 +126,7 @@ const resultUpdatedAt = center?.result_updated_at ? fmtTime(center.result_update
     </aside>
   </div>
 
-  {center.key_points?.length ? (
+  {updates.length === 0 && center.key_points?.length ? (
     <section class="livecenter__keypoints" aria-labelledby="livecenter-keypoints-title">
       <div id="livecenter-keypoints-title" class="livecenter__keypoints-title">Vigtigst lige nu</div>
       <ul>{center.key_points.slice(0, 3).map((point) => <li>{point}</li>)}</ul>
