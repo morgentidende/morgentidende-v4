@@ -8,6 +8,8 @@ Denne fil ejer kun regler, der er særlige for leadpakker. Fælles artikelkrav o
 - Leadet er pakkens hovedhistorie og skal kunne forstås selvstændigt.
 - De tre opfølgere skal være tydeligt forskellige og hver tilføre ny journalistisk værdi. Relevante spor kan være dokumentation/baggrund, konsekvenser, autentiske reaktioner eller personlige erfaringer, analyse, forklaring eller anden klart selvstændig vinkel.
 - Lead og opfølgere kobles strukturelt sammen via det aktive CMS/story-cluster-system.
+- En opfølger, der publiceres senere i et eksisterende story cluster, skal automatisk blive `direct_related` til de allerede publicerede artikler i samme cluster. Relationerne er gensidige, så ældre artikler uden manuel omskrivning kan få dynamiske **Læs også**-links til den nye artikel.
+- Ved visning prioriteres eksplicitte artikelrelationer først; øvrige publicerede artikler i samme story cluster bruges derefter som supplement uden dubletter.
 - I det fælles slut-QA kontrolleres også, at pakken fortsat består af 1 lead + 3 opfølgere, og at de strukturelle story-cluster/relationer er sat korrekt.
 - Publicér hver artikel, når den er klar. Én problematisk opfølger må ikke blokere de øvrige; færdiggør den manglende artikel via den gældende fallback-logik.
 
