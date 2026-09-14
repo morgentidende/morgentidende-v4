@@ -1,3 +1,5 @@
+import { readImageDimensions } from './image-dimensions';
+
 interface Env {
   MEDIA_BUCKET: R2Bucket;
   MEDIA_PUBLIC_BASE_URL: string;
@@ -30,7 +32,14 @@ type MediaAsset = {
   delivery_url: string;
   storage_key: string;
   sha256: string;
+  width?: number | null;
+  height?: number | null;
 };
+
+const MIN_HERO_WIDTH = 800;
+const MIN_HERO_HEIGHT = 450;
+const RECOMMENDED_HERO_WIDTH = 1200;
+const RECOMMENDED_HERO_HEIGHT = 675;
 
 const json = (body: unknown, status = 200) => new Response(JSON.stringify(body), {
   status,
@@ -78,7 +87,7 @@ const isUnsafeSourceUrl = (raw: string) => {
 
     const host = url.hostname.toLowerCase().replace(/^\[/, '').replace(/\]$/, '');
     if (!host || host === 'localhost' || host.endsWith('.localhost') || host.endsWith('.local')) return true;
-    if (host.includes(':')) return true; // Reject literal IPv6 destinations; normal DNS hostnames remain allowed.
+    if (host.includes(':')) return true;
     if (isPrivateIpv4(host)) return true;
     return false;
   } catch {
@@ -142,11 +151,27 @@ const supabaseHeaders = (env: Env, extra: Record<string, string> = {}) => ({
 });
 
 const findAssetByHash = async (env: Env, sha256: string): Promise<MediaAsset | null> => {
-  const url = `${env.SUPABASE_URL}/rest/v1/media_assets?sha256=eq.${encodeURIComponent(sha256)}&select=id,delivery_url,storage_key,sha256&limit=1`;
+  const url = `${env.SUPABASE_URL}/rest/v1/media_assets?sha256=eq.${encodeURIComponent(sha256)}&select=id,delivery_url,storage_key,sha256,width,height&limit=1`;
   const response = await fetch(url, { headers: supabaseHeaders(env) });
   if (!response.ok) throw new Error(`Supabase lookup failed: ${response.status}`);
   const rows = await response.json<MediaAsset[]>();
   return rows[0] || null;
+};
+
+const backfillAssetDimensions = async (
+  env: Env,
+  asset: MediaAsset,
+  width: number,
+  height: number
+) => {
+  if (asset.width === width && asset.height === height) return asset;
+  const response = await fetch(`${env.SUPABASE_URL}/rest/v1/media_assets?id=eq.${encodeURIComponent(asset.id)}`, {
+    method: 'PATCH',
+    headers: supabaseHeaders(env, { Prefer: 'return=minimal' }),
+    body: JSON.stringify({ width, height, updated_at: new Date().toISOString() })
+  });
+  if (!response.ok) throw new Error(`Dimension backfill failed: ${response.status}`);
+  return { ...asset, width, height };
 };
 
 const attachAssetToArticle = async (
@@ -178,7 +203,15 @@ const attachAssetToArticle = async (
 const insertAsset = async (
   env: Env,
   input: IngestRequest,
-  values: { sha256: string; storageKey: string; deliveryUrl: string; mime: string; byteSize: number }
+  values: {
+    sha256: string;
+    storageKey: string;
+    deliveryUrl: string;
+    mime: string;
+    byteSize: number;
+    width: number;
+    height: number;
+  }
 ): Promise<MediaAsset> => {
   const row = {
     status: 'ready',
@@ -201,6 +234,8 @@ const insertAsset = async (
     storage_key: values.storageKey,
     delivery_url: values.deliveryUrl,
     mime_type: values.mime,
+    width: values.width,
+    height: values.height,
     byte_size: values.byteSize,
     sha256: values.sha256,
     alt_text: input.alt_text || null,
@@ -208,7 +243,7 @@ const insertAsset = async (
     metadata: input.metadata || {}
   };
 
-  const response = await fetch(`${env.SUPABASE_URL}/rest/v1/media_assets?select=id,delivery_url,storage_key,sha256`, {
+  const response = await fetch(`${env.SUPABASE_URL}/rest/v1/media_assets?select=id,delivery_url,storage_key,sha256,width,height`, {
     method: 'POST',
     headers: supabaseHeaders(env, { Prefer: 'return=representation' }),
     body: JSON.stringify(row)
@@ -243,9 +278,35 @@ const storeBytes = async (
     return json({ error: 'image_signature_mismatch', mime: normalizedMime }, 415);
   }
 
+  const dimensions = readImageDimensions(bytes, normalizedMime);
+  if (!dimensions) return json({ error: 'image_dimensions_unreadable', mime: normalizedMime }, 422);
+  if (dimensions.width < MIN_HERO_WIDTH || dimensions.height < MIN_HERO_HEIGHT) {
+    return json({
+      error: 'hero_dimensions_too_small',
+      width: dimensions.width,
+      height: dimensions.height,
+      minimum_width: MIN_HERO_WIDTH,
+      minimum_height: MIN_HERO_HEIGHT
+    }, 422);
+  }
+
+  const qualityWarnings = Array.isArray(input.metadata?.quality_warnings)
+    ? [...input.metadata!.quality_warnings as unknown[]]
+    : [];
+  if (dimensions.width < RECOMMENDED_HERO_WIDTH || dimensions.height < RECOMMENDED_HERO_HEIGHT) {
+    qualityWarnings.push('hero_below_recommended_dimensions');
+  }
+  input.metadata = {
+    ...(input.metadata || {}),
+    original_source_url: input.source_url || null,
+    source_dimensions: dimensions,
+    quality_warnings: Array.from(new Set(qualityWarnings))
+  };
+
   const sha256 = hex(await crypto.subtle.digest('SHA-256', bytes));
-  const duplicate = await findAssetByHash(env, sha256);
+  let duplicate = await findAssetByHash(env, sha256);
   if (duplicate) {
+    duplicate = await backfillAssetDimensions(env, duplicate, dimensions.width, dimensions.height);
     if (input.article_id) await attachAssetToArticle(env, input.article_id, duplicate, input);
     return json({ ok: true, deduplicated: true, asset: duplicate });
   }
@@ -264,7 +325,9 @@ const storeBytes = async (
     },
     customMetadata: {
       sha256,
-      sourceProvider: input.source_provider || 'unknown'
+      sourceProvider: input.source_provider || 'unknown',
+      width: String(dimensions.width),
+      height: String(dimensions.height)
     }
   });
 
@@ -275,7 +338,9 @@ const storeBytes = async (
       storageKey,
       deliveryUrl,
       mime: normalizedMime,
-      byteSize: bytes.byteLength
+      byteSize: bytes.byteLength,
+      width: dimensions.width,
+      height: dimensions.height
     });
   } catch (error) {
     const racedDuplicate = await findAssetByHash(env, sha256);
@@ -283,7 +348,7 @@ const storeBytes = async (
       await env.MEDIA_BUCKET.delete(storageKey);
       throw error;
     }
-    asset = racedDuplicate;
+    asset = await backfillAssetDimensions(env, racedDuplicate, dimensions.width, dimensions.height);
   }
 
   if (input.article_id) await attachAssetToArticle(env, input.article_id, asset, input);
@@ -350,6 +415,7 @@ const ingest = async (request: Request, env: Env) => {
 
   input.metadata = {
     ...(input.metadata || {}),
+    original_source_url: input.source_url,
     fetched_final_url: fetched.finalUrl
   };
 
@@ -385,6 +451,7 @@ const upload = async (request: Request, env: Env) => {
   input.source_provider = input.source_provider || 'openai_image_generation';
   input.metadata = {
     ...(input.metadata || {}),
+    original_source_url: input.source_url || null,
     ingest_mode: 'direct_upload',
     original_filename: file.name || null
   };
