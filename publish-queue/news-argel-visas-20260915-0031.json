@@ -1,0 +1,53 @@
+{
+  "queue_id": "news-argel-visas-20260915-0031",
+  "slug": "tre-nye-mistaenkte-visumhandel-spaniens-konsulat-algeriet-2026",
+  "headline": "Tre nye mistænkte i sag om visumhandel: Op mod 187.000 kroner pr. familie",
+  "frontpage_headline": "Tre nye mistænkte i sag om visumhandel: Op mod 187.000 kroner pr. familie",
+  "category_slug": "udland",
+  "kind": "news",
+  "deck": "En spansk dommer har ifølge The Objective udvidet efterforskningen af Spaniens konsulat i Algier. Seks personer er nu knyttet til sagen.",
+  "body_markdown": "Den spanske Audiencia Nacional, Spaniens særlige domstol for blandt andet alvorlig organiseret kriminalitet, har ifølge det spanske nyhedsmedie The Objective gjort yderligere tre ansatte ved Spaniens generalkonsulat i Algier til formelt mistænkte i en sag om påstået handel med Schengen-visa.\n\nDe tre er ifølge mediet konsulens sekretær og to administrative medarbejdere med tilknytning til visumbehandlingen. Dermed er seks personer nu blevet inddraget i efterforskningen. Ingen af de nye mistænkte er dømt, og anklagerne er fortsat under efterforskning.\n\n## Mistanke om betaling for visa\n\nSagen handler om en formodet ordning, hvor ansøgere ifølge efterforskningen kunne få hjælp til Schengen-visa mod betaling. The Objective og andre spanske medier har tidligere beskrevet mistanken om, at familier i nogle tilfælde blev afkrævet op mod 25.000 euro – cirka 187.000 kroner – for at få visumansøgninger igennem.\n\nEfterforskerne mistænker, at dokumenter i nogle sager ikke blev kontrolleret korrekt, blev manipuleret eller var falske. Ifølge de hidtidige oplysninger undersøges også mistanke om hvidvask gennem blandt andet køb og salg af biler i Spanien.\n\n## Den første anholdelse kom i april\n\nSagen blev offentlig kendt i april, da den daværende næstkommanderende på konsulatet, Vicente Moreno, og en lokalt ansat medarbejder blev anholdt i Spanien. El País og radiostationen Cadena SER bekræftede dengang via juridiske kilder, at dommer María Tardón efterforskede en mulig organiseret ordning, hvor visa blev udstedt mod betaling.\n\nMoreno blev senere løsladt med blandt andet inddraget pas og forbud mod at forlade Spanien, mens efterforskningen fortsatte. Ved ransagninger i Sagunto og Torrevieja blev der ifølge spanske medier beslaglagt kontanter, telefoner, computere og digitale lagringsmedier.\n\n## Konsulatet er centralt i sagen\n\nSpaniens generalkonsulat i Algier behandler blandt andet visumansøgninger fra personer, der ønsker adgang til Spanien og Schengenområdet. Det gør mistanken særlig alvorlig, fordi et Schengen-visum som udgangspunkt giver adgang til at rejse videre mellem landene i området uden almindelig indre grænsekontrol.\n\nIfølge The Objective undersøger retten nu, hvor langt den formodede ordning rakte, hvilke ansatte og mellemled der eventuelt deltog, og hvor store beløb der kan være blevet tjent. Mediet skriver også, at det spanske udenrigsministerium har planlagt en inspektion af konsulatet.\n\nDet er endnu ikke offentligt dokumenteret, hvor mange visa der eventuelt er blevet udstedt uretmæssigt, eller hvor mange ansøgere der kan have betalt. De nye mistanker udvider derfor sagen, men fastslår ikke i sig selv, at de pågældende ansatte er skyldige.",
+  "hero_candidate_url": "https://upload.wikimedia.org/wikipedia/commons/3/35/VisaDeEspana.png",
+  "hero_alt": "Eksempel på et spansk Schengen-visum.",
+  "hero_source_url": "https://commons.wikimedia.org/wiki/File:VisaDeEspana.png",
+  "hero_license": "CC BY-SA 4.0",
+  "hero_license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "hero_credit": "Raz0070 / Wikimedia Commons",
+  "hero_candidate_note": "Wikimedia Commons-filen er udgivet af ophavsmanden under CC BY-SA 4.0, som tillader kommerciel brug og lokal arkivering med kreditering og share-alike ved bearbejdning.",
+  "source_metadata": [
+    {
+      "url": "https://theobjective.com/espana/tribunales/2026-09-14/audiencia-consulado-argel-visados/",
+      "title": "La Audiencia Nacional imputa a más empleados del consulado en Argel por la trama de visados",
+      "publisher": "The Objective",
+      "source_type": "strong_secondary"
+    },
+    {
+      "url": "https://elpais.com/espana/2026-04-26/la-audiencia-nacional-investiga-al-numero-dos-del-consulado-en-argelia-por-una-trama-de-visados-falsos.html",
+      "title": "La Audiencia Nacional investiga al canciller del consulado de Argelia por una trama de visados falsos",
+      "publisher": "El País",
+      "source_type": "strong_secondary"
+    },
+    {
+      "url": "https://cadenaser.com/nacional/2026/04/26/la-audiencia-nacional-investiga-al-numero-dos-del-consulado-en-argel-por-presunto-trafico-de-visados-cadena-ser/",
+      "title": "La Audiencia Nacional investiga al número dos del consulado en Argel por presunto tráfico de visados",
+      "publisher": "Cadena SER",
+      "source_type": "strong_secondary"
+    }
+  ],
+  "editorial_metadata": {
+    "content_type": "news",
+    "sagen_kort": [
+      "Tre yderligere ansatte ved Spaniens generalkonsulat i Algier er ifølge The Objective blevet gjort til mistænkte i efterforskningen.",
+      "Efterforskerne undersøger en formodet ordning, hvor familier i nogle tilfælde skulle have betalt op mod cirka 187.000 kroner for Schengen-visa."
+    ],
+    "seo_primary_keyword": "visumhandel Spanien konsulat Algier",
+    "seo_search_intent": "Hvad går efterforskningen af visumhandel på Spaniens konsulat i Algier ud på?",
+    "hero_source_provider": "Wikimedia Commons",
+    "hero_rights": {
+      "commercial_use_allowed": true,
+      "local_storage_allowed": true,
+      "modifications_allowed": true,
+      "attribution_required": true
+    }
+  }
+}
