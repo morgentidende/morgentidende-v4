@@ -6,6 +6,7 @@ interface Env {
   MEDIA_MAX_BYTES?: string;
   MEDIA_INGEST_TOKEN: string;
   OPS_MEDIA_TOKEN?: string;
+  CHAT_MEDIA_TOKEN?: string;
   SUPABASE_URL: string;
   SUPABASE_SERVICE_ROLE_KEY: string;
 }
@@ -18,12 +19,14 @@ const safeEqual = (a: string, b: string) => {
 };
 
 const withCanonicalMediaAuth = (request: Request, env: Env) => {
-  const opsToken = env.OPS_MEDIA_TOKEN || '';
-  if (!opsToken) return request;
-
   const auth = request.headers.get('authorization') || '';
-  const expected = `Bearer ${opsToken}`;
-  if (!safeEqual(auth, expected)) return request;
+  const supplied = auth.startsWith('Bearer ') ? auth.slice('Bearer '.length) : '';
+  const opsToken = env.OPS_MEDIA_TOKEN || '';
+  const chatToken = env.CHAT_MEDIA_TOKEN || '';
+
+  const allowed = (opsToken && safeEqual(supplied, opsToken))
+    || (chatToken && safeEqual(supplied, chatToken));
+  if (!allowed) return request;
 
   const headers = new Headers(request.headers);
   headers.set('authorization', `Bearer ${env.MEDIA_INGEST_TOKEN}`);
