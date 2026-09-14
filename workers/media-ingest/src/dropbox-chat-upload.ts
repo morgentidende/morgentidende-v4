@@ -59,6 +59,25 @@ const getJob = async (env: Env, id: string): Promise<ManualJob | null> => {
   return rows[0] || null;
 };
 
+const listPendingDropboxJobs = async (env: Env, limit = 5): Promise<ManualJob[]> => {
+  const params = new URLSearchParams({
+    status: 'eq.pending',
+    select: 'id,article_id,token_hash,mime_type,file_name,metadata,status,expires_at',
+    order: 'created_at.asc',
+    limit: String(limit),
+  });
+  const response = await fetch(`${env.SUPABASE_URL}/rest/v1/manual_chat_media_upload_jobs?${params}`, {
+    headers: headers(env),
+  });
+  if (!response.ok) throw new Error(`dropbox_upload_list_failed:${response.status}`);
+  const rows = await response.json<ManualJob[]>();
+  return rows.filter((job) => {
+    const transport = typeof job.metadata?.transport_provider === 'string' ? job.metadata.transport_provider : '';
+    const sourceUrl = typeof job.metadata?.dropbox_download_url === 'string' ? job.metadata.dropbox_download_url : '';
+    return transport === 'dropbox' && sourceUrl.length > 0;
+  });
+};
+
 const patchJob = async (env: Env, id: string, patch: Record<string, unknown>) => {
   const response = await fetch(`${env.SUPABASE_URL}/rest/v1/manual_chat_media_upload_jobs?id=eq.${encodeURIComponent(id)}`, {
     method: 'PATCH',
@@ -90,39 +109,26 @@ const isAllowedDropboxUrl = (raw: string) => {
   }
 };
 
-export const maybeHandleDropboxChatUpload = async (
-  request: Request,
+const cleanedJobMetadata = (job: ManualJob) => {
+  const { dropbox_download_url: _dropboxDownloadUrl, source_url: _sourceUrl, ...rest } = job.metadata || {};
+  return rest;
+};
+
+const processDropboxJob = async (
+  job: ManualJob,
+  sourceUrl: string,
   env: Env,
   baseWorker: BaseWorker,
-): Promise<Response | null> => {
-  const match = new URL(request.url).pathname.match(/^\/manual-upload-dropbox\/([0-9a-f-]{36})$/i);
-  if (request.method !== 'POST' || !match) return null;
-
-  const token = new URL(request.url).searchParams.get('token') || '';
-  if (!token || token.length < 32) return json({ error: 'manual_upload_token_required' }, 401);
-
-  const job = await getJob(env, match[1]);
-  if (!job) return json({ error: 'manual_upload_job_not_found' }, 404);
+): Promise<Response> => {
   if (new Date(job.expires_at).getTime() <= Date.now()) {
     if (job.status === 'pending') await patchJob(env, job.id, { status: 'expired' });
     return json({ error: 'manual_upload_job_expired' }, 410);
   }
-  if (await sha256Text(token) !== job.token_hash) return json({ error: 'manual_upload_unauthorized' }, 401);
-  if (job.status === 'done') return json({ ok: true, already_done: true, asset_id: (job.metadata || {}).asset_id || null });
-  if (job.status === 'processing') return json({ error: 'manual_upload_in_progress' }, 409);
   if (!['pending', 'failed'].includes(job.status)) return json({ error: `manual_upload_${job.status}` }, 409);
+  if (!isAllowedDropboxUrl(sourceUrl)) return json({ error: 'manual_upload_dropbox_url_required' }, 422);
 
   const expected = expectedIntegrity(job.metadata || {});
   if (!expected) return json({ error: 'manual_upload_integrity_metadata_required' }, 422);
-
-  let sourceUrl = '';
-  try {
-    const payload = await request.json<{ source_url?: string }>();
-    sourceUrl = typeof payload.source_url === 'string' ? payload.source_url : '';
-  } catch {
-    return json({ error: 'manual_upload_invalid_json' }, 400);
-  }
-  if (!isAllowedDropboxUrl(sourceUrl)) return json({ error: 'manual_upload_dropbox_url_required' }, 422);
 
   await patchJob(env, job.id, { status: 'processing', last_error: null });
   try {
@@ -153,11 +159,14 @@ export const maybeHandleDropboxChatUpload = async (
       return json({ error: 'manual_upload_integrity_mismatch', ...detail }, 422);
     }
 
-    const nested = (job.metadata?.metadata as Record<string, unknown> | undefined) || {};
+    const safeJobMetadata = cleanedJobMetadata(job);
+    const nested = (safeJobMetadata.metadata as Record<string, unknown> | undefined) || {};
     const metadata = {
-      ...(job.metadata || {}),
+      ...safeJobMetadata,
       article_id: job.article_id,
       source_provider: 'openai_image_generation',
+      // A generated image has no external editorial source URL. Dropbox is transport only.
+      source_url: null,
       commercial_use_allowed: true,
       local_storage_allowed: true,
       modifications_allowed: true,
@@ -169,6 +178,7 @@ export const maybeHandleDropboxChatUpload = async (
         source_integrity_sha256: actualSha256,
         source_integrity_byte_size: bytes.byteLength,
         transport_provider: 'dropbox',
+        transport_url_persisted: false,
       },
     };
 
@@ -206,6 +216,12 @@ export const maybeHandleDropboxChatUpload = async (
       result,
       last_error: null,
       payload_base64: null,
+      metadata: {
+        ...safeJobMetadata,
+        transport_provider: 'dropbox',
+        transport_consumed_at: new Date().toISOString(),
+        transport_url_persisted: false,
+      },
       consumed_at: new Date().toISOString(),
     });
 
@@ -222,4 +238,46 @@ export const maybeHandleDropboxChatUpload = async (
     console.error('dropbox_chat_media_upload_error', { job_id: job.id, error: message });
     return json({ error: 'manual_upload_internal_error', detail: message }, 502);
   }
+};
+
+export const processPendingDropboxChatJobs = async (
+  env: Env,
+  baseWorker: BaseWorker,
+  limit = 5,
+): Promise<void> => {
+  const jobs = await listPendingDropboxJobs(env, limit);
+  for (const job of jobs) {
+    const sourceUrl = typeof job.metadata?.dropbox_download_url === 'string'
+      ? job.metadata.dropbox_download_url
+      : '';
+    if (!sourceUrl) continue;
+    await processDropboxJob(job, sourceUrl, env, baseWorker);
+  }
+};
+
+export const maybeHandleDropboxChatUpload = async (
+  request: Request,
+  env: Env,
+  baseWorker: BaseWorker,
+): Promise<Response | null> => {
+  const match = new URL(request.url).pathname.match(/^\/manual-upload-dropbox\/([0-9a-f-]{36})$/i);
+  if (request.method !== 'POST' || !match) return null;
+
+  const token = new URL(request.url).searchParams.get('token') || '';
+  if (!token || token.length < 32) return json({ error: 'manual_upload_token_required' }, 401);
+
+  const job = await getJob(env, match[1]);
+  if (!job) return json({ error: 'manual_upload_job_not_found' }, 404);
+  if (await sha256Text(token) !== job.token_hash) return json({ error: 'manual_upload_unauthorized' }, 401);
+  if (job.status === 'done') return json({ ok: true, already_done: true });
+  if (job.status === 'processing') return json({ error: 'manual_upload_in_progress' }, 409);
+
+  let sourceUrl = '';
+  try {
+    const payload = await request.json<{ source_url?: string }>();
+    sourceUrl = typeof payload.source_url === 'string' ? payload.source_url : '';
+  } catch {
+    return json({ error: 'manual_upload_invalid_json' }, 400);
+  }
+  return processDropboxJob(job, sourceUrl, env, baseWorker);
 };
