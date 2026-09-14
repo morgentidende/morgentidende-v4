@@ -1,0 +1,55 @@
+{
+  "queue_id": "magasin-evergreen-20260915-0104-mikroboelgeovn-gitter",
+  "slug": "derfor-kan-du-se-gennem-mikroboelgeovnens-doer-2026",
+  "headline": "Derfor kan du se gennem mikrobølgeovnens dør uden at mikrobølgerne slipper ud",
+  "frontpage_headline": "Derfor slipper mikrobølgerne ikke ud gennem døren",
+  "deck": "Det sorte metalgitter i døren ser næsten gennemsigtigt ud. Fysikken bag holder mikrobølgerne inde, mens synligt lys slipper igennem.",
+  "category_slug": "viden",
+  "kind": "article",
+  "author_name": "Morgentidende",
+  "author_title": "Viden",
+  "sagen_kort": [
+    "Mikrobølgeovnens metalgitter har huller, der er langt mindre end bølgelængden på de mikrobølger, ovnen bruger.",
+    "Synligt lys har meget kortere bølgelængder og kan derfor passere gennem hullerne, så du stadig kan se maden."
+  ],
+  "body_markdown": "Det korte svar er, at hullerne i mikrobølgeovnens dør er små for mikrobølger – men enorme for synligt lys. Derfor fungerer døren som et filter: Lyset kan komme ud, mens næsten al mikrobølgeenergien bliver inde i ovnen.\n\n## Et gitter, der snyder øjet\n\nNår du kigger ind i en mikrobølgeovn, ser døren ofte ud som mørkt glas med tusindvis af små prikker. Prikkerne er huller i et tyndt metalgitter. De er store nok til, at lys fra ovnrummet kan passere, men for små til, at mikrobølgerne effektivt kan slippe igennem.\n\nDet handler om bølgelængde. En almindelig mikrobølgeovn arbejder typisk omkring 2,45 gigahertz. Det svarer til en bølgelængde på cirka 12 centimeter. Hullerne i døren er derimod typisk kun omkring en millimeter på tværs.\n\nSynligt lys har bølgelængder på under en tusindedel af en millimeter. For lyset er hullerne derfor gigantiske. For mikrobølgerne er de bittesmå.\n\nResultatet er, at du kan følge med i, hvad der sker med aftensmaden, uden at døren behøver være et åbent vindue for mikrobølgeenergien.\n\n## Metallet gør det meste af arbejdet\n\nDen amerikanske fødevare- og lægemiddelmyndighed FDA beskriver mikrobølger som elektromagnetisk stråling i samme overordnede familie som radiobølger. De er ikke ioniserende som røntgenstråler.\n\nInde i ovnen producerer en magnetron mikrobølgerne. De bliver reflekteret af metalvæggene og bevæger sig rundt i ovnrummet, indtil energien blandt andet bliver optaget af maden og omdannet til varme.\n\nMetal er netop effektivt til at reflektere mikrobølger. Derfor består ovnrummet af metal, og derfor er der et ledende gitter foran vinduet.\n\nMIT School of Engineering forklarer princippet meget enkelt: Mikrobølger i en husholdningsovn har en bølgelængde på omkring 12 centimeter, mens hullerne i gitteret er langt mindre. Synligt lys har til gengæld så korte bølgelængder, at det passerer gennem hullerne.\n\n## Hvorfor slipper lidt stråling så ikke ud?\n\nEn mikrobølgeovn er ikke designet efter et krav om absolut nul målelig stråling udenfor kabinettet. Den er designet, så lækagen holdes under strenge grænser.\n\nI USA fastsætter FDA en maksimal tilladt lækage på 5 milliwatt pr. kvadratcentimeter målt cirka fem centimeter fra ovnens overflade gennem apparatets levetid. FDA understreger samtidig, at denne grænse ligger langt under niveauer, der er kendt for at skade mennesker.\n\nAfstanden betyder også meget. Mikrobølgeenergien falder kraftigt, jo længere man kommer væk fra kilden.\n\nEn ovn i god stand er derfor konstrueret med flere lag af sikkerhed: metalkabinet, gitter i døren, tætte samlinger og sikkerhedskontakter, som stopper magnetronen, når døren åbnes.\n\nFDA kræver, at ovne har to uafhængige sikkerhedssystemer, der afbryder produktionen af mikrobølger, når låsen frigives eller døren åbnes.\n\n## Derfor kan døren være gennemsigtig\n\nDet smarte ved løsningen er, at den udnytter forskellen mellem to typer elektromagnetiske bølger.\n\nBegge bevæger sig med lysets hastighed i vakuum, men deres bølgelængder er ekstremt forskellige. Mikrobølgerne i ovnen er omkring 12 centimeter lange. Synligt lys ligger omkring nogle få hundrede nanometer.\n\nDet betyder, at det samme hul kan være \"lukket\" for den ene bølge og \"åbent\" for den anden.\n\nI fysikken kan man beskrive gitteret som en struktur, der ligger under en såkaldt afskæringsgrænse for mikrobølgerne. Man behøver dog ikke kende ligningerne for at forstå princippet: En bølge har svært ved at passere gennem en åbning, der er meget mindre end dens egen bølgelængde.\n\nDet samme grundprincip bruges mange andre steder, når elektromagnetiske bølger skal holdes inde eller ude.\n\n## Er mikrobølger farlige?\n\nMikrobølger er ikke ioniserende stråling. De har ikke energi nok pr. foton til at slå elektroner løs fra atomer på samme måde som røntgen- og gammastråling.\n\nDet betyder ikke, at meget kraftig mikrobølgestråling er ufarlig. Den kan opvarme kropsvæv. Derfor findes der sikkerhedsgrænser, og derfor skal en beskadiget ovn ikke bruges.\n\nFDA anbefaler, at man stopper med at bruge en mikrobølgeovn, hvis døren ikke lukker ordentligt, eller hvis hængsler, lås eller tætninger er beskadiget. Hvis en ovn kan køre med åben dør, bør den heller ikke bruges.\n\nFor en intakt ovn, der anvendes efter producentens anvisninger, vurderer FDA, at mikrobølgeovne er sikre.\n\n## Den lille detalje er hele pointen\n\nNæste gang du står og ser en kop kaffe dreje rundt bag det mørke vindue, kan du tænke på gitteret som et stykke præcis hverdagsfysik.\n\nDet ser næsten gennemsigtigt ud for dine øjne, fordi lysbølgerne er små nok til at slippe igennem. For mikrobølgerne er den samme dør i praksis en metalvæg.\n\nDet er netop forskellen i bølgelængde, der gør det muligt både at se maden – og holde energien, der varmer den, inde i ovnen.",
+  "source_metadata": [
+    {
+      "title": "Microwave Ovens",
+      "publisher": "U.S. Food and Drug Administration",
+      "url": "https://www.fda.gov/radiation-emitting-products/resources-you-radiation-emitting-products/microwave-ovens",
+      "source_type": "primary_official"
+    },
+    {
+      "title": "Why can’t we put metal objects in a microwave?",
+      "publisher": "MIT School of Engineering",
+      "url": "https://engineering.mit.edu/ask-an-engineer/why-cant-we-put-metal-objects-in-a-microwave",
+      "source_type": "expert_secondary"
+    }
+  ],
+  "hero_candidate_url": "https://images.unsplash.com/photo-1630699144994-8342162d81f7?auto=format&fit=crop&fm=jpg&q=85&w=2400",
+  "hero_alt": "Sølvfarvet mikrobølgeovn i et køkken",
+  "hero_source_url": "https://unsplash.com/photos/silver-and-black-microwave-oven-lP-XAPogY88",
+  "hero_credit": "Point3D Commercial Imaging Ltd.",
+  "hero_license": "Unsplash License",
+  "hero_license_url": "https://unsplash.com/license",
+  "hero_candidate_note": "Fotoet er markeret som gratis under Unsplash License. Licensen tillader download, kopiering og kommerciel brug uden obligatorisk kreditering; lokal arkivering er derfor tilladt.",
+  "editorial_metadata": {
+    "seo_title": "Hvorfor slipper mikrobølger ikke ud gennem døren?",
+    "meta_description": "Mikrobølgeovnens metalgitter lader synligt lys passere, men holder mikrobølgerne inde. Her er fysikken bag den smarte sikkerhedsløsning.",
+    "keywords": [
+      "mikrobølgeovn",
+      "mikrobølger",
+      "fysik",
+      "stråling",
+      "metalnet"
+    ],
+    "hero_source_provider": "Unsplash",
+    "hero_rights": {
+      "commercial_use_allowed": true,
+      "local_storage_allowed": true,
+      "modifications_allowed": true,
+      "attribution_required": false
+    }
+  }
+}
