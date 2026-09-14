@@ -29,6 +29,40 @@ jobs:
           CLOUDFLARE_ZONE_NAME: morgentidende.dk
         run: |
           ACTION=$(node -e "const r=require('./cloudflare-ops/request.json'); process.stdout.write(String(r.action||''))")
+
+          if [ "$ACTION" = "media_chat_upload" ]; then
+            node - <<'NODE' > /tmp/media-chat-payload.json
+          const r = require('./cloudflare-ops/request.json');
+          const p = r.payload;
+          if (!p || typeof p !== 'object') throw new Error('payload_required');
+          if (!/^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(String(p.article_id || ''))) throw new Error('valid_article_id_required');
+          const u = new URL(String(p.source_url || ''));
+          if (u.protocol !== 'https:' || !u.hostname.endsWith('dropboxusercontent.com')) throw new Error('dropbox_https_source_required');
+          process.stdout.write(JSON.stringify({
+            article_id: p.article_id,
+            source_url: p.source_url,
+            file_name: p.file_name || 'manual-chat-hero.webp',
+            alt_text: p.alt_text || null,
+            generation_metadata: p.generation_metadata || {}
+          }));
+          NODE
+
+            STATUS=$(curl --silent --show-error \
+              -o /tmp/media-chat-response.json \
+              -w '%{http_code}' \
+              -X POST "$ADMIN_BASE_URL/media/chat-upload" \
+              -H "x-morgentidende-admin-token: $ADMIN_TOKEN" \
+              -H "Authorization: Bearer $ADMIN_TOKEN" \
+              -H 'Content-Type: application/json' \
+              --data-binary @/tmp/media-chat-payload.json)
+            cat /tmp/media-chat-response.json
+            if [ "$STATUS" -lt 200 ] || [ "$STATUS" -ge 300 ]; then
+              echo "media_chat_upload_http_status=$STATUS" >&2
+              exit 1
+            fi
+            exit 0
+          fi
+
           if [ "$ACTION" != "media_ingest_url" ]; then
             node .github/scripts/cloudflare-ops.mjs
             exit 0
@@ -59,8 +93,6 @@ jobs:
 
           STATUS=$(ingest)
 
-          # Normal path does not touch Cloudflare administration at all. If the
-          # ops token is ever rotated or lost, repair it once and retry.
           if [ "$STATUS" = "401" ]; then
             ACCOUNT_ID=$(node -e "fetch('https://api.cloudflare.com/client/v4/zones?name=morgentidende.dk&status=active&per_page=1',{headers:{authorization:'Bearer '+process.env.CLOUDFLARE_API_TOKEN}}).then(async r=>{const j=await r.json();const id=j.result?.[0]?.account?.id;if(!r.ok||j.success===false||!id){console.error(JSON.stringify(j));process.exit(1)}process.stdout.write(id)})")
             export CLOUDFLARE_ACCOUNT_ID="$ACCOUNT_ID"
