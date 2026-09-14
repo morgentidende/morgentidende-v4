@@ -4,6 +4,7 @@ type PartyRow = { name: string; percent: number; change?: number; seats?: number
 
 const ZIP_URL = 'https://resultat.val.se/resultatfiler/val2026/p/rd/Val_2026_preliminar_00_RD.zip';
 const MANDATE_FILE_SUFFIX = 'Val_2026_preliminar_mandatfordelning_00_RD.json';
+const RIKSDAG_SEATS = 349;
 
 const PARTY_NAMES: Record<string, string> = {
   S: 'Socialdemokraterna', SD: 'Sverigedemokraterna', M: 'Moderaterna', V: 'Vänsterpartiet',
@@ -100,11 +101,9 @@ const parsePartyObject = (obj: Record<string, any>): PartyRow | null => {
   const percent = pickNumeric(obj, /(rostandel|andelroster|andelrost|procent|rostprocent|valresultatprocent)/, [0, 100]);
   if (percent === null) return null;
   const change = pickNumeric(obj, /(forandring|differens|diff|jamforelse|jmf)/, [-100, 100]);
-  const seats = pickNumeric(obj, /(mandatantal|antalmandat|mandat)/, [0, 349]);
   return {
     name: PARTY_NAMES[code], percent: Math.round(percent * 10) / 10,
     ...(change === null ? {} : { change: Math.round(change * 10) / 10 }),
-    ...(seats === null ? {} : { seats: Math.round(seats) }),
   };
 };
 
@@ -157,7 +156,7 @@ function findSeatsByParty(root: unknown): Map<string, number> {
     const obj = node as Record<string, any>;
     const code = detectPartyCode(obj);
     if (code) {
-      const seats = pickNumeric(obj, /(mandatantal|antalmandat|mandat|utjamningsmandat|fasta?mandat)/, [0, 349]);
+      const seats = pickNumeric(obj, /(mandatantal|antalmandat|mandat|utjamningsmandat|fasta?mandat)/, [0, RIKSDAG_SEATS]);
       if (seats !== null) {
         const score = contextScore(path, obj);
         const previous = best.get(code);
@@ -184,17 +183,21 @@ export async function loadOfficialSwedenResults(current: LiveResult | null | und
 
     const json = JSON.parse(jsonText);
     const seatMap = findSeatsByParty(json);
-    const parties = findBestPartyArray(json).map((party) => ({
-      ...party,
-      ...(typeof party.seats === 'number' ? {} : seatMap.has(party.name) ? { seats: seatMap.get(party.name) } : {}),
-    }));
+    const parties = findBestPartyArray(json).map((party) => {
+      const seats = seatMap.get(party.name);
+      return {
+        ...party,
+        ...(typeof seats === 'number' ? { seats } : {}),
+      };
+    });
     if (parties.length < 6) return current || {};
 
     const redBloc = new Set(['Socialdemokraterna', 'Vänsterpartiet', 'Miljöpartiet', 'Centerpartiet']);
     const blueBloc = new Set(['Moderaterna', 'Sverigedemokraterna', 'Kristdemokraterna', 'Liberalerna']);
     const redSeats = parties.filter((p) => redBloc.has(p.name)).reduce((sum, p) => sum + (p.seats || 0), 0);
     const blueSeats = parties.filter((p) => blueBloc.has(p.name)).reduce((sum, p) => sum + (p.seats || 0), 0);
-    const hasMandates = redSeats + blueSeats > 0;
+    const totalSeats = redSeats + blueSeats;
+    const hasMandates = totalSeats === RIKSDAG_SEATS;
     const blocks = hasMandates ? [
       { name: 'Rød blok', seats: redSeats },
       { name: 'Blå blok', seats: blueSeats },
@@ -206,7 +209,7 @@ export async function loadOfficialSwedenResults(current: LiveResult | null | und
       ? redSeats === blueSeats
         ? `Blokkene står lige. 175 mandater kræves for flertal.`
         : `${redSeats > blueSeats ? 'Rød blok' : 'Blå blok'} fører med ${Math.abs(redSeats - blueSeats)} mandat${Math.abs(redSeats - blueSeats) === 1 ? '' : 'er'}. 175 kræves for flertal.`
-      : 'Valmyndigheten har endnu ikke offentliggjort den foreløbige mandatfordeling. Den kommer normalt omkring kl. 23 på valgaftenen.';
+      : 'Valmyndighetens mandatdata er endnu ikke komplette. Mandattallene vises først, når de summerer til alle 349 mandater.';
 
     return {
       ...(current || {}), phase: 'counting', headline: 'Foreløbigt valgresultat', counted_label: 'Optællingen er i gang',
