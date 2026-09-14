@@ -1,6 +1,7 @@
 import worker from './queue-entry';
 import baseWorker from './index';
 import { maybeHandleSvgChatUpload } from './svg-chat-upload';
+import { maybeHandleDirectChatUpload } from './direct-chat-upload';
 
 interface Env {
   MEDIA_BUCKET: R2Bucket;
@@ -111,6 +112,9 @@ const ingestWithImmediateFallback = async (request: Request, env: Env) => {
 
 export default {
   async fetch(request: Request, env: Env): Promise<Response> {
+    const directResponse = await maybeHandleDirectChatUpload(request, env, baseWorker);
+    if (directResponse) return directResponse;
+
     const svgResponse = await maybeHandleSvgChatUpload(request, env, baseWorker);
     if (svgResponse) return svgResponse;
 
