@@ -65,6 +65,20 @@ const base64ToBytes = (value: string) => {
   return bytes;
 };
 
+const sha256Bytes = async (bytes: Uint8Array) => hex(await crypto.subtle.digest('SHA-256', bytes));
+
+const getManualUploadIntegrity = (metadata: Record<string, unknown>) => {
+  const expectedByteSize = Number(metadata.expected_byte_size);
+  const expectedSha256 = typeof metadata.expected_sha256 === 'string'
+    ? metadata.expected_sha256.trim().toLowerCase()
+    : '';
+
+  if (!Number.isSafeInteger(expectedByteSize) || expectedByteSize <= 0) return null;
+  if (!/^[0-9a-f]{64}$/.test(expectedSha256)) return null;
+
+  return { expectedByteSize, expectedSha256 };
+};
+
 const retryAt = (attempts: number) => {
   const retryMinutes = [4, 12, 30];
   const index = Math.max(0, Math.min(retryMinutes.length - 1, attempts - 1));
@@ -126,10 +140,36 @@ const handleManualUpload = async (request: Request, env: Env, jobId: string): Pr
   }
   if (!job.payload_base64) return json({ error: 'manual_upload_payload_missing' }, 422);
 
+  const integrity = getManualUploadIntegrity(job.metadata || {});
+  if (!integrity) {
+    await patchManualUploadJob(env, job.id, {
+      status: 'failed',
+      last_error: 'manual_upload_integrity_metadata_required',
+    });
+    return json({ error: 'manual_upload_integrity_metadata_required' }, 422);
+  }
+
   await patchManualUploadJob(env, job.id, { status: 'processing', last_error: null });
 
   try {
     const bytes = base64ToBytes(job.payload_base64);
+    const actualSha256 = await sha256Bytes(bytes);
+
+    if (bytes.byteLength !== integrity.expectedByteSize || actualSha256 !== integrity.expectedSha256) {
+      const detail = {
+        expected_byte_size: integrity.expectedByteSize,
+        actual_byte_size: bytes.byteLength,
+        expected_sha256: integrity.expectedSha256,
+        actual_sha256: actualSha256,
+      };
+      await patchManualUploadJob(env, job.id, {
+        status: 'failed',
+        result: { integrity_error: detail },
+        last_error: 'manual_upload_integrity_mismatch',
+      });
+      return json({ error: 'manual_upload_integrity_mismatch', ...detail }, 422);
+    }
+
     const file = new File([bytes], job.file_name || 'generated-hero', { type: job.mime_type });
     const metadata = {
       ...(job.metadata || {}),
@@ -143,6 +183,8 @@ const handleManualUpload = async (request: Request, env: Env, jobId: string): Pr
         ...((job.metadata?.metadata as Record<string, unknown> | undefined) || {}),
         ingest_mode: 'manual_chat_bridge',
         manual_upload_job_id: job.id,
+        source_integrity_sha256: actualSha256,
+        source_integrity_byte_size: bytes.byteLength,
       },
     };
 
@@ -173,10 +215,19 @@ const handleManualUpload = async (request: Request, env: Env, jobId: string): Pr
       return json({ ok: false, error: 'manual_upload_failed', upstream_status: response.status, result }, 502);
     }
 
-    const asset = result.asset as { id?: string; delivery_url?: string } | undefined;
+    const asset = result.asset as { id?: string; delivery_url?: string; sha256?: string } | undefined;
+    if (!asset?.id || !asset.delivery_url || asset.sha256 !== integrity.expectedSha256) {
+      await patchManualUploadJob(env, job.id, {
+        status: 'failed',
+        result,
+        last_error: 'manual_upload_upstream_integrity_mismatch',
+      });
+      return json({ error: 'manual_upload_upstream_integrity_mismatch' }, 502);
+    }
+
     await patchManualUploadJob(env, job.id, {
       status: 'done',
-      asset_id: asset?.id || null,
+      asset_id: asset.id,
       result,
       last_error: null,
       payload_base64: null,
@@ -185,8 +236,8 @@ const handleManualUpload = async (request: Request, env: Env, jobId: string): Pr
 
     return json({
       ok: true,
-      asset_id: asset?.id || null,
-      delivery_url: asset?.delivery_url || null,
+      asset_id: asset.id,
+      delivery_url: asset.delivery_url,
       deduplicated: Boolean(result.deduplicated),
     });
   } catch (error) {
