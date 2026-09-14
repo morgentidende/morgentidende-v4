@@ -8,6 +8,9 @@ preview_urls = false
 binding = "MEDIA_BUCKET"
 bucket_name = "morgentidende-media"
 
+[images]
+binding = "IMAGES"
+
 [vars]
 MEDIA_PUBLIC_BASE_URL = "https://media.morgentidende.dk"
 MEDIA_MAX_BYTES = "20971520"
