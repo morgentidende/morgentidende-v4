@@ -1,6 +1,7 @@
 type LiveResult = Record<string, any>;
 
 type PartyRow = { name: string; percent: number; change?: number; seats?: number };
+type BlockRow = { name: string; seats: number };
 
 const ZIP_URL = 'https://resultat.val.se/resultatfiler/val2026/p/rd/Val_2026_preliminar_00_RD.zip';
 const MANDATE_FILE_SUFFIX = 'Val_2026_preliminar_mandatfordelning_00_RD.json';
@@ -182,6 +183,25 @@ function findSeatsByParty(root: unknown): Map<string, number> {
   return new Map([...best.entries()].map(([code, value]) => [PARTY_NAMES[code], value.seats]));
 }
 
+const validCurrentBlocks = (current: LiveResult | null | undefined): BlockRow[] | null => {
+  if (!Array.isArray(current?.blocks) || current.blocks.length !== 2) return null;
+  const rows = current.blocks.map((block: any) => ({
+    name: String(block?.name || ''),
+    seats: numberValue(block?.seats),
+  }));
+  if (rows.some((row) => row.seats === null)) return null;
+  const normalized = rows.map((row) => ({ name: row.name, seats: Math.round(row.seats as number) }));
+  return normalized.reduce((sum, row) => sum + row.seats, 0) === RIKSDAG_SEATS ? normalized : null;
+};
+
+const summarizeBlocks = (blocks: BlockRow[], provisional = false) => {
+  const [first, second] = blocks;
+  const lead = first.seats === second.seats
+    ? `Blokkene står lige. 175 mandater kræves for flertal.`
+    : `${first.seats > second.seats ? first.name : second.name} fører med ${Math.abs(first.seats - second.seats)} mandat${Math.abs(first.seats - second.seats) === 1 ? '' : 'er'}. 175 kræves for flertal.`;
+  return provisional ? `${lead} Foreløbig mandatfordeling.` : lead;
+};
+
 export async function loadOfficialSwedenResults(current: LiveResult | null | undefined): Promise<LiveResult> {
   try {
     const response = await fetch(ZIP_URL, {
@@ -207,20 +227,19 @@ export async function loadOfficialSwedenResults(current: LiveResult | null | und
     const blueBloc = new Set(['Moderaterna', 'Sverigedemokraterna', 'Kristdemokraterna', 'Liberalerna']);
     const redSeats = parties.filter((p) => redBloc.has(p.name)).reduce((sum, p) => sum + (p.seats || 0), 0);
     const blueSeats = parties.filter((p) => blueBloc.has(p.name)).reduce((sum, p) => sum + (p.seats || 0), 0);
-    const totalSeats = redSeats + blueSeats;
-    const hasMandates = totalSeats === RIKSDAG_SEATS;
-    const blocks = hasMandates ? [
-      { name: 'Rød blok', seats: redSeats },
-      { name: 'Blå blok', seats: blueSeats },
-    ] : [
+    const officialBlocks: BlockRow[] | null = redSeats + blueSeats === RIKSDAG_SEATS
+      ? [{ name: 'Rød blok', seats: redSeats }, { name: 'Blå blok', seats: blueSeats }]
+      : null;
+    const fallbackBlocks = validCurrentBlocks(current);
+    const blocks = officialBlocks || fallbackBlocks || [
       { name: 'Rød blok', seats: 'Afventer' },
       { name: 'Blå blok', seats: 'Afventer' },
     ];
-    const blockSummary = hasMandates
-      ? redSeats === blueSeats
-        ? `Blokkene står lige. 175 mandater kræves for flertal.`
-        : `${redSeats > blueSeats ? 'Rød blok' : 'Blå blok'} fører med ${Math.abs(redSeats - blueSeats)} mandat${Math.abs(redSeats - blueSeats) === 1 ? '' : 'er'}. 175 kræves for flertal.`
-      : 'Mandatfordelingen opdateres, så snart Valmyndighetens komplette mandatdata kan læses sikkert.';
+    const blockSummary = officialBlocks
+      ? summarizeBlocks(officialBlocks)
+      : fallbackBlocks
+        ? summarizeBlocks(fallbackBlocks, true)
+        : 'Mandatfordelingen opdateres, så snart Valmyndighetens komplette mandatdata kan læses sikkert.';
 
     return {
       ...(current || {}), phase: 'counting', headline: 'Foreløbigt valgresultat', counted_label: 'Optællingen er i gang',
