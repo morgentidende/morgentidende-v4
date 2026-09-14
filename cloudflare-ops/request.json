@@ -1,6 +1,4 @@
 {
-  "action": "manual_media_upload",
-  "request_id": "2026-09-14-bacon-joke-hero-full",
-  "job_id": "3596d8e5-5caa-47da-8659-cdc3c413d825",
-  "token": "fi9Me81o6FqYBbaX200ZWbzqWxYxkb34kOEBWJQu0xU"
+  "action": "diagnostics_summary",
+  "request_id": "2026-09-14-post-bacon-hero-check"
 }
