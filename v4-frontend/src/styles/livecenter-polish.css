@@ -1,0 +1,26 @@
+/* Livecenter result panel polish: keep data rows compact and typographically consistent. */
+.livecenter__party-row {
+  font-size: 14px;
+}
+
+.livecenter__block-row {
+  align-items: baseline;
+  font-size: 14px;
+  line-height: 1.25;
+}
+
+.livecenter__block-row strong {
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 850;
+  line-height: 1.25;
+  font-variant-numeric: tabular-nums;
+}
+
+.livecenter__block-summary {
+  font-family: inherit;
+  font-size: 13px;
+  line-height: 1.38;
+  font-weight: 700;
+  color: var(--v4-muted);
+}
