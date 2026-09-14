@@ -25,32 +25,29 @@
   color: var(--v4-muted);
 }
 
-/* Match ordinary lead followups: compact horizontal cards on desktop. */
+/* Match ordinary lead followups: compact horizontal cards on desktop, without category labels. */
+.livecenter__followups-grid .v4-kicker {
+  display: none;
+}
+
 @media (min-width: 641px) {
   .livecenter__followups-grid .v4-card {
     display: grid;
     grid-template-columns: 112px minmax(0, 1fr);
-    grid-template-rows: auto 1fr;
     column-gap: 12px;
     align-items: start;
   }
 
   .livecenter__followups-grid .v4-card__media {
     grid-column: 1;
-    grid-row: 1 / span 3;
+    grid-row: 1;
     width: 112px;
     aspect-ratio: 4 / 3;
   }
 
-  .livecenter__followups-grid .v4-kicker {
-    grid-column: 2;
-    grid-row: 1;
-    margin: 0 0 5px;
-  }
-
   .livecenter__followups-grid .v4-card__headline {
     grid-column: 2;
-    grid-row: 2;
+    grid-row: 1;
     margin: 0;
     font-size: clamp(15px, 1.05vw, 19px);
     line-height: 1.16;
