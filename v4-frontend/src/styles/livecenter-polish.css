@@ -25,7 +25,11 @@
   color: var(--v4-muted);
 }
 
-/* Match ordinary lead followups: compact horizontal cards on desktop, without category labels. */
+/* Livecenter followups: same horizontal editorial language as ordinary lead followups. */
+.livecenter__followups-grid {
+  gap: 22px;
+}
+
 .livecenter__followups-grid .v4-kicker {
   display: none;
 }
@@ -33,23 +37,37 @@
 @media (min-width: 641px) {
   .livecenter__followups-grid .v4-card {
     display: grid;
-    grid-template-columns: 112px minmax(0, 1fr);
-    column-gap: 12px;
+    grid-template-columns: minmax(124px, 43%) minmax(0, 1fr);
+    column-gap: 14px;
     align-items: start;
+    min-width: 0;
   }
 
   .livecenter__followups-grid .v4-card__media {
     grid-column: 1;
     grid-row: 1;
-    width: 112px;
+    width: 100%;
+    min-width: 0;
     aspect-ratio: 4 / 3;
+    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--v4-rule) 82%, transparent);
   }
 
   .livecenter__followups-grid .v4-card__headline {
     grid-column: 2;
     grid-row: 1;
+    min-width: 0;
+    width: 100%;
     margin: 0;
-    font-size: clamp(15px, 1.05vw, 19px);
-    line-height: 1.16;
+    font-size: clamp(15px, 1vw, 18px);
+    line-height: 1.13;
+    letter-spacing: -.015em;
+    overflow-wrap: anywhere;
+    word-break: normal;
+    hyphens: auto;
+  }
+
+  .livecenter__followups-grid .v4-card__headline a {
+    display: block;
+    min-width: 0;
   }
 }
