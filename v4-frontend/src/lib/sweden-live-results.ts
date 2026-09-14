@@ -143,6 +143,17 @@ function findBestPartyArray(root: unknown): PartyRow[] {
   return best.rows.sort((a, b) => b.percent - a.percent);
 }
 
+const findSeatCount = (obj: Record<string, any>): number | null => {
+  const total = pickNumeric(obj, /^(mandatantal|antalmandat|mandat)$/i, [0, RIKSDAG_SEATS]);
+  if (total !== null) return Math.round(total);
+
+  const fixed = pickNumeric(obj, /^(fastamandat|antalfastamandat)$/i, [0, RIKSDAG_SEATS]);
+  const equalization = pickNumeric(obj, /^(utjamningsmandat|antalutjamningsmandat|utjamningsmandatantal)$/i, [0, RIKSDAG_SEATS]);
+  if (fixed !== null || equalization !== null) return Math.round((fixed || 0) + (equalization || 0));
+
+  return null;
+};
+
 function findSeatsByParty(root: unknown): Map<string, number> {
   const best = new Map<string, { seats: number; score: number }>();
 
@@ -156,11 +167,11 @@ function findSeatsByParty(root: unknown): Map<string, number> {
     const obj = node as Record<string, any>;
     const code = detectPartyCode(obj);
     if (code) {
-      const seats = pickNumeric(obj, /(mandatantal|antalmandat|mandat|utjamningsmandat|fasta?mandat)/, [0, RIKSDAG_SEATS]);
+      const seats = findSeatCount(obj);
       if (seats !== null) {
         const score = contextScore(path, obj);
         const previous = best.get(code);
-        if (!previous || score >= previous.score) best.set(code, { seats: Math.round(seats), score });
+        if (!previous || score >= previous.score) best.set(code, { seats, score });
       }
     }
 
@@ -209,7 +220,7 @@ export async function loadOfficialSwedenResults(current: LiveResult | null | und
       ? redSeats === blueSeats
         ? `Blokkene står lige. 175 mandater kræves for flertal.`
         : `${redSeats > blueSeats ? 'Rød blok' : 'Blå blok'} fører med ${Math.abs(redSeats - blueSeats)} mandat${Math.abs(redSeats - blueSeats) === 1 ? '' : 'er'}. 175 kræves for flertal.`
-      : 'Valmyndighetens mandatdata er endnu ikke komplette. Mandattallene vises først, når de summerer til alle 349 mandater.';
+      : 'Mandatfordelingen opdateres, så snart Valmyndighetens komplette mandatdata kan læses sikkert.';
 
     return {
       ...(current || {}), phase: 'counting', headline: 'Foreløbigt valgresultat', counted_label: 'Optællingen er i gang',
