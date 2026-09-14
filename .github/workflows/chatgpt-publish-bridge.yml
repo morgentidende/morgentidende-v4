@@ -10,6 +10,7 @@ on:
 permissions:
   contents: write
   pull-requests: write
+  id-token: write
 
 concurrency:
   group: chatgpt-publish-${{ github.event.pull_request.number }}
@@ -26,8 +27,8 @@ jobs:
     timeout-minutes: 5
     env:
       SUPABASE_PROJECT_REF: lfttxjxfggjcxmdfjndk
-      SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
       PR_NUMBER: ${{ github.event.pull_request.number }}
+      GITHUB_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
     steps:
       - name: Checkout proposed queue payload
         uses: actions/checkout@v4
@@ -62,7 +63,7 @@ jobs:
           VALIDATE_ONLY: '1'
         run: node .github/scripts/process-chatgpt-publish-queue.mjs
 
-      - name: Publish through Supabase Management API
+      - name: Publish through OIDC-authenticated Supabase Edge Function
         env:
           QUEUE_FILE: ${{ steps.scope.outputs.queue_file }}
         run: node .github/scripts/process-chatgpt-publish-queue.mjs
