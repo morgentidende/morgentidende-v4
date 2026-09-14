@@ -34,6 +34,17 @@ type ErrorBody = {
   http_status?: number;
 };
 
+type MediaAssetResult = {
+  id?: string;
+  delivery_url?: string;
+  sha256?: string;
+};
+
+type MediaUploadResult = Record<string, unknown> & {
+  asset?: MediaAssetResult;
+  deduplicated?: boolean;
+};
+
 const supabaseHeaders = (env: Env, extra: Record<string, string> = {}) => ({
   apikey: env.SUPABASE_SERVICE_ROLE_KEY,
   authorization: `Bearer ${env.SUPABASE_SERVICE_ROLE_KEY}`,
@@ -49,6 +60,17 @@ const json = (body: unknown, status = 200) => new Response(JSON.stringify(body),
   },
 });
 
+const parseJsonRecord = async <T extends Record<string, unknown> = Record<string, unknown>>(
+  response: Response,
+): Promise<T> => {
+  const text = await response.text();
+  try {
+    return JSON.parse(text) as T;
+  } catch {
+    return { raw: text.slice(0, 500) } as T;
+  }
+};
+
 const hex = (buffer: ArrayBuffer) => Array.from(new Uint8Array(buffer))
   .map((byte) => byte.toString(16).padStart(2, '0'))
   .join('');
@@ -58,14 +80,14 @@ const sha256Text = async (value: string) => hex(await crypto.subtle.digest(
   new TextEncoder().encode(value),
 ));
 
+const sha256Bytes = async (bytes: Uint8Array) => hex(await crypto.subtle.digest('SHA-256', bytes));
+
 const base64ToBytes = (value: string) => {
   const decoded = atob(value);
   const bytes = new Uint8Array(decoded.length);
   for (let i = 0; i < decoded.length; i += 1) bytes[i] = decoded.charCodeAt(i);
   return bytes;
 };
-
-const sha256Bytes = async (bytes: Uint8Array) => hex(await crypto.subtle.digest('SHA-256', bytes));
 
 const getManualUploadIntegrity = (metadata: Record<string, unknown>) => {
   const expectedByteSize = Number(metadata.expected_byte_size);
@@ -103,6 +125,21 @@ const patchManualUploadJob = async (env: Env, id: string, patch: Record<string, 
   if (!response.ok) throw new Error(`manual_upload_patch_failed:${response.status}`);
 };
 
+const failManualUpload = async (
+  env: Env,
+  jobId: string,
+  error: string,
+  status: number,
+  result?: Record<string, unknown>,
+) => {
+  await patchManualUploadJob(env, jobId, {
+    status: 'failed',
+    ...(result ? { result } : {}),
+    last_error: error,
+  });
+  return json({ error, ...(result || {}) }, status);
+};
+
 const getManualUploadJob = async (env: Env, id: string): Promise<ManualUploadJob | null> => {
   const params = new URLSearchParams({
     id: `eq.${id}`,
@@ -118,8 +155,7 @@ const getManualUploadJob = async (env: Env, id: string): Promise<ManualUploadJob
 };
 
 const handleManualUpload = async (request: Request, env: Env, jobId: string): Promise<Response> => {
-  const url = new URL(request.url);
-  const token = url.searchParams.get('token') || '';
+  const token = new URL(request.url).searchParams.get('token') || '';
   if (!token || token.length < 32) return json({ error: 'manual_upload_token_required' }, 401);
 
   const job = await getManualUploadJob(env, jobId);
@@ -142,11 +178,7 @@ const handleManualUpload = async (request: Request, env: Env, jobId: string): Pr
 
   const integrity = getManualUploadIntegrity(job.metadata || {});
   if (!integrity) {
-    await patchManualUploadJob(env, job.id, {
-      status: 'failed',
-      last_error: 'manual_upload_integrity_metadata_required',
-    });
-    return json({ error: 'manual_upload_integrity_metadata_required' }, 422);
+    return failManualUpload(env, job.id, 'manual_upload_integrity_metadata_required', 422);
   }
 
   await patchManualUploadJob(env, job.id, { status: 'processing', last_error: null });
@@ -197,14 +229,7 @@ const handleManualUpload = async (request: Request, env: Env, jobId: string): Pr
       headers: { authorization: `Bearer ${env.MEDIA_INGEST_TOKEN}` },
       body: form,
     }), env);
-
-    const text = await response.text();
-    let result: Record<string, unknown> = {};
-    try {
-      result = JSON.parse(text) as Record<string, unknown>;
-    } catch {
-      result = { raw: text.slice(0, 500) };
-    }
+    const result = await parseJsonRecord<MediaUploadResult>(response);
 
     if (!response.ok) {
       await patchManualUploadJob(env, job.id, {
@@ -215,14 +240,9 @@ const handleManualUpload = async (request: Request, env: Env, jobId: string): Pr
       return json({ ok: false, error: 'manual_upload_failed', upstream_status: response.status, result }, 502);
     }
 
-    const asset = result.asset as { id?: string; delivery_url?: string; sha256?: string } | undefined;
+    const asset = result.asset;
     if (!asset?.id || !asset.delivery_url || asset.sha256 !== integrity.expectedSha256) {
-      await patchManualUploadJob(env, job.id, {
-        status: 'failed',
-        result,
-        last_error: 'manual_upload_upstream_integrity_mismatch',
-      });
-      return json({ error: 'manual_upload_upstream_integrity_mismatch' }, 502);
+      return failManualUpload(env, job.id, 'manual_upload_upstream_integrity_mismatch', 502, result);
     }
 
     await patchManualUploadJob(env, job.id, {
@@ -361,14 +381,7 @@ const processJob = async (env: Env, job: QueueJob) => {
     },
     body: JSON.stringify(payload),
   }), env);
-
-  const text = await response.text();
-  let result: Record<string, unknown> = {};
-  try {
-    result = JSON.parse(text) as Record<string, unknown>;
-  } catch {
-    result = { raw: text.slice(0, 500) };
-  }
+  const result = await parseJsonRecord(response);
 
   if (response.ok) {
     const asset = result.asset as { id?: string } | undefined;
