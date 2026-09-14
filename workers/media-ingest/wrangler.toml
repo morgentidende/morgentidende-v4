@@ -12,11 +12,15 @@ bucket_name = "morgentidende-media"
 MEDIA_PUBLIC_BASE_URL = "https://media.morgentidende.dk"
 MEDIA_MAX_BYTES = "20971520"
 
+# Queue polling is fallback/recovery only. Normal chat publication should use
+# the worker's immediate /ingest path; this 1-minute trigger limits worst-case
+# delay if the fast path cannot be reached.
 [triggers]
-crons = ["*/4 * * * *"]
+crons = ["* * * * *"]
 
 # Secrets required at deploy time (never commit values):
 # MEDIA_INGEST_TOKEN
 # OPS_MEDIA_TOKEN
+# CHAT_MEDIA_TOKEN
 # SUPABASE_URL
 # SUPABASE_SERVICE_ROLE_KEY
