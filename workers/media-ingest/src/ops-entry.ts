@@ -2,7 +2,7 @@ import worker from './queue-entry';
 import baseWorker from './index';
 import { maybeHandleSvgChatUpload } from './svg-chat-upload';
 import { maybeHandleDirectChatUpload } from './direct-chat-upload';
-import { maybeHandleDropboxChatUpload } from './dropbox-chat-upload';
+import { maybeHandleDropboxChatUpload, processPendingDropboxChatJobs } from './dropbox-chat-upload';
 
 interface Env {
   MEDIA_BUCKET: R2Bucket;
@@ -131,6 +131,9 @@ export default {
   },
 
   scheduled(controller: ScheduledController, env: Env, ctx: ExecutionContext) {
+    // Chat-generated Dropbox heroes no longer depend on chat being able to reach
+    // the Worker. The normal one-minute media cron consumes pending transport jobs.
+    ctx.waitUntil(processPendingDropboxChatJobs(env, baseWorker, 5));
     return worker.scheduled(controller, env, ctx);
   },
 };
