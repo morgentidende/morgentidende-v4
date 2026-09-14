@@ -1,7 +1,7 @@
 interface Env {
   ADMIN_TOKEN: string;
   CHAT_MEDIA_TOKEN?: string;
-  MEDIA_INGEST_URL?: string;
+  MEDIA_INGEST: Fetcher;
 }
 
 const json = (body: unknown, status = 200) => new Response(JSON.stringify(body), {
@@ -49,6 +49,7 @@ export const handleMediaChat = async (request: Request, env: Env): Promise<Respo
 
   if (!authorized(request, env)) return json({ error: 'unauthorized' }, 401);
   if (!env.CHAT_MEDIA_TOKEN) return json({ error: 'chat_media_token_missing' }, 503);
+  if (!env.MEDIA_INGEST) return json({ error: 'media_ingest_binding_missing' }, 503);
 
   let body: ChatUploadBody;
   try {
@@ -113,13 +114,11 @@ export const handleMediaChat = async (request: Request, env: Env): Promise<Respo
     }
   }));
 
-  const base = (env.MEDIA_INGEST_URL || 'https://morgentidende-media-ingest.morgentidende.workers.dev').replace(/\/$/, '');
-  const upstream = await fetch(`${base}/upload`, {
+  const upstream = await env.MEDIA_INGEST.fetch(new Request('https://media-ingest.internal/upload', {
     method: 'POST',
     headers: { authorization: `Bearer ${env.CHAT_MEDIA_TOKEN}` },
-    body: form,
-    signal: AbortSignal.timeout(20_000)
-  });
+    body: form
+  }));
 
   const text = await upstream.text();
   let result: unknown;
