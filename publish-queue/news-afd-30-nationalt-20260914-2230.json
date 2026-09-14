@@ -1,0 +1,65 @@
+{
+  "queue_id": "news-afd-30-nationalt-20260914-2230",
+  "slug": "afd-30-procent-national-maaling-union-20-2026",
+  "kind": "news",
+  "category_slug": "udland",
+  "headline": "AfD rammer 30 procent i landsdækkende måling – Unionen nede på 20",
+  "frontpage_headline": "AfD rammer 30 procent – Unionen nede på 20",
+  "deck": "En ny GMS-måling giver AfD det højeste landsdækkende resultat hidtil og et forspring på ti point til CDU/CSU.",
+  "body_markdown": "Det indvandrings- og EU-kritiske parti Alternative für Deutschland (AfD) når for første gang 30 procent i en landsdækkende tysk meningsmåling. Samtidig falder CDU/CSU, den konservative unionsblok omkring forbundskansler Friedrich Merz, til 20 procent.\n\nMålingen er foretaget af meningsmålingsinstituttet GMS og blev omtalt mandag. Ifølge de offentliggjorte tal ligger AfD dermed ti procentpoint foran Unionen. Det er både AfD's højeste resultat i en GMS-måling og det største målte forspring til CDU/CSU i den aktuelle valgperiode.\n\n## Regeringspartierne er næsten nede på AfD alene\n\nSPD står i GMS-målingen til 11 procent. Det betyder, at CDU/CSU og SPD tilsammen står til 31 procent – kun ét point mere end AfD alene. De Grønne får 14 procent, mens Die Linke står til 11 procent. FDP ligger på 4 procent og BSW på 3 procent og ville dermed, hvis resultatet blev et valgresultat, ligge under spærregrænsen.\n\nTallene er en meningsmåling og ikke et valgresultat. Enkeltmålinger kan afvige fra hinanden, og andre institutter har de seneste uger målt AfD lidt lavere. Den tyske målingsoversigt DAWUM viste før GMS-målingen et nationalt gennemsnit omkring 28 procent til AfD og godt 20 procent til CDU/CSU.\n\nAlligevel passer GMS-resultatet ind i en tydelig længere tendens. Ved forbundsdagsvalget i februar 2025 fik AfD 20,8 procent. På halvandet år er partiet altså rykket markant frem i de nationale målinger, mens CDU/CSU er faldet fra valgresultatet på 28,5 procent.\n\n## Presset på Merz vokser\n\nUdviklingen kommer på et vanskeligt tidspunkt for kansler Friedrich Merz. Reuters beskrev mandag, hvordan hans regering er under pres fra utilfredshed med økonomi, leveomkostninger og reformtempo, samtidig med at AfD står stærkt i flere delstater.\n\nAfD's fremgang er især blevet båret af kritik af migration, EU-integration og den etablerede regerings kurs. Partiet har samtidig mødt hård modstand på grund af dele af dets politik og retorik, og andre tyske partier afviser fortsat regeringssamarbejde med AfD.\n\nDet ændrer ikke ved den politiske udfordring i tallene: Hvis GMS-målingen afspejler en mere varig bevægelse, er Tyskland ikke længere i en situation, hvor AfD blot konkurrerer om andenpladsen. Partiet står i denne måling klart som landets største politiske kraft.\n\nFor Merz er spørgsmålet derfor ikke kun, om Unionen kan hente vælgere tilbage. Det er også, om den nuværende tyske partisplittelse overhovedet gør det muligt at skabe stabile flertal uden enten meget brede koalitioner eller en grundlæggende ændring i forholdet til AfD.",
+  "hero_candidate_url": "https://upload.wikimedia.org/wikipedia/commons/d/dd/Alice_Weidel_at_CPAC_Hungary.jpg",
+  "hero_source_url": "https://commons.wikimedia.org/wiki/File:Alice_Weidel_at_CPAC_Hungary.jpg",
+  "hero_alt": "AfD-leder Alice Weidel taler ved en konference i 2025.",
+  "hero_license": "CC BY 4.0",
+  "hero_license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "hero_credit": "Elekes Andor / Wikimedia Commons",
+  "hero_candidate_note": "Fotoet er fotografens eget værk på Wikimedia Commons og udgivet under CC BY 4.0, som tillader kommerciel brug, lokal lagring og bearbejdning med kreditering.",
+  "source_metadata": [
+    {
+      "url": "https://gms-gmbh.com/presse",
+      "title": "GMS – Presse / Politikbus",
+      "publisher": "GMS Dr. Jung GmbH",
+      "source_type": "primary_original",
+      "subject_is_source": true
+    },
+    {
+      "url": "https://www.t-online.de/nachrichten/deutschland/umfragen/id_101435156/sonntagsfrage-afd-erreicht-in-neuer-wahlumfrage-historischen-wert.html",
+      "title": "Historischer Höchstwert für AfD in neuer Umfrage",
+      "publisher": "t-online",
+      "source_type": "strong_secondary"
+    },
+    {
+      "url": "https://www.reuters.com/world/merz-wins-respite-german-municipal-polls-tougher-tests-come-2026-09-14/",
+      "title": "Europe's security trumps debates about my future, Germany's Merz says",
+      "publisher": "Reuters",
+      "source_type": "strong_secondary"
+    },
+    {
+      "url": "https://dawum.de/Bundestag/",
+      "title": "Bundestagswahl: Neueste Wahlumfragen im Wahltrend",
+      "publisher": "DAWUM",
+      "source_type": "reference"
+    }
+  ],
+  "editorial_metadata": {
+    "content_type": "news",
+    "topics": ["Tyskland", "AfD", "CDU/CSU", "meningsmåling", "Friedrich Merz"],
+    "sagen_kort": [
+      "AfD når 30 procent i en ny landsdækkende GMS-måling, mens CDU/CSU falder til 20 procent.",
+      "Regeringspartierne CDU/CSU og SPD står tilsammen til 31 procent – kun ét point mere end AfD alene."
+    ],
+    "seo_primary_keyword": "AfD 30 procent meningsmåling",
+    "seo_search_intent": "Hvor står AfD og CDU/CSU i de seneste tyske meningsmålinger?",
+    "source_quality_exception": {
+      "type": "original_document_is_subject",
+      "reason": "GMS' egen måling er den primære genstand for artiklen og suppleres af uafhængig stærk sekundær dokumentation."
+    },
+    "hero_source_provider": "Wikimedia Commons",
+    "hero_rights": {
+      "commercial_use_allowed": true,
+      "local_storage_allowed": true,
+      "modifications_allowed": true,
+      "attribution_required": true
+    }
+  }
+}
