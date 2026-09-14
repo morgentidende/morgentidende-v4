@@ -12,6 +12,24 @@ type ChatUploadBody = {
   generation_metadata?: Record<string, unknown>;
 };
 
+type SourceIngestBody = {
+  source_url?: string;
+  article_id?: string;
+  source_provider?: string;
+  source_asset_id?: string;
+  license_name?: string;
+  license_url?: string;
+  credit_text?: string;
+  rights_notes?: string;
+  rights_expires_at?: string;
+  commercial_use_allowed?: boolean;
+  local_storage_allowed?: boolean;
+  modifications_allowed?: boolean;
+  attribution_required?: boolean;
+  alt_text?: string;
+  metadata?: Record<string, unknown>;
+};
+
 type MediaAssetResult = {
   id?: string;
   delivery_url?: string;
@@ -21,6 +39,8 @@ type MediaAssetResult = {
 
 type MediaUploadResult = {
   ok?: boolean;
+  queued?: boolean;
+  job_id?: string;
   deduplicated?: boolean;
   asset?: MediaAssetResult;
   error?: string;
@@ -81,11 +101,13 @@ const parseJson = async <T>(response: Response): Promise<T | { raw: string }> =>
   }
 };
 
-const validateBody = (body: ChatUploadBody): Response | null => {
+const validateArticleId = (articleId: string | undefined) => Boolean(articleId && ARTICLE_ID_RE.test(articleId));
+
+const validateChatUploadBody = (body: ChatUploadBody): Response | null => {
   if (!body.source_url || !body.article_id) {
     return json({ error: 'source_url_and_article_id_required' }, 400);
   }
-  if (!ARTICLE_ID_RE.test(body.article_id)) return json({ error: 'valid_article_id_required' }, 400);
+  if (!validateArticleId(body.article_id)) return json({ error: 'valid_article_id_required' }, 400);
   if ((body.alt_text || '').length > MAX_ALT_LENGTH) return json({ error: 'alt_text_too_long' }, 400);
 
   const metadataBytes = new TextEncoder().encode(JSON.stringify(body.generation_metadata || {})).byteLength;
@@ -93,6 +115,42 @@ const validateBody = (body: ChatUploadBody): Response | null => {
     return json({ error: 'generation_metadata_too_large' }, 413);
   }
   return null;
+};
+
+const validateSourceIngestBody = (body: SourceIngestBody): Response | null => {
+  if (!body.source_url || !body.article_id) {
+    return json({ error: 'source_url_and_article_id_required' }, 400);
+  }
+  if (!validateArticleId(body.article_id)) return json({ error: 'valid_article_id_required' }, 400);
+  if ((body.alt_text || '').length > MAX_ALT_LENGTH) return json({ error: 'alt_text_too_long' }, 400);
+  if (body.commercial_use_allowed !== true || body.local_storage_allowed !== true) {
+    return json({ error: 'archive_rights_required' }, 422);
+  }
+  return null;
+};
+
+const callMediaIngest = async (
+  env: Env,
+  path: '/ingest' | '/upload',
+  body: BodyInit,
+  contentType?: string
+): Promise<Response> => {
+  if (!env.CHAT_MEDIA_TOKEN) return json({ error: 'chat_media_token_missing' }, 503);
+  if (!env.MEDIA_INGEST) return json({ error: 'media_ingest_binding_missing' }, 503);
+
+  const headers = new Headers({ authorization: `Bearer ${env.CHAT_MEDIA_TOKEN}` });
+  if (contentType) headers.set('content-type', contentType);
+
+  try {
+    return await env.MEDIA_INGEST.fetch(new Request(`https://media-ingest.internal${path}`, {
+      method: 'POST',
+      headers,
+      body,
+      signal: AbortSignal.timeout(25_000)
+    }));
+  } catch {
+    return json({ error: 'media_ingest_unreachable' }, 502);
+  }
 };
 
 const fetchTemporaryImage = async (rawUrl: string) => {
@@ -141,14 +199,61 @@ const isValidReadyAssetResult = (result: MediaUploadResult) => Boolean(
   result.asset?.sha256
 );
 
-export const handleMediaChat = async (request: Request, env: Env): Promise<Response | null> => {
-  const url = new URL(request.url);
-  if (request.method !== 'POST' || url.pathname !== '/media/chat-upload') return null;
+const forwardResult = async (upstream: Response) => {
+  const result = await parseJson<MediaUploadResult>(upstream);
+  if (!upstream.ok) return json(result, upstream.status);
+  return json(result, upstream.status);
+};
 
-  if (!authorized(request, env)) return json({ error: 'unauthorized' }, 401);
-  if (!env.CHAT_MEDIA_TOKEN) return json({ error: 'chat_media_token_missing' }, 503);
-  if (!env.MEDIA_INGEST) return json({ error: 'media_ingest_binding_missing' }, 503);
+const handleSourceIngest = async (request: Request, env: Env): Promise<Response> => {
+  let body: SourceIngestBody;
+  try {
+    body = await request.json<SourceIngestBody>();
+  } catch {
+    return json({ error: 'invalid_json' }, 400);
+  }
 
+  const bodyError = validateSourceIngestBody(body);
+  if (bodyError) return bodyError;
+
+  const payload = JSON.stringify({
+    ...body,
+    metadata: {
+      ...(body.metadata || {}),
+      origin: 'chat_source_hero',
+      pipeline_version: 3
+    }
+  });
+
+  const upstream = await callMediaIngest(env, '/ingest', payload, 'application/json');
+  const result = await parseJson<MediaUploadResult>(upstream);
+
+  if (upstream.status === 202 && 'queued' in result && (result as MediaUploadResult).queued === true) {
+    return json({
+      ok: false,
+      hero_status: 'hero_pending',
+      article_id: body.article_id,
+      ...(result as MediaUploadResult)
+    }, 202);
+  }
+
+  if (!upstream.ok) return json(result, upstream.status);
+  if (!('ok' in result) || !isValidReadyAssetResult(result as MediaUploadResult)) {
+    console.error('source_hero_invalid_upstream_result', result);
+    return json({ error: 'media_ingest_incomplete_result' }, 502);
+  }
+
+  const valid = result as MediaUploadResult;
+  return json({
+    ok: true,
+    hero_status: 'hero_ready',
+    deduplicated: Boolean(valid.deduplicated),
+    article_id: body.article_id,
+    asset: valid.asset
+  }, upstream.status);
+};
+
+const handleChatUpload = async (request: Request, env: Env): Promise<Response> => {
   let body: ChatUploadBody;
   try {
     body = await request.json<ChatUploadBody>();
@@ -156,7 +261,7 @@ export const handleMediaChat = async (request: Request, env: Env): Promise<Respo
     return json({ error: 'invalid_json' }, 400);
   }
 
-  const bodyError = validateBody(body);
+  const bodyError = validateChatUploadBody(body);
   if (bodyError) return bodyError;
 
   const fetched = await fetchTemporaryImage(body.source_url!);
@@ -181,24 +286,13 @@ export const handleMediaChat = async (request: Request, env: Env): Promise<Respo
     alt_text: body.alt_text || null,
     metadata: {
       origin: 'manual_chat_ai_hero',
-      pipeline_version: 2,
+      pipeline_version: 3,
       temporary_transport: 'dropbox',
       ...(body.generation_metadata || {})
     }
   }));
 
-  let upstream: Response;
-  try {
-    upstream = await env.MEDIA_INGEST.fetch(new Request('https://media-ingest.internal/upload', {
-      method: 'POST',
-      headers: { authorization: `Bearer ${env.CHAT_MEDIA_TOKEN}` },
-      body: form,
-      signal: AbortSignal.timeout(25_000)
-    }));
-  } catch {
-    return json({ error: 'media_ingest_unreachable' }, 502);
-  }
-
+  const upstream = await callMediaIngest(env, '/upload', form);
   const result = await parseJson<MediaUploadResult>(upstream);
   if (!upstream.ok) return json(result, upstream.status);
 
@@ -210,8 +304,24 @@ export const handleMediaChat = async (request: Request, env: Env): Promise<Respo
   const valid = result as MediaUploadResult;
   return json({
     ok: true,
+    hero_status: 'hero_ready',
     deduplicated: Boolean(valid.deduplicated),
     article_id: body.article_id,
     asset: valid.asset
   }, upstream.status);
+};
+
+export const handleMediaChat = async (request: Request, env: Env): Promise<Response | null> => {
+  const url = new URL(request.url);
+  const isChatUpload = request.method === 'POST' && url.pathname === '/media/chat-upload';
+  const isSourceIngest = request.method === 'POST' && url.pathname === '/media/source-ingest';
+  if (!isChatUpload && !isSourceIngest) return null;
+
+  if (!authorized(request, env)) return json({ error: 'unauthorized' }, 401);
+  if (!env.CHAT_MEDIA_TOKEN) return json({ error: 'chat_media_token_missing' }, 503);
+  if (!env.MEDIA_INGEST) return json({ error: 'media_ingest_binding_missing' }, 503);
+
+  return isSourceIngest
+    ? handleSourceIngest(request, env)
+    : handleChatUpload(request, env);
 };
