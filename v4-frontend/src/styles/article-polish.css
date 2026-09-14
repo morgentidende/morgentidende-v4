@@ -37,6 +37,10 @@
   margin-top: 34px;
 }
 
+.v4-article-brief + .v4-article-hero {
+  margin-top: 18px;
+}
+
 .v4-article-brief {
   width: min(700px, calc(100% - 40px));
   margin: 30px auto 0;
@@ -203,6 +207,10 @@
   .v4-article-hero {
     width: calc(100% - 28px);
     margin-top: 24px;
+  }
+
+  .v4-article-brief + .v4-article-hero {
+    margin-top: 14px;
   }
 
   .v4-article-brief {
