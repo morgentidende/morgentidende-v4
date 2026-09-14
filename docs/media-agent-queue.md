@@ -16,6 +16,13 @@ AI-heros sendes direkte som fil til `POST /upload` som `multipart/form-data`:
 
 Det fjerner behovet for midlertidig offentlig URL eller staging-tjeneste. Workeren gemmer filen direkte i R2, deduplikerer på SHA-256, opretter `media_assets` og knytter asset til artiklen, når `article_id` er medsendt.
 
+### Manuel chat + AI-hero
+Når brugeren manuelt beder om et AI-genereret hero i chatten, skal chat-publiceringsvejen **ikke** bruge en særskilt billedpipeline og må ikke først gøre billedet til et synligt chat-preview som et nødvendigt mellemtrin. Hero-brief og artikel-id skal føres ind i den samme kanoniske media fast path, som bruges ved autonom publicering, og den genererede fil skal sendes direkte til `POST /upload` med `article_id`.
+
+Brugeren behøver ikke forhåndsgodkende AI-heroen, medmindre vedkommende udtrykkeligt beder om at se eller godkende den først. Standardflowet er derfor: generér → direkte upload → `media_assets` ready → tilknyt `hero_media_id`/intern `hero_url` → normal prepublication-QA → publicér.
+
+Chatten må ikke manuelt skrive hero-URL eller publicere en artikel på baggrund af et lokalt/genereret billede, før `/upload` har returneret et gyldigt asset. Ved retry skal samme genererede fil genbruges, så Workerens SHA-256-deduplikering gør uploaden idempotent i stedet for at generere en ny variant.
+
 ## Fast path er den eneste normale indgang
 Ved både chatstyret og autonom publicering skal `/ingest` eller `/upload` bruges direkte. Et URL-baseret hero-forsøg skal derfor altid gennem den synkrone `/ingest`-vej først.
 
