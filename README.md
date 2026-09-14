@@ -11,6 +11,7 @@ Morgentidende – få begge sider af sagen i Danmarks nye avis.
 - `docs/news-editorial-profile-and-discovery.md` – gældende nyhedsprofil, politiske skalaer, discovery-kilder og bredt nyhedsmix.
 - `docs/magazine-editorial-policy.md` – supplerende gældende regler for de apolitiske magasiner Viden og Liv.
 - `docs/social-distribution.md` – gældende regler for social distribution og creator-desk.
+- `docs/media-agent-queue.md` – kanonisk hero-/media-flow, herunder Dropbox som primær transportbro for chatgenererede heros, rettighedsgates, dimensioner, SVG og fallback-kø.
 
 De aktive ChatGPT-automationer ejer kun deres opgavespecifikke mandat, tidsplan og logging-identitet. De skal referere til de centrale regelsæt frem for at kopiere fælles regler ind i lange prompter.
 
