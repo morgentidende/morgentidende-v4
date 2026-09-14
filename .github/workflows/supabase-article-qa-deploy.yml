@@ -1,0 +1,36 @@
+name: Deploy Supabase article QA
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'supabase/functions/article-qa/**'
+      - '.github/workflows/supabase-article-qa-deploy.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: supabase-article-qa-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Supabase CLI
+        uses: supabase/setup-cli@v1
+        with:
+          version: latest
+
+      - name: Deploy article-qa
+        env:
+          SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+        run: |
+          test -n "$SUPABASE_ACCESS_TOKEN"
+          supabase functions deploy article-qa --project-ref lfttxjxfggjcxmdfjndk
