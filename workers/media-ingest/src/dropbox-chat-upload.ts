@@ -62,6 +62,8 @@ const getJob = async (env: Env, id: string): Promise<ManualJob | null> => {
 const listPendingDropboxJobs = async (env: Env, limit = 5): Promise<ManualJob[]> => {
   const params = new URLSearchParams({
     status: 'eq.pending',
+    'metadata->>transport_provider': 'eq.dropbox',
+    'metadata->>dropbox_download_url': 'not.is.null',
     select: 'id,article_id,token_hash,mime_type,file_name,metadata,status,expires_at',
     order: 'created_at.asc',
     limit: String(limit),
@@ -70,12 +72,7 @@ const listPendingDropboxJobs = async (env: Env, limit = 5): Promise<ManualJob[]>
     headers: headers(env),
   });
   if (!response.ok) throw new Error(`dropbox_upload_list_failed:${response.status}`);
-  const rows = await response.json<ManualJob[]>();
-  return rows.filter((job) => {
-    const transport = typeof job.metadata?.transport_provider === 'string' ? job.metadata.transport_provider : '';
-    const sourceUrl = typeof job.metadata?.dropbox_download_url === 'string' ? job.metadata.dropbox_download_url : '';
-    return transport === 'dropbox' && sourceUrl.length > 0;
-  });
+  return response.json<ManualJob[]>();
 };
 
 const patchJob = async (env: Env, id: string, patch: Record<string, unknown>) => {
@@ -85,6 +82,19 @@ const patchJob = async (env: Env, id: string, patch: Record<string, unknown>) =>
     body: JSON.stringify({ ...patch, updated_at: new Date().toISOString() }),
   });
   if (!response.ok) throw new Error(`dropbox_upload_patch_failed:${response.status}`);
+};
+
+const claimJob = async (env: Env, job: ManualJob) => {
+  if (!['pending', 'failed'].includes(job.status)) return false;
+  const params = new URLSearchParams({ id: `eq.${job.id}`, status: `eq.${job.status}` });
+  const response = await fetch(`${env.SUPABASE_URL}/rest/v1/manual_chat_media_upload_jobs?${params}`, {
+    method: 'PATCH',
+    headers: headers(env, { Prefer: 'return=representation' }),
+    body: JSON.stringify({ status: 'processing', last_error: null, updated_at: new Date().toISOString() }),
+  });
+  if (!response.ok) throw new Error(`dropbox_upload_claim_failed:${response.status}`);
+  const rows = await response.json<ManualJob[]>();
+  return rows.length === 1;
 };
 
 const expectedIntegrity = (metadata: Record<string, unknown>) => {
@@ -119,6 +129,7 @@ const processDropboxJob = async (
   sourceUrl: string,
   env: Env,
   baseWorker: BaseWorker,
+  alreadyClaimed = false,
 ): Promise<Response> => {
   if (new Date(job.expires_at).getTime() <= Date.now()) {
     if (job.status === 'pending') await patchJob(env, job.id, { status: 'expired' });
@@ -130,7 +141,10 @@ const processDropboxJob = async (
   const expected = expectedIntegrity(job.metadata || {});
   if (!expected) return json({ error: 'manual_upload_integrity_metadata_required' }, 422);
 
-  await patchJob(env, job.id, { status: 'processing', last_error: null });
+  if (!alreadyClaimed && !(await claimJob(env, job))) {
+    return json({ error: 'manual_upload_in_progress' }, 409);
+  }
+
   try {
     // Dropbox temporary download URLs are single-use: perform exactly one GET.
     const source = await fetch(sourceUrl, { method: 'GET', redirect: 'follow' });
@@ -251,7 +265,8 @@ export const processPendingDropboxChatJobs = async (
       ? job.metadata.dropbox_download_url
       : '';
     if (!sourceUrl) continue;
-    await processDropboxJob(job, sourceUrl, env, baseWorker);
+    if (!(await claimJob(env, job))) continue;
+    await processDropboxJob(job, sourceUrl, env, baseWorker, true);
   }
 };
 
