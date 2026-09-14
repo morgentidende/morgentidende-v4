@@ -1,0 +1,50 @@
+{
+  "queue_id": "news-bremen-islamist-gefaerder-20260914-2131",
+  "slug": "bremen-flest-gefaerder-islamister-410-tyskland-2026",
+  "kind": "news",
+  "category_slug": "udland",
+  "headline": "Islamister dominerer Tysklands liste over potentielle terrortrusler – også i Bremen",
+  "frontpage_headline": "Islamister dominerer Tysklands liste over potentielle terrortrusler",
+  "deck": "410 islamistiske »Gefährder« står på politiets landsdækkende liste. I Bremen udgør islamister også flertallet blandt de personer, myndighederne følger tæt.",
+  "body_markdown": "## SAGEN KORT\n\n- Tysk politi klassificerer 410 personer som islamistiske »Gefährder« mod 65 fra det højreekstremistiske og 17 fra det venstreekstremistiske miljø.\n- I delstaten Bremen ligger antallet i det lave tocifrede område, og flertallet knyttes ifølge nye oplysninger til det islamistiske miljø.\n\nIslamister udgør langt den største gruppe blandt de personer, som tysk politi vurderer kan begå alvorlig politisk motiveret kriminalitet. Nye oplysninger fra Bremen viser, at samme mønster gør sig gældende lokalt.\n\nDet tyske forbundskriminalpoliti BKA opgjorde 1. juli 410 personer i kategorien religiøs ideologi som islamistiske »Gefährder«. Til sammenligning var 65 klassificeret i det højreekstremistiske miljø og 17 i det venstreekstremistiske.\n\nEn »Gefährder« er ikke en person, der nødvendigvis er dømt for terror. Det er en politifaglig klassifikation af en person, hvor konkrete oplysninger giver myndighederne grund til at antage, at vedkommende kan begå en politisk motiveret forbrydelse af betydelig alvor. BKA understreger samtidig, at antallet alene ikke fortæller, hvor stor den samlede trussel fra hvert ekstremistisk miljø er.\n\n## Samme mønster i Bremen\n\nNye oplysninger behandlet i Bremens parlamentariske indenrigsudvalg viser ifølge den lokale omtale, at delstaten har et lavt tocifret antal personer klassificeret som Gefährder. Flertallet tilhører det islamistiske miljø.\n\nDe fleste er mænd mellem 20 og 40 år. En tydelig majoritet beskrives som ugifte og arbejdsløse. Blandt personer med udenlandsk eller dobbelt statsborgerskab optræder blandt andet russisk, syrisk, tyrkisk, afghansk og libanesisk statsborgerskab. Ingen af Bremens islamistiske Gefährder var pr. 4. august umiddelbart udvisningspligtige.\n\nBremens forfatningsværn anslog i sin seneste opgørelse det islamistiske miljø i delstaten til omkring 580 personer, heraf cirka 480 salafister. Omtrent 30 procent blev vurderet som voldsorienterede. Til sammenligning blev omkring 280 personer regnet til det voldsorienterede venstreekstremistiske miljø og cirka 120 til den voldsorienterede del af det højreekstremistiske miljø.\n\n## 155 islamistiske Gefährder på fri fod i Tyskland\n\nDe landsdækkende BKA-tal giver yderligere perspektiv. Af de 410 islamistiske Gefährder befandt 255 sig i Tyskland ved opgørelsen. 100 af dem sad fængslet, mens 155 opholdt sig i landet på fri fod. Yderligere 155 befandt sig i udlandet.\n\nTallene har fået ny politisk betydning efter sommerens islamistiske angreb i Berlin. Den tyske indenrigsminister har blandt andet argumenteret for mere brug af elektroniske fodlænker og forebyggende frihedsberøvelse over for personer, som myndighederne vurderer som særligt farlige. Kritikere har samtidig advaret om, at sådanne indgreb rejser alvorlige spørgsmål om retssikkerhed og grundlæggende frihedsrettigheder.\n\nDet afgørende for politiet er derfor ikke blot, hvor mange navne der står på en liste, men hvor præcist risikoen kan vurderes for den enkelte. Alligevel er forskellen mellem miljøerne markant: På den nationale Gefährder-liste er der mere end seks gange så mange islamister som personer fra det højreekstremistiske miljø og mere end 20 gange så mange som fra det venstreekstremistiske.",
+  "hero_candidate_url": "https://upload.wikimedia.org/wikipedia/commons/4/49/Police_automobiles_of_Bremen_01.jpg",
+  "hero_alt": "Politibil fra Bremen på gaden i den tyske by",
+  "hero_source_url": "https://commons.wikimedia.org/wiki/File:Police_automobiles_of_Bremen_01.jpg",
+  "hero_credit": "Arths-at / Wikimedia Commons",
+  "hero_license": "CC BY-SA 4.0",
+  "hero_license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "hero_candidate_note": "Eget værk af Arths-at, udgivet under CC BY-SA 4.0. Kommerciel genbrug og lokal arkivering er tilladt med attribution og share-alike-vilkår.",
+  "source_metadata": [
+    {
+      "url": "https://www.welt.de/politik/deutschland/article6a677ebb5a746a23ee624481/neue-zahlen-bka-betrachtet-derzeit-410-menschen-als-islamistische-gefaehrder.html",
+      "title": "BKA betrachtet derzeit 410 Menschen als islamistische Gefährder",
+      "publisher": "WELT",
+      "source_type": "strong_secondary"
+    },
+    {
+      "url": "https://www.merkur.de/politik/csd-attentaeter-abdul-war-nur-einer-von-vielen-so-viele-gefaehrder-gibt-es-in-deutschland-zr-94416985.html",
+      "title": "So viele Gefährder gibt es in Deutschland",
+      "publisher": "Münchner Merkur",
+      "source_type": "strong_secondary"
+    },
+    {
+      "url": "https://www.verfassungsschutz.bremen.de/",
+      "title": "Landesamt für Verfassungsschutz Bremen",
+      "publisher": "Landesamt für Verfassungsschutz Bremen",
+      "source_type": "primary_official"
+    }
+  ],
+  "editorial_metadata": {
+    "discovery_source": "Apollo News",
+    "discovery_source_url": "https://apollo-news.net/maennlich-ledig-und-arbeitslos-gefaehrder-in-bremen-sind-ueberwiegend-islamisten-nicht-rechts-oder-links/",
+    "publication_transport": "github_pr_bridge",
+    "hero_source_provider": "Wikimedia Commons",
+    "hero_rights": {
+      "commercial_use_allowed": true,
+      "local_storage_allowed": true,
+      "modifications_allowed": true,
+      "attribution_required": true
+    },
+    "share_reason": "De officielle og stærke mediekilder viser en markant forskel mellem de ekstremistiske miljøer, samtidig med at Bremen giver et konkret lokalt eksempel."
+  }
+}
