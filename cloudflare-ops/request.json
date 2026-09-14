@@ -1,15 +1,6 @@
 {
-  "action": "media_chat_upload",
-  "request_id": "2026-09-14-iran-octopus-manual-hero",
-  "payload": {
-    "article_id": "e922b3d5-94a8-4318-9d19-2a9ea2973272",
-    "source_url": "https://uc32f559f6cae906c8f91e50d241.dl.dropboxusercontent.com/cd/0/get/DIHEDWAewSpoJWmKX_xp7dFbqj5lfiXHt0vPu-AvSrJyjw75c0l2YM6zvW8qZpE6e00XCmxRRDwrC5jHfxb5Fcz5UZJhMnnTFjo94nsczhc2x5xIxgBiFGglvvQjKjSMfeX4Pj_XR5-DPzUoJ1tVAkZ7Aqgq6o158nVjPB04mkoxIw/file?c_luid=2f1beae4",
-    "file_name": "iran-octopus-editorial-manual.webp",
-    "alt_text": "Tusch- og vandfarveillustration af Irans øverste leder over en jordklode med sorte fangarme som symbol på terror, cyberangreb og internationale netværk.",
-    "generation_metadata": {
-      "source": "manual_chat",
-      "style": "ink_watercolor_editorial",
-      "article_slug": "trump-slaar-haardt-ned-paa-iran-24-lande-advarer-om-regimets-netvaerk-2026"
-    }
-  }
+  "action": "manual_media_upload",
+  "request_id": "2026-09-14-bacon-joke-hero",
+  "job_id": "e3d293e1-ee93-408d-8eb3-e5cfc4f43a1f",
+  "token": "9B6NNxObnPWxNkafOQjNGIWasV_g-DSUdliDZ_7YDK8"
 }
