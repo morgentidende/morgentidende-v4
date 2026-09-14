@@ -1,46 +1,119 @@
 # Media-agent og hero-flow
 
-Målet er, at hero-arbejdet ikke må blokere normal artikeludgivelse unødigt.
+Dette dokument er den kanoniske tekniske regel for hero-arbejdet i Morgentidende.
 
-## To veje ind i R2
+Målet er: høj billedkvalitet, dokumenterede rettigheder, idempotent arkivering og så kort tid som muligt fra færdig hero til publiceret artikel.
 
-### Eksterne billeder
-Når et eksternt billede har dokumenteret ret til kommerciel brug **og** lokal lagring, bruges Workerens `POST /ingest` med `source_url`. Workeren downloader originalen, deduplikerer på SHA-256, gemmer en kopi i R2 og opretter `media_assets`. Artiklen bruger derefter den interne `media.morgentidende.dk`-URL.
+## 1. Fælles slutpunkt: `media_assets`
 
-Eksterne billeder uden lokal lagringsret skal ikke kopieres ind i arkivet.
+Uanset hvor en hero kommer fra, må artiklen først bruge den, når Media Worker har valideret filen og oprettet et `media_assets`-asset med `status = ready`.
 
-### AI-genererede billeder
-AI-heros sendes direkte som fil til `POST /upload` som `multipart/form-data`:
-- `file`: billedfilen
-- `metadata`: JSON med rettigheder, artikel-id og øvrige metadata
+Artikler må ikke publiceres på baggrund af en lokal fil, en midlertidig URL eller en manuelt indsat hero-URL alene. `hero_media_id` skal pege på det validerede asset, og `hero_url` skal være Workerens interne leverings-URL.
 
-Det fjerner behovet for midlertidig offentlig URL eller staging-tjeneste. Workeren gemmer filen direkte i R2, deduplikerer på SHA-256, opretter `media_assets` og knytter asset til artiklen, når `article_id` er medsendt.
+## 2. Eksterne billeder
 
-### Manuel chat + AI-hero
-Når brugeren manuelt beder om et AI-genereret hero i chatten, skal chat-publiceringsvejen **ikke** bruge en særskilt billedpipeline og må ikke først gøre billedet til et synligt chat-preview som et nødvendigt mellemtrin. Hero-brief og artikel-id skal føres ind i den samme kanoniske media fast path, som bruges ved autonom publicering, og den genererede fil skal sendes direkte til `POST /upload` med `article_id`.
+Når et eksternt billede har dokumenteret ret til både kommerciel brug og lokal lagring, bruges Media Workerens synkrone `POST /ingest` med `source_url`.
 
-Brugeren behøver ikke forhåndsgodkende AI-heroen, medmindre vedkommende udtrykkeligt beder om at se eller godkende den først. Standardflowet er derfor: generér → direkte upload → `media_assets` ready → tilknyt `hero_media_id`/intern `hero_url` → normal prepublication-QA → publicér.
+Workeren skal:
+- hente originalen,
+- kontrollere MIME/signatur,
+- læse dimensioner,
+- håndhæve hero-minimum på 800×450,
+- registrere kvalitetsadvarsel under den foretrukne grænse 1200×675,
+- deduplikere på SHA-256,
+- gemme én arkivmaster i R2,
+- bevare original `source_url` og rettighedsmetadata,
+- oprette `media_assets` og knytte asset til artiklen.
 
-Chatten må ikke manuelt skrive hero-URL eller publicere en artikel på baggrund af et lokalt/genereret billede, før `/upload` har returneret et gyldigt asset. Ved retry skal samme genererede fil genbruges, så Workerens SHA-256-deduplikering gør uploaden idempotent i stedet for at generere en ny variant.
+Hvis den første kandidat fejler permanent, fx fordi filen er for lille, ugyldig eller ikke må arkiveres, skal hero-orchestreringen gå direkte videre til næste allerede fundne og rettighedsgodkendte kandidat. Den samme permanente fejl må ikke vente på retry-køen.
 
-## Fast path er den eneste normale indgang
-Ved både chatstyret og autonom publicering skal `/ingest` eller `/upload` bruges direkte. Et URL-baseret hero-forsøg skal derfor altid gennem den synkrone `/ingest`-vej først.
+Transient fejl, fx 429, timeout eller 5xx, må bruge fallback-køen.
 
-`media_ingest_jobs` er **ikke** en alternativ normal indgang til mediearkivet. Et job må kun oprettes som fallback efter en dokumenteret midlertidig fejl fra fast path, fx HTTP 5xx eller `source_fetch_failed` med upstream 408, 425, 429 eller 5xx.
+## 3. Chatgenererede raster-heros: Dropbox er fast hovedregel
 
-Den gamle generelle `enqueue_media_ingest_job`-RPC er deaktiveret for `service_role`, og direkte `INSERT` i køtabellen er blokeret. Fallback-job oprettes kun gennem `enqueue_media_ingest_fallback`, som validerer både arkivrettigheder og at den forudgående fejl faktisk var midlertidig. Det forhindrer, at en normal hero ved en fejl bliver lagt direkte i kø og dermed unødigt forsinket.
+**Fast regel:** Når en raster-hero genereres i ChatGPT til Morgentidende, er Dropbox den primære transportbro fra ChatGPT til Media Worker.
 
-## Fallback-kø
-Cloudflare Workerens cron-trigger kører hvert **4. minut** og claimer højst 10 jobs ad gangen. Køen er kun et sikkerhedsnet for fast-path-fejl; normale heros skal som udgangspunkt være færdige i samme request.
+Standardflow:
 
-Ved en transient fejl prøves der igen efter cirka **4, 12 og 30 minutter**. Et job får højst tre køforsøg. Jobs, der sidder fast i `processing` i mere end 15 minutter, frigives automatisk eller markeres `failed` efter tredje forsøg.
+`image_gen → Dropbox upload → kortlivet single-use download-link → Media Worker /ingest → R2 → media_assets ready → hero_media_id → QA → publicering`
 
-Køtabellen og RPC-funktionerne er ikke offentlige. `anon` og `authenticated` har ingen adgang; Workerens `service_role` kan claime og opdatere jobs, men kan ikke omgå fallback-valideringen ved selv at indsætte nye køjobs.
+Dropbox er kun transportlag. Dropbox-linket er ikke artikelens hero-URL og må ikke gemmes som permanent offentlig billedkilde.
 
-## Udgiv nu
-Når brugeren beder om udgivelse nu, skal artikeltekst/research og hero-arbejde så vidt muligt køre parallelt. Publicering må ikke planlægges omkring cron-køen. Hvis fast path lykkes, tilknyttes `hero_media_id` straks, hvorefter den normale 2-minutters prepublication-QA-buffer kan begynde.
+Den genererede original skal uploades i højest praktiske kvalitet. Chatten må ikke nedskalere eller hårdt komprimere billedet blot for at få det gennem transportlaget.
 
-## Faste metadata
-Begge veje skal medtage, når relevant: `source_provider`, `source_asset_id`, `license_name`, `license_url`, `credit_text`, `rights_notes`, `rights_expires_at`, `modifications_allowed`, `attribution_required`, `alt_text` og `metadata`.
+Dropbox-download-linket skal være kortlivet og single-use, så Media Worker henter filen én gang og derefter arbejder videre på sin egen R2-kopi.
 
-Alle assets, der arkiveres, skal have `commercial_use_allowed: true` og `local_storage_allowed: true`.
+Media Worker skal stadig udføre de samme kontroller som ved andre heros: MIME, filsignatur, dimensioner, SHA-256, rettigheder og arkivstatus.
+
+### Fallback-rækkefølge for chatgenererede raster-heros
+
+1. Dropbox-transport.
+2. Direkte binær chat-upload (`POST /manual-upload-file/:job_id`) hvis runtime senere kan nå Worker-endpointet direkte.
+3. `manual_chat_media_upload_jobs` med base64 kun som nød-/kompatibilitetsfallback.
+
+Base64/SQL er aldrig normalvejen, fordi den er langsommere, mere skrøbelig og giver unødigt store databasepayloads.
+
+Ved retry skal samme genererede fil genbruges. Der må ikke genereres en ny variant blot fordi transporten fejlede; SHA-256 skal gøre forløbet idempotent.
+
+## 4. Chatgenereret SVG
+
+SVG er tilladt som kontrolleret original/master, især til kort, diagrammer og redaktionel grafik.
+
+Den rå SVG må ikke publiceres direkte som hero. Flowet er:
+
+`kontrolleret SVG → transport → privat SVG-masterarkiv → sikkerhedskontrol → rasterisering til WebP → Media Worker → media_assets ready`
+
+Original SVG bevares som provenance/master, mens den offentlige hero er rasteriseret. SVG med scripts, event-handlers, `foreignObject` eller eksterne/aktive ressourcer skal afvises.
+
+Dropbox må også bruges som transportbro for SVG, men den eksisterende SVG-master/rasteriseringslogik skal bevares.
+
+## 5. Fast path og fallback-kø
+
+Normal publicering må ikke vente på køen.
+
+- `/ingest` og `/upload` er de normale Media Worker-indgange.
+- `media_ingest_jobs` er kun recovery for dokumenterede transiente fejl.
+- Workerens recovery-cron kører hvert **1. minut**.
+- Retry-planen er cirka **4, 12 og 30 minutter**.
+- Permanente fejl skal terminaliseres straks eller føre til næste kandidat.
+
+## 6. Publicering og timing
+
+Når brugeren siger "udgiv", skal research/artikel og hero-arbejde køre parallelt, hvor det er muligt.
+
+Så snart hero er `ready`, source gate er godkendt og den aktuelle artikelversion har bestået QA, gælder den normale **45 sekunders prepublication-buffer**. QA startes straks; minut-cron er kun failsafe. Publication watchdog kører med kort interval og frigiver artiklen efter bufferens udløb, når alle gates stadig passer til den aktuelle version.
+
+Målet for chatgenererede heros er derfor ikke mange minutters transporttid. Når billedet er færdiggenereret, bør Dropbox → Media Worker → `ready` normalt være en kort operation, hvorefter den faste QA-buffer er den dominerende ventetid.
+
+## 7. Rettigheder og provenance
+
+Når relevant skal assetet bevare:
+- `source_provider`
+- `source_asset_id`
+- `source_url` / original kilde-URL for eksterne billeder
+- `license_name`
+- `license_url`
+- `credit_text`
+- `rights_notes`
+- `rights_expires_at`
+- `commercial_use_allowed`
+- `local_storage_allowed`
+- `modifications_allowed`
+- `attribution_required`
+- `alt_text`
+- SHA-256, byte-størrelse og faktiske dimensioner
+- teknisk metadata om transport/ingest.
+
+AI-genererede assets bruger `source_provider = openai_image_generation`. Der må ikke opfindes en ekstern `source_url` til et genereret billede.
+
+Alle assets, der arkiveres i R2, skal have `commercial_use_allowed: true` og `local_storage_allowed: true`.
+
+## 8. Én master, responsive leverancer
+
+Der gemmes én arkivmaster i R2. Responsive størrelser leveres dynamisk via Cloudflare/image-transforms. Vi skal ikke gemme flere permanente kopier af samme rasterhero alene for frontend-størrelser.
+
+## 9. Ingen unødvendig brugerfriktion
+
+Når brugeren udtrykkeligt har bedt om en AI-genereret hero til en artikel, kræves der ikke særskilt forhåndsgodkendelse af billedet, medmindre brugeren specifikt beder om preview/godkendelse først.
+
+Et genereret hero-billede, der er tiltænkt artiklen, skal som standard føres direkte gennem transport- og media-pipelinen frem for at skabe et ekstra manuelt publiceringstrin.
