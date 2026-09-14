@@ -2,10 +2,12 @@ type LiveResult = Record<string, any>;
 
 type PartyRow = { name: string; percent: number; change?: number; seats?: number };
 type BlockRow = { name: string; seats: number };
+type DisplayBlockRow = { name: string; seats: number | 'Afventer' };
 
 const ZIP_URL = 'https://resultat.val.se/resultatfiler/val2026/p/rd/Val_2026_preliminar_00_RD.zip';
 const MANDATE_FILE_SUFFIX = 'Val_2026_preliminar_mandatfordelning_00_RD.json';
 const RIKSDAG_SEATS = 349;
+const MAJORITY_SEATS = 175;
 
 const PARTY_NAMES: Record<string, string> = {
   S: 'Socialdemokraterna', SD: 'Sverigedemokraterna', M: 'Moderaterna', V: 'Vänsterpartiet',
@@ -17,6 +19,16 @@ const PARTY_ALIASES: Record<string, string> = {
   moderaterna: 'M', moderatasamlingspartiet: 'M', vansterpartiet: 'V', centerpartiet: 'C',
   kristdemokraterna: 'KD', miljopartiet: 'MP', miljopartietdegrona: 'MP', liberalerna: 'L',
 };
+
+const BLOC_PARTIES = {
+  'Rød blok': new Set(['Socialdemokraterna', 'Vänsterpartiet', 'Miljöpartiet', 'Centerpartiet']),
+  'Blå blok': new Set(['Moderaterna', 'Sverigedemokraterna', 'Kristdemokraterna', 'Liberalerna']),
+} as const;
+
+const WAITING_BLOCKS: DisplayBlockRow[] = [
+  { name: 'Rød blok', seats: 'Afventer' },
+  { name: 'Blå blok', seats: 'Afventer' },
+];
 
 const normalize = (value: unknown) => String(value ?? '').toLowerCase().normalize('NFD')
   .replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]/g, '');
@@ -183,6 +195,17 @@ function findSeatsByParty(root: unknown): Map<string, number> {
   return new Map([...best.entries()].map(([code, value]) => [PARTY_NAMES[code], value.seats]));
 }
 
+const sumBlocSeats = (parties: PartyRow[], members: Set<string>) =>
+  parties.filter((party) => members.has(party.name)).reduce((sum, party) => sum + (party.seats || 0), 0);
+
+const buildOfficialBlocks = (parties: PartyRow[]): BlockRow[] | null => {
+  const blocks: BlockRow[] = Object.entries(BLOC_PARTIES).map(([name, members]) => ({
+    name,
+    seats: sumBlocSeats(parties, members),
+  }));
+  return blocks.reduce((sum, block) => sum + block.seats, 0) === RIKSDAG_SEATS ? blocks : null;
+};
+
 const validCurrentBlocks = (current: LiveResult | null | undefined): BlockRow[] | null => {
   if (!Array.isArray(current?.blocks) || current.blocks.length !== 2) return null;
   const rows = current.blocks.map((block: any) => ({
@@ -191,15 +214,35 @@ const validCurrentBlocks = (current: LiveResult | null | undefined): BlockRow[] 
   }));
   if (rows.some((row) => row.seats === null)) return null;
   const normalized = rows.map((row) => ({ name: row.name, seats: Math.round(row.seats as number) }));
+  const names = new Set(normalized.map((row) => row.name));
+  if (!names.has('Rød blok') || !names.has('Blå blok')) return null;
   return normalized.reduce((sum, row) => sum + row.seats, 0) === RIKSDAG_SEATS ? normalized : null;
 };
 
 const summarizeBlocks = (blocks: BlockRow[], provisional = false) => {
   const [first, second] = blocks;
   const lead = first.seats === second.seats
-    ? `Blokkene står lige. 175 mandater kræves for flertal.`
-    : `${first.seats > second.seats ? first.name : second.name} fører med ${Math.abs(first.seats - second.seats)} mandat${Math.abs(first.seats - second.seats) === 1 ? '' : 'er'}. 175 kræves for flertal.`;
+    ? `Blokkene står lige. ${MAJORITY_SEATS} mandater kræves for flertal.`
+    : `${first.seats > second.seats ? first.name : second.name} fører med ${Math.abs(first.seats - second.seats)} mandat${Math.abs(first.seats - second.seats) === 1 ? '' : 'er'}. ${MAJORITY_SEATS} kræves for flertal.`;
   return provisional ? `${lead} Foreløbig mandatfordeling.` : lead;
+};
+
+const resolveBlocks = (officialBlocks: BlockRow[] | null, current: LiveResult | null | undefined) => {
+  if (officialBlocks) return {
+    blocks: officialBlocks as DisplayBlockRow[],
+    summary: summarizeBlocks(officialBlocks),
+  };
+
+  const fallbackBlocks = validCurrentBlocks(current);
+  if (fallbackBlocks) return {
+    blocks: fallbackBlocks as DisplayBlockRow[],
+    summary: summarizeBlocks(fallbackBlocks, true),
+  };
+
+  return {
+    blocks: WAITING_BLOCKS,
+    summary: 'Mandatfordelingen opdateres, så snart Valmyndighetens komplette mandatdata kan læses sikkert.',
+  };
 };
 
 export async function loadOfficialSwedenResults(current: LiveResult | null | undefined): Promise<LiveResult> {
@@ -223,29 +266,14 @@ export async function loadOfficialSwedenResults(current: LiveResult | null | und
     });
     if (parties.length < 6) return current || {};
 
-    const redBloc = new Set(['Socialdemokraterna', 'Vänsterpartiet', 'Miljöpartiet', 'Centerpartiet']);
-    const blueBloc = new Set(['Moderaterna', 'Sverigedemokraterna', 'Kristdemokraterna', 'Liberalerna']);
-    const redSeats = parties.filter((p) => redBloc.has(p.name)).reduce((sum, p) => sum + (p.seats || 0), 0);
-    const blueSeats = parties.filter((p) => blueBloc.has(p.name)).reduce((sum, p) => sum + (p.seats || 0), 0);
-    const officialBlocks: BlockRow[] | null = redSeats + blueSeats === RIKSDAG_SEATS
-      ? [{ name: 'Rød blok', seats: redSeats }, { name: 'Blå blok', seats: blueSeats }]
-      : null;
-    const fallbackBlocks = validCurrentBlocks(current);
-    const blocks = officialBlocks || fallbackBlocks || [
-      { name: 'Rød blok', seats: 'Afventer' },
-      { name: 'Blå blok', seats: 'Afventer' },
-    ];
-    const blockSummary = officialBlocks
-      ? summarizeBlocks(officialBlocks)
-      : fallbackBlocks
-        ? summarizeBlocks(fallbackBlocks, true)
-        : 'Mandatfordelingen opdateres, så snart Valmyndighetens komplette mandatdata kan læses sikkert.';
+    const officialBlocks = buildOfficialBlocks(parties);
+    const resolved = resolveBlocks(officialBlocks, current);
 
     return {
       ...(current || {}), phase: 'counting', headline: 'Foreløbigt valgresultat', counted_label: 'Optællingen er i gang',
       subheadline: 'Officielle, foreløbige tal fra Valmyndigheten. Resultatet ændrer sig løbende.',
       parties: parties.map(({ name, percent, change }) => ({ name, percent, ...(typeof change === 'number' ? { change } : {}) })),
-      blocks, block_summary: blockSummary,
+      blocks: resolved.blocks, block_summary: resolved.summary,
       source_url: ZIP_URL, fetched_at: new Date().toISOString(),
     };
   } catch {
