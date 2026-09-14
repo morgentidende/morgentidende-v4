@@ -30,21 +30,26 @@ jobs:
       PR_NUMBER: ${{ github.event.pull_request.number }}
       GITHUB_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
     steps:
-      - name: Checkout proposed queue payload
+      - name: Checkout trusted bridge code from main
         uses: actions/checkout@v4
         with:
-          ref: ${{ github.event.pull_request.head.sha }}
+          ref: main
           fetch-depth: 0
 
-      - name: Enforce transport boundary
+      - name: Fetch proposed queue commit
+        env:
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: git fetch origin "$HEAD_SHA"
+
+      - name: Enforce transport boundary and materialize payload
         id: scope
         env:
-          BASE_SHA: ${{ github.event.pull_request.base.sha }}
           HEAD_SHA: ${{ github.event.pull_request.head.sha }}
         shell: bash
         run: |
           set -euo pipefail
-          mapfile -t changed < <(git diff --name-only "$BASE_SHA" "$HEAD_SHA")
+          merge_base=$(git merge-base origin/main "$HEAD_SHA")
+          mapfile -t changed < <(git diff --name-only "$merge_base" "$HEAD_SHA")
           printf 'Changed files:\n%s\n' "${changed[*]}"
           if [ "${#changed[@]}" -ne 1 ]; then
             echo "Publish PR must change exactly one file" >&2
@@ -55,6 +60,8 @@ jobs:
             echo "Only publish-queue/*.json is allowed" >&2
             exit 1
           fi
+          mkdir -p "$(dirname "$queue_file")"
+          git show "$HEAD_SHA:$queue_file" > "$queue_file"
           echo "queue_file=$queue_file" >> "$GITHUB_OUTPUT"
 
       - name: Validate queue payload
