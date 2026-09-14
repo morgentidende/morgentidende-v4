@@ -5,5 +5,9 @@ compatibility_date = "2026-09-10"
 [vars]
 ALLOWED_WORKERS = "morgentidende-v4,morgentidende-media-ingest"
 
+[[services]]
+binding = "MEDIA_INGEST"
+service = "morgentidende-media-ingest"
+
 [secrets]
-required = ["ADMIN_TOKEN", "CF_ACCOUNT_ID", "CF_API_TOKEN", "CF_AUDIT_TOKEN"]
+required = ["ADMIN_TOKEN", "CF_ACCOUNT_ID", "CF_API_TOKEN", "CF_AUDIT_TOKEN", "CHAT_MEDIA_TOKEN"]
