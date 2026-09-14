@@ -1,0 +1,75 @@
+name: ChatGPT publish bridge
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    branches: [main]
+    paths:
+      - 'publish-queue/*.json'
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: chatgpt-publish-${{ github.event.pull_request.number }}
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    if: >-
+      github.event.pull_request.head.repo.full_name == github.repository &&
+      startsWith(github.event.pull_request.head.ref, 'publish/chatgpt-') &&
+      startsWith(github.event.pull_request.title, '[PUBLISH] ') &&
+      contains(github.event.pull_request.body || '', '<!-- morgentidende-chatgpt-publish -->')
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      SUPABASE_PROJECT_REF: lfttxjxfggjcxmdfjndk
+      SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+      PR_NUMBER: ${{ github.event.pull_request.number }}
+    steps:
+      - name: Checkout proposed queue payload
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
+
+      - name: Enforce transport boundary
+        id: scope
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          mapfile -t changed < <(git diff --name-only "$BASE_SHA" "$HEAD_SHA")
+          printf 'Changed files:\n%s\n' "${changed[*]}"
+          if [ "${#changed[@]}" -ne 1 ]; then
+            echo "Publish PR must change exactly one file" >&2
+            exit 1
+          fi
+          queue_file="${changed[0]}"
+          if [[ ! "$queue_file" =~ ^publish-queue/[A-Za-z0-9._-]+\.json$ ]]; then
+            echo "Only publish-queue/*.json is allowed" >&2
+            exit 1
+          fi
+          echo "queue_file=$queue_file" >> "$GITHUB_OUTPUT"
+
+      - name: Validate queue payload
+        env:
+          QUEUE_FILE: ${{ steps.scope.outputs.queue_file }}
+          VALIDATE_ONLY: '1'
+        run: node .github/scripts/process-chatgpt-publish-queue.mjs
+
+      - name: Publish through Supabase Management API
+        env:
+          QUEUE_FILE: ${{ steps.scope.outputs.queue_file }}
+        run: node .github/scripts/process-chatgpt-publish-queue.mjs
+
+      - name: Close successful transport PR
+        if: success()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh pr close "$PR_NUMBER" --delete-branch --comment "Published through the Morgentidende GitHub bridge."
