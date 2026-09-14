@@ -2,6 +2,7 @@ import worker from './queue-entry';
 import baseWorker from './index';
 import { maybeHandleSvgChatUpload } from './svg-chat-upload';
 import { maybeHandleDirectChatUpload } from './direct-chat-upload';
+import { maybeHandleDropboxChatUpload } from './dropbox-chat-upload';
 
 interface Env {
   MEDIA_BUCKET: R2Bucket;
@@ -112,6 +113,9 @@ const ingestWithImmediateFallback = async (request: Request, env: Env) => {
 
 export default {
   async fetch(request: Request, env: Env): Promise<Response> {
+    const dropboxResponse = await maybeHandleDropboxChatUpload(request, env, baseWorker);
+    if (dropboxResponse) return dropboxResponse;
+
     const directResponse = await maybeHandleDirectChatUpload(request, env, baseWorker);
     if (directResponse) return directResponse;
 
