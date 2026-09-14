@@ -19,7 +19,7 @@ export default {
     const normalizedRequest = new Request(request, { headers });
     const url = new URL(request.url);
     if (request.method === 'GET' && url.pathname === '/health') {
-      return new Response(JSON.stringify({ ok: true, service: 'morgentidende-cloudflare-admin', build: 'media-chat-20260914' }), {
+      return new Response(JSON.stringify({ ok: true, service: 'morgentidende-cloudflare-admin', build: 'fast-hero-ingest-20260914' }), {
         headers: { 'content-type': 'application/json; charset=utf-8', 'cache-control': 'no-store' }
       });
     }
