@@ -151,6 +151,21 @@ if (['cf_audit', 'cf_disable_browser_check', 'cf_custom_waf_audit', 'cf_allow_ve
   process.exit(0);
 }
 
+if (action === 'manual_media_upload') {
+  const jobId = String(request?.job_id || '');
+  const token = String(request?.token || '');
+  if (!/^[0-9a-f-]{36}$/i.test(jobId) || token.length < 32) {
+    console.error('Invalid manual media upload request.');
+    process.exit(7);
+  }
+  const url = `https://morgentidende-media-ingest.morgentidende.workers.dev/manual-upload/${encodeURIComponent(jobId)}?token=${encodeURIComponent(token)}`;
+  const response = await fetch(url, { method: 'GET' });
+  const body = await readJson(response);
+  console.log(JSON.stringify({ action, status: response.status, ok: response.ok, result: body }, null, 2));
+  if (!response.ok) process.exit(8);
+  process.exit(0);
+}
+
 if (!adminBase || !adminToken) {
   console.error('Missing ADMIN_BASE_URL or CLOUDFLARE_ADMIN_TOKEN secret.');
   process.exit(2);
@@ -159,6 +174,22 @@ if (!adminBase || !adminToken) {
 const healthResponse = await fetch(`${adminBase}/health`);
 const healthText = await healthResponse.text();
 console.log(JSON.stringify({ probe: 'health', status: healthResponse.status, body: healthText }, null, 2));
+
+if (action === 'media_chat_upload') {
+  const response = await fetch(`${adminBase}/media/chat-upload`, {
+    method: 'POST',
+    headers: {
+      'x-morgentidende-admin-token': adminToken,
+      authorization: `Bearer ${adminToken}`,
+      'content-type': 'application/json'
+    },
+    body: JSON.stringify(request?.payload || {})
+  });
+  const body = await readJson(response);
+  console.log(JSON.stringify({ action, status: response.status, ok: response.ok, result: body }, null, 2));
+  if (!response.ok) process.exit(9);
+  process.exit(0);
+}
 
 const allowed = {
   diagnostics_summary: { method: 'GET', path: '/diagnostics/summary' },
