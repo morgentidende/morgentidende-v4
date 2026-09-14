@@ -12,6 +12,7 @@ Denne Worker er den kanoniske tekniske indgang til Morgentidendes hero-arkiv.
 6. Der gemmes én rastermaster i R2; responsive størrelser leveres dynamisk.
 7. Permanente ingest-fejl skal ikke kø-retries. Brug næste kandidat eller markér terminal fejl.
 8. Transiente fejl kan bruge recovery-køen.
+9. Et kortlivet transport-link må aldrig blive permanent `source_url` eller `hero_source_url` for et AI-genereret billede.
 
 ## Transport vs. ingest
 
@@ -21,14 +22,17 @@ Transporten ind til Worker og selve ingest-logikken er to forskellige lag.
 
 Primær transport fra ChatGPT er Dropbox:
 
-`ChatGPT file → Dropbox → kortlivet single-use download URL → /ingest → R2`
+`ChatGPT file → Dropbox → kortlivet single-use download URL → pending manual_chat_media_upload_job → media cron → canonical /upload → R2`
 
-Dropbox er staging/transport, ikke permanent asset-host. Dropbox-linket må ikke blive artikelens `hero_url`.
+Dropbox er staging/transport, ikke permanent asset-host. Chatten skal oprette jobbet med `transport_provider=dropbox`, `dropbox_download_url`, forventet byte-størrelse og SHA-256. Media Workerens normale ét-minuts cron opdager selv pending Dropbox-jobs; chatten behøver ikke kunne nå Worker-endpointet direkte.
+
+Efter vellykket ingest fjernes `dropbox_download_url` fra jobmetadata, og det gemte media-asset bruger `source_provider=openai_image_generation` uden et Dropbox-link som kilde. Dropbox-provenance beholdes kun som transportmetadata.
 
 Fallback-rækkefølge:
-1. Dropbox.
-2. `POST /manual-upload-file/:job_id` for direkte binær upload, når runtime kan nå Worker-endpointet.
-3. Legacy `manual_chat_media_upload_jobs` base64-vej som nød-/kompatibilitetsfallback.
+1. Dropbox + automatisk cron-consume.
+2. `POST /manual-upload-dropbox/:job_id` som eksplicit fast path, når runtime kan nå Worker-endpointet.
+3. `POST /manual-upload-file/:job_id` for direkte binær upload, når runtime kan nå Worker-endpointet.
+4. Legacy `manual_chat_media_upload_jobs` base64-vej som nød-/kompatibilitetsfallback.
 
 ### Eksterne billeder
 
@@ -41,7 +45,8 @@ Kontrolleret SVG kan bevares som privat source-master, men den offentlige hero e
 ## Entry points
 
 - `src/index.ts` – kerne-ingest/upload og R2/media-assets.
-- `src/ops-entry.ts` – auth/routing og fast-path fallback-kandidater.
+- `src/ops-entry.ts` – auth/routing, Dropbox cron-consume og fast-path fallback-kandidater.
+- `src/dropbox-chat-upload.ts` – Dropbox transport, integritetskontrol og canonical upload.
 - `src/queue-entry.ts` – recovery-kø og legacy manual chat upload.
 - `src/direct-chat-upload.ts` – direkte binær chat-upload fallback.
 - `src/svg-chat-upload.ts` – kontrolleret SVG-master + rasterisering.
@@ -49,7 +54,12 @@ Kontrolleret SVG kan bevares som privat source-master, men den offentlige hero e
 
 ## Queue policy
 
-Recovery-cron kører hvert minut. Retry-planen er cirka 4/12/30 minutter for transiente fejl. Køen er aldrig normal publiceringsvej.
+Media-cron kører hvert minut. Den har to opgaver, som skal holdes adskilt:
+
+- consume af nye Dropbox-transportjobs, som er en normal chat-hero-vej;
+- recovery-kø for transiente eksterne ingest-fejl med retry-plan cirka 4/12/30 minutter.
+
+Et Dropbox-job skal derfor behandles ved første cron-tick og må ikke vente på 4/12/30-minutters recovery-planen.
 
 ## Publicering
 
