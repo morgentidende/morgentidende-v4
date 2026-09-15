@@ -6,7 +6,7 @@ These rules apply to every Morgentidende Livecenter unless a later canonical des
 
 A new live story is data/configuration, not a frontend/CSS branch. `LiveCenter.astro` must not contain story slugs or event-specific display copy. Visible labels come from `live_centers.ui`. CSS must never detect event type or replace semantic text with `font-size: 0`, `::after` or `:has()` tricks.
 
-Code changes are reserved for a genuinely new schema/renderer/source-adapter type. New stories should reuse existing types.
+Code changes are reserved for a genuinely new schema/renderer/source-adapter type. New stories should reuse existing types. Changes to the shared visual shell still require the repository's explicit design-change approval marker.
 
 ## Data contract
 
