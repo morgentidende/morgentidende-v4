@@ -25,6 +25,64 @@
   color: var(--v4-muted);
 }
 
+/* Livecenter panels share one structural top rhythm instead of pixel nudges. */
+.livecenter__panel {
+  display: flex;
+  flex-direction: column;
+}
+
+.livecenter__section-head {
+  min-height: calc(10px * 1.2 + 4px + clamp(24px, 2vw, 31px));
+  display: flex;
+  align-items: flex-start;
+}
+
+.livecenter__section-head > div {
+  width: 100%;
+}
+
+/* Generic labels are the default. Election labels are restored automatically when election rows exist. */
+.livecenter__feed .livecenter__section-head h2,
+.livecenter__section-kicker--results {
+  font-size: 0;
+}
+
+.livecenter__feed .livecenter__section-head h2::after {
+  content: 'Seneste udvikling';
+  font-size: clamp(24px, 2vw, 31px);
+}
+
+.livecenter__section-kicker--results::after {
+  content: 'STATUS';
+  font-size: 10px;
+}
+
+.livecenter:has(.livecenter__party-table) .livecenter__feed .livecenter__section-head h2::after,
+.livecenter:has(.livecenter__blocks) .livecenter__feed .livecenter__section-head h2::after {
+  content: 'Seneste fra valget';
+}
+
+.livecenter:has(.livecenter__party-table) .livecenter__section-kicker--results::after,
+.livecenter:has(.livecenter__blocks) .livecenter__section-kicker--results::after {
+  content: 'RESULTAT';
+}
+
+/* When an update is expanded, keep the hide control visually after the full text. */
+.livecenter__update-details {
+  position: relative;
+}
+
+.livecenter__update-details[open] {
+  padding-bottom: 22px;
+}
+
+.livecenter__update-details[open] .livecenter__update-toggle {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  margin-top: 0;
+}
+
 /* Livecenter followups: horizontal editorial cards, hero left and headline right. */
 .livecenter__followups-grid {
   --followup-gap: 14px;
