@@ -1,0 +1,140 @@
+{
+  "queue_id": "news-20260915-1730-auszeit-wg",
+  "slug": "wien-laaser-kriminelle-boern-inde-jurist-kalder-det-forfatningsbrud",
+  "headline": "Wien låser kriminelle børn inde – jurist kalder ordningen et »forfatningsbrud«",
+  "deck": "Børn under 14 kan frihedsberøves i op til 12 uger. Nu rammes Wiens nye ordning af alvorlig juridisk kritik.",
+  "category_slug": "udland",
+  "kind": "news",
+  "body_markdown": "## SAGEN KORT\n\n- Wien har åbnet en lukket institution for 11-13-årige, der gentagne gange har begået alvorlig kriminalitet. Opholdet kan vare op til 12 uger.\n- Forfatningsjuristen Heinz Mayer kalder ordningen et »forfatningsbrud«, efter at et juridisk notat fra den østrigske regerings forfatningstjeneste har rejst tvivl om lovgrundlaget.\n\nWien har taget et usædvanligt skridt i kampen mod meget unge vanekriminelle: Børn, der endnu er for unge til at kunne straffes, kan blive anbragt i en lukket institution og få begrænset deres bevægelsesfrihed.\n\nDen såkaldte Auszeit-WG – omtrent en lukket timeout-bolig – åbnede denne sommer i bydelen Simmering. Den er beregnet til børn mellem 11 og 13 år, som gentagne gange har begået alvorlige forbrydelser som røverier og indbrud, og hvor mindre indgribende sociale tilbud ikke har været nok.\n\nNu er det juridiske fundament under projektet kommet under pres.\n\nDen østrigske forfatningsjurist Heinz Mayer siger til nyhedsbureauet APA, at ordningen efter hans vurdering udgør et »forfatningsbrud«. Baggrunden er et juridisk notat fra forfatningstjenesten i det østrigske forbundskancelli, som blev sendt til justitsministeriet i februar.\n\nNotatet skelner ifølge APA mellem strafferet og sundhedsregler. Problemet er, at den lov, Wien bruger som grundlag for frihedsbegrænsningen, er beregnet på personer med psykisk sygdom eller handicap og betydelig fare for dem selv eller andre – ikke på at forhindre ny kriminalitet blandt børn.\n\n## Byen: Vi skal beskytte befolkningen\n\nWiens viceborgmester og ungdomsrådmand Bettina Emmerling fra det liberale regeringsparti NEOS forsvarer behovet for ordningen. Byen oplyser, at en lille gruppe børn under 14 år har begået et stort antal til dels meget alvorlige forbrydelser.\n\n»Med Auszeit-WG beskytter vi befolkningen mod unge vanekriminelle og bryder voldsspiraler,« har Emmerling sagt.\n\nHun erkender samtidig selv problemet med lovgrundlaget. Wien kræver en ny landsdækkende lov, der specifikt giver mulighed for at frihedsbegrænse denne gruppe børn, frem for at bruge den eksisterende lov om ophold på institutioner.\n\nByens nuværende regler kræver blandt andet en konstateret psykisk sygdom eller funktionsnedsættelse, betydelig fare for barnet selv eller andre og at mindre indgribende muligheder først er forsøgt. Frihedsbegrænsning skal være sidste udvej.\n\n## Første 13-årige er allerede flyttet ud igen\n\nProjektet er ikke længere kun en plan. Den første 13-årige flyttede ind i sommer. Institutionen har plads til to børn ad gangen, og et ophold kan vare seks uger med mulighed for forlængelse til 12 uger.\n\nDen første beboer har siden forladt den lukkede bolig og er vendt tilbage til et mindre indgribende tilbud. Af hensyn til barnet har myndighederne ikke offentliggjort detaljer om sagen.\n\nDermed står Wien med et dilemma, som også findes i andre europæiske lande: Hvad gør samfundet med børn, der begår alvorlig kriminalitet, men er under den kriminelle lavalder?\n\nWiens svar har været at skabe en mulighed for midlertidig frihedsbegrænsning. Den juridiske strid handler nu om, hvorvidt byen har gjort det, før lovgivningen faktisk gav den lov til det.",
+  "source_metadata": [
+    {
+      "publisher": "ORF Wien",
+      "url": "https://wien.orf.at/stories/3370157/",
+      "source_type": "authoritative",
+      "title": "Stadt veröffentlicht Papier zu Auszeit-WG"
+    },
+    {
+      "publisher": "Stadt Wien",
+      "url": "https://presse.wien.gv.at/presse/2026/09/07/stadt-wien-veroeffentlicht-konzept-zur-auszeit-wg",
+      "source_type": "authoritative",
+      "title": "Stadt Wien veröffentlicht Konzept zur Auszeit-WG"
+    },
+    {
+      "publisher": "APA via finanzen.at",
+      "url": "https://www.finanzen.at/nachrichten/aktien/apa-n-a-c-h-r-i-c-h-t-e-n-ue-b-e-r-b-l-i-c-k-1036542623",
+      "source_type": "authoritative",
+      "title": "Auszeit-WG: Jurist Mayer ortet Verfassungsbruch"
+    }
+  ],
+  "editorial_metadata": {
+    "discovery_run_id": "news-20260915-1730",
+    "story_kind": "news",
+    "discovery_audit": [
+      {
+        "candidate_id": "candidate-1",
+        "source_pool": "discovery",
+        "path_used": "discovery",
+        "rank_position": 1,
+        "deep_screened": false,
+        "discovery_source_name": "eXXpress",
+        "discovery_domain": "exxpress.at",
+        "candidate_headline": "Spaniens migrationslegalisering kritiseres af Østrigs kansler",
+        "candidate_topic": "migration",
+        "decision": "not_selected",
+        "decision_reason": "covered_in_immediately_prior_run",
+        "downstream_sources": [],
+        "model_name": "GPT-5.6 Sol",
+        "prompt_version": "canonical-news-task"
+      },
+      {
+        "candidate_id": "candidate-2",
+        "source_pool": "discovery",
+        "path_used": "discovery",
+        "rank_position": 2,
+        "deep_screened": true,
+        "discovery_source_name": "eXXpress",
+        "discovery_source_url": "https://exxpress.at/politik/auszeit-wg-in-wien-jurist-spricht-von-verfassungsbruch/",
+        "discovery_domain": "exxpress.at",
+        "candidate_headline": "Auszeit-WG i Wien: jurist taler om forfatningsbrud",
+        "candidate_topic": "juvenile-crime-state-power",
+        "decision": "selected",
+        "decision_reason": "claims_sufficiently_supported",
+        "downstream_sources": ["wien.orf.at", "presse.wien.gv.at", "finanzen.at/APA"],
+        "semantic_assessment": {"dedupe": "BYPASSED", "documentation": "PASS"},
+        "model_name": "GPT-5.6 Sol",
+        "prompt_version": "canonical-news-task"
+      },
+      {
+        "candidate_id": "candidate-3",
+        "source_pool": "discovery",
+        "path_used": "discovery",
+        "rank_position": 3,
+        "deep_screened": false,
+        "discovery_source_name": "eXXpress",
+        "discovery_domain": "exxpress.at",
+        "candidate_headline": "Digital forældre-barn-pas forsinkes i Østrig",
+        "candidate_topic": "bureaucracy-digitalization",
+        "decision": "not_screened_after_selection",
+        "model_name": "GPT-5.6 Sol",
+        "prompt_version": "canonical-news-task"
+      },
+      {
+        "candidate_id": "candidate-4",
+        "source_pool": "discovery",
+        "path_used": "discovery",
+        "rank_position": 4,
+        "deep_screened": false,
+        "discovery_source_name": "NIUS",
+        "discovery_domain": "nius.de",
+        "candidate_headline": "60-årig skudt og dræbt i Dietzenbach",
+        "candidate_topic": "crime",
+        "decision": "not_screened_after_selection",
+        "model_name": "GPT-5.6 Sol",
+        "prompt_version": "canonical-news-task"
+      },
+      {
+        "candidate_id": "candidate-5",
+        "source_pool": "discovery",
+        "path_used": "discovery",
+        "rank_position": 5,
+        "deep_screened": false,
+        "discovery_source_name": "eXXpress",
+        "discovery_domain": "exxpress.at",
+        "candidate_headline": "Østrigsk politiker kalder FPÖ den mest fair koalitionspartner",
+        "candidate_topic": "politics",
+        "decision": "not_screened_after_selection",
+        "model_name": "GPT-5.6 Sol",
+        "prompt_version": "canonical-news-task"
+      }
+    ],
+    "hero_candidates": [
+      {
+        "source_url": "https://www.wien.gv.at/spezial/charta-digitale-rechte-kinder-jugendliche/images/image4.jpg",
+        "source_provider": "Stadt Wien",
+        "source_page_url": "https://www.wien.gv.at/spezial/charta-digitale-rechte-kinder-jugendliche/vorworter/vorwort-vizeburgermeisterin-bettina-emmerling/",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "rights_notes": "Official City of Vienna press/public-information portrait; Media Worker must independently validate rights before use.",
+        "alt_text": "Wiens viceborgmester Bettina Emmerling"
+      },
+      {
+        "source_url": "https://www.vol.at/2026/02/ABD0258-20260123-vodl-9977264-4-3-1280x960.jpg",
+        "source_provider": "VOL.AT",
+        "source_page_url": "https://www.vol.at/vienna-kindergartens-neos-campaign-accompanies-reform-process/9977279",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "rights_notes": "Candidate only; Media Worker must independently verify reusable license and reject if rights are insufficient.",
+        "alt_text": "Bettina Emmerling ved en talerstol"
+      },
+      {
+        "source_url": "https://www.wien.gv.at/spezial/charta-digitale-rechte-kinder-jugendliche/images/image4.jpg",
+        "source_provider": "Stadt Wien",
+        "source_page_url": "https://presse.wien.gv.at/presse/2026/09/07/stadt-wien-veroeffentlicht-konzept-zur-auszeit-wg",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "rights_notes": "Fallback reference to official Vienna-hosted portrait; duplicate underlying asset should be rejected if candidate 1 fails for asset-specific reasons.",
+        "alt_text": "Bettina Emmerling"
+      }
+    ]
+  }
+}
