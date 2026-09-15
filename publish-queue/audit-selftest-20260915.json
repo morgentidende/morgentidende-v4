@@ -1,0 +1,26 @@
+{
+  "payload_type": "discovery_audit",
+  "queue_id": "audit-selftest-20260915",
+  "run_id": "audit-selftest-20260915",
+  "discovery_audit": [
+    {
+      "candidate_id": "selftest-1",
+      "source_pool": "discovery",
+      "path_used": "discovery",
+      "rank_position": 1,
+      "deep_screened": true,
+      "discovery_source_name": "Bridge self-test",
+      "discovery_source_url": "https://example.com/selftest",
+      "discovery_domain": "example.com",
+      "candidate_headline": "Discovery audit bridge self-test",
+      "candidate_topic": "system-selftest",
+      "hard_negative": false,
+      "decision": "rejected",
+      "decision_reason": "system_selftest",
+      "downstream_sources": [],
+      "semantic_assessment": {},
+      "model_name": "system-selftest",
+      "prompt_version": "selftest-v1"
+    }
+  ]
+}
