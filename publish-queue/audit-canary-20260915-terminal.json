@@ -1,0 +1,24 @@
+{
+  "payload_type": "discovery_audit",
+  "queue_id": "audit-canary-20260915-terminal",
+  "run_id": "audit-canary-20260915-terminal",
+  "discovery_audit": [
+    {
+      "candidate_id": "forced-no-publish",
+      "source_pool": "test",
+      "path_used": "audit_canary",
+      "rank_position": 1,
+      "deep_screened": false,
+      "candidate_headline": "Audit-only canary",
+      "candidate_topic": "Terminal delivery test",
+      "decision": "rejected",
+      "decision_reason": "FORCED_NO_PUBLISH_CANARY",
+      "downstream_sources": [],
+      "semantic_assessment": {
+        "terminal_reason": "FORCED_NO_PUBLISH_CANARY"
+      },
+      "model_name": "scheduled-task-canary",
+      "prompt_version": "audit-only-canary-v1"
+    }
+  ]
+}
