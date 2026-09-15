@@ -1,0 +1,71 @@
+{
+  "queue_id": "chatgpt-20260915-1258-de-asylgraenser",
+  "slug": "kun-1024-soegte-asyl-ved-landgraensen-men-39646-soegte-i-tyskland",
+  "headline": "Kun 1.024 søgte asyl ved landgrænsen – men 39.646 søgte i Tyskland",
+  "category_slug": "udland",
+  "kind": "news",
+  "excerpt": "Nye tal viser en markant forskel mellem asylansøgninger ved Tysklands kontrollerede landgrænser og det samlede antal førstegangsansøgninger.",
+  "body_markdown": "Tysklands skærpede grænsekontrol har givet et opsigtsvækkende regnestykke: I første halvår 2026 registrerede det tyske forbundspoliti omkring 1.024 asylsøgere blandt personer, der forsøgte at rejse ulovligt ind over landgrænserne. Samtidig blev der registreret 39.646 førstegangsansøgninger om asyl i Tyskland.\n\n## SAGEN KORT\n\n- Omkring 1.024 personer søgte asyl blandt de ulovlige indrejser, som politiet registrerede ved landgrænserne i årets første seks måneder.\n- I samme periode blev der indgivet 39.646 førstegangsansøgninger om asyl i Tyskland – men tallene kan ikke bruges som bevis for, at resten sneg sig uden om kontrollen.\n\nForskellen er stor, men den har ikke én enkel forklaring. De to tal måler ikke det samme. Grænsetallet omfatter asylønsker blandt personer, som forbundspolitiet registrerede ved ulovlig indrejse over de kontrollerede landgrænser. Det landsdækkende tal omfatter derimod alle førstegangsansøgninger, der senere blev registreret hos Bundesamt für Migration und Flüchtlinge (BAMF), den tyske udlændingemyndighed.\n\nIfølge den tyske avis Welt registrerede forbundspolitiet omkring 20.000 ulovlige indrejser ved landgrænserne i første halvår. Omkring fem procent af disse personer bad om asyl. Af de cirka 1.024 asylsøgere blev 514 afvist ved grænsen.\n\nIndenrigsminister Alexander Dobrindt fra det kristendemokratiske parti CSU skærpede i maj 2025 praksis, så også asylsøgere som udgangspunkt kan afvises ved grænsen. Særligt sårbare personer som mindreårige, gravide og syge er undtaget.\n\n## Mange søger først inde i landet\n\nAt 39.646 mennesker registreres som førstegangsansøgere, mens langt færre beder om asyl under en landgrænsekontrol, fortæller derfor ikke i sig selv, hvordan hver enkelt er kommet ind i landet. Nogle kan være rejst lovligt ind, andre kan være kommet via lufthavne, og en betydelig gruppe er børn født i Tyskland.\n\nWelt oplyser på baggrund af myndighedstal, at 6.962 af førstegangsansøgningerne i første halvår gjaldt børn af flygtninge, som var født i Tyskland. Det svarer til 17,6 procent af alle førstegangsansøgninger.\n\nSamtidig manglede 61,3 procent af ansøgerne ifølge avisen et gyldigt identitetsdokument ved ansøgningen. Det siger noget om myndighedernes udfordring med identitetskontrol, men heller ikke dette tal dokumenterer, hvilken rute den enkelte ansøger brugte ind i landet.\n\n## Asyltallet falder kraftigt\n\nDet samlede billede er samtidig, at færre søger asyl i Tyskland. De 39.646 førstegangsansøgninger i årets første seks måneder er omkring 35 procent færre end året før. I første halvår 2024 lå tallet omkring 121.000.\n\nGrænsekontrollen har også ført til andre resultater. Ifølge tal fra det tyske indenrigsministerium blev 14.270 personer afvist eller sendt tilbage ved grænserne i første halvår 2026. Politiet anholdt desuden 494 formodede menneskesmuglere og fandt 4.074 personer, som var eftersøgt med en udestående arrestordre.\n\nTallene viser dermed både en kraftig nedgang i asylansøgningerne og en stor forskel mellem det, politiet ser ved landgrænserne, og det antal mennesker, der ender med at søge asyl inde i Tyskland. Hvad tallene ikke viser, er hvor stor en del af forskellen der skyldes ukontrollerede grænsepassager.",
+  "source_metadata": [
+    {
+      "url": "https://www.welt.de/newsticker/dpa_nt/infoline_nt/Politik__Inland_/article6a9a2dcadde98c9236180e79/an-landgrenzen-gut-jeder-zweite-asylsuchende-zurueckgewiesen.html",
+      "title": "An Landgrenzen gut jeder zweite Asylsuchende zurückgewiesen",
+      "publisher": "Welt / dpa"
+    },
+    {
+      "url": "https://www.welt.de/article6aa608b6181cb962d488d603",
+      "title": "Weniger Asylanträge - Höhere Schutzquote",
+      "publisher": "Welt"
+    },
+    {
+      "url": "https://www.n-tv.de/ticker/Deutlich-weniger-Asylerstantraege-im-ersten-Halbjahr-in-Deutschland-id31045111.html",
+      "title": "Deutlich weniger Asylerstanträge im ersten Halbjahr in Deutschland",
+      "publisher": "n-tv / dpa"
+    }
+  ],
+  "editorial_metadata": {
+    "story_kind": "news",
+    "share_reason": "De markant forskellige officielle tal rejser et oplagt spørgsmål om, hvor og hvordan asylansøgningerne opstår, samtidig med at artiklen undgår at gøre forskellen til bevis for ukontrolleret indrejse.",
+    "hero_candidates": [
+      {
+        "source_url": "https://upload.wikimedia.org/wikipedia/commons/8/83/Grenzkontrolle_am_Rastplatz_K%C3%B6nigsberg_auf_der_A44-9184.jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "credit_text": "© Raimond Spekking / CC BY-SA 4.0 (via Wikimedia Commons)",
+        "rights_notes": "Own work published by the photographer under CC BY-SA 4.0; original 4783×2690 JPEG.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": true,
+        "alt_text": "Tysk grænsekontrol ved motorvejen A44"
+      },
+      {
+        "source_url": "https://upload.wikimedia.org/wikipedia/commons/6/6e/Grenzkontrolle_am_Rastplatz_K%C3%B6nigsberg_auf_der_A44-9186.jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "credit_text": "© Raimond Spekking / CC BY-SA 4.0 (via Wikimedia Commons)",
+        "rights_notes": "Own work published by the photographer under CC BY-SA 4.0; original 5190×2919 JPEG.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": true,
+        "alt_text": "Tyske betjente udfører grænsekontrol ved A44"
+      },
+      {
+        "source_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Kontrolle_der_Bundespolizei.JPG",
+        "source_provider": "wikimedia_commons",
+        "license_name": "CC BY-SA 3.0 DE",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0/de/",
+        "credit_text": "Alexander Blecher / CC BY-SA 3.0 DE (via Wikimedia Commons)",
+        "rights_notes": "Own work under CC BY-SA 3.0 Germany; original 5184×3456 JPEG.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": true,
+        "alt_text": "Den tyske forbundspoliti kontrollerer en bus"
+      }
+    ]
+  }
+}
