@@ -1,0 +1,135 @@
+{
+  "queue_id": "news-20260915-1629-ceuta-asyl",
+  "slug": "over-5000-har-soegt-asyl-i-ceuta-systemet-er-presset",
+  "headline": "Over 5.000 har søgt asyl i Ceuta – politiet arbejder sig gennem 1.800 sager",
+  "deck": "Tusinder vil ikke tilbage til Marokko. Spanien har sat 90 medarbejdere ind i en omfattende juridisk og sikkerhedsmæssig sortering.",
+  "category_slug": "udland",
+  "kind": "news",
+  "body_markdown": "## SAGEN KORT\n\n- Mere end 5.000 migranter i den spanske enklave Ceuta har søgt asyl efter den massive grænsepassage fra Marokko i slutningen af juli.\n- Omkring 90 medarbejdere arbejder med sagerne; mere end 1.800 indledende sagsgennemgange er gennemført, mens cirka 300 personer er udvist og over 5.300 er vendt frivilligt tilbage.\n\nMere end 5.000 migranter, der opholder sig i den spanske enklave Ceuta i Nordafrika, har søgt om asyl efter den ekstraordinære masseankomst fra Marokko i slutningen af juli. Det lægger et betydeligt pres på Spaniens system for at afgøre, hvem der kan blive, og hvem der skal tilbage.\n\nIfølge den store spanske avis El País arbejder omkring 90 embedsmænd og politifolk nu med sagsbehandlingen. Mere end 1.800 personer har gennemgået den første sortering, hvor myndighederne blandt andet undersøger identitet, helbred og grundlaget for at søge beskyttelse.\n\n## Fra masseankomst til individuelle sager\n\nDen 30. og 31. juli krydsede titusinder grænsen fra Marokko til Ceuta. Langt de fleste er siden rejst tilbage, men flere tusinde befinder sig fortsat i den lille spanske enklave.\n\nDet er nu den individuelle behandling af deres sager, der fylder. En asylansøger bliver først undersøgt af sundhedsmyndigheder og politi og får derefter en samtale med juridisk bistand. Spaniens asylmyndighed skal derefter afgøre, om personen har krav på international beskyttelse. Et afslag kan prøves ved den nationale domstol Audiencia Nacional.\n\nDen nye europæiske migrations- og asylordning giver myndighederne op til 12 uger til processen i denne type situation. Spanien har samtidig oprettet omkring 6.000 midlertidige modtagepladser i Ceuta for at få mennesker væk fra gader og improviserede lejre.\n\n## 300 udvist – tusinder rejst frivilligt\n\nTallene viser samtidig, hvor forskelligt sagerne ender. Omkring 300 personer er indtil videre blevet udvist, mens mere end 5.300 ifølge de spanske myndigheder er vendt frivilligt tilbage til Marokko. Omkring 100 har trukket deres ønske om international beskyttelse tilbage.\n\nRegeringen oplyste tirsdag, at 4.160 personer nu befinder sig på midlertidige modtagepladser. Myndighederne vurderer desuden, at mellem 700 og 1.000 mindreårige fortsat opholder sig på gaderne i Ceuta.\n\nDen praktiske udfordring er dermed ændret siden de kaotiske julidage: Grænsen blev først oversvømmet af titusinder på meget kort tid. Nu skal myndighederne person for person afgøre, hvem der juridisk har ret til at blive i Spanien, og hvem der skal tilbage.",
+  "source_metadata": [
+    {
+      "url": "https://elpais.com/espana/2026-09-15/un-engranaje-policial-para-estudiar-el-asilo-de-los-migrantes-que-no-quieren-volver-a-marruecos.html",
+      "publisher": "El País",
+      "title": "Un engranaje policial para estudiar el asilo de los migrantes que no quieren volver a Marruecos",
+      "source_type": "authoritative"
+    },
+    {
+      "url": "https://efe.com/noticias/migracion/",
+      "publisher": "EFE",
+      "title": "Migración - últimas noticias",
+      "source_type": "authoritative"
+    }
+  ],
+  "editorial_metadata": {
+    "discovery_run_id": "news-20260915-1629",
+    "discovery_audit": [
+      {
+        "candidate_id": "candidate-1",
+        "source_pool": "discovery",
+        "path_used": "discovery",
+        "rank_position": 1,
+        "deep_screened": true,
+        "discovery_source_name": "Document",
+        "discovery_source_url": "https://www.document.no/2026/09/12/hellige-krigere-identifisert-i-invasjonshaeren-som-stormet-ceuta",
+        "discovery_domain": "document.no",
+        "candidate_headline": "Jihadist-profiler identificeret efter masseankomsten til Ceuta",
+        "candidate_topic": "Ceuta migration and security",
+        "decision": "selected_related_fresh_development",
+        "decision_reason": "Fresh authoritative reporting on asylum processing provided a stronger current and verifiable development in the same crisis",
+        "downstream_sources": ["elpais.com", "efe.com"],
+        "semantic_assessment": {"dedupe_preflight": "BYPASSED", "fresh_development": true},
+        "model_name": "GPT-5.6 Sol",
+        "prompt_version": "docs/automations/news-task.md@2bf8f48c"
+      },
+      {
+        "candidate_id": "candidate-2",
+        "source_pool": "discovery",
+        "path_used": "discovery",
+        "rank_position": 2,
+        "deep_screened": false,
+        "discovery_source_name": "eXXpress",
+        "discovery_domain": "exxpress.at",
+        "candidate_headline": "Østrigs kansler kritiserer Spaniens legalisering af migranter",
+        "candidate_topic": "Spain migration regularisation",
+        "decision": "not_screened_after_selection"
+      },
+      {
+        "candidate_id": "candidate-3",
+        "source_pool": "discovery",
+        "path_used": "discovery",
+        "rank_position": 3,
+        "deep_screened": false,
+        "discovery_source_name": "NIUS",
+        "discovery_domain": "nius.de",
+        "candidate_headline": "Sabotage mod tysk elnet",
+        "candidate_topic": "critical infrastructure sabotage",
+        "decision": "not_screened_after_selection"
+      },
+      {
+        "candidate_id": "candidate-4",
+        "source_pool": "discovery",
+        "path_used": "discovery",
+        "rank_position": 4,
+        "deep_screened": false,
+        "discovery_source_name": "Fdesouche",
+        "discovery_domain": "fdesouche.com",
+        "candidate_headline": "Britisk RICU kritiseres for påvirkningsarbejde",
+        "candidate_topic": "speech government influence",
+        "decision": "not_screened_after_selection"
+      },
+      {
+        "candidate_id": "candidate-5",
+        "source_pool": "discovery",
+        "path_used": "discovery",
+        "rank_position": 5,
+        "deep_screened": false,
+        "discovery_source_name": "NIUS",
+        "discovery_domain": "nius.de",
+        "candidate_headline": "Tyske terrorundersøgelser og islamisme",
+        "candidate_topic": "terror investigations",
+        "decision": "not_screened_after_selection"
+      }
+    ],
+    "hero_candidates": [
+      {
+        "source_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Ceuta%202-8-26.jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "credit_text": "Xemenendura / Wikimedia Commons",
+        "rights_notes": "Own work; CC BY-SA 4.0; 3000x4000 original",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": true,
+        "alt_text": "Demonstration i Ceuta under migrationskrisen i september 2026"
+      },
+      {
+        "source_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Plaza%20de%20%C3%81frica%202-8-26.jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "credit_text": "Xemenendura / Wikimedia Commons",
+        "rights_notes": "Own work; CC BY-SA 4.0; 4000x3000 original",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": true,
+        "alt_text": "Plaza de África i Ceuta i september 2026"
+      },
+      {
+        "source_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Murallas%20reales%202-9-26.jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "credit_text": "Xemenendura / Wikimedia Commons",
+        "rights_notes": "Listed in Wikimedia Commons 2026 Ceuta demonstration category; original 4000x3000",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": true,
+        "alt_text": "De kongelige mure i Ceuta under demonstration i september 2026"
+      }
+    ]
+  }
+}
