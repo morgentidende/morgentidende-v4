@@ -16,9 +16,10 @@ Den tværgående hero-/media-policy ejes **kun** af [`docs/media-agent-queue.md`
 
 - `src/index.ts` – kerne-ingest/upload og R2/media-assets.
 - `src/ops-entry.ts` – auth/routing, Dropbox cron-consume og fast-path fallback-kandidater.
-- `src/dropbox-chat-upload.ts` – Dropbox-transport, integritetskontrol og canonical upload.
+- `src/dropbox-chat-upload.ts` – Dropbox-transport, claim/cron og transport-specifik metadata.
+- `src/direct-chat-upload.ts` – direkte binær chat-upload fallback og MIME-policy.
+- `src/manual-chat-upload-shared.ts` – fælles job lookup/patch, SHA-256, integrity-kontrol og canonical upload for Dropbox/direct-binary.
 - `src/queue-entry.ts` – transient recovery-kø for URL-baseret ingest.
-- `src/direct-chat-upload.ts` – direkte binær chat-upload fallback.
 - `src/svg-chat-upload.ts` – kontrolleret SVG-master + rasterisering.
 - `src/image-dimensions.ts` – dimension parser.
 
