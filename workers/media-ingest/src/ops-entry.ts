@@ -3,6 +3,7 @@ import baseWorker from './index';
 import { maybeHandleSvgChatUpload } from './svg-chat-upload';
 import { maybeHandleDirectChatUpload } from './direct-chat-upload';
 import { maybeHandleDropboxChatUpload, processPendingDropboxChatJobs } from './dropbox-chat-upload';
+import { pollLivecenterMetrics } from './livecenter-metrics';
 
 interface Env {
   MEDIA_BUCKET: R2Bucket;
@@ -131,9 +132,14 @@ export default {
   },
 
   scheduled(controller: ScheduledController, env: Env, ctx: ExecutionContext) {
-    // Chat-generated Dropbox heroes no longer depend on chat being able to reach
-    // the Worker. The normal one-minute media cron consumes pending transport jobs.
+    // The existing one-minute runtime hosts independent scheduled modules.
+    // Each module owns its own cadence; Livecenter rows currently request five-minute polling.
     ctx.waitUntil(processPendingDropboxChatJobs(env, baseWorker, 5));
+    ctx.waitUntil(
+      pollLivecenterMetrics(env)
+        .then((result) => console.log(JSON.stringify({ subsystem: 'livecenter_metrics', ...result })))
+        .catch((error) => console.error('livecenter_metrics_failed', error)),
+    );
     return worker.scheduled(controller, env, ctx);
   },
 };
