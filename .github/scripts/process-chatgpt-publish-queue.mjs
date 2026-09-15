@@ -33,6 +33,20 @@ if (payload.editorial_metadata !== undefined && (typeof payload.editorial_metada
 if (payload.headline.length > 220) fail('headline_too_long');
 if (payload.deck && String(payload.deck).length > 300) fail('deck_too_long');
 
+const allowedKinds = new Set(['news', 'comment', 'debate', 'magazine']);
+if (payload.kind !== undefined && payload.kind !== null && String(payload.kind).trim()) {
+  const originalKind = String(payload.kind).trim().toLowerCase();
+  let normalizedKind = originalKind;
+  if (['viden', 'liv'].includes(payload.category_slug) && ['article', 'evergreen'].includes(originalKind)) {
+    normalizedKind = 'magazine';
+  }
+  if (!allowedKinds.has(normalizedKind)) fail('invalid_article_kind');
+  payload.kind = normalizedKind;
+  if (normalizedKind !== originalKind) {
+    console.log(`publish_bridge_kind_normalized from=${originalKind} to=${normalizedKind} category=${payload.category_slug}`);
+  }
+}
+
 payload.source_metadata ??= [];
 payload.editorial_metadata ??= {};
 payload.editorial_metadata = {
