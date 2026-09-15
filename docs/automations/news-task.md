@@ -25,8 +25,10 @@ Hvis selve GitHub-write fejler, retry højst én gang og returnér `BRIDGE_FAILE
 
 ## 1. Historievalg
 
+**Morgentidendes særkende er stærke, dokumenterbare nyheder, som andre danske medier overser eller prioriterer lavt.** Discovery-listen er derfor ikke kun en reservekilde, men avisens vigtigste konkurrencefordel i almindelige news-runs. Når en frisk discovery-historie er tilstrækkeligt stærk, veldokumenteret og relevant for avisens profil, skal den som udgangspunkt prioriteres over en mere almindelig omnibusnyhed, som allerede dækkes bredt af danske medier. Breaking-override gælder stadig ved reelt store, akutte hændelser med høj dansk betydning.
+
 1. Lav et kort breaking-scan af store danske medier. Brug kun override ved en frisk, dokumenterbar hændelse med høj dansk betydning (fx terror, stor ulykke/katastrofe, krig/NATO med direkte dansk berøring, regeringskrise, større cyberangreb eller myndighedsindgreb med umiddelbar virkning for mange danskere).
-2. Ellers brug discovery-poolen. Lav én billig shortlist på højst 5 friske kandidater ud fra aktualitet, dokumenterbarhed og match med avisens aktuelle profil.
+2. Ellers brug discovery-poolen. Lav én billig shortlist på højst 5 friske kandidater ud fra aktualitet, dokumenterbarhed, graden af underdækning i danske medier og match med avisens aktuelle profil.
 3. Research kandidaterne i rangeret rækkefølge, én ad gangen. Start ikke en ny discovery-runde, bare fordi én kandidat falder.
 4. Hvis hele shortlisten falder, må der laves højst én ny historievalgsrunde med dansk major-media fallback. Ingen yderligere fulde genstarter i samme run.
 
