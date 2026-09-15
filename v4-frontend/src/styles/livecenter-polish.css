@@ -93,6 +93,7 @@
   border-top: 1px solid var(--v4-rule) !important;
   min-height: 2.8em;
   color: var(--v4-muted) !important;
+  white-space: pre-line;
 }
 
 /* When an update is expanded, keep the hide control visually after the full text. */
