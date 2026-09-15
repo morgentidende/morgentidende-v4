@@ -38,7 +38,7 @@ async function writeAlert(env: LivecenterEditorialWatchdogEnv, row: Json) {
 async function resolveAlerts(env: LivecenterEditorialWatchdogEnv, automationId: string) {
   const query = new URLSearchParams({
     automation_id: `eq.${automationId}`,
-    issue_type: 'eq.livecenter_editorial_stale',
+    issue_type: 'eq.run_stalled',
     state: 'eq.open',
   });
   const response = await fetch(`${env.SUPABASE_URL}/rest/v1/automation_watchdog_alerts?${query.toString()}`, {
@@ -102,9 +102,10 @@ export async function checkLivecenterEditorialCadence(
       automation_id: automationId,
       automation_title: `Livecenter editorial: ${center.title || center.slug}`,
       slot_at: slotAt,
-      issue_type: 'livecenter_editorial_stale',
+      issue_type: 'run_stalled',
       state: 'open',
       details: {
+        subtype: 'livecenter_editorial_stale',
         live_center_id: center.id,
         slug: center.slug,
         stale_after_minutes: staleAfterMinutes,
