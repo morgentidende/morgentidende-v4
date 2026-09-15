@@ -125,7 +125,17 @@
     margin-top: 4px !important;
   }
 
-  .livecenter__results:not(:has(.livecenter__big-number)):not(:has(.livecenter__party-table)):not(:has(.livecenter__blocks)) .livecenter__source {
-    display: none !important;
+  .livecenter__results .livecenter__source {
+    display: block !important;
+    margin-top: 8px !important;
+    padding-top: 8px !important;
+    border-top: 1px solid var(--v4-rule) !important;
+    font-size: 11.5px !important;
+    line-height: 1.35 !important;
+    color: var(--v4-muted) !important;
+  }
+
+  .livecenter__results .livecenter__source-line + .livecenter__source-line {
+    margin-top: 2px !important;
   }
 }
