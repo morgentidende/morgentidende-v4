@@ -9,10 +9,27 @@ const oidcRequestToken = process.env.ACTIONS_ID_TOKEN_REQUEST_TOKEN;
 const audience = 'morgentidende-publish-bridge';
 const allowedMagazineStoryKinds = new Set(['evergreen_explainer', 'followup', 'new_study', 'update']);
 const allowedFollowupReasons = new Set(['new_fact', 'official_response', 'arrest', 'new_data', 'court_decision', 'material_update']);
+const allowedSourceClassifications = new Set(['authoritative', 'discovery_only']);
 
 function fail(message) {
   console.error(`publish_bridge_error:${message}`);
   process.exit(1);
+}
+
+function validateSourceRegistryUpdates(updates) {
+  if (updates === undefined) return;
+  if (!Array.isArray(updates)) fail('source_registry_updates_must_be_array');
+  if (updates.length > 50) fail('source_registry_updates_too_many');
+  for (const item of updates) {
+    if (!item || typeof item !== 'object' || Array.isArray(item)) fail('source_registry_update_must_be_object');
+    const domain = String(item.domain ?? item.url ?? '').trim();
+    const name = String(item.source_name ?? item.publisher ?? '').trim();
+    const classification = String(item.classification ?? '').trim().toLowerCase();
+    if (!domain) fail('source_registry_domain_required');
+    if (!name) fail('source_registry_name_required');
+    if (!allowedSourceClassifications.has(classification)) fail('invalid_source_registry_classification');
+    item.classification = classification;
+  }
 }
 
 if (!file) fail('QUEUE_FILE_missing');
@@ -32,6 +49,7 @@ payload.payload_type = payloadType;
 
 if (typeof payload.queue_id !== 'string' || !payload.queue_id.trim()) fail('queue_id_required');
 if (!/^[A-Za-z0-9._-]{1,160}$/.test(payload.queue_id)) fail('invalid_queue_id');
+validateSourceRegistryUpdates(payload.source_registry_updates);
 
 if (payloadType === 'discovery_audit') {
   if (payload.run_id !== undefined && (typeof payload.run_id !== 'string' || !payload.run_id.trim())) fail('invalid_run_id');
