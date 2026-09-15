@@ -45,7 +45,7 @@ Hero-valget skal passe til artiklen og samtidig fungere på den aktuelle forside
 
 Standardflow:
 
-`image_gen → Dropbox upload → kortlivet single-use download-link → Media Worker /ingest → R2 → media_assets ready → hero_media_id → QA → publicering`
+`image_gen → Dropbox upload → kortlivet single-use download-link → Media Worker /upload → R2 → media_assets ready → hero_media_id → QA → publicering`
 
 Dropbox er kun transportlag. Dropbox-linket er ikke artikelens hero-URL og må ikke gemmes som permanent offentlig billedkilde.
 
@@ -60,7 +60,7 @@ Media Worker skal stadig udføre de samme kontroller som ved andre heros: MIME, 
 1. Dropbox-transport.
 2. Direkte binær chat-upload (`POST /manual-upload-file/:job_id`) hvis runtime kan nå Worker-endpointet direkte.
 
-Den tidligere base64/SQL-uploadvej er udfaset og må ikke bruges til nye jobs. `manual_chat_media_upload_jobs` består fortsat som transport-jobtabel for de aktive Dropbox/direct-binary flows; tabellen er ikke i sig selv et tegn på base64-transport.
+Den tidligere base64/SQL-uploadvej er pensioneret. Databasen håndhæver nu, at `payload_base64` altid er `NULL`, så base64-transport ikke kan genindføres ved en fejl. `manual_chat_media_upload_jobs` består fortsat som transport-jobtabel for de aktive Dropbox/direct-binary flows; tabellen er ikke i sig selv et tegn på base64-transport.
 
 Ved retry skal samme genererede fil genbruges. Der må ikke genereres en ny variant blot fordi transporten fejlede; SHA-256 skal gøre forløbet idempotent.
 
