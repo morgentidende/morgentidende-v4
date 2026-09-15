@@ -1,0 +1,83 @@
+{
+  "queue_id": "news-20260916-0146-michel-vdl",
+  "slug": "charles-michel-von-der-leyen-ikke-opgaven-voksen",
+  "headline": "Tidligere EU-topchef går til angreb på von der Leyen: »Ikke på højde med udfordringerne«",
+  "category_slug": "udland",
+  "kind": "news",
+  "manchet": "Charles Michel beskylder EU-Kommissionens formand for overfladisk kommunikation og svaghed over for USA. Kritikken kommer få timer før hendes store EU-tale.",
+  "sagen_kort": [
+    "Tidligere EU-rådsformand Charles Michel siger, at Ursula von der Leyen ikke er på højde med de udfordringer, EU står overfor.",
+    "Michel kritiserer især Kommissionens kommunikation og dens håndtering af handelsaftalen med USA; von der Leyen fremlægger onsdag sine prioriteter for EU."
+  ],
+  "body_markdown": "Den tidligere formand for Det Europæiske Råd Charles Michel retter usædvanligt hård kritik mod EU-Kommissionens formand, Ursula von der Leyen, umiddelbart før hun onsdag holder sin årlige tale om unionens tilstand i Europa-Parlamentet.\n\n»Hun er ikke på højde med udfordringerne,« sagde Michel tirsdag i et interview med den belgiske tv-station RTL ifølge det internationale nyhedsbureau EFE. Han mener samtidig, at der bliver brugt for meget energi på det, han kalder »lidt overfladisk kommunikation«.\n\n## Kritiserer EU's svaghed over for USA\n\nMichel, der stod i spidsen for Det Europæiske Råd fra 2019 til 2024 og dermed arbejdede tæt sammen med von der Leyen gennem hendes første periode, afviser, at kritikken skyldes personlig modvilje. Ifølge ham er vurderingen af Kommissionens problemer blevet langt mere udbredt.\n\nDen tidligere belgiske premierminister peger blandt andet på EU's handelsforhold til USA. Han siger, at det var trist at se europæerne udvise så stor svaghed, da USA's præsident Donald Trump pressede en handelsaftale igennem, og han placerer et tungt ansvar hos Kommissionen.\n\nMichel fremhæver i stedet Canada som et eksempel på et land, der efter hans opfattelse har reageret mere strategisk på forandringerne i Washington. Den canadiske regering søger netop tættere økonomiske og sikkerhedspolitiske bånd til EU.\n\n## Von der Leyen svarer med årets vigtigste tale\n\nKritikken rammer på et følsomt tidspunkt. Onsdag morgen holder von der Leyen sin tale om unionens tilstand i Strasbourg, hvor hun ventes at præsentere Kommissionens politiske prioriteter for det kommende år.\n\nIfølge Associated Press ventes talen blandt andet at berøre kunstig intelligens, klima, børns sikkerhed på nettet, krigen i Ukraine, Mellemøsten og international handel. Kommissionen fremhæver selv større europæisk handlekraft og uafhængighed som centrale mål.\n\nMichel og von der Leyen havde allerede under deres fælles tid i EU-toppen et anspændt forhold. Men tirsdagens kritik går videre end en gammel personstrid: Michel angriber direkte Kommissionens evne til at håndtere Europas største politiske og økonomiske udfordringer.\n\nDermed bliver onsdagens tale også en konkret prøve på det spørgsmål, Michel rejser: om Kommissionen kan omsætte ambitioner om europæisk styrke til resultater, når presset fra USA, Rusland og Kina vokser.",
+  "source_metadata": [
+    {
+      "source_name": "EFE",
+      "url": "https://efe.com/euro-efe/criticas-charles-michel/",
+      "source_type": "authoritative",
+      "note": "Direkte referat af Charles Michels RTL-interview 15. september 2026."
+    },
+    {
+      "source_name": "Associated Press",
+      "url": "https://apnews.com/article/888f1d0c061ffb2accefc19cdbf39ffc",
+      "source_type": "authoritative",
+      "note": "Baggrund om von der Leyens State of the Union-tale og forventede emner."
+    }
+  ],
+  "source_registry_updates": [
+    {
+      "source_name": "EFE",
+      "domain": "efe.com",
+      "classification": "authoritative",
+      "region": "Spain/international",
+      "rationale": "Large established international news agency",
+      "discovered_via": "tichyseinblick.de"
+    }
+  ],
+  "editorial_metadata": {
+    "discovery_run_id": "news-20260916-0146",
+    "discovery_audit": [
+      {
+        "candidate_id": "michel-vdl-20260915",
+        "source_pool": "discovery",
+        "path": "tichyseinblick.de",
+        "rank": 1,
+        "candidate_headline": "Charles Michel: von der Leyen er ikke på højde med EU's udfordringer",
+        "deep_screened": true,
+        "downstream_sources": ["efe.com", "apnews.com"],
+        "decision": "selected",
+        "reason": "Fresh, profile-relevant EU power/accountability story independently documented by EFE and contextualized by AP; no near-identical item observed in recent [PUBLISH] history.",
+        "model_prompt_version": "canonical-news-task-2026-09-16"
+      }
+    ],
+    "final_qa_duplicate": false,
+    "hero_candidates": [
+      {
+        "source_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Charles%20Michel%20%26%20Andrej%20Plenkovi%C4%87%20-%202024.jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "CC BY 4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "credit_text": "Jennifer Jacquemart / European Union, 2024 / EC - Audiovisual Service",
+        "rights_notes": "Wikimedia Commons file page states CC BY 4.0; original 3293x4000.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": true,
+        "alt_text": "Charles Michel, tidligere formand for Det Europæiske Råd"
+      },
+      {
+        "source_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Ursula%20von%20der%20Leyen%20%26%20Emmanuel%20Macron%20-%20February%202025.jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "CC BY 4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "credit_text": "Aurore Martignoni / European Union, 2025 / EC - Audiovisual Service",
+        "rights_notes": "Wikimedia Commons license reviewed; original 4000x2667.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": true,
+        "alt_text": "EU-Kommissionens formand Ursula von der Leyen"
+      }
+    ]
+  }
+}
