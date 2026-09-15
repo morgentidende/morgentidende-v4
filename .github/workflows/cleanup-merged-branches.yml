@@ -37,13 +37,20 @@ jobs:
               ;;
           esac
 
-      - name: One-time removal of obsolete QA branch
+      - name: One-time removal of zero-ahead stale branches
         env:
           GH_TOKEN: ${{ github.token }}
         shell: bash
         run: |
           set -euo pipefail
-          gh api -X DELETE "repos/$GITHUB_REPOSITORY/git/refs/heads/qa-buffer-5m" || true
+          for branch in \
+            'asset/replace-header-sun-logo-20260912' \
+            'fix/header-logo-binary-20260912' \
+            'fix/source-metadata-contract' \
+            'fix-iran-hero-embedded-raster'
+          do
+            gh api -X DELETE "repos/$GITHUB_REPOSITORY/git/refs/heads/$branch" || true
+          done
 
   sweep-existing-merged-heads:
     if: github.event_name != 'pull_request'
