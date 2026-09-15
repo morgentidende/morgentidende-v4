@@ -1,63 +1,22 @@
-interface Env {
-  MEDIA_INGEST_TOKEN: string;
-  SUPABASE_URL: string;
-  SUPABASE_SERVICE_ROLE_KEY: string;
-}
+import {
+  type BaseWorker,
+  type ManualJob,
+  type ManualUploadEnv as Env,
+  expectedIntegrity,
+  getManualUploadJob,
+  integrityMismatchDetail,
+  manualUploadHeaders as headers,
+  manualUploadJson as json,
+  patchManualUploadJob,
+  sha256Bytes,
+  sha256Text,
+  uploadGeneratedHero,
+} from './manual-chat-upload-shared';
 
-type ManualJob = {
-  id: string;
-  article_id: string;
-  token_hash: string;
-  mime_type: string;
-  file_name: string | null;
-  metadata: Record<string, unknown>;
-  status: 'pending' | 'processing' | 'done' | 'failed' | 'expired';
-  expires_at: string;
-};
-
-type BaseWorker = {
-  fetch(request: Request, env: Env): Promise<Response>;
-};
-
-type MediaUploadResult = Record<string, unknown> & {
-  asset?: { id?: string; delivery_url?: string; sha256?: string };
-  deduplicated?: boolean;
-};
-
-const json = (body: unknown, status = 200) => new Response(JSON.stringify(body), {
-  status,
-  headers: { 'content-type': 'application/json; charset=utf-8', 'cache-control': 'no-store' },
-});
-
-const headers = (env: Env, extra: Record<string, string> = {}) => ({
-  apikey: env.SUPABASE_SERVICE_ROLE_KEY,
-  authorization: `Bearer ${env.SUPABASE_SERVICE_ROLE_KEY}`,
-  'content-type': 'application/json',
-  ...extra,
-});
-
-const hex = (buffer: ArrayBuffer) => Array.from(new Uint8Array(buffer))
-  .map((byte) => byte.toString(16).padStart(2, '0')).join('');
-
-const sha256Text = async (value: string) => hex(await crypto.subtle.digest(
-  'SHA-256', new TextEncoder().encode(value),
-));
-
-const sha256Bytes = async (bytes: Uint8Array) => hex(await crypto.subtle.digest('SHA-256', bytes));
-
-const getJob = async (env: Env, id: string): Promise<ManualJob | null> => {
-  const params = new URLSearchParams({
-    id: `eq.${id}`,
-    select: 'id,article_id,token_hash,mime_type,file_name,metadata,status,expires_at',
-    limit: '1',
-  });
-  const response = await fetch(`${env.SUPABASE_URL}/rest/v1/manual_chat_media_upload_jobs?${params}`, {
-    headers: headers(env),
-  });
-  if (!response.ok) throw new Error(`dropbox_upload_lookup_failed:${response.status}`);
-  const rows = await response.json<ManualJob[]>();
-  return rows[0] || null;
-};
+const getJob = (env: Env, id: string) => getManualUploadJob(env, id, 'dropbox_upload');
+const patchJob = (env: Env, id: string, patch: Record<string, unknown>) => (
+  patchManualUploadJob(env, id, patch, 'dropbox_upload')
+);
 
 const listPendingDropboxJobs = async (env: Env, limit = 5): Promise<ManualJob[]> => {
   const params = new URLSearchParams({
@@ -75,15 +34,6 @@ const listPendingDropboxJobs = async (env: Env, limit = 5): Promise<ManualJob[]>
   return response.json<ManualJob[]>();
 };
 
-const patchJob = async (env: Env, id: string, patch: Record<string, unknown>) => {
-  const response = await fetch(`${env.SUPABASE_URL}/rest/v1/manual_chat_media_upload_jobs?id=eq.${encodeURIComponent(id)}`, {
-    method: 'PATCH',
-    headers: headers(env, { Prefer: 'return=minimal' }),
-    body: JSON.stringify({ ...patch, updated_at: new Date().toISOString() }),
-  });
-  if (!response.ok) throw new Error(`dropbox_upload_patch_failed:${response.status}`);
-};
-
 const claimJob = async (env: Env, job: ManualJob) => {
   if (!['pending', 'failed'].includes(job.status)) return false;
   const params = new URLSearchParams({ id: `eq.${job.id}`, status: `eq.${job.status}` });
@@ -95,16 +45,6 @@ const claimJob = async (env: Env, job: ManualJob) => {
   if (!response.ok) throw new Error(`dropbox_upload_claim_failed:${response.status}`);
   const rows = await response.json<ManualJob[]>();
   return rows.length === 1;
-};
-
-const expectedIntegrity = (metadata: Record<string, unknown>) => {
-  const expectedByteSize = Number(metadata.expected_byte_size);
-  const expectedSha256 = typeof metadata.expected_sha256 === 'string'
-    ? metadata.expected_sha256.trim().toLowerCase()
-    : '';
-  if (!Number.isSafeInteger(expectedByteSize) || expectedByteSize <= 0) return null;
-  if (!/^[0-9a-f]{64}$/.test(expectedSha256)) return null;
-  return { expectedByteSize, expectedSha256 };
 };
 
 const isAllowedDropboxUrl = (raw: string) => {
@@ -159,12 +99,7 @@ const processDropboxJob = async (
     const bytes = new Uint8Array(await source.arrayBuffer());
     const actualSha256 = await sha256Bytes(bytes);
     if (bytes.byteLength !== expected.expectedByteSize || actualSha256 !== expected.expectedSha256) {
-      const detail = {
-        expected_byte_size: expected.expectedByteSize,
-        actual_byte_size: bytes.byteLength,
-        expected_sha256: expected.expectedSha256,
-        actual_sha256: actualSha256,
-      };
+      const detail = integrityMismatchDetail(expected, bytes, actualSha256);
       await patchJob(env, job.id, {
         status: 'failed',
         result: { integrity_error: detail },
@@ -196,16 +131,14 @@ const processDropboxJob = async (
       },
     };
 
-    const form = new FormData();
-    form.set('file', new File([bytes], job.file_name || 'generated-hero', { type: job.mime_type }));
-    form.set('metadata', JSON.stringify(metadata));
-
-    const uploaded = await baseWorker.fetch(new Request('https://internal/upload', {
-      method: 'POST',
-      headers: { authorization: `Bearer ${env.MEDIA_INGEST_TOKEN}` },
-      body: form,
-    }), env);
-    const result = await uploaded.clone().json<MediaUploadResult>().catch(() => ({} as MediaUploadResult));
+    const { response: uploaded, result } = await uploadGeneratedHero(
+      env,
+      baseWorker,
+      bytes,
+      job.mime_type,
+      job.file_name,
+      metadata,
+    );
 
     if (!uploaded.ok || !result.asset?.id || !result.asset?.delivery_url) {
       await patchJob(env, job.id, {
