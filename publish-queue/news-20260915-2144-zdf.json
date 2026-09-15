@@ -1,0 +1,172 @@
+{
+  "queue_id": "news-20260915-2144-zdf",
+  "slug": "tysk-kulturminister-aabner-for-at-privatisere-zdf",
+  "headline": "Tysk kulturminister åbner for at privatisere ZDF",
+  "deck": "Wolfram Weimer vil gentænke den tyske public service-model. Han nævner også færre ARD-stationer – men delstaterne bestemmer.",
+  "category_slug": "udland",
+  "kind": "news",
+  "body_markdown": "Den tyske kulturstatsminister Wolfram Weimer har bragt en markant ændring af Tysklands public service-system i spil: Det landsdækkende tv-selskab ZDF kan efter hans opfattelse privatiseres.\n\n## SAGEN KORT\n\n- Kulturstatsminister Wolfram Weimer har ifølge flere tyske medier nævnt en privatisering af ZDF som en mulig del af en større reform af public service.\n- Weimer vil også overveje at samle ARD i færre regionale stationer, men beslutningsmagten over tysk public service ligger hos delstaterne.\n\nWeimer fremlagde tankerne ved en retspolitisk konference hos den kristendemokratiske Konrad-Adenauer-Stiftung i Berlin. Konferencen var ikke offentlig, men deltagere har gengivet hans udtalelser til det katolske nyhedsbureau KNA.\n\nIfølge den store tyske avis Süddeutsche Zeitung sagde Weimer, at man må overveje, om det nuværende system med både ARD og ZDF fortsat er nødvendigt i sin nuværende form. Han nævnte udtrykkeligt muligheden for at privatisere ZDF.\n\nDet vil være et grundlæggende brud med den nuværende model. ZDF er en af Tysklands to store public service-søjler og finansieres sammen med de øvrige public service-medier hovedsageligt gennem den obligatoriske tyske medieafgift.\n\n## Vil skære antallet af ARD-stationer ned\n\nWeimer nøjedes ikke med ZDF. Han pegede også på, at ARD-systemet kan samles i færre enheder.\n\nIfølge Süddeutsche Zeitung fortalte han, at ledere i public service-systemet selv har peget på, at små stationer som Radio Bremen og Saarländischer Rundfunk ikke nødvendigvis behøver fortsætte som selvstændige institutioner. En model med blot fire eller fem større ARD-enheder blev nævnt.\n\nKulturstatsministerens argument er blandt andet, at public service har opbygget dobbeltstrukturer. Samtidig mener han, at private medier presses fra to sider: af de store teknologiselskaber og af de offentligt finansierede medier.\n\nDet tyske public service-system består i dag af ZDF og ARD, der igen er et samarbejde mellem en række regionale stationer. Dermed findes der både parallelle landsdækkende tilbud og en omfattende regional struktur.\n\n## Ministeren kan ikke selv gennemføre planen\n\nWeimers titel kan få forslaget til at lyde mere umiddelbart, end det er. Den tyske forbundsregering bestemmer ikke alene over public service. Medie- og radioområdet er i høj grad delstaternes ansvar.\n\nDet betyder, at kulturstatsministeren ikke selv kan beslutte at privatisere ZDF eller nedlægge ARD-stationer. En så omfattende omlægning vil kræve politisk opbakning blandt delstaterne og ændringer af de aftaler, som regulerer systemet.\n\nNetop derfor er udmeldingen først og fremmest et politisk signal. Den flytter en diskussion, som længe har handlet om besparelser og effektivisering, over på et mere grundlæggende spørgsmål: Om Tyskland overhovedet fortsat skal have to store public service-systemer i den nuværende form.\n\nWeimers kontor ønskede ifølge mediebranchen DWDL ikke at kommentere nærmere på referater fra den ikke-offentlige konference. Dermed foreligger der endnu ikke et konkret lovforslag eller en detaljeret plan for en privatisering.\n\nMen idéen kommer nu fra et medlem af forbundsregeringen. Det gør spørgsmålet om ZDF's fremtid til mere end en teoretisk mediedebat.",
+  "source_metadata": [
+    {
+      "publisher": "Süddeutsche Zeitung",
+      "url": "https://www.sueddeutsche.de/medien/wolfram-weimer-zdf-privatisieren-rtl-ard-fernsehen-cdu-li.3547844",
+      "source_type": "authoritative",
+      "title": "Weimer denkt über Privatisierung des ZDF nach"
+    },
+    {
+      "publisher": "Deutschlandfunk",
+      "url": "https://www.deutschlandfunk.de/kulturstaatsminister-weimer-bringt-privatisierung-des-zdf-ins-spiel-102.html",
+      "source_type": "authoritative",
+      "title": "Kulturstaatsminister Weimer bringt Privatisierung des ZDF ins Spiel"
+    },
+    {
+      "publisher": "DWDL",
+      "url": "https://www.dwdl.de/nachrichten/107848/wolfram_weimer_bringt_privatisierung_des_zdf_ins_spiel/",
+      "source_type": "authoritative",
+      "title": "Wolfram Weimer bringt Privatisierung des ZDF ins Spiel"
+    }
+  ],
+  "source_registry_updates": [
+    {
+      "source_name": "Süddeutsche Zeitung",
+      "domain": "sueddeutsche.de",
+      "classification": "authoritative",
+      "region": "Germany",
+      "rationale": "Large established German national print newspaper",
+      "discovered_via": "nius.de"
+    },
+    {
+      "source_name": "Deutschlandfunk",
+      "domain": "deutschlandfunk.de",
+      "classification": "authoritative",
+      "region": "Germany",
+      "rationale": "German national public-service broadcaster",
+      "discovered_via": "nius.de"
+    }
+  ],
+  "editorial_metadata": {
+    "discovery_run_id": "news-20260915-2144-kvarti",
+    "final_qa_duplicate": false,
+    "share_reason": "Et medlem af den tyske forbundsregering åbner for at privatisere en af landets to store public service-søjler.",
+    "runtime_diagnostics": {
+      "task_runtime_entered": true,
+      "canonical_rules_loaded": true,
+      "candidate_scan_started": true,
+      "candidate_selected": true,
+      "research_started": true,
+      "research_completed": true,
+      "final_qa_started": true,
+      "qa_history_source_attempted": true,
+      "qa_history_loaded": true,
+      "final_qa_passed": true
+    },
+    "discovery_audit": [
+      {
+        "candidate_id": "zdf-privatisering",
+        "source_pool": "discovery",
+        "path_used": "discovery",
+        "rank_position": 1,
+        "deep_screened": true,
+        "discovery_source_name": "NIUS",
+        "discovery_source_url": "https://nius.de/medien/kulturminister-weimer-denkt-ueber-privatisierung-des-zdf-nach",
+        "discovery_domain": "nius.de",
+        "candidate_headline": "Kulturminister Weimer denkt über Privatisierung des ZDF nach",
+        "candidate_topic": "public service reform Germany",
+        "decision": "selected",
+        "decision_reason": "Fresh liberty/media-policy story independently supported by established German sources",
+        "downstream_sources": ["sueddeutsche.de", "deutschlandfunk.de", "dwdl.de"],
+        "model_name": "GPT-5.6 Sol",
+        "prompt_version": "docs/automations/news-task.md@92f7f79b227e300902dd04f4cdbe398887bb1b25"
+      },
+      {
+        "candidate_id": "nrw-abschiebehaft",
+        "source_pool": "discovery",
+        "path_used": "discovery",
+        "rank_position": 2,
+        "deep_screened": false,
+        "discovery_source_name": "NIUS",
+        "discovery_domain": "nius.de",
+        "candidate_headline": "Grüne planen Mega-Abschiebehaftanstalt",
+        "candidate_topic": "deportation detention NRW",
+        "decision": "ranked_not_screened"
+      },
+      {
+        "candidate_id": "pp-nationalitet",
+        "source_pool": "discovery",
+        "path_used": "discovery",
+        "rank_position": 3,
+        "deep_screened": false,
+        "discovery_source_name": "The Objective",
+        "discovery_domain": "theobjective.com",
+        "candidate_headline": "PP vil kunne fratage nationalitet efter alvorlig voldskriminalitet",
+        "candidate_topic": "Spain citizenship crime",
+        "decision": "ranked_not_screened"
+      },
+      {
+        "candidate_id": "merz-cdu-kritik",
+        "source_pool": "discovery",
+        "path_used": "discovery",
+        "rank_position": 4,
+        "deep_screened": false,
+        "discovery_source_name": "NIUS",
+        "discovery_domain": "nius.de",
+        "candidate_headline": "CDU-profil angriber Merz' kurs",
+        "candidate_topic": "German politics CDU",
+        "decision": "ranked_not_screened"
+      },
+      {
+        "candidate_id": "tysk-graense-asyl",
+        "source_pool": "discovery",
+        "path_used": "discovery",
+        "rank_position": 5,
+        "deep_screened": false,
+        "discovery_source_name": "NIUS",
+        "discovery_domain": "nius.de",
+        "candidate_headline": "Migranter omgår grænsekontroller",
+        "candidate_topic": "Germany border asylum",
+        "decision": "ranked_not_screened"
+      }
+    ],
+    "hero_candidates": [
+      {
+        "source_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Wolfram%20Weimer%20enhanced.jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "credit_text": "Raimond Spekking / CC BY-SA 4.0 (via Wikimedia Commons)",
+        "rights_notes": "Wikimedia Commons file; commercial reuse and local storage allowed with attribution/share-alike.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": true,
+        "alt_text": "Wolfram Weimer, Tysklands kulturstatsminister"
+      },
+      {
+        "source_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Wolfram%20Weimer%20%282%29.jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "CC BY-SA 2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "credit_text": "blu-news.org / CC BY-SA 2.0 (via Wikimedia Commons)",
+        "rights_notes": "Wikimedia Commons file; commercial reuse and local storage allowed with attribution/share-alike.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": true,
+        "alt_text": "Wolfram Weimer under et offentligt arrangement"
+      },
+      {
+        "source_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Wolfram%20Weimer.jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "CC BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "credit_text": "Markus C. Hurek / CC BY-SA 3.0 (via Wikimedia Commons)",
+        "rights_notes": "Wikimedia Commons VRT-confirmed file; commercial reuse and local storage allowed with attribution/share-alike.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": true,
+        "alt_text": "Portræt af Wolfram Weimer"
+      }
+    ]
+  }
+}
