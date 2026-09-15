@@ -1,0 +1,66 @@
+{
+  "queue_id": "news-20260915-1543-italy-spain",
+  "slug": "italien-forlaenger-graensekontrol-spanien-terrorfrygt",
+  "headline": "Italien forlænger grænsekontrol mod Spanien: Frygter terrorister blandt migranter",
+  "deck": "Rom holder Schengen-kontrollen i live 15 dage mere efter migrantkrisen i Ceuta. Spanien har svaret igen med egne kontroller.",
+  "category_slug": "udland",
+  "kind": "news",
+  "body_markdown": "## SAGEN KORT\n\n- Italien forlænger kontrollen af rejsende fra Spanien i yderligere 15 dage med henvisning til fortsatte sikkerhedsrisici og mulig terrorinfiltration.\n- Kontrollen blev indført efter den massive migranttilstrømning til den spanske enklave Ceuta; Spanien har svaret med egne kontroller af rejsende fra Italien.\n\nItalien forlænger endnu en gang de midlertidige grænsekontroller over for Spanien. Beslutningen betyder, at den normale frie bevægelighed i Schengen fortsat er delvist sat ud af kraft for rejser mellem de to EU-lande.\n\nIfølge nyhedsbureauet Reuters oplyste det italienske indenrigsministerium tirsdag, at kontrollen forlænges med yderligere 15 dage. Ministeriet begrunder beslutningen med, at der fortsat er væsentlige risici for den indre sikkerhed samt en mulig trussel fra terrorister, der kan forsøge at infiltrere migrationsstrømmene.\n\n## Begyndte efter krisen i Ceuta\n\nItalien indførte første gang kontrollen 1. august efter den voldsomme migrantkrise i den spanske enklave Ceuta i Nordafrika. Titusinder krydsede på kort tid grænsen fra Marokko til spansk territorium.\n\nKontrollen gælder forbindelser fra Spanien til Italien ad luft- og søvejen. Det er ikke en lukning af grænsen, men betyder ekstra identitets- og dokumentkontrol.\n\nDen italienske regering har tidligere understreget, at tiltaget handler om sikkerhed og ikke om at forhindre spanske eller andre EU-borgere i at rejse.\n\n## Spanien svarede igen\n\nDen spanske regering har reageret ved selv at kontrollere rejsende, der ankommer fra Italien. Spanien forlængede tidligere i september sine kontroller frem til 22. september. Dermed kontrollerer to Schengen-lande nu gensidigt trafik mellem hinanden, selv om fri bevægelighed normalt er et af samarbejdets grundprincipper.\n\nDen italienske udenrigsminister Antonio Tajani, leder af regeringspartiet Forza Italia, har kaldt Spaniens modsvar uforståeligt og fastholdt, at Italiens egen beslutning alene skyldes hensynet til landets sikkerhed. Den spanske regering har omvendt kritiseret Italiens fremgangsmåde.\n\n## En principiel konflikt i Schengen\n\nEU-reglerne giver medlemslande mulighed for midlertidigt at genindføre kontrol ved de indre grænser, når alvorlige trusler mod den offentlige orden eller den indre sikkerhed gør det nødvendigt. Ordningen er tænkt som en undtagelse fra den normale grænsefri rejse.\n\nDen nye italienske forlængelse viser, at følgerne af Ceuta-krisen stadig mærkes halvanden måned senere. Hvor hurtigt den frie bevægelighed mellem Italien og Spanien vender helt tilbage, afhænger nu af, om Rom vurderer, at sikkerhedsrisikoen er faldet tilstrækkeligt.",
+  "source_metadata": [
+    {
+      "publisher": "Reuters",
+      "url": "https://www.reuters.com/world/italy-extends-schengen-suspension-with-spain-another-15-days-2026-09-15/",
+      "source_type": "authoritative",
+      "title": "Italy extends Schengen suspension with Spain for another 15 days"
+    },
+    {
+      "publisher": "Ministero degli Affari Esteri e della Cooperazione Internazionale",
+      "url": "https://www.esteri.it/en/sala_stampa/archivionotizie/interviste/2026/09/antonio-tajani-sanchez-sapeva-della-proroga-inspiegabile-la-sua-ritorsione-il-messaggero/",
+      "source_type": "authoritative",
+      "title": "Antonio Tajani: Sanchez knew about the extension"
+    },
+    {
+      "publisher": "Euronews",
+      "url": "https://www.euronews.com/my-europe/2026/09/05/spain-to-maintain-border-checks-on-arrivals-from-italy-until-22-september",
+      "source_type": "authoritative",
+      "title": "Spain to maintain border checks on arrivals from Italy until 22 September"
+    }
+  ],
+  "editorial_metadata": {
+    "discovery_run_id": "news-20260915-1543",
+    "discovery_audit": [
+      {"candidate_id":"candidate-1","source_pool":"discovery","path_used":"discovery","rank_position":1,"deep_screened":true,"discovery_source_name":"Fdesouche","discovery_domain":"fdesouche.com","candidate_headline":"Tyskland fortsætter grænsekontrol efter september","candidate_topic":"migration/border controls","decision":"rejected","decision_reason":"not_fresh_enough_for_slot","downstream_sources":[],"model_name":"GPT-5.6 Sol","prompt_version":"news-task.md@2bf8f48"},
+      {"candidate_id":"candidate-2","source_pool":"discovery","path_used":"discovery","rank_position":2,"deep_screened":true,"discovery_source_name":"NIUS","discovery_domain":"nius.de","candidate_headline":"Sachsen-Anhalt politisk efterspil","candidate_topic":"German politics/migration","decision":"rejected","decision_reason":"older_and_weaker_than_current_development","downstream_sources":[],"model_name":"GPT-5.6 Sol","prompt_version":"news-task.md@2bf8f48"},
+      {"candidate_id":"candidate-3","source_pool":"discovery","path_used":"discovery","rank_position":3,"deep_screened":true,"discovery_source_name":"Samnytt","discovery_domain":"samnytt.se","candidate_headline":"Svensk migrationspolitik","candidate_topic":"migration","decision":"rejected","decision_reason":"not_fresh_enough_for_slot","downstream_sources":[],"model_name":"GPT-5.6 Sol","prompt_version":"news-task.md@2bf8f48"},
+      {"candidate_id":"candidate-4","source_pool":"discovery","path_used":"discovery","rank_position":4,"deep_screened":true,"discovery_source_name":"Fdesouche","discovery_domain":"fdesouche.com","candidate_headline":"Britisk RICU og migrationsuro","candidate_topic":"speech/migration/security","decision":"rejected","decision_reason":"older_story","downstream_sources":[],"model_name":"GPT-5.6 Sol","prompt_version":"news-task.md@2bf8f48"},
+      {"candidate_id":"candidate-5","source_pool":"discovery","path_used":"discovery","rank_position":5,"deep_screened":true,"discovery_source_name":"NIUS","discovery_domain":"nius.de","candidate_headline":"Tysk migrationsdebat","candidate_topic":"migration","decision":"rejected","decision_reason":"older_story","downstream_sources":[],"model_name":"GPT-5.6 Sol","prompt_version":"news-task.md@2bf8f48"},
+      {"candidate_id":"candidate-fallback-1","source_pool":"major_media_fallback","path_used":"danish_major_media_fallback","rank_position":1,"deep_screened":true,"discovery_source_name":"Reuters","discovery_source_url":"https://www.reuters.com/world/italy-extends-schengen-suspension-with-spain-another-15-days-2026-09-15/","discovery_domain":"reuters.com","candidate_headline":"Italy extends Schengen suspension with Spain for another 15 days","candidate_topic":"migration/Schengen/security","decision":"selected","decision_reason":"fresh_documented_high_share_potential","downstream_sources":["reuters.com","esteri.it","euronews.com"],"model_name":"GPT-5.6 Sol","prompt_version":"news-task.md@2bf8f48"}
+    ],
+    "hero_candidates": [
+      {
+        "source_url": "https://image.ondacero.es/clipping/cmsimages02/2022/05/17/3E170878-8A04-4175-B1AC-724C1BB79459/policia-frontera-ceuta-marruecos-primer-dia-apertura-paso-fronterizo_104.jpg?crop=720%2C720%2Cx348%2Cy0&format=webply&height=1200&optimize=low&width=1200",
+        "source_provider": "ondacero",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "rights_notes": "Editorial documentary candidate; Media Worker must independently validate rights before use.",
+        "alt_text": "Spansk politi kontrollerer dokumenter ved grænsen i Ceuta"
+      },
+      {
+        "source_url": "https://cdn.unitycms.io/images/AjqGW5JmavjBPddXCSiUuv.jpg",
+        "source_provider": "tdg",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "rights_notes": "Editorial documentary candidate; Media Worker must independently validate rights before use.",
+        "alt_text": "Politi og rejsende ved grænseovergangen mellem Ceuta og Marokko"
+      },
+      {
+        "source_url": "https://www.bladi.net/img/logo/marocain-condamne-corruption-guardia-civil.webp",
+        "source_provider": "bladi",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "rights_notes": "Editorial documentary candidate; Media Worker must independently validate rights before use.",
+        "alt_text": "Politibetjent ved grænsekontrol i Ceuta"
+      }
+    ]
+  }
+}
