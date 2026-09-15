@@ -38,13 +38,26 @@ const fmtNumber = (value) => typeof value === 'number'
 const metricsUpdatedAt = fmtTime(center?.metrics_updated_at || center?.result_updated_at);
 const sourceName = center?.source_name || String(center?.source_label || '').split(/\r?\n/)[0] || null;
 const sourceUrl = center?.source_url || null;
-const statHeadline = metrics.counted_label || metrics.headline || null;
-const statSubheadline = metrics.subheadline || null;
+const provenanceSources = Array.isArray(metrics?._provenance?.sources)
+  ? metrics._provenance.sources.filter((source) => source?.name)
+  : [];
+const sourceLabel = provenanceSources.length > 1 ? 'Kilder' : 'Kilde';
+const deaths = fmtNumber(metrics.deaths_found ?? metrics.dead);
+const missing = fmtNumber(metrics.missing);
+const injured = fmtNumber(metrics.injured);
+const rescued = fmtNumber(metrics.rescued);
+const generatedHeadline = deaths && missing ? `${deaths} omkomne · ${missing} savnede` : null;
+const generatedSubheadline = [
+  injured ? `${injured} sårede behandlet` : null,
+  rescued ? `${rescued} reddet` : null,
+].filter(Boolean).join(' · ');
+const statHeadline = generatedHeadline || metrics.counted_label || metrics.headline || null;
+const statSubheadline = generatedSubheadline ? `${generatedSubheadline}.` : (metrics.subheadline || null);
 const generatedStats = [
-  ['Omkomne', fmtNumber(metrics.deaths_found ?? metrics.dead)],
-  ['Savnede', fmtNumber(metrics.missing)],
-  ['Sårede', fmtNumber(metrics.injured)],
-  ['Reddede', fmtNumber(metrics.rescued)],
+  ['Omkomne', deaths],
+  ['Savnede', missing],
+  ['Sårede', injured],
+  ['Reddede', rescued],
 ].filter(([, value]) => value !== null);
 ---
 
@@ -149,7 +162,19 @@ const generatedStats = [
       )}
 
       <div class="livecenter__source" aria-label="Kilde og seneste opdatering">
-        {sourceName ? <div class="livecenter__source-line"><span>Kilde: </span>{sourceUrl ? <a href={sourceUrl} rel="noopener noreferrer">{sourceName}</a> : <span>{sourceName}</span>}</div> : null}
+        {provenanceSources.length ? (
+          <div class="livecenter__source-line">
+            <span>{sourceLabel}: </span>
+            {provenanceSources.map((source, index) => (
+              <>
+                {index > 0 ? <span> · </span> : null}
+                {source.url ? <a href={source.url} rel="noopener noreferrer">{source.name}</a> : <span>{source.name}</span>}
+              </>
+            ))}
+          </div>
+        ) : sourceName ? (
+          <div class="livecenter__source-line"><span>{sourceLabel}: </span>{sourceUrl ? <a href={sourceUrl} rel="noopener noreferrer">{sourceName}</a> : <span>{sourceName}</span>}</div>
+        ) : null}
         {metricsUpdatedAt ? <div class="livecenter__source-line">Opdateret {metricsUpdatedAt}</div> : null}
       </div>
     </aside>
