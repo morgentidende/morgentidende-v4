@@ -19,8 +19,10 @@ const ui = {
 };
 const parties = Array.isArray(metrics.parties) ? metrics.parties : [];
 const blocks = Array.isArray(metrics.blocks) ? metrics.blocks : [];
-const visibleUpdates = updates.slice(0, 2);
-const olderUpdates = updates.slice(2);
+const renderedUpdates = updates.slice(0, 5);
+const visibleUpdates = renderedUpdates.slice(0, 2);
+const olderUpdates = renderedUpdates.slice(2);
+const updatesTruncated = updates.length > renderedUpdates.length;
 const followups = relatedArticles.slice(0, 3);
 
 const fmtTime = (value) => value
@@ -35,7 +37,12 @@ const fmtNumber = (value) => typeof value === 'number'
   ? new Intl.NumberFormat('da-DK').format(value)
   : null;
 
-const metricsUpdatedAt = fmtTime(center?.metrics_updated_at || center?.result_updated_at);
+const metricsTimestamp = center?.metrics_updated_at || center?.result_updated_at || null;
+const metricsUpdatedAt = fmtTime(metricsTimestamp);
+const metricsPollSeconds = Math.max(60, Number(center?.cadence?.metrics_poll_seconds || 300));
+const staleAfterMs = Math.max(15 * 60 * 1000, metricsPollSeconds * 3 * 1000);
+const metricsTimestampMs = metricsTimestamp ? Date.parse(metricsTimestamp) : Number.NaN;
+const metricsAreStale = Number.isFinite(metricsTimestampMs) && Date.now() - metricsTimestampMs > staleAfterMs;
 const sourceName = center?.source_name || String(center?.source_label || '').split(/\r?\n/)[0] || null;
 const sourceUrl = center?.source_url || null;
 const provenanceSources = Array.isArray(metrics?._provenance?.sources)
@@ -98,7 +105,7 @@ const generatedStats = [
 
       {olderUpdates.length ? (
         <details class="livecenter__archive">
-          <summary>Se alle opdateringer <span aria-hidden="true">↓</span></summary>
+          <summary>Se flere opdateringer <span aria-hidden="true">↓</span></summary>
           <div class="livecenter__archive-list">
             {olderUpdates.map((update) => (
               <article class="livecenter__update livecenter__update--archive">
@@ -107,6 +114,7 @@ const generatedStats = [
               </article>
             ))}
           </div>
+          {updatesTruncated ? <p>Viser de fem seneste opdateringer.</p> : null}
         </details>
       ) : null}
     </section>
@@ -175,7 +183,12 @@ const generatedStats = [
         ) : sourceName ? (
           <div class="livecenter__source-line"><span>{sourceLabel}: </span>{sourceUrl ? <a href={sourceUrl} rel="noopener noreferrer">{sourceName}</a> : <span>{sourceName}</span>}</div>
         ) : null}
-        {metricsUpdatedAt ? <div class="livecenter__source-line">Opdateret {metricsUpdatedAt}</div> : null}
+        {metricsUpdatedAt ? (
+          <div class="livecenter__source-line">
+            {metricsAreStale ? <><strong>Tal kan være forældede</strong><span> · </span></> : null}
+            <span>Opdateret {metricsUpdatedAt}</span>
+          </div>
+        ) : null}
       </div>
     </aside>
   </div>
