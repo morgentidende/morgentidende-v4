@@ -1,0 +1,66 @@
+{
+  "queue_id": "20260915-1315-kvartover-russia-note",
+  "slug": "rusland-sender-protestnote-til-danmark-efter-helikopterstrid",
+  "headline": "Rusland sender protestnote til Danmark efter helikopterstrid",
+  "dek": "Moskva vender sagen om de russiske nødblus mod Danmark og beskylder danske militærhelikoptere for farlige manøvrer.",
+  "category_slug": "indland",
+  "kind": "news",
+  "body_markdown": "Rusland har tirsdag sendt en formel protestnote til Danmark og beskylder danske militærhelikoptere for at have udført farlige manøvrer tæt på russiske krigsskibe i Østersøen.\n\n**SAGEN KORT**\n\n- Ruslands ambassadør i Danmark, Vladimir Barbin, siger, at han har afleveret en protestnote og krævet danske tiltag for at forhindre nye episoder.\n- Protesten kommer efter, at det danske forsvar oplyste, at en russisk fregat mandag affyrede to nødblus mod en dansk militærhelikopter i internationalt luftrum.\n\n## Moskva vender anklagen mod Danmark\n\nDen russiske ambassadør i Danmark, Vladimir Barbin, siger ifølge det statslige russiske nyhedsbureau RIA, gengivet af Reuters, at han har afleveret en officiel note til København.\n\nBarbin lægger ansvaret for den seneste konfrontation på Danmark. Han siger, at han har krævet, at dansk side træffer de nødvendige foranstaltninger, så lignende episoder ikke gentager sig.\n\nUdmeldingen kommer dagen efter en markant dansk anklage mod Rusland. Det danske forsvar oplyste, at en russisk fregat affyrede to nødblus mod en dansk militærhelikopter under en rutinemæssig flyvning i internationalt luftrum. Det ene nødblus passerede ifølge den danske beskrivelse tæt på helikopteren.\n\nDanmark indkaldte efter episoden Barbin til en samtale.\n\n## Henviser til tidligere episode\n\nDen russiske ambassadør trækker samtidig en episode fra august 2025 frem. Her hævder han, at en dansk helikopter fløj lavt over det russiske antiubådsskib Vice-Admiral Kulakov og ikke reagerede på russiske advarsler.\n\nIfølge Barbin skabte flyvningen risiko for en kollision og kunne have påvirket skibets udstyr. Det er den russiske sides beskrivelse af hændelsen.\n\nKremls talsmand, Dmitrij Peskov, siger ifølge Reuters, at han ikke har detaljer om den aktuelle sag og derfor ikke kan kommentere den.\n\nDermed står Danmark og Rusland nu med hver sin offentlige version af den militære konfrontation: Danmark beskriver den russiske affyring af nødblus som en farlig handling, mens Rusland hævder, at danske helikoptere selv har optrådt uforsvarligt. Den russiske protestnote gør striden til en formel diplomatisk sag mellem landene.",
+  "source_metadata": [
+    {
+      "url": "https://www.reuters.com/world/europe/russia-accuses-danish-military-helicopters-making-dangerous-manoeuvres-near-its-2026-09-15/",
+      "publisher": "Reuters",
+      "title": "Russia accuses Danish military helicopters of making dangerous manoeuvres near its warships, RIA reports"
+    },
+    {
+      "url": "https://www.theguardian.com/world/live/2026/sep/15/denmark-ukraine-russia-warship-frigate-security-lithuania-poland--sweden-election-eu-europe-latest-news-updates",
+      "publisher": "The Guardian",
+      "title": "Europe live: Denmark-Russia warship and helicopter tensions"
+    }
+  ],
+  "editorial_metadata": {
+    "story_kind": "breaking_followup",
+    "discovery_origin": "breaking_scan",
+    "hero_candidates": [
+      {
+        "source_url": "https://upload.wikimedia.org/wikipedia/commons/6/6b/RussianEmbassyBuilding_CPH.jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "CC BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "credit_text": "Niels Elgaard Larsen / Wikimedia Commons",
+        "rights_notes": "Own work on Wikimedia Commons; commercial reuse and local storage allowed under CC BY-SA 3.0.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": true,
+        "alt_text": "Ruslands ambassade i København"
+      },
+      {
+        "source_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Embassy_of_Russia_in_Copenhagen.jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "CC BY-SA 2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "credit_text": "Sergey Kovalyov / Wikimedia Commons",
+        "rights_notes": "Flickr image license verified by Wikimedia Commons; commercial reuse and local storage allowed under CC BY-SA 2.0.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": true,
+        "alt_text": "Ruslands ambassade i København"
+      },
+      {
+        "source_url": "https://upload.wikimedia.org/wikipedia/commons/0/01/Students_singing_in_front_of_the_Russian_embassy_in_Copenhagen.jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "credit_text": "Thomas Dahlstrøm Nielsen / Wikimedia Commons",
+        "rights_notes": "Own work on Wikimedia Commons; commercial reuse and local storage allowed under CC BY-SA 4.0.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": true,
+        "alt_text": "Området foran Ruslands ambassade i København"
+      }
+    ]
+  }
+}
