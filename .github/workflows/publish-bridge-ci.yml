@@ -1,0 +1,20 @@
+name: Publish bridge CI
+
+on:
+  pull_request:
+    paths:
+      - '.github/scripts/process-chatgpt-publish-queue.mjs'
+      - '.github/scripts/publish-kind.mjs'
+      - '.github/scripts/publish-kind.test.mjs'
+      - '.github/workflows/publish-bridge-ci.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  kind-contract:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Test publish kind contract
+        run: node --test .github/scripts/publish-kind.test.mjs
