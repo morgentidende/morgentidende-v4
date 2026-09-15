@@ -1,0 +1,173 @@
+---
+import V4Card from './V4Card.astro';
+import '../styles/livecenter-generic.css';
+
+const { center, updates = [], relatedArticles = [], categoryById = new Map() } = Astro.props;
+const metrics = center?.metrics && Object.keys(center.metrics).length
+  ? center.metrics
+  : (center?.result_data || {});
+const renderer = center?.renderer || (Array.isArray(metrics.parties) ? 'election_table' : 'headline_only');
+const ui = {
+  feed_kicker: 'LIVE',
+  feed_title: 'Seneste udvikling',
+  metrics_kicker: 'STATUS',
+  metrics_title: 'Lige nu',
+  followups_label: 'Baggrund',
+  expand_open: 'Læs hele opdateringen',
+  expand_close: 'Skjul opdateringen',
+  ...(center?.ui || {}),
+};
+const parties = Array.isArray(metrics.parties) ? metrics.parties : [];
+const blocks = Array.isArray(metrics.blocks) ? metrics.blocks : [];
+const visibleUpdates = updates.slice(0, 2);
+const olderUpdates = updates.slice(2);
+const followups = relatedArticles.slice(0, 3);
+
+const fmtTime = (value) => value
+  ? new Intl.DateTimeFormat('da-DK', {
+      hour: '2-digit',
+      minute: '2-digit',
+      timeZone: 'Europe/Copenhagen',
+    }).format(new Date(value)).replace(':', '.')
+  : null;
+
+const fmtNumber = (value) => typeof value === 'number'
+  ? new Intl.NumberFormat('da-DK').format(value)
+  : null;
+
+const metricsUpdatedAt = fmtTime(center?.metrics_updated_at || center?.result_updated_at);
+const sourceName = center?.source_name || String(center?.source_label || '').split(/\r?\n/)[0] || null;
+const sourceUrl = center?.source_url || null;
+const statHeadline = metrics.counted_label || metrics.headline || null;
+const statSubheadline = metrics.subheadline || null;
+const generatedStats = [
+  ['Omkomne', fmtNumber(metrics.deaths_found ?? metrics.dead)],
+  ['Savnede', fmtNumber(metrics.missing)],
+  ['Sårede', fmtNumber(metrics.injured)],
+  ['Reddede', fmtNumber(metrics.rescued)],
+].filter(([, value]) => value !== null);
+---
+
+<section class="livecenter" aria-labelledby="livecenter-title" data-kind={center?.kind || 'generic'} data-renderer={renderer}>
+  <header class="livecenter__header">
+    <div class="livecenter__eyebrow"><span class="livecenter__dot" aria-hidden="true"></span>{center.label}</div>
+    <h1 id="livecenter-title" class="livecenter__title">{center.title}</h1>
+    {center.deck ? <p class="livecenter__deck">{center.deck}</p> : null}
+  </header>
+
+  <div class="livecenter__grid">
+    <section class="livecenter__panel livecenter__feed" aria-labelledby="livecenter-feed-title">
+      <div class="livecenter__section-head">
+        <div>
+          <div class="livecenter__section-kicker">{ui.feed_kicker}</div>
+          <h2 id="livecenter-feed-title">{ui.feed_title}</h2>
+        </div>
+      </div>
+
+      <div class="livecenter__updates">
+        {visibleUpdates.map((update, index) => (
+          <article class:list={['livecenter__update', index === 0 && 'livecenter__update--latest']}>
+            <time datetime={update.published_at}>{fmtTime(update.published_at)}</time>
+            <details class="livecenter__update-details">
+              <summary>
+                <h3>{update.headline}</h3>
+                <p class="livecenter__update-teaser">{update.body}</p>
+                <span class="livecenter__update-toggle livecenter__update-toggle--open">{ui.expand_open}<span aria-hidden="true">↓</span></span>
+              </summary>
+              <div class="livecenter__update-full">
+                <p>{update.body}</p>
+                <span class="livecenter__update-toggle livecenter__update-toggle--close">{ui.expand_close}<span aria-hidden="true">↑</span></span>
+              </div>
+            </details>
+          </article>
+        ))}
+      </div>
+
+      {olderUpdates.length ? (
+        <details class="livecenter__archive">
+          <summary>Se alle opdateringer <span aria-hidden="true">↓</span></summary>
+          <div class="livecenter__archive-list">
+            {olderUpdates.map((update) => (
+              <article class="livecenter__update livecenter__update--archive">
+                <time datetime={update.published_at}>{fmtTime(update.published_at)}</time>
+                <div><h3>{update.headline}</h3><p>{update.body}</p></div>
+              </article>
+            ))}
+          </div>
+        </details>
+      ) : null}
+    </section>
+
+    <aside class="livecenter__panel livecenter__results" aria-labelledby="livecenter-results-title">
+      <div class="livecenter__section-head">
+        <div>
+          <div class="livecenter__section-kicker livecenter__section-kicker--results">{ui.metrics_kicker}</div>
+          <h2 id="livecenter-results-title">{ui.metrics_title}</h2>
+        </div>
+      </div>
+
+      {renderer === 'election_table' ? (
+        <>
+          <div class="livecenter__result-status">
+            {typeof metrics.counted_pct === 'number' && metrics.counted_pct > 0 ? <div class="livecenter__big-number">{metrics.counted_pct}<span>%</span></div> : null}
+            <div>
+              <strong>{metrics.counted_label || metrics.headline || 'Afventer optælling'}</strong>
+              {metrics.subheadline ? <p>{metrics.subheadline}</p> : null}
+            </div>
+          </div>
+          {parties.length ? (
+            <div class="livecenter__party-table" role="table" aria-label="Partiernes resultat">
+              {parties.map((party) => (
+                <div class="livecenter__party-row" role="row">
+                  <strong role="cell">{party.name}</strong>
+                  <span role="cell">{party.percent}%</span>
+                  <span role="cell" class:list={['livecenter__change', party.change > 0 ? 'is-up' : party.change < 0 ? 'is-down' : '']}>{party.change > 0 ? '+' : ''}{party.change ?? ''}</span>
+                </div>
+              ))}
+            </div>
+          ) : null}
+          {blocks.length ? (
+            <div class="livecenter__blocks">
+              <div class="livecenter__blocks-title">Mandater</div>
+              {blocks.map((block) => <div class="livecenter__block-row"><span>{block.name}</span><strong>{block.seats}</strong></div>)}
+              {metrics.block_summary ? <div class="livecenter__block-summary">{metrics.block_summary}</div> : null}
+            </div>
+          ) : null}
+        </>
+      ) : renderer === 'stat_list' ? (
+        <div class="livecenter__result-status livecenter__result-status--stats">
+          {statHeadline ? <strong>{statHeadline}</strong> : null}
+          {statSubheadline ? <p>{statSubheadline}</p> : null}
+          {!statHeadline && generatedStats.length ? (
+            <dl class="livecenter__stat-list">
+              {generatedStats.map(([label, value]) => <div class="livecenter__stat-row"><dt>{label}</dt><dd>{value}</dd></div>)}
+            </dl>
+          ) : null}
+        </div>
+      ) : (
+        <div class="livecenter__result-status"><div><strong>{metrics.headline || metrics.counted_label || 'Status følger'}</strong>{metrics.subheadline ? <p>{metrics.subheadline}</p> : null}</div></div>
+      )}
+
+      <div class="livecenter__source" aria-label="Kilde og seneste opdatering">
+        {sourceName ? <div class="livecenter__source-line"><span>Kilde: </span>{sourceUrl ? <a href={sourceUrl} rel="noopener noreferrer">{sourceName}</a> : <span>{sourceName}</span>}</div> : null}
+        {metricsUpdatedAt ? <div class="livecenter__source-line">Opdateret {metricsUpdatedAt}</div> : null}
+      </div>
+    </aside>
+  </div>
+
+  {updates.length === 0 && center.key_points?.length ? (
+    <section class="livecenter__keypoints" aria-labelledby="livecenter-keypoints-title">
+      <div id="livecenter-keypoints-title" class="livecenter__keypoints-title">Vigtigst lige nu</div>
+      <ul>{center.key_points.slice(0, 3).map((point) => <li>{point}</li>)}</ul>
+    </section>
+  ) : null}
+
+  {followups.length ? (
+    <div class="livecenter__followups">
+      <div class="livecenter__followups-label">{ui.followups_label}</div>
+      <div class="livecenter__followups-grid">
+        {followups.map((article) => <V4Card article={article} categoryName={categoryById.get(article.category_id)} showDeck={false} />)}
+      </div>
+    </div>
+  ) : null}
+</section>
