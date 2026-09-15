@@ -24,13 +24,11 @@ export function buildFrontpageModel(articles: Article[], categories: Category[],
     : [];
 
   const leadBoxIds = new Set([lead?.id, ...followups.map((article) => article.id)].filter(Boolean));
-  const newsBarArticle = lead
-    ? articles.find(
-        (article) =>
-          !leadBoxIds.has(article.id) &&
-          !['Viden', 'Liv', 'Kommentar'].includes(categoryById.get(article.category_id) as string)
-      )
-    : null;
+  const newsBarArticle = articles.find(
+    (article) =>
+      !leadBoxIds.has(article.id) &&
+      !['Viden', 'Liv', 'Kommentar'].includes(categoryById.get(article.category_id) as string)
+  ) || null;
 
   const usedIds = new Set([...leadBoxIds, newsBarArticle?.id].filter(Boolean));
   const stream = articles.filter((article) => !usedIds.has(article.id));
