@@ -1,0 +1,81 @@
+{
+  "queue_id": "halv-20260915-2131-ceuta-minors",
+  "slug": "ceuta-op-mod-1000-boern-lever-stadig-paa-gaden",
+  "headline": "Op mod 1.000 migrantbørn lever stadig på gaden i Ceuta",
+  "deck": "Seks uger efter masseankomsten har myndighederne kun startet ti børnesager. Spanien siger, at en øjeblikkelig hjemsendelse er umulig.",
+  "category_slug": "udland",
+  "kind": "news",
+  "body_markdown": "Seks uger efter den massive migrantankomst til den spanske enklave Ceuta vurderer regeringen, at mellem 700 og 1.000 mindreårige fortsat opholder sig på gaden uden at være under myndighedernes værgemål.\n\n## SAGEN KORT\n\n- Spaniens regering anslår, at 700-1.000 mindreårige stadig lever på gaden i Ceuta, mens 2.048 børn er registreret og taget hånd om.\n- Kun ti egentlige sager for mindreårige er foreløbig sat i gang. Regeringen siger, at børn, der ikke kan genforenes med deres familier, kan blive i Spanien.\n\nTallene blev fremlagt tirsdag efter det spanske ministerråds møde af territorialminister Ángel Víctor Torres, der koordinerer regeringens håndtering af krisen i Ceuta.\n\nIfølge regeringen er 2.048 mindreårige nu identificeret og under offentlig beskyttelse. 1.612 af dem ankom efter den store grænsepassage 30. og 31. juli. Yderligere omkring 300 børn bliver hjulpet i tilbud drevet af centralregeringen.\n\nMen myndighederne ved fortsat ikke præcist, hvor mange børn der befinder sig uden for systemet. Torres satte selv spændet til mellem 700 og 1.000.\n\n## Kun ti børnesager er begyndt\n\nDen mest markante flaskehals ligger i sagsbehandlingen. Regeringen oplyser, at der er påbegyndt 1.822 indledende gennemgange af voksne migranters sager. For mindreårige er der derimod indtil videre kun startet ti egentlige sager.\n\nProcessen for børn kom først i gang mandag, efter at der var blevet sikret juridisk repræsentation som krævet efter de nye europæiske migrationsregler. Staten har afsat to millioner euro til advokatbistanden.\n\nTorres understregede, at børnene ikke bare kan sendes tilbage over grænsen. En hjemsendelse kræver blandt andet, at myndighederne undersøger muligheden for familiesammenføring og barnets konkrete forhold.\n\nHvis et barn ikke kan genforenes med sin familie, kan det ifølge regeringen enten forblive under beskyttelse i Ceuta eller blive flyttet til andre dele af Spanien.\n\n## Mere end 5.000 er rejst tilbage\n\nSamtidig fortsætter udrejserne blandt de voksne. Ifølge regeringens seneste opgørelse er 5.482 personer siden 10. august vendt frivilligt tilbage til Marokko. 307 personer er desuden blevet udvist efter kriminalitet og med en dommers godkendelse.\n\nRegeringen siger, at hovedparten af de voksne, der fortsat befinder sig i Ceuta, ikke ventes at få international beskyttelse og derfor skal sendes tilbage, når deres sager er behandlet.\n\nKrisen er dermed gået ind i en ny fase: Den akutte masseankomst er overstået, men flere hundrede børn befinder sig fortsat uden for myndighedernes omsorg, mens den juridiske behandling af deres fremtid kun lige er begyndt.",
+  "source_metadata": [
+    {
+      "publisher": "La Moncloa – Spaniens regering",
+      "url": "https://www.lamoncloa.gob.es/consejodeministros/resumenes/Paginas/2026/150926-rueda-prensa-ministros.aspx",
+      "source_type": "primary_official",
+      "subject_is_source": true
+    },
+    {
+      "publisher": "EFE",
+      "url": "https://efe.com/espana/2026-09-15/numero-menores-ceuta/",
+      "source_type": "authoritative"
+    },
+    {
+      "publisher": "El País",
+      "url": "https://elpais.com/espana/2026-09-15/el-gobierno-preve-reubicar-a-los-menores-irregulares-en-ceuta-en-un-plazo-minimo-de-dos-meses-si-continua-el-bloqueo-del-pp.html",
+      "source_type": "authoritative"
+    }
+  ],
+  "editorial_metadata": {
+    "discovery_run_id": "halv-20260915-2131",
+    "final_qa_duplicate": false,
+    "qa_history_source": "GitHub [PUBLISH] history plus current public reporting",
+    "checkpoints": ["task_runtime_entered","canonical_rules_loaded","candidate_scan_started","candidate_selected","research_started","research_completed","final_qa_started","qa_history_source_attempted","qa_history_loaded","final_qa_passed","github_write_attempted"],
+    "discovery_audit": [
+      {"candidate_id":"candidate-1","source_pool":"discovery","path_used":"discovery","rank_position":1,"deep_screened":true,"discovery_source_name":"eXXpress","discovery_domain":"exxpress.at","candidate_headline":"Østrigs kansler kritiserer Spaniens migrantlegalisering","candidate_topic":"Spain migrant regularization","decision":"rejected","decision_reason":"duplicate_recent_publish_history"},
+      {"candidate_id":"candidate-2","source_pool":"discovery","path_used":"discovery","rank_position":2,"deep_screened":true,"discovery_source_name":"The Objective","discovery_domain":"theobjective.com","candidate_headline":"Ceuta: nye tal for migrantkrisen","candidate_topic":"Ceuta migrant crisis minors","decision":"selected","decision_reason":"material_new_development_authoritatively_supported","downstream_sources":["lamoncloa.gob.es","efe.com","elpais.com"]},
+      {"candidate_id":"candidate-3","source_pool":"discovery","path_used":"discovery","rank_position":3,"deep_screened":false,"discovery_source_name":"Document","discovery_domain":"document.no","candidate_headline":"Knivstikking i Oslo-området","candidate_topic":"Norway violent crime","decision":"ranked_not_screened"},
+      {"candidate_id":"candidate-4","source_pool":"discovery","path_used":"discovery","rank_position":4,"deep_screened":false,"discovery_source_name":"NIUS","discovery_domain":"nius.de","candidate_headline":"Tysk migrations- og ydelsesstof","candidate_topic":"Germany migration welfare","decision":"ranked_not_screened"},
+      {"candidate_id":"candidate-5","source_pool":"discovery","path_used":"discovery","rank_position":5,"deep_screened":false,"discovery_source_name":"Samnytt","discovery_domain":"samnytt.se","candidate_headline":"Svensk migrations- og kriminalitetsstof","candidate_topic":"Sweden migration crime","decision":"ranked_not_screened"}
+    ],
+    "hero_candidates": [
+      {
+        "source_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/%C3%81ngel%20V%C3%ADctor%20Torres%2C%20ministro%20de%20Pol%C3%ADtica%20Territorial%20y%20Memoria%20Democr%C3%A1tica.jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "Attribution – Government of Spain",
+        "license_url": "https://commons.wikimedia.org/wiki/File:%C3%81ngel_V%C3%ADctor_Torres,_ministro_de_Pol%C3%ADtica_Territorial_y_Memoria_Democr%C3%A1tica.jpg",
+        "credit_text": "Pool Moncloa/José Manuel Álvarez – Government of Spain",
+        "rights_notes": "Commercial reuse, redistribution and modification permitted with attribution; original 2000x1333.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": true,
+        "alt_text": "Spaniens territorialminister Ángel Víctor Torres"
+      },
+      {
+        "source_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Aduana%20de%20Ceuta%200.jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "Creative Commons Attribution-ShareAlike",
+        "license_url": "https://commons.wikimedia.org/wiki/File:Aduana_de_Ceuta_0.jpg",
+        "credit_text": "Xemenendura / Wikimedia Commons",
+        "rights_notes": "Own work on Commons; original 4000x3000; commercial reuse allowed under listed CC license.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": true,
+        "alt_text": "Grænseposten El Tarajal mellem Ceuta og Marokko"
+      },
+      {
+        "source_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/%C3%81ngel%20V%C3%ADctor%20Torres%202023%20%28cropped%29.jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "Attribution – Government of Spain",
+        "license_url": "https://commons.wikimedia.org/wiki/File:%C3%81ngel_V%C3%ADctor_Torres_2023_%28cropped%29.jpg",
+        "credit_text": "Pool Moncloa – Government of Spain",
+        "rights_notes": "Commercial reuse permitted with attribution; original 770x1152, above minimum pixel gate.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": true,
+        "alt_text": "Ángel Víctor Torres i officielt portræt"
+      }
+    ]
+  }
+}
