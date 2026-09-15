@@ -5,6 +5,8 @@ const SERVICE_ROLE_KEY = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") ?? "";
 const EXPECTED_AUD = "morgentidende-publish-bridge";
 const EXPECTED_REPO = "morgentidende/morgentidende-v4";
 const ISSUER = "https://token.actions.githubusercontent.com";
+const ALLOWED_MAGAZINE_STORY_KINDS = new Set(["evergreen_explainer", "followup", "new_study", "update"]);
+const ALLOWED_FOLLOWUP_REASONS = new Set(["new_fact", "official_response", "arrest", "new_data", "court_decision", "material_update"]);
 
 type Json = Record<string, unknown>;
 
@@ -82,6 +84,24 @@ function validatePayload(payload: Json) {
     (typeof payload.editorial_metadata !== "object" || Array.isArray(payload.editorial_metadata))
   ) {
     throw new Error("invalid_editorial_metadata");
+  }
+
+  if (String(payload.kind ?? "").trim().toLowerCase() === "magazine") {
+    const metadata = (payload.editorial_metadata ?? {}) as Json;
+    const topicKey = String(metadata.topic_key ?? "").trim();
+    if (!topicKey) throw new Error("magazine_topic_key_required");
+
+    const storyKind = String(metadata.story_kind ?? "evergreen_explainer").trim();
+    if (!ALLOWED_MAGAZINE_STORY_KINDS.has(storyKind)) throw new Error("magazine_story_kind_invalid");
+    metadata.story_kind = storyKind;
+    payload.editorial_metadata = metadata;
+
+    if (storyKind === "followup") {
+      if (!String(metadata.followup_parent_article_id ?? "").trim()) throw new Error("followup_requires_parent");
+      const reason = String(metadata.followup_reason ?? "").trim();
+      if (!ALLOWED_FOLLOWUP_REASONS.has(reason)) throw new Error("followup_requires_reason");
+      if (!String(payload.story_cluster_id ?? "").trim()) throw new Error("followup_requires_cluster");
+    }
   }
 }
 
