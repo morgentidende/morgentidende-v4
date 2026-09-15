@@ -31,25 +31,10 @@ jobs:
           case "$BRANCH" in
             main|master|publish/chatgpt-*)
               echo "Protected or transport branch; skip: $BRANCH"
-              ;;
-            *)
-              gh api -X DELETE "repos/$GITHUB_REPOSITORY/git/refs/heads/$BRANCH" || true
+              exit 0
               ;;
           esac
-
-      - name: One-time removal of verified legacy branches
-        env:
-          GH_TOKEN: ${{ github.token }}
-        shell: bash
-        run: |
-          set -euo pipefail
-          for branch in \
-            'cleanup/remove-reader-auth' \
-            'fix/svg-master-service-role' \
-            'test/security-passive-20260910'
-          do
-            gh api -X DELETE "repos/$GITHUB_REPOSITORY/git/refs/heads/$branch" || true
-          done
+          gh api -X DELETE "repos/$GITHUB_REPOSITORY/git/refs/heads/$BRANCH" || true
 
   sweep-existing-merged-heads:
     if: github.event_name != 'pull_request'
