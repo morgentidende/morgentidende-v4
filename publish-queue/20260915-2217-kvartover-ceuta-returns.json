@@ -1,0 +1,106 @@
+{
+  "queue_id": "20260915-2217-kvartover-ceuta-returns",
+  "slug": "spanien-flertallet-af-voksne-migranter-i-ceuta-skal-tilbage",
+  "headline": "Spanien: Flertallet af voksne migranter i Ceuta skal tilbage",
+  "deck": "5.482 er frivilligt vendt tilbage til Marokko siden 10. august. Regeringen siger, at de fleste resterende voksne også skal retur.",
+  "category_slug": "udland",
+  "kind": "news",
+  "body_markdown": "Spanien skærper nu budskabet til de voksne migranter, der fortsat befinder sig i den spanske enklave Ceuta efter den massive grænseoverskridelse fra Marokko i slutningen af juli.\n\n## SAGEN KORT\n\n- 5.482 migranter er siden 10. august frivilligt vendt tilbage fra Ceuta til Marokko, mens 307 er blevet udvist.\n- Den spanske regering siger, at flertallet af de resterende voksne ikke vil få international beskyttelse og derfor skal sendes tilbage.\n\nDen spanske minister for territorialpolitik, Ángel Víctor Torres, fremlagde tirsdag nye tal efter regeringens ministermøde. Ifølge ministeren er 5.482 mennesker siden 10. august vendt frivilligt tilbage til Marokko. Yderligere 307 er blevet udvist efter lovens procedurer.\n\nMyndighederne har samtidig indledt behandling af 1.822 voksne migranters sager. 4.160 personer opholder sig fortsat i midlertidige indkvarteringspladser i Ceuta.\n\nTorres gjorde regeringens linje usædvanligt klar: Flertallet af de voksne, der fortsat er i Ceuta, vil efter regeringens vurdering ikke have ret til international beskyttelse. De skal derfor returneres, når deres sager er behandlet.\n\nDet betyder ikke, at alle automatisk kan sendes tilbage. Personer, som opfylder betingelserne for international beskyttelse, har ret til at blive i Spanien. Situationen er desuden anderledes for uledsagede mindreårige, som er omfattet af særlige regler og garantier.\n\n## Op mod 1.000 børn stadig på gaden\n\nDen spanske regering anslår, at mellem 700 og 1.000 uledsagede mindreårige fortsat befinder sig uden for myndighedernes institutioner i Ceuta. 2.048 børn og unge er allerede blevet registreret, og 1.612 af dem kom under masseankomsten 30. og 31. juli.\n\nTi sager om mindreårige er nu formelt indledt. De skal blandt andet afklare, om børnene kan genforenes med familie i Marokko. Hvis det ikke er muligt, kan de blive under offentlig beskyttelse i Ceuta eller flyttes til andre dele af Spanien.\n\nDe nye tal kommer efter flere ugers politisk strid om kontrollen med EU's sydlige grænse. Samme dag forlængede både Spanien og Italien deres midlertidige grænsekontrol som følge af Ceuta-krisen.\n\nTallene viser samtidig, at tilbagesendelserne nu er blevet en central del af Spaniens håndtering af krisen: næsten 5.800 mennesker er enten frivilligt vendt tilbage eller blevet udvist siden 10. august.",
+  "source_metadata": [
+    {
+      "publisher": "EFE",
+      "url": "https://efe.com/espana/2026-09-15/numero-menores-ceuta/",
+      "source_type": "authoritative",
+      "title": "El Gobierno estima que quedan entre 700 y 1.000 menores sin tutelar en las calles de Ceuta"
+    },
+    {
+      "publisher": "Europa Press",
+      "url": "https://www.europapress.es/videos/video-torres-dice-5482-migrantes-ceuta-vuelto-marruecos-307-sido-expulsados-20260915141303.html",
+      "source_type": "authoritative",
+      "title": "Torres dice que 5.482 migrantes de Ceuta han vuelto a Marruecos y 307 han sido expulsados"
+    }
+  ],
+  "editorial_metadata": {
+    "discovery_run_id": "news-20260915-2217-kvartover",
+    "discovery_audit": [
+      {"candidate_id":"c1","source_pool":"discovery","path_used":"discovery","rank_position":1,"deep_screened":true,"discovery_source_name":"The Objective","discovery_domain":"theobjective.com","candidate_headline":"5.482 migrantes de Ceuta han vuelto a Marruecos","candidate_topic":"Ceuta migration returns","decision":"selected","decision_reason":"fresh_material_update_supported_by_EFE_and_Europa_Press","downstream_sources":["EFE","Europa Press"],"model_name":"GPT-5.6 Sol","prompt_version":"news-task-main-20260915"},
+      {"candidate_id":"c2","source_pool":"discovery","path_used":"discovery","rank_position":2,"deep_screened":false,"discovery_source_name":"NIUS","discovery_domain":"nius.de","candidate_headline":"Clara von Nathusius criticises Merz","candidate_topic":"German CDU leadership criticism","decision":"not_selected","decision_reason":"lower_documented_news_value_than_candidate_1","downstream_sources":[],"model_name":"GPT-5.6 Sol","prompt_version":"news-task-main-20260915"},
+      {"candidate_id":"c3","source_pool":"discovery","path_used":"discovery","rank_position":3,"deep_screened":false,"discovery_source_name":"The Objective","discovery_domain":"theobjective.com","candidate_headline":"Spain extends border controls with Italy","candidate_topic":"Schengen controls Ceuta","decision":"not_selected","decision_reason":"closely_related_story_already_recently_selected","downstream_sources":[],"model_name":"GPT-5.6 Sol","prompt_version":"news-task-main-20260915"},
+      {"candidate_id":"c4","source_pool":"discovery","path_used":"discovery","rank_position":4,"deep_screened":false,"discovery_source_name":"Document","discovery_domain":"document.no","candidate_headline":"Current Document candidates","candidate_topic":"Nordic news scan","decision":"not_selected","decision_reason":"weaker_fresh_candidate","downstream_sources":[],"model_name":"GPT-5.6 Sol","prompt_version":"news-task-main-20260915"},
+      {"candidate_id":"c5","source_pool":"discovery","path_used":"discovery","rank_position":5,"deep_screened":false,"discovery_source_name":"Apollo News","discovery_domain":"apollo-news.net","candidate_headline":"Current Apollo candidates","candidate_topic":"German migration scan","decision":"not_selected","decision_reason":"weaker_or_stale_candidate","downstream_sources":[],"model_name":"GPT-5.6 Sol","prompt_version":"news-task-main-20260915"}
+    ],
+    "final_qa_duplicate": false,
+    "qa_history_source": "GitHub publish history plus public-site search",
+    "share_reason": "Et konkret nyt tal viser, hvor mange der allerede er vendt tilbage, samtidig med at regeringen varsler retur for flertallet af de resterende voksne.",
+    "hero_candidates": [
+      {
+        "source_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/%C3%81ngel%20V%C3%ADctor%20Torres%2C%20ministro%20de%20Pol%C3%ADtica%20Territorial%20y%20Memoria%20Democr%C3%A1tica.jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "Government of Spain attribution license",
+        "license_url": "https://commons.wikimedia.org/wiki/File:%C3%81ngel_V%C3%ADctor_Torres,_ministro_de_Pol%C3%ADtica_Territorial_y_Memoria_Democr%C3%A1tica.jpg",
+        "credit_text": "Pool Moncloa/José Manuel Álvarez",
+        "rights_notes": "Wikimedia Commons states commercial use, redistribution and derivative work are permitted with attribution.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": true,
+        "alt_text": "Spaniens minister Ángel Víctor Torres"
+      },
+      {
+        "source_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/%C3%81ngel%20V%C3%ADctor%20Torres%202023%20%28cropped%29.jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "Government of Spain attribution license",
+        "license_url": "https://commons.wikimedia.org/wiki/File:%C3%81ngel_V%C3%ADctor_Torres_2023_(cropped).jpg",
+        "credit_text": "Ministry of the Presidency, Government of Spain",
+        "rights_notes": "Commons marks redistribution, derivative work and commercial use as permitted with attribution.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": true,
+        "alt_text": "Ángel Víctor Torres i officielt portræt"
+      },
+      {
+        "source_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/%C3%81ngel%20V%C3%ADctor%20Torres%20cropped%202.jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "CC BY 3.0",
+        "license_url": "https://creativecommons.org/licenses/by/3.0/",
+        "credit_text": "AcfiPress Noticias Canarias",
+        "rights_notes": "Creative Commons Attribution 3.0; commercial reuse and adaptation permitted with attribution.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": true,
+        "alt_text": "Ángel Víctor Torres"
+      }
+    ],
+    "runtime_diagnostics": {
+      "task_runtime_entered": true,
+      "canonical_rules_loaded": true,
+      "candidate_scan_started": true,
+      "candidate_selected": true,
+      "research_started": true,
+      "research_completed": true,
+      "final_qa_started": true,
+      "qa_history_source_attempted": true,
+      "qa_history_loaded": true,
+      "final_qa_passed": true,
+      "github_write_attempted": true,
+      "path_used": "discovery",
+      "breaking_scan_hit": false,
+      "discovery_ranked": 5,
+      "deep_screens": 1,
+      "selected_headline": "Spanien: Flertallet af voksne migranter i Ceuta skal tilbage",
+      "authoritative_sources_found": 2,
+      "source_registry_updates": 0,
+      "qa_history_sources_attempted": "GitHub + public_site",
+      "final_qa_history_source": "GitHub + public_site",
+      "final_qa_history_count": "searchable recent transport/public history",
+      "final_qa_duplicate": false,
+      "duplicate_of": null,
+      "duplicate_restart_count": 0,
+      "duplicate_exclusions": [],
+      "hero_candidates_tried": 3,
+      "backend_reject_code": null
+    }
+  }
+}
