@@ -1,0 +1,62 @@
+name: Cleanup merged branches
+
+on:
+  pull_request:
+    types: [closed]
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/cleanup-merged-branches.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: read
+
+jobs:
+  delete-merged-head:
+    if: >-
+      github.event_name == 'pull_request' &&
+      github.event.pull_request.merged == true &&
+      github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    steps:
+      - name: Delete merged PR head branch
+        env:
+          GH_TOKEN: ${{ github.token }}
+          BRANCH: ${{ github.event.pull_request.head.ref }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          case "$BRANCH" in
+            main|master|publish/chatgpt-*)
+              echo "Protected or transport branch; skip: $BRANCH"
+              exit 0
+              ;;
+          esac
+          gh api -X DELETE "repos/$GITHUB_REPOSITORY/git/refs/heads/$BRANCH" || true
+
+  sweep-existing-merged-heads:
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Delete branches that belong to already merged same-repo PRs
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          gh api --paginate "repos/$GITHUB_REPOSITORY/pulls?state=closed&per_page=100" \
+            --jq '.[] | select(.merged_at != null and .head.repo.full_name == .base.repo.full_name) | .head.ref' \
+            | sort -u \
+            | while IFS= read -r branch; do
+                [ -n "$branch" ] || continue
+                case "$branch" in
+                  main|master|publish/chatgpt-*)
+                    echo "Skip protected or transport branch: $branch"
+                    continue
+                    ;;
+                esac
+                echo "Delete merged PR branch if it still exists: $branch"
+                gh api -X DELETE "repos/$GITHUB_REPOSITORY/git/refs/heads/$branch" || true
+              done
