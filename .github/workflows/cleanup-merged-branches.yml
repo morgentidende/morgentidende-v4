@@ -37,17 +37,16 @@ jobs:
               ;;
           esac
 
-      - name: One-time removal of zero-ahead stale branches
+      - name: One-time removal of verified legacy branches
         env:
           GH_TOKEN: ${{ github.token }}
         shell: bash
         run: |
           set -euo pipefail
           for branch in \
-            'asset/replace-header-sun-logo-20260912' \
-            'fix/header-logo-binary-20260912' \
-            'fix/source-metadata-contract' \
-            'fix-iran-hero-embedded-raster'
+            'cleanup/remove-reader-auth' \
+            'fix/svg-master-service-role' \
+            'test/security-passive-20260910'
           do
             gh api -X DELETE "repos/$GITHUB_REPOSITORY/git/refs/heads/$branch" || true
           done
