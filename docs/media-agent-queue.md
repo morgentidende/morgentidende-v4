@@ -80,9 +80,11 @@ Normal publicering må ikke vente på køen.
 
 Når brugeren siger "udgiv", skal research/artikel og hero-arbejde køre parallelt, hvor det er muligt.
 
-Så snart hero er `ready`, source gate er godkendt og den aktuelle artikelversion har bestået QA, gælder den normale **45 sekunders prepublication-buffer**. QA startes straks; minut-cron er kun failsafe. Publication watchdog kører med kort interval og frigiver artiklen efter bufferens udløb, når alle gates stadig passer til den aktuelle version.
+Media-laget ejer ikke længden på prepublication-QA-bufferen. Den aktuelle produktregel ligger i `docs/v4-spec.md`, og den operative værdi spejles i Supabase `site_settings.prepublication_qa_policy`. Aktuelt er bufferen **2 minutter** og non-blocking med hård release-deadline.
 
-Målet for chatgenererede heros er derfor ikke mange minutters transporttid. Når billedet er færdiggenereret, bør Dropbox → Media Worker → `ready` normalt være en kort operation, hvorefter den faste QA-buffer er den dominerende ventetid.
+Så snart hero er `ready`, source gate er godkendt og den aktuelle artikelversion har bestået eller er frigivet af den aktive QA-policy, fortsætter publiceringen efter den centrale publiceringsregel. Media-cron er kun transport/recovery og må ikke blive en ekstra publiceringsgate.
+
+Målet for chatgenererede heros er derfor ikke mange minutters transporttid. Når billedet er færdiggenereret, bør Dropbox → Media Worker → `ready` normalt være en kort operation, så media-laget ikke forlænger den centrale QA-buffer.
 
 ## 7. Rettigheder og provenance
 
@@ -106,6 +108,8 @@ Når relevant skal assetet bevare:
 AI-genererede assets bruger `source_provider = openai_image_generation`. Der må ikke opfindes en ekstern `source_url` til et genereret billede.
 
 Alle assets, der arkiveres i R2, skal have `commercial_use_allowed: true` og `local_storage_allowed: true`.
+
+De juridiske detaljer om arkivering, kreditering og legacy-migrering er samlet i `docs/media-library.md`; denne fil ejer den tekniske pipeline.
 
 ## 8. Én master, responsive leverancer
 
