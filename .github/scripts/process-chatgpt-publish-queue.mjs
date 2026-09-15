@@ -26,56 +26,76 @@ try {
 }
 
 if (!payload || typeof payload !== 'object' || Array.isArray(payload)) fail('payload_must_be_object');
-for (const key of ['queue_id', 'slug', 'headline', 'category_slug', 'body_markdown']) {
-  if (typeof payload[key] !== 'string' || !payload[key].trim()) fail(`${key}_required`);
-}
-if (!/^[A-Za-z0-9._-]{1,160}$/.test(payload.queue_id)) fail('invalid_queue_id');
-if (!/^[a-z0-9][a-z0-9-]{1,179}$/.test(payload.slug)) fail('invalid_slug');
-if (payload.source_metadata !== undefined && !Array.isArray(payload.source_metadata)) fail('source_metadata_must_be_array');
-if (payload.editorial_metadata !== undefined && (typeof payload.editorial_metadata !== 'object' || Array.isArray(payload.editorial_metadata) || payload.editorial_metadata === null)) fail('editorial_metadata_must_be_object');
-if (payload.headline.length > 220) fail('headline_too_long');
-if (payload.deck && String(payload.deck).length > 300) fail('deck_too_long');
+const payloadType = String(payload.payload_type ?? 'article').trim().toLowerCase();
+if (!['article', 'discovery_audit'].includes(payloadType)) fail('invalid_payload_type');
+payload.payload_type = payloadType;
 
-try {
-  const kindResult = normalizePublishKind(payload.kind, payload.category_slug);
-  if (kindResult) {
-    payload.kind = kindResult.normalizedKind;
-    if (kindResult.normalizedKind !== kindResult.originalKind) {
-      console.log(`publish_bridge_kind_normalized from=${kindResult.originalKind} to=${kindResult.normalizedKind} category=${payload.category_slug}`);
+if (typeof payload.queue_id !== 'string' || !payload.queue_id.trim()) fail('queue_id_required');
+if (!/^[A-Za-z0-9._-]{1,160}$/.test(payload.queue_id)) fail('invalid_queue_id');
+
+if (payloadType === 'discovery_audit') {
+  if (payload.run_id !== undefined && (typeof payload.run_id !== 'string' || !payload.run_id.trim())) fail('invalid_run_id');
+  if (!Array.isArray(payload.discovery_audit)) fail('discovery_audit_candidates_must_be_array');
+  if (payload.discovery_audit.length > 50) fail('discovery_audit_too_many_candidates');
+  for (const item of payload.discovery_audit) {
+    if (!item || typeof item !== 'object' || Array.isArray(item)) fail('discovery_audit_candidate_must_be_object');
+  }
+} else {
+  for (const key of ['slug', 'headline', 'category_slug', 'body_markdown']) {
+    if (typeof payload[key] !== 'string' || !payload[key].trim()) fail(`${key}_required`);
+  }
+  if (!/^[a-z0-9][a-z0-9-]{1,179}$/.test(payload.slug)) fail('invalid_slug');
+  if (payload.source_metadata !== undefined && !Array.isArray(payload.source_metadata)) fail('source_metadata_must_be_array');
+  if (payload.editorial_metadata !== undefined && (typeof payload.editorial_metadata !== 'object' || Array.isArray(payload.editorial_metadata) || payload.editorial_metadata === null)) fail('editorial_metadata_must_be_object');
+  if (payload.headline.length > 220) fail('headline_too_long');
+  if (payload.deck && String(payload.deck).length > 300) fail('deck_too_long');
+
+  try {
+    const kindResult = normalizePublishKind(payload.kind, payload.category_slug);
+    if (kindResult) {
+      payload.kind = kindResult.normalizedKind;
+      if (kindResult.normalizedKind !== kindResult.originalKind) {
+        console.log(`publish_bridge_kind_normalized from=${kindResult.originalKind} to=${kindResult.normalizedKind} category=${payload.category_slug}`);
+      }
+    }
+  } catch (error) {
+    fail(error instanceof Error ? error.message : 'invalid_article_kind');
+  }
+
+  payload.source_metadata ??= [];
+  payload.editorial_metadata ??= {};
+
+  if (payload.editorial_metadata.discovery_audit !== undefined) {
+    if (!Array.isArray(payload.editorial_metadata.discovery_audit)) fail('discovery_audit_candidates_must_be_array');
+    if (payload.editorial_metadata.discovery_audit.length > 50) fail('discovery_audit_too_many_candidates');
+  }
+
+  if (payload.kind === 'magazine') {
+    const topicKey = String(payload.editorial_metadata.topic_key ?? '').trim();
+    if (!topicKey) fail('magazine_topic_key_required');
+
+    const storyKind = String(payload.editorial_metadata.story_kind ?? 'evergreen_explainer').trim();
+    if (!allowedMagazineStoryKinds.has(storyKind)) fail('magazine_story_kind_invalid');
+    payload.editorial_metadata.story_kind = storyKind;
+
+    if (storyKind === 'followup') {
+      const parentId = String(payload.editorial_metadata.followup_parent_article_id ?? '').trim();
+      const reason = String(payload.editorial_metadata.followup_reason ?? '').trim();
+      if (!parentId) fail('followup_requires_parent');
+      if (!allowedFollowupReasons.has(reason)) fail('followup_requires_reason');
+      if (typeof payload.story_cluster_id !== 'string' || !payload.story_cluster_id.trim()) fail('followup_requires_cluster');
     }
   }
-} catch (error) {
-  fail(error instanceof Error ? error.message : 'invalid_article_kind');
+
+  payload.editorial_metadata = {
+    ...payload.editorial_metadata,
+    github_transport_file: file,
+    github_transport_sha: process.env.GITHUB_HEAD_SHA || process.env.GITHUB_SHA || null,
+    github_transport_pr: process.env.PR_NUMBER || null,
+  };
 }
 
-payload.source_metadata ??= [];
-payload.editorial_metadata ??= {};
-
-if (payload.kind === 'magazine') {
-  const topicKey = String(payload.editorial_metadata.topic_key ?? '').trim();
-  if (!topicKey) fail('magazine_topic_key_required');
-
-  const storyKind = String(payload.editorial_metadata.story_kind ?? 'evergreen_explainer').trim();
-  if (!allowedMagazineStoryKinds.has(storyKind)) fail('magazine_story_kind_invalid');
-  payload.editorial_metadata.story_kind = storyKind;
-
-  if (storyKind === 'followup') {
-    const parentId = String(payload.editorial_metadata.followup_parent_article_id ?? '').trim();
-    const reason = String(payload.editorial_metadata.followup_reason ?? '').trim();
-    if (!parentId) fail('followup_requires_parent');
-    if (!allowedFollowupReasons.has(reason)) fail('followup_requires_reason');
-    if (typeof payload.story_cluster_id !== 'string' || !payload.story_cluster_id.trim()) fail('followup_requires_cluster');
-  }
-}
-
-payload.editorial_metadata = {
-  ...payload.editorial_metadata,
-  github_transport_file: file,
-  github_transport_sha: process.env.GITHUB_HEAD_SHA || process.env.GITHUB_SHA || null,
-  github_transport_pr: process.env.PR_NUMBER || null,
-};
-
-console.log(`publish_bridge_validated queue_id=${payload.queue_id} slug=${payload.slug}`);
+console.log(`publish_bridge_validated type=${payloadType} queue_id=${payload.queue_id}${payload.slug ? ` slug=${payload.slug}` : ''}`);
 if (validateOnly) process.exit(0);
 if (!oidcRequestUrl || !oidcRequestToken) fail('github_oidc_unavailable');
 
@@ -121,5 +141,9 @@ if (!response.ok) {
 
 let parsed;
 try { parsed = JSON.parse(text); } catch { parsed = text; }
-const articleId = parsed?.article_id ?? parsed?.result ?? 'unknown';
-console.log(`publish_bridge_ok queue_id=${payload.queue_id} article_id=${typeof articleId === 'string' ? articleId : JSON.stringify(articleId)}`);
+if (payloadType === 'discovery_audit') {
+  console.log(`publish_bridge_audit_ok queue_id=${payload.queue_id} audit_count=${parsed?.audit_count ?? parsed?.result ?? 'unknown'}`);
+} else {
+  const articleId = parsed?.article_id ?? parsed?.result ?? 'unknown';
+  console.log(`publish_bridge_ok queue_id=${payload.queue_id} article_id=${typeof articleId === 'string' ? articleId : JSON.stringify(articleId)}`);
+}
