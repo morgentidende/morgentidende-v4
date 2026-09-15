@@ -46,8 +46,7 @@
   display: none !important;
 }
 
-/* Generic labels are the default. Election labels are restored automatically when election rows exist.
-   !important is intentional here because the component's scoped typography otherwise leaves the old text visible. */
+/* Generic labels are the default. Election labels are restored automatically when election rows exist. */
 .livecenter__feed .livecenter__section-head h2,
 .livecenter__section-kicker--results {
   font-size: 0 !important;
@@ -83,10 +82,17 @@
   border-bottom: 0 !important;
 }
 
+/* Source and last-updated information are mandatory in the right panel. Keep them visible even when other polish rules change. */
 .livecenter__source {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  flex: 0 0 auto;
   margin-top: auto !important;
   padding-top: 10px !important;
   border-top: 1px solid var(--v4-rule) !important;
+  min-height: 2.8em;
+  color: var(--v4-muted) !important;
 }
 
 /* When an update is expanded, keep the hide control visually after the full text. */
