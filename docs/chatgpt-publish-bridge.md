@@ -26,6 +26,8 @@ Minimum:
 
 `source_metadata` er en top-level JSON-array. `editorial_metadata` er et JSON-object. Eksisterende artikel-, lead-, breaking-, source- og hero-felter er fortsat understøttet.
 
+Hvis `kind` sendes, er de kanoniske værdier `news`, `comment`, `debate` og `magazine`, svarende til databasekontrakten. Viden/Liv-producenter skal bruge `magazine` til magasin/evergreen-artikler. Broen normaliserer bagudkompatibelt de tidligere Viden/Liv-aliaser `article` og `evergreen` til `magazine`, så allerede oprettede transportjobs kan genkøres; andre ukendte værdier afvises allerede i GitHub-valideringen.
+
 ## Hero/media-handoff: én rangeret kandidatliste
 
 Producenten ejer discovery og rangering. Media Worker ejer download, MIME/signatur, faktiske pixelmål, rettighedsgate, SHA-256, lokal arkivering, permanent/transient fejlklassifikation, fallback og retry.
