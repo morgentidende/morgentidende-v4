@@ -1,0 +1,141 @@
+{
+  "queue_id": "20260915-1715-kvartover-austria-spain",
+  "slug": "oestrig-advarer-spanien-legalisering-migranter-uacceptabel",
+  "headline": "Østrigs kansler om Spaniens migrantlegalisering: »Absolut uacceptabelt«",
+  "deck": "Christian Stocker advarer om, at Spaniens legalisering kan skabe nye incitamenter til ulovlig migration og påvirke hele Schengen-området.",
+  "category_slug": "udland",
+  "kind": "news",
+  "body_markdown": "SAGEN KORT\n\n- Østrigs kansler Christian Stocker kalder Spaniens omfattende legalisering af migranter i landet ulovligt for »absolut uacceptabel« og advarer om virkninger for andre EU-lande.\n- Stocker mener, at nationale legaliseringer kan skabe nye incitamenter til ulovlig migration og gøre en fælles europæisk migrationspolitik vanskeligere.\n\nØstrigs kansler Christian Stocker fra det konservative regeringsparti ÖVP skærper nu kritikken af Spaniens plan om at give ophold til et stort antal migranter, der hidtil har opholdt sig ulovligt i landet.\n\nI et skriftligt svar til det østrigske parlament kalder Stocker den spanske fremgangsmåde »absolut uacceptabel«. Svaret blev modtaget i Nationalrådet 11. september og registreret på parlamentets hjemmeside.\n\n## Frygter signal til nye migranter\n\nKernen i Stockers kritik er, at ét EU-lands beslutning om at legalisere mennesker uden lovligt ophold ikke kun får nationale konsekvenser. Når personer får lovligt ophold i et Schengen-land, kan beslutningen ifølge kansleren også få betydning for andre medlemslande.\n\nStocker advarer derfor mod, at omfattende legaliseringer kan fungere som et signal om, at ulovlig indrejse eller ulovligt ophold senere kan ende med en opholdstilladelse.\n\nDen østrigske kansler har tidligere rettet samme kritik mod Madrid. Under migrantkrisen i den spanske enklave Ceuta i juli sagde han, at Spaniens legaliseringspolitik havde vist sig at være et yderligere incitament til ulovlig migration. Han advarede samtidig om, at Østrig om nødvendigt ville beskytte sine egne grænser, hvis migrationspresset bredte sig gennem Europa.\n\n## Strid om national beslutning og fælles grænser\n\nSpanien har forsvaret sin kurs som en måde at bringe mennesker, der allerede lever og arbejder i landet, ind i det lovlige system. Kritikerne peger derimod på et grundlæggende Schengen-problem: Et land træffer beslutningen, mens følgerne potentielt kan mærkes i flere lande uden indre grænsekontrol.\n\nStocker skriver ifølge den parlamentariske besvarelse, at en troværdig fælles migrationspolitik kræver, at medlemslandene undgår nationale særordninger, som kan skabe modsatrettede incitamenter.\n\nKonflikten kommer efter sommerens massive migrantankomst til Ceuta, der igen satte Europas åbne indre grænser under pres. Stocker advarede dengang om midlertidig lukning af Schengen-grænser, hvis udviklingen i Spanien førte til mærkbart pres mod Østrig.\n\nDen nye parlamentariske besvarelse gør dermed en politisk uenighed til et mere principielt spørgsmål: Hvor langt kan ét Schengen-land gå med sin egen migrationspolitik, når mennesker efterfølgende kan bevæge sig videre i et område uden almindelig grænsekontrol?",
+  "source_metadata": [
+    {
+      "publisher": "Österreichisches Parlament",
+      "url": "https://www.parlament.gv.at/gegenstand/XXVIII/AB/6001",
+      "source_type": "primary_official",
+      "title": "Massenamnestie von Immigranten in Spanien (6001/AB)",
+      "published_date": "2026-09-11"
+    },
+    {
+      "publisher": "Europa Press",
+      "url": "https://www.europapress.es/internacional/noticia-austria-reclama-espana-no-permita-solo-migrante-ilegal-llegue-continente-europeo-20260731141504.html",
+      "source_type": "authoritative",
+      "title": "Austria reclama a España que no permita que un solo migrante ilegal llegue al continente europeo",
+      "published_date": "2026-07-31"
+    }
+  ],
+  "editorial_metadata": {
+    "discovery_run_id": "news-20260915-1715",
+    "prompt_version": "docs/automations/news-task.md@2bf8f48c35896404e39430a4f2c376d92e298a6c",
+    "discovery_audit": [
+      {
+        "candidate_id": "news-20260915-1715-c1",
+        "source_pool": "discovery",
+        "path_used": "discovery",
+        "rank_position": 1,
+        "deep_screened": true,
+        "discovery_source_name": "eXXpress",
+        "discovery_source_url": "https://exxpress.at/politik/stocker-rechnet-mit-spaniens-migrationskurs-ab-absolut-inakzeptabel/",
+        "discovery_domain": "exxpress.at",
+        "candidate_headline": "Stocker rechnet mit Spaniens Migrationskurs ab: Absolut inakzeptabel",
+        "candidate_topic": "Austria criticism of Spanish migrant regularisation",
+        "decision": "selected",
+        "decision_reason": "fresh discovery item supported by Austrian parliamentary primary source and established news agency",
+        "downstream_sources": ["parlament.gv.at", "europapress.es"],
+        "model_name": "GPT-5.6 Sol",
+        "prompt_version": "canonical-news-task"
+      },
+      {
+        "candidate_id": "news-20260915-1715-c2",
+        "source_pool": "discovery",
+        "path_used": "discovery",
+        "rank_position": 2,
+        "deep_screened": false,
+        "discovery_source_name": "The Objective",
+        "discovery_domain": "theobjective.com",
+        "candidate_headline": "Sánchez descarta llamar a Feijóo por Ceuta",
+        "candidate_topic": "Ceuta migrant minors",
+        "decision": "not_screened_after_selection",
+        "decision_reason": "higher-ranked candidate qualified"
+      },
+      {
+        "candidate_id": "news-20260915-1715-c3",
+        "source_pool": "discovery",
+        "path_used": "discovery",
+        "rank_position": 3,
+        "deep_screened": false,
+        "discovery_source_name": "El Debate",
+        "discovery_domain": "eldebate.com",
+        "candidate_headline": "US Supreme Court blocks mail-voting restrictions for midterms",
+        "candidate_topic": "US election law",
+        "decision": "not_screened_after_selection",
+        "decision_reason": "higher-ranked candidate qualified"
+      },
+      {
+        "candidate_id": "news-20260915-1715-c4",
+        "source_pool": "discovery",
+        "path_used": "discovery",
+        "rank_position": 4,
+        "deep_screened": false,
+        "discovery_source_name": "El Debate",
+        "discovery_domain": "eldebate.com",
+        "candidate_headline": "Vox asks PP to block Sahrawi nationality law",
+        "candidate_topic": "Spanish nationality policy",
+        "decision": "not_screened_after_selection",
+        "decision_reason": "higher-ranked candidate qualified"
+      },
+      {
+        "candidate_id": "news-20260915-1715-c5",
+        "source_pool": "discovery",
+        "path_used": "discovery",
+        "rank_position": 5,
+        "deep_screened": false,
+        "discovery_source_name": "El Debate",
+        "discovery_domain": "eldebate.com",
+        "candidate_headline": "Spanish culture minister promotes drag as cultural expression",
+        "candidate_topic": "Spanish culture policy",
+        "decision": "not_screened_after_selection",
+        "decision_reason": "higher-ranked candidate qualified"
+      }
+    ],
+    "hero_candidates": [
+      {
+        "source_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Christian%20Stocker,%20Austrian%20Federal%20Chancellor,%20on%20the%20right%20and%20Magnus%20Brunner.jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "CC BY 4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "credit_text": "Alex Halada / European Union",
+        "rights_notes": "European Commission Audiovisual Service image, reviewed on Wikimedia Commons as CC BY 4.0",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": true,
+        "alt_text": "Østrigs kansler Christian Stocker ved et møde i Wien"
+      },
+      {
+        "source_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Christian%20Stocker,%20Austrian%20Federal%20Chancellor,%20on%20the%20right%20and%20Magnus%20Brunner%20(cropped).jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "CC BY 4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "credit_text": "Alex Halada / European Union",
+        "rights_notes": "Cropped European Commission Audiovisual Service image, reviewed on Wikimedia Commons as CC BY 4.0",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": true,
+        "alt_text": "Portræt af Østrigs kansler Christian Stocker"
+      },
+      {
+        "source_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/DSC1048%20(54361553427).jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "Creative Commons",
+        "license_url": "https://commons.wikimedia.org/wiki/File:DSC1048_(54361553427).jpg",
+        "credit_text": "See Wikimedia Commons file metadata",
+        "rights_notes": "Wikimedia Commons original; Media Worker must verify exact file license metadata before ingest",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": true,
+        "alt_text": "Christian Stocker ved et politisk arrangement"
+      }
+    ]
+  }
+}
