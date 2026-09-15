@@ -1,0 +1,76 @@
+{
+  "queue_id": "20260915-2315-kvartover-guantanamo-wien",
+  "slug": "universitet-wien-guantanamo-al-qaida-parlament",
+  "headline": "Universitet gav tidligere al-Qaeda-medlem taletid – ministerium kendte ikke arrangementet",
+  "category_slug": "udland",
+  "kind": "news",
+  "manchet": "Et tidligere al-Qaeda-medlem optrådte på Wiens universitet. Sagen har nu udløst spørgsmål i det østrigske parlament.",
+  "sagen_kort": [
+    "Mohamedou Ould Slahi, der har erkendt tidligere medlemskab af al-Qaeda, deltog i juni i et arrangement på Wiens universitet.",
+    "Østrigs parlament har behandlet sagen efter spørgsmål om sikkerhedsvurdering, indrejse og mulige islamistiske forbindelser."
+  ],
+  "body_markdown": "Et arrangement på Wiens universitet med to tidligere Guantánamo-fanger har udviklet sig til en politisk sag i Østrig. Blandt gæsterne var Mohamedou Ould Slahi, forfatteren bag *Guantánamo Diary*, som har erkendt, at han i begyndelsen af 1990'erne var medlem af terrororganisationen al-Qaeda og aflagde troskabsed til organisationen.\n\n## Parlamentet krævede svar\n\nDet østrigske parlament registrerede 11. juni en skriftlig forespørgsel om arrangementet, der blev afholdt 8. juni på universitetets campus under titlen »Næsten 25 år med Guantánamo – sikkerhedsdiskurs og retsstat«.\n\nForespørgslen kom fra Christian Hafenecker fra det indvandrings- og islamkritiske parti FPÖ og rettede en lang række spørgsmål til indenrigsministeriet. Blandt andet ville han vide, hvornår ministeriet og sikkerhedstjenesten blev bekendt med arrangementet, om der var lavet en risikovurdering, og om de inviterede personer var blevet sikkerhedstjekket.\n\nParlamentets sagsregister viser, at indenrigsministeriet afleverede sit skriftlige svar 11. august. Dermed er sagen ikke alene baseret på politiske anklager: selve arrangementet og den efterfølgende parlamentariske behandling fremgår af parlamentets officielle dokumenter.\n\n## Tidligere Guantánamo-fanger på scenen\n\nUd over Slahi var Abdellatif Nasser inviteret. Nasser er marokkaner og tidligere Guantánamo-fange. Arrangementet blev præsenteret som en diskussion om menneskerettigheder, sikkerhedspolitik og følgerne af krigen mod terror.\n\nDet centrale stridspunkt er derfor ikke, om tidligere fanger må fortælle om deres oplevelser. Kritikken handler om, hvordan et offentligt universitet og myndighederne håndterer et arrangement med deltagere, som har haft forbindelser til militante islamistiske miljøer.\n\nHafenecker spurgte blandt andet, om Slahi nogensinde var blevet vurderet som sikkerhedsrelevant af østrigske myndigheder, hvordan de to gæster var rejst ind i Østrig, og om myndighederne kendte til forbindelser mellem de inviterede og islamistiske organisationer eller netværk.\n\n## Universitetet midt i sikkerhedsdebat\n\nSagen rammer en større europæisk diskussion om universiteternes rolle. På den ene side står akademisk frihed og muligheden for at høre kontroversielle stemmer. På den anden står spørgsmålet om, hvor grænsen går, når personer med dokumenteret fortid i ekstremistiske organisationer inviteres ind i offentligt finansierede institutioner.\n\nDet usædvanlige ved sagen er netop kontrasten: Et arrangement, der skulle diskutere retsstatens grænser i kampen mod terror, har selv udløst en parlamentarisk undersøgelse af sikkerhed, indrejse og ekstremistiske forbindelser.",
+  "source_metadata": [
+    {
+      "source_name": "Østrigs parlament",
+      "url": "https://www.parlament.gv.at/gegenstand/XXVIII/J/6285",
+      "domain": "parlament.gv.at",
+      "source_type": "authoritative",
+      "description": "Officiel parlamentarisk sag 6285/J med datoer, emne, forespørgsel og henvisning til ministeriets svar."
+    },
+    {
+      "source_name": "Østrigs parlament – forespørgsel 6285/J",
+      "url": "https://www.parlament.gv.at/dokument/XXVIII/J/6285/fnameorig_1768059.html",
+      "domain": "parlament.gv.at",
+      "source_type": "authoritative",
+      "description": "Officiel tekst med arrangementets oplysninger, deltagere og de konkrete spørgsmål til indenrigsministeriet."
+    }
+  ],
+  "editorial_metadata": {
+    "discovery_run_id": "news-20260915-2315-kvartover",
+    "final_qa_duplicate": false,
+    "discovery_audit": [
+      {
+        "candidate_id": "guantanamo-wien",
+        "source_pool": "discovery",
+        "path": "discovery",
+        "rank": 1,
+        "candidate_headline": "Tidligere Guantánamo-fanger på universitet i Wien udløser parlamentarisk sag",
+        "deep_screened": true,
+        "downstream_sources": ["parlament.gv.at"],
+        "decision": "selected",
+        "reason": "Dokumenteret af officiel parlamentarisk primærkilde; stærkt match med avisens islamisme-, sikkerheds- og institutionsprofil.",
+        "model_prompt_version": "canonical-news-task-2026-09-15"
+      }
+    ],
+    "hero_candidates": [
+      {
+        "source_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Universit%C3%A4t_Wien_Hauptgeb%C3%A4ude_%28Ian_Ehm%29_14.jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "CC BY 4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "credit_text": "Ian Ehm / Wikimedia Commons",
+        "rights_notes": "Wikimedia Commons file page states VRT-confirmed reuse permission; original is 3640×2048.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": true,
+        "alt_text": "Hovedbygningen på Universitetet i Wien"
+      },
+      {
+        "source_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Universit%C3%A4t_Wien%2C_Hauptgeb%C3%A4ude.jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "CC BY-SA 3.0 AT",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0/at/deed.en",
+        "credit_text": "Doronenko / Wikimedia Commons",
+        "rights_notes": "Original 1920×1191; commercial reuse and local storage allowed under CC BY-SA 3.0 AT.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": true,
+        "alt_text": "Universitetet i Wiens historiske hovedbygning"
+      }
+    ]
+  },
+  "source_registry_updates": []
+}
