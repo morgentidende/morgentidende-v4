@@ -31,10 +31,19 @@ jobs:
           case "$BRANCH" in
             main|master|publish/chatgpt-*)
               echo "Protected or transport branch; skip: $BRANCH"
-              exit 0
+              ;;
+            *)
+              gh api -X DELETE "repos/$GITHUB_REPOSITORY/git/refs/heads/$BRANCH" || true
               ;;
           esac
-          gh api -X DELETE "repos/$GITHUB_REPOSITORY/git/refs/heads/$BRANCH" || true
+
+      - name: One-time removal of obsolete QA branch
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          gh api -X DELETE "repos/$GITHUB_REPOSITORY/git/refs/heads/qa-buffer-5m" || true
 
   sweep-existing-merged-heads:
     if: github.event_name != 'pull_request'
@@ -60,12 +69,3 @@ jobs:
                 echo "Delete merged PR branch if it still exists: $branch"
                 gh api -X DELETE "repos/$GITHUB_REPOSITORY/git/refs/heads/$branch" || true
               done
-
-      - name: One-time removal of obsolete QA branch
-        if: github.event_name == 'push'
-        env:
-          GH_TOKEN: ${{ github.token }}
-        shell: bash
-        run: |
-          set -euo pipefail
-          gh api -X DELETE "repos/$GITHUB_REPOSITORY/git/refs/heads/qa-buffer-5m" || true
