@@ -59,11 +59,11 @@ language plpgsql
 set search_path = public
 as $$
 begin
-  if new.legacy_unarchived
-     and (
-       tg_op = 'INSERT'
-       or coalesce(old.legacy_unarchived, false) = false
-     ) then
+  if tg_op = 'INSERT' then
+    if new.legacy_unarchived then
+      raise exception 'legacy_unarchived_is_migration_only';
+    end if;
+  elsif new.legacy_unarchived and not old.legacy_unarchived then
     raise exception 'legacy_unarchived_is_migration_only';
   end if;
 
