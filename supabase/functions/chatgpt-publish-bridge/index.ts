@@ -4,7 +4,7 @@ const PROJECT_URL = Deno.env.get("SUPABASE_URL") ?? "";
 const SERVICE_ROLE_KEY = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") ?? "";
 const EXPECTED_AUD = "morgentidende-publish-bridge";
 const EXPECTED_REPO = "morgentidende/morgentidende-v4";
-const EXPECTED_WORKFLOW_REF = "morgentidende/morgentidende-v4/.github/workflows/chatgpt-publish-bridge.yml@refs/heads/main";
+const EXPECTED_WORKFLOW_REF_PREFIX = "morgentidende/morgentidende-v4/.github/workflows/chatgpt-publish-bridge.yml@";
 const ISSUER = "https://token.actions.githubusercontent.com";
 const ALLOWED_MAGAZINE_STORY_KINDS = new Set(["evergreen_explainer", "followup", "new_study", "update"]);
 const ALLOWED_FOLLOWUP_REASONS = new Set(["new_fact", "official_response", "arrest", "new_data", "court_decision", "material_update"]);
@@ -34,7 +34,9 @@ async function verifyGithubOidc(token: string): Promise<Json> {
   if (!aud.includes(EXPECTED_AUD)) throw new Error("invalid_audience");
   if (payload.repository !== EXPECTED_REPO) throw new Error("invalid_repository");
   if (payload.event_name !== "pull_request") throw new Error("invalid_event");
-  if (payload.workflow_ref !== EXPECTED_WORKFLOW_REF) throw new Error("invalid_workflow_ref");
+  if (typeof payload.workflow_ref !== "string" || !payload.workflow_ref.startsWith(EXPECTED_WORKFLOW_REF_PREFIX)) {
+    throw new Error("invalid_workflow_ref");
+  }
   const now = Math.floor(Date.now() / 1000);
   if (!payload.exp || payload.exp < now || (payload.nbf && payload.nbf > now + 30)) throw new Error("expired_or_not_yet_valid");
   const jwksRes = await fetch(`${ISSUER}/.well-known/jwks`);
