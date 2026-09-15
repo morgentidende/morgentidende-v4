@@ -1,0 +1,161 @@
+{
+  "queue_id": "chatgpt-20260915-1800-stocker-spanien",
+  "slug": "oestrigs-kansler-advarer-mod-spaniens-legalisering-af-migranter",
+  "headline": "Østrigs kansler advarer mod Spaniens migrantlegalisering: »Absolut uacceptabelt«",
+  "deck": "Christian Stocker frygter, at Spaniens plan skaber nye incitamenter til ulovlig migration og følger for resten af EU.",
+  "category_slug": "udland",
+  "kind": "news",
+  "body_markdown": "## SAGEN KORT\n\n- Østrigs kansler Christian Stocker advarer mod Spaniens plan om at give ophold til et stort antal migranter, der hidtil har opholdt sig ulovligt i landet.\n- Stocker kalder kursen »absolut uacceptabel« og frygter, at nationale legaliseringer kan skabe incitamenter og følgevirkninger på tværs af EU.\n\nØstrigs kansler Christian Stocker fra regeringspartiet ÖVP retter nu en usædvanligt skarp kritik mod Spaniens planlagte legalisering af migranter uden lovligt ophold.\n\nI et skriftligt svar til det østrigske parlament om den spanske ordning advarer Stocker mod, at en omfattende legalisering kan sende et signal langt ud over Spaniens egne grænser. Den parlamentariske besvarelse blev indleveret 11. september og registreret i Nationalrådet 14. september.\n\nIfølge Stocker kan nationale masselegaliseringer skabe nye incitamenter til irregulær migration og få konsekvenser for andre medlemslande, fordi personer med lovligt ophold i ét Schengen-land får langt større bevægelsesfrihed i Europa. Han beskriver derfor den spanske kurs som »absolut uacceptabel«.\n\n## En spansk beslutning med europæiske følger\n\nStriden handler ikke kun om, hvem der får lov til at blive i Spanien. Den rammer et grundlæggende problem i Schengen-samarbejdet: Et medlemslands beslutninger om ophold og migration kan få praktiske følger for naboerne.\n\nDen spanske regering har arbejdet med en ekstraordinær regularisering af en stor gruppe mennesker, som allerede opholder sig i landet uden almindelig opholdstilladelse. Tilhængere har blandt andet argumenteret med, at mennesker, som allerede arbejder og lever i Spanien, skal ud af den sorte økonomi og ind i det formelle system. Kritikere frygter derimod, at ordningen kan fungere som et signal om, at ulovligt ophold senere kan føre til lovlig status.\n\nStockers kritik kommer samtidig med en bredere europæisk strid om migration efter sommerens massive grænseoverskridelser til den spanske enklave Ceuta. EU-Kommissionen har bevilget Spanien 114,7 millioner euro i nødhjælp til blandt andet grænsesikkerhed, mens flere europæiske lande har reageret med skærpet kontrol.\n\nTirsdag forlængede Italien sin midlertidige suspension af den normale Schengen-trafik med Spanien i yderligere 15 dage. Ifølge Reuters begrunder det italienske indenrigsministerium beslutningen med fortsatte bekymringer for den indre sikkerhed og risikoen for, at terrorister kan udnytte migrationsstrømmen.\n\n## Wien frygter en kædereaktion\n\nFor Østrig er spørgsmålet derfor principielt: Kan et enkelt EU-land gennem en national beslutning reelt ændre migrationsvilkårene for resten af det grænseløse område?\n\nStockers regering har selv strammet migrationspolitikken og argumenterer for, at Europas asylsystem skal begrænse sekundær migration mellem medlemslandene. Den østrigske kanslers svar lægger sig direkte ind i den konflikt.\n\nSpanien ser anderledes på sagen. Fortalere for legaliseringen fremhæver, at ordningen gælder mennesker, der allerede befinder sig i landet, og at lovlig status kan gøre det lettere at kontrollere beskæftigelse, skattebetaling og ophold.\n\nMen for Stocker er den afgørende risiko, at beslutningen ikke stopper ved Spaniens grænse. I et Schengen-område uden almindelig permanent grænsekontrol kan en national migrantpolitik hurtigt blive et fælles europæisk spørgsmål.",
+  "source_metadata": [
+    {
+      "publisher": "Parlament Österreich",
+      "url": "https://www.parlament.gv.at/gegenstand/XXVIII/AB/6001",
+      "source_type": "authoritative",
+      "title": "Massenamnestie von Immigranten in Spanien (6001/AB)"
+    },
+    {
+      "publisher": "Reuters",
+      "url": "https://www.reuters.com/world/italy-extends-schengen-suspension-with-spain-another-15-days-2026-09-15/",
+      "source_type": "authoritative",
+      "title": "Italy extends Schengen suspension with Spain for another 15 days"
+    },
+    {
+      "publisher": "Die Presse",
+      "url": "https://www.diepresse.com/41248175/eu-hilft-spanien-115-mio-euro-fuer-ceuta",
+      "source_type": "authoritative",
+      "title": "EU hilft Spanien: 115 Mio. Euro für Ceuta"
+    }
+  ],
+  "editorial_metadata": {
+    "discovery_run_id": "news-20260915-1800",
+    "discovery_audit": [
+      {
+        "candidate_id": "candidate-1",
+        "source_pool": "discovery",
+        "path_used": "discovery",
+        "rank_position": 1,
+        "deep_screened": true,
+        "discovery_source_name": "eXXpress",
+        "discovery_source_url": "https://exxpress.at/politik/stocker-rechnet-mit-spaniens-migrationskurs-ab-absolut-inakzeptabel/",
+        "discovery_domain": "exxpress.at",
+        "candidate_headline": "Stocker rechnet mit Spaniens Migrationskurs ab: Absolut inakzeptabel",
+        "candidate_topic": "Spain migrant regularisation and Austrian response",
+        "decision": "selected",
+        "decision_reason": "authoritative_parliamentary_answer_found",
+        "downstream_sources": ["parlament.gv.at", "reuters.com", "diepresse.com"],
+        "semantic_assessment": {"core_interest_match":"high","freshness":"high","documentation":"sufficient"},
+        "model_name": "GPT-5.6 Sol",
+        "prompt_version": "docs/automations/news-task.md@2bf8f48c35896404e39430a4f2c376d92e298a6c"
+      },
+      {
+        "candidate_id": "candidate-2",
+        "source_pool": "discovery",
+        "path_used": "discovery",
+        "rank_position": 2,
+        "deep_screened": false,
+        "discovery_source_name": "Libertad Digital",
+        "discovery_source_url": "https://www.libertaddigital.com/espana/politica/2026-09-15/el-ppe-pone-en-apuros-a-sanchez-insta-a-bruselas-a-senalar-a-marruecos-responsable-de-la-invasion-en-ceuta-7460150/",
+        "discovery_domain": "libertaddigital.com",
+        "candidate_headline": "EU Parliament to vote on condemnation over Ceuta",
+        "candidate_topic": "Ceuta and Morocco",
+        "decision": "ranked_not_screened",
+        "decision_reason": "higher_rank_candidate_selected",
+        "downstream_sources": [],
+        "model_name": "GPT-5.6 Sol",
+        "prompt_version": "docs/automations/news-task.md@2bf8f48c35896404e39430a4f2c376d92e298a6c"
+      },
+      {
+        "candidate_id": "candidate-3",
+        "source_pool": "discovery",
+        "path_used": "discovery",
+        "rank_position": 3,
+        "deep_screened": false,
+        "discovery_source_name": "Libertad Digital",
+        "discovery_source_url": "https://www.libertaddigital.com/espana/2026-09-15/ceuta-entrega-a-la-audiencia-nacional-toda-la-documentacion-contra-el-delegado-de-gobierno-por-la-invasion-7460131/",
+        "discovery_domain": "libertaddigital.com",
+        "candidate_headline": "Ceuta court sends case material to National Court",
+        "candidate_topic": "Ceuta investigation",
+        "decision": "ranked_not_screened",
+        "decision_reason": "higher_rank_candidate_selected",
+        "downstream_sources": [],
+        "model_name": "GPT-5.6 Sol",
+        "prompt_version": "docs/automations/news-task.md@2bf8f48c35896404e39430a4f2c376d92e298a6c"
+      },
+      {
+        "candidate_id": "candidate-4",
+        "source_pool": "discovery",
+        "path_used": "discovery",
+        "rank_position": 4,
+        "deep_screened": false,
+        "discovery_source_name": "Document",
+        "discovery_source_url": "https://www.document.no/2026/09/15/portugal-reconquista-bevegelsen-ville-oppna-52-prosents-oppslutning-som-politisk-parti",
+        "discovery_domain": "document.no",
+        "candidate_headline": "Portuguese Reconquista movement polls 5.2 percent",
+        "candidate_topic": "Portugal migration politics",
+        "decision": "ranked_not_screened",
+        "decision_reason": "higher_rank_candidate_selected",
+        "downstream_sources": [],
+        "model_name": "GPT-5.6 Sol",
+        "prompt_version": "docs/automations/news-task.md@2bf8f48c35896404e39430a4f2c376d92e298a6c"
+      },
+      {
+        "candidate_id": "candidate-5",
+        "source_pool": "discovery",
+        "path_used": "discovery",
+        "rank_position": 5,
+        "deep_screened": false,
+        "discovery_source_name": "eXXpress",
+        "discovery_source_url": "https://exxpress.at/economy/digitaler-eltern-kind-pass-wird-zum-naechsten-pannenprojekt/",
+        "discovery_domain": "exxpress.at",
+        "candidate_headline": "Austria delays digital parent-child pass",
+        "candidate_topic": "digital government",
+        "decision": "ranked_not_screened",
+        "decision_reason": "higher_rank_candidate_selected",
+        "downstream_sources": [],
+        "model_name": "GPT-5.6 Sol",
+        "prompt_version": "docs/automations/news-task.md@2bf8f48c35896404e39430a4f2c376d92e298a6c"
+      }
+    ],
+    "hero_candidates": [
+      {
+        "source_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Christian%20Stocker%2C%20Austrian%20Federal%20Chancellor%2C%20on%20the%20right%20and%20Magnus%20Brunner.jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "CC BY 4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "credit_text": "Alex Halada / European Union",
+        "rights_notes": "European Commission Audiovisual Service image reviewed on Wikimedia Commons; commercial reuse and modification allowed with attribution.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": true,
+        "alt_text": "Østrigs kansler Christian Stocker ved et møde i Wien"
+      },
+      {
+        "source_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/EPP%20Congress%202025%20%2854484383362%29.jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "CC BY 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "credit_text": "European People's Party",
+        "rights_notes": "Wikimedia Commons EPP event photograph; verify file-page license at ingest.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": true,
+        "alt_text": "Christian Stocker ved et europæisk politisk møde"
+      },
+      {
+        "source_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/EPP%20Congress%202025%20Valencia%20Day%201%20%2854483606992%29.jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "CC BY 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "credit_text": "European People's Party",
+        "rights_notes": "Wikimedia Commons EPP event photograph; verify file-page license at ingest.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": true,
+        "alt_text": "Christian Stocker under EPP-kongressen i Valencia"
+      }
+    ]
+  }
+}
