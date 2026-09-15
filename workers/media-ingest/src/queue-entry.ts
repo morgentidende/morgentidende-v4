@@ -1,4 +1,9 @@
 import worker from './index';
+import {
+  isCommonsDeadUrlFailure,
+  isWikimediaCommonsPayload,
+  resolveWikimediaCommonsPayload,
+} from './wikimedia-commons-resolver';
 
 interface Env {
   MEDIA_BUCKET: R2Bucket;
@@ -21,6 +26,14 @@ type ErrorBody = {
   status?: number;
   http_status?: number;
 };
+
+const jsonResponse = (body: unknown, status: number) => new Response(JSON.stringify(body), {
+  status,
+  headers: {
+    'content-type': 'application/json; charset=utf-8',
+    'cache-control': 'no-store',
+  },
+});
 
 const supabaseHeaders = (env: Env, extra: Record<string, string> = {}) => ({
   apikey: env.SUPABASE_SERVICE_ROLE_KEY,
@@ -112,6 +125,41 @@ const isTransientIngestFailure = (response: Response, body: ErrorBody) => {
     || upstreamStatus >= 500;
 };
 
+const invokeInternalIngest = (env: Env, payload: Record<string, unknown>) => worker.fetch(new Request('https://internal/ingest', {
+  method: 'POST',
+  headers: {
+    authorization: `Bearer ${env.MEDIA_INGEST_TOKEN}`,
+    'content-type': 'application/json',
+  },
+  body: JSON.stringify(payload),
+}), env);
+
+const recoverCommonsDeadUrl = async (
+  env: Env,
+  payload: Record<string, unknown>,
+  response: Response,
+  failure: Record<string, unknown>,
+): Promise<{ response: Response; payload: Record<string, unknown> } | null> => {
+  if (!isWikimediaCommonsPayload(payload) || !isCommonsDeadUrlFailure(failure)) return null;
+
+  const resolved = await resolveWikimediaCommonsPayload(payload);
+  if (resolved.kind === 'transient') {
+    return {
+      response: jsonResponse({ error: resolved.error, status: resolved.status || null }, 503),
+      payload,
+    };
+  }
+  if (resolved.kind === 'permanent') {
+    return {
+      response: jsonResponse({ error: resolved.error, ...(resolved.detail || {}) }, 422),
+      payload,
+    };
+  }
+
+  const retryResponse = await invokeInternalIngest(env, resolved.payload);
+  return { response: retryResponse, payload: resolved.payload };
+};
+
 const handleFastIngest = async (request: Request, env: Env): Promise<Response> => {
   let payload: Record<string, unknown>;
   try {
@@ -120,14 +168,22 @@ const handleFastIngest = async (request: Request, env: Env): Promise<Response> =
     return worker.fetch(request, env);
   }
 
-  const response = await worker.fetch(request, env);
+  let response = await worker.fetch(request, env);
   if (response.ok) return response;
 
-  const parsedFailure = await parseErrorBody(response);
-  if (!isTransientIngestFailure(response, parsedFailure)) return response;
+  let parsedFailure = await parseJsonRecord(response.clone());
+  const recovered = await recoverCommonsDeadUrl(env, payload, response, parsedFailure);
+  if (recovered) {
+    response = recovered.response;
+    payload = recovered.payload;
+    if (response.ok) return response;
+    parsedFailure = await parseJsonRecord(response.clone());
+  }
+
+  if (!isTransientIngestFailure(response, parsedFailure as ErrorBody)) return response;
 
   const failure: ErrorBody = {
-    ...parsedFailure,
+    ...(parsedFailure as ErrorBody),
     http_status: response.status,
   };
 
@@ -152,25 +208,31 @@ const handleFastIngest = async (request: Request, env: Env): Promise<Response> =
 };
 
 const processJob = async (env: Env, job: QueueJob) => {
-  const payload = {
+  let payload: Record<string, unknown> = {
     ...job.payload,
     ...(job.article_id ? { article_id: job.article_id } : {}),
   };
 
-  const response = await worker.fetch(new Request('https://internal/ingest', {
-    method: 'POST',
-    headers: {
-      authorization: `Bearer ${env.MEDIA_INGEST_TOKEN}`,
-      'content-type': 'application/json',
-    },
-    body: JSON.stringify(payload),
-  }), env);
-  const result = await parseJsonRecord(response);
+  let response = await invokeInternalIngest(env, payload);
+  let result = await parseJsonRecord(response.clone());
+
+  if (!response.ok) {
+    const recovered = await recoverCommonsDeadUrl(env, payload, response, result);
+    if (recovered) {
+      response = recovered.response;
+      payload = recovered.payload;
+      result = await parseJsonRecord(response.clone());
+    }
+  }
 
   if (response.ok) {
     const asset = result.asset as { id?: string } | undefined;
     await patchJob(env, job.id, {
       status: 'done',
+      payload: job.article_id ? (() => {
+        const { article_id: _articleId, ...jobPayload } = payload;
+        return jobPayload;
+      })() : payload,
       asset_id: asset?.id || null,
       result,
       last_error: null,
@@ -183,6 +245,10 @@ const processJob = async (env: Env, job: QueueJob) => {
   const terminal = !transient || job.attempts >= 3;
   await patchJob(env, job.id, {
     status: terminal ? 'failed' : 'pending',
+    payload: job.article_id ? (() => {
+      const { article_id: _articleId, ...jobPayload } = payload;
+      return jobPayload;
+    })() : payload,
     next_attempt_at: terminal ? null : retryAt(job.attempts),
     last_error: `ingest_${response.status}:${JSON.stringify(result).slice(0, 500)}`,
     result,
