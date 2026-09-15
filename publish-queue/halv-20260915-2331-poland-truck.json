@@ -1,0 +1,70 @@
+{
+  "queue_id": "halv-20260915-2331-poland-truck",
+  "slug": "34-migranter-gemt-bag-vaeg-i-koelelastbil-paa-vej-mod-tyskland",
+  "headline": "34 migranter gemt bag væg i kølelastbil på vej mod Tyskland",
+  "deck": "Polske grænsevagter standsede bilen på motorvejen A2. Passagererne havde allerede søgt beskyttelse i Letland.",
+  "category_slug": "udland",
+  "kind": "news",
+  "body_markdown": "### SAGEN KORT\n\n- Polske grænsevagter fandt 34 migranter skjult bag en specialbygget væg i lastrummet på en kølelastbil på motorvejen A2 ved Poznań.\n- Migranterne havde dokumenter på, at de allerede havde søgt international beskyttelse i Letland. De skal sendes tilbage til Litauen efter reglerne om tilbagetagelse.\n\nEn kølelastbil med litauiske nummerplader var på vej vestpå gennem Polen, da polske grænsevagter standsede den på motorvejen A2 ved Poznań.\n\nBag en specialbygget væg i lastrummet fandt betjentene 34 mennesker. De kom blandt andet fra Pakistan, Egypten, Somalia, Sudan, Etiopien, Tunesien og Eritrea.\n\nDet oplyser den polske grænsevagt. Aktionen fandt sted mandag 14. september efter et tip fra grænsevagtens afdeling i Podlasie om mulig transport af migranter gennem Polen.\n\n### Skjult bag en væg\n\nGrænsevagterne standsede både en Ford og den litauisk indregistrerede Renault-kølelastbil. Ved kontrollen viste det sig, at lastbilens lastrum var bygget om, så de 34 personer kunne skjules bag en væg.\n\nDen polske public service-station TVP og nyhedsbureauet PAP har også omtalt sagen på baggrund af oplysninger fra grænsevagten.\n\nMigranterne havde dokumenter, som viste, at de havde indgivet ansøgninger om international beskyttelse i Letland. De polske myndigheder vil derfor overføre dem til Litauen efter en tilbagetagelsesprocedure.\n\nMyndighederne undersøger fortsat chaufførernes rolle. Sagen behandles af anklagemyndigheden i Środa Wielkopolska.\n\n### Ruten går mod vest\n\nFundet passer ind i et mønster, hvor migranter forsøges transporteret fra Baltikum gennem Polen og videre mod Vesteuropa. I juli oplyste den polske grænsevagt eksempelvis, at 27 migranter blev fundet i en lastbil ved den polsk-litauiske grænse. De kom fra Somalia, Pakistan og Afghanistan og blev sendt tilbage til Litauen.\n\nDen aktuelle lastbil blev standset på A2, den store øst-vestgående motorvej gennem Polen. Ifølge den polske omtale kørte den i retning mod landets vestlige grænse.\n\nSagen viser samtidig en særlig del af migrationspresset på EU's indre grænser: De 34 personer var ikke uden kontakt med myndighederne. De havde allerede søgt beskyttelse i Letland, men befandt sig alligevel skjult i en ombygget kølelastbil på vej gennem Polen.",
+  "source_metadata": [
+    {
+      "publisher": "Komenda Główna Straży Granicznej",
+      "url": "https://www.strazgraniczna.pl/pl/aktualnosci/15877,34-osoby-zatrzymane-za-nielegalne-przekroczenie-granicy-polsko-litewskiej.html",
+      "source_type": "primary_official",
+      "note": "Official Polish Border Guard background on the Lithuania-Poland route and July 2026 truck interception."
+    },
+    {
+      "publisher": "TVP Poznań",
+      "url": "https://poznan.tvp.pl/95399177/a2-poznan-migranci-chlodnia-straz-graniczna-przemyt-ludzi-cudzoziemcow-litwa-autostrada-zatrzymanie-ciezarowki-34-osoby-readmisja-zawracanie-migrantow",
+      "source_type": "authoritative",
+      "note": "Polish public-service reporting on the current A2 interception."
+    },
+    {
+      "publisher": "PAP",
+      "url": "https://www.radiomaryja.pl/informacje/poznan-straz-graniczna-zatrzymala-na-autostradzie-pod-poznaniem-34-migrantow-ukrytych-w-ciezarowce/",
+      "source_type": "authoritative",
+      "note": "PAP dispatch reproducing Border Guard spokesperson details on 34 migrants, nationalities, Latvia protection applications and readmission."
+    }
+  ],
+  "source_registry_updates": [
+    {
+      "source_name": "TVP",
+      "domain": "tvp.pl",
+      "classification": "authoritative",
+      "region": "Poland",
+      "rationale": "Polish national public-service broadcaster; current report is a regional TVP service carrying official Border Guard information.",
+      "discovered_via": "document.no"
+    }
+  ],
+  "editorial_metadata": {
+    "discovery_run_id": "halv-20260915-2331",
+    "final_qa_duplicate": false,
+    "discovery_audit": [
+      {
+        "candidate_id": "halv-20260915-2331-c1",
+        "source_pool": "discovery",
+        "rank": 1,
+        "headline": "34 migranter skjult i kølelastbil på A2 i Polen",
+        "deep_screened": true,
+        "downstream_sources": ["Polish Border Guard", "TVP Poznań", "PAP"],
+        "decision": "selected",
+        "reason": "Fresh, concrete migration/smuggling story with official and public-service documentation; no near-identical match in current seven-day GitHub [PUBLISH] history.",
+        "model_prompt_version": "docs/automations/news-task.md@e5e4b628"
+      }
+    ],
+    "hero_candidates": [
+      {
+        "source_url": "https://strazgraniczna.pl/dokumenty/zalaczniki/1/1-42290.jpg",
+        "source_provider": "Polish Border Guard",
+        "license_name": "official-government-media-review-required",
+        "credit_text": "Straż Graniczna",
+        "rights_notes": "Official Polish Border Guard image. Media Worker must independently verify commercial reuse/local archival permission before acceptance.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": true,
+        "alt_text": "Polske grænsevagter ved et køretøj under en kontrol."
+      }
+    ]
+  }
+}
