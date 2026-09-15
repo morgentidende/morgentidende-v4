@@ -10,6 +10,7 @@ const ALLOWED_MAGAZINE_STORY_KINDS = new Set(["evergreen_explainer", "followup",
 const ALLOWED_FOLLOWUP_REASONS = new Set(["new_fact", "official_response", "arrest", "new_data", "court_decision", "material_update"]);
 const ALLOWED_KINDS = new Set(["news", "comment", "debate", "magazine"]);
 const ALLOWED_PAYLOAD_TYPES = new Set(["article", "discovery_audit"]);
+const ALLOWED_SOURCE_CLASSIFICATIONS = new Set(["authoritative", "discovery_only"]);
 
 type Json = Record<string, unknown>;
 
@@ -35,9 +36,7 @@ async function verifyGithubOidc(token: string): Promise<Json> {
   if (!aud.includes(EXPECTED_AUD)) throw new Error("invalid_audience");
   if (payload.repository !== EXPECTED_REPO) throw new Error("invalid_repository");
   if (payload.event_name !== "pull_request") throw new Error("invalid_event");
-  if (typeof payload.workflow_ref !== "string" || !payload.workflow_ref.startsWith(EXPECTED_WORKFLOW_REF_PREFIX)) {
-    throw new Error("invalid_workflow_ref");
-  }
+  if (typeof payload.workflow_ref !== "string" || !payload.workflow_ref.startsWith(EXPECTED_WORKFLOW_REF_PREFIX)) throw new Error("invalid_workflow_ref");
   const now = Math.floor(Date.now() / 1000);
   if (!payload.exp || payload.exp < now || (payload.nbf && payload.nbf > now + 30)) throw new Error("expired_or_not_yet_valid");
   const jwksRes = await fetch(`${ISSUER}/.well-known/jwks`);
@@ -63,6 +62,23 @@ function normalizeKind(kind: unknown, categorySlug: unknown): string {
   return raw;
 }
 
+function validateSourceRegistryUpdates(value: unknown) {
+  if (value == null) return;
+  if (!Array.isArray(value)) throw new Error("source_registry_updates_must_be_array");
+  if (value.length > 50) throw new Error("source_registry_updates_too_many");
+  for (const raw of value) {
+    if (!raw || typeof raw !== "object" || Array.isArray(raw)) throw new Error("source_registry_update_must_be_object");
+    const item = raw as Json;
+    const domain = String(item.domain ?? item.url ?? "").trim();
+    const sourceName = String(item.source_name ?? item.publisher ?? "").trim();
+    const classification = String(item.classification ?? "").trim().toLowerCase();
+    if (!domain) throw new Error("source_registry_domain_required");
+    if (!sourceName) throw new Error("source_registry_name_required");
+    if (!ALLOWED_SOURCE_CLASSIFICATIONS.has(classification)) throw new Error("invalid_source_registry_classification");
+    item.classification = classification;
+  }
+}
+
 function validatePayload(payload: Json): "article" | "discovery_audit" {
   const payloadType = String(payload.payload_type ?? "article").trim().toLowerCase();
   if (!ALLOWED_PAYLOAD_TYPES.has(payloadType)) throw new Error("invalid_payload_type");
@@ -70,6 +86,7 @@ function validatePayload(payload: Json): "article" | "discovery_audit" {
 
   if (typeof payload.queue_id !== "string" || !(payload.queue_id as string).trim()) throw new Error("missing_queue_id");
   if (!/^[A-Za-z0-9._-]{1,160}$/.test(payload.queue_id as string)) throw new Error("invalid_queue_id");
+  validateSourceRegistryUpdates(payload.source_registry_updates);
 
   if (payloadType === "discovery_audit") {
     if (payload.run_id != null && (typeof payload.run_id !== "string" || !(payload.run_id as string).trim())) throw new Error("invalid_run_id");
@@ -86,9 +103,7 @@ function validatePayload(payload: Json): "article" | "discovery_audit" {
   }
   if (!/^[a-z0-9][a-z0-9-]{1,179}$/.test(payload.slug as string)) throw new Error("invalid_slug");
   if (!Array.isArray(payload.source_metadata ?? [])) throw new Error("invalid_source_metadata");
-  if (payload.editorial_metadata != null && (typeof payload.editorial_metadata !== "object" || Array.isArray(payload.editorial_metadata))) {
-    throw new Error("invalid_editorial_metadata");
-  }
+  if (payload.editorial_metadata != null && (typeof payload.editorial_metadata !== "object" || Array.isArray(payload.editorial_metadata))) throw new Error("invalid_editorial_metadata");
 
   const normalizedKind = normalizeKind(payload.kind, payload.category_slug);
   payload.kind = normalizedKind;
