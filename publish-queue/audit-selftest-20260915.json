@@ -20,7 +20,7 @@
       "downstream_sources": [],
       "semantic_assessment": {},
       "model_name": "system-selftest",
-      "prompt_version": "selftest-v1"
+      "prompt_version": "selftest-v2"
     }
   ]
 }
