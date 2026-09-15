@@ -1,0 +1,73 @@
+{
+  "queue_id": "halv-20260915-2230-bka-bander",
+  "slug": "tyske-bander-rekrutterer-13-aarige-til-vold",
+  "headline": "Tyske bander rekrutterer børn helt ned til 13 år til vold",
+  "deck": "Nyt BKA-lagebillede viser mere brutal organiseret kriminalitet. Antallet af mistænkte steg til næsten 8.000 på ét år.",
+  "category_slug": "udland",
+  "kind": "news",
+  "body_markdown": "## SAGEN KORT\n\n- Tysklands føderale kriminalpoliti BKA registrerede 683 sager om organiseret kriminalitet i 2025 og 7.988 mistænkte – det højeste antal mistænkte i fem år.\n- BKA advarer om en ny model, hvor vold bestilles som en tjeneste, og børn helt ned til 13 år rekrutteres via sociale medier til at udføre angreb.\n\nOrganiserede kriminelle grupper i Tyskland bliver mere voldelige – og nogle af dem rekrutterer nu børn helt ned til 13 år til at udføre voldshandlinger.\n\nDet fremgår af det nye nationale lagebillede fra Bundeskriminalamt (BKA), Tysklands føderale kriminalpoliti, som blev fremlagt tirsdag.\n\nBKA registrerede 683 efterforskninger af organiseret kriminalitet i 2025. Det er det højeste antal siden 2021. Samtidig steg antallet af mistænkte med mere end 13 procent til 7.988 – det højeste niveau i fem år.\n\nBlandt de mistænkte var 2.722 tyske statsborgere. De største udenlandske grupper var 664 tyrkiske statsborgere, 402 syrere, 281 albanere og 258 polakker. Tallene beskriver mistænkte i politiets efterforskninger og er ikke det samme som domfældelser.\n\n## Vold kan bestilles som en tjeneste\n\nDen mest markante udvikling er ifølge BKA den voksende brug af vold. I 2025 registrerede myndighederne 20 fuldbyrdede drab i forbindelse med organiseret kriminalitet mod 13 året før. Antallet af registrerede tilfælde af legemsbeskadigelse steg fra 77 til 100.\n\nI 31 efterforskninger var voldskriminalitet selve hovedområdet. Året før gjaldt det 11 sagskomplekser.\n\nBKA beskriver samtidig en mere løs og digital arbejdsdeling. I nogle miljøer kan en person bestille en voldshandling, en anden organisere den og en tredje udføre den, uden at de nødvendigvis møder hinanden.\n\nIndenrigsminister Alexander Dobrindt beskrev modellen ved præsentationen sådan: »Én planlægger, én betaler, én slår.«\n\nSærligt bekymrende for myndighederne er rekrutteringen af mindreårige via sociale medier. Blandt de hyrede gerningsmænd har der ifølge BKA været børn helt ned til 13 år.\n\n## Mere synlige – og mere bevæbnede\n\nBKA peger også på et kulturelt skifte i de kriminelle miljøer. Hvor organiserede grupper tidligere forsøgte at holde sig skjult, viser yngre aktører i stigende grad penge, status og vold frem på sociale medier. Myndigheden bruger selv betegnelsen »Gen-Z-mafia« om udviklingen.\n\nSamtidig er våben blevet mere almindelige. I 30,3 procent af efterforskningerne fandt politiet bevæbnede mistænkte mod 28,4 procent året før. Tre fjerdedele af de 556 registrerede våben var ulovlige.\n\nNarkotikakriminalitet er fortsat det klart største område for organiseret kriminalitet, efterfulgt af blandt andet økonomisk kriminalitet, skatte- og toldkriminalitet, menneskesmugling, ejendomskriminalitet og hvidvask.\n\nBKA-chef Holger Münch siger, at de kriminelle netværk i dag arbejder langt mere digitalt, internationalt og opdelt end tidligere. Omkring 69 procent af efterforskningerne havde forbindelser på tværs af landegrænser.\n\nDet nye lagebillede viser dermed ikke bare flere mistænkte. Det viser en organiseret kriminalitet, hvor afstanden mellem den, der bestiller volden, og barnet, der udfører den, kan være et par beskeder på en telefon.",
+  "source_metadata": [
+    {
+      "publisher": "Bundeskriminalamt (BKA)",
+      "url": "https://www.bka.de/DE/AktuelleInformationen/StatistikenLagebilder/Lagebilder/OrganisierteKriminalitaet/organisiertekriminalitaet_node.html",
+      "source_type": "primary_official",
+      "title": "Bundeslagebild Organisierte Kriminalität 2025"
+    },
+    {
+      "publisher": "Tagesschau",
+      "url": "https://www.tagesschau.de/inland/innenpolitik/bundeslagebild-bandenkriminalitaet-100.html",
+      "source_type": "authoritative",
+      "title": "BKA-Lagebild: Kriminelle Gruppen werden digitaler und brutaler"
+    },
+    {
+      "publisher": "Süddeutsche Zeitung / dpa",
+      "url": "https://www.sueddeutsche.de/panorama/bundeslagebild-bandenkriminalitaet-gewalt-zur-einschuechterung-nimmt-zu-dpa.urn-newsml-dpa-com-20090101-260915-930-686798",
+      "source_type": "authoritative",
+      "title": "Bandenkriminalität: Gewalt zur Einschüchterung nimmt zu"
+    }
+  ],
+  "source_registry_updates": [],
+  "editorial_metadata": {
+    "discovery_run_id": "halv-20260915-2230",
+    "final_qa_duplicate": false,
+    "share_reason": "Jeg sender dig den her, fordi tysk politi nu dokumenterer, at organiserede bander bestiller vold digitalt og rekrutterer børn helt ned til 13 år.",
+    "discovery_audit": [
+      {
+        "candidate_id": "bka-ok-2025",
+        "source_pool": "discovery",
+        "rank": 1,
+        "candidate_headline": "BKA: Organiseret kriminalitet bliver mere brutal",
+        "deep_screened": true,
+        "downstream_sources": ["BKA", "Tagesschau", "dpa/Süddeutsche Zeitung"],
+        "decision": "selected",
+        "reason": "Frisk officiel statistik, stærk menneskelig konsekvens og ingen næsten-identisk historie i 7-dages GitHub [PUBLISH]-historikken",
+        "model_prompt_version": "news-task.md@b0790a4d57530a4c1307952d486eef38cb50f8ad"
+      },
+      {
+        "candidate_id": "italy-spain-schengen",
+        "source_pool": "discovery",
+        "rank": 2,
+        "candidate_headline": "Italien forlænger Schengen-kontrol mod Spanien",
+        "deep_screened": false,
+        "downstream_sources": ["Reuters"],
+        "decision": "rejected",
+        "reason": "Næsten-identisk med flere aktuelle Morgentidende-transporter, herunder PR #426"
+      }
+    ],
+    "hero_candidates": [
+      {
+        "source_url": "https://upload.wikimedia.org/wikipedia/commons/3/39/Bka-wiesbaden-w1.jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "CC BY-SA 3.0 DE",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.en",
+        "credit_text": "Wo st 01 / Wikimedia Commons",
+        "rights_notes": "Own work; Wikimedia Commons file page documents CC BY-SA 3.0 Germany. Original 1360×1024.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": true,
+        "alt_text": "Luftfoto af det tyske Bundeskriminalamts hovedsæde i Wiesbaden"
+      }
+    ]
+  }
+}
