@@ -1,0 +1,41 @@
+{
+  "queue_id": "news-20260915-1246-spain-migration",
+  "slug": "eu-migration-falder-spanien-gaar-mod-stroemmen",
+  "headline": "Illegal grænsetrafik falder 35 procent i EU – Spanien går mod strømmen",
+  "kind": "news",
+  "category_slug": "udland",
+  "standfirst": "Frontex registrerer markant færre irregulære grænsepassager i EU. Den vestlige Middelhavsrute til Spanien steg derimod 34 procent.",
+  "body_markdown": "## SAGEN KORT\n\n- EU's grænseagentur Frontex registrerede omkring 75.000 irregulære passager af EU's ydre grænser fra januar til august – 35 procent færre end året før.\n- Den vestlige Middelhavsrute skilte sig ud: Her steg registreringerne 34 procent til omkring 15.900, og de ekstraordinære passager til Ceuta i juli er ikke med i tallet.\n\nDen irregulære trafik over EU's ydre grænser er faldet kraftigt i 2026. Men ét område bevæger sig i den modsatte retning.\n\nEU's grænseagentur Frontex registrerede omkring 75.000 irregulære grænsepassager i årets første otte måneder. Det er 35 procent færre end i samme periode sidste år.\n\nPå den vestlige Middelhavsrute mod Spanien steg antallet derimod 34 procent til omkring 15.900 registreringer. Det gør ruten til den eneste af de store migrationsruter, hvor Frontex registrerede en stigning.\n\n### Spanien skiller sig ud\n\nUdviklingen er særlig markant, fordi andre centrale ruter går den modsatte vej. På den centrale Middelhavsrute faldt registreringerne 55 procent til omkring 19.400, mens den østlige Middelhavsrute faldt 25 procent til cirka 24.200. Ruten fra Vestafrika mod De Kanariske Øer faldt 58 procent til omkring 5.100.\n\nFrontex peger på, at menneskesmuglernes ruter har flyttet sig. Strammere kontrol i Marokko og på andre ruter har ifølge agenturet været med til at flytte flere afgange mod Algeriets kyst. Algeriet er nu det vigtigste afgangsland på den vestlige Middelhavsrute, mens det spanske fastland og Balearerne er blandt de vigtigste destinationer.\n\nI juli nåede presset på ruten ifølge Frontex det højeste månedlige niveau i tre år, før antallet faldt igen i august.\n\n### Ceuta er ikke med i regnestykket\n\nTallene har et væsentligt forbehold. De omfatter ikke de ekstraordinære grænsepassager fra Marokko til den spanske enklave Ceuta i slutningen af juli.\n\nFrontex oplyser, at et endeligt antal næppe kan fastslås, fordi mange vendte tilbage til Marokko uden at blive registreret. Derfor indgår hændelsen ikke i agenturets samlede statistik.\n\nDet betyder samtidig, at de 34 procents stigning på den vestlige Middelhavsrute er registreret uden denne ekstraordinære episode.\n\nFrontex-tallene måler registrerede grænsepassager og ikke nødvendigvis unikke personer. Den samme person kan derfor i princippet blive registreret mere end én gang.\n\nDet samlede europæiske billede er ikke desto mindre klart: De registrerede irregulære grænsepassager er faldet betydeligt. Men udviklingen viser også, hvor hurtigt presset kan flytte sig fra én rute til en anden, når kontrollen ændres.",
+  "source_metadata": [
+    {
+      "url": "https://efe.com/euro-efe/2026-09-11/migracion-ue/",
+      "publisher": "EFE",
+      "source_type": "strong_secondary",
+      "title": "La migración irregular a la UE descendió en todas las regiones excepto el Estrecho"
+    },
+    {
+      "url": "https://www.frontex.europa.eu/media-centre/news/news-release/",
+      "publisher": "Frontex",
+      "source_type": "primary_official",
+      "title": "Frontex – EU external border statistics"
+    }
+  ],
+  "editorial_metadata": {
+    "story_kind": "news",
+    "hero_candidates": [
+      {
+        "source_url": "https://upload.wikimedia.org/wikipedia/commons/2/21/Frontex_HQ_Warsaw_Spire_office_complex_Warsaw.jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "CC BY-SA 3.0 PL",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0/pl/deed.en",
+        "credit_text": "Adrian Grycuk / Wikimedia Commons",
+        "rights_notes": "Own work published by copyright holder under CC BY-SA 3.0 Poland; original 3279x4339 JPEG.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": true,
+        "alt_text": "Frontex' hovedkvarter i Warszawa"
+      }
+    ]
+  }
+}
