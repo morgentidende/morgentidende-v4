@@ -1,0 +1,102 @@
+{
+  "queue_id": "chatgpt-20260915-1558-tysk-graensekontrol",
+  "slug": "tyskland-forlaenger-graensekontrol-danmark-marts-2027",
+  "headline": "Tyskland forlænger grænsekontrollen mod Danmark til marts 2027",
+  "deck": "Kontrollen fortsætter fra onsdag ved alle ni tyske landgrænser. Berlin peger på ulovlig migration, smugling og sikkerhedstrusler.",
+  "category_slug": "udland",
+  "kind": "news",
+  "body_markdown": "Tyskland fortsætter kontrollen ved grænsen til Danmark i yderligere seks måneder. Den nye periode begynder onsdag 16. september og løber til 15. marts 2027.\n\nDet fremgår af EU-Kommissionens aktuelle oversigt over midlertidigt genindførte grænsekontroller i Schengen-området. Forlængelsen gælder alle Tysklands ni landgrænser: Danmark, Polen, Tjekkiet, Østrig, Schweiz, Frankrig, Luxembourg, Belgien og Nederlandene.\n\n## SAGEN KORT\n\n- Tyskland fortsætter kontrollen ved den dansk-tyske grænse frem til 15. marts 2027.\n- Berlin begrunder kontrollen med blandt andet ulovlig migration, menneskesmugling og den internationale sikkerhedssituation.\n\n## En undtagelse, der bliver ved\n\nGrænsekontroller inde i Schengen skal efter EU-reglerne være en sidste udvej. Det normale princip er fri passage ved de indre grænser, men medlemslande kan midlertidigt genindføre kontrol, når de vurderer, at der er en alvorlig trussel mod den offentlige orden eller den indre sikkerhed.\n\nDen tyske kontrol ved alle landgrænser begyndte i sin nuværende brede form 16. september 2024. Den er siden blevet forlænget flere gange.\n\nTysklands indenrigsminister Alexander Dobrindt fra det konservative regeringsparti CSU har gjort grænsekontrollen til en central del af regeringens strammere migrationskurs. Da den foregående forlængelse blev annonceret i februar, kaldte han kontrollen et element i en nyordning af den tyske migrationspolitik.\n\nEU-Kommissionens aktuelle registrering angiver fortsat høje niveauer af ulovlig migration og menneskesmugling samt belastning af asylsystemet som tyske begrundelser. Også krigen i Ukraine og sikkerhedssituationen i Mellemøsten og Centralasien indgår i begrundelsen.\n\n## EU vil have færre indre grænsekontroller\n\nForlængelsen sker samtidig med en længere strid om, hvor midlertidige de indre kontroller reelt er blevet. EU-Kommissionen vurderede i juni nødvendigheden og proportionaliteten af kontroller i blandt andet Tyskland og anbefalede medlemslandene at arbejde mod gradvist at ophæve dem.\n\nKommissionen understreger, at genindførelse af kontrol ved indre Schengen-grænser skal begrænses til det mindst mulige omfang og kun anvendes i ekstraordinære situationer.\n\nTyskland har imidlertid fastholdt, at kontrollen fortsat er nødvendig. Dobrindt varslede allerede i sommer, at den ville fortsætte efter september.\n\nFor danskere betyder beslutningen, at rejser over den dansk-tyske landegrænse fortsat kan indebære tysk politikontrol ved indrejse. Grænsen er ikke lukket, men rejsende skal kunne legitimere sig, hvis de bliver standset.\n\nDen nye seksmånedersperiode begynder umiddelbart efter udløbet af den nuværende kontrol tirsdag 15. september.",
+  "source_metadata": [
+    {
+      "publisher": "EU-Kommissionen – Migration and Home Affairs",
+      "url": "https://home-affairs.ec.europa.eu/policies/schengen/schengen-area/temporary-reintroduction-border-control_en",
+      "source_type": "primary_official",
+      "title": "Temporary Reintroduction of Border Control",
+      "accessed_at": "2026-09-15"
+    },
+    {
+      "publisher": "Tagesschau",
+      "url": "https://www.tagesschau.de/inland/innenpolitik/dobrindt-grenzkontrollen-verlaengern-100.html",
+      "source_type": "news",
+      "title": "Grenzkontrollen sollen bis mindestens März 2027 verlängert werden",
+      "accessed_at": "2026-09-15"
+    },
+    {
+      "publisher": "EU-Kommissionen – repræsentationen i Tyskland",
+      "url": "https://germany.representation.ec.europa.eu/nachrichten-und-veranstaltungen/pressemitteilungen/temporare-grenzkontrollen-eu-kommission-gibt-stellungnahmen-ab-2026-06-02_de",
+      "source_type": "primary_official",
+      "title": "Temporäre Grenzkontrollen: EU-Kommission gibt Stellungnahmen ab",
+      "accessed_at": "2026-09-15"
+    }
+  ],
+  "editorial_metadata": {
+    "discovery_run_id": "news-20260915-1558",
+    "story_kind": "news",
+    "share_reason": "Tysklands grænsekontrol mod Danmark fortsætter endnu et halvt år trods Schengens princip om åbne indre grænser.",
+    "discovery_audit": [
+      {
+        "candidate_id": "candidate-1",
+        "source_pool": "discovery",
+        "path_used": "discovery",
+        "rank_position": 1,
+        "deep_screened": true,
+        "discovery_source_name": "Fdesouche",
+        "discovery_source_url": "https://www.fdesouche.com/2026/02/18/depuis-trois-mois-lallemagne-a-reinstaure-des-controles-a-ses-frontieres-1-200-personnes-en-situation-illegale-interpellees-le-president-du-departement-de-moselle-evoque-un-retour-a-des/",
+        "discovery_domain": "fdesouche.com",
+        "candidate_headline": "Tyskland fortsætter grænsekontrollen efter 15. september",
+        "candidate_topic": "tysk grænsekontrol og migration",
+        "decision": "selected",
+        "decision_reason": "fresh_effective_date_and_authoritative_confirmation",
+        "downstream_sources": ["home-affairs.ec.europa.eu", "tagesschau.de"],
+        "semantic_assessment": {"freshness": "high", "core_interest_match": "high", "documentation": "authoritative"},
+        "model_name": "GPT-5.6 Sol",
+        "prompt_version": "docs/automations/news-task.md@2bf8f48c"
+      },
+      {"candidate_id":"candidate-2","source_pool":"discovery","path_used":"discovery","rank_position":2,"deep_screened":false,"discovery_source_name":"NIUS","discovery_domain":"nius.de","candidate_headline":"Sabotage mod tysk strømnet","candidate_topic":"sabotage og kritisk infrastruktur","decision":"ranked_not_screened","decision_reason":"candidate_1_selected","model_name":"GPT-5.6 Sol","prompt_version":"docs/automations/news-task.md@2bf8f48c"},
+      {"candidate_id":"candidate-3","source_pool":"discovery","path_used":"discovery","rank_position":3,"deep_screened":false,"discovery_source_name":"Libertad Digital","discovery_domain":"libertaddigital.com","candidate_headline":"Marokko forstærker kontrollen ved Ceuta","candidate_topic":"migration og Ceuta","decision":"ranked_not_screened","decision_reason":"candidate_1_selected","model_name":"GPT-5.6 Sol","prompt_version":"docs/automations/news-task.md@2bf8f48c"},
+      {"candidate_id":"candidate-4","source_pool":"discovery","path_used":"discovery","rank_position":4,"deep_screened":false,"discovery_source_name":"Fdesouche","discovery_domain":"fdesouche.com","candidate_headline":"Britisk regeringsenhed kritiseres for migrationskommunikation","candidate_topic":"ytringsfrihed og statslig kommunikation","decision":"ranked_not_screened","decision_reason":"candidate_1_selected","model_name":"GPT-5.6 Sol","prompt_version":"docs/automations/news-task.md@2bf8f48c"},
+      {"candidate_id":"candidate-5","source_pool":"discovery","path_used":"discovery","rank_position":5,"deep_screened":false,"discovery_source_name":"Samnytt","discovery_domain":"samnytt.se","candidate_headline":"Sverige vil gøre udvisning af dømte lettere","candidate_topic":"migration og kriminalitet","decision":"ranked_not_screened","decision_reason":"candidate_1_selected","model_name":"GPT-5.6 Sol","prompt_version":"docs/automations/news-task.md@2bf8f48c"}
+    ],
+    "hero_candidates": [
+      {
+        "source_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Border%20crossing%20Ellund.jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "CC BY-SA",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "credit_text": "Wikimedia Commons",
+        "rights_notes": "Verify exact file-page license and original dimensions before ingest; commercial-use and local-storage candidate subject to Media Worker validation.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": true,
+        "alt_text": "Grænseovergang mellem Danmark og Tyskland"
+      },
+      {
+        "source_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Bundespolizei%20Kontrolle.jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "CC BY-SA",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "credit_text": "Wikimedia Commons",
+        "rights_notes": "Fallback candidate; Media Worker must validate exact Commons file, license and dimensions.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": true,
+        "alt_text": "Tysk politi ved en grænsekontrol"
+      },
+      {
+        "source_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Deutsch-daenische%20Grenze.jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "CC BY-SA",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "credit_text": "Wikimedia Commons",
+        "rights_notes": "Fallback candidate; Media Worker must validate exact Commons file, license and dimensions.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": true,
+        "alt_text": "Den dansk-tyske grænse"
+      }
+    ]
+  }
+}
