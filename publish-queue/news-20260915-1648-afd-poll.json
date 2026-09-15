@@ -1,0 +1,74 @@
+{
+  "queue_id": "news-20260915-1648-afd-poll",
+  "slug": "afd-11-point-foran-merz-unionen-tyskland",
+  "headline": "AfD nu 11 point foran Merz' Union: Flertal vil åbne døren for samarbejde",
+  "deck": "Ny YouGov-måling giver AfD 29 procent mod CDU/CSU's 18. Samtidig siger 51 procent nej til en fast politisk blokade.",
+  "category_slug": "udland",
+  "kind": "news",
+  "body_markdown": "## SAGEN KORT\n\n- AfD står til 29 procent i en ny YouGov-måling, mens kansler Friedrich Merz' CDU/CSU falder til 18 procent.\n- 51 procent mener nu, at andre partier ikke på forhånd bør udelukke samarbejde med AfD; i august var tallet 44 procent.\n\nTysklands politiske styrkeforhold fortsætter med at flytte sig. I en ny landsdækkende YouGov-måling er AfD ikke blot størst: partiet ligger nu 11 procentpoint foran kansler Friedrich Merz' konservative CDU/CSU.\n\nIfølge den landsdækkende avis Welt får det indvandringskritiske parti AfD 29 procent, en fremgang på ét point siden august. CDU og CSU falder samtidig to point til 18 procent. Det er dermed den største afstand mellem de to blokke i denne måling.\n\nDe Grønne står til 16 procent, mens regeringspartiet SPD får 13 procent. Venstrepartiet Die Linke ligger på 10 procent, FDP på fem og Bündnis Sahra Wagenknecht på fire procent.\n\n## Modstanden mod samarbejde falder\n\nMålingen indeholder samtidig et resultat, der kan få større betydning end selve partiprocenterne. 51 procent af de adspurgte mener nu, at andre partier ikke grundlæggende bør afvise at samarbejde med AfD. I august var andelen 44 procent.\n\nOmvendt ønsker 40 procent fortsat, at et samarbejde med AfD skal være udelukket på forhånd. Det er et fald fra 46 procent måneden før.\n\nUdviklingen udfordrer den såkaldte brandmur, hvor de etablerede partier har afvist regeringssamarbejde med AfD. Det betyder ikke, at et flertal ønsker AfD i regering. Spørgsmålet måler alene, om samarbejde bør være kategorisk udelukket.\n\n## To målinger peger samme vej\n\nResultatet står ikke alene. En anden aktuel måling fra instituttet GMS giver AfD 30 procent og CDU/CSU 20 procent. Også her er AfD klart størst, mens Unionen befinder sig på et historisk lavt niveau i instituttets målinger.\n\nYouGov-tallene kommer omkring en uge efter landdagsvalget i Sachsen-Anhalt og efter flere måneder, hvor AfD har ligget foran CDU/CSU i landsdækkende målinger. I august gav samme institut AfD 28 procent og Unionen 20.\n\n## Flertallet ser stadig AfD som ekstremt\n\nFremgangen betyder ikke, at tyskernes syn på partiet er blevet ukritisk. I YouGov-målingen siger 59 procent fortsat, at de opfatter AfD som højreekstremt, mens 30 procent er uenige i den vurdering.\n\nDet skaber et usædvanligt politisk paradoks: Et stort flertal har fortsat et meget negativt syn på partiets ideologiske placering, samtidig med at et flertal ikke længere mener, at samarbejde kategorisk skal udelukkes.\n\nMålinger er øjebliksbilleder og ikke valgresultater. Men bevægelsen er vanskelig at overse: AfD står nu til omtrent tre ud af ti tyske stemmer, mens Merz' CDU/CSU i to samtidige målinger ligger mellem 18 og 20 procent.",
+  "source_metadata": [
+    {
+      "publisher": "Welt",
+      "url": "https://www.welt.de/article6aa8c362250f8ce245e4cfce",
+      "source_type": "authoritative",
+      "title": "AfD bleibt laut Umfrage stärkste Partei - CDU/CSU auf Tief"
+    },
+    {
+      "publisher": "Focus",
+      "url": "https://www.focus.de/politik/deutschland/10-prozent-unterschied-afd-haengt-union-in-neuer-umfrage-ab_48db8bb3-c44f-49ad-833c-1ad452778e9b.html",
+      "source_type": "authoritative",
+      "title": "Zwei Umfrage-Klatschen für die Union – AfD knackt 30 Prozent"
+    }
+  ],
+  "editorial_metadata": {
+    "discovery_run_id": "news-20260915-1648",
+    "discovery_audit": [
+      {"candidate_id":"candidate-1","source_pool":"discovery","path_used":"discovery","rank_position":1,"deep_screened":true,"discovery_source_name":"NIUS","discovery_source_url":"https://nius.de/news/union-stuerzt-auf-18-prozent-ab-afd-jetzt-11-prozent-vor-der-union","discovery_domain":"nius.de","candidate_headline":"Union stürzt auf 18 Prozent ab: AfD jetzt 11 Prozent vor der Union","candidate_topic":"German polling/AfD/CDU","decision":"selected","decision_reason":"fresh_authoritatively_confirmed_high_share_potential","downstream_sources":["welt.de","focus.de"],"model_name":"GPT-5.6 Sol","prompt_version":"news-task.md@2bf8f48"},
+      {"candidate_id":"candidate-2","source_pool":"discovery","path_used":"discovery","rank_position":2,"deep_screened":false,"discovery_source_name":"Apollo News","discovery_source_url":"https://apollo-news.net/wir-brauchen-in-diesem-land-auslaender-schiesst-kuenast-gegen-chrupalla/","discovery_domain":"apollo-news.net","candidate_headline":"Künast og Chrupalla i migrationsopgør","candidate_topic":"migration/German politics","decision":"not_screened_after_selection","decision_reason":"higher_ranked_candidate_selected","downstream_sources":[],"model_name":"GPT-5.6 Sol","prompt_version":"news-task.md@2bf8f48"},
+      {"candidate_id":"candidate-3","source_pool":"discovery","path_used":"discovery","rank_position":3,"deep_screened":false,"discovery_source_name":"NIUS","discovery_source_url":"https://nius.de/kriminalitaet/bluttat-im-landkreis-offenbach-passanten-finden-angeschossenen-60-jaehrigen-auf-der-strasse","discovery_domain":"nius.de","candidate_headline":"60-årig skudt og dræbt i Dietzenbach","candidate_topic":"crime/Germany","decision":"not_screened_after_selection","decision_reason":"higher_ranked_candidate_selected","downstream_sources":[],"model_name":"GPT-5.6 Sol","prompt_version":"news-task.md@2bf8f48"},
+      {"candidate_id":"candidate-4","source_pool":"discovery","path_used":"discovery","rank_position":4,"deep_screened":false,"discovery_source_name":"NIUS","discovery_domain":"nius.de","candidate_headline":"Tysk politisk efterspil om AfD","candidate_topic":"German politics","decision":"not_screened_after_selection","decision_reason":"higher_ranked_candidate_selected","downstream_sources":[],"model_name":"GPT-5.6 Sol","prompt_version":"news-task.md@2bf8f48"},
+      {"candidate_id":"candidate-5","source_pool":"discovery","path_used":"discovery","rank_position":5,"deep_screened":false,"discovery_source_name":"Samnytt","discovery_domain":"samnytt.se","candidate_headline":"Svensk migrationspolitik","candidate_topic":"migration/Sweden","decision":"not_screened_after_selection","decision_reason":"higher_ranked_candidate_selected","downstream_sources":[],"model_name":"GPT-5.6 Sol","prompt_version":"news-task.md@2bf8f48"}
+    ],
+    "hero_candidates": [
+      {
+        "source_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Alice%20Weidel%20at%20CPAC%20Hungary.jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "CC BY 4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "credit_text": "Elekes Andor / Wikimedia Commons",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": true,
+        "rights_notes": "Wikimedia Commons original, CC BY 4.0.",
+        "alt_text": "AfD-leder Alice Weidel taler ved et arrangement"
+      },
+      {
+        "source_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/2019-04-11%20Alice%20Weidel%20MdB%20by%20Olaf%20Kosinsky-8022.jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "CC BY-SA 3.0 DE",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0/de/",
+        "credit_text": "Olaf Kosinsky / Wikimedia Commons",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": true,
+        "rights_notes": "Wikimedia Commons original; Media Worker validates file and license metadata.",
+        "alt_text": "Alice Weidel under en plenarsamling i den tyske Forbundsdag"
+      },
+      {
+        "source_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/2019-04-11%20Pressekonferenz%20der%20AfD%20by%20Olaf%20Kosinsky-8134.jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "CC BY-SA 3.0 DE",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0/de/",
+        "credit_text": "Olaf Kosinsky / Wikimedia Commons",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": true,
+        "rights_notes": "Wikimedia Commons original; Media Worker validates file and license metadata.",
+        "alt_text": "Alice Weidel ved en AfD-pressebegivenhed i Berlin"
+      }
+    ]
+  }
+}
