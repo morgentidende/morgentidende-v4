@@ -93,22 +93,27 @@ async function heroLoads(url: string | null): Promise<boolean> {
   } catch { return false; }
 }
 
-async function duplicateHeroOnFrontpage(article: any): Promise<boolean> {
-  if (!article.hero_url && !article.hero_media_id) return false;
-  const since = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString();
+type DuplicateHeroResult = "duplicate" | "clear" | "unavailable";
+
+async function duplicateHeroOnFrontpage(article: any): Promise<DuplicateHeroResult> {
+  if (!article.hero_url && !article.hero_media_id) return "clear";
   const select = "id,hero_url,hero_media_id,story_cluster_id,published_at";
-  const r = await restFetch(`articles?select=${select}&status=eq.published&published_at=gte.${encodeURIComponent(since)}&published_at=lte.${encodeURIComponent(new Date().toISOString())}&id=neq.${article.id}&order=published_at.desc&limit=40`);
+  const r = await restFetch(`articles?select=${select}&status=eq.published&id=neq.${article.id}&order=published_at.desc&limit=40`);
   if (!r.ok) {
     console.error(`duplicate_hero_query_failed status=${r.status} body=${(await r.text()).slice(0, 300)}`);
-    return false;
+    return "unavailable";
   }
   const rows = await r.json();
   const normalized = normalizeHeroUrl(article.hero_url);
-  return rows.some((row: any) => {
+  const now = Date.now();
+  const duplicate = rows.some((row: any) => {
+    const publishedAt = row.published_at ? Date.parse(row.published_at) : NaN;
+    if (Number.isFinite(publishedAt) && publishedAt > now) return false;
     if (article.story_cluster_id && row.story_cluster_id && article.story_cluster_id === row.story_cluster_id) return false;
     if (article.hero_media_id && row.hero_media_id && article.hero_media_id === row.hero_media_id) return true;
-    return normalized && normalizeHeroUrl(row.hero_url) === normalized;
+    return Boolean(normalized && normalizeHeroUrl(row.hero_url) === normalized);
   });
+  return duplicate ? "duplicate" : "clear";
 }
 
 function firstRow(value: any): any {
@@ -205,7 +210,9 @@ Deno.serve(async () => {
 
       const warnings = [...deterministicWarnings(article), ...sourceQualityWarnings(job.source_quality)];
       if (article.hero_url && !(await heroLoads(article.hero_url))) warnings.push("broken_hero_url");
-      if (await duplicateHeroOnFrontpage(article)) warnings.push("duplicate_frontpage_hero");
+      const heroDuplicate = await duplicateHeroOnFrontpage(article);
+      if (heroDuplicate === "duplicate") warnings.push("duplicate_frontpage_hero");
+      if (heroDuplicate === "unavailable") warnings.push("duplicate_hero_check_unavailable");
 
       const finalWarnings = Array.from(new Set(warnings));
       const finalStatus = finalWarnings.length ? "warnings" : "passed";
