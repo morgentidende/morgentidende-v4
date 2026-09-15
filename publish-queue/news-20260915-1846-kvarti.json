@@ -1,0 +1,91 @@
+{
+  "queue_id": "news-20260915-1846-kvarti",
+  "kind": "news",
+  "slug": "russisk-fregat-affyrede-nodblus-mod-dansk-militaerhelikopter",
+  "headline": "Russisk fregat affyrede nødblus mod dansk militærhelikopter: Ét passerede tæt forbi",
+  "deck": "En dansk Fennec-helikopter overvågede rutinemæssigt et russisk krigsskib ved Gedser. Danmark har indkaldt Ruslands ambassadør.",
+  "category_slug": "indland",
+  "body_markdown": "## SAGEN KORT\n\n- En russisk fregat affyrede to nødblus i retning af en dansk Fennec-helikopter under en rutinemæssig overvågningsflyvning i internationalt farvand ved Gedser. Ét af nødblussene passerede tæt på helikopteren.\n- Danmark kalder hændelsen uacceptabel og har indkaldt Ruslands ambassadør. Rusland siger omvendt, at den danske helikopter foretog farlige manøvrer.\n\nEn rutinemæssig dansk overvågningsflyvning over Østersøen udviklede sig mandag til en konfrontation, da en russisk fregat affyrede to nødblus i retning af en dansk militærhelikopter.\n\nIfølge det internationale nyhedsbureau Reuters var Flyvevåbnets Fennec-helikopter i gang med at fotografere det russiske krigsskib i internationalt farvand ud for Gedser. Ét af de to nødblus passerede tæt på helikopteren. Besætningen kom ikke til skade, og helikopteren blev ikke beskadiget.\n\nForsvarsminister Jeppe Bruus beskriver den russiske adfærd som risikofyldt og stadig mere aggressiv. Statsminister Mette Frederiksen kalder handlingen hensynsløs og siger, at russiske handlinger skal intimidere og splitte.\n\nUdenrigsminister Lars Løkke Rasmussen har indkaldt Ruslands ambassadør efter episoden. Ifølge udenrigsministeren flytter Rusland gradvist grænsen for, hvad landet opfatter som acceptabel adfærd.\n\n## Rusland vender anklagen mod Danmark\n\nMoskva afviser den danske fremstilling af ansvaret. Den russiske ambassadør Vladimir Barbin har ifølge Reuters afleveret en protest til København og beskyldt danske militærhelikoptere for farlige manøvrer tæt på russiske krigsskibe.\n\nDermed står de to lande med direkte modsatrettede forklaringer på, hvem der skabte den farlige situation. Det dokumenterede fælles punkt er, at den danske helikopter og den russiske fregat befandt sig i internationalt farvand, og at den russiske fregat affyrede nødblus.\n\n## Ny episode i et mere anspændt Østersøområde\n\nHændelsen kommer samtidig med nye sikkerhedsepisoder omkring NATO's østlige område. NATO-fly skød tirsdag en drone ned over Litauen, efter at den var kommet ind fra Belarus. Ifølge internationale nyhedsbureauer blev der fundet et sprænglegeme på dronen.\n\nDanmark har ikke behandlet episoden ved Gedser som et væbnet angreb på dansk territorium. Men den korte afstand mellem nødblusset og helikopteren gør hændelsen konkret: En almindelig dansk overvågningsmission endte med, at besætningen måtte forholde sig til pyroteknik affyret fra et russisk krigsskib tæt på deres luftfartøj.\n\nDanmark har samtidig gjort klart, at overvågningen af russisk militær aktivitet i farvandene omkring landet fortsætter.",
+  "source_metadata": [
+    {
+      "publisher": "Reuters",
+      "url": "https://www.reuters.com/business/aerospace-defense/russian-frigate-fires-flares-towards-danish-military-helicopter-denmark-says-2026-09-15/",
+      "source_type": "authoritative",
+      "title": "Russian frigate fires flares towards Danish military helicopter",
+      "published_date": "2026-09-15"
+    },
+    {
+      "publisher": "Associated Press",
+      "url": "https://apnews.com/article/9671662649ebed2eca41879982f366ad",
+      "source_type": "authoritative",
+      "title": "NATO jets shoot down drone over Lithuania and Russian ship fires flares at Danish helicopter",
+      "published_date": "2026-09-15"
+    }
+  ],
+  "editorial_metadata": {
+    "discovery_run_id": "news-20260915-1846",
+    "story_kind": "breaking_news",
+    "share_reason": "Et russisk krigsskib affyrede to nødblus mod en dansk militærhelikopter, og ét passerede tæt på besætningen.",
+    "discovery_audit": [
+      {
+        "candidate_id": "breaking-1",
+        "source_pool": "major_media_breaking",
+        "path_used": "breaking_override",
+        "rank_position": 1,
+        "deep_screened": true,
+        "discovery_source_name": "Reuters",
+        "discovery_source_url": "https://www.reuters.com/business/aerospace-defense/russian-frigate-fires-flares-towards-danish-military-helicopter-denmark-says-2026-09-15/",
+        "discovery_domain": "reuters.com",
+        "candidate_headline": "Russisk fregat affyrede nødblus mod dansk militærhelikopter",
+        "candidate_topic": "Dansk sikkerhed og russisk militær aktivitet i Østersøen",
+        "decision": "selected",
+        "decision_reason": "fresh_high_national_security_significance_and_authoritatively_documented",
+        "downstream_sources": ["reuters.com", "apnews.com"],
+        "semantic_assessment": {"dedupe_preflight": "bypassed_permission_error"},
+        "model_name": "GPT-5.6 Sol",
+        "prompt_version": "docs/automations/news-task.md@2bf8f48c"
+      }
+    ],
+    "hero_candidates": [
+      {
+        "source_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/050618-Fennec-03.jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "Public domain",
+        "license_url": "https://commons.wikimedia.org/wiki/File:050618-Fennec-03.jpg",
+        "credit_text": "Pajx / Wikimedia Commons",
+        "rights_notes": "Copyright holder released work into public domain.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": false,
+        "alt_text": "Dansk AS 550 Fennec-militærhelikopter"
+      },
+      {
+        "source_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/AS-550%20Fennec%27s%20at%20Danish%20Air%20Show%202022.jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "credit_text": "Thomas Dahlstrøm Nielsen / Wikimedia Commons",
+        "rights_notes": "Creative Commons Attribution-ShareAlike 4.0; commercial reuse and local storage allowed with attribution/share-alike.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": true,
+        "alt_text": "Danske AS 550 Fennec-helikoptere i luften"
+      },
+      {
+        "source_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Fennec%20siku%2007.JPG",
+        "source_provider": "wikimedia_commons",
+        "license_name": "Public domain",
+        "license_url": "https://commons.wikimedia.org/wiki/File:Fennec_siku_07.JPG",
+        "credit_text": "Stave / Wikimedia Commons",
+        "rights_notes": "Author released work into public domain.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": false,
+        "alt_text": "To danske Fennec-militærhelikoptere"
+      }
+    ]
+  }
+}
