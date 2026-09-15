@@ -4,56 +4,102 @@ Dette er den kanoniske instruktion for de almindelige autonome nyheds-slots. Sch
 
 ## Mandat
 
-Udgiv præcis én almindelig Morgentidende-nyhedsartikel pr. normal kørsel, medmindre en reel teknisk/publication-gate gør publicering umulig. Brug højeste tilgængelige model/ræsonneringsniveau.
+Default er én almindelig Morgentidende-nyhedsartikel pr. normal kørsel. Lav nyhedsværdi alene er ikke en stopgrund, men dokumentation, dedupe, hero- og publication-gates må aldrig udvandes for at fylde et slot. Brug højeste tilgængelige model/ræsonneringsniveau.
 
 Læs og følg altid de aktuelle canonical regler i:
 - `docs/editorial-core.md`
 - relevante dele af `docs/news-editorial-profile-and-discovery.md`
 - `docs/chatgpt-publish-bridge.md`
 
+Denne fil ejer **kørselsrækkefølgen** for den almindelige Scheduled Task-newsautomation. Hvis en procesregel i `docs/news-editorial-profile-and-discovery.md` beskriver en anden rækkefølge for stofvalg/scanning, har denne fil forrang for netop denne automation. Profilfilen ejer fortsat redaktionel profil, discovery-kilder og kildekritik.
+
 Denne automation må ikke vælge Viden eller Liv; de hører til magazine-flowet.
+
+## Historievalg
+
+### 1. Snæver breaking-override
+
+Lav først et kort aktuelt scan af store danske medier for en **akut breakinghistorie**. Override må kun bruges ved en frisk, dokumenterbar hændelse med høj national betydning inden for:
+- dansk sikkerhed eller forsvar,
+- terror,
+- stor ulykke eller katastrofe,
+- krig/NATO med direkte dansk berøring,
+- regeringskrise,
+- alvorlig kriminalitet med national vægt,
+- større cyberangreb,
+- stats-/myndighedsindgreb med umiddelbar virkning for mange danskere.
+
+Hvis en sådan breakinghistorie klart findes, ikke er en 7-dages-dublet uden væsentlig udvikling og kan dokumenteres, vælg den og gå videre til research. Override skal være snæver og hændelsesbaseret; almindeligt vigtigt stof, analyser, kendis- og kulturhistorier må ikke springe Discovery over.
+
+### 2. Discovery først
+
+Hvis breaking-overriden ikke rammer, start med discovery-listen. Rangér billigt de **5 stærkeste friske Discovery-kandidater** ud fra rubrik, aktualitet og match med Morgentidendes kerneinteresser. Dybdescreen dem derefter i rækkefølge og stop ved den første kandidat, der klarer dedupe og dokumentationsgulvet.
+
+Ved 7-dages-dublet uden væsentlig ny udvikling eller utilstrækkelig dokumentation: gå videre til næste Discovery-kandidat. Screen højst 5 Discovery-kandidater pr. run.
+
+### 3. Dansk major-media fallback
+
+Hvis ingen af de 5 Discovery-kandidater kan bruges, scan store danske nyhedsmedier og vælg den **stærkeste aktuelle historie lige nu**.
+
+Scan bredt blandt fx DR, TV 2, Berlingske, Politiken, Jyllands-Posten, B.T., Ekstra Bladet og Ritzau-historier bragt i større danske medier.
+
+Vægt fallback-kandidater i denne rækkefølge:
+1. aktualitet,
+2. konsekvens for Danmark/danskere,
+3. væsentlighed og offentlig interesse,
+4. konflikt/dramatik,
+5. realistisk delingspotentiale.
+
+Ved samme vægt taber en gammel historie til en frisk. Analyse, kendis og kultur taber til breaking og konkret konsekvens.
+
+Fallbacken skal vælge den stærkeste historie, også hvis alle aktuelle historier er svage. `NO_PUBLISHABLE_CANDIDATE` må ikke bruges alene på grund af lav nyhedsværdi. Svag nyhedsværdi kan give en kortere artikel; utilstrækkelig dokumentation må aldrig reddes af fallback-pligten.
+
+Hvis den stærkeste fallback-kandidat er en dublet uden væsentlig udvikling eller ikke kan dokumenteres, gå videre til den næststærkeste og fortsæt så langt som rimeligt.
 
 ## Early dedupe før fuld research
 
-Før du bruger tid på fuld research, skrivning eller hero-arbejde:
-1. vælg en foreløbig kandidat,
-2. forsøg én Supabase **read-only** preflight mod relevante `published` og `scheduled` artikler fra de seneste 7 dage,
-3. hvis preflight returnerer et konkret resultatsæt, sammenlign kandidatens væsentlige sag/emne med eksisterende rubrikker og `story_cluster_id`, når det findes,
-4. kassér kandidaten straks, hvis den i væsentlighed allerede er dækket, og gå videre til næste kandidat i det aktuelle source-pool.
+For den kandidat, der aktuelt screenes:
+1. forsøg én Supabase **read-only** preflight mod relevante `published` og `scheduled` artikler fra de seneste 7 dage,
+2. hvis preflight returnerer et konkret resultatsæt, sammenlign kandidatens væsentlige sag/emne med eksisterende rubrikker og `story_cluster_id`, når det findes,
+3. kassér kandidaten straks, hvis den i væsentlighed allerede er dækket uden reel ny udvikling, og gå videre i det aktuelle source-pool.
 
 En reel ny udvikling kan fortsætte som opfølger og skal bruge korrekt eksisterende story cluster, når det er relevant. En kosmetisk ny rubrik gør ikke en gammel sag ny.
 
-Preflight er kun en omkostnings-/kvalitetsbesparelse og er **ikke** en publication-gate. Hvis Supabase-værktøjet ikke kan kaldes, ikke returnerer et konkret resultatsæt, kræver reconnect/consent, eller fejler med auth, policy, timeout, transport, serverfejl eller ukendt fejl, skal preflight markeres `BYPASSED` og kørslen fortsætte til research og GitHub publish bridge. Brug ikke direkte Supabase-write som fallback, og forsøg ikke gentagne Supabase-kald i samme kandidat-preflight.
+Preflight er kun en omkostnings-/kvalitetsbesparelse og er **ikke** en publication-gate. Hvis Supabase-værktøjet ikke kan kaldes, ikke returnerer et konkret resultatsæt, kræver reconnect/consent eller fejler, skal preflight markeres `BYPASSED` og kørslen fortsætte. Brug ikke direkte Supabase-write som fallback, og lav ikke gentagne Supabase-kald for samme kandidat.
 
-Backendens ingest- og publication-gates er den bindende sidste dedupe-kontrol og må aldrig omgås. Et manglende early-preflight-resultat må derfor højst koste ekstra research/hero-arbejde; det må ikke alene stoppe nyhedskørslen.
+Backendens ingest- og publication-gates er den bindende sidste dedupe-kontrol og må aldrig omgås.
 
-## Historievalg — Discovery først, danske medier som fallback
+## Dokumentationsgulv
 
-Start altid med discovery-listen. Rangér de stærkeste friske kandidater og screen **højst 5 kandidater** i rækkefølge. Ved 7-dages-dublet uden væsentlig ny udvikling, utilstrækkelig dokumentation eller anden reel publication-gate: gå videre til næste Discovery-kandidat.
+Research i troværdige kilder, helst primærkilder. Centrale fakta skal kunne verificeres. En discovery-side er et spor, ikke slutdokumentation.
 
-Hvis ingen af de op til 5 Discovery-kandidater kan bruges, skift til fallback: lav et aktuelt scan af de store danske nyhedsmedier og vælg den **stærkeste historie lige nu**.
+Lav nyhedsværdi er ikke en hard gate. Manglende verificerbar dokumentation er en hard gate. Skriv skarpt med meget højt delingspotentiale, men aldrig stærkere eller længere end dokumentationen bærer.
 
-Scan bredt blandt store danske medier, fx DR, TV 2, Berlingske, Politiken, Jyllands-Posten, B.T., Ekstra Bladet og Ritzau-historier bragt i større danske medier. Brug flere medier når det er nødvendigt for at afgøre, hvad der faktisk er den største/bedste historie lige nu.
+## Hero/media
 
-Vurder danske fallback-kandidater relativt mod hinanden efter almindelig nyhedsværdi og Morgentidende-relevans: aktualitet, konsekvens, nærhed til Danmark/danskere, dramatik, væsentlighed, konflikt, overraskelse, offentlig interesse og realistisk delingspotentiale.
+Almindelige nyheder skal bruge ægte dokumentarisk materiale, ikke AI-foto præsenteret som dokumentation. Følg ranked hero-candidate-kontrakten i `docs/chatgpt-publish-bridge.md` og opfind aldrig rettigheder.
 
-**Fallbacken skal altid vælge en historie.** Hvis de aktuelle historier i de store danske medier er svage, vælg stadig den stærkeste af dem. `NO_PUBLISHABLE_CANDIDATE` må ikke bruges, blot fordi alle danske fallback-kandidater vurderes som svage eller middelmådige.
+Søg efter flere lovlige originalkandidater. Før `NO_LEGAL_HERO` kan bruges, skal der være gjort et reelt forsøg på mindst **3 forskellige hero-kandidater/kilder** for sagen. Hvis mindst én lovlig kandidat findes, må artiklen afleveres med den/de kandidater, der findes; Media Worker ejer download, fallback og transient retry. Hvis ingen lovlig kandidat findes efter mindst 3 reelle forsøg, skift til næste kvalificerede historie én gang og gentag hero-søgningen. `NO_LEGAL_HERO` er først legitim derefter.
 
-Hvis den stærkeste danske fallback-kandidat er en 7-dages-dublet uden væsentlig ny udvikling, gå videre til den næststærkeste. Fortsæt så langt som nødvendigt, indtil du har den stærkeste aktuelle kandidat, der ikke afvises af dedupe eller en reel dokumentations-/publication-gate.
+Tasken må ikke bygge sin egen hero-retry/orchestrator og må højst sende de op til seks rangerede kandidater, publish-bridge-kontrakten understøtter.
 
-## Research og artikel
+## Lukkede hard stops
 
-Research i troværdige kilder, helst primærkilder. Skriv skarpt med meget højt delingspotentiale, men aldrig længere end dokumentationen bærer.
+En normal kørsel må kun ende uden artikel af en konkret grund som:
+- `CANONICAL_UNREADABLE`: aktuelle canonical docs kan ikke læses efter ét rimeligt retry,
+- `INSUFFICIENT_DOCUMENTATION`: centrale fakta kan ikke verificeres efter rimelig kildeafprøvning,
+- `DUPLICATE_7D`: alle rimelige kandidater i flowet falder på 7-dages-dedupe uden væsentlig udvikling,
+- `NO_LEGAL_HERO`: hero-budgettet ovenfor er udtømt,
+- `BRIDGE_FAILED`: GitHub publish bridge kan ikke gennemføres uden at bryde transportkontrakten,
+- `BACKEND_REJECTED`: bindende backend-gate afviser leverancen.
 
-Til almindelige nyheder skal hero være ægte dokumentarisk materiale, ikke AI-foto præsenteret som dokumentation. Følg ranked hero-candidate-kontrakten i publish-bridge-dokumentet og opfind aldrig rettigheder.
+Lav nyhedsværdi, manglende Supabase-preflight, manglende primærkilde når seriøs sekundær dokumentation er tilstrækkelig, eller modellens egen generelle usikkerhed er ikke i sig selv hard stops.
 
 ## Aflevering
 
 Supabase er read-only fra Scheduled Task. Aflever kun gennem GitHub publish bridge efter `docs/chatgpt-publish-bridge.md`. Merge ikke transport-PR'en og brug aldrig direkte Supabase-write som fallback.
 
-Backend afviser payloads, der bryder de tekniske publication-invariants. Forsøg aldrig at omgå en gate.
-
-En fejl i en kørsel må aldrig ændre automationens schedule eller enabled-status.
+Backend afviser payloads, der bryder de tekniske publication-invariants. Forsøg aldrig at omgå en gate. En fejl i en kørsel må aldrig ændre automationens schedule eller enabled-status.
 
 ## Minimal run-diagnostik
 
@@ -61,29 +107,37 @@ Returnér kun diagnostik, der er bundet til observerbare handlinger i den aktuel
 
 Medtag mindst:
 - `canonical_rules_loaded`: `true` eller `false`
+- `path_used`: `breaking`, `discovery` eller `danish_fallback`
+- `breaking_scan_hit`: `true` eller `false`
+- `discovery_ranked`: heltal
+- `deep_screens`: heltal
 - `preflight_attempted`: `true` eller `false`
-- `supabase_tool_call_observed`: `true` kun hvis et faktisk Supabase tool-call blev udført i kørslen; ellers `false`
+- `supabase_tool_call_observed`: `true` kun hvis et faktisk Supabase tool-call blev udført; ellers `false`
 - `supabase_tool_result`: `OK`, `ERROR` eller `NO_CALL`
 - `preflight_error_class`: `AUTH`, `NOT_FOUND`, `TIMEOUT`, `POLICY`, `TRANSPORT`, `SERVER`, `UNKNOWN` eller `NONE`
 - `preflight_rows`: heltal når et konkret resultatsæt foreligger, ellers `null`
 - `dedupe_result`: `NEW`, `DUPLICATE`, `BYPASSED` eller `UNKNOWN`
 - `research_started`: `true` eller `false`
+- `selected_headline`: den faktisk valgte rubrik/kandidat eller `null`
+- `hero_candidates_tried`: heltal
 - `github_bridge_started`: `true` eller `false`
+- `bridge_http_or_pr`: PR-nummer når observeret, ellers `NO_CALL`/`ERROR`
+- `backend_reject_code`: konkret kode når observeret, ellers `null`
 
-Hvis der ikke kan peges på et faktisk Supabase tool-call i kørslen, skal `supabase_tool_call_observed=false` og `supabase_tool_result=NO_CALL`. Et modeludsagn om, at Supabase er utilgængelig, er ikke i sig selv et observeret tool-resultat.
+Hvis der ikke kan peges på et faktisk Supabase tool-call, skal `supabase_tool_call_observed=false` og `supabase_tool_result=NO_CALL`. Et modeludsagn om, at Supabase er utilgængelig, er ikke et observeret tool-resultat.
 
-Diagnostikken må ikke skrives til Supabase og må ikke gøre kørslen mere skrøbelig. Den skal indgå i kørselsresultatet, også når kørslen ender i `failed` eller `skipped`.
+Diagnostikken må ikke skrives til Supabase og må ikke gøre kørslen mere skrøbelig. Den skal indgå i kørselsresultatet, også ved `failed` eller `skipped`.
 
 ## Run-resultat
 
 Returnér kompakt status med mindst:
 - `status`: `published_or_queued`, `skipped` eller `failed`
-- `reason`: fx `DUPLICATE_7D`, `NO_LEGAL_HERO` eller konkret fejltype
+- `reason`: brug en konkret kode, fx `QUEUED`, `DUPLICATE_7D`, `INSUFFICIENT_DOCUMENTATION`, `NO_LEGAL_HERO`, `BRIDGE_FAILED`, `BACKEND_REJECTED` eller `CANONICAL_UNREADABLE`
 - `candidates_tried`
-- `source_pool`: `discovery` eller `danish_major_media`
+- `source_pool`: `breaking`, `discovery` eller `danish_major_media`
 - `queue_id` når relevant
 - felterne fra `Minimal run-diagnostik`
 
-`PRECHECK_UNAVAILABLE` må ikke bruges som fatal reason alene. Hvis early preflight ikke kan gennemføres, brug `dedupe_result=BYPASSED` og fortsæt; kun en senere uomgåelig fejl må gøre kørslen `failed`.
+`PRECHECK_UNAVAILABLE` må ikke bruges som fatal reason alene. Hvis early preflight ikke kan gennemføres, brug `dedupe_result=BYPASSED` og fortsæt.
 
-`NO_PUBLISHABLE_CANDIDATE` er ikke en gyldig exit alene på grund af lav nyhedsværdi i fallbacken. Hvis ingen Discovery-kandidat kan bruges, skal automationen skifte til `danish_major_media` og forsøge at publicere den stærkeste aktuelle historie dér.
+`NO_PUBLISHABLE_CANDIDATE` er ikke en gyldig exit alene på grund af lav nyhedsværdi. Hvis Discovery ikke leverer, skal automationen bruge dansk fallback og forsøge den stærkeste dokumenterbare aktuelle historie.
