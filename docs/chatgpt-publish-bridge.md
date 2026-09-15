@@ -26,11 +26,11 @@ Minimum:
 
 `source_metadata` er en top-level JSON-array. `editorial_metadata` er et JSON-object. Eksisterende artikel-, lead-, breaking-, source- og hero-felter er fortsat understøttet.
 
-Hvis `kind` sendes, er de kanoniske værdier `news`, `comment`, `debate` og `magazine`, svarende til databasekontrakten. Viden/Liv-producenter skal bruge `magazine` til magasin/evergreen-artikler. Broen normaliserer bagudkompatibelt de tidligere Viden/Liv-aliaser `article` og `evergreen` til `magazine`, så allerede oprettede transportjobs kan genkøres; andre ukendte værdier afvises allerede i GitHub-valideringen.
+De kanoniske `kind`-værdier er `news`, `comment`, `debate` og `magazine`. For `category_slug: "viden"` og `category_slug: "liv"` er den bindende artikeltype altid `magazine`: manglende/blank `kind` samt legacy-aliaserne `article` og `evergreen` normaliseres til `magazine`; eksplicit `news`, `comment`, `debate` eller andre modstridende værdier afvises med `kind_category_conflict`. Uden for Viden/Liv defaultes manglende `kind` fortsat til `news`.
 
 ## Magazine / evergreen
 
-Nye `kind: "magazine"`-payloads skal altid have en stabil `editorial_metadata.topic_key`. Uden `topic_key` afvises payloaden; topic-dedupe må aldrig falde tilbage til kun rubrik-sammenligning.
+Nye magazine-payloads skal altid have en stabil `editorial_metadata.topic_key`. Uden `topic_key` afvises payloaden; topic-dedupe må aldrig falde tilbage til kun rubrik-sammenligning. Dette gælder også, når Viden/Liv-payloaden kom ind med manglende `kind` eller legacy-alias og derfor blev normaliseret til `magazine`.
 
 Eksempel:
 
@@ -45,6 +45,8 @@ Eksempel:
 ```
 
 `topic_key` beskriver selve evergreen-emnet og skal genbruges for samme væsentlige emne, også hvis rubrikken formuleres anderledes. Database-laget normaliserer nøglen med `normalize_story_key`; producenter bør fortsat sende en kort, stabil ASCII/slug-lignende nøgle. Der er ingen grund til at omskrive ældre lagrede keys kosmetisk.
+
+For `scheduled` og `published` magazine-artikler er `topic_key` en database-invariant. En aktiv magazine-artikel må ikke få key'en nulstillet eller ændret via almindelig UPDATE. En reel redaktionel korrektion skal gå gennem den auditerede server-side correction-RPC med actor og reason. Historiske legacy-rækker omskrives ikke automatisk og publiceres ikke af denne regel.
 
 `editorial_metadata.story_kind` er valgfri og defaultes til `evergreen_explainer`. Tilladte værdier for magazine er:
 
@@ -67,7 +69,7 @@ Magazine-followups skal stadig have `topic_key`. `topic_key` beskriver emnet; fo
 - samme `articles.topic_key` blandt `scheduled`/`published` for magazine
 - en strukturelt gyldig `followup` kan genbruge emnet, men exact-headline-gaten gælder stadig
 
-GitHub-validatoren og Edge Functionen afviser ugyldige magazine-payloads tidligt, men database-RPC'en er den ultimative gate.
+GitHub-validatoren og Edge Functionen afviser ugyldige magazine-payloads tidligt, men database-RPC'en og database-invariants er den ultimative gate.
 
 ## Hero/media-handoff: én rangeret kandidatliste
 
