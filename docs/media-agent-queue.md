@@ -48,10 +48,9 @@ Media Worker skal stadig udføre de samme kontroller som ved andre heros: MIME, 
 ### Fallback-rækkefølge for chatgenererede raster-heros
 
 1. Dropbox-transport.
-2. Direkte binær chat-upload (`POST /manual-upload-file/:job_id`) hvis runtime senere kan nå Worker-endpointet direkte.
-3. `manual_chat_media_upload_jobs` med base64 kun som nød-/kompatibilitetsfallback.
+2. Direkte binær chat-upload (`POST /manual-upload-file/:job_id`) hvis runtime kan nå Worker-endpointet direkte.
 
-Base64/SQL er aldrig normalvejen, fordi den er langsommere, mere skrøbelig og giver unødigt store databasepayloads.
+Den tidligere base64/SQL-uploadvej er udfaset og må ikke bruges til nye jobs. `manual_chat_media_upload_jobs` består fortsat som transport-jobtabel for de aktive Dropbox/direct-binary flows; tabellen er ikke i sig selv et tegn på base64-transport.
 
 Ved retry skal samme genererede fil genbruges. Der må ikke genereres en ny variant blot fordi transporten fejlede; SHA-256 skal gøre forløbet idempotent.
 
