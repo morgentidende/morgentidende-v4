@@ -16,6 +16,16 @@ Denne fil ejer kørselsrækkefølgen for den almindelige Scheduled Task-newsauto
 
 Denne automation må ikke vælge Viden eller Liv; de hører til magazine-flowet.
 
+## Hård runtime-invariant
+
+Hver normal kørsel skal ende i præcis én observerbar terminal GitHub-leverance:
+- en artikelpayload, eller
+- en `payload_type=discovery_audit` audit-only payload med konkret terminal reason.
+
+En Scheduled Task-kørsel må aldrig ende stille efter dispatch. Manglende artikel er tilladt; manglende terminalt GitHub-artefakt er ikke en gyldig normal sluttilstand.
+
+Hold tool-kæden kort. Brug ikke direkte Supabase-read som nødvendig del af historievalg, dubletkontrol eller slut-QA. Kendte Supabase permission-fejl må ikke forbruges gentagne gange i samme run.
+
 ## Historievalg
 
 ### 1. Snæver breaking-override
@@ -64,17 +74,24 @@ Manglende autoritativ dokumentation er en hard gate. Skriv aldrig stærkere end 
 ## Afsluttende QA og 7-dages-regel
 Dubletkontrollen er ikke et selvstændigt pipeline-trin. Den håndhæves kun i journalistens afsluttende QA efter `docs/editorial-core.md`, regel 15 og afsnittet `Journalistens eget slut-QA`.
 
-Til dubletkontrollen skal QA bruge observerbar artikelhistorik fra de seneste 7 dage. Foretræk backendens read-only artikelhistorik. Hvis den ikke kan læses, brug GitHub `[PUBLISH]`-historik og derefter den offentlige avis som fallback. QA må ikke godkende ud fra hukommelse alene.
+Til dubletkontrollen skal QA etablere et observerbart 7-dages-sammenligningsgrundlag uden at gøre Scheduled Task afhængig af direkte Supabase-read.
+
+Brug denne rækkefølge:
+1. GitHub `[PUBLISH]`-historik for de seneste 7 dage, inklusive åbne og nyligt lukkede transport-PR'er.
+2. Offentlig Morgentidende-historik/feed/forside som supplement for faktisk publicerede artikler.
+3. Direkte Supabase-read er ikke en nødvendig fallback og skal ikke bruges som gate i Scheduled Task-runtime.
+
+QA må ikke godkende ud fra hukommelse alene.
 
 Hvis QA finder en næsten-identisk artikel uden væsentlig videreudvikling:
-- kassér udkastet uden publish-queue eller transport-PR,
+- kassér udkastet uden artikel-publish-queue,
 - registrér `duplicate_of`,
 - ekskludér den konkrete sag og dens centrale person/institution resten af dette run,
 - start helt forfra ved `Historievalg` og foretag ny rangering og research.
 
-Genbrug ikke research, rubrik eller vinkel fra den kasserede dublet. Højst 3 komplette genstarter på grund af dubletter pr. run. Hvis tredje genstart også ender som dublet, stop med `DUPLICATE_RETRY_EXHAUSTED`.
+Genbrug ikke research, rubrik eller vinkel fra den kasserede dublet. Højst 3 komplette genstarter på grund af dubletter pr. run. Hvis tredje genstart også ender som dublet, stop med `DUPLICATE_RETRY_EXHAUSTED` og aflever audit-only.
 
-Hvis ingen historikkilde kan etablere et rimeligt 7-dages-sammenligningsgrundlag efter fallback, stop med `QA_HISTORY_UNAVAILABLE` i stedet for at publicere blindt.
+Hvis GitHub-historik og offentlig Morgentidende-historik begge ikke kan etablere et rimeligt 7-dages-sammenligningsgrundlag, publicér ikke blindt. Stop med `QA_HISTORY_UNAVAILABLE` og aflever audit-only gennem GitHub-broen.
 
 En legitim opfølger med væsentlig videreudvikling følger `docs/editorial-core.md` for `story_cluster_id` og struktureret `Læs også`.
 
@@ -82,6 +99,26 @@ En legitim opfølger med væsentlig videreudvikling følger `docs/editorial-core
 Alle kandidater, der faktisk bliver rangordnet eller dybdescreenet, skal efterlade et kompakt audit-spor. Brug ét stabilt `discovery_run_id` pr. run og ét stabilt `candidate_id` pr. kandidat. Registrér når observerbart: source pool/path, rank, deep-screen, discovery source/domain, kandidat-rubrik/emne, downstream-kilder, beslutning/reason, model/prompt-version og relevante kildeklassifikationer.
 
 Når en artikel afleveres, lægges `discovery_run_id` og kandidat-audit i `editorial_metadata`. Hvis runnet stopper legitimt uden artikel, send audit-only gennem samme GitHub-bro. Audit må ikke ændre redaktionelt udfald. `audit_outcome` sættes aldrig automatisk.
+
+### Terminal diagnostik
+Bevar følgende checkpoints i runnets egen kompakte audit/status, når de nås:
+- `task_runtime_entered`
+- `canonical_rules_loaded`
+- `candidate_scan_started`
+- `candidate_selected`
+- `research_started`
+- `research_completed`
+- `final_qa_started`
+- `qa_history_source_attempted`
+- `qa_history_source_failed` ved konkret fejl
+- `qa_history_loaded`
+- `final_qa_passed` eller `final_qa_duplicate_restart`
+- `github_write_attempted`
+- `github_file_written`
+- `github_pr_created`
+- `terminal_article` eller `terminal_audit`
+
+Disse checkpoints er diagnostik, ikke ekstra gates. De må ikke udløse Supabase-write og må ikke forlænge tool-kæden med separate eksterne logkald. De pakkes ind i den normale artikelpayload eller audit-only payload, når muligt.
 
 ## Hero/media
 Almindelige nyheder skal bruge ægte dokumentarisk materiale, ikke AI-foto præsenteret som dokumentation. Følg ranked hero-candidate-kontrakten i `docs/chatgpt-publish-bridge.md`.
@@ -100,22 +137,30 @@ En normal kørsel må kun ende uden artikel af en konkret grund som:
 
 Lav nyhedsværdi, manglende kilde nummer to eller fravær af primærkilde når én autoritativ sekundærkilde bærer historien, er ikke hard stops.
 
-## Aflevering
-Supabase er read-only fra Scheduled Task. Aflever artikel, discovery-audit og eventuelle `source_registry_updates` gennem GitHub publish bridge. Merge ikke transport-PR'en og brug aldrig direkte Supabase-write som fallback. En fejl må aldrig ændre automationens schedule eller enabled-status.
+Alle hard stops bortset fra et fysisk umuligt GitHub-write skal ende i audit-only GitHub-leverance med `terminal_reason`. Hvis GitHub-write selv fejler, retry højst én gang og returnér derefter `BRIDGE_FAILED` med konkret observerbar fejltype. Antag aldrig succes uden et oprettet GitHub-artefakt.
 
-Afsluttende QA skal være gennemført og have `final_qa_duplicate=false`, før GitHub-broen må startes.
+## Aflevering
+Supabase er ikke en nødvendig Scheduled Task-afhængighed i dette flow. Aflever artikel, discovery-audit og eventuelle `source_registry_updates` gennem GitHub publish bridge. Merge ikke transport-PR'en og brug aldrig direkte Supabase-write som fallback. En fejl må aldrig ændre automationens schedule eller enabled-status.
+
+Afsluttende QA skal være gennemført og have `final_qa_duplicate=false`, før en artikelpayload må afleveres. Audit-only må altid afleveres ved legitimt hard stop.
+
+Terminal GitHub-write skal behandles som runnets sidste kritiske handling. Ved artikel: branch → præcis én queue-fil → præcis én `[PUBLISH]`-PR. Ved hard stop: samme transportform med `payload_type=discovery_audit`.
 
 ## Minimal run-diagnostik
 Returnér kun observerbar diagnostik. Medtag mindst:
+- `task_runtime_entered`
 - `canonical_rules_loaded`
 - `path_used`
 - `breaking_scan_hit`
 - `discovery_ranked`
 - `deep_screens`
+- `candidate_selected`
 - `research_started`
 - `selected_headline`
 - `authoritative_sources_found`
 - `source_registry_updates`
+- `final_qa_started`
+- `qa_history_sources_attempted`
 - `final_qa_history_source`
 - `final_qa_history_count`
 - `final_qa_duplicate`
@@ -123,7 +168,10 @@ Returnér kun observerbar diagnostik. Medtag mindst:
 - `duplicate_restart_count`
 - `duplicate_exclusions`
 - `hero_candidates_tried`
-- `github_bridge_started`
+- `github_write_attempted`
+- `github_file_written`
+- `github_pr_created`
+- `terminal_delivery_type`
 - `bridge_http_or_pr`
 - `backend_reject_code`
 
