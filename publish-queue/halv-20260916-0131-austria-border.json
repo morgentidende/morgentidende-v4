@@ -1,0 +1,69 @@
+{
+  "queue_id": "halv-20260916-0131-austria-border",
+  "slug": "oestrig-forlaenger-graensekontrol-seks-maaneder",
+  "headline": "Østrig forlænger grænsekontrol i seks måneder – vil bremse ulovlig migration",
+  "category_slug": "udland",
+  "kind": "news",
+  "excerpt": "Kontrollen ved fire Schengen-grænser fortsætter. Indenrigsministeren siger, at menneskesmuglere og ulovlig migration fortsat skal bremses.",
+  "body_markdown": "Østrig forlænger kontrollen ved grænserne til Tjekkiet, Slovakiet, Ungarn og Slovenien med yderligere seks måneder. Dermed fortsætter kontrollen mellem lande, der normalt er omfattet af Schengens frie bevægelighed.\n\n## SAGEN KORT\n\n- Østrig fortsætter grænsekontrollen mod fire nabolande i yderligere seks måneder.\n- Regeringen begrunder beslutningen med kampen mod ulovlig migration og menneskesmugling.\n\n## Kontrollen fortsætter\n\nDen østrigske regering vil ikke slippe kontrollen ved fire af landets indre Schengen-grænser. Ifølge østrigsk public service og internationale nyhedsbureauer forlænges ordningen med seks måneder.\n\nDen østrigske indenrigsminister Gerhard Karner siger, at kontrollen fortsat er nødvendig for at bekæmpe ulovlig migration og menneskesmugling. Samtidig skal kontrollen i højere grad være fleksibel og foregå i grænseområderne frem for udelukkende ved faste poster.\n\nDet betyder, at politiet kan målrette kontrollen mod mistænkelige køretøjer og ruter, mens pendlere og almindelig trafik i mindre grad skal rammes af køer.\n\n## Schengen med kontrol\n\nBeslutningen er endnu et eksempel på, at den normale grænseløse trafik i Schengen i praksis er blevet suppleret med nationale sikkerhedsforanstaltninger. Flere europæiske lande har de seneste år genindført midlertidig kontrol med henvisning til migration, terrorrisiko eller anden alvorlig sikkerhedstrussel.\n\nØstrig har haft kontrol ved dele af sine indre grænser i flere år. Regeringen fremhæver faldet i ulovlige grænsepassager som et argument for at fortsætte. I Burgenland blev der ifølge ORF kun registreret to ulovlige grænsepassager i den seneste uge.\n\nKarner understreger, at målet er at ramme kriminelle netværk uden at gøre hverdagen unødigt vanskelig for mennesker, der krydser grænsen lovligt.\n\nForlængelsen betyder samtidig, at en ordning, der formelt er midlertidig, fortsætter endnu et halvt år. Dermed bliver spørgsmålet om, hvor meget intern grænsekontrol der kan forenes med Schengens grundidé om fri bevægelighed, ved med at være en konkret europæisk konflikt.",
+  "source_metadata": [
+    {
+      "source_name": "ORF Burgenland",
+      "url": "https://burgenland.orf.at/",
+      "source_type": "authoritative",
+      "note": "Østrigsk public service; rapporterer forlængelsen, fire berørte grænser og Karners begrundelse."
+    },
+    {
+      "source_name": "Anadolu Agency",
+      "url": "https://www.aa.com.tr/",
+      "source_type": "authoritative",
+      "note": "Etableret internationalt nyhedsbureau; bekræfter seks måneders forlængelse og de fire nabolande."
+    }
+  ],
+  "source_registry_updates": [],
+  "editorial_metadata": {
+    "discovery_run_id": "halv-20260916-0131",
+    "discovery_audit": [
+      {
+        "candidate_id": "austria-border-controls-20260915",
+        "source_pool": "discovery",
+        "rank": 1,
+        "candidate_headline": "Østrig forlænger grænsekontrol med fire nabolande",
+        "deep_screened": true,
+        "downstream_sources": ["ORF Burgenland", "Anadolu Agency"],
+        "decision": "selected",
+        "reason": "Frisk, dokumenteret migrations- og Schengen-historie med klart match til aktuel emneprioritering; ingen næsten-identisk [PUBLISH]-historie observeret i 7-dages-grundlaget.",
+        "model_prompt_version": "news-task canonical 2026-09-16"
+      }
+    ],
+    "final_qa_duplicate": false,
+    "hero_candidates": [
+      {
+        "source_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Karner%20Gerhard%2023-05-13%20KG%2008.JPG",
+        "source_provider": "wikimedia_commons",
+        "license_name": "CC BY 3.0 AT",
+        "license_url": "https://creativecommons.org/licenses/by/3.0/at/deed.en",
+        "credit_text": "Karl Gruber / Wikimedia Commons",
+        "rights_notes": "Original 2552x3828. Fri kommerciel genbrug med attribution.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": true,
+        "alt_text": "Østrigs indenrigsminister Gerhard Karner"
+      },
+      {
+        "source_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Karner%20Gerhard%2023-05-13%20KG%2001.JPG",
+        "source_provider": "wikimedia_commons",
+        "license_name": "CC BY 3.0 AT",
+        "license_url": "https://creativecommons.org/licenses/by/3.0/at/deed.en",
+        "credit_text": "Karl Gruber / Wikimedia Commons",
+        "rights_notes": "Original 856x1284. Fri kommerciel genbrug med attribution.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": true,
+        "alt_text": "Gerhard Karner, Østrigs indenrigsminister"
+      }
+    ]
+  }
+}
