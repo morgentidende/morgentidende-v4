@@ -29,9 +29,9 @@ Backendens ingest- og publication-gates er den bindende sidste dedupe-kontrol og
 
 ## Historievalg — Discovery først, danske medier som fallback
 
-Start altid med discovery-listen. Rangér de stærkeste friske kandidater og screen **højst 3 kandidater** i rækkefølge. Ved 7-dages-dublet uden væsentlig ny udvikling, utilstrækkelig dokumentation eller anden reel publication-gate: gå videre til næste Discovery-kandidat.
+Start altid med discovery-listen. Rangér de stærkeste friske kandidater og screen **højst 5 kandidater** i rækkefølge. Ved 7-dages-dublet uden væsentlig ny udvikling, utilstrækkelig dokumentation eller anden reel publication-gate: gå videre til næste Discovery-kandidat.
 
-Hvis ingen af de op til 3 Discovery-kandidater kan bruges, skift til fallback: lav et aktuelt scan af de store danske nyhedsmedier og vælg den **stærkeste historie lige nu**.
+Hvis ingen af de op til 5 Discovery-kandidater kan bruges, skift til fallback: lav et aktuelt scan af de store danske nyhedsmedier og vælg den **stærkeste historie lige nu**.
 
 Scan bredt blandt store danske medier, fx DR, TV 2, Berlingske, Politiken, Jyllands-Posten, B.T., Ekstra Bladet og Ritzau-historier bragt i større danske medier. Brug flere medier når det er nødvendigt for at afgøre, hvad der faktisk er den største/bedste historie lige nu.
 
