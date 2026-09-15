@@ -1,0 +1,83 @@
+{
+  "queue_id": "20260916-0017-kvartover-spain-census",
+  "slug": "spanien-hoejesteret-stopper-stemmer-lov-om-boerneboern",
+  "headline": "Spaniens højesteret suspenderer stemmer fra nye statsborgere – regeringen kalder det »forfalskning«",
+  "category_slug": "udland",
+  "kind": "news",
+  "manchet": "Hundredtusinder har fået spansk statsborgerskab gennem den såkaldte lov om børnebørn. Nu har højesteret midlertidigt stoppet stemmeretten for en del af dem, mens regeringen angriber afgørelsen.",
+  "sagen_kort": [
+    "Spaniens højesteret har midlertidigt suspenderet stemmeretten for nye statsborgere under den såkaldte lov om børnebørn, medmindre forbindelsen til eksil kan dokumenteres.",
+    "Regeringen kalder indgrebet en forfalskning af vælgerregisteret, mens domstolen henviser til risiko for at skade valgets objektivitet og gennemsigtighed."
+  ],
+  "body_markdown": "En strid om mere end 300.000 nye vælgere har udviklet sig til et åbent sammenstød mellem Spaniens regering og landets højesteret. Den centrale valgkommission har nu besluttet at efterkomme en foreløbig kendelse fra Tribunal Supremo, som begrænser stemmeretten for en del af de spaniere, der har fået statsborgerskab gennem den såkaldte lov om børnebørn.\n\nAfgørelsen betyder, at personer, som er optaget i registeret over spanske vælgere bosat i udlandet, foreløbig ikke kan stemme på grundlag af ordningen, medmindre det kan dokumenteres, at de er direkte efterkommere af spaniere, der faktisk gik i eksil. Nye optagelser i vælgerregisteret rammes også af kendelsen.\n\n## Mere end 300.000 nye vælgere\n\nIfølge minister for territorialpolitik Ángel Víctor Torres er 333.696 efterkommere blevet optaget i vælgerregisteret gennem ordningen. Mere end 571.000 ansøgninger om statsborgerskab er godkendt.\n\nSagen udspringer af Spaniens lov om demokratisk erindring. Den gav efterkommere af spaniere, der forlod landet under og efter borgerkrigen og Franco-styret, en ny vej til statsborgerskab. En administrativ instruks fra 2022 gjorde det samtidig muligt i en række tilfælde at formode, at en person havde været i eksil, hvis vedkommende forlod Spanien i en bestemt periode.\n\nDet er denne praksis, der nu er kommet under juridisk pres. Højesteretten har efter anmodninger fra det nationalkonservative Vox og Iustitia Europa truffet en foreløbig afgørelse, mens den egentlige sag behandles.\n\n## Domstolen frygter skade på valget\n\nIfølge den offentliggjorte gengivelse af kendelsen mener højesteretten, at optagelsen af de berørte nye statsborgere i vælgerregisteret indebærer en »begrundet, reel og alvorlig« risiko for at påvirke valgets objektivitet og gennemsigtighed. Domstolen advarer også om mulig uoprettelig skade på valgets korrekte gennemførelse.\n\nDen centrale valgkommission har derfor bedt konsulaterne og valgregistret om dokumentation, så sagerne kan gennemgås individuelt. Det skal blandt andet afklares, om ansøgernes forældre eller bedsteforældre reelt forlod Spanien som følge af politisk, ideologisk eller anden forfølgelse.\n\n## Regeringen går til angreb\n\nDen socialistiske regering reagerer skarpt. Torres beskylder højesteretten for at »forfalske« vælgerregisteret ved at forhindre de nye statsborgere i at stemme.\n\n»Spørgsmålet er: Hvem ved, hvad de vil stemme?« sagde ministeren tirsdag og argumenterede for, at vælgerregisteret netop bliver forvansket, hvis spanske statsborgere nægtes stemmeret.\n\nOgså andre ministre har angrebet afgørelsen. Digitaliseringsminister Óscar López har kaldt den et demokratisk overgreb. Dommerforeningen Asociación Judicial Francisco de Vitoria har omvendt advaret mod regeringens retorik og understreget, at domstolenes uafhængighed er en grundpille i retsstaten.\n\n## Kritikere peger på selve statsborgerskabet\n\nModstandere af kendelsen fremhæver, at de berørte personer fortsat er spanske statsborgere. Anklagemyndigheden argumenterede før afgørelsen for, at den foreløbige suspension gik længere end den oprindelige klage og ramte en administrativ praksis, der har eksisteret siden 2022.\n\nEn organisation for efterkommere af spaniere, Centro de Descendientes Unidos, afviser samtidig mistanken om valgmanipulation. Organisationens talsmand Juan Manuel de Hoz siger, at ingen politiske partier rejste denne indvending, da ordningen blev forhandlet.\n\nDermed står Spanien med et principielt spørgsmål, der rækker ud over den konkrete lov: Om statsborgerskab automatisk skal give adgang til stemmeurnen, eller om staten først kan kræve dokumentation for, at selve grundlaget for statsborgerskabet opfylder lovens betingelser. Det endelige svar kommer først, når højesteretten afgør hovedsagen.",
+  "source_metadata": [
+    {
+      "source_name": "The Objective",
+      "url": "https://theobjective.com/espana/politica/2026-09-15/gobierno-supremo-censo-electoral-nietos/",
+      "domain": "theobjective.com",
+      "source_type": "discovery",
+      "description": "Discovery-kilde med regeringens reaktion, officielle tal og centrale formuleringer fra højesterettens kendelse."
+    },
+    {
+      "source_name": "Diario de Navarra / Colpisa",
+      "url": "https://www.diariodenavarra.es/noticias/actualidad/nacional/2026/09/15/junta-electoral-ejecutara-orden-supremo-suspender-voto-nacionalizados-ley-nietos-835089-28.html",
+      "domain": "diariodenavarra.es",
+      "source_type": "authoritative",
+      "description": "Detaljeret bureauomtale af valgkommissionens gennemførelse af højesterettens foreløbige kendelse og dokumentationskravene."
+    },
+    {
+      "source_name": "Cadena SER",
+      "url": "https://cadenaser.com/nacional/2026/09/15/la-fiscalia-descarta-recurrir-las-cautelares-que-suspenden-el-voto-a-los-espanoles-nacionalizados-con-la-ley-de-nietos-cadena-ser/",
+      "domain": "cadenaser.com",
+      "source_type": "authoritative",
+      "description": "Gengiver anklagemyndighedens juridiske indvendinger og oplysningen om, at den ikke anker den foreløbige afgørelse."
+    }
+  ],
+  "editorial_metadata": {
+    "discovery_run_id": "news-20260916-0017-kvartover",
+    "final_qa_duplicate": false,
+    "discovery_audit": [
+      {
+        "candidate_id": "spain-census-grandchildren-law",
+        "source_pool": "discovery",
+        "path": "discovery",
+        "rank": 1,
+        "candidate_headline": "Spansk regering angriber højesteret efter stop for hundredtusinder af nye vælgere",
+        "deep_screened": true,
+        "downstream_sources": ["diariodenavarra.es", "cadenaser.com"],
+        "decision": "selected",
+        "reason": "Frisk institutionel konflikt om valgret, statsborgerskab og vælgerregister; dokumenteret på tværs af discovery-kilde og etablerede spanske medier.",
+        "model_prompt_version": "canonical-news-task-2026-09-16"
+      }
+    ],
+    "hero_candidates": [
+      {
+        "source_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Madrid_-_Tribunal_Supremo_de_Espa%C3%B1a_08.jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "CC0 1.0",
+        "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "credit_text": "Zarateman / Wikimedia Commons",
+        "rights_notes": "Original 2048×1536; copyright holder dedicated the photograph to the public domain under CC0.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": false,
+        "alt_text": "Spaniens højesteret i Madrid"
+      },
+      {
+        "source_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Madrid_-_Tribunal_Supremo_de_Espa%C3%B1a_3.jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "CC0 1.0",
+        "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "credit_text": "Zarateman / Wikimedia Commons",
+        "rights_notes": "Original 2048×1536; copyright holder dedicated the photograph to the public domain under CC0.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": false,
+        "alt_text": "Facaden på Tribunal Supremo i Madrid"
+      }
+    ]
+  },
+  "source_registry_updates": []
+}
