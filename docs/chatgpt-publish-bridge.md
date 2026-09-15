@@ -28,6 +28,47 @@ Minimum:
 
 Hvis `kind` sendes, er de kanoniske værdier `news`, `comment`, `debate` og `magazine`, svarende til databasekontrakten. Viden/Liv-producenter skal bruge `magazine` til magasin/evergreen-artikler. Broen normaliserer bagudkompatibelt de tidligere Viden/Liv-aliaser `article` og `evergreen` til `magazine`, så allerede oprettede transportjobs kan genkøres; andre ukendte værdier afvises allerede i GitHub-valideringen.
 
+## Magazine / evergreen
+
+Nye `kind: "magazine"`-payloads skal altid have en stabil `editorial_metadata.topic_key`. Uden `topic_key` afvises payloaden; topic-dedupe må aldrig falde tilbage til kun rubrik-sammenligning.
+
+Eksempel:
+
+```json
+{
+  "kind": "magazine",
+  "editorial_metadata": {
+    "topic_key": "gaatur-efter-mad",
+    "story_kind": "evergreen_explainer"
+  }
+}
+```
+
+`topic_key` beskriver selve evergreen-emnet og skal genbruges for samme væsentlige emne, også hvis rubrikken formuleres anderledes. Database-laget normaliserer nøglen med `normalize_story_key`; producenter bør fortsat sende en kort, stabil ASCII/slug-lignende nøgle. Der er ingen grund til at omskrive ældre lagrede keys kosmetisk.
+
+`editorial_metadata.story_kind` er valgfri og defaultes til `evergreen_explainer`. Tilladte værdier for magazine er:
+
+- `evergreen_explainer`
+- `followup`
+- `new_study`
+- `update`
+
+Hvis `story_kind` er `followup`, kræves desuden:
+
+- `editorial_metadata.followup_parent_article_id`
+- `editorial_metadata.followup_reason`, som skal være én af `new_fact`, `official_response`, `arrest`, `new_data`, `court_decision`, `material_update`
+- top-level `story_cluster_id`, som skal være samme cluster som parent-artiklen
+
+Magazine-followups skal stadig have `topic_key`. `topic_key` beskriver emnet; followup-felterne beskriver relationen til den tidligere artikel.
+
+7-dages duplicate-gaten er bindende server-side og kontrollerer:
+
+- exact normaliseret headline blandt `scheduled`/`published`
+- samme `articles.topic_key` blandt `scheduled`/`published` for magazine
+- en strukturelt gyldig `followup` kan genbruge emnet, men exact-headline-gaten gælder stadig
+
+GitHub-validatoren og Edge Functionen afviser ugyldige magazine-payloads tidligt, men database-RPC'en er den ultimative gate.
+
 ## Hero/media-handoff: én rangeret kandidatliste
 
 Producenten ejer discovery og rangering. Media Worker ejer download, MIME/signatur, faktiske pixelmål, rettighedsgate, SHA-256, lokal arkivering, permanent/transient fejlklassifikation, fallback og retry.
