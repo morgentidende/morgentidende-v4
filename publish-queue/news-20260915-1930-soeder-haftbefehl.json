@@ -1,0 +1,163 @@
+{
+  "queue_id": "news-20260915-1930-soeder-haftbefehl",
+  "slug": "soeder-vil-stoppe-grundsikring-til-personer-med-haftbefehl",
+  "headline": "Söder vil stoppe ydelse til personer med arrestordre – hans eget parti stemte imod",
+  "deck": "Tysklands CSU-chef kræver nu et øjeblikkeligt stop. I marts var CDU/CSU med til at afvise samme forslag i Forbundsdagen.",
+  "category_slug": "udland",
+  "kind": "news",
+  "body_markdown": "**SAGEN KORT**\n\n- Bayerns ministerpræsident Markus Söder kræver, at personer, der eftersøges med en arrestordre, ikke længere skal kunne modtage den tyske grundsikring.\n- CDU/CSU stemte i marts imod et AfD-forslag, der ville stoppe ydelser til personer med arrestordre.\n\nBayerns ministerpræsident og CSU-chef Markus Söder kræver nu en regel, som hans egen politiske blok tidligere var med til at stemme ned.\n\n»Den, der eftersøges med arrestordre, må ikke have krav på grundsikring. Det skal ændres med det samme,« skrev Söder søndag på X.\n\nKravet rammer en usædvanlig konflikt mellem politi og socialsystem: En arrestordre medfører ikke i sig selv, at en person mister retten til grundsikring. Det har den tyske regering tidligere bekræftet i et officielt svar til Forbundsdagen.\n\n## Politiet kan lede – mens ydelsen fortsætter\n\nEfter de gældende regler fortsætter de almindelige regler om blandt andet mødepligt og tilgængelighed. Hvis en modtager ikke længere kan træffes af jobcentret, kan ydelsen bortfalde på det grundlag. Men selve arrestordren udløser ikke automatisk et stop.\n\nEt centralt problem er, at politi, domstole og jobcentre normalt ikke automatisk udveksler oplysninger om arrestordrer. Derfor kan et jobcenter i praksis udbetale penge til en person, som andre myndigheder leder efter.\n\nI et forslag fra det indvandringskritiske parti AfD blev problemet beskrevet direkte. Partiet ville gøre en åben arrestordre til grundlag for at standse blandt andet grundsikring og andre offentlige forsørgelsesydelser.\n\nForslaget henviste til 148.515 personer med ikke-fuldbyrdede arrestordrer i politiets system pr. 1. april 2025. Tallet siger ikke, hvor mange af dem der faktisk modtog sociale ydelser.\n\n## CDU/CSU stemte selv nej\n\nDet politisk opsigtsvækkende er tidspunktet for Söders kovending.\n\nDa AfD's forslag senere kom til afstemning i Forbundsdagen, blev det forkastet. CDU/CSU var blandt de partier, der stemte imod. Nu argumenterer CSU-chefen altså selv for hovedprincippet i det forslag, hans egen gruppe var med til at afvise.\n\nSöders udmelding kommer efter AfD's store valgresultat i Sachsen-Anhalt og en voksende debat i Unionen om strategien over for partiet. Söder har samtidig erklæret den hidtidige model, hvor AfD's forslag ofte afvises uden indholdsmæssigt samarbejde, for slået fejl.\n\nDet ændrer ikke automatisk loven. Söders krav er foreløbig et politisk krav, og der skal fortsat findes en konkret juridisk og administrativ model, hvis en arrestordre fremover i sig selv skal stoppe udbetalingen.\n\nMen kontrasten står tilbage: For få måneder siden stemte CDU/CSU imod forslaget. Nu siger CSU's formand, at netop den ændring skal ske »med det samme«.",
+  "source_metadata": [
+    {
+      "publisher": "Deutscher Bundestag",
+      "url": "https://www.bundestag.de/presse/hib/kurzmeldungen-1042908",
+      "source_type": "primary_official",
+      "title": "Bürgergeld: Kein Leistungsausschluss wegen Haftbefehl"
+    },
+    {
+      "publisher": "Deutscher Bundestag",
+      "url": "https://www.bundestag.de/dokumente/textarchiv/kw03-de-grundsicherung-1134298",
+      "source_type": "primary_official",
+      "title": "Kontroverse über Umgestaltung des Bürgergelds zu neuer Grundsicherung"
+    },
+    {
+      "publisher": "WELT",
+      "url": "https://www.welt.de/politik/deutschland/article6aa7a7e0240b302c8a843f63/union-vs-afd-soeder-erklaert-brandmauer-fuer-gescheitert-und-bringt-einen-schutzwall-ins-spiel.html",
+      "source_type": "authoritative",
+      "title": "Söder erklärt Brandmauer für gescheitert – und bringt einen Schutzwall ins Spiel"
+    }
+  ],
+  "editorial_metadata": {
+    "discovery_run_id": "news-20260915-1930",
+    "prompt_version": "docs/automations/news-task.md@2bf8f48c35896404e39430a4f2c376d92e298a6c",
+    "story_kind": "news",
+    "discovery_audit": [
+      {
+        "candidate_id": "candidate-1",
+        "source_pool": "discovery",
+        "path_used": "discovery",
+        "rank_position": 1,
+        "deep_screened": true,
+        "discovery_source_name": "NIUS",
+        "discovery_source_url": "https://nius.de/politik/soeder-buergergeld-fuer-gesuchte-verbrecher",
+        "discovery_domain": "nius.de",
+        "candidate_headline": "Söder will Bürgergeld für gesuchte Verbrecher stoppen",
+        "candidate_topic": "German welfare payments to people sought on arrest warrants",
+        "decision": "selected",
+        "decision_reason": "Fresh political reversal verified by Bundestag and WELT; authoritative documentation supports central claims",
+        "downstream_sources": ["bundestag.de", "welt.de"],
+        "semantic_assessment": {"dedupe_preflight": "BYPASSED", "reason": "Supabase read permission denied"},
+        "model_name": "GPT-5.6 Sol",
+        "prompt_version": "canonical-news-task"
+      },
+      {
+        "candidate_id": "candidate-2",
+        "source_pool": "discovery",
+        "path_used": "discovery",
+        "rank_position": 2,
+        "deep_screened": false,
+        "discovery_source_name": "NIUS",
+        "discovery_source_url": "https://nius.de/politik/news/nrw-abschiebehaftanstalt-moenchengladbach/7812a61a-6400-46ef-81ff-424f4c5713fe",
+        "discovery_domain": "nius.de",
+        "candidate_headline": "NRW: Neue Abschiebehaftanstalt für 313 Millionen Euro",
+        "candidate_topic": "New deportation detention centre in North Rhine-Westphalia",
+        "decision": "ranked_not_screened",
+        "decision_reason": "Lower rank than selected candidate",
+        "downstream_sources": [],
+        "model_name": "GPT-5.6 Sol",
+        "prompt_version": "canonical-news-task"
+      },
+      {
+        "candidate_id": "candidate-3",
+        "source_pool": "discovery",
+        "path_used": "discovery",
+        "rank_position": 3,
+        "deep_screened": false,
+        "discovery_source_name": "NIUS",
+        "discovery_source_url": "https://nius.de/politik/nius-live/clara-von-nathusius-friedrich-merz-cdu",
+        "discovery_domain": "nius.de",
+        "candidate_headline": "Reichelt über Clara von Nathusius: Sie hat die Kanzlerschaft von Friedrich Merz beerdigt",
+        "candidate_topic": "Internal CDU criticism of Chancellor Merz",
+        "decision": "ranked_not_screened",
+        "decision_reason": "Lower rank than selected candidate",
+        "downstream_sources": [],
+        "model_name": "GPT-5.6 Sol",
+        "prompt_version": "canonical-news-task"
+      },
+      {
+        "candidate_id": "candidate-4",
+        "source_pool": "discovery",
+        "path_used": "discovery",
+        "rank_position": 4,
+        "deep_screened": false,
+        "discovery_source_name": "eXXpress",
+        "discovery_source_url": "https://exxpress.at/economy/digitaler-eltern-kind-pass-wird-zum-naechsten-pannenprojekt/",
+        "discovery_domain": "exxpress.at",
+        "candidate_headline": "Digitaler Eltern-Kind-Pass wird zum nächsten Pannenprojekt",
+        "candidate_topic": "Delay to Austrian digital parent-child pass",
+        "decision": "ranked_not_screened",
+        "decision_reason": "Lower rank than selected candidate",
+        "downstream_sources": [],
+        "model_name": "GPT-5.6 Sol",
+        "prompt_version": "canonical-news-task"
+      },
+      {
+        "candidate_id": "candidate-5",
+        "source_pool": "discovery",
+        "path_used": "discovery",
+        "rank_position": 5,
+        "deep_screened": false,
+        "discovery_source_name": "NIUS",
+        "discovery_source_url": "https://nius.de/kriminalitaet/bluttat-im-landkreis-offenbach-passanten-finden-angeschossenen-60-jaehrigen-auf-der-strasse",
+        "discovery_domain": "nius.de",
+        "candidate_headline": "Bluttat im Landkreis Offenbach: Passanten finden angeschossenen 60-Jährigen auf der Straße",
+        "candidate_topic": "Fatal shooting in Dietzenbach",
+        "decision": "ranked_not_screened",
+        "decision_reason": "Lower rank than selected candidate",
+        "downstream_sources": [],
+        "model_name": "GPT-5.6 Sol",
+        "prompt_version": "canonical-news-task"
+      }
+    ],
+    "hero_candidates": [
+      {
+        "source_url": "https://upload.wikimedia.org/wikipedia/commons/2/29/2026-02-04_Markus_Soeder_2272.jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "CC BY-SA 3.0 DE",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0/de/",
+        "credit_text": "Michael Lucan / Wikimedia Commons",
+        "rights_notes": "Own work; Commons file page documents CC BY-SA 3.0 DE; original 1420x947.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": true,
+        "alt_text": "Bayerns ministerpræsident Markus Söder taler ved et arrangement i München."
+      },
+      {
+        "source_url": "https://upload.wikimedia.org/wikipedia/commons/6/66/2026-03-20_Besuch_von_Dr._Markus_S%C3%B6der_vor_der_Oberb%C3%BCrgermeisterstichwahl_in_Hof_%28Saale%29_HOF0203_RAW-Export.png",
+        "source_provider": "wikimedia_commons",
+        "license_name": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "credit_text": "PantheraLeo1359531 / Wikimedia Commons",
+        "rights_notes": "Own work; Commons documents CC BY-SA 4.0; original 9504x6336.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": true,
+        "alt_text": "Markus Söder under et besøg i Hof i Bayern i marts 2026."
+      },
+      {
+        "source_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/2026-02-04%20Markus%20Soeder%202331.jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "CC BY-SA 3.0 DE",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0/de/",
+        "credit_text": "Michael Lucan / Wikimedia Commons",
+        "rights_notes": "Own work; Commons documents CC BY-SA 3.0 DE; separate Söder photograph from 4 February 2026.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": true,
+        "alt_text": "Markus Söder fotograferet i München i februar 2026."
+      }
+    ]
+  }
+}
