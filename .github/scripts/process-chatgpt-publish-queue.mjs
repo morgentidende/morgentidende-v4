@@ -7,6 +7,8 @@ const validateOnly = process.env.VALIDATE_ONLY === '1';
 const oidcRequestUrl = process.env.ACTIONS_ID_TOKEN_REQUEST_URL;
 const oidcRequestToken = process.env.ACTIONS_ID_TOKEN_REQUEST_TOKEN;
 const audience = 'morgentidende-publish-bridge';
+const allowedMagazineStoryKinds = new Set(['evergreen_explainer', 'followup', 'new_study', 'update']);
+const allowedFollowupReasons = new Set(['new_fact', 'official_response', 'arrest', 'new_data', 'court_decision', 'material_update']);
 
 function fail(message) {
   console.error(`publish_bridge_error:${message}`);
@@ -48,6 +50,24 @@ try {
 
 payload.source_metadata ??= [];
 payload.editorial_metadata ??= {};
+
+if (payload.kind === 'magazine') {
+  const topicKey = String(payload.editorial_metadata.topic_key ?? '').trim();
+  if (!topicKey) fail('magazine_topic_key_required');
+
+  const storyKind = String(payload.editorial_metadata.story_kind ?? 'evergreen_explainer').trim();
+  if (!allowedMagazineStoryKinds.has(storyKind)) fail('magazine_story_kind_invalid');
+  payload.editorial_metadata.story_kind = storyKind;
+
+  if (storyKind === 'followup') {
+    const parentId = String(payload.editorial_metadata.followup_parent_article_id ?? '').trim();
+    const reason = String(payload.editorial_metadata.followup_reason ?? '').trim();
+    if (!parentId) fail('followup_requires_parent');
+    if (!allowedFollowupReasons.has(reason)) fail('followup_requires_reason');
+    if (typeof payload.story_cluster_id !== 'string' || !payload.story_cluster_id.trim()) fail('followup_requires_cluster');
+  }
+}
+
 payload.editorial_metadata = {
   ...payload.editorial_metadata,
   github_transport_file: file,
