@@ -174,14 +174,16 @@ const processJob = async (env: Env, job: QueueJob) => {
       asset_id: asset?.id || null,
       result,
       last_error: null,
+      next_attempt_at: null,
     });
     return;
   }
 
-  const terminal = job.attempts >= 3;
+  const transient = isTransientIngestFailure(response, result as ErrorBody);
+  const terminal = !transient || job.attempts >= 3;
   await patchJob(env, job.id, {
     status: terminal ? 'failed' : 'pending',
-    next_attempt_at: retryAt(job.attempts),
+    next_attempt_at: terminal ? null : retryAt(job.attempts),
     last_error: `ingest_${response.status}:${JSON.stringify(result).slice(0, 500)}`,
     result,
   });
@@ -197,7 +199,7 @@ const processQueue = async (env: Env) => {
       const terminal = job.attempts >= 3;
       await patchJob(env, job.id, {
         status: terminal ? 'failed' : 'pending',
-        next_attempt_at: retryAt(job.attempts),
+        next_attempt_at: terminal ? null : retryAt(job.attempts),
         last_error: message.slice(0, 500),
       });
       console.error('media_queue_job_error', { job_id: job.id, error: message });
