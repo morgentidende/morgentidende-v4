@@ -9,6 +9,7 @@ const ISSUER = "https://token.actions.githubusercontent.com";
 const ALLOWED_MAGAZINE_STORY_KINDS = new Set(["evergreen_explainer", "followup", "new_study", "update"]);
 const ALLOWED_FOLLOWUP_REASONS = new Set(["new_fact", "official_response", "arrest", "new_data", "court_decision", "material_update"]);
 const ALLOWED_KINDS = new Set(["news", "comment", "debate", "magazine"]);
+const ALLOWED_PAYLOAD_TYPES = new Set(["article", "discovery_audit"]);
 
 type Json = Record<string, unknown>;
 
@@ -62,11 +63,27 @@ function normalizeKind(kind: unknown, categorySlug: unknown): string {
   return raw;
 }
 
-function validatePayload(payload: Json) {
-  for (const key of ["queue_id", "slug", "headline", "category_slug", "body_markdown"]) {
+function validatePayload(payload: Json): "article" | "discovery_audit" {
+  const payloadType = String(payload.payload_type ?? "article").trim().toLowerCase();
+  if (!ALLOWED_PAYLOAD_TYPES.has(payloadType)) throw new Error("invalid_payload_type");
+  payload.payload_type = payloadType;
+
+  if (typeof payload.queue_id !== "string" || !(payload.queue_id as string).trim()) throw new Error("missing_queue_id");
+  if (!/^[A-Za-z0-9._-]{1,160}$/.test(payload.queue_id as string)) throw new Error("invalid_queue_id");
+
+  if (payloadType === "discovery_audit") {
+    if (payload.run_id != null && (typeof payload.run_id !== "string" || !(payload.run_id as string).trim())) throw new Error("invalid_run_id");
+    if (!Array.isArray(payload.discovery_audit)) throw new Error("discovery_audit_candidates_must_be_array");
+    if ((payload.discovery_audit as unknown[]).length > 50) throw new Error("discovery_audit_too_many_candidates");
+    for (const item of payload.discovery_audit as unknown[]) {
+      if (!item || typeof item !== "object" || Array.isArray(item)) throw new Error("discovery_audit_candidate_must_be_object");
+    }
+    return "discovery_audit";
+  }
+
+  for (const key of ["slug", "headline", "category_slug", "body_markdown"]) {
     if (typeof payload[key] !== "string" || !(payload[key] as string).trim()) throw new Error(`missing_${key}`);
   }
-  if (!/^[A-Za-z0-9._-]{1,160}$/.test(payload.queue_id as string)) throw new Error("invalid_queue_id");
   if (!/^[a-z0-9][a-z0-9-]{1,179}$/.test(payload.slug as string)) throw new Error("invalid_slug");
   if (!Array.isArray(payload.source_metadata ?? [])) throw new Error("invalid_source_metadata");
   if (payload.editorial_metadata != null && (typeof payload.editorial_metadata !== "object" || Array.isArray(payload.editorial_metadata))) {
@@ -75,9 +92,13 @@ function validatePayload(payload: Json) {
 
   const normalizedKind = normalizeKind(payload.kind, payload.category_slug);
   payload.kind = normalizedKind;
+  const metadata = (payload.editorial_metadata ?? {}) as Json;
+  if (metadata.discovery_audit != null) {
+    if (!Array.isArray(metadata.discovery_audit)) throw new Error("discovery_audit_candidates_must_be_array");
+    if ((metadata.discovery_audit as unknown[]).length > 50) throw new Error("discovery_audit_too_many_candidates");
+  }
 
   if (normalizedKind === "magazine") {
-    const metadata = (payload.editorial_metadata ?? {}) as Json;
     const topicKey = String(metadata.topic_key ?? "").trim();
     if (!topicKey) throw new Error("magazine_topic_key_required");
     const storyKind = String(metadata.story_kind ?? "evergreen_explainer").trim();
@@ -91,13 +112,14 @@ function validatePayload(payload: Json) {
       if (!String(payload.story_cluster_id ?? "").trim()) throw new Error("followup_requires_cluster");
     }
   }
+  return "article";
 }
 
-async function ingest(payload: Json) {
-  const response = await fetch(`${PROJECT_URL}/rest/v1/rpc/ingest_github_publish_payload`, {
+async function callRpc(name: string, args: Json) {
+  const response = await fetch(`${PROJECT_URL}/rest/v1/rpc/${name}`, {
     method: "POST",
     headers: { apikey: SERVICE_ROLE_KEY, authorization: `Bearer ${SERVICE_ROLE_KEY}`, "content-type": "application/json" },
-    body: JSON.stringify({ p_payload: payload }),
+    body: JSON.stringify(args),
   });
   const text = await response.text();
   let parsed: unknown = text;
@@ -115,8 +137,12 @@ Deno.serve(async (req: Request) => {
     if (!auth.startsWith("Bearer ")) return json({ error: "missing_oidc" }, 401);
     const claims = await verifyGithubOidc(auth.slice(7));
     const payload = await req.json() as Json;
-    validatePayload(payload);
-    const articleId = await ingest(payload);
+    const payloadType = validatePayload(payload);
+    if (payloadType === "discovery_audit") {
+      const count = await callRpc("ingest_github_discovery_audit_payload", { p_payload: payload });
+      return json({ ok: true, audit_count: count, run_id: claims.run_id ?? null });
+    }
+    const articleId = await callRpc("ingest_github_publish_payload", { p_payload: payload });
     return json({ ok: true, article_id: articleId, run_id: claims.run_id ?? null });
   } catch (error) {
     const message = error instanceof Error ? error.message : "unknown_error";
