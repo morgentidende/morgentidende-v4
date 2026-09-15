@@ -41,20 +41,31 @@
   width: 100%;
 }
 
-/* Generic labels are the default. Election labels are restored automatically when election rows exist. */
+/* The top header should not repeat update timestamps. The single current timestamp belongs at the bottom of the right panel. */
+.livecenter__meta {
+  display: none !important;
+}
+
+/* Generic labels are the default. Election labels are restored automatically when election rows exist.
+   !important is intentional here because the component's scoped typography otherwise leaves the old text visible. */
 .livecenter__feed .livecenter__section-head h2,
 .livecenter__section-kicker--results {
-  font-size: 0;
+  font-size: 0 !important;
+  line-height: 0 !important;
 }
 
 .livecenter__feed .livecenter__section-head h2::after {
   content: 'Seneste udvikling';
+  display: block;
   font-size: clamp(24px, 2vw, 31px);
+  line-height: 1;
 }
 
 .livecenter__section-kicker--results::after {
   content: 'STATUS';
+  display: block;
   font-size: 10px;
+  line-height: 1.2;
 }
 
 .livecenter:has(.livecenter__party-table) .livecenter__feed .livecenter__section-head h2::after,
@@ -65,6 +76,17 @@
 .livecenter:has(.livecenter__party-table) .livecenter__section-kicker--results::after,
 .livecenter:has(.livecenter__blocks) .livecenter__section-kicker--results::after {
   content: 'RESULTAT';
+}
+
+/* The right panel has one divider only: the line above source/update information. */
+.livecenter__result-status {
+  border-bottom: 0 !important;
+}
+
+.livecenter__source {
+  margin-top: auto !important;
+  padding-top: 10px !important;
+  border-top: 1px solid var(--v4-rule) !important;
 }
 
 /* When an update is expanded, keep the hide control visually after the full text. */
