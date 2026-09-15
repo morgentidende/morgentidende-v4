@@ -16,6 +16,14 @@ async function restFetch(path: string, init: RequestInit = {}): Promise<Response
   return response;
 }
 
+async function rpc(name: string, body: Record<string, unknown>): Promise<any> {
+  const response = await restFetch(`rpc/${name}`, { method: "POST", body: JSON.stringify(body) });
+  if (!response.ok) throw new Error(`RPC ${name}: ${response.status} ${await response.text()}`);
+  const text = await response.text();
+  if (!text) return null;
+  try { return JSON.parse(text); } catch { return text; }
+}
+
 function normalizeEscapedMarkdown(markdown: string): string {
   let value = String(markdown ?? "");
   const hasRealNewlines = /\r?\n/.test(value);
@@ -74,11 +82,6 @@ function sourceQualityWarnings(sourceQuality: any): string[] {
   return [];
 }
 
-async function patch(path: string, body: unknown) {
-  const r = await restFetch(path, { method: "PATCH", headers: { Prefer: "return=minimal" }, body: JSON.stringify(body) });
-  if (!r.ok) throw new Error(`PATCH ${path}: ${r.status} ${await r.text()}`);
-}
-
 async function heroLoads(url: string | null): Promise<boolean> {
   if (!url) return false;
   try {
@@ -103,69 +106,131 @@ async function duplicateHeroOnFrontpage(article: any): Promise<boolean> {
   });
 }
 
+function firstRow(value: any): any {
+  return Array.isArray(value) ? (value[0] ?? null) : value;
+}
+
+async function finishJob(job: any, expectedHash: string | null, status: string, started: number, warnings: string[], fixes: string[]) {
+  return rpc("finish_article_qa_run", {
+    p_job_id: job.id,
+    p_claim_token: job.claim_token,
+    p_expected_hash: expectedHash,
+    p_status: status,
+    p_duration_ms: Date.now() - started,
+    p_warnings: warnings,
+    p_fixes_applied: fixes,
+    p_engine: "deterministic-v2",
+  });
+}
+
 Deno.serve(async () => {
-  const jobsResp = await restFetch("article_qa_runs?status=eq.pending&select=id,article_id,created_at,content_hash,source_quality&order=created_at.asc&limit=20");
-  if (!jobsResp.ok) return new Response(await jobsResp.text(), { status: 500 });
-  const jobs = await jobsResp.json();
   const results: any[] = [];
+
+  try {
+    await rpc("reclaim_stale_article_qa_jobs", { p_timeout: "10 minutes" });
+  } catch (error) {
+    return new Response(`qa_reclaim_failed:${String((error as any)?.message ?? error)}`, { status: 500 });
+  }
+
+  let jobs: any[] = [];
+  try {
+    const claimed = await rpc("claim_article_qa_jobs", { p_limit: 20 });
+    jobs = Array.isArray(claimed) ? claimed : [];
+  } catch (error) {
+    return new Response(`qa_claim_failed:${String((error as any)?.message ?? error)}`, { status: 500 });
+  }
 
   for (const job of jobs) {
     const started = Date.now();
+    let expectedHash: string | null = job.content_hash ?? null;
+    const fixes: string[] = [];
+
     try {
-      await patch(`article_qa_runs?id=eq.${job.id}&status=eq.pending`, { status: "running", started_at: new Date(started).toISOString(), engine: "deterministic-v2", updated_at: new Date().toISOString() });
+      if (!job.claim_token || !expectedHash) {
+        await finishJob(job, expectedHash, "superseded", started, ["unverifiable_legacy_qa_run"], fixes).catch(() => null);
+        results.push({ id: job.id, status: "superseded", reason: "unverifiable_legacy_qa_run" });
+        continue;
+      }
+
+      const matches = await rpc("article_qa_claim_matches_live", {
+        p_job_id: job.id,
+        p_claim_token: job.claim_token,
+        p_expected_hash: expectedHash,
+      });
+      if (matches !== true) {
+        await finishJob(job, expectedHash, "superseded", started, ["stale_before_processing"], fixes).catch(() => null);
+        results.push({ id: job.id, status: "superseded", reason: "stale_before_processing" });
+        continue;
+      }
+
       const aResp = await restFetch(`articles?id=eq.${job.article_id}&select=id,headline,deck,body_markdown,hero_url,hero_media_id,source_metadata&limit=1`);
       if (!aResp.ok) throw new Error(`article fetch ${aResp.status}`);
       const [article] = await aResp.json();
-      if (!article) throw new Error("article_not_found");
+      if (!article) {
+        await finishJob(job, expectedHash, "failed", started, ["article_not_found"], fixes).catch(() => null);
+        results.push({ id: job.id, status: "failed", reason: "article_not_found" });
+        continue;
+      }
 
-      const fixes: string[] = [];
       const originalBody = String(article.body_markdown ?? "");
-      const normalizedBody = normalizeEscapedMarkdown(originalBody);
-      if (normalizedBody !== originalBody) {
-        await patch(`articles?id=eq.${article.id}`, { body_markdown: normalizedBody, editorial_updated_at: new Date().toISOString() });
-        article.body_markdown = normalizedBody;
-        fixes.push("escaped_markdown_whitespace_normalized");
+      let proposedBody = normalizeEscapedMarkdown(originalBody);
+      if (proposedBody !== originalBody) fixes.push("escaped_markdown_whitespace_normalized");
+
+      const withoutManualSources = stripTrailingManualSources(proposedBody, article.source_metadata);
+      if (withoutManualSources !== proposedBody) fixes.push("manual_source_section_removed");
+      proposedBody = withoutManualSources;
+
+      // Preserve the existing warning semantics: inspect links before stripping them.
+      const warningArticle = { ...article, body_markdown: proposedBody };
+      const warnings = [...deterministicWarnings(warningArticle), ...sourceQualityWarnings(job.source_quality)];
+
+      const strippedBody = stripOrdinaryBodyLinks(proposedBody);
+      if (strippedBody !== proposedBody) fixes.push("ordinary_body_hyperlinks_removed");
+      proposedBody = strippedBody;
+
+      if (proposedBody !== originalBody) {
+        const appliedResult = firstRow(await rpc("apply_article_qa_body_fix", {
+          p_job_id: job.id,
+          p_claim_token: job.claim_token,
+          p_expected_hash: expectedHash,
+          p_body_markdown: proposedBody,
+        }));
+
+        if (!appliedResult?.applied || !appliedResult?.new_hash) {
+          await finishJob(job, expectedHash, "superseded", started, [String(appliedResult?.reason ?? "qa_fix_claim_lost")], fixes).catch(() => null);
+          results.push({ id: job.id, status: "superseded", reason: appliedResult?.reason ?? "qa_fix_claim_lost" });
+          continue;
+        }
+
+        expectedHash = String(appliedResult.new_hash);
+        article.body_markdown = proposedBody;
       }
 
-      const withoutManualSources = stripTrailingManualSources(article.body_markdown ?? "", article.source_metadata);
-      if (withoutManualSources !== (article.body_markdown ?? "")) {
-        await patch(`articles?id=eq.${article.id}`, { body_markdown: withoutManualSources, editorial_updated_at: new Date().toISOString() });
-        article.body_markdown = withoutManualSources;
-        fixes.push("manual_source_section_removed");
-      }
-
-      const warnings = [...deterministicWarnings(article), ...sourceQualityWarnings(job.source_quality)];
-      const strippedBody = stripOrdinaryBodyLinks(article.body_markdown ?? "");
-      if (strippedBody !== (article.body_markdown ?? "")) {
-        await patch(`articles?id=eq.${article.id}`, { body_markdown: strippedBody, editorial_updated_at: new Date().toISOString() });
-        article.body_markdown = strippedBody;
-        fixes.push("ordinary_body_hyperlinks_removed");
-      }
-
-      if (article.hero_url && !(await heroLoads(article.hero_url))) {
-        warnings.push("broken_hero_url");
-      }
-
+      if (article.hero_url && !(await heroLoads(article.hero_url))) warnings.push("broken_hero_url");
       if (await duplicateHeroOnFrontpage(article)) warnings.push("duplicate_frontpage_hero");
 
-      const finished = Date.now();
       const finalWarnings = Array.from(new Set(warnings));
       const finalStatus = finalWarnings.length ? "warnings" : "passed";
-      await patch(`article_qa_runs?id=eq.${job.id}`, {
-        status: finalStatus,
-        finished_at: new Date(finished).toISOString(),
-        duration_ms: finished - started,
-        fixes_applied: fixes,
-        warnings: finalWarnings,
+      const finishedRow = firstRow(await finishJob(job, expectedHash, finalStatus, started, finalWarnings, fixes));
+
+      if (!finishedRow) {
+        results.push({ id: job.id, status: "ownership_lost", content_hash: expectedHash });
+        continue;
+      }
+
+      results.push({
+        id: job.id,
+        status: finishedRow.status ?? finalStatus,
+        duration_ms: Date.now() - started,
         engine: "deterministic-v2",
-        updated_at: new Date().toISOString()
+        content_hash: expectedHash,
       });
-      results.push({ id: job.id, status: finalStatus, duration_ms: finished - started, engine: "deterministic-v2", content_hash: job.content_hash });
     } catch (e) {
-      const finished = Date.now();
-      await patch(`article_qa_runs?id=eq.${job.id}`, { status: "failed", finished_at: new Date(finished).toISOString(), duration_ms: finished - started, warnings: [String((e as any)?.message ?? e)], updated_at: new Date().toISOString() }).catch(() => {});
-      results.push({ id: job.id, status: "failed", duration_ms: finished - started, content_hash: job.content_hash });
+      const message = String((e as any)?.message ?? e);
+      await finishJob(job, expectedHash, "failed", started, [message], fixes).catch(() => null);
+      results.push({ id: job.id, status: "failed", duration_ms: Date.now() - started, content_hash: expectedHash, error: message });
     }
   }
+
   return Response.json({ processed: results.length, results });
 });
