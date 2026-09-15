@@ -1,0 +1,25 @@
+{
+  "queue_id": "halv-20260916-0027-italy-spain",
+  "slug": "italien-spanien-forlaenger-graensekontrol-terrorfrygt",
+  "headline": "Terrorfrygt efter Ceuta: Italien og Spanien forlænger grænsekontrol mod hinanden",
+  "manchet": "Italien advarer om mulig terrorinfiltration efter migrantkrisen i Ceuta. Spanien svarer igen med egne kontroller frem til oktober.",
+  "category_slug": "udland",
+  "kind": "news",
+  "body_markdown": "Italien og Spanien forlænger nu de ekstra grænsekontroller mod hinanden efter den massive migrantkrise i den spanske enklave Ceuta.\n\nDen italienske regering har besluttet at fortsætte kontrollen af rejsende fra Spanien i yderligere 15 dage. Ifølge det italienske indenrigsministerium skyldes beslutningen fortsat høje risici for den indre sikkerhed og en mulig fare for terrorinfiltration.\n\n## Italien fastholder kontrollen\n\nBeslutningen blev truffet efter et møde i Italiens udvalg for analyse af immigration og grænsesikkerhed. Den italienske indenrigsminister Matteo Piantedosi har meddelt forlængelsen til EU-Kommissionen og de øvrige EU-lande.\n\nKontrollen blev oprindeligt indført 1. august efter den voldsomme tilstrømning til Ceuta i slutningen af juli. Dermed er den normale frie bevægelighed mellem de to Schengen-lande fortsat delvist sat ud af kraft.\n\nDen italienske regering har tidligere begrundet indgrebet med hensynet til national sikkerhed. Ved udgangen af august havde Italien ifølge EFE kontrolleret mere end 180.000 rejsende fra Spanien.\n\n## Spanien svarer igen\n\nDen spanske regering har reageret ved selv at forlænge kontrollen af rejsende fra Italien i yderligere 15 dage. Spaniens indenrigsministerium oplyser, at kontrollen ved direkte fly- og skibsforbindelser fortsætter frem til 8. oktober.\n\nDen spanske regering kalder den italienske beslutning unødvendig. Udenrigsminister José Manuel Albares har offentligt betegnet den som både »nyttesløs« og »en skam«.\n\nItalien fastholder omvendt, at sikkerhedsvurderingen stadig gør kontrollen nødvendig. Dermed har migrantkrisen i Ceuta udviklet sig til en usædvanlig strid mellem to EU-lande, hvor begge regeringer nu kontrollerer hinandens rejsende inden for Schengen-området.\n\nKontrollerne er ikke et generelt indrejseforbud. De betyder, at myndighederne igen kan kontrollere identitet og rejsedokumenter på forbindelser mellem landene, selv om den type kontrol normalt er fjernet ved de indre Schengen-grænser.",
+  "source_metadata": [
+    {"url":"https://www.interno.gov.it/it/comunicati-stampa","name":"Italiens indenrigsministerium","type":"authoritative"},
+    {"url":"https://elpais.com/espana/2026-09-15/italia-mantiene-su-pulso-contra-espana-y-prorroga-15-dias-los-controles-en-puertos-y-aeropuertos-a-viajeros-espanoles.html","name":"El País","type":"authoritative"},
+    {"url":"https://www.notimerica.com/politica/noticia-italia-espana-prorroga-15-dias-controles-fronterizos-italia-respuesta-medida-ejecutivo-meloni-20260915155804.html","name":"Europa Press","type":"authoritative"}
+  ],
+  "editorial_metadata": {
+    "final_qa_duplicate": false,
+    "discovery_run_id": "halv-20260916-0027",
+    "discovery_audit": [
+      {"candidate_id":"spain-census","source_pool":"discovery","rank":1,"topic":"Spaniens højesteret suspenderer stemmer fra nye statsborgere","deep_screened":false,"decision":"duplicate","reason":"Allerede leveret i [PUBLISH] PR #466","model_prompt_version":"canonical-news-task-2026-09-16"},
+      {"candidate_id":"italy-spain-border","source_pool":"discovery","rank":2,"topic":"Italien og Spanien forlænger gensidige grænsekontroller efter Ceuta","deep_screened":true,"downstream_sources":["Italian Interior Ministry","El País","Europa Press/EFE"],"decision":"publish","reason":"Frisk væsentlig Schengen-udvikling med officiel sikkerhedsbegrundelse og mulig terrorinfiltration","model_prompt_version":"canonical-news-task-2026-09-16"}
+    ],
+    "hero_candidates": [
+      {"source_url":"https://upload.wikimedia.org/wikipedia/commons/5/59/Italy_Home_Minister_Matteo_Piantedosi_Guard_Of_Honor_Bangladesh_Secretariat_2025-05-05_%28PID-0002048%29.jpg","source_provider":"wikimedia_commons","license_name":"Public domain","license_url":"https://commons.wikimedia.org/wiki/File:Italy_Home_Minister_Matteo_Piantedosi_Guard_Of_Honor_Bangladesh_Secretariat_2025-05-05_(PID-0002048).jpg","credit_text":"Press Information Department, Bangladesh","rights_notes":"Government Press Information Department work marked public domain; original 2400x1022 JPEG.","commercial_use_allowed":true,"local_storage_allowed":true,"modifications_allowed":true,"attribution_required":false,"alt_text":"Italiens indenrigsminister Matteo Piantedosi ved en officiel ceremoni"}
+    ]
+  }
+}
