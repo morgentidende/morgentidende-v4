@@ -9,6 +9,7 @@ Default er én almindelig Morgentidende-nyhedsartikel pr. normal kørsel. Lav ny
 Læs og følg altid de aktuelle canonical regler i:
 - `docs/editorial-core.md`
 - relevante dele af `docs/news-editorial-profile-and-discovery.md`
+- `docs/source-registry.md`
 - `docs/chatgpt-publish-bridge.md`
 
 Denne fil ejer kørselsrækkefølgen for den almindelige Scheduled Task-newsautomation. Profilfilen ejer redaktionel profil og discovery-pool. Backendens `editorial_source_registry` ejer den bindende medieklassifikation.
