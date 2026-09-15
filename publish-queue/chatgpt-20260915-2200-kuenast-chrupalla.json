@@ -1,0 +1,132 @@
+{
+  "queue_id": "chatgpt-20260915-2200-kuenast-chrupalla",
+  "slug": "groen-og-afd-chef-enige-merz-tid-er-forbi",
+  "headline": "Grøn og AfD-chef enige: Merz' tid er forbi",
+  "deck": "Renate Künast og Tino Chrupalla er politiske modpoler. Nu kræver begge, at den tyske kansler går af.",
+  "category_slug": "udland",
+  "kind": "news",
+  "body_markdown": "## SAGEN KORT\n\n- Den tidligere grønne minister Renate Künast og AfD-chef Tino Chrupalla kræver begge kansler Friedrich Merz' afgang.\n- Enigheden stoppede dér: I samme tv-debat stødte de hårdt sammen om migration, økonomi og Tysklands politiske kurs.\n\nDen tyske kansler Friedrich Merz får nu et usædvanligt fælles krav fra to politiske modpoler: Han bør gå af.\n\nDet kom frem i den tyske nyhedskanal ntv's politiske talkshow *Blome & Pfeffer*, hvor den tidligere grønne minister Renate Künast og Tino Chrupalla, formand for det indvandringskritiske parti AfD, mødtes mandag aften.\n\n»Hans tid er udløbet. Lad os ikke narre os selv,« sagde Chrupalla ifølge ntv om Merz.\n\nKünast nåede i praksis samme konklusion. Hun gjorde klart, at det ikke ville være nok, hvis Merz alene opgav posten som CDU-formand. Hun kritiserede regeringens reformer for ikke at række og mente, at kansleren mangler blik for borgernes bekymringer.\n\nDermed stod en tidligere grøn minister og lederen af det parti, der netop har vundet stort i Sachsen-Anhalt, på samme side i spørgsmålet om kanslerens fremtid.\n\n## Enigheden varede kort\n\nPå næsten alt andet var tonen konfrontatorisk.\n\nChrupalla kritiserede regeringens reformer af blandt andet pension og sundhed og sagde, at borgerne bliver tvunget til at betale mere. Künast afviste hans fremstilling skarpt.\n\nMigration blev endnu et stridspunkt. Künast sagde under debatten, at Tyskland har brug for udlændinge. Chrupalla argumenterede for en markant strammere kurs.\n\nUenigheden kommer efter AfD's store valgsejr i Sachsen-Anhalt, hvor partiet fik 43,8 procent af stemmerne. Chrupalla har siden sagt, at AfD vil forsøge at tale med alle partier om en regering, mens de øvrige partiers forhold til AfD fortsat er et centralt spørgsmål i tysk politik.\n\nKünast og Chrupalla var altså langt fra blevet politiske allierede. Men netop derfor var øjeblikket bemærkelsesværdigt: Fra hver sin ende af den tyske politiske konflikt pegede de på den samme mand og nåede den samme konklusion om hans fremtid.",
+  "source_metadata": [
+    {
+      "publisher": "n-tv",
+      "url": "https://www.n-tv.de/politik/In-einem-Punkt-sind-sich-Kuenast-und-Chrupalla-einig-id31305300.html",
+      "source_type": "authoritative",
+      "title": "In einem Punkt sind sich Künast und Chrupalla einig",
+      "published_at": "2026-09-14"
+    },
+    {
+      "publisher": "n-tv",
+      "url": "https://www.n-tv.de/mediathek/videos/politik/Merz-lebt-in-einem-Paralleluniversum-id31305009.html",
+      "source_type": "authoritative",
+      "title": "Merz lebt in einem Paralleluniversum",
+      "published_at": "2026-09-14"
+    }
+  ],
+  "source_registry_updates": [
+    {
+      "source_name": "n-tv",
+      "domain": "n-tv.de",
+      "classification": "authoritative",
+      "region": "Germany",
+      "rationale": "Large established national German television news broadcaster and news outlet",
+      "discovered_via": "apollo-news.net"
+    }
+  ],
+  "editorial_metadata": {
+    "discovery_run_id": "news-20260915-2200",
+    "final_qa_duplicate": false,
+    "share_reason": "To markante politiske modpoler kræver samtidig den tyske kanslers afgang.",
+    "discovery_audit": [
+      {
+        "candidate_id": "candidate-1",
+        "source_pool": "discovery",
+        "path_used": "discovery",
+        "rank_position": 1,
+        "deep_screened": true,
+        "discovery_source_name": "Il Giornale",
+        "discovery_source_url": "https://www.ilgiornale.it/news/europa/elevati-rischi-per-la-sicurezza-il-viminale-proroga-di-15-giorni-lo-stop-di-schengen-con-la-spagna/",
+        "discovery_domain": "ilgiornale.it",
+        "candidate_headline": "Italien forlænger grænsekontrollen mod Spanien",
+        "candidate_topic": "Schengen og migration",
+        "decision": "duplicate",
+        "decision_reason": "near-identical publish history entry PR 426",
+        "downstream_sources": ["Reuters", "Italian Interior Ministry"],
+        "model_name": "GPT-5.6 Sol",
+        "prompt_version": "docs/automations/news-task.md@92f7f79"
+      },
+      {
+        "candidate_id": "candidate-2",
+        "source_pool": "discovery",
+        "path_used": "discovery",
+        "rank_position": 2,
+        "deep_screened": true,
+        "discovery_source_name": "Apollo News",
+        "discovery_source_url": "https://apollo-news.net/wir-brauchen-in-diesem-land-auslaender-schiesst-kuenast-gegen-chrupalla/",
+        "discovery_domain": "apollo-news.net",
+        "candidate_headline": "Künast og Chrupalla enige om Merz' afgang",
+        "candidate_topic": "Tysk politik",
+        "decision": "selected",
+        "decision_reason": "authoritative ntv reporting supports central facts; no near-identical item in 50-entry GitHub publish history",
+        "downstream_sources": ["n-tv"],
+        "model_name": "GPT-5.6 Sol",
+        "prompt_version": "docs/automations/news-task.md@92f7f79"
+      }
+    ],
+    "hero_candidates": [
+      {
+        "source_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Tino_Chrupalla%2C_2020.jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "credit_text": "TC2021 / Wikimedia Commons",
+        "rights_notes": "Own work released by copyright holder under CC BY-SA 4.0; original 3000x2002.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": true,
+        "alt_text": "Tino Chrupalla i Forbundsdagen"
+      },
+      {
+        "source_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Renate_K%C3%BCnast_%2810739760434%29.jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "CC BY-SA 2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "credit_text": "Heinrich-Böll-Stiftung / Stephan Röhl / Wikimedia Commons",
+        "rights_notes": "Flickr-origin image verified by Wikimedia Commons under CC BY-SA 2.0; original 3976x3181.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": true,
+        "alt_text": "Renate Künast ved et arrangement i Berlin"
+      },
+      {
+        "source_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Tino_Chrupalla%2C_2020_%28cropped%29.jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "credit_text": "TC2021 / Wikimedia Commons",
+        "rights_notes": "Crop of copyright-holder work released under CC BY-SA 4.0; original crop 946x1261.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": true,
+        "alt_text": "Portræt af Tino Chrupalla"
+      }
+    ],
+    "runtime_diagnostics": {
+      "task_runtime_entered": true,
+      "canonical_rules_loaded": true,
+      "candidate_scan_started": true,
+      "candidate_selected": true,
+      "research_started": true,
+      "research_completed": true,
+      "final_qa_started": true,
+      "qa_history_source_attempted": "GitHub [PUBLISH] history",
+      "qa_history_loaded": true,
+      "final_qa_passed": true,
+      "duplicate_restart_count": 1,
+      "duplicate_exclusions": ["Italy-Spain Schengen border-control extension"],
+      "github_write_attempted": true
+    }
+  }
+}
