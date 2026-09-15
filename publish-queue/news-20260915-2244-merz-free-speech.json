@@ -1,0 +1,117 @@
+{
+  "queue_id": "news-20260915-2244-merz-free-speech",
+  "slug": "merz-vil-afskaffe-anonymitet-paa-nettet-kom-ikke-til-mig-med-ytringsfrihed",
+  "headline": "Merz vil afskaffe anonymitet på nettet: »Kom ikke til mig med ytringsfrihed«",
+  "deck": "Tysklands kansler vil have navne bag netprofiler. Da en ung forsker spurgte til kilder og undersøgende journalistik, svarede han ikke direkte.",
+  "category_slug": "udland",
+  "kind": "news",
+  "body_markdown": "## SAGEN KORT\n\n- Tysklands kansler Friedrich Merz vil have en pligt til at stå frem med navn på nettet og afviste indvendinger om ytringsfrihed med ordene: »Kom ikke til mig med free speech.«\n- En ung deltager spurgte konkret, hvordan et krav om navn kan forenes med beskyttelse af kilder og undersøgende journalistik. Merz svarede ikke direkte på den del af spørgsmålet.\n\nTysklands kansler Friedrich Merz vil gøre op med anonymitet på nettet. Ved et møde tirsdag med vinderne af den tyske forskerkonkurrence Jugend forscht argumenterede han for en pligt til at bruge sit rigtige navn på digitale platforme.\n\nDet mest opsigtsvækkende øjeblik kom, da en af de unge deltagere rejste et klassisk frihedsspørgsmål: Hvordan skal et krav om navn kunne forenes med beskyttelsen af informanter og undersøgende journalister, hvis anonymiteten forsvinder?\n\nMerz gik ikke direkte ind i dilemmaet. I stedet forklarede han, at han var vokset op i en analog verden og spurgte, hvorfor der skulle gælde andre regler digitalt. Derefter afviste han indvendingen om ytringsfrihed.\n\n»Kom ikke til mig med free speech. Det har ikke længere noget med free speech at gøre,« sagde kansleren ifølge den store tyske avis Welt, som har gengivet udvekslingen.\n\n## Vil beskytte borgere mod falske oplysninger\n\nMerz beskrev et meget vidt formål med forslaget. En liberal stat skal efter hans opfattelse kunne beskytte borgerne mod blandt andet falske oplysninger, personlige krænkelser og diskrimination.\n\nHan kaldte den amerikanske tilgang til ytringsfrihed for et »libertært politisk syn«, som han ikke deler. Merz pegede også på anonyme hadkampagner og indhold skabt af automatiske konti som problemer.\n\nDet tyske regeringskontor bekræfter, at Merz tirsdag modtog deltagerne fra Jugend forscht i kanslerkontoret. Den officielle omtale fokuserer på forskning, uddannelse og de unges projekter, mens regeringens side også stiller en optagelse af arrangementet til rådighed.\n\n## Spørgsmålet om anonyme kilder står tilbage\n\nNetop spørgsmålet fra den unge deltager rammer et principielt problem ved et generelt krav om rigtige navne. Anonymitet kan bruges til chikane og falske profiler, men den kan også beskytte whistleblowere, politiske dissidenter, ofre og mennesker, der giver oplysninger til journalister.\n\nWelt skriver, at Merz ikke besvarede spørgsmålet om informanter og undersøgende journalistik direkte. Der er heller ikke fremlagt en færdig model, som viser, hvilke undtagelser et eventuelt tysk krav om navn skulle indeholde.\n\nDermed er kanslerens politiske retning tydeligere end den praktiske løsning: Han vil have mindre anonymitet og mere ansvar for den enkelte bruger, men det centrale spørgsmål om, hvem der fortsat skal kunne skjule sin identitet, er endnu ubesvaret.\n\nMerz' udmelding kommer samtidig med, at han er under betydeligt politisk pres efter det indvandringskritiske parti AfD's store valgsejr i Sachsen-Anhalt. Reuters rapporterede tirsdag, at kansleren har aflyst en planlagt rejse til FN's generalforsamling i New York for at blive hjemme under den politiske uro. Welt skriver, at Merz under diskussionen om nettet også henviste til automatisk genererede beskeder, som han mener har gavnet AfD.\n\nKombinationen gør udtalelsen politisk følsom: Tysklands regeringschef forbinder kampen mod anonymitet og falske oplysninger med beskyttelsen af demokratiet, mens kritikerens spørgsmål er, hvor meget anonymitet et demokrati netop behøver for at beskytte lovlig tale, kilder og mennesker, der ikke kan tale åbent under eget navn.",
+  "source_metadata": [
+    {
+      "publisher": "Welt",
+      "url": "https://www.welt.de/politik/deutschland/article6aa9841d949f8d3cb46381fa/klarnamenpflicht-bitte-komme-mir-keiner-mit-free-spech-merz-spricht-sich-erneut-gegen-anonymitaet-im-netz-aus.html",
+      "source_type": "authoritative",
+      "title": "Klarnamenpflicht: Merz spricht sich erneut gegen Anonymität im Netz aus"
+    },
+    {
+      "publisher": "Bundesregierung",
+      "url": "https://www.bundesregierung.de/breg-de/suche/jugend-forscht-2452646",
+      "source_type": "primary_official",
+      "title": "Kanzler ehrt Preisträgerinnen und Preisträger von Jugend forscht"
+    },
+    {
+      "publisher": "Reuters",
+      "url": "https://www.reuters.com/world/europe/embattled-merz-seeks-party-backing-ahead-fresh-election-tests-germany-2026-09-15/",
+      "source_type": "authoritative",
+      "title": "Under pressure at home, Merz cancels UN appearance, source says"
+    }
+  ],
+  "source_registry_updates": [
+    {
+      "source_name": "Welt",
+      "domain": "welt.de",
+      "classification": "authoritative",
+      "region": "Germany",
+      "rationale": "Large established German national newspaper",
+      "discovered_via": "apollo-news.net"
+    }
+  ],
+  "editorial_metadata": {
+    "discovery_run_id": "news-20260915-2244",
+    "final_qa_duplicate": false,
+    "share_reason": "Tysklands kansler afviser direkte en ytringsfrihedsindvending mod et krav om rigtige navne, mens spørgsmålet om kildebeskyttelse står ubesvaret.",
+    "discovery_audit": [
+      {
+        "candidate_id": "merz-klarnamenpflicht",
+        "source_pool": "discovery",
+        "path": "apollo-news.net",
+        "rank": 1,
+        "candidate_headline": "Merz: Kom ikke til mig med free speech",
+        "deep_screened": true,
+        "downstream_sources": ["welt.de", "bundesregierung.de", "reuters.com"],
+        "decision": "selected",
+        "reason": "Fresh, strongly profile-relevant free-speech story with authoritative corroboration and low apparent Danish coverage",
+        "model_prompt_version": "canonical-news-task-main-20260915"
+      },
+      {
+        "candidate_id": "ard-zdf-demokratie-kampagne",
+        "source_pool": "discovery",
+        "path": "apollo-news.net",
+        "rank": 2,
+        "candidate_headline": "ARD, ZDF og taz starter demokratikampagne",
+        "deep_screened": false,
+        "decision": "not_selected",
+        "reason": "Lower news value than rank 1",
+        "model_prompt_version": "canonical-news-task-main-20260915"
+      },
+      {
+        "candidate_id": "ceuta-retur-tal",
+        "source_pool": "discovery",
+        "path": "theobjective.com",
+        "rank": 3,
+        "candidate_headline": "5.482 migranter er vendt tilbage fra Ceuta til Marokko",
+        "deep_screened": false,
+        "decision": "not_selected",
+        "reason": "Strong data but lower undercoverage/share potential than rank 1",
+        "model_prompt_version": "canonical-news-task-main-20260915"
+      },
+      {
+        "candidate_id": "prien-afd-forbud",
+        "source_pool": "discovery",
+        "path": "apollo-news.net",
+        "rank": 4,
+        "candidate_headline": "CDU-næstformand støtter arbejdsgruppe om AfD-forbud",
+        "deep_screened": false,
+        "decision": "not_selected",
+        "reason": "Politically relevant but less concrete than rank 1",
+        "model_prompt_version": "canonical-news-task-main-20260915"
+      },
+      {
+        "candidate_id": "kuenast-chrupalla-migration",
+        "source_pool": "discovery",
+        "path": "apollo-news.net",
+        "rank": 5,
+        "candidate_headline": "Künast og Chrupalla i tv-strid om migration",
+        "deep_screened": false,
+        "decision": "not_selected",
+        "reason": "Talk-show exchange, weaker standalone news value",
+        "model_prompt_version": "canonical-news-task-main-20260915"
+      }
+    ],
+    "hero_candidates": [
+      {
+        "source_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Friedrich%20Merz%2C%202025.06.26%20%2801%29.jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "European Commission reuse policy",
+        "license_url": "https://eur-lex.europa.eu/eli/dec/2011/833/oj",
+        "credit_text": "© European Union, 1998–2026",
+        "rights_notes": "Wikimedia Commons file page states commercial reuse and derivative works are permitted with attribution.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": true,
+        "alt_text": "Tysklands kansler Friedrich Merz"
+      }
+    ]
+  }
+}
