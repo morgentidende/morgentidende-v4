@@ -73,9 +73,15 @@ Maksimalt 50 registry-opdateringer pr. payload. Opdateringer må sendes både me
 
 ## Backend-gate
 
-`evaluate_article_source_quality` bruger ikke længere den gamle flertrinsmodel (`primary_official`, `strong_secondary`, `other_secondary`, `niche`, `advocacy` osv.). Gate-resultatet er nu:
+Den kanoniske gate-funktion er `evaluate_article_source_policy`. Den bruger kun det binære system:
 
 - mindst én `authoritative` kilde → `pass`
 - ingen `authoritative` kilder → `block: no_authoritative_source`
 
-`classify_editorial_source` findes kun som kompatibilitetswrapper og returnerer den nye binære klassifikation (plus `reference` for ikke-redaktionelle reference-/mediekilder).
+Historiske navne bevares kun for kompatibilitet:
+
+- `evaluate_article_source_quality(...)` videresender til `evaluate_article_source_policy(...)`.
+- `classify_editorial_source(...)` videresender til den binære registry-klassifikation.
+- `article_qa_runs.source_quality` og publication-fejl med prefix `source_quality:` beholder navnene, så eksisterende diagnostik ikke brydes; indholdet er binært.
+
+Den gamle flertrinsmodel (`primary_official`, `strong_secondary`, `other_secondary`, `niche`, `advocacy` osv.) må ikke genindføres som publication-logik.
