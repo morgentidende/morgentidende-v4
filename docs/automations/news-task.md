@@ -12,7 +12,7 @@ Læs og følg altid de aktuelle canonical regler i:
 - `docs/source-registry.md`
 - `docs/chatgpt-publish-bridge.md`
 
-Denne fil ejer kørselsrækkefølgen for den almindelige Scheduled Task-newsautomation. Profilfilen ejer redaktionel profil og discovery-pool. Backendens `editorial_source_registry` ejer den bindende medieklassifikation.
+Denne fil ejer kørselsrækkefølgen for den almindelige Scheduled Task-newsautomation. `docs/editorial-core.md` ejer fælles artikelkrav og journalistens slut-QA, herunder 7-dages-reglen. Profilfilen ejer redaktionel profil og discovery-pool. Backendens `editorial_source_registry` ejer den bindende medieklassifikation.
 
 Denne automation må ikke vælge Viden eller Liv; de hører til magazine-flowet.
 
@@ -21,7 +21,7 @@ Denne automation må ikke vælge Viden eller Liv; de hører til magazine-flowet.
 ### 1. Snæver breaking-override
 Lav først et kort aktuelt scan af store danske medier for en akut breakinghistorie. Override må kun bruges ved en frisk, dokumenterbar hændelse med høj national betydning inden for dansk sikkerhed/forsvar, terror, stor ulykke/katastrofe, krig/NATO med direkte dansk berøring, regeringskrise, alvorlig kriminalitet med national vægt, større cyberangreb eller stats-/myndighedsindgreb med umiddelbar virkning for mange danskere.
 
-Hvis en sådan breakinghistorie klart findes og kan dokumenteres, vælg den og gå videre til research. Dubletkontrol hører til afsluttende QA, ikke til et separat preflight-trin.
+Hvis en sådan breakinghistorie klart findes og kan dokumenteres, vælg den og gå videre til research.
 
 ### 2. Discovery først
 Hvis breaking-overriden ikke rammer, start med discovery-listen. Rangér billigt de 5 stærkeste friske Discovery-kandidater ud fra rubrik, aktualitet og match med Morgentidendes kerneinteresser. Dybdescreen dem i rækkefølge og stop ved den første kandidat, der klarer dokumentationsgulvet. Screen højst 5 Discovery-kandidater pr. udvælgelsesrunde.
@@ -38,7 +38,7 @@ Der findes kun to medieklasser:
 - `authoritative`: må bruges som faktuel slutkilde.
 - `discovery_only`: må opdage historien og føre videre til andre kilder, men må ikke være faktuel slutdokumentation.
 
-Én `authoritative` kilde er tilstrækkelig til publication, når den konkret dokumenterer historiens centrale fakta. Forsøg stadig at finde yderligere autoritative/primære kilder, når det er rimeligt, men kilde nummer to er ikke et krav. Ved én bærende kilde attribueres væsentlige oplysninger tydeligt, fx “ifølge Bangkok Post”.
+Én `authoritative` kilde er tilstrækkelig til publication, når den konkret dokumenterer historiens centrale fakta. Forsøg stadig at finde yderligere autoritative/primære kilder, når det er rimeligt, men kilde nummer to er ikke et krav. Ved én bærende kilde attribueres væsentlige oplysninger tydeligt.
 
 `authoritative` omfatter som hovedregel national public service/statsligt medie, stort etableret nyhedsbureau eller stor etableret privat avis med fysisk papirudgave. Primære officielle myndighedskilder er autoritative om egne afgørelser, tal, handlinger og udtalelser. En direkte originaludtalelse/dokument fra sagens subjekt kan bære påstande om netop subjektets egen udtalelse/handling, når relationen er eksplicit markeret.
 
@@ -47,7 +47,7 @@ Der findes kun to medieklasser:
 Backend-tabellen `public.editorial_source_registry` er bindende for kendte mediedomæner. Kendte editor-in-chief-beslutninger må ikke overskrives automatisk.
 
 ### Nye medier fundet gennem discovery
-Når et discovery-medie linker til et nyt medie/domæne, skal det nye medie vurderes og registreres. Vurder selv `authoritative` eller `discovery_only` efter reglen ovenfor. Listen må gerne vokse hurtigt i begyndelsen.
+Når et discovery-medie linker til et nyt medie/domæne, skal det nye medie vurderes og registreres. Vurder selv `authoritative` eller `discovery_only` efter reglen ovenfor.
 
 - Genbrug eksisterende domæneklassifikation, hvis den findes.
 - Nyt domæne tilføjes én gang.
@@ -56,49 +56,27 @@ Når et discovery-medie linker til et nyt medie/domæne, skal det nye medie vurd
 - Nye klassifikationer sendes som top-level `source_registry_updates` gennem GitHub-broen. Scheduled Task må aldrig skrive direkte til Supabase.
 - Hvis et nyt medie ikke er klassificeret/registreret endnu, behandles det sikkert som `discovery_only` indtil klassifikationen er afleveret.
 
-Eksempel:
-
-```json
-{
-  "source_name": "Example Daily",
-  "domain": "example.com",
-  "classification": "authoritative",
-  "region": "Exampleland",
-  "rationale": "Large established national print newspaper",
-  "discovered_via": "example-discovery.net"
-}
-```
-
 ## Dokumentationsgulv
 Research i autoritative og/eller primære kilder. En discovery-only-side er et spor, ikke slutdokumentation. Centrale fakta skal kunne verificeres af mindst én autoritativ kilde. Manglende ekstra kilde er ikke en hard stop, hvis én autoritativ kilde faktisk bærer de centrale fakta.
 
 Manglende autoritativ dokumentation er en hard gate. Skriv aldrig stærkere end dokumentationen bærer.
 
-## Afsluttende QA — eneste dubletkontrol
-Der findes ikke længere et separat Early Dedupe/preflight-trin. Dubletkontrollen udføres én gang som en hård del af afsluttende QA, efter artiklen er skrevet og før nogen publish-queue-fil eller transport-PR oprettes.
+## Afsluttende QA og 7-dages-regel
+Dubletkontrollen er ikke et selvstændigt pipeline-trin. Den håndhæves kun i journalistens afsluttende QA efter `docs/editorial-core.md`, regel 15 og afsnittet `Journalistens eget slut-QA`.
 
-QA skal hente et reelt sammenligningsgrundlag for alle publicerede Morgentidende-artikler fra de seneste 7 dage. Foretræk en read-only artikelhistorik fra backend, når den er tilgængelig. Hvis den ikke kan læses, brug den kanoniske GitHub publish-historik (`[PUBLISH]`-leverancer) og/eller den offentlige avis som fallback. Der må ikke gives `PASS` på grundlag af hukommelse alene.
+Til dubletkontrollen skal QA bruge observerbar artikelhistorik fra de seneste 7 dage. Foretræk backendens read-only artikelhistorik. Hvis den ikke kan læses, brug GitHub `[PUBLISH]`-historik og derefter den offentlige avis som fallback. QA må ikke godkende ud fra hukommelse alene.
 
-Sammenlign semantisk — ikke kun rubrik eller ordlyd. Vurder især:
-- samme hovedbegivenhed eller hovedfaktum
-- samme centrale personer/institutioner
-- samme sted/geografi
-- samme centrale tal eller dokument
-- samme politiske/juridiske handling
-- samme væsentlige vinkel eller konflikt
+Hvis QA finder en næsten-identisk artikel uden væsentlig videreudvikling:
+- kassér udkastet uden publish-queue eller transport-PR,
+- registrér `duplicate_of`,
+- ekskludér den konkrete sag og dens centrale person/institution resten af dette run,
+- start helt forfra ved `Historievalg` og foretag ny rangering og research.
 
-Hvis en tidligere artikel fra de seneste 7 dage i substans er næsten den samme og der ikke er en væsentlig ny udvikling:
-1. Sæt `final_qa_duplicate=true` og identificér `duplicate_of` så konkret som muligt.
-2. Kassér hele den nye artikel. Opret ingen publish-queue og ingen transport-PR.
-3. Opret en midlertidig eksklusion for resten af samme run med den konkrete sag, dens centrale emne og dens primære person/institution. Eksempel: ved en Söder-dublet må den nye søgning ikke igen vælge Markus Söder eller historien om tyske ydelser til personer med arrestordre.
-4. Gå helt tilbage til `Historievalg` og start en ny udvælgelsesrunde fra begyndelsen med eksklusionen aktiv. Rangér kandidaterne på ny; genbrug ikke bare en kosmetisk omskrivning af den kasserede historie.
-5. Gentag afsluttende QA på den nye artikel.
+Genbrug ikke research, rubrik eller vinkel fra den kasserede dublet. Højst 3 komplette genstarter på grund af dubletter pr. run. Hvis tredje genstart også ender som dublet, stop med `DUPLICATE_RETRY_EXHAUSTED`.
 
-En ny artikel om samme overordnede sag er kun tilladt, hvis der er en væsentlig videreudvikling, som i sig selv er stærk nok til en ny artikel. I så fald skal den følge `docs/editorial-core.md` for `story_cluster_id` og struktureret `Læs også`.
+Hvis ingen historikkilde kan etablere et rimeligt 7-dages-sammenligningsgrundlag efter fallback, stop med `QA_HISTORY_UNAVAILABLE` i stedet for at publicere blindt.
 
-Hvis ingen af de tilgængelige historikkilder kan etablere de seneste 7 dages artikelgrundlag efter rimeligt fallback-forsøg, må QA ikke gætte. Stop med `QA_HISTORY_UNAVAILABLE` i stedet for at publicere blindt.
-
-`DUPLICATE_7D` er ikke længere en normal slutstatus: en dublet skal udløse ny historiesøgning, ikke afslutte runnet, så længe en ny kandidat kan findes og dokumenteres.
+En legitim opfølger med væsentlig videreudvikling følger `docs/editorial-core.md` for `story_cluster_id` og struktureret `Læs også`.
 
 ## Discovery-audit og senere diagnose
 Alle kandidater, der faktisk bliver rangordnet eller dybdescreenet, skal efterlade et kompakt audit-spor. Brug ét stabilt `discovery_run_id` pr. run og ét stabilt `candidate_id` pr. kandidat. Registrér når observerbart: source pool/path, rank, deep-screen, discovery source/domain, kandidat-rubrik/emne, downstream-kilder, beslutning/reason, model/prompt-version og relevante kildeklassifikationer.
@@ -113,13 +91,14 @@ Før `NO_LEGAL_HERO` kan bruges, skal mindst 3 forskellige reelle hero-kandidate
 ## Lukkede hard stops
 En normal kørsel må kun ende uden artikel af en konkret grund som:
 - `CANONICAL_UNREADABLE`
-- `INSUFFICIENT_DOCUMENTATION` — ingen autoritativ kilde kan bære centrale fakta efter rimelig research
+- `INSUFFICIENT_DOCUMENTATION`
 - `QA_HISTORY_UNAVAILABLE`
+- `DUPLICATE_RETRY_EXHAUSTED`
 - `NO_LEGAL_HERO`
 - `BRIDGE_FAILED`
 - `BACKEND_REJECTED`
 
-Lav nyhedsværdi, manglende kilde nummer to eller fravær af primærkilde når én autoritativ sekundærkilde bærer historien, er ikke hard stops. En konstateret 7-dages-dublet skal som udgangspunkt føre til ny historiesøgning, ikke stop.
+Lav nyhedsværdi, manglende kilde nummer to eller fravær af primærkilde når én autoritativ sekundærkilde bærer historien, er ikke hard stops.
 
 ## Aflevering
 Supabase er read-only fra Scheduled Task. Aflever artikel, discovery-audit og eventuelle `source_registry_updates` gennem GitHub publish bridge. Merge ikke transport-PR'en og brug aldrig direkte Supabase-write som fallback. En fejl må aldrig ændre automationens schedule eller enabled-status.
