@@ -1,0 +1,91 @@
+{
+  "queue_id": "magasin-evergreen-20260915-0908-himlen-blaa",
+  "slug": "derfor-er-himlen-blaa-men-solnedgangen-roed",
+  "kind": "magazine",
+  "headline": "Derfor er himlen blå – men solnedgangen rød",
+  "deck": "Det samme sollys skaber både den blå middagshimmel og den røde solnedgang. Forklaringen ligger i lysets vej gennem luften.",
+  "category_slug": "viden",
+  "body_markdown": "Solens lys ser hvidt ud, men består af mange farver med forskellige bølgelængder. Når lyset rammer Jordens atmosfære, støder det på luftens molekyler. De spreder de korte bølgelængder langt mere effektivt end de lange. Derfor bliver himlen over os blå.\n\nDet er også den samme mekanisme, der hjælper med at forklare, hvorfor en solnedgang kan blive orange eller rød. Når Solen står lavt, skal dens lys gennem en langt længere strækning af atmosfæren, før det når vores øjne. Undervejs bliver en stor del af det blå lys spredt væk fra den direkte synslinje, mens mere af det røde og orange lys når frem.\n\n## Hvidt lys gemmer på en regnbue\n\nSollys er en blanding af de farver, vi blandt andet kan se i en regnbue. Farverne adskiller sig ved deres bølgelængde. Violet og blåt lys har kortere bølgelængder end eksempelvis orange og rødt lys.\n\nNår sollyset møder de meget små molekyler i atmosfæren, bliver lyset spredt. Denne proces kaldes Rayleigh-spredning, opkaldt efter den britiske fysiker Lord Rayleigh. Effekten er stærkt afhængig af bølgelængden, og derfor bliver de korte bølgelængder spredt langt mere end de lange.\n\nDet betyder, at blåt lys bliver sendt rundt i atmosfæren i mange retninger. Når du kigger op på en klar himmel væk fra Solen, ser du derfor i høj grad lys, der først har skiftet retning i atmosfæren.\n\n## Men hvorfor er himlen ikke violet?\n\nViolet lys har endnu kortere bølgelængde end blåt og bliver derfor også spredt meget kraftigt. Alligevel oplever vi normalt himlen som blå frem for violet.\n\nDer er flere grunde. Sollysets farvesammensætning spiller en rolle, noget af det violette lys absorberes højere i atmosfæren, og menneskets øjne er betydeligt mindre følsomme over for violet end over for de bølgelængder, vi oplever som blå. Resultatet bliver den velkendte blå farve.\n\n## Solnedgangen vender oplevelsen om\n\nMidt på dagen er Solens vej gennem atmosfæren forholdsvis kort. Ved solopgang og solnedgang kommer lyset derimod skråt gennem atmosfæren og tilbagelægger en meget længere strækning.\n\nPå den lange vej bliver mere af det blå og violette lys spredt ud til siderne. Det direkte sollys, der til sidst når øjet, er derfor relativt rigere på de længere bølgelængder: gul, orange og rød.\n\nDet er grunden til, at den samme sol kan se næsten hvid ud højt på himlen og dybrød ud tæt ved horisonten.\n\n## Støv kan ændre farverne\n\nAtmosfæren består ikke kun af gasmolekyler. Den indeholder også vanddråber, støv, røg og andre små partikler. De kan sprede lys på andre måder end luftens molekyler og dermed ændre farvernes styrke og udseende.\n\nNOAA, USA's nationale vejr- og havmyndighed, forklarer blandt andet, at større partikler og aerosoler kan påvirke spredningen af de længere bølgelængder. Derfor kan støv, røg og luftforurening give særligt kraftige røde og orange toner ved horisonten.\n\nDet betyder dog ikke, at en spektakulær rød solnedgang automatisk er tegn på forurening. Skyer, luftfugtighed, partiklernes størrelse og Solens vinkel kan alle påvirke det synlige resultat.\n\n## Horisonten ser ofte lysere ud\n\nPå en klar dag kan man også lægge mærke til, at himlen ofte er dybere blå højt over hovedet og mere bleg eller næsten hvid tæt ved horisonten.\n\nHer ser vi gennem en større mængde atmosfære. Lyset er blevet spredt flere gange, og flere bølgelængder bliver blandet ind i det lys, der når øjet. Derfor bliver den rene blå farve mindre markant.\n\nDet almindelige syn af en blå himmel er altså resultatet af et præcist samspil mellem Solens hvide lys, bølgelængderne i lyset, molekylerne i atmosfæren og vores egne øjne. Og når Jorden drejer Solen ned mod horisonten, ændres lysets vej nok til, at den blå himmel kan ende i orange og rødt.",
+  "source_metadata": [
+    {
+      "title": "Why Is the Sky Blue?",
+      "publisher": "NASA Space Place",
+      "url": "https://spaceplace.nasa.gov/blue-sky/en/",
+      "source_type": "primary_official"
+    },
+    {
+      "title": "Why Is the Sky Blue?",
+      "publisher": "NOAA NESDIS",
+      "url": "https://www.nesdis.noaa.gov/about/k-12-education/atmosphere/why-the-sky-blue",
+      "source_type": "primary_official"
+    },
+    {
+      "title": "Global Radiation and Aerosols – Red Sky",
+      "publisher": "NOAA Global Monitoring Laboratory",
+      "url": "https://gml.noaa.gov/grad/about/redsky/",
+      "source_type": "primary_official"
+    }
+  ],
+  "editorial_metadata": {
+    "topic_key": "hvorfor-himlen-er-blaa",
+    "story_kind": "evergreen_explainer",
+    "sagen_kort": [
+      "Luftens molekyler spreder kortbølget blåt lys langt mere effektivt end det længere røde lys.",
+      "Ved solnedgang går sollyset gennem mere atmosfære, så meget af det blå lys spredes væk, før lyset når øjet."
+    ],
+    "hero_candidates": [
+      {
+        "source_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Clouds%20in%20a%20blue%20sky%2C%20Quebec%20City.jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "CC0 1.0",
+        "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "credit_text": "Wilfredor",
+        "rights_notes": "Wikimedia Commons file page states own work and CC0 1.0; original 7626x5084 JPEG.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": false,
+        "alt_text": "Blå himmel med hvide skyer"
+      },
+      {
+        "source_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/BlueSkyWhiteClouds27.jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "CC0 1.0",
+        "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "credit_text": "Raysonho @ Open Grid Scheduler / Grid Engine",
+        "rights_notes": "Wikimedia Commons file page states own work and CC0 1.0; original 4928x3264 JPEG.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": false,
+        "alt_text": "Klar blå himmel med hvide skyer"
+      },
+      {
+        "source_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Cloudsandbluesky.jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "CC0 1.0",
+        "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "credit_text": "Wikimedia Commons contributor",
+        "rights_notes": "Wikimedia Commons identifies the original 3009x2133 JPEG as CC0 and self-published work.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": false,
+        "alt_text": "Blå himmel og spredte skyer"
+      },
+      {
+        "source_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Blue%20Sky%20with%20Clouds.jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "CC0 1.0",
+        "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "credit_text": "Jeffrey Betts",
+        "rights_notes": "Wikimedia Commons file page states CC0 1.0; original 3264x2448 JPEG.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": false,
+        "alt_text": "Blå himmel med lyse skyer"
+      }
+    ]
+  }
+}
