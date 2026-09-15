@@ -70,7 +70,7 @@ jobs:
           VALIDATE_ONLY: '1'
         run: node .github/scripts/process-chatgpt-publish-queue.mjs
 
-      - name: Publish through OIDC-authenticated Supabase Edge Function
+      - name: Process through OIDC-authenticated Supabase Edge Function
         env:
           QUEUE_FILE: ${{ steps.scope.outputs.queue_file }}
         run: node .github/scripts/process-chatgpt-publish-queue.mjs
@@ -80,4 +80,4 @@ jobs:
         continue-on-error: true
         env:
           GH_TOKEN: ${{ github.token }}
-        run: gh pr close "$PR_NUMBER" --delete-branch --comment "Published through the Morgentidende GitHub bridge."
+        run: gh pr close "$PR_NUMBER" --delete-branch --comment "Processed successfully through the Morgentidende GitHub bridge."

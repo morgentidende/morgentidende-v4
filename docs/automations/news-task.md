@@ -75,6 +75,31 @@ Research i troværdige kilder, helst primærkilder. Centrale fakta skal kunne ve
 
 Lav nyhedsværdi er ikke en hard gate. Manglende verificerbar dokumentation er en hard gate. Skriv skarpt med meget højt delingspotentiale, men aldrig stærkere eller længere end dokumentationen bærer.
 
+## Discovery-audit og senere diagnose
+
+Alle kandidater, der faktisk bliver rangordnet eller dybdescreenet i et run, skal efterlade et kompakt audit-spor, så senere diagnose kan finde falske positive og falske negative uden at rekonstruere kørslen fra hukommelse.
+
+Brug ét stabilt `discovery_run_id` pr. run og ét stabilt `candidate_id` pr. kandidat. For hver kandidat, der faktisk blev behandlet, registrér når oplysningerne findes:
+- `candidate_id`
+- `source_pool` og `path_used`
+- `rank_position`
+- `deep_screened`
+- `discovery_source_name`, `discovery_source_url`, `discovery_domain`
+- `candidate_headline` og kort `candidate_topic`
+- `hard_negative` når policy-checket er kendt
+- `downstream_sources` som kompakt liste over faktisk fundne bedre kilder
+- `semantic_assessment` når den er udført
+- `decision` og konkret `decision_reason`
+- `model_name` og `prompt_version` når de er observerbare.
+
+Opfind aldrig felter, der ikke er observeret. Auditdata må ikke ændre et redaktionelt udfald og må ikke bruges som erstatning for publication-gates.
+
+Når en artikel afleveres, lægges `discovery_run_id` og hele runnets behandlede kandidat-audit i `editorial_metadata.discovery_run_id` og `editorial_metadata.discovery_audit`. Backend kopierer auditsporet til den særskilte `discovery_candidate_audit`-tabel og knytter den valgte kandidat til artikel/queue, når muligt.
+
+Hvis runnet ender uden artikel efter en legitim hard stop, skal auditsporet stadig afleveres gennem GitHub-broen som en `payload_type: "discovery_audit"`-payload. Dette er telemetry, ikke publicering, og må ikke ændre schedule eller enabled-status. Brug samme transport-sikkerhedsgrænse som artikelbroen og aldrig direkte Supabase-write fra Scheduled Task.
+
+`audit_outcome` (`correct_reject`, `false_negative`, `correct_publish`, `false_positive`) må **aldrig** sættes automatisk af Scheduled Task. Det er et senere audit-/diagnosefelt.
+
 ## Hero/media
 
 Almindelige nyheder skal bruge ægte dokumentarisk materiale, ikke AI-foto præsenteret som dokumentation. Følg ranked hero-candidate-kontrakten i `docs/chatgpt-publish-bridge.md` og opfind aldrig rettigheder.

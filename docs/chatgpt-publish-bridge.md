@@ -2,7 +2,7 @@
 
 ## Formål
 
-Scheduled Tasks skriver ikke direkte til Supabase for artikelpublicering. En artikel afleveres som en afgrænset JSON-payload i en GitHub-PR. Den server-side bridge bevarer den eksisterende Supabase QA-, media- og publication-watchdog.
+Scheduled Tasks skriver ikke direkte til Supabase for artikelpublicering eller discovery-audit. En artikel eller et audit-only run afleveres som en afgrænset JSON-payload i en GitHub-PR. Den server-side bridge bevarer den eksisterende Supabase QA-, media- og publication-watchdog.
 
 ## Hård transportkontrakt
 
@@ -10,7 +10,7 @@ En Scheduled Task skal oprette en unik `publish/chatgpt-*` branch fra `main`, sk
 
 ## Payload
 
-Minimum:
+Artikelpayload, minimum:
 
 ```json
 {
@@ -24,7 +24,54 @@ Minimum:
 }
 ```
 
-`source_metadata` er en top-level JSON-array. `editorial_metadata` er et JSON-object. Eksisterende artikel-, lead-, breaking-, source- og hero-felter er fortsat understøttet.
+`payload_type` kan udelades for artikler og normaliseres da til `article`. `source_metadata` er en top-level JSON-array. `editorial_metadata` er et JSON-object. Eksisterende artikel-, lead-, breaking-, source- og hero-felter er fortsat understøttet.
+
+### Discovery-audit
+
+Almindelige nyhedsruns kan sende et kompakt auditspor for alle kandidater, der faktisk blev behandlet. Når en artikel afleveres, lægges auditsporet i:
+
+```json
+{
+  "editorial_metadata": {
+    "discovery_run_id": "news-20260915-1300",
+    "discovery_audit": [
+      {
+        "candidate_id": "candidate-1",
+        "source_pool": "discovery",
+        "path_used": "discovery",
+        "rank_position": 1,
+        "deep_screened": true,
+        "discovery_source_name": "...",
+        "discovery_source_url": "https://...",
+        "discovery_domain": "example.org",
+        "candidate_headline": "...",
+        "candidate_topic": "...",
+        "decision": "selected",
+        "decision_reason": "claims_sufficiently_supported",
+        "downstream_sources": [],
+        "semantic_assessment": {},
+        "model_name": "...",
+        "prompt_version": "..."
+      }
+    ]
+  }
+}
+```
+
+Backend kopierer dette til `public.discovery_candidate_audit`. Tabellen er intern telemetry og er ikke en publiceret kildeoversigt. `audit_outcome` sættes aldrig automatisk af producenten; det er reserveret til senere menneskelig/systematisk diagnose af fx `false_negative` og `false_positive`.
+
+Hvis et legitimt hard stop betyder, at der ikke findes en artikelpayload, må samme GitHub-transport bruges til audit-only:
+
+```json
+{
+  "payload_type": "discovery_audit",
+  "queue_id": "audit-news-20260915-1300",
+  "run_id": "news-20260915-1300",
+  "discovery_audit": [ ... ]
+}
+```
+
+Audit-only opretter ingen artikel og må aldrig bruges som workaround omkring publication-gates. Maksimalt 50 kandidater accepteres pr. payload. Transporten er idempotent pr. `run_id` + `candidate_id`.
 
 De kanoniske `kind`-værdier er `news`, `comment`, `debate` og `magazine`. For `category_slug: "viden"` og `category_slug: "liv"` er den bindende artikeltype altid `magazine`: manglende/blank `kind` samt legacy-aliaserne `article` og `evergreen` normaliseres til `magazine`; eksplicit `news`, `comment`, `debate` eller andre modstridende værdier afvises med `kind_category_conflict`. Uden for Viden/Liv defaultes manglende `kind` fortsat til `news`.
 
@@ -120,13 +167,19 @@ GitHub-broen må ikke implementere en separat hero-orchestrator. Den omsætter k
 
 `queue_id` gemmes som `editorial_metadata.github_queue_id`. Samme `queue_id` kan afleveres igen uden artikeldublet. Der må højst være ét åbent (`pending`/`processing`) bridge-media-job pr. artikel. Media Workerens eksisterende SHA-256-dedup genbruges.
 
+Discovery-audit er separat idempotent på `(run_id, candidate_id)` og kan derfor genafleveres uden dobbeltrækker.
+
 ## Publicering og QA
 
-Bridge-funktionen indsætter artiklen som `scheduled` og kalder `public.publish_article_safely(article_id)`. Når en primær eller senere fallback-kandidat bliver `ready`, knyttes samme artikel til `hero_media_id`/intern `hero_url`; eksisterende QA og publication watchdog fortsætter derefter publiceringen. Hero/media-regler omgås aldrig.
+Bridge-funktionen indsætter artikelpayloads som `scheduled` og kalder `public.publish_article_safely(article_id)`. Når en primær eller senere fallback-kandidat bliver `ready`, knyttes samme artikel til `hero_media_id`/intern `hero_url`; eksisterende QA og publication watchdog fortsætter derefter publiceringen. Hero/media-regler omgås aldrig.
+
+Audit-only payloads opretter ingen artikel og kalder ikke publication-gates.
 
 ## Scheduled Task-standard
 
 Autonome artikelopgaver skal aflevere via GitHub-broen. De bør finde og rangere flere lovlige original-heros, helst forfiltreret til ≥1200×675, og sende dem som `editorial_metadata.hero_candidates`. De skal ikke selv implementere retry/recovery; det ejes af Media Worker. Hvis kun én kandidat findes, kan legacy `hero_candidate_url` fortsat bruges.
+
+Almindelige news-runs følger desuden discovery-audit-kontrakten i `docs/automations/news-task.md`.
 
 ## Driftsprincip
 
