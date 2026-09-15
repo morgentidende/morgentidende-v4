@@ -47,7 +47,7 @@ function normalizeHeroUrl(raw: string | null): string | null {
   if (!raw) return null;
   try {
     const u = new URL(raw);
-    for (const key of ["w", "width", "h", "height", "q", "quality", "fit", "fm", "format", "auto"]) u.searchParams.delete(key);
+    for (const key of ["w", "width", "h", "height", "q", "quality", "fit", "fm", "format", "auto", "ixid", "ixlib"]) u.searchParams.delete(key);
     u.hash = "";
     return u.toString();
   } catch { return raw.trim(); }
@@ -94,13 +94,18 @@ async function heroLoads(url: string | null): Promise<boolean> {
 }
 
 async function duplicateHeroOnFrontpage(article: any): Promise<boolean> {
-  if (!article.hero_url) return false;
-  const select = "id,hero_url,hero_media_id,published_at";
-  const r = await restFetch(`v4_public_articles?select=${select}&id=neq.${article.id}&order=published_at.desc&limit=40`);
-  if (!r.ok) return false;
+  if (!article.hero_url && !article.hero_media_id) return false;
+  const since = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString();
+  const select = "id,hero_url,hero_media_id,story_cluster_id,published_at";
+  const r = await restFetch(`articles?select=${select}&status=eq.published&published_at=gte.${encodeURIComponent(since)}&published_at=lte.${encodeURIComponent(new Date().toISOString())}&id=neq.${article.id}&order=published_at.desc&limit=40`);
+  if (!r.ok) {
+    console.error(`duplicate_hero_query_failed status=${r.status} body=${(await r.text()).slice(0, 300)}`);
+    return false;
+  }
   const rows = await r.json();
   const normalized = normalizeHeroUrl(article.hero_url);
   return rows.some((row: any) => {
+    if (article.story_cluster_id && row.story_cluster_id && article.story_cluster_id === row.story_cluster_id) return false;
     if (article.hero_media_id && row.hero_media_id && article.hero_media_id === row.hero_media_id) return true;
     return normalized && normalizeHeroUrl(row.hero_url) === normalized;
   });
@@ -152,18 +157,14 @@ Deno.serve(async () => {
         continue;
       }
 
-      const matches = await rpc("article_qa_claim_matches_live", {
-        p_job_id: job.id,
-        p_claim_token: job.claim_token,
-        p_expected_hash: expectedHash,
-      });
+      const matches = await rpc("article_qa_claim_matches_live", { p_job_id: job.id, p_claim_token: job.claim_token, p_expected_hash: expectedHash });
       if (matches !== true) {
         await finishJob(job, expectedHash, "superseded", started, ["stale_before_processing"], fixes).catch(() => null);
         results.push({ id: job.id, status: "superseded", reason: "stale_before_processing" });
         continue;
       }
 
-      const aResp = await restFetch(`articles?id=eq.${job.article_id}&select=id,headline,deck,body_markdown,hero_url,hero_media_id,source_metadata&limit=1`);
+      const aResp = await restFetch(`articles?id=eq.${job.article_id}&select=id,headline,deck,body_markdown,hero_url,hero_media_id,story_cluster_id,source_metadata&limit=1`);
       if (!aResp.ok) throw new Error(`article fetch ${aResp.status}`);
       const [article] = await aResp.json();
       if (!article) {
@@ -179,10 +180,6 @@ Deno.serve(async () => {
       const withoutManualSources = stripTrailingManualSources(proposedBody, article.source_metadata);
       if (withoutManualSources !== proposedBody) fixes.push("manual_source_section_removed");
       proposedBody = withoutManualSources;
-
-      // Preserve the existing warning semantics: inspect links before stripping them.
-      const warningArticle = { ...article, body_markdown: proposedBody };
-      const warnings = [...deterministicWarnings(warningArticle), ...sourceQualityWarnings(job.source_quality)];
 
       const strippedBody = stripOrdinaryBodyLinks(proposedBody);
       if (strippedBody !== proposedBody) fixes.push("ordinary_body_hyperlinks_removed");
@@ -206,6 +203,7 @@ Deno.serve(async () => {
         article.body_markdown = proposedBody;
       }
 
+      const warnings = [...deterministicWarnings(article), ...sourceQualityWarnings(job.source_quality)];
       if (article.hero_url && !(await heroLoads(article.hero_url))) warnings.push("broken_hero_url");
       if (await duplicateHeroOnFrontpage(article)) warnings.push("duplicate_frontpage_hero");
 
@@ -218,13 +216,7 @@ Deno.serve(async () => {
         continue;
       }
 
-      results.push({
-        id: job.id,
-        status: finishedRow.status ?? finalStatus,
-        duration_ms: Date.now() - started,
-        engine: "deterministic-v2",
-        content_hash: expectedHash,
-      });
+      results.push({ id: job.id, status: finishedRow.status ?? finalStatus, duration_ms: Date.now() - started, engine: "deterministic-v2", content_hash: expectedHash });
     } catch (e) {
       const message = String((e as any)?.message ?? e);
       await finishJob(job, expectedHash, "failed", started, [message], fixes).catch(() => null);
