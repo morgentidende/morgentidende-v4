@@ -60,3 +60,20 @@ jobs:
                 echo "Delete merged PR branch if it still exists: $branch"
                 gh api -X DELETE "repos/$GITHUB_REPOSITORY/git/refs/heads/$branch" || true
               done
+
+      - name: One-time removal of verified superseded branches
+        if: github.event_name == 'push'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          for branch in \
+            'prelaunch-hardening-seo' \
+            'hero-diversity-rule' \
+            'fix/media-ingest-smoke-diagnostics' \
+            'canary/scheduled-pr-20260914-185744'
+          do
+            echo "Delete verified superseded branch if it still exists: $branch"
+            gh api -X DELETE "repos/$GITHUB_REPOSITORY/git/refs/heads/$branch" || true
+          done
