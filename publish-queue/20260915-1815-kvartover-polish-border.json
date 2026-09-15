@@ -1,0 +1,168 @@
+{
+  "queue_id": "20260915-1815-kvartover-polish-border",
+  "slug": "polen-befaster-graensen-efter-russiske-droneangreb",
+  "headline": "Russiske droner ramte få kilometer fra NATO-grænsen: Polen bygger nu beskyttelse",
+  "deck": "En drone ramte et passagertog og en anden en lastbil. Nu forstærker Polen tre grænseovergange mod Ukraine.",
+  "category_slug": "udland",
+  "kind": "news",
+  "body_markdown": "**SAGEN KORT**\n\n- Polen forstærker grænseovergangene ved Dorohusk, Medyka og Korczowa efter russiske droneangreb tæt på den polske grænse.\n- Soldater bygger blandt andet sprængningsbeskyttelse samt observations- og vagtposter ved overgangene.\n\nRussiske droneangreb få kilometer fra Polens grænse til Ukraine får nu NATO-landet til at bygge fysisk beskyttelse omkring tre centrale grænseovergange.\n\nIfølge nyhedsbureauet Reuters ramte en russisk drone søndag et passagertog på den ukrainske side af grænsen. En anden drone ramte en lastbil ved en nærliggende tankstation. Angrebene fik grænsevagter til midlertidigt at standse trafikken, evakuere mennesker fra køretøjer og søge dækning.\n\n## Bygger beskyttelse ved tre overgange\n\nPolens vicepremierminister og forsvarsminister Władysław Kosiniak-Kamysz oplyser, at soldater fra landets 18. ingeniørregiment allerede er i gang med at forstærke infrastrukturen, som grænsevagterne bruger.\n\nArbejdet foregår ved overgangene Dorohusk, Medyka og Korczowa. Ifølge den polske hær opstilles blandt andet sammenklappelige beholdere af trådnet, der fyldes med sand eller grus og kan fungere som beskyttende vægge. Der bygges også observations- og vagtposter.\n\nTiltaget kommer efter angreb, der denne gang ikke ramte Polen, men som kom så tæt på landets grænse, at de fik direkte betydning for trafikken over den.\n\nKosiniak-Kamysz siger, at de seneste dages hændelser viser, at Ruslands handlinger truer sikkerheden i hele Europa.\n\n## NATO-land lige på den anden side\n\nPolen deler en lang grænse med Ukraine og har siden Ruslands invasion været et centralt transitland for både mennesker og materiel. De tre overgange, som nu forstærkes, ligger på den polsk-ukrainske grænse.\n\nAt Polen nu bygger fysisk beskyttelse omkring selve grænseinfrastrukturen, viser, hvordan krigen på den ukrainske side kan få praktiske sikkerhedskonsekvenser helt frem til et NATO-lands grænseposter.\n\nDe polske myndigheder har ikke oplyst, at de russiske droner krydsede ind i polsk luftrum i forbindelse med de to angreb, Reuters omtaler. Forstærkningen er derfor et forebyggende sikkerhedstiltag efter hændelserne tæt på grænsen – ikke en oplysning om et russisk angreb på Polen.",
+  "source_metadata": [
+    {
+      "publisher": "Reuters",
+      "url": "https://www.reuters.com/business/aerospace-defense/poland-reinforces-protection-border-crossings-with-ukraine-2026-09-15/",
+      "source_type": "authoritative",
+      "title": "Poland reinforces protection of border crossings with Ukraine",
+      "published_date": "2026-09-15"
+    },
+    {
+      "publisher": "Polish Prime Minister's Office",
+      "url": "https://www.gov.pl/web/primeminister/wladyslaw-kosiniak-kamysz",
+      "source_type": "primary_official",
+      "title": "Władysław Kosiniak-Kamysz — Deputy Prime Minister, Minister of National Defence"
+    }
+  ],
+  "editorial_metadata": {
+    "discovery_run_id": "news-20260915-1815",
+    "story_kind": "news",
+    "share_reason": "Russiske droner har ramt få kilometer fra et NATO-land, og Polen bygger nu fysisk beskyttelse ved grænsen.",
+    "discovery_audit": [
+      {
+        "candidate_id": "candidate-1",
+        "source_pool": "discovery",
+        "path_used": "discovery",
+        "rank_position": 1,
+        "deep_screened": true,
+        "discovery_source_name": "Libertad Digital",
+        "discovery_source_url": "https://www.libertaddigital.com/espana/politica/2026-09-15/el-ppe-pone-en-apuros-a-sanchez-insta-a-bruselas-a-senalar-a-marruecos-responsable-de-la-invasion-en-ceuta-7460150/",
+        "discovery_domain": "libertaddigital.com",
+        "candidate_headline": "EU-Parlamentet skal stemme om at fordømme Marokko efter Ceuta",
+        "candidate_topic": "Ceuta / Marokko / EU",
+        "decision": "rejected",
+        "decision_reason": "too_close_to_recent_ceuta_cluster_and_vote_not_yet_held",
+        "downstream_sources": ["europarl.europa.eu", "euronews.com"],
+        "model_name": "GPT-5.6 Sol",
+        "prompt_version": "docs/automations/news-task.md@2bf8f48c"
+      },
+      {
+        "candidate_id": "candidate-2",
+        "source_pool": "discovery",
+        "path_used": "discovery",
+        "rank_position": 2,
+        "deep_screened": true,
+        "discovery_source_name": "Libertad Digital",
+        "discovery_source_url": "https://www.libertaddigital.com/libremercado/2026-09-15/las-ventas-de-sprays-de-pimienta-aumentan-un-500-por-ciento-en-ceuta-cuando-no-habia-las-mujeres-llevaban-cuchillos-7460142/",
+        "discovery_domain": "libertaddigital.com",
+        "candidate_headline": "Peberspraysalg stiger 500 procent i Ceuta",
+        "candidate_topic": "Ceuta / personlig sikkerhed",
+        "decision": "rejected",
+        "decision_reason": "authoritative_documentation_not_established_cheaply",
+        "downstream_sources": [],
+        "model_name": "GPT-5.6 Sol",
+        "prompt_version": "docs/automations/news-task.md@2bf8f48c"
+      },
+      {
+        "candidate_id": "candidate-3",
+        "source_pool": "discovery",
+        "path_used": "discovery",
+        "rank_position": 3,
+        "deep_screened": true,
+        "discovery_source_name": "NIUS",
+        "discovery_source_url": "https://nius.de/",
+        "discovery_domain": "nius.de",
+        "candidate_headline": "Tysk indenrigspolitisk kandidat",
+        "candidate_topic": "Tyskland / politik",
+        "decision": "rejected",
+        "decision_reason": "no_sufficiently_fresh_candidate_from_scan",
+        "downstream_sources": [],
+        "model_name": "GPT-5.6 Sol",
+        "prompt_version": "docs/automations/news-task.md@2bf8f48c"
+      },
+      {
+        "candidate_id": "candidate-4",
+        "source_pool": "discovery",
+        "path_used": "discovery",
+        "rank_position": 4,
+        "deep_screened": true,
+        "discovery_source_name": "Document",
+        "discovery_source_url": "https://www.document.no/",
+        "discovery_domain": "document.no",
+        "candidate_headline": "Nordisk migrations- og sikkerhedskandidat",
+        "candidate_topic": "Norden / migration / sikkerhed",
+        "decision": "rejected",
+        "decision_reason": "no_sufficiently_fresh_candidate_from_scan",
+        "downstream_sources": [],
+        "model_name": "GPT-5.6 Sol",
+        "prompt_version": "docs/automations/news-task.md@2bf8f48c"
+      },
+      {
+        "candidate_id": "candidate-5",
+        "source_pool": "discovery",
+        "path_used": "discovery",
+        "rank_position": 5,
+        "deep_screened": true,
+        "discovery_source_name": "Libertad Digital",
+        "discovery_source_url": "https://www.libertaddigital.com/espana/politica/2026-09-15/editorial-el-gobierno-sabia-que-la-ley-de-nietos-propicia-el-pucherazo-7459831/",
+        "discovery_domain": "libertaddigital.com",
+        "candidate_headline": "Strid om Spaniens statsborgerskabs- og valgregler",
+        "candidate_topic": "Spanien / valg / statsborgerskab",
+        "decision": "rejected",
+        "decision_reason": "opinion_source_and_central_claims_not_independently_verified",
+        "downstream_sources": [],
+        "model_name": "GPT-5.6 Sol",
+        "prompt_version": "docs/automations/news-task.md@2bf8f48c"
+      },
+      {
+        "candidate_id": "fallback-1",
+        "source_pool": "danish_major_media",
+        "path_used": "danish_fallback",
+        "rank_position": 1,
+        "deep_screened": true,
+        "candidate_headline": "Russiske droner ramte få kilometer fra NATO-grænsen: Polen bygger nu beskyttelse",
+        "candidate_topic": "Polen / Rusland / Ukraine / NATO-sikkerhed",
+        "decision": "selected",
+        "decision_reason": "fresh_material_security_development_with_authoritative_documentation",
+        "downstream_sources": ["reuters.com", "gov.pl"],
+        "model_name": "GPT-5.6 Sol",
+        "prompt_version": "docs/automations/news-task.md@2bf8f48c"
+      }
+    ],
+    "hero_candidates": [
+      {
+        "source_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Szymon%20Ho%C5%82ownia%20i%20W%C5%82adys%C5%82aw%20Kosiniak-Kamysz%2C%202023.jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "free-use-with-license-requirements-on-file-page",
+        "license_url": "https://commons.wikimedia.org/wiki/File:Szymon_Ho%C5%82ownia_i_W%C5%82adys%C5%82aw_Kosiniak-Kamysz,_2023.jpg",
+        "credit_text": "Tomasz Kaczor / Wikimedia Commons",
+        "rights_notes": "Commons file page states the work is free and may be used for any purpose subject to listed licensing requirements; original 1600x1067.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "attribution_required": true,
+        "alt_text": "Polens forsvarsminister Władysław Kosiniak-Kamysz ved en pressekonference"
+      },
+      {
+        "source_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Deputy%20prime%20ministers%20poland%202023%202.jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "Wikimedia Commons licensed file",
+        "license_url": "https://commons.wikimedia.org/wiki/File:Deputy_prime_ministers_poland_2023_2.jpg",
+        "credit_text": "Wikimedia Commons",
+        "rights_notes": "Commons-listed original; Media Worker must validate the exact file-page license and attribution before use.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "attribution_required": true,
+        "alt_text": "Polens vicepremierminister og forsvarsminister Władysław Kosiniak-Kamysz"
+      },
+      {
+        "source_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Deputy%20prime%20ministers%20poland%202023.jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "Wikimedia Commons licensed file",
+        "license_url": "https://commons.wikimedia.org/wiki/File:Deputy_prime_ministers_poland_2023.jpg",
+        "credit_text": "Wikimedia Commons",
+        "rights_notes": "Commons-listed original; Media Worker must validate the exact file-page license and attribution before use.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "attribution_required": true,
+        "alt_text": "Władysław Kosiniak-Kamysz sammen med en polsk regeringskollega"
+      }
+    ]
+  }
+}
