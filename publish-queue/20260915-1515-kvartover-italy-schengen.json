@@ -1,0 +1,131 @@
+{
+  "queue_id": "20260915-1515-kvartover-italy-schengen",
+  "slug": "italien-forlaenger-schengen-stop-spanien-terrorrisiko",
+  "headline": "Italien forlænger Schengen-stop mod Spanien: Frygter terrorister blandt migranter",
+  "deck": "Grænsekontrollen forlænges 15 dage. Italien siger, at risikoen for terrorinfiltration fortsat er reel efter migrantkrisen i Ceuta.",
+  "category_slug": "udland",
+  "kind": "news",
+  "body_markdown": "## SAGEN KORT\n\n- Italien forlænger de midlertidige Schengen-kontroller over for Spanien med yderligere 15 dage.\n- Det italienske indenrigsministerium begrunder beslutningen med fortsat risiko for den interne sikkerhed og mulig infiltration af terrorister.\n\nItalien holder fast i grænsekontrollen over for Spanien. Tirsdag meddelte det italienske indenrigsministerium, at den midlertidige suspension af den normale grænsefri Schengen-ordning mellem de to lande forlænges med yderligere 15 dage.\n\nBegrundelsen er usædvanligt alvorlig. Ifølge ministeriet består der fortsat \"betydelige risici for den interne sikkerhed\" samt en mulig trussel fra terrorister, der kan forsøge at komme videre gennem Europa.\n\nBeslutningen betyder ikke, at Italien lukker sin grænse til Spanien. Men rejsende på fly- og søforbindelser kan fortsat blive mødt af dokument- og grænsekontrol, selv om begge lande normalt er en del af Europas grænsefri Schengen-område.\n\n## Begyndte med Ceuta\n\nKontrollen blev første gang indført 31. juli efter den store tilstrømning af migranter fra Marokko til Ceuta, den spanske enklave i Nordafrika. Krisen udløste bekymring i Italien for, at personer kunne bevæge sig videre fra Spanien til andre Schengen-lande.\n\nDet er den forbindelse, der nu får særlig vægt. Det italienske indenrigsministerium siger ifølge Reuters direkte, at en potentiel terrorinfiltration indgår i sikkerhedsvurderingen bag den nye forlængelse. Ministeriet har ikke oplyst, at konkrete terrorister er blevet identificeret blandt migranterne. Der er derfor tale om en vurderet risiko – ikke dokumentation for, at terrorister faktisk er kommet ind via Ceuta.\n\nSpanien har tidligere svaret igen med egne midlertidige kontroller af passagerer fra Italien. Dermed har striden om migrantkrisen ført til en situation, hvor to store EU-lande kontrollerer rejsende fra hinanden i et område, der netop er bygget op omkring fri bevægelighed.\n\n## En undtagelse bliver forlænget\n\nSchengen-reglerne giver medlemslandene mulighed for midlertidigt at genindføre kontrol ved de indre grænser, når der vurderes at være en alvorlig trussel mod den offentlige orden eller den interne sikkerhed. Kontrollen skal være ekstraordinær og tidsbegrænset.\n\nItaliens beslutning viser samtidig, hvor hurtigt en migrationskrise ved EU's ydre grænse kan få konsekvenser langt fra selve grænsen. Ceuta ligger på den nordafrikanske kyst. Alligevel har begivenhederne dér nu i mere end halvanden måned påvirket den frie bevægelighed mellem Italien og Spanien.\n\nDen nye forlængelse gør samtidig den italienske sikkerhedsvurdering klar: Situationen vurderes endnu ikke som normaliseret nok til, at kontrollen kan ophæves.",
+  "source_metadata": [
+    {
+      "publisher": "Reuters",
+      "url": "https://www.reuters.com/world/italy-extends-schengen-suspension-with-spain-another-15-days-2026-09-15/",
+      "title": "Italy extends Schengen suspension with Spain for another 15 days",
+      "published_at": "2026-09-15T12:59:00Z"
+    }
+  ],
+  "editorial_metadata": {
+    "discovery_run_id": "news-20260915-1515-kvartover",
+    "discovery_audit": [
+      {
+        "candidate_id": "candidate-1",
+        "source_pool": "discovery",
+        "path_used": "discovery",
+        "rank_position": 1,
+        "deep_screened": true,
+        "discovery_source_name": "The Objective",
+        "discovery_domain": "theobjective.com",
+        "candidate_headline": "Italien og Spanien fastholder Schengen-kontrol efter Ceuta-krisen",
+        "candidate_topic": "migration, Schengen og intern sikkerhed",
+        "decision": "selected",
+        "decision_reason": "fresh_material_development_confirmed_by_reuters",
+        "downstream_sources": ["Reuters"],
+        "model_name": "GPT-5.6 Sol",
+        "prompt_version": "docs/automations/news-task.md@2bf8f48c"
+      },
+      {
+        "candidate_id": "candidate-2",
+        "source_pool": "discovery",
+        "path_used": "discovery",
+        "rank_position": 2,
+        "deep_screened": false,
+        "discovery_source_name": "NIUS",
+        "discovery_domain": "nius.de",
+        "candidate_headline": "Tysk debat om terror-efterforskninger",
+        "candidate_topic": "islamisme og terror",
+        "decision": "not_selected",
+        "decision_reason": "lower_freshness_than_selected_candidate",
+        "downstream_sources": [],
+        "model_name": "GPT-5.6 Sol",
+        "prompt_version": "docs/automations/news-task.md@2bf8f48c"
+      },
+      {
+        "candidate_id": "candidate-3",
+        "source_pool": "discovery",
+        "path_used": "discovery",
+        "rank_position": 3,
+        "deep_screened": false,
+        "discovery_source_name": "NIUS",
+        "discovery_domain": "nius.de",
+        "candidate_headline": "Sabotage mod tysk elnet",
+        "candidate_topic": "infrastruktur og sabotage",
+        "decision": "not_selected",
+        "decision_reason": "older_than_selected_candidate",
+        "downstream_sources": [],
+        "model_name": "GPT-5.6 Sol",
+        "prompt_version": "docs/automations/news-task.md@2bf8f48c"
+      },
+      {
+        "candidate_id": "candidate-4",
+        "source_pool": "discovery",
+        "path_used": "discovery",
+        "rank_position": 4,
+        "deep_screened": false,
+        "discovery_source_name": "Samnytt",
+        "discovery_domain": "samnytt.se",
+        "candidate_headline": "Sverige vil fremskynde udrejse for udvisningsdømte",
+        "candidate_topic": "migration og kriminalitet",
+        "decision": "not_selected",
+        "decision_reason": "substantially_older_than_selected_candidate",
+        "downstream_sources": [],
+        "model_name": "GPT-5.6 Sol",
+        "prompt_version": "docs/automations/news-task.md@2bf8f48c"
+      },
+      {
+        "candidate_id": "candidate-5",
+        "source_pool": "discovery",
+        "path_used": "discovery",
+        "rank_position": 5,
+        "deep_screened": false,
+        "discovery_source_name": "Fdesouche",
+        "discovery_domain": "fdesouche.com",
+        "candidate_headline": "Britisk regeringsenhed kritiseres for skjult påvirkning",
+        "candidate_topic": "ytringsfrihed og statslig kommunikation",
+        "decision": "not_selected",
+        "decision_reason": "older_than_selected_candidate",
+        "downstream_sources": [],
+        "model_name": "GPT-5.6 Sol",
+        "prompt_version": "docs/automations/news-task.md@2bf8f48c"
+      }
+    ],
+    "hero_candidates": [
+      {
+        "source_url": "https://www.governo.it/sites/governo.it/files/_DSC0901.jpeg",
+        "source_provider": "Italian Government",
+        "source_page_url": "https://www.governo.it/it/node/22283",
+        "rights_notes": "Official Italian government image; Media Worker must validate commercial/local reuse rights before ingest.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "alt_text": "Italiens premier Giorgia Meloni og Spaniens premier Pedro Sánchez under et møde i Rom"
+      },
+      {
+        "source_url": "https://api.multimedia.europarl.europa.eu/documents/20125/42820497/1655419034631_P019547007701-703634_MOBILE.jpg",
+        "source_provider": "European Parliament Multimedia Centre",
+        "source_page_url": "https://multimedia.europarl.europa.eu/de/photoset/p_P-019547",
+        "rights_notes": "EU institutional media candidate; Media Worker must validate reuse terms and dimensions.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "alt_text": "Schengen-skilt ved den spanske grænse"
+      },
+      {
+        "source_url": "https://www.lamoncloa.gob.es/multimedia/fotos/presidente/PublishingImages/2023/050423-sanchez-visita-italia.JPG",
+        "source_provider": "La Moncloa",
+        "source_page_url": "https://www.lamoncloa.gob.es/presidente/actividades/Paginas/2023/050423-sanchez-visita-italia.aspx",
+        "rights_notes": "Official Spanish government image; Media Worker must validate commercial/local reuse rights before ingest.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "alt_text": "Pedro Sánchez ved møde med Italiens regering foran spanske, europæiske og italienske flag"
+      }
+    ]
+  }
+}
