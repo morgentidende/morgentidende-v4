@@ -1,0 +1,46 @@
+{
+  "queue_id": "kvarti-20260915-1142-hungary-lgbt-law",
+  "slug": "ungarn-ruller-orbans-lgbt-regler-tilbage-efter-eu-dom",
+  "headline": "Ungarn ruller Orbáns LGBT-regler tilbage efter EU-dom",
+  "dek": "Péter Magyars regering vil igen tillade omtale af homoseksualitet for mindreårige. Samtidig fastholdes et bredere værn mod skadeligt seksuelt indhold.",
+  "category_slug": "udland",
+  "kind": "news",
+  "body_markdown": "## Orbáns regler bliver skrevet om\n\nUngarns nye regering har lagt et lovforslag frem, der fjerner centrale dele af de regler, som den tidligere premierminister Viktor Orbáns regering indførte i 2021 om indhold til mindreårige.\n\nForslaget fra den EU-venlige konservative premierminister Péter Magyar vil fjerne det særlige forbud mod at vise eller »fremme« homoseksualitet og kønsskifte over for personer under 18 år. I stedet skal reglerne rette sig mod indhold, der kan skade børns fysiske, intellektuelle, følelsesmæssige eller moralske udvikling, uanset seksuel orientering.\n\n### SAGEN KORT\n\n- Regeringen vil fjerne Orbán-tidens særlige begrænsninger på omtale og fremstilling af homoseksualitet og kønsskifte for mindreårige.\n- Kursændringen kommer efter en EU-dom i april og kan samtidig hjælpe Ungarn med at få adgang til flere tilbageholdte EU-midler.\n\n## EU-dom ændrede presset på Budapest\n\nOrbáns regering beskrev loven som beskyttelse af børn. Kritikere og EU-institutioner mente derimod, at den diskriminerede seksuelle minoriteter. Reglerne fik konkrete følger for blandt andet bøger, film og tv-indhold og blev senere også brugt som juridisk grundlag for at begrænse Pride-arrangementer.\n\nEU-Domstolen fastslog i april, at lovgivningen var i strid med EU-retten. Ifølge domstolen fremstillede reglerne LGBT-personer som en trussel mod samfundet og kunne bidrage til deres marginalisering.\n\nMagyar sagde mandag, at regeringen både vil styrke beskyttelsen af børn mod voldeligt og seksualiseret materiale og fjerne bestemmelser, der forskelsbehandler efter seksuel orientering.\n\n## Penge og politik hænger sammen\n\nLovændringen handler ikke kun om værdipolitik. Magyar har gjort et bedre forhold til EU til en central del af sin regerings kurs efter valgsejren i april, der afsluttede Orbáns 16 år ved magten.\n\nIfølge Euronews vurderer regeringen, at ændringerne kan bidrage til at frigive omkring en halv milliard euro i EU-støtte til uddannelse. EU-Kommissionen siger foreløbig, at det er for tidligt at vurdere det konkrete lovforslag.\n\nDet betyder, at Budapest nu forsøger at kombinere to hensyn, som i årevis har stået centralt i konflikten med Bruxelles: national børnebeskyttelse og EU's krav om ikke-diskrimination.\n\n## Også adoption står til ændring\n\nKursændringen er bredere end reglerne for medier og undervisningsmateriale. Magyar meddelte i weekenden, at regeringen også vil ændre den ordning fra 2020, der i praksis gjorde adoption for homoseksuelle vanskelig eller umulig.\n\nHans argument er, at afgørelsen om, hvem der kan give et barn et godt hjem, skal træffes af fagfolk frem for politikere.\n\nDermed er lovforslaget blevet et af de hidtil tydeligste brud med Orbán-æraens værdipolitik. Men regeringen afskaffer ikke reguleringen af materiale til børn. Den forsøger i stedet at flytte grænsen fra bestemte seksuelle identiteter til indholdets konkrete skadevirkning.",
+  "source_metadata": [
+    {"name":"Reuters","url":"https://www.reuters.com/world/hungary-government-submits-bill-roll-back-orban-era-anti-lgbtq-rules-2026-09-15/","role":"primary_reporting"},
+    {"name":"Euronews","url":"https://www.euronews.com/my-europe/2026/09/14/hungary-moves-to-amend-controversial-child-protection-law-after-eu-court-ruling","role":"background_and_eu_context"},
+    {"name":"Telex","url":"https://telex.hu/belfold/2026/09/14/tisza-gyermekvedelmi-torvenyjavaslat-homofob-transzfob-toroltek","role":"hungarian_reporting"}
+  ],
+  "editorial_metadata": {
+    "story_kind": "news",
+    "topic_key": "hungary-magyar-child-protection-lgbt-law-2026",
+    "hero_candidates": [
+      {
+        "source_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Peter-Magyar-portrait-2026.jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "credit_text": "Norbert Bánhalmi / Wikimedia Commons",
+        "rights_notes": "Own work; Commons file page states freely reusable under CC BY-SA 4.0. Original 3384x4509 JPEG.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": true,
+        "alt_text": "Ungarns premierminister Péter Magyar ved en demonstration i Budapest i marts 2026"
+      },
+      {
+        "source_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Magyar%20P%C3%A9ter%20besz%C3%A9de%20az%20Orsz%C3%A1ggy%C5%B1l%C3%A9s%20megalakul%C3%A1sa%20alkalm%C3%A1b%C3%B3l%20(1).jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "CC BY 4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "credit_text": "Elekes Andor / Wikimedia Commons",
+        "rights_notes": "Own work; Commons file page licenses the image under CC BY 4.0. Original 4096x1547 JPEG.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": true,
+        "alt_text": "Péter Magyar taler ved det ungarske parlaments konstituering i maj 2026"
+      }
+    ]
+  }
+}
