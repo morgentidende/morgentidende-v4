@@ -1,0 +1,62 @@
+{
+  "queue_id": "kvarti-20260915-0944-wien-migration",
+  "slug": "mere-end-hver-anden-i-wien-har-nu-migrationsbaggrund",
+  "headline": "Mere end hver anden i Wien har nu migrationsbaggrund",
+  "category_slug": "udland",
+  "kind": "news",
+  "manchet": "Nye officielle tal viser et historisk skifte i Østrigs hovedstad. 51,3 procent har nu migrationsbaggrund.",
+  "sagen_kort": [
+    "51,3 procent af Wiens befolkning har migrationsbaggrund – omkring 1,02 millioner mennesker.",
+    "65,1 procent af de udenlandsk fødte i Wien kommer fra lande uden for EU/EFTA og Storbritannien."
+  ],
+  "body_markdown": "Mere end hver anden indbygger i Wien har nu migrationsbaggrund. Det viser nye tal fra Statistik Austria, Østrigs officielle statistikmyndighed.\n\nAndelen nåede i 2025 op på 51,3 procent. Det svarer til omkring 1,02 millioner mennesker i den østrigske hovedstad.\n\nBegrebet migrationsbaggrund omfatter i statistikken personer, hvor begge forældre er født i udlandet. Det gælder derfor både mennesker, der selv er indvandret til Østrig, og personer født i landet af to udenlandsk fødte forældre.\n\n## Wien skiller sig markant ud\n\nTallene viser en usædvanlig stor forskel mellem Wien og resten af Østrig. På landsplan har 28,2 procent af befolkningen migrationsbaggrund.\n\nVorarlberg ligger næsthøjest blandt delstaterne med 28,6 procent. I Burgenland er andelen 15,2 procent. Dermed er andelen i Wien mere end tre gange så høj som i den delstat, hvor den er lavest.\n\nUdviklingen handler heller ikke kun om indvandring fra andre europæiske lande. Statistik Austria oplyser, at 65,1 procent af de udenlandsk fødte i Wien kommer fra tredjelande – altså lande uden for EU, EFTA og Storbritannien. 34,9 procent er født i disse europæiske lande.\n\n## Mere end en million\n\nDet absolutte tal gør forandringen konkret. Omkring 1,019 millioner mennesker i Wien har migrationsbaggrund.\n\nAf hele byens befolkning tilhører 38,7 procent første generation: De er selv født i udlandet. Yderligere 12,6 procent er anden generation og er født i Østrig af forældre, som begge er født i udlandet.\n\nMigrationen er samtidig stærkt koncentreret i hovedstaden. Ifølge de nye statistiske oplysninger boede knap 40 procent af alle udenlandsk fødte i Østrig i Wien ved begyndelsen af 2026, mens kun omkring 17 procent af den østrigsk fødte befolkning boede i hovedstaden.\n\nKoncentrationen er endnu tydeligere for enkelte oprindelseslande. Omkring 56 procent af de mennesker i Østrig, der er født i Afghanistan, Syrien eller Irak, bor i Wien.\n\nTallene siger ikke i sig selv noget om integration, kriminalitet, beskæftigelse eller holdninger blandt de berørte mennesker. Men de dokumenterer en stor demografisk forandring: I Østrigs hovedstad er migrationsbaggrund ikke længere et mindretalsfænomen, men gælder nu flertallet af befolkningen.",
+  "source_metadata": [
+    {
+      "name": "Statistik Austria – Migration & Integration 2026",
+      "url": "https://www.statistik.at/fileadmin/publications/Migration_Integration-2026.pdf",
+      "type": "primary"
+    },
+    {
+      "name": "ORF Vorarlberg – Anteil an Migranten gesunken",
+      "url": "https://vorarlberg.orf.at/stories/3370784/",
+      "type": "secondary"
+    },
+    {
+      "name": "Heute – Mehr als jeder zweite Wiener hat Migrationshintergrund",
+      "url": "https://www.heute.at/s/mehr-als-jeder-zweite-wiener-hat-migrationshintergrund-120251143",
+      "type": "secondary"
+    }
+  ],
+  "editorial_metadata": {
+    "story_kind": "news",
+    "share_reason": "Et enkelt officielt tal dokumenterer et demografisk flertalsskifte i en europæisk hovedstad.",
+    "hero_candidates": [
+      {
+        "source_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Vienna%20Skyline.jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "CC BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "credit_text": "Fabian Lackner / Wikimedia Commons",
+        "rights_notes": "Eget værk frigivet under CC BY-SA 3.0 på Wikimedia Commons; kommerciel genbrug og lokal arkivering tilladt med attribution og share-alike.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": true,
+        "alt_text": "Wiens skyline set fra Alte Donau"
+      },
+      {
+        "source_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Panorama%20Wien%20Donau%20Donauinsel.jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "CC BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "credit_text": "Keule1978 / Wikimedia Commons",
+        "rights_notes": "Eget værk frigivet under CC BY-SA 3.0 på Wikimedia Commons; kommerciel genbrug og lokal arkivering tilladt med attribution og share-alike.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": true,
+        "alt_text": "Panorama over Wien set fra Kagran mod centrum"
+      }
+    ]
+  }
+}
