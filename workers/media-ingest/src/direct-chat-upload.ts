@@ -1,82 +1,20 @@
-interface Env {
-  MEDIA_INGEST_TOKEN: string;
-  SUPABASE_URL: string;
-  SUPABASE_SERVICE_ROLE_KEY: string;
-}
+import {
+  type BaseWorker,
+  type ManualUploadEnv as Env,
+  expectedIntegrity,
+  getManualUploadJob,
+  integrityMismatchDetail,
+  manualUploadJson as json,
+  patchManualUploadJob,
+  sha256Bytes,
+  sha256Text,
+  uploadGeneratedHero,
+} from './manual-chat-upload-shared';
 
-type ManualJob = {
-  id: string;
-  article_id: string;
-  token_hash: string;
-  mime_type: string;
-  file_name: string | null;
-  metadata: Record<string, unknown>;
-  status: 'pending' | 'processing' | 'done' | 'failed' | 'expired';
-  expires_at: string;
-};
-
-type BaseWorker = {
-  fetch(request: Request, env: Env): Promise<Response>;
-};
-
-type MediaUploadResult = Record<string, unknown> & {
-  asset?: { id?: string; delivery_url?: string; sha256?: string };
-  deduplicated?: boolean;
-};
-
-const headers = (env: Env, extra: Record<string, string> = {}) => ({
-  apikey: env.SUPABASE_SERVICE_ROLE_KEY,
-  authorization: `Bearer ${env.SUPABASE_SERVICE_ROLE_KEY}`,
-  'content-type': 'application/json',
-  ...extra,
-});
-
-const json = (body: unknown, status = 200) => new Response(JSON.stringify(body), {
-  status,
-  headers: { 'content-type': 'application/json; charset=utf-8', 'cache-control': 'no-store' },
-});
-
-const hex = (buffer: ArrayBuffer) => Array.from(new Uint8Array(buffer))
-  .map((byte) => byte.toString(16).padStart(2, '0')).join('');
-
-const sha256Text = async (value: string) => hex(await crypto.subtle.digest(
-  'SHA-256', new TextEncoder().encode(value),
-));
-
-const sha256Bytes = async (bytes: Uint8Array) => hex(await crypto.subtle.digest('SHA-256', bytes));
-
-const getJob = async (env: Env, id: string): Promise<ManualJob | null> => {
-  const params = new URLSearchParams({
-    id: `eq.${id}`,
-    select: 'id,article_id,token_hash,mime_type,file_name,metadata,status,expires_at',
-    limit: '1',
-  });
-  const response = await fetch(`${env.SUPABASE_URL}/rest/v1/manual_chat_media_upload_jobs?${params}`, {
-    headers: headers(env),
-  });
-  if (!response.ok) throw new Error(`direct_upload_lookup_failed:${response.status}`);
-  const rows = await response.json<ManualJob[]>();
-  return rows[0] || null;
-};
-
-const patchJob = async (env: Env, id: string, patch: Record<string, unknown>) => {
-  const response = await fetch(`${env.SUPABASE_URL}/rest/v1/manual_chat_media_upload_jobs?id=eq.${encodeURIComponent(id)}`, {
-    method: 'PATCH',
-    headers: headers(env, { Prefer: 'return=minimal' }),
-    body: JSON.stringify({ ...patch, updated_at: new Date().toISOString() }),
-  });
-  if (!response.ok) throw new Error(`direct_upload_patch_failed:${response.status}`);
-};
-
-const integrity = (metadata: Record<string, unknown>) => {
-  const expectedByteSize = Number(metadata.expected_byte_size);
-  const expectedSha256 = typeof metadata.expected_sha256 === 'string'
-    ? metadata.expected_sha256.trim().toLowerCase()
-    : '';
-  if (!Number.isSafeInteger(expectedByteSize) || expectedByteSize <= 0) return null;
-  if (!/^[0-9a-f]{64}$/.test(expectedSha256)) return null;
-  return { expectedByteSize, expectedSha256 };
-};
+const getJob = (env: Env, id: string) => getManualUploadJob(env, id, 'direct_upload');
+const patchJob = (env: Env, id: string, patch: Record<string, unknown>) => (
+  patchManualUploadJob(env, id, patch, 'direct_upload')
+);
 
 export const maybeHandleDirectChatUpload = async (
   request: Request,
@@ -100,7 +38,7 @@ export const maybeHandleDirectChatUpload = async (
   if (job.status === 'processing') return json({ error: 'manual_upload_in_progress' }, 409);
   if (!['pending', 'failed'].includes(job.status)) return json({ error: `manual_upload_${job.status}` }, 409);
 
-  const expected = integrity(job.metadata || {});
+  const expected = expectedIntegrity(job.metadata || {});
   if (!expected) return json({ error: 'manual_upload_integrity_metadata_required' }, 422);
 
   const requestType = (request.headers.get('content-type') || '').split(';')[0].trim().toLowerCase();
@@ -111,16 +49,10 @@ export const maybeHandleDirectChatUpload = async (
 
   await patchJob(env, job.id, { status: 'processing', last_error: null });
   try {
-    const arrayBuffer = await request.arrayBuffer();
-    const bytes = new Uint8Array(arrayBuffer);
+    const bytes = new Uint8Array(await request.arrayBuffer());
     const actualSha256 = await sha256Bytes(bytes);
     if (bytes.byteLength !== expected.expectedByteSize || actualSha256 !== expected.expectedSha256) {
-      const detail = {
-        expected_byte_size: expected.expectedByteSize,
-        actual_byte_size: bytes.byteLength,
-        expected_sha256: expected.expectedSha256,
-        actual_sha256: actualSha256,
-      };
+      const detail = integrityMismatchDetail(expected, bytes, actualSha256);
       await patchJob(env, job.id, {
         status: 'failed',
         result: { integrity_error: detail },
@@ -147,16 +79,14 @@ export const maybeHandleDirectChatUpload = async (
       },
     };
 
-    const form = new FormData();
-    form.set('file', new File([bytes], job.file_name || 'generated-hero', { type: job.mime_type }));
-    form.set('metadata', JSON.stringify(metadata));
-
-    const response = await baseWorker.fetch(new Request('https://internal/upload', {
-      method: 'POST',
-      headers: { authorization: `Bearer ${env.MEDIA_INGEST_TOKEN}` },
-      body: form,
-    }), env);
-    const result = await response.clone().json<MediaUploadResult>().catch(() => ({} as MediaUploadResult));
+    const { response, result } = await uploadGeneratedHero(
+      env,
+      baseWorker,
+      bytes,
+      job.mime_type,
+      job.file_name,
+      metadata,
+    );
 
     if (!response.ok || !result.asset?.id || !result.asset?.delivery_url) {
       await patchJob(env, job.id, {
