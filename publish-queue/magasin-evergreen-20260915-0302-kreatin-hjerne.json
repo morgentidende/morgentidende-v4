@@ -1,0 +1,57 @@
+{
+  "queue_id": "magasin-evergreen-20260915-0302-kreatin-hjerne",
+  "slug": "kreatin-hjerne-hukommelse-forskning-2026",
+  "headline": "Kreatin er ikke kun til muskler: Forskning peger på en effekt i hjernen",
+  "frontpage_headline": "Kreatin er ikke kun til muskler: Forskning peger på en effekt i hjernen",
+  "category_slug": "viden",
+  "kind": "article",
+  "deck": "Kreatin forbindes med styrketræning, men stoffet findes også i hjernen. Nyere forskning peger især på en mulig gevinst for hukommelsen.",
+  "author_name": "Morgentidende",
+  "body_markdown": "Kreatin er bedst kendt som pulveret i sportstasken. Men musklerne er ikke det eneste sted, hvor kroppen bruger stoffet. Hjernen har også brug for hurtig adgang til energi, og her indgår kreatin i det system, der hjælper cellerne med at genopbygge deres energilagre.\n\nDet har fået forskere til at undersøge et spørgsmål, der rækker langt ud over træningscentret: Kan ekstra kreatin også gøre en målbar forskel for hjernen?\n\n## SAGEN KORT\n\n- En analyse af 16 kontrollerede forsøg med 492 deltagere fandt en lille, men statistisk sikker forbedring af hukommelsen efter kreatin.\n- Effekten på andre mentale funktioner er langt mere usikker, og forskerne efterlyser større og bedre forsøg.\n\n## Hukommelsen skiller sig ud\n\nEn systematisk gennemgang og analyse fra 2024 samlede 16 kontrollerede forsøg med i alt 492 voksne. Alle forsøgene brugte kreatinmonohydrat, som er den almindelige og bedst undersøgte form for kreatin.\n\nPå tværs af forsøgene fandt forskerne en lille positiv effekt på hukommelsen. De så også tegn på hurtigere informationsbehandling og bedre opmærksomhed, men dokumentationen for disse effekter blev vurderet som mindre sikker. Der var ikke en statistisk sikker forbedring af den samlede mentale funktion eller de såkaldte eksekutive funktioner, som blandt andet bruges til planlægning og problemløsning.\n\nResultatet passer med en tidligere analyse af raske mennesker. Her indgik otte forsøg i selve beregningen, og kreatin var samlet forbundet med bedre hukommelse end placebo. Effekten så størst ud blandt ældre deltagere, men forskerne understregede, at datagrundlaget var begrænset.\n\n## Hjernen har sit eget energilager\n\nForklaringen er biologisk interessant. Kroppens celler bruger molekylet ATP som en slags umiddelbar energivaluta. Kreatin og fosfokreatin fungerer som et hurtigt reservesystem, der kan hjælpe med at gendanne ATP, når energibehovet stiger.\n\nDet system er vigtigt i muskler, men findes også i hjernen. Derfor er ideen om en mental effekt ikke bare opstået ud fra resultater i et spørgeskema; der findes en konkret mekanisme, som gør hypotesen plausibel.\n\nDet er dog ikke det samme som, at mere kreatin automatisk giver en skarpere hjerne. Hjernen regulerer sine energisystemer stramt, og forskning i kosttilskud er fuld af eksempler på biologisk plausible ideer, der senere viser sig at have beskedne eller ingen praktiske effekter.\n\n## Forskerne er ikke enige endnu\n\nEt andet systematisk review fra 2024 nåede en mere forsigtig konklusion. Forskerne vurderede, at resultaterne for kognition samlet set var tvetydige, selv om kreatintilskud ser ud til at kunne øge hjernens indhold af kreatin.\n\nDet er en vigtig nuance. Den positive meta-analyse vurderede sikkerheden af dokumentationen for hukommelse som moderat, mens sikkerheden for blandt andet opmærksomhed og informationsbehandling var lav.\n\nEn nyere gennemgang med fokus på personer over 55 år fandt også et interessant, men endnu usikkert mønster. Seks studier med tilsammen 1.542 deltagere blev gennemgået, og fem rapporterede en positiv sammenhæng mellem kreatin og mentale funktioner, især hukommelse og opmærksomhed. Kun to af studierne var dog dobbeltblindede forsøg med kreatintilskud; resten var observationsstudier. Forskerne konkluderede derfor, at der er brug for bedre kliniske forsøg.\n\n## Mere interessant under pres\n\nEn særlig forskningsidé er, at kreatin måske betyder mest, når hjernens energisystem er presset. Det kan eksempelvis være ved søvnmangel. En systematisk gennemgang offentliggjort i 2026 fandt kun fem relevante studier af akut søvnmangel. De tidlige resultater pegede i positiv retning, men forskerne vurderede datagrundlaget som for lille til sikre konklusioner.\n\nDet samme princip kan være med til at forklare, hvorfor effekten varierer så meget mellem studier og deltagere: Hvis en persons hjerne allerede har rigeligt tilgængeligt kreatin og ikke er under særligt energipres, kan der ganske enkelt være mindre at hente. Det er foreløbig en forklaring, ikke et bevist facit.\n\n## Ikke en dokumenteret genvej til højere intelligens\n\nDet mest præcise billede er derfor mindre spektakulært end mange påstande om kosttilskud, men mere interessant end ideen om kreatin som rent muskelpulver.\n\nDer er rimelig dokumentation for, at kreatin kan have en mindre positiv effekt på hukommelsen. For opmærksomhed, informationsbehandling og andre mentale funktioner er resultaterne mere usikre. Og der er ikke belæg for at beskrive kreatin som en generel genvej til højere intelligens.\n\nTil gengæld har forskningen flyttet spørgsmålet: Kreatin er ikke længere kun interessant for, hvor meget man kan løfte. Stoffets rolle i hjernens energiforsyning gør det til et reelt forskningsområde – og de næste større forsøg kan vise, hvem der faktisk har mest at vinde.",
+  "source_metadata": [
+    {
+      "title": "The effects of creatine supplementation on cognitive function in adults: a systematic review and meta-analysis",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39070254/",
+      "publisher": "Frontiers in Nutrition / PubMed",
+      "year": 2024,
+      "source_type": "strong_secondary"
+    },
+    {
+      "title": "Effects of creatine supplementation on memory in healthy individuals: a systematic review and meta-analysis of randomized controlled trials",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35984306/",
+      "publisher": "Nutrition Reviews / PubMed",
+      "year": 2022,
+      "source_type": "strong_secondary"
+    },
+    {
+      "title": "Creatine supplementation research fails to support the theoretical basis for an effect on cognition: Evidence from a systematic review",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38582412/",
+      "publisher": "Behavioural Brain Research / PubMed",
+      "year": 2024,
+      "source_type": "strong_secondary"
+    },
+    {
+      "title": "Creatine and Cognition in Aging: A Systematic Review of Evidence in Older Adults",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/40971619/",
+      "publisher": "Nutrition Reviews / PubMed",
+      "year": 2026,
+      "source_type": "strong_secondary"
+    },
+    {
+      "title": "Creatine Supplementation and Acute Sleep Deprivation: A Systematic Review of Cognitive, Psychomotor, and Mood Outcomes",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42261581/",
+      "publisher": "PubMed",
+      "year": 2026,
+      "source_type": "strong_secondary"
+    }
+  ],
+  "editorial_metadata": {
+    "seo_title": "Kreatin og hjernen: Hvad siger forskningen om hukommelse?",
+    "seo_description": "Kreatin er kendt fra styrketræning, men forskning undersøger også effekten på hjernen. Se hvad studierne viser om hukommelse og kognition.",
+    "evergreen": true,
+    "hero_rights": {
+      "commercial_use_allowed": false,
+      "local_storage_allowed": false
+    }
+  }
+}
