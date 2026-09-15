@@ -19,7 +19,7 @@ Før du bruger tid på fuld research, skrivning eller hero-arbejde:
 1. vælg en foreløbig kandidat,
 2. forsøg én Supabase **read-only** preflight mod relevante `published` og `scheduled` artikler fra de seneste 7 dage,
 3. hvis preflight returnerer et konkret resultatsæt, sammenlign kandidatens væsentlige sag/emne med eksisterende rubrikker og `story_cluster_id`, når det findes,
-4. kassér kandidaten straks, hvis den i væsentlighed allerede er dækket, og vælg derefter den næststærkeste aktuelle historie fra de store danske medier.
+4. kassér kandidaten straks, hvis den i væsentlighed allerede er dækket, og gå videre til næste kandidat i det aktuelle source-pool.
 
 En reel ny udvikling kan fortsætte som opfølger og skal bruge korrekt eksisterende story cluster, når det er relevant. En kosmetisk ny rubrik gør ikke en gammel sag ny.
 
@@ -27,19 +27,19 @@ Preflight er kun en omkostnings-/kvalitetsbesparelse og er **ikke** en publicati
 
 Backendens ingest- og publication-gates er den bindende sidste dedupe-kontrol og må aldrig omgås. Et manglende early-preflight-resultat må derfor højst koste ekstra research/hero-arbejde; det må ikke alene stoppe nyhedskørslen.
 
-## Historievalg — stærkeste historie fra store danske medier
+## Historievalg — Discovery først, danske medier som fallback
 
-Start **ikke** med discovery-listen i denne automation. Lav ved hver kørsel et aktuelt scan af de store danske nyhedsmedier og vælg den **stærkeste historie lige nu**. Denne regel har forrang frem for andre source-priority-regler for den almindelige nyhedsautomation.
+Start altid med discovery-listen. Rangér de stærkeste friske kandidater og screen **højst 3 kandidater** i rækkefølge. Ved 7-dages-dublet uden væsentlig ny udvikling, utilstrækkelig dokumentation eller anden reel publication-gate: gå videre til næste Discovery-kandidat.
+
+Hvis ingen af de op til 3 Discovery-kandidater kan bruges, skift til fallback: lav et aktuelt scan af de store danske nyhedsmedier og vælg den **stærkeste historie lige nu**.
 
 Scan bredt blandt store danske medier, fx DR, TV 2, Berlingske, Politiken, Jyllands-Posten, B.T., Ekstra Bladet og Ritzau-historier bragt i større danske medier. Brug flere medier når det er nødvendigt for at afgøre, hvad der faktisk er den største/bedste historie lige nu.
 
-Vurder kandidater relativt mod hinanden efter almindelig nyhedsværdi og Morgentidende-relevans: aktualitet, konsekvens, nærhed til Danmark/danskere, dramatik, væsentlighed, konflikt, overraskelse, offentlig interesse og realistisk delingspotentiale.
+Vurder danske fallback-kandidater relativt mod hinanden efter almindelig nyhedsværdi og Morgentidende-relevans: aktualitet, konsekvens, nærhed til Danmark/danskere, dramatik, væsentlighed, konflikt, overraskelse, offentlig interesse og realistisk delingspotentiale.
 
-**Der skal altid vælges en historie.** Hvis dagens historier er svage, vælg stadig den stærkeste af dem. `NO_PUBLISHABLE_CANDIDATE` må ikke bruges, blot fordi alle kandidater vurderes som svage eller middelmådige.
+**Fallbacken skal altid vælge en historie.** Hvis de aktuelle historier i de store danske medier er svage, vælg stadig den stærkeste af dem. `NO_PUBLISHABLE_CANDIDATE` må ikke bruges, blot fordi alle danske fallback-kandidater vurderes som svage eller middelmådige.
 
-Hvis den stærkeste kandidat er en 7-dages-dublet uden væsentlig ny udvikling, gå videre til den næststærkeste. Fortsæt så langt som nødvendigt, indtil du har den stærkeste aktuelle kandidat, der ikke afvises af dedupe eller en reel dokumentations-/publication-gate.
-
-Discovery-listen må fortsat bruges som supplement til research eller som kilde til en særskilt vinkel, men den er ikke længere indgang eller prioriteret kandidatpulje for denne automation.
+Hvis den stærkeste danske fallback-kandidat er en 7-dages-dublet uden væsentlig ny udvikling, gå videre til den næststærkeste. Fortsæt så langt som nødvendigt, indtil du har den stærkeste aktuelle kandidat, der ikke afvises af dedupe eller en reel dokumentations-/publication-gate.
 
 ## Research og artikel
 
@@ -80,10 +80,10 @@ Returnér kompakt status med mindst:
 - `status`: `published_or_queued`, `skipped` eller `failed`
 - `reason`: fx `DUPLICATE_7D`, `NO_LEGAL_HERO` eller konkret fejltype
 - `candidates_tried`
-- `source_pool`: `danish_major_media`
+- `source_pool`: `discovery` eller `danish_major_media`
 - `queue_id` når relevant
 - felterne fra `Minimal run-diagnostik`
 
 `PRECHECK_UNAVAILABLE` må ikke bruges som fatal reason alene. Hvis early preflight ikke kan gennemføres, brug `dedupe_result=BYPASSED` og fortsæt; kun en senere uomgåelig fejl må gøre kørslen `failed`.
 
-`NO_PUBLISHABLE_CANDIDATE` er ikke en gyldig exit alene på grund af lav nyhedsværdi. Hvis ingen kandidater er stærke, skal automationen stadig vælge og forsøge at publicere den stærkeste aktuelle historie fra de store danske medier.
+`NO_PUBLISHABLE_CANDIDATE` er ikke en gyldig exit alene på grund af lav nyhedsværdi i fallbacken. Hvis ingen Discovery-kandidat kan bruges, skal automationen skifte til `danish_major_media` og forsøge at publicere den stærkeste aktuelle historie dér.
