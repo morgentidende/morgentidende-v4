@@ -18,7 +18,7 @@ Historiske løsninger, tidligere designversioner, deaktiverede automations og ud
 - Live-forsiden og ekstern URL-verifikation er diagnostik, ikke godkendelsesgates. Ved ekstern fejl bruges Supabase/CMS som autoritativ fallback.
 
 ## Hero og mediedrift
-- Alle artikler skal have hero. Hero-flowet er fail-open: et mislykket billedforsøg udløser en sikker fallback frem for at blokere en ellers publicerbar artikel.
+- Alle artikler skal have hero. Hero-flowet er fail-closed ved publicering: en artikel må ikke blive synlig, før hero er `ready`, rettighederne er dokumenteret, den permanente arkiv-/delivery-URL er på plads, og de bindende media-gates er bestået. Media Worker ejer download, validering, retry og fallback mellem lovlige kandidater; hvis ingen lovlig hero-kandidat kan verificeres, skal den redaktionelle kørsel stoppe frem for at publicere uden hero.
 - **Midlertidig AI-hero-prøve:** Morgentidende bruger i en afgrænset prøveperiode markant flere AI-genererede heros for at gøre forsiden visuelt stærkere og mere delbar.
 - AI-heros må være fotorealistiske, når motivet er fiktivt eller generisk og ikke kan forveksles med dokumentation af en konkret virkelig hændelse.
 - AI-heros må ikke afbilde virkelige personer eller fremstille konkrete virkelige nyhedsbegivenheder som dokumentariske fotografier.
@@ -76,7 +76,7 @@ Viden og Liv er magasinsektioner:
 - Når en ny lead overtager, flyttes den seneste tidligere lead ned i det almindelige nyhedsflow. I de første 2 timer efter skiftet kan den prioriteres i den sekundære nyhedsrække; derefter følger den normal kronologi.
 
 ## Design
-- Mørkeblå/navy/mørkelilla hovedpalette med diskret gul/guld accent.
+- Mørkeblå/navy/mørklilla hovedpalette med diskret gul/guld accent.
 - Det godkendte aktuelle sol-logo i `v4-frontend/public/morgentidende-sun.png` er det autoritative logoasset.
 - Lys og mørk mode skal begge have tilstrækkelig kontrast.
 - Søgning og Mørk/Lys-kontrol ligger øverst til højre; der er ikke læser-login i den aktive løsning.
