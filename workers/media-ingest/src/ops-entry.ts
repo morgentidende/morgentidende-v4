@@ -5,6 +5,7 @@ import { maybeHandleDirectChatUpload } from './direct-chat-upload';
 import { maybeHandleDropboxChatUpload, processPendingDropboxChatJobs } from './dropbox-chat-upload';
 import { pollLivecenterMetrics } from './livecenter-metrics';
 import { recordLivecenterMetricPoll } from './livecenter-metrics-observability';
+import { checkLivecenterEditorialCadence } from './livecenter-editorial-watchdog';
 
 interface Env {
   MEDIA_BUCKET: R2Bucket;
@@ -159,6 +160,11 @@ export default {
             error: message.slice(0, 1000),
           });
         }),
+    );
+    ctx.waitUntil(
+      checkLivecenterEditorialCadence(env, 90)
+        .then((result) => console.log(JSON.stringify({ subsystem: 'livecenter_editorial_watchdog', ...result })))
+        .catch((error) => console.error('livecenter_editorial_watchdog_failed', error)),
     );
     return worker.scheduled(controller, env, ctx);
   },
