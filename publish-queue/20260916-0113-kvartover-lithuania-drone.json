@@ -1,0 +1,91 @@
+{
+  "queue_id": "20260916-0113-kvartover-lithuania-drone",
+  "slug": "nato-fly-skyder-drone-ned-over-litauen-sprengstof-fundet",
+  "headline": "NATO-fly skyder drone ned over Litauen – sprængstof fundet i vraget",
+  "category_slug": "udland",
+  "kind": "news",
+  "manchet": "Dronen kom ind fra Belarus og blev skudt ned af italienske NATO-fly. Dens oprindelse undersøges stadig.",
+  "sagen_kort": [
+    "Italienske NATO-fly skød natten til tirsdag en drone ned over Litauen, efter at den var kommet ind fra Belarus.",
+    "Litauiske myndigheder fandt senere et sprænglegeme ved vraget; det er endnu ikke fastslået, hvem der sendte dronen."
+  ],
+  "body_markdown": "Italienske kampfly på NATO's luftforsvarsmission skød natten til tirsdag en drone ned over Litauen. Senere fandt litauiske myndigheder et sprænglegeme ved vraget og fik det uskadeliggjort.\n\nDronen kom ifølge Litauens nationale krisestyringscenter ind i landet fra Belarus. Den blev skudt ned nær landsbyen Pratkūnai i Kaišiadorys-distriktet, omkring 80 kilometer fra grænsen til Belarus. Vragdele faldt ned på landbrugsjord, og der er ikke meldt om tilskadekomne.\n\n## NATO-fly gik på vingerne\n\nTo italienske Eurofighter-kampfly, der er udstationeret på Šiauliai-basen som led i NATO's luftforsvar over Baltikum, blev sendt i luften efter alarmen. NATO har bekræftet, at flyene skød dronen ned, mens undersøgelsen af hændelsen fortsætter sammen med de litauiske myndigheder.\n\nLitauens præsident Gitanas Nausėda sagde efter hændelsen, at den viste, at landets luftforsvar virker. Han takkede de italienske NATO-styrker for den hurtige indsats.\n\nForsvarsminister Robertas Kaunas, Litauens forsvarsminister, oplyste først, at de foreløbige undersøgelser tydede på, at dronen ikke bar sprængstof. Kort efter kom en ny melding: Politiets antiterrorenhed havde fundet et sprænglegeme ved nedstyrtningsstedet og uskadeliggjort det.\n\n## Oprindelsen er stadig ukendt\n\nDet er endnu ikke fastslået, hvor dronen oprindeligt kom fra. Den italienske forsvarsminister Guido Crosetto sagde, at den \"mest sandsynligt\" kom fra Rusland, men de litauiske myndigheder understreger, at den tekniske undersøgelse endnu ikke giver grundlag for en endelig konklusion.\n\nKaunas har peget på flere muligheder. Det kan være en russisk drone og en mulig provokation, men det kan også være en drone fra et andet land, som er kommet ud af kurs. Ukrainske droner er tidligere kommet ind over NATO-lande i Baltikum, blandt andet efter forstyrrelser af navigationssignaler.\n\nHændelsen skiller sig ud, fordi NATO-fly denne gang faktisk åbnede ild mod et ubemandet fartøj over et medlemsland. Ifølge nyhedsbureauet AP er det første gang, en drone er blevet skudt ned på denne måde over Litauen.\n\n## En halv time i litauisk luftrum\n\nDen litauiske flyvevåbenchef Antanas Matutis har ifølge lokale oplysninger sagt, at dronen befandt sig i litauisk luftrum i omkring en halv time. Myndighederne udsendte luftalarm i Vilnius- og Kaunas-området, inden truslen blev neutraliseret.\n\nDer blev ikke modtaget nogen forhåndsmeddelelse fra Belarus om flyvningen. Efterforskere samler nu de sidste vragdele og forsøger at rekonstruere dronens rute og type. Først derefter ventes myndighederne at kunne sige mere sikkert, om den var russisk, ukrainsk eller havde en anden oprindelse.\n\nHændelsen kommer samtidig med en række droneepisoder langs NATO's østlige grænse. Det gør spørgsmålet om, hvor hurtigt alliancen skal reagere på ubemandede fartøjer, stadig mere konkret: Over Litauen endte nattens alarm denne gang med, at NATO skød målet ned.",
+  "source_metadata": [
+    {
+      "name": "ELTA",
+      "url": "https://www.elta.lt/en",
+      "type": "authoritative",
+      "note": "Litauisk nyhedsbureau med forsvarsministerens opdateringer om sprænglegemet og myndighedernes undersøgelse."
+    },
+    {
+      "name": "Reuters / Defense News",
+      "url": "https://www.defensenews.com/global/europe/2026/09/15/italian-nato-jet-downs-drone-in-lithuania-minister-says-it-probably-came-from-russia/",
+      "type": "authoritative",
+      "note": "Reuters-rapportering fra Šiauliai om nedskydningen, indflyvningen fra Belarus og usikkerheden om dronens oprindelse."
+    },
+    {
+      "name": "NATO statement via Anadolu",
+      "url": "https://www.aa.com.tr/en/world/nato-says-jets-shoot-down-drone-over-lithuanian-airspace/4058063",
+      "type": "authoritative",
+      "note": "NATO-bekræftelse af to italienske Eurofighters og nedskydningen over litauisk luftrum."
+    }
+  ],
+  "editorial_metadata": {
+    "discovery_run_id": "news-20260916-0113",
+    "story_cluster_id": "lithuania-drone-airspace-20260915",
+    "share_reason": "NATO har for første gang skudt en drone ned over Litauen, og myndighederne fandt et sprænglegeme i vraget, mens oprindelsen stadig er uafklaret.",
+    "final_qa_duplicate": false,
+    "discovery_audit": [
+      {
+        "candidate_id": "russian-frigate-denmark",
+        "source_pool": "breaking_scan",
+        "rank": 1,
+        "candidate_headline": "Russisk fregat affyrede flares mod dansk helikopter",
+        "deep_screened": true,
+        "downstream_sources": ["Forsvarskommandoen", "Reuters"],
+        "decision": "rejected_duplicate",
+        "reason": "Næsten-identisk Morgentidende-transport fundet i PR 397 fra samme dag.",
+        "model_prompt_version": "news-task canonical 2026-09-16"
+      },
+      {
+        "candidate_id": "lithuania-drone-explosive",
+        "source_pool": "discovery",
+        "rank": 2,
+        "candidate_headline": "NATO-fly skyder drone ned over Litauen – sprængstof fundet i vraget",
+        "deep_screened": true,
+        "downstream_sources": ["ELTA", "Reuters", "NATO"],
+        "decision": "selected",
+        "reason": "Frisk, stærk NATO-sikkerhedshistorie med officiel bekræftelse, væsentlig udvikling og ingen matchende GitHub [PUBLISH]-historik.",
+        "model_prompt_version": "news-task canonical 2026-09-16"
+      }
+    ],
+    "hero_candidates": [
+      {
+        "source_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/AK23-6%20kicks%20off%20in%20Lithuania%20%287983865%29.jpg",
+        "source_provider": "Wikimedia Commons / U.S. Air Force",
+        "license_name": "Public Domain (U.S. Air Force)",
+        "license_url": "https://commons.wikimedia.org/wiki/File:AK23-6_kicks_off_in_Lithuania_(7983865).jpg",
+        "credit_text": "U.S. Air Force / Tech. Sgt. Stephanie Longoria",
+        "rights_notes": "U.S. Air Force work; Commons file documents an Italian Eurofighter flying over Šiauliai Air Base, Lithuania.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": false,
+        "alt_text": "Italiensk Eurofighter over Šiauliai Air Base i Litauen under en NATO-øvelse."
+      },
+      {
+        "source_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/RAF%20Typhoon%20Over%20Lithuania%20MOD%2045157540.jpg",
+        "source_provider": "Wikimedia Commons / UK Ministry of Defence",
+        "license_name": "Open Government Licence",
+        "license_url": "https://commons.wikimedia.org/wiki/File:RAF_Typhoon_Over_Lithuania_MOD_45157540.jpg",
+        "credit_text": "Cpl Neil Bryden RAF / UK Ministry of Defence",
+        "rights_notes": "High-resolution RAF Typhoon over Lithuania, released for reuse under the UK Open Government Licence.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": true,
+        "alt_text": "Eurofighter Typhoon i luften over Litauen under NATO's baltiske luftpatruljering."
+      }
+    ]
+  }
+}
