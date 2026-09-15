@@ -28,37 +28,7 @@ Artikelpayload, minimum:
 
 ### Discovery-audit
 
-Almindelige nyhedsruns kan sende et kompakt auditspor for alle kandidater, der faktisk blev behandlet. Når en artikel afleveres, lægges auditsporet i:
-
-```json
-{
-  "editorial_metadata": {
-    "discovery_run_id": "news-20260915-1300",
-    "discovery_audit": [
-      {
-        "candidate_id": "candidate-1",
-        "source_pool": "discovery",
-        "path_used": "discovery",
-        "rank_position": 1,
-        "deep_screened": true,
-        "discovery_source_name": "...",
-        "discovery_source_url": "https://...",
-        "discovery_domain": "example.org",
-        "candidate_headline": "...",
-        "candidate_topic": "...",
-        "decision": "selected",
-        "decision_reason": "claims_sufficiently_supported",
-        "downstream_sources": [],
-        "semantic_assessment": {},
-        "model_name": "...",
-        "prompt_version": "..."
-      }
-    ]
-  }
-}
-```
-
-Backend kopierer dette til `public.discovery_candidate_audit`. Tabellen er intern telemetry og er ikke en publiceret kildeoversigt. `audit_outcome` sættes aldrig automatisk af producenten; det er reserveret til senere menneskelig/systematisk diagnose af fx `false_negative` og `false_positive`.
+Almindelige nyhedsruns kan sende et kompakt auditspor for kandidater, der faktisk blev behandlet. Når en artikel afleveres, lægges auditsporet i `editorial_metadata.discovery_audit` sammen med et stabilt `discovery_run_id`.
 
 Hvis et legitimt hard stop betyder, at der ikke findes en artikelpayload, må samme GitHub-transport bruges til audit-only:
 
@@ -77,7 +47,7 @@ De kanoniske `kind`-værdier er `news`, `comment`, `debate` og `magazine`. For `
 
 ## Magazine / evergreen
 
-Nye magazine-payloads skal altid have en stabil `editorial_metadata.topic_key`. Uden `topic_key` afvises payloaden; topic-dedupe må aldrig falde tilbage til kun rubrik-sammenligning. Dette gælder også, når Viden/Liv-payloaden kom ind med manglende `kind` eller legacy-alias og derfor blev normaliseret til `magazine`.
+Nye magazine-payloads skal altid have en stabil `editorial_metadata.topic_key`. Uden `topic_key` afvises payloaden; topic-dedupe må aldrig falde tilbage til kun rubrik-sammenligning.
 
 Eksempel:
 
@@ -91,9 +61,9 @@ Eksempel:
 }
 ```
 
-`topic_key` beskriver selve evergreen-emnet og skal genbruges for samme væsentlige emne, også hvis rubrikken formuleres anderledes. Database-laget normaliserer nøglen med `normalize_story_key`; producenter bør fortsat sende en kort, stabil ASCII/slug-lignende nøgle. Der er ingen grund til at omskrive ældre lagrede keys kosmetisk.
+`topic_key` beskriver selve evergreen-emnet og skal genbruges for samme væsentlige emne, også hvis rubrikken formuleres anderledes. Database-laget normaliserer nøglen med `normalize_story_key`; producenter bør fortsat sende en kort, stabil ASCII/slug-lignende nøgle.
 
-For `scheduled` og `published` magazine-artikler er `topic_key` en database-invariant. En aktiv magazine-artikel må ikke få key'en nulstillet eller ændret via almindelig UPDATE. En reel redaktionel korrektion skal gå gennem den auditerede server-side correction-RPC med actor og reason. Historiske legacy-rækker omskrives ikke automatisk og publiceres ikke af denne regel.
+For `scheduled` og `published` magazine-artikler er `topic_key` en database-invariant. En aktiv magazine-artikel må ikke få key'en nulstillet eller ændret via almindelig UPDATE. En reel redaktionel korrektion skal gå gennem den auditerede server-side correction-RPC med actor og reason.
 
 `editorial_metadata.story_kind` er valgfri og defaultes til `evergreen_explainer`. Tilladte værdier for magazine er:
 
@@ -110,19 +80,13 @@ Hvis `story_kind` er `followup`, kræves desuden:
 
 Magazine-followups skal stadig have `topic_key`. `topic_key` beskriver emnet; followup-felterne beskriver relationen til den tidligere artikel.
 
-7-dages duplicate-gaten er bindende server-side og kontrollerer:
-
-- exact normaliseret headline blandt `scheduled`/`published`
-- samme `articles.topic_key` blandt `scheduled`/`published` for magazine
-- en strukturelt gyldig `followup` kan genbruge emnet, men exact-headline-gaten gælder stadig
-
-GitHub-validatoren og Edge Functionen afviser ugyldige magazine-payloads tidligt, men database-RPC'en og database-invariants er den ultimative gate.
+Den redaktionelle 7-dages-regel for almindelige nyheder ejes ikke af bridge/backend. Den semantiske beslutning træffes i journalistens slut-QA efter `docs/editorial-core.md` og `docs/dedupe-runtime-ownership.md`. Backend bevarer tekniske invariants som queue-id-idempotency, slug-konflikt, source/media/QA-gates, magazine `topic_key`-struktur og followup-validering.
 
 ## Hero/media-handoff: én rangeret kandidatliste
 
 Producenten ejer discovery og rangering. Media Worker ejer download, MIME/signatur, faktiske pixelmål, rettighedsgate, SHA-256, lokal arkivering, permanent/transient fejlklassifikation, fallback og retry.
 
-Nye producenter bør sende op til seks rangerede, selvstændigt rettighedsgodkendte originalkandidater i `editorial_metadata.hero_candidates`. Første element er den foretrukne kandidat; resten er fallback-budgettet. `hero_candidate_url` (ental) understøttes fortsat bagudkompatibelt og behandles som en liste med ét element.
+Nye news-producenter bør normalt sende højst to rangerede, selvstændigt rettighedsgodkendte originalkandidater i `editorial_metadata.hero_candidates`. Ét stærkt lovligt hero er tilstrækkeligt. Magazine- eller specialflows kan bruge et større kandidatbudget, hvis deres egen canonical kontrakt kræver det. `hero_candidate_url` (ental) understøttes fortsat bagudkompatibelt og behandles som en liste med ét element.
 
 Eksempel:
 
@@ -153,7 +117,7 @@ Eksempel:
 }
 ```
 
-Producenten bør bruge dimensionsmetadata som forfilter og foretrække mindst 1200×675. Kendte kandidater under 800×450 må ikke sendes. Søgemetadata er dog aldrig autoritative: Media Worker måler altid den faktisk downloadede original og håndhæver minimum 800×450.
+Producenten bør bruge dimensionsmetadata som forfilter og foretrække mindst 1200×675. Kendte kandidater under 800×450 må ikke sendes. Søgemetadata er aldrig autoritative: Media Worker måler altid den faktisk downloadede original og håndhæver minimum 800×450.
 
 Undgå thumbnail-/preview-URL'er og kendte nedskaleringsparametre. Brug originalfil-URL når kilden tilbyder den.
 
@@ -177,10 +141,10 @@ Audit-only payloads opretter ingen artikel og kalder ikke publication-gates.
 
 ## Scheduled Task-standard
 
-Autonome artikelopgaver skal aflevere via GitHub-broen. De bør finde og rangere flere lovlige original-heros, helst forfiltreret til ≥1200×675, og sende dem som `editorial_metadata.hero_candidates`. De skal ikke selv implementere retry/recovery; det ejes af Media Worker. Hvis kun én kandidat findes, kan legacy `hero_candidate_url` fortsat bruges.
+Autonome artikelopgaver afleverer via GitHub-broen. Almindelige news-runs holder kandidat- og retry-budgettet lille efter `docs/automations/news-task.md`; Media Worker ejer teknisk hero-retry/recovery. Hvis kun én lovlig kandidat findes, kan `hero_candidate_url` fortsat bruges.
 
 Almindelige news-runs følger desuden discovery-audit-kontrakten i `docs/automations/news-task.md`.
 
 ## Driftsprincip
 
-Ingen Supabase-write-checkpoints fra Scheduled Tasks. Observability kommer primært fra GitHub PR/workflow-resultatet og server-side Supabase/media/QA-events. Hero-fallback er ét fælles system for Scheduled Tasks, magasin, time-nyheder, manuel chat-publicering og fremtidige producenter.
+Ingen Supabase-write-checkpoints fra Scheduled Tasks. Observability skal være minimal: platform/scheduler-native start/stop-trace, når den findes, plus terminal GitHub-artefakt og server-side Supabase/media/QA-events. Agenten må ikke gøre per-fase logging til en ekstra tool-kæde.
