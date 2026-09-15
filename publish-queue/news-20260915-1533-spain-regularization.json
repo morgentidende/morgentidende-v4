@@ -1,0 +1,149 @@
+{
+  "queue_id": "news-20260915-1533-spain-regularization",
+  "slug": "oesterigs-kansler-angriber-spaniens-masselegalisering-absolut-uacceptabelt",
+  "headline": "1,17 millioner søgte legalisering i Spanien – Østrigs kansler kalder kursen »absolut uacceptabel«",
+  "deck": "Christian Stocker advarer om, at nationale masselegaliseringer kan skabe nye incitamenter til irregulær migration i hele Schengen.",
+  "category_slug": "udland",
+  "kind": "news",
+  "body_markdown": "## SAGEN KORT\n\n- 1,17 millioner migranter søgte om legalisering under Spaniens ordning, viser materiale fra Østrigs parlament.\n- Østrigs kansler Christian Stocker advarer om, at nationale særordninger kan få konsekvenser for andre Schengen-lande.\n\nØstrigs forbundskansler Christian Stocker retter en usædvanligt skarp kritik mod Spaniens omfattende legalisering af migranter uden lovligt ophold.\n\nI et nyt officielt svar til Østrigs parlament behandler kansleren den spanske ordning, efter at oppositionspolitikere havde spurgt regeringen om konsekvenserne for Østrig og resten af Schengen-området. Svaret blev indleveret 11. september og meddelt parlamentet 14. september.\n\nSagen udspringer af Spaniens ekstraordinære legaliseringsprogram. Ifølge det parlamentariske materiale søgte 1,17 millioner migranter om at få deres ophold legaliseret. Programmet løb fra april til 30. juni 2026, og antallet af ansøgninger blev omkring dobbelt så stort som først ventet.\n\nStocker, der leder Østrigs regering, kalder ifølge det østrigske medie eXXpress den spanske kurs »absolut uacceptabel«. Hans centrale indvending er, at beslutninger om omfattende legalisering ikke kun påvirker det land, der træffer dem. I et område med fri bevægelighed kan virkningerne brede sig til andre medlemslande.\n\nDen østrigske bekymring er ikke ny. Efter den store tilstrømning til den spanske enklave Ceuta i juli sagde Stocker, at Spanien skulle sikre, at ikke én irregulær migrant nåede videre til det europæiske fastland. Han advarede samtidig om, at Østrig om nødvendigt kunne beskytte sine grænser med midlertidige Schengen-grænselukninger.\n\n## Frygter et signal til nye migranter\n\nKernen i striden er spørgsmålet om incitamenter. Kritikerne frygter, at store legaliseringsordninger sender et signal om, at ulovligt ophold med tiden kan føre til lovlig status. Den spanske regering har omvendt lagt vægt på at bringe mennesker, som allerede lever og arbejder i landet, ind i det lovlige system.\n\nDet østrigske parlament oplyser, at mange af ansøgerne allerede havde opholdt sig i Spanien i årevis og arbejdet uden lovlig status. Den spanske regering har samtidig afsat omkring en halv milliard euro til integration i forbindelse med ordningen.\n\nStockers kritik rammer derfor en større europæisk konflikt: Hvor langt kan ét Schengen-land gå med nationale legaliseringer, når mennesker efterfølgende befinder sig i et fælles område uden normale indre grænsekontroller?\n\nØstrig har de seneste år ført en markant strammere migrationspolitik. Regeringen har blandt andet arbejdet for flere tilbagesendelser, asylbehandling uden for EU og et mere robust ydre grænseværn. Stocker har tidligere sagt, at Europa selv skal bestemme, hvem der kommer ind, frem for at overlade beslutningen til menneskesmuglere.\n\nDet nye parlamentariske svar gør dermed den spanske legalisering til mere end en intern spansk sag. For Wien handler spørgsmålet også om, hvorvidt nationale beslutninger kan ændre migrationspresset for resten af Europa.",
+  "source_metadata": [
+    {
+      "publisher": "Parlament Österreich",
+      "url": "https://www.parlament.gv.at/gegenstand/XXVIII/AB/6001",
+      "source_type": "primary_official",
+      "title": "Massenamnestie von Immigranten in Spanien (6001/AB)"
+    },
+    {
+      "publisher": "Parlament Österreich",
+      "url": "https://www.parlament.gv.at/dokument/XXVIII/J/6610/fnameorig_1776511.html",
+      "source_type": "primary_official",
+      "title": "Massenamnestie von Immigranten in Spanien (6610/J)"
+    },
+    {
+      "publisher": "Bundeskanzleramt Österreich",
+      "url": "https://www.bundeskanzleramt.gv.at/bundeskanzleramt/nachrichten-der-bundesregierung/2025/03/bundeskanzler-stocker-sprach-mit-eu-kommissar-brunner-ueber-kampf-gegen-illegale-migration.html",
+      "source_type": "primary_official",
+      "title": "Bundeskanzler Stocker sprach mit EU-Kommissar Brunner über Kampf gegen illegale Migration"
+    }
+  ],
+  "editorial_metadata": {
+    "discovery_run_id": "news-20260915-1533",
+    "discovery_audit": [
+      {
+        "candidate_id": "candidate-1",
+        "source_pool": "discovery",
+        "path_used": "discovery",
+        "rank_position": 1,
+        "deep_screened": true,
+        "discovery_source_name": "eXXpress",
+        "discovery_source_url": "https://exxpress.at/politik/stocker-rechnet-mit-spaniens-migrationskurs-ab-absolut-inakzeptabel/",
+        "discovery_domain": "exxpress.at",
+        "candidate_headline": "Stocker rechnet mit Spaniens Migrationskurs ab: Absolut inakzeptabel",
+        "candidate_topic": "Spaniens migrantlegalisering og østrigsk kritik",
+        "decision": "selected",
+        "decision_reason": "fresh official parliamentary response and authoritative documentation",
+        "downstream_sources": ["parlament.gv.at", "bundeskanzleramt.gv.at"],
+        "semantic_assessment": {"dedupe_preflight":"BYPASSED"},
+        "model_name": "GPT-5.6 Sol",
+        "prompt_version": "docs/automations/news-task.md@2bf8f48c"
+      },
+      {
+        "candidate_id": "candidate-2",
+        "source_pool": "discovery",
+        "path_used": "discovery",
+        "rank_position": 2,
+        "deep_screened": false,
+        "discovery_source_name": "NIUS",
+        "discovery_domain": "nius.de",
+        "candidate_headline": "Bundeszwang-debatte i Tyskland",
+        "candidate_topic": "tysk føderal tvang og AfD",
+        "decision": "not_screened_after_selection",
+        "model_name": "GPT-5.6 Sol",
+        "prompt_version": "docs/automations/news-task.md@2bf8f48c"
+      },
+      {
+        "candidate_id": "candidate-3",
+        "source_pool": "discovery",
+        "path_used": "discovery",
+        "rank_position": 3,
+        "deep_screened": false,
+        "discovery_source_name": "The Objective",
+        "discovery_domain": "theobjective.com",
+        "candidate_headline": "Fire førere anholdt for migranttransport til Spanien",
+        "candidate_topic": "menneskesmugling til Spanien",
+        "decision": "not_screened_after_selection",
+        "model_name": "GPT-5.6 Sol",
+        "prompt_version": "docs/automations/news-task.md@2bf8f48c"
+      },
+      {
+        "candidate_id": "candidate-4",
+        "source_pool": "discovery",
+        "path_used": "discovery",
+        "rank_position": 4,
+        "deep_screened": false,
+        "discovery_source_name": "NIUS",
+        "discovery_domain": "nius.de",
+        "candidate_headline": "Merz kalder remigration etnisk udrensning",
+        "candidate_topic": "tysk migrationsdebat",
+        "decision": "not_screened_after_selection",
+        "model_name": "GPT-5.6 Sol",
+        "prompt_version": "docs/automations/news-task.md@2bf8f48c"
+      },
+      {
+        "candidate_id": "candidate-5",
+        "source_pool": "discovery",
+        "path_used": "discovery",
+        "rank_position": 5,
+        "deep_screened": false,
+        "discovery_source_name": "eXXpress",
+        "discovery_domain": "exxpress.at",
+        "candidate_headline": "Østrig og Danmark søger partnerland til returcentre",
+        "candidate_topic": "returcentre uden for EU",
+        "decision": "not_screened_after_selection",
+        "model_name": "GPT-5.6 Sol",
+        "prompt_version": "docs/automations/news-task.md@2bf8f48c"
+      }
+    ],
+    "hero_candidates": [
+      {
+        "source_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Christian_Stocker_-_Austrian_World_Summit_2026_BHO-2890.jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "credit_text": "Bernhard Holub / Wikimedia Commons",
+        "rights_notes": "Own work; commercial reuse and local storage permitted with attribution and share-alike terms.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": true,
+        "alt_text": "Østrigs forbundskansler Christian Stocker"
+      },
+      {
+        "source_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Christian_Stocker_-_Austrian_World_Summit_2026_BHO-3031_(cropped).jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "credit_text": "Bernhard Holub / Wikimedia Commons",
+        "rights_notes": "Commercial reuse and local storage permitted with attribution and share-alike terms.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": true,
+        "alt_text": "Christian Stocker ved Austrian World Summit i Wien"
+      },
+      {
+        "source_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Christian_Stocker_EuCo_2026.jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "European Union reuse licence / attribution",
+        "license_url": "https://commons.wikimedia.org/wiki/File:Christian_Stocker_EuCo_2026.jpg",
+        "credit_text": "© European Union, 1998–2026 / Frédéric Sierakowski",
+        "rights_notes": "Commons states commercial use and redistribution are permitted with attribution.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": true,
+        "alt_text": "Christian Stocker ved et møde i Det Europæiske Råd"
+      }
+    ]
+  }
+}
