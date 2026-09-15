@@ -1,0 +1,86 @@
+{
+  "queue_id": "news-20260916-0045-dutch-rail-sabotage",
+  "slug": "sabotage-ramte-hollandske-jernbaner-over-30-forstyrrelser",
+  "headline": "Sabotage lammede hollandske tog: Over 30 forstyrrelser på skinnerne",
+  "category_slug": "udland",
+  "kind": "news",
+  "manchet": "Rør og kabler blev bevidst lagt på skinnerne. Et tog ramte materiale, mens efterretningstjenesten hjælper politiet med efterforskningen.",
+  "sagen_kort": [
+    "Hollandske ProRail registrerede over 30 forstyrrelser efter bevidst placeret materiale på jernbanen.",
+    "Et tog ramte materiale ved Steenwijk uden personskade; gerningsmænd og motiv er endnu ukendte."
+  ],
+  "body_markdown": "Store dele af togtrafikken i det centrale, østlige og nordlige Holland blev tirsdag ramt af sabotage, efter at rør og andet materiale blev placeret på jernbaneskinner flere steder.\n\nDen statslige jernbaneinfrastrukturforvalter ProRail oplyste først, at materialer var fundet flere steder, hvor de bevidst var lagt på skinnerne. Senere på dagen var der registreret over 30 forstyrrelser.\n\n## Rør fik signalerne til at gå på rødt\n\nPå flere strækninger blev metalrør placeret, så de forbandt skinnerne elektrisk. Det fik sikkerhedssystemet til at registrere sporene som optaget og satte signalerne på rødt. Andre steder blev der fundet kabler mellem skinnerne.\n\nKonsekvensen var aflyste tog og store forsinkelser omkring blandt andet Zwolle, Deventer og Amersfoort. Forstyrrelserne bredte sig også til andre forbindelser.\n\nVed Steenwijk ramte et tog et stykke materiale på sporet. Ifølge ProRail kom ingen til skade. Infrastrukturforvalteren understregede samtidig, at sikkerhedssystemerne reagerede som planlagt.\n\n## Nyt materiale dukkede op igen\n\nSagen tog en mere alvorlig drejning, da ProRail senere oplyste, at der igen blev fundet materiale på steder, som medarbejdere allerede havde ryddet. Det fik selskabet til at skærpe overvågningen og sende ekstra patruljer ud.\n\nHollandsk politi efterforsker hændelserne. Den hollandske efterretningstjeneste AIVD bistår ifølge Reuters også efterforskningen. Der er endnu ikke offentliggjort oplysninger om gerningsmænd eller motiv.\n\nSabotagen skete på Prinsjesdag, dagen hvor den hollandske regering fremlægger sit budget og kong Willem-Alexander holder sin årlige tale. Samme dag blev der tændt brande langs flere motorveje i forbindelse med landmandsprotester. Reuters understreger, at der ikke er fastslået nogen forbindelse mellem brandene og sabotagen mod jernbanen.\n\nProRail beskrev placeringen af materialet som bevidst. Det centrale ubesvarede spørgsmål er derfor ikke længere, om jernbanen blev manipuleret, men hvem der stod bag – og hvorfor.",
+  "source_metadata": [
+    {
+      "name": "ProRail",
+      "url": "https://www.prorail.nl/~/link/7787bf6780044a50aa506b6df3887421.aspx",
+      "source_type": "primary_official"
+    },
+    {
+      "name": "Reuters",
+      "url": "https://www.reuters.com/world/suspected-sabotage-disrupts-dutch-trains-level-crossings-2026-09-15/",
+      "source_type": "authoritative"
+    },
+    {
+      "name": "Associated Press",
+      "url": "https://abcnews.com/Business/wireStory/suspected-sabotage-triggers-major-dutch-rail-outage-morning-136453425",
+      "source_type": "authoritative"
+    }
+  ],
+  "editorial_metadata": {
+    "discovery_run_id": "news-20260916-0045",
+    "final_qa_duplicate": false,
+    "discovery_audit": [
+      {
+        "candidate_id": "nl-rail-sabotage-20260915",
+        "source_pool": "major_media_fallback",
+        "path": "danish_major_media_fallback",
+        "rank": 1,
+        "candidate_headline": "Koordineret sabotage rammer hollandsk jernbane",
+        "deep_screened": true,
+        "downstream_sources": ["ProRail", "Reuters", "Associated Press"],
+        "decision": "selected",
+        "reason": "Fresh, strongly documented European infrastructure sabotage with broad public impact; no near-identical story in current GitHub [PUBLISH] comparison history.",
+        "model_prompt_version": "canonical-news-task-20260915"
+      }
+    ],
+    "hero_candidates": [
+      {
+        "source_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/20240528%20Niederlande%20Nederlandse%20Spoorwegen%20NS%20Koploper%20ICM%20Deventer%20Treinstel%204245%20Hoofdconducteur.jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "CC0 1.0",
+        "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "credit_text": "Bvcmz248.5 / Wikimedia Commons",
+        "rights_notes": "CC0 public-domain dedication; commercial use and local storage allowed.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": false,
+        "alt_text": "Hollandsk NS-tog på Utrecht Centraal"
+      },
+      {
+        "source_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/2023-06-03%20Station%20Hoorn%20NS%202765%20trein%203363%20Hoofddorp.jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "credit_text": "Fantaglobe11 / Wikimedia Commons",
+        "rights_notes": "CC BY-SA 4.0; commercial use and local storage allowed with attribution/share-alike requirements.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": true,
+        "alt_text": "Moderne hollandsk NS-tog på stationen i Hoorn"
+      }
+    ]
+  },
+  "source_registry_updates": [
+    {
+      "source_name": "ProRail",
+      "domain": "prorail.nl",
+      "classification": "authoritative",
+      "region": "Netherlands",
+      "rationale": "Official Dutch rail infrastructure manager, primary source for its own network incidents and operational statements.",
+      "discovered_via": "major_media_fallback"
+    }
+  ]
+}
