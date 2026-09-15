@@ -1,0 +1,66 @@
+{
+  "queue_id": "magasin-evergreen-20260915-0759-protein-aeldre",
+  "kind": "magazine",
+  "slug": "protein-efter-60-saadan-bevarer-du-musklerne",
+  "headline": "Efter 60 bliver protein vigtigere – men pulver er ikke en genvej",
+  "dek": "Protein kan hjælpe med at bevare muskler med alderen. Den største gevinst ser ud til at komme, når kosten følges af styrketræning.",
+  "category_slug": "liv",
+  "sagen_kort": [
+    "En nyere gennemgang af 38 studier fandt en lille, men målbar gevinst i muskelmasse ved ekstra protein hos hjemmeboende ældre.",
+    "Protein alene gør ikke arbejdet: nyere analyser peger på, at kombinationen med styrketræning er vigtigere end jagten på det perfekte proteinpulver."
+  ],
+  "body_markdown": "Fra omkring 60-årsalderen bliver det gradvist sværere at holde fast i muskelmassen. Det betyder ikke, at muskeltab er uundgåeligt. To af de mest håndgribelige greb er fortsat styrketræning og nok protein i kosten.\n\nNyere forskning giver samtidig en vigtig nuance: mere protein er ikke automatisk bedre. Effekten afhænger blandt andet af, om kroppen også får et signal om at bygge og bevare muskler gennem belastning.\n\n## Protein hjælper – men effekten er beskeden\n\nEn systematisk gennemgang fra 2024 samlede 38 artikler om protein som tilskud hos mennesker på mindst 65 år. Blandt hjemmeboende ældre fandt forskerne en lille positiv effekt på muskelmassen.\n\nDet interessante var, at forskerne ikke kunne påvise, at én bestemt dosis, timing eller hyppighed klart var bedre end de andre. Det gør budskabet mindre glamourøst, men mere anvendeligt: den samlede kost og de daglige vaner betyder sandsynligvis mere end at ramme et magisk tidspunkt for en proteinshake.\n\nEn anden analyse fra 2025 så specifikt på fysisk inaktive ældre. Her gav proteintilskud ikke en sikker forbedring af den samlede fedtfrie kropsmasse, og resultaterne for styrke og fysisk funktion var blandede.\n\n## Muskler skal have en grund til at blive\n\nDet tydeligste mønster opstår, når protein kombineres med styrketræning. En systematisk gennemgang af ældre med aldersrelateret muskelsvækkelse fandt, at kombinationen forbedrede både muskelmasse og styrke sammenlignet med kontrolforløb. Forskerne understregede dog, at antallet af forsøg var begrænset.\n\nEn større analyse af valleprotein fra 2024 nåede til en lignende, men mere afdæmpet konklusion. Valleprotein alene gav ikke sikre forbedringer på en lang række mål. Når det blev kombineret med styrketræning, så forskerne derimod en lille forbedring af styrken i underkroppen.\n\nDet passer godt med den grundlæggende biologi: protein leverer byggestenene, mens træningen fortæller kroppen, at der er brug for muskelvævet.\n\n## Mad kan sagtens være proteinkilden\n\nProtein behøver ikke komme fra pulver. Æg, fisk, kød, mejeriprodukter, bælgfrugter, tofu og andre almindelige fødevarer kan alle bidrage. For mange er det mere praktisk at tænke i en tydelig proteinkilde ved hvert hovedmåltid end at tælle hvert gram.\n\nEt eksempel kan være æg eller yoghurt til morgenmad, fisk eller bælgfrugter til frokost og kød, fisk, tofu eller linser til aftensmad. Hytteost og andre proteinrige mejeriprodukter kan være en enkel mulighed, hvis appetitten er lille.\n\nProteinets kilde er heller ikke hele historien. Energiindtag, motion, sygdom, appetit og den samlede kost påvirker, hvor godt musklerne bevares. Hos ældre med lav appetit kan det derfor være vigtigere at få spist tilstrækkeligt end at optimere små detaljer.\n\n## Pulver er et redskab – ikke målet\n\nProteinpulver kan være praktisk, især hvis det er svært at få nok protein gennem almindelig mad. Men forskningen giver ikke belæg for at se pulver som en særlig genvej til stærke muskler.\n\nDet er også værd at skelne mellem muskelmasse og det, man faktisk kan bruge musklerne til. En person kan få en lille ændring i muskelmasse uden nødvendigvis at blive mærkbart stærkere eller hurtigere. Flere nyere forskningsoversigter finder netop forskellige resultater alt efter, om man måler masse, håndstyrke, benstyrke eller gangfunktion.\n\nDerfor er styrke og funktion mindst lige så interessante som tallet for muskelmasse. At kunne rejse sig sikkert fra en stol, bære indkøbsposer og gå på trapper er i sidste ende mere relevant i hverdagen end et laboratoriemål alene.\n\n## Den enkle strategi vinder\n\nFor raske voksne er den praktiske konklusion mindre kompliceret end markedet for kosttilskud kan få den til at se ud: spis regelmæssigt proteinrige fødevarer, og giv musklerne en grund til at blive ved med at være der gennem styrketræning.\n\nHar man nyresygdom, alvorlig sygdom eller særlige ernæringsproblemer, bør et markant højere proteinindtag aftales med læge eller klinisk diætist.\n\nFor alle andre er den vigtigste pointe måske, at aldring ikke gør muskler passive. De reagerer stadig på det, vi gør med dem – og protein virker bedst som byggemateriale, når kroppen samtidig bliver bedt om at bygge.",
+  "source_metadata": [
+    {"title":"The effect of dose, frequency, and timing of protein supplementation on muscle mass in older adults: A systematic review and meta-analysis","url":"https://pubmed.ncbi.nlm.nih.gov/38830547/","source_type":"strong_secondary","publisher":"Ageing Research Reviews","year":2024},
+    {"title":"Effects of protein supplementation on muscle mass, muscle strength, and physical performance in older adults with physical inactivity: a systematic review and meta-analysis","url":"https://pubmed.ncbi.nlm.nih.gov/40200135/","source_type":"strong_secondary","publisher":"BMC Geriatrics","year":2025},
+    {"title":"The effectiveness of protein supplementation combined with resistance exercise programs among community-dwelling older adults with sarcopenia: a systematic review and meta-analysis","url":"https://pubmed.ncbi.nlm.nih.gov/38374703/","source_type":"strong_secondary","year":2024},
+    {"title":"Effectiveness of whey protein supplementation on muscle strength and physical performance of older adults: A systematic review and meta-analysis of randomized clinical trials","url":"https://pubmed.ncbi.nlm.nih.gov/39303495/","source_type":"strong_secondary","publisher":"Clinical Nutrition","year":2024}
+  ],
+  "editorial_metadata": {
+    "topic_key": "protein-aeldre-muskelbevarelse",
+    "story_kind": "evergreen_explainer",
+    "seo_title": "Protein efter 60: Sådan hjælper det med at bevare muskler",
+    "seo_description": "Hvor meget betyder protein for muskler efter 60? Forskningen peger på, at protein hjælper, men at styrketræning er den afgørende makker.",
+    "hero_candidates": [
+      {
+        "source_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/CottageCheeseGermany.jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "CC0 1.0",
+        "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "credit_text": "Alexschneider250 / Wikimedia Commons",
+        "rights_notes": "Original work released by copyright holder under CC0 1.0. Original 4032x3024 JPEG.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": false,
+        "alt_text": "En skål hytteost som eksempel på en proteinrig fødevare"
+      },
+      {
+        "source_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Cottagecheese200px.jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "CC BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "credit_text": "Fastily / Wikimedia Commons, CC BY-SA 3.0",
+        "rights_notes": "Original 2274x1808 JPEG; commercial reuse and local storage permitted with attribution and share-alike terms.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": true,
+        "alt_text": "Hytteost i en skål"
+      },
+      {
+        "source_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/White_colored_eggs.jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "credit_text": "Gausanchennai / Wikimedia Commons, CC BY-SA 4.0",
+        "rights_notes": "Original 4896x3672 JPEG; commercial reuse and local storage permitted under CC BY-SA 4.0.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": true,
+        "alt_text": "Æg som en almindelig proteinrig fødevare"
+      }
+    ]
+  }
+}
