@@ -1,0 +1,53 @@
+{
+  "queue_id": "magasin-evergreen-20260915-0408-soevn-regelmaessighed",
+  "slug": "regelmaessig-soevn-kan-vaere-vigtigere-end-du-tror-2026",
+  "headline": "Samme sengetid kan være vigtigere, end du tror",
+  "frontpage_headline": "Samme sengetid kan være vigtigere, end du tror",
+  "deck": "Et stort studie med objektive søvndata forbinder regelmæssige søvntider med lavere dødelighed. Søvnlængden er stadig vigtig – men klokken fortjener mere opmærksomhed.",
+  "category_slug": "liv",
+  "kind": "evergreen",
+  "author_name": "Morgentidende",
+  "body_markdown": "Du har sikkert hørt rådet om at få syv til ni timers søvn. Men forskning peger på, at et andet spørgsmål også er vigtigt: Går du nogenlunde i seng og står op på samme tid hver dag?\n\nEt stort studie af mere end 60.000 deltagere fandt, at regelmæssigheden i søvnen var stærkere forbundet med risikoen for tidlig død end den gennemsnitlige søvnlængde. Det betyder ikke, at søvnlængden er ligegyldig, eller at studiet beviser, at faste sengetider forlænger livet. Men resultaterne gør søvnens rytme til en faktor, der er værd at tage alvorligt.\n\n## SAGEN KORT\n\n- Mere end 60.000 mennesker bar aktivitetsmålere, så forskerne kunne måle deres faktiske søvnmønster frem for kun at spørge dem.\n- De mest regelmæssige søvere havde omkring 30 procent lavere risiko for at dø i opfølgningsperioden end gruppen med de mest uregelmæssige søvnmønstre efter omfattende statistiske justeringer.\n\n## Mere end ti millioner timers målinger\n\nForskerne brugte data fra UK Biobank, en stor britisk forskningsdatabase. 60.977 deltagere havde båret et aktivitetsmåler-lignende apparat på håndleddet i en uge. Tilsammen gav det mere end ti millioner timers målinger.\n\nUd fra dataene beregnede forskerne et mål for, hvor ens den enkelte deltagers søvn og vågne perioder var fra dag til dag. En person, der typisk sover på omtrent samme tid hver nat, scorer højere end en person, hvis søvn flytter sig meget rundt i døgnet.\n\nDeltagerne blev derefter fulgt i gennemsnit lidt over seks år. I perioden døde 1.859 af dem.\n\nEfter justering for blandt andet alder, køn, fysisk aktivitet, rygning, skifteholdsarbejde og en række helbredsforhold var høj søvnregelmæssighed fortsat forbundet med lavere dødelighed. Gruppen med den højeste regelmæssighed havde omkring 30 procent lavere risiko for at dø end gruppen med den laveste regelmæssighed.\n\nForskerne fandt også, at regelmæssigheden statistisk beskrev dødelighedsrisikoen bedre end søvnlængden alene.\n\n## Kroppen har sit eget ur\n\nEn mulig forklaring ligger i kroppens døgnrytme. Menneskets indre ur hjælper med at styre blandt andet søvn, hormoner, kropstemperatur og stofskifte over døgnet. Lys, måltider og aktivitet fungerer som signaler, der hjælper kroppen med at holde rytmen.\n\nNår tidspunktet for søvn hele tiden flytter sig, flytter nogle af disse signaler også. Forskerne bag studiet peger på forstyrrelse af døgnrytmen som en mulig biologisk forklaring på sammenhængen. Det er dog vigtigt at skelne mellem en sandsynlig mekanisme og et bevist årsagsforhold.\n\nStudiet var et observationsstudie. Forskerne fordelte ikke tilfældigt mennesker til regelmæssig eller uregelmæssig søvn. Derfor kan man ikke konkludere, at uregelmæssig søvn i sig selv var årsagen til de ekstra dødsfald. Personer med meget uregelmæssig søvn kan adskille sig fra andre på måder, som statistiske modeller ikke fuldt ud kan fange.\n\n## Et andet stort studie peger samme vej\n\nResultatet står ikke alene. Et andet studie med 81.382 japanske deltagere fulgt i gennemsnit 9,1 år fandt også højere dødelighed blandt mennesker, der beskrev deres søvn som uregelmæssig. Her var uregelmæssig søvn forbundet med cirka 30 procent højere dødelighed efter statistisk justering.\n\nEt mindre amerikansk studie med objektive søvnmålinger fandt tilsvarende, at deltagere med et regelmæssigt søvnmønster på omkring syv timer havde 39 procent lavere dødelighed end gruppen med kortere og mere uregelmæssig søvn.\n\nForskellige undersøgelser bruger forskellige mål, og procenttallene kan derfor ikke sammenlignes direkte. Fælles er dog, at regelmæssighed igen og igen dukker op som en selvstændig markør for sund søvn.\n\n## Du behøver ikke leve efter et stopur\n\nForskningen giver ikke belæg for en magisk grænse, hvor et bestemt antal minutters forskel pludselig bliver farligt. Søvn påvirkes naturligt af arbejde, børn, sociale aftaler, sygdom og livet i øvrigt.\n\nDen praktiske pointe er mere jordnær: Søvn handler ikke kun om, hvor mange timer du samler sammen. Hvis du vil forbedre dine søvnvaner, kan det være fornuftigt også at se på rytmen. Et nogenlunde stabilt tidspunkt for at stå op og gå i seng giver kroppen mere forudsigelige signaler fra døgn til døgn.\n\nOg der er ingen grund til at vælge mellem varighed og regelmæssighed. Den bedste søvn er ikke enten lang nok eller regelmæssig nok. For de fleste er målet begge dele.\n\nDet overraskende er derfor ikke, at søvn betyder noget. Det er, at klokken på væggen måske fortæller næsten lige så meget som antallet af timer i sengen.",
+  "source_metadata": [
+    {
+      "title": "Sleep regularity is a stronger predictor of mortality risk than sleep duration: A prospective cohort study",
+      "publisher": "SLEEP / Oxford University Press",
+      "url": "https://academic.oup.com/sleep/article/47/1/zsad253/7280269",
+      "source_type": "strong_secondary"
+    },
+    {
+      "title": "Sleep regularity is a stronger predictor of mortality risk than sleep duration",
+      "publisher": "PubMed",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37738616/",
+      "source_type": "strong_secondary"
+    },
+    {
+      "title": "Irregular sleep and all-cause mortality: A large prospective cohort study",
+      "publisher": "PubMed",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36229362/",
+      "source_type": "strong_secondary"
+    },
+    {
+      "title": "Objectively regular sleep patterns and mortality in a prospective cohort: The Multi-Ethnic Study of Atherosclerosis",
+      "publisher": "PubMed",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37752591/",
+      "source_type": "strong_secondary"
+    }
+  ],
+  "hero_alt": "Soveværelse med vækkeur som symbol på en regelmæssig søvnrytme",
+  "editorial_metadata": {
+    "seo_title": "Regelmæssig søvn: Derfor kan faste søvntider være vigtige",
+    "seo_description": "Et stort studie peger på, at regelmæssige søvntider hænger tæt sammen med lavere dødelighed. Se hvad forskningen faktisk viser.",
+    "sagen_kort": [
+      "Mere end 60.000 mennesker bar aktivitetsmålere, så forskerne kunne måle deres faktiske søvnmønster frem for kun at spørge dem.",
+      "De mest regelmæssige søvere havde omkring 30 procent lavere risiko for at dø i opfølgningsperioden end gruppen med de mest uregelmæssige søvnmønstre efter omfattende statistiske justeringer."
+    ],
+    "hero_rights": {
+      "commercial_use_allowed": false,
+      "local_storage_allowed": false,
+      "modifications_allowed": false,
+      "attribution_required": false
+    },
+    "hero_candidate_note": "Ingen ekstern hero afleveret som færdigt asset; media-pipelinen skal vælge eller validere lovligt lokalt hero før release."
+  }
+}
