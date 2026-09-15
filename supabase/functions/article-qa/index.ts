@@ -97,8 +97,9 @@ type DuplicateHeroResult = "duplicate" | "clear" | "unavailable";
 
 async function duplicateHeroOnFrontpage(article: any): Promise<DuplicateHeroResult> {
   if (!article.hero_url && !article.hero_media_id) return "clear";
+  const since = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString();
   const select = "id,hero_url,hero_media_id,story_cluster_id,published_at";
-  const r = await restFetch(`articles?select=${select}&status=eq.published&id=neq.${article.id}&order=published_at.desc&limit=40`);
+  const r = await restFetch(`articles?select=${select}&status=eq.published&published_at=gte.${since}&id=neq.${article.id}&order=published_at.desc&limit=200`);
   if (!r.ok) {
     console.error(`duplicate_hero_query_failed status=${r.status} body=${(await r.text()).slice(0, 300)}`);
     return "unavailable";
