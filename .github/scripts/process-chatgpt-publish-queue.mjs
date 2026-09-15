@@ -1,4 +1,5 @@
 import fs from 'node:fs';
+import { normalizePublishKind } from './publish-kind.mjs';
 
 const file = process.env.QUEUE_FILE;
 const projectRef = process.env.SUPABASE_PROJECT_REF || 'lfttxjxfggjcxmdfjndk';
@@ -33,18 +34,16 @@ if (payload.editorial_metadata !== undefined && (typeof payload.editorial_metada
 if (payload.headline.length > 220) fail('headline_too_long');
 if (payload.deck && String(payload.deck).length > 300) fail('deck_too_long');
 
-const allowedKinds = new Set(['news', 'comment', 'debate', 'magazine']);
-if (payload.kind !== undefined && payload.kind !== null && String(payload.kind).trim()) {
-  const originalKind = String(payload.kind).trim().toLowerCase();
-  let normalizedKind = originalKind;
-  if (['viden', 'liv'].includes(payload.category_slug) && ['article', 'evergreen'].includes(originalKind)) {
-    normalizedKind = 'magazine';
+try {
+  const kindResult = normalizePublishKind(payload.kind, payload.category_slug);
+  if (kindResult) {
+    payload.kind = kindResult.normalizedKind;
+    if (kindResult.normalizedKind !== kindResult.originalKind) {
+      console.log(`publish_bridge_kind_normalized from=${kindResult.originalKind} to=${kindResult.normalizedKind} category=${payload.category_slug}`);
+    }
   }
-  if (!allowedKinds.has(normalizedKind)) fail('invalid_article_kind');
-  payload.kind = normalizedKind;
-  if (normalizedKind !== originalKind) {
-    console.log(`publish_bridge_kind_normalized from=${originalKind} to=${normalizedKind} category=${payload.category_slug}`);
-  }
+} catch (error) {
+  fail(error instanceof Error ? error.message : 'invalid_article_kind');
 }
 
 payload.source_metadata ??= [];
