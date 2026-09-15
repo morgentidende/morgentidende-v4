@@ -72,7 +72,7 @@ const processDropboxJob = async (
   alreadyClaimed = false,
 ): Promise<Response> => {
   if (new Date(job.expires_at).getTime() <= Date.now()) {
-    if (job.status === 'pending') await patchJob(env, job.id, { status: 'expired' });
+    if (['pending', 'failed'].includes(job.status)) await patchJob(env, job.id, { status: 'expired' });
     return json({ error: 'manual_upload_job_expired' }, 410);
   }
   if (!['pending', 'failed'].includes(job.status)) return json({ error: `manual_upload_${job.status}` }, 409);
@@ -162,7 +162,6 @@ const processDropboxJob = async (
       asset_id: result.asset.id,
       result,
       last_error: null,
-      payload_base64: null,
       metadata: {
         ...safeJobMetadata,
         transport_provider: 'dropbox',

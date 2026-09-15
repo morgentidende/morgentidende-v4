@@ -30,7 +30,7 @@ export const maybeHandleDirectChatUpload = async (
   const job = await getJob(env, match[1]);
   if (!job) return json({ error: 'manual_upload_job_not_found' }, 404);
   if (new Date(job.expires_at).getTime() <= Date.now()) {
-    if (job.status === 'pending') await patchJob(env, job.id, { status: 'expired' });
+    if (['pending', 'failed'].includes(job.status)) await patchJob(env, job.id, { status: 'expired' });
     return json({ error: 'manual_upload_job_expired' }, 410);
   }
   if (await sha256Text(token) !== job.token_hash) return json({ error: 'manual_upload_unauthorized' }, 401);
@@ -110,7 +110,6 @@ export const maybeHandleDirectChatUpload = async (
       asset_id: result.asset.id,
       result,
       last_error: null,
-      payload_base64: null,
       consumed_at: new Date().toISOString(),
     });
 
