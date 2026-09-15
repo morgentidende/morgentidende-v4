@@ -2,24 +2,11 @@
 
 ## Formål
 
-Scheduled Tasks må ikke længere skrive direkte til Supabase med `execute_sql` for artikelpublicering. I stedet afleverer en Scheduled Task én artikel som en afgrænset JSON-payload i en GitHub-PR. GitHub Actions validerer transporten og kalder den server-side databasefunktion `public.ingest_github_publish_payload(jsonb)` via Supabase Management API.
-
-Det fjerner den ustabile Scheduled Task → Supabase write-handling fra automationskørslen, men bevarer den eksisterende Supabase QA-, media- og publication-watchdog.
+Scheduled Tasks skriver ikke direkte til Supabase for artikelpublicering. En artikel afleveres som en afgrænset JSON-payload i en GitHub-PR. Den server-side bridge bevarer den eksisterende Supabase QA-, media- og publication-watchdog.
 
 ## Hård transportkontrakt
 
-En Scheduled Task skal:
-
-1. Bruge kun GitHub som write-app under afleveringen.
-2. Oprette en unik branch fra `main` med præfiks `publish/chatgpt-`.
-3. Oprette præcis én ny fil under `publish-queue/`, fx `publish-queue/<queue_id>.json`.
-4. Oprette præcis én PR mod `main`.
-5. PR-titlen skal starte med `[PUBLISH] `.
-6. PR-body skal indeholde `<!-- morgentidende-chatgpt-publish -->`.
-7. PR'en må ikke indeholde andre filændringer.
-8. Tasken må ikke merge PR'en og må ikke skrive til Supabase direkte.
-
-Workflowet lukker og forsøger at slette transportbranchen efter en vellykket afleveringskørsel.
+En Scheduled Task skal oprette en unik `publish/chatgpt-*` branch fra `main`, skrive præcis én ny `publish-queue/<queue_id>.json`, og oprette præcis én PR mod `main`. PR-titlen starter `[PUBLISH] ` og body indeholder `<!-- morgentidende-chatgpt-publish -->`. Tasken må ikke merge PR'en eller skrive direkte til Supabase. Workflowet lukker transport-PR'en efter vellykket aflevering.
 
 ## Payload
 
@@ -37,63 +24,65 @@ Minimum:
 }
 ```
 
-Understøttede felter omfatter desuden `kind`, `frontpage_headline`, `headline_accent_text`, `deck`, `author_name`, `author_title`, `hero_url`, `hero_alt`, `hero_source_url`, `hero_candidate_url`, `hero_candidate_note`, `hero_credit`, `hero_license`, `hero_license_url`, `story_cluster_id`, `is_lead`, `lead_rank`, `is_breaking`, `breaking_until` og `publish_at`.
+`source_metadata` er en top-level JSON-array. `editorial_metadata` er et JSON-object. Eksisterende artikel-, lead-, breaking-, source- og hero-felter er fortsat understøttet.
 
-`source_metadata` skal være en top-level JSON-array. `editorial_metadata` skal være et JSON-object.
+## Hero/media-handoff: én rangeret kandidatliste
 
-## Hero/media-handoff
+Producenten ejer discovery og rangering. Media Worker ejer download, MIME/signatur, faktiske pixelmål, rettighedsgate, SHA-256, lokal arkivering, permanent/transient fejlklassifikation, fallback og retry.
 
-Når en Scheduled Task har fundet en ekstern hero, skal den **ikke** sætte den eksterne URL direkte som færdig `hero_url`. Brug `hero_candidate_url` og dokumentér rettighederne. Bridge-triggeren opretter derefter automatisk et `media_ingest_jobs`-job, så den eksisterende media-worker downloader, validerer, arkiverer og knytter det lokale asset til artiklen.
+Nye producenter bør sende op til seks rangerede, selvstændigt rettighedsgodkendte originalkandidater i `editorial_metadata.hero_candidates`. Første element er den foretrukne kandidat; resten er fallback-budgettet. `hero_candidate_url` (ental) understøttes fortsat bagudkompatibelt og behandles som en liste med ét element.
 
-Minimum for automatisk media-ingest:
+Eksempel:
 
 ```json
 {
-  "hero_candidate_url": "https://...",
-  "hero_alt": "Kort neutral alt-tekst",
-  "hero_license": "licensnavn",
-  "hero_license_url": "https://...",
-  "hero_credit": "kun hvis krævet",
-  "hero_candidate_note": "kort rettighedsnotat",
   "editorial_metadata": {
-    "hero_source_provider": "kildenavn",
-    "hero_rights": {
-      "commercial_use_allowed": true,
-      "local_storage_allowed": true,
-      "modifications_allowed": false,
-      "attribution_required": false
-    }
+    "hero_candidates": [
+      {
+        "source_url": "https://.../original-1.jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "CC BY-SA 4.0",
+        "license_url": "https://...",
+        "credit_text": "...",
+        "rights_notes": "...",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": true,
+        "alt_text": "Kort neutral alt-tekst"
+      },
+      {
+        "source_url": "https://.../original-2.jpg",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true
+      }
+    ]
   }
 }
 ```
 
-Media-job oprettes kun, hvis både `commercial_use_allowed` og `local_storage_allowed` eksplicit er `true`. Mangler dokumentationen, bliver artiklen stående sikkert i prepublication i stedet for at omgå hero-reglerne. Media-workeren kører sin eksisterende fallback/retry-logik og publication watchdog frigiver først artiklen, når kravene er opfyldt.
+Producenten bør bruge dimensionsmetadata som forfilter og foretrække mindst 1200×675. Kendte kandidater under 800×450 må ikke sendes. Søgemetadata er dog aldrig autoritative: Media Worker måler altid den faktisk downloadede original og håndhæver minimum 800×450.
+
+Undgå thumbnail-/preview-URL'er og kendte nedskaleringsparametre. Brug originalfil-URL når kilden tilbyder den.
+
+Hver kandidat skal selv have `commercial_use_allowed=true` og `local_storage_allowed=true`; rettigheder må ikke arves blindt fra kandidat 1.
+
+Ved permanent fejl, fx for lille fil, ugyldigt format, 404/410 eller ulovlig/ikke-arkiverbar kilde, går den eksisterende fallback-motor direkte til næste kandidat. Ved transient fejl, fx timeout, 429 eller 5xx, beholdes samme kandidat og den eksisterende retry-kø bruges. Først når kandidatbudgettet er udtømt, må media-jobbet terminalisere og artiklen forblive scheduled/missing hero.
+
+GitHub-broen må ikke implementere en separat hero-orchestrator. Den omsætter kandidatlisten til Media Workerens eksisterende `source_url` + `fallback_candidates`-kontrakt.
 
 ## Idempotency
 
-`queue_id` gemmes som `editorial_metadata.github_queue_id`. Samme `queue_id` kan afleveres igen uden at oprette en dublet. En eksisterende slug med en anden `queue_id` giver fejl i stedet for at overskrive en anden artikel.
+`queue_id` gemmes som `editorial_metadata.github_queue_id`. Samme `queue_id` kan afleveres igen uden artikeldublet. Der må højst være ét åbent (`pending`/`processing`) bridge-media-job pr. artikel. Media Workerens eksisterende SHA-256-dedup genbruges.
 
 ## Publicering og QA
 
-Bridge-funktionen indsætter artiklen som `scheduled` og kalder derefter `public.publish_article_safely(article_id)`. Den eksisterende pipeline afgør, om artiklen kan frigives straks eller skal blive stående i prepublication/hero/QA-forløbet.
-
-Det betyder især:
-
-- hero/media-regler omgås ikke,
-- ekstern hero går gennem det eksisterende lokale media-arkiv,
-- den deterministiske QA-kø bevares,
-- publication watchdog bevares,
-- Scheduled Task behøver kun én GitHub-write-sekvens,
-- retry kan ske med samme `queue_id` uden dubletter.
+Bridge-funktionen indsætter artiklen som `scheduled` og kalder `public.publish_article_safely(article_id)`. Når en primær eller senere fallback-kandidat bliver `ready`, knyttes samme artikel til `hero_media_id`/intern `hero_url`; eksisterende QA og publication watchdog fortsætter derefter publiceringen. Hero/media-regler omgås aldrig.
 
 ## Scheduled Task-standard
 
-Fremtidige autonome artikelopgaver skal afslutte med en afleveringsfase i denne form:
-
-> Aflever den færdige artikel gennem Morgentidendes GitHub publish bridge. Opret en unik `publish/chatgpt-*` branch fra `main`, skriv præcis én JSON-payload i `publish-queue/<queue_id>.json`, og opret en PR mod `main` med titel `[PUBLISH] <kort rubrik>` og body-markøren `<!-- morgentidende-chatgpt-publish -->`. Brug samme `queue_id` ved retry. Merge ikke PR'en. Skriv ikke direkte til Supabase. En ekstern hero skal afleveres som `hero_candidate_url` med eksplicit dokumentation af kommerciel brug og lokal arkivering.
-
-Research- og læsekald kan fortsat bruge relevante read-only apps, men selve article-write-pathen skal være GitHub-broen.
+Autonome artikelopgaver skal aflevere via GitHub-broen. De bør finde og rangere flere lovlige original-heros, helst forfiltreret til ≥1200×675, og sende dem som `editorial_metadata.hero_candidates`. De skal ikke selv implementere retry/recovery; det ejes af Media Worker. Hvis kun én kandidat findes, kan legacy `hero_candidate_url` fortsat bruges.
 
 ## Driftsprincip
 
-Brug ikke Supabase-write-checkpoints fra Scheduled Tasks. Observability skal primært komme fra GitHub PR/workflow-resultatet og de server-side Supabase-events, som allerede udløses af den normale publication/media/QA-pipeline. Færre write-actions giver færre fejlflader og gør retry entydigt.
+Ingen Supabase-write-checkpoints fra Scheduled Tasks. Observability kommer primært fra GitHub PR/workflow-resultatet og server-side Supabase/media/QA-events. Hero-fallback er ét fælles system for Scheduled Tasks, magasin, time-nyheder, manuel chat-publicering og fremtidige producenter.
