@@ -1,0 +1,145 @@
+{
+  "queue_id": "20260915-1615-kvartover-afd-yougov",
+  "slug": "afd-11-point-foran-unionen-tyskland-yougov",
+  "headline": "AfD 11 point foran Merz' parti: Flertal vil åbne for samarbejde",
+  "deck": "AfD står til 29 procent mod CDU/CSU's 18. Samtidig vil 51 procent ikke længere udelukke samarbejde med partiet.",
+  "category_slug": "udland",
+  "kind": "news",
+  "body_markdown": "## SAGEN KORT\n\n- Det indvandringskritiske parti AfD står til 29 procent i YouGovs nye landsmåling, mens kansler Friedrich Merz' CDU/CSU falder til 18 procent.\n- 51 procent mener nu, at andre partier ikke grundlæggende bør udelukke samarbejde med AfD. I august var tallet 44 procent.\n\nDet politiske landskab i Tyskland flytter sig hurtigt efter AfD's markante valgsejr i Sachsen-Anhalt. En ny landsdækkende måling fra YouGov placerer det indvandringskritiske parti AfD på 29 procent og dermed hele 11 procentpoint foran kansler Friedrich Merz' kristendemokratiske CDU/CSU.\n\nMålingen, som blev offentliggjort tirsdag, giver CDU og det bayerske søsterparti CSU blot 18 procent. Det er et historisk lavpunkt i YouGovs målinger og to procentpoint mindre end i august. AfD går samtidig ét point frem.\n\nMen det mest opsigtsvækkende tal handler ikke kun om partiernes størrelse. 51 procent af de adspurgte mener ifølge YouGov, at de øvrige partier ikke grundlæggende bør afvise at samarbejde med AfD. I august mente 44 procent det samme.\n\nAndelen, der ønsker et kategorisk nej til samarbejde, er samtidig faldet fra 46 til 40 procent. Den politiske afspærring omkring AfD, i Tyskland ofte kaldt brandmuren, har dermed mindre opbakning blandt vælgerne end for blot en måned siden.\n\n## Presset vokser på Merz\n\nMålingen kommer godt en uge efter AfD's store valgsejr i Sachsen-Anhalt. Reuters beskriver tirsdag Merz som presset af intern kritik efter CDU's svage resultat i delstaten. Nyhedsbureauet skriver samtidig, at CDU/CSU nationalt ligger omkring 18-20 procent og efter AfD.\n\nMerz har forsøgt at samle partiet og fastholder, at han vil gennemføre sin fireårige regeringsperiode. CDU-ledelsen står samtidig foran nye prøver ved delstatsvalg i Mecklenburg-Vorpommern og Berlin.\n\nYouGov-målingen viser også, at De Grønne står til 16 procent og SPD til 13. Det socialistiske parti Die Linke ligger på 10 procent, FDP på fem og Bündnis Sahra Wagenknecht på fire procent.\n\nAfD's fremgang betyder ikke, at vælgernes syn på partiet er blevet entydigt positivt. 59 procent af de adspurgte betegner fortsat AfD som højreekstremt, mens 30 procent er uenige i den vurdering. Det er YouGovs spørgsmål og kategorisering, ikke Morgentidendes beskrivelse af partiet.\n\nDen tydeligste bevægelse ligger derfor et andet sted: Stadig flere tyskere ser ikke længere et generelt samarbejdsforbud som den rigtige måde at håndtere AfD på. Samtidig er afstanden mellem AfD og kanslerens parti vokset til tocifret størrelse.",
+  "source_metadata": [
+    {
+      "publisher": "WELT",
+      "url": "https://www.welt.de/article6aa8c362250f8ce245e4cfce",
+      "title": "AfD bleibt laut Umfrage stärkste Partei – CDU/CSU auf Tief",
+      "published_date": "2026-09-15",
+      "source_type": "authoritative"
+    },
+    {
+      "publisher": "Reuters",
+      "url": "https://www.reuters.com/world/europe/embattled-merz-seeks-party-backing-ahead-fresh-election-tests-germany-2026-09-15/",
+      "title": "Embattled Merz seeks party backing ahead of fresh election tests in Germany",
+      "published_date": "2026-09-15",
+      "source_type": "authoritative"
+    }
+  ],
+  "editorial_metadata": {
+    "discovery_run_id": "news-20260915-1615",
+    "story_kind": "current_news",
+    "discovery_audit": [
+      {
+        "candidate_id": "news-20260915-1615-c1",
+        "source_pool": "discovery",
+        "path_used": "discovery",
+        "rank_position": 1,
+        "deep_screened": true,
+        "discovery_source_name": "Apollo News",
+        "discovery_source_url": "https://apollo-news.net/historisches-tief-union-stuerzt-auf-18-prozent-ab-afd-11-punkte-vorn/",
+        "discovery_domain": "apollo-news.net",
+        "candidate_headline": "AfD 29 procent, CDU/CSU 18 i ny YouGov-måling",
+        "candidate_topic": "Tysk politik og AfD-fremgang",
+        "decision": "selected",
+        "decision_reason": "fresh_high_interest_claims_supported_by_authoritative_sources",
+        "downstream_sources": ["welt.de", "reuters.com"],
+        "model_name": "GPT-5.6 Sol",
+        "prompt_version": "docs/automations/news-task.md@2bf8f48c35896404e39430a4f2c376d92e298a6c"
+      },
+      {
+        "candidate_id": "news-20260915-1615-c2",
+        "source_pool": "discovery",
+        "path_used": "discovery",
+        "rank_position": 2,
+        "deep_screened": false,
+        "discovery_source_name": "Apollo News",
+        "discovery_source_url": "https://apollo-news.net/gegen-dreckschleuder-medien-ard-zdf-und-taz-starten-demokratie-kampagne/",
+        "discovery_domain": "apollo-news.net",
+        "candidate_headline": "150 tyske medier går sammen om demokrati-kampagne",
+        "candidate_topic": "Medier og ytringsfrihed",
+        "decision": "not_screened_after_selection",
+        "decision_reason": "higher_ranked_candidate_selected"
+      },
+      {
+        "candidate_id": "news-20260915-1615-c3",
+        "source_pool": "discovery",
+        "path_used": "discovery",
+        "rank_position": 3,
+        "deep_screened": false,
+        "discovery_source_name": "Apollo News",
+        "discovery_source_url": "https://apollo-news.net/wir-brauchen-in-diesem-land-auslaender-schiesst-kuenast-gegen-chrupalla/",
+        "discovery_domain": "apollo-news.net",
+        "candidate_headline": "Künast og Chrupalla i tv-strid om migration",
+        "candidate_topic": "Migration og tysk politik",
+        "decision": "not_screened_after_selection",
+        "decision_reason": "higher_ranked_candidate_selected"
+      },
+      {
+        "candidate_id": "news-20260915-1615-c4",
+        "source_pool": "discovery",
+        "path_used": "discovery",
+        "rank_position": 4,
+        "deep_screened": false,
+        "discovery_source_name": "NIUS",
+        "discovery_source_url": "https://nius.de/politik/news/weimer-ueberzeugt-afd-ergebnis-sachsen-anhalt-wird-sich-nie-wiederholen/afd29b1c-4f29-447a-ab0d-2f91582d0d1b",
+        "discovery_domain": "nius.de",
+        "candidate_headline": "Weimer siger AfD-resultat aldrig gentages",
+        "candidate_topic": "AfD efter Sachsen-Anhalt",
+        "decision": "not_screened_after_selection",
+        "decision_reason": "higher_ranked_candidate_selected"
+      },
+      {
+        "candidate_id": "news-20260915-1615-c5",
+        "source_pool": "discovery",
+        "path_used": "discovery",
+        "rank_position": 5,
+        "deep_screened": false,
+        "discovery_source_name": "Bild",
+        "discovery_source_url": "https://www.bild.de/politik/inland/cdu-in-mecklenburg-vorpommern-koalition-mit-afd-nicht-mehr-ausschliessen-6aa79888181cb962d488e8bc",
+        "discovery_domain": "bild.de",
+        "candidate_headline": "CDU-stemmer vil åbne for koalition med AfD",
+        "candidate_topic": "Brandmur og tysk politik",
+        "decision": "not_screened_after_selection",
+        "decision_reason": "higher_ranked_candidate_selected"
+      }
+    ],
+    "hero_candidates": [
+      {
+        "source_url": "https://upload.wikimedia.org/wikipedia/commons/d/d1/2024-08-21_Event%2C_CDU%2C_Wahlkampf_mit_Friedrich_Merz_in_Erfurt_2024_STP_3041_by_Stepro.jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "credit_text": "Steffen Prößdorf / Wikimedia Commons",
+        "rights_notes": "Freely licensed; Commons metadata notes journalistic-use personality-rights context.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": true,
+        "alt_text": "Tysklands kansler Friedrich Merz ved et CDU-arrangement"
+      },
+      {
+        "source_url": "https://upload.wikimedia.org/wikipedia/commons/2/28/Deutscher_Bundestag_Plenarsaal_Seitenansicht.jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "GFDL 1.2 or later",
+        "license_url": "https://www.gnu.org/licenses/old-licenses/fdl-1.2.html",
+        "credit_text": "Times / Wikimedia Commons",
+        "rights_notes": "Freely licensed documentary photograph of the Bundestag plenary chamber.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": true,
+        "alt_text": "Plenarsalen i den tyske Forbundsdag i Berlin"
+      },
+      {
+        "source_url": "https://upload.wikimedia.org/wikipedia/commons/1/14/Berlin_Reichstag_BW_1.jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "CC BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "credit_text": "Berthold Werner / Wikimedia Commons",
+        "rights_notes": "Freely licensed documentary photograph of the Reichstag building.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": true,
+        "alt_text": "Rigsdagsbygningen i Berlin med det tyske flag"
+      }
+    ]
+  }
+}
