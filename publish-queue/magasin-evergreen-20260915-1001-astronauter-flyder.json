@@ -1,0 +1,54 @@
+{
+  "queue_id": "magasin-evergreen-20260915-1001-astronauter-flyder",
+  "kind": "magazine",
+  "slug": "derfor-flyder-astronauter-i-rummet-selv-om-tyngdekraften-stadig-er-staerk",
+  "headline": "Astronauter flyder ikke, fordi tyngdekraften er væk – de falder hele tiden",
+  "standfirst": "På rumstationens højde er Jordens tyngdekraft stadig næsten 90 procent så stærk som ved overfladen. Vægtløsheden skyldes noget andet.",
+  "category_slug": "viden",
+  "sagen_kort": [
+    "På Den Internationale Rumstations højde er Jordens tyngdekraft stadig omkring 90 procent så stærk som ved jordoverfladen.",
+    "Astronauter virker vægtløse, fordi de, rumstationen og alt om bord falder rundt om Jorden med samme acceleration."
+  ],
+  "body_markdown": "Det ligner et sted uden tyngdekraft: Astronauter svæver gennem kabinen, vand samler sig i kugler, og en genstand kan blive hængende foran ansigtet. Men forklaringen er ikke, at Jordens tyngdekraft holder op ved kanten af atmosfæren.\n\nTværtimod er tyngdekraften stadig overraskende stærk dér, hvor Den Internationale Rumstation kredser. NASA angiver, at Jordens tyngdefelt omkring 400 kilometer over overfladen er knap 90 procent så stærkt som ved jordoverfladen.\n\n## Rumstationen falder mod Jorden\n\nNøglen er frit fald. Rumstationen, astronauterne og alle løse genstande om bord bliver hele tiden trukket mod Jorden af tyngdekraften. De falder altså.\n\nMen rumstationen bevæger sig samtidig sidelæns med omkring 28.000 kilometer i timen. Det er så hurtigt, at Jordens krumme overflade hele tiden bøjer væk under den, mens den falder. Resultatet er et kredsløb: Stationen falder konstant mod Jorden uden at ramme den.\n\nForestil dig, at du kaster en bold vandret fra et meget højt bjerg. Et almindeligt kast ender hurtigt på jorden. Kunne du kaste hurtigere og hurtigere, ville bolden lande længere og længere væk. Ved en tilstrækkelig høj fart ville Jordens overflade krumme væk under bolden lige så hurtigt, som bolden faldt. Så ville den fortsætte rundt om planeten.\n\nDet er i princippet det, der sker med en satellit i kredsløb.\n\n## Derfor føles astronauten vægtløs\n\nPå Jorden mærker du normalt din vægt, fordi gulvet eller stolen skubber tilbage mod kroppen. Står du på en badevægt, måler den i praksis denne støtte.\n\nI rumstationen falder gulvet med astronauten. Der er derfor ikke et gulv, som konstant presser kroppen opad. En løs kuglepen falder også med samme acceleration. Set fra astronautens perspektiv bliver kuglepennen derfor hængende og ser ud til at svæve.\n\nNASA kalder tilstanden mikrotyngdekraft. Ordet er mere præcist end den populære betegnelse nul tyngdekraft, fordi tyngdekraften bestemt ikke er nul.\n\n## Du kan opleve samme princip på Jorden\n\nMan behøver ikke rejse i kredsløb for kortvarigt at mærke princippet. Fly kan følge særlige parabelformede baner, hvor flyet og passagererne falder sammen. Under den del af flyvningen oplever passagererne omkring 20 sekunders vægtløshed ad gangen.\n\nDen samme idé kan mærkes langt mere beskedent, når en rutsjebane passerer toppen af en bakke, eller når en elevator begynder at accelerere nedad: støtten mod kroppen bliver mindre, og man føler sig lettere.\n\n## Tyngdekraften er faktisk det, der holder stationen i kredsløb\n\nDet mest kontraintuitive er derfor, at astronauternes svævende tilstand ikke viser, at tyngdekraften er forsvundet. Den viser nærmest det modsatte. Uden Jordens tyngdekraft ville rumstationen ikke fortsætte rundt om planeten på samme måde; den ville bevæge sig videre langs en mere lige bane.\n\nTyngdekraften bøjer hele tiden stationens bevægelse ind mod Jorden. Farten fremad og faldet indad skaber tilsammen kredsløbet.\n\nDet er også derfor, Månen kan blive ved med at kredse om Jorden, og Jorden kan kredse om Solen. Et kredsløb er i sin enkleste form et meget langt fald, hvor man bliver ved med at ramme ved siden af.",
+  "source_metadata": [
+    {
+      "title": "What Is Microgravity? (Grades 5-8)",
+      "publisher": "NASA",
+      "url": "https://www.nasa.gov/learning-resources/for-kids-and-students/what-is-microgravity-grades-5-8/",
+      "source_type": "primary_official"
+    },
+    {
+      "title": "What is Microgravity?",
+      "publisher": "NASA Glenn Research Center",
+      "url": "https://www.nasa.gov/centers-and-facilities/glenn/what-is-microgravity/",
+      "source_type": "primary_official"
+    },
+    {
+      "title": "Parabolic Flight",
+      "publisher": "NASA",
+      "url": "https://www.nasa.gov/mission/parabolic-flight/",
+      "source_type": "primary_official"
+    }
+  ],
+  "editorial_metadata": {
+    "topic_key": "hvorfor-astronauter-flyder",
+    "story_kind": "evergreen_explainer",
+    "seo_title": "Hvorfor flyder astronauter i rummet? Forklaringen er frit fald",
+    "seo_description": "Astronauter svæver ikke, fordi der ingen tyngdekraft er. Læs den enkle forklaring på mikrotyngdekraft, frit fald og kredsløb.",
+    "hero_candidates": [
+      {
+        "source_url": "https://www.nasa.gov/wp-content/uploads/2023/03/hhp-jsc2013e087500.jpeg",
+        "source_provider": "NASA",
+        "license_name": "NASA Images and Media Usage Guidelines",
+        "license_url": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+        "credit_text": "NASA",
+        "rights_notes": "NASA identifies this 2013 parabolic-flight image with credit NASA. NASA states its imagery may generally be used editorially in published works, including commercial published works when use is factual and does not imply endorsement. Local archival storage is permitted as part of editorial publication; NASA should be acknowledged. Candidate is the original NASA media URL without resize parameters.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": true,
+        "alt_text": "Deltagere svæver under en parabolflyvning, der skaber kortvarig vægtløshed"
+      }
+    ]
+  }
+}
