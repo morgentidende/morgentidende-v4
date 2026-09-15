@@ -4,6 +4,7 @@ import { maybeHandleSvgChatUpload } from './svg-chat-upload';
 import { maybeHandleDirectChatUpload } from './direct-chat-upload';
 import { maybeHandleDropboxChatUpload, processPendingDropboxChatJobs } from './dropbox-chat-upload';
 import { pollLivecenterMetrics } from './livecenter-metrics';
+import { recordLivecenterMetricPoll } from './livecenter-metrics-observability';
 
 interface Env {
   MEDIA_BUCKET: R2Bucket;
@@ -135,10 +136,29 @@ export default {
     // The existing one-minute runtime hosts independent scheduled modules.
     // Each module owns its own cadence; Livecenter rows currently request five-minute polling.
     ctx.waitUntil(processPendingDropboxChatJobs(env, baseWorker, 5));
+    const startedAt = new Date().toISOString();
     ctx.waitUntil(
       pollLivecenterMetrics(env)
-        .then((result) => console.log(JSON.stringify({ subsystem: 'livecenter_metrics', ...result })))
-        .catch((error) => console.error('livecenter_metrics_failed', error)),
+        .then(async (result) => {
+          console.log(JSON.stringify({ subsystem: 'livecenter_metrics', ...result }));
+          await recordLivecenterMetricPoll(env, {
+            started_at: startedAt,
+            completed_at: new Date().toISOString(),
+            centers_due: result.centers_due,
+            outcomes: result.outcomes,
+            error: null,
+          });
+        })
+        .catch(async (error) => {
+          const message = error instanceof Error ? error.message : String(error);
+          console.error('livecenter_metrics_failed', error);
+          await recordLivecenterMetricPoll(env, {
+            started_at: startedAt,
+            completed_at: new Date().toISOString(),
+            outcomes: [],
+            error: message.slice(0, 1000),
+          });
+        }),
     );
     return worker.scheduled(controller, env, ctx);
   },
