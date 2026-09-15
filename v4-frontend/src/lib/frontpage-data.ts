@@ -40,28 +40,29 @@ export async function loadFrontpageData() {
       const videnCategoryId = categories.find((category) => category.name === 'Viden')?.id;
       const livCategoryId = categories.find((category) => category.name === 'Liv')?.id;
 
-      if (videnCategoryId) {
-        const result = await v4Supabase
-          .from('v4_public_articles')
-          .select(articleSelect)
-          .eq('category_id', videnCategoryId)
-          .order('published_at', { ascending: false })
-          .limit(4);
+      if (!loadError) {
+        const [videnResult, livResult] = await Promise.all([
+          videnCategoryId
+            ? v4Supabase
+                .from('v4_public_articles')
+                .select(articleSelect)
+                .eq('category_id', videnCategoryId)
+                .order('published_at', { ascending: false })
+                .limit(4)
+            : Promise.resolve({ data: [], error: null }),
+          livCategoryId
+            ? v4Supabase
+                .from('v4_public_articles')
+                .select(articleSelect)
+                .eq('category_id', livCategoryId)
+                .order('published_at', { ascending: false })
+                .limit(4)
+            : Promise.resolve({ data: [], error: null })
+        ]);
 
-        loadError = Boolean(result.error);
-        if (!result.error) viden = result.data || [];
-      }
-
-      if (!loadError && livCategoryId) {
-        const result = await v4Supabase
-          .from('v4_public_articles')
-          .select(articleSelect)
-          .eq('category_id', livCategoryId)
-          .order('published_at', { ascending: false })
-          .limit(4);
-
-        loadError = Boolean(result.error);
-        if (!result.error) liv = result.data || [];
+        loadError = Boolean(videnResult.error || livResult.error);
+        if (!videnResult.error) viden = videnResult.data || [];
+        if (!livResult.error) liv = livResult.data || [];
       }
     }
   } else {
