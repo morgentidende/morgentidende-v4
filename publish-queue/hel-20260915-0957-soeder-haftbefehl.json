@@ -1,0 +1,64 @@
+{
+  "queue_id": "hel-20260915-0957-soeder-haftbefehl",
+  "slug": "tyskland-soeder-vil-stoppe-grundsikring-til-efterlyste",
+  "headline": "Tyskland betaler stadig grundsikring til politiefterlyste – nu kræver Söder stop",
+  "dek": "Regeringen har lovet at lukke hullet, men reglerne er endnu ikke på plads. CSU-chefen kræver handling nu.",
+  "category_slug": "udland",
+  "kind": "news",
+  "sagen_kort": [
+    "Personer, der er eftersøgt på en arrestordre i Tyskland, kan fortsat modtage statslig grundsikring, fordi jobcentrene ikke automatisk får besked fra politiets systemer.",
+    "CSU-chef Markus Söder kræver nu et stop, efter at CDU/CSU i marts var med til at stemme et AfD-forslag med samme hovedmål ned."
+  ],
+  "body_markdown": "Personer, som tysk politi leder efter på en arrestordre, kan fortsat få statslig grundsikring udbetalt. Nu kræver Bayerns ministerpræsident og CSU-chef Markus Söder, at ordningen bliver stoppet.\n\nSagen rammer en øm politisk nerve, fordi CDU og CSU tidligere i år var med til at afvise et forslag, der netop skulle standse sociale ydelser til bestemte grupper af efterlyste. Samtidig har den nuværende regering allerede lovet at lukke hullet, men den praktiske løsning lader vente på sig.\n\n## Pengene kan fortsætte, mens politiet leder\n\nProblemet skyldes ikke en regel, der udtrykkeligt giver efterlyste ret til penge. Det opstår blandt andet, fordi de tyske jobcentre ikke automatisk har adgang til politiets efterlysningssystem. En person kan derfor i visse tilfælde fortsætte med at modtage grundsikring, selv om politiet leder efter vedkommende.\n\nDet er vigtigt at skelne mellem en åben arrestordre og fængsling. En person, der faktisk er fængslet, eller som ikke længere opfylder kravene om tilgængelighed, kan miste retten til ydelsen. Men en arrestordre udløser ikke i sig selv et automatisk stop.\n\nIfølge flere tyske medier findes der på landsplan mere end 100.000 åbne arrestordrer. Det tal er ikke det samme som 100.000 personer på grundsikring: Det er ikke offentligt dokumenteret, hvor mange af de efterlyste der samtidig modtager ydelsen.\n\n## Söder: Det skal ændres straks\n\nSöder skærpede søndag presset på regeringen. Hans budskab var, at personer, der eftersøges på en arrestordre, ikke bør have krav på grundsikring, og at systemet skal ændres med det samme.\n\nKravet kommer efter længere tids intern debat i regeringssamarbejdet. CDU/CSU's næstformand i Forbundsdagen, Günter Krings, har tidligere kritiseret arbejdsminister Bärbel Bas fra regeringspartiet SPD for, at den aftalte handlingsplan mod misbrug af sociale ydelser endnu ikke er klar. Arbejdsministeriet har oplyst, at det arbejder sammen med indenrigsministeriet om planen.\n\nRegeringen har altså politisk tilkendegivet, at problemet skal løses. Striden handler nu om, hvor hurtigt det sker, og hvordan myndighedernes oplysninger kan kobles sammen uden at bryde reglerne om databeskyttelse.\n\n## CDU og CSU stemte selv imod\n\nSöders krav får en ekstra politisk dimension, fordi det indvandringskritiske parti AfD allerede havde fremsat et forslag med titlen 'Stop borgerpenge ved arrestordrer – ingen støtte til eftersøgte lovovertrædere'.\n\nForslaget ville blandt andet udelukke personer med bestemte nationale arrestordrer fra borgerpenge, socialhjælp og ydelser efter asylreglerne. Forbundsdagen behandlede forslaget første gang i oktober 2025.\n\nDa parlamentet 5. marts i år vedtog regeringens reform af borgerpengene til en ny grundsikring, blev AfD-forslaget afvist. Ifølge Forbundsdagens officielle referat skete det med stemmerne fra alle de øvrige partigrupper – dermed også CDU/CSU.\n\nSöders aktuelle krav betyder derfor, at CSU-chefen nu offentligt argumenterer for det centrale princip, som hans egen partigruppe var med til at stemme imod et halvt år tidligere.\n\nDet betyder ikke, at forslagene nødvendigvis er identiske i alle juridiske detaljer. AfD's forslag omfattede flere typer arrestordrer og forskellige sociale ydelser, mens regeringens kommende model endnu ikke er færdig.\n\nMen hovedkonflikten er blevet vanskelig at overse: Den tyske regering vil selv stoppe ydelser til politiefterlyste, Söder kræver, at det sker straks – og parlamentet havde allerede et konkret forslag om netop dette på bordet i marts.",
+  "source_metadata": [
+    {"name":"Deutscher Bundestag","url":"https://www.bundestag.de/dokumente/textarchiv/kw03-de-grundsicherung-1134298","type":"primary","note":"Officielt referat af vedtagelsen 5. marts 2026 og afvisningen af AfD-forslag 21/2222."},
+    {"name":"Deutscher Bundestag","url":"https://www.bundestag.de/dokumente/textarchiv/2025/kw42-de-buergergeld-1114092","type":"primary","note":"Officiel beskrivelse af forslag 21/2222 og dets konkrete indhold."},
+    {"name":"n-tv","url":"https://www.n-tv.de/politik/Union-dringt-auf-Grundsicherungsstopp-fuer-polizeilich-Gesuchte-id31249017.html","type":"secondary","note":"Baggrund om fortsatte udbetalinger, myndighedernes datadeling og regeringens handlingsplan."},
+    {"name":"NIUS","url":"https://nius.de/politik/news/soeder-buergergeld-fuer-gesuchte-verbrecher/3d894be1-002e-475f-b2ac-18a11cbda213","type":"discovery","note":"Aktuel udtalelse fra Markus Söder 13.-14. september 2026; centrale historiske fakta verificeret mod Forbundsdagen."}
+  ],
+  "editorial_metadata": {
+    "story_kind": "news",
+    "share_reason": "Tyskland kan fortsat udbetale grundsikring til personer, politiet leder efter, mens en regeringsleder nu kræver stop efter selv at have været med til at afvise et lignende forslag.",
+    "hero_candidates": [
+      {
+        "source_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/2023-09-05%20Markus%20Soeder%201508.jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "CC BY-SA 3.0 DE",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.en",
+        "credit_text": "Michael Lucan / Wikimedia Commons",
+        "rights_notes": "Own work; Wikimedia Commons file page states CC BY-SA 3.0 Germany. Original 1620×994.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": true,
+        "alt_text": "Bayerns ministerpræsident Markus Söder under et pressemøde."
+      },
+      {
+        "source_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Markus%20S%C3%B6der%2C%20CSU.jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "credit_text": "Patrick Büttgen, phoenix / Wikimedia Commons",
+        "rights_notes": "Own work; Wikimedia Commons file page states CC BY-SA 4.0. Original 3648×4507.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": true,
+        "alt_text": "Markus Söder på CSU's partikonference."
+      },
+      {
+        "source_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Markus%20S%C3%B6der.jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "CC0 1.0",
+        "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "credit_text": "Freud / Wikimedia Commons",
+        "rights_notes": "Own work dedicated under CC0 1.0; original 3450×4379.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": false,
+        "alt_text": "Markus Söder fotograferet ved et officielt arrangement."
+      }
+    ]
+  }
+}
