@@ -29,6 +29,16 @@ Hvis den første kandidat fejler permanent, fx fordi filen er for lille, ugyldig
 
 Transient fejl, fx 429, timeout eller 5xx, må bruge fallback-køen.
 
+### Forsidevariation
+
+Hero-valget skal passe til artiklen og samtidig fungere på den aktuelle forside som helhed.
+
+- Samme foto må ikke optræde to gange på samme forside; næsten-identiske motiver undgås også.
+- I story clusters og magasinrækker tilstræbes motivvariation frem for flere næsten ens bygninger, flag, skærme eller portrætter ved siden af hinanden.
+- Hvis to heros visuelt konkurrerer eller ligner hinanden for meget, beholdes det stærkeste motiv til den vigtigste artikel og der vælges et relevant alternativ til den anden.
+- Personbårne historier bør som udgangspunkt have mennesker i heroen, når et relevant og lovligt foto findes.
+- Et tydeligt genkendeligt ansigt bruges kun som hero, når personen faktisk er central i artiklen; ellers foretrækkes et mindre identificerende menneskemotiv.
+
 ## 3. Chatgenererede raster-heros: Dropbox er fast hovedregel
 
 **Fast regel:** Når en raster-hero genereres i ChatGPT til Morgentidende, er Dropbox den primære transportbro fra ChatGPT til Media Worker.
