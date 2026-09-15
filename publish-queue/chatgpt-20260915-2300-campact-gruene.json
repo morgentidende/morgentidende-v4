@@ -1,0 +1,82 @@
+{
+  "queue_id": "chatgpt-20260915-2300-campact-gruene",
+  "slug": "campact-opfordrer-til-taktisk-stemme-paa-de-groenne",
+  "headline": "Kampagnegruppe vil redde De Grønne med taktiske stemmer – for at holde AfD fra magten",
+  "dek": "Campact opfordrer vælgere i Mecklenburg-Vorpommern til at stemme strategisk på De Grønne, der ligger tæt på spærregrænsen.",
+  "category_slug": "udland",
+  "kind": "news",
+  "body_markdown": "Den tyske kampagneorganisation Campact blander sig direkte i de sidste dage af valgkampen i Mecklenburg-Vorpommern. Organisationen opfordrer vælgere til at stemme taktisk på De Grønne for at sikre partiet en plads i delstatsparlamentet og dermed gøre en AfD-ledet regering vanskeligere.\n\n## SAGEN KORT\n\n- Campact opfordrer vælgere til at stemme strategisk på De Grønne, som i de seneste målinger ligger omkring spærregrænsen på fem procent.\n- Organisationen anbefaler ikke en taktisk stemme på CDU, selv om også det konservative oppositionsparti ligger lavt i målingerne.\n\nValget finder sted søndag 20. september. Ifølge den tyske tv-station n-tv ligger De Grønne i de seneste målinger på fem eller seks procent og risikerer dermed at falde ud af parlamentet.\n\nCampact beskriver sig som en kampagneorganisation, der mobiliserer borgere omkring politiske mærkesager. I den aktuelle valgkamp er målet mere konkret: De Grønne skal over spærregrænsen.\n\nOrganisationen brugte et lignende greb ved det nylige valg i Sachsen-Anhalt, hvor den opfordrede til strategiske stemmer på SPD og De Grønne. Begge partier endte ifølge n-tv bedre end deres niveau i målingerne før kampagnen. Det beviser ikke, at Campacts indsats var årsagen, men erfaringen er nu baggrunden for et nyt forsøg i Mecklenburg-Vorpommern.\n\n## Kun De Grønne får anbefalingen\n\nDet bemærkelsesværdige er, at anbefalingen denne gang kun går til De Grønne. CDU ligger også lavt og kan få betydning for en kommende regeringsdannelse, men Campact opfordrer ikke vælgerne til at redde partiet med taktiske stemmer.\n\nNDR beskriver valgkampen som stærkt polariseret mellem AfD og SPD. CDU, Venstrepartiet, De Grønne og BSW kæmper længere nede og kan samtidig få rollen som afgørende støttepartier efter valget.\n\nFor Campact er begrundelsen, at en stemme på et lille parti omkring spærregrænsen kan få større parlamentarisk effekt end en stemme på et parti, der allerede er sikkert repræsenteret. Organisationens erklærede politiske mål er samtidig at forhindre AfD i at få regeringsmagt.\n\n## Fem procent kan afgøre meget\n\nDen tyske spærregrænse gør de sidste procentpoint særligt værdifulde. Hvis De Grønne kommer over fem procent, tæller partiets mandater med i den efterfølgende kamp om flertal. Falder partiet under, forsvinder stemmerne fra mandatfordelingen.\n\nDet gør Campacts kampagne til mere end en almindelig støtteerklæring. Organisationen forsøger åbent at påvirke, hvordan vælgere bruger deres stemme taktisk – ikke blot hvilket politisk budskab de foretrækker.\n\nNDR oplyser, at valget afholdes 20. september. Fem dage før valget mødes kandidaterne fra CDU, Venstrepartiet, De Grønne og BSW i en tv-debat, mens SPD og AfD mødes i en direkte duel dagen efter.\n\nDermed kan ganske få procentpoint omkring spærregrænsen blive afgørende for, hvilke partier der overhovedet sidder ved bordet, når en ny regering skal dannes.",
+  "source_metadata": [
+    {
+      "source_name": "n-tv",
+      "url": "https://www.n-tv.de/politik/Campact-greift-in-den-naechsten-Wahlkampf-ein-id31307405.html",
+      "domain": "n-tv.de",
+      "source_type": "authoritative",
+      "note": "Dokumenterer Campacts aktuelle opfordring til strategisk stemme på De Grønne og partiets placering omkring spærregrænsen."
+    },
+    {
+      "source_name": "NDR",
+      "url": "https://www.ndr.de/nachrichten/mecklenburg-vorpommern/landtagswahl/mv-wahl-die-fernseh-debatte-der-vier-kleineren-parteien-heute-abend-im-ndr,mvwahl-356.html",
+      "domain": "ndr.de",
+      "source_type": "authoritative",
+      "note": "Dokumenterer valgdato, den polariserede valgkamp og de mindre partiers mulige rolle i regeringsdannelsen."
+    }
+  ],
+  "editorial_metadata": {
+    "discovery_run_id": "news-20260915-2300",
+    "discovery_audit": [
+      {
+        "candidate_id": "bka-gen-z-mafia",
+        "source_pool": "discovery",
+        "rank": 1,
+        "candidate_headline": "BKA advarer om ny Gen-Z-mafia og 13-årige rekrutteret til vold",
+        "deep_screened": true,
+        "downstream_sources": ["bka.de", "tagesschau.de"],
+        "decision": "rejected_duplicate",
+        "reason": "Næsten identisk med eksisterende [PUBLISH] PR #455: Tyske bander rekrutterer børn helt ned til 13 år til vold.",
+        "model_prompt_version": "canonical-news-task-2026-09-15"
+      },
+      {
+        "candidate_id": "campact-gruene-mv",
+        "source_pool": "discovery",
+        "rank": 2,
+        "candidate_headline": "Campact opfordrer til taktisk stemme på De Grønne i Mecklenburg-Vorpommern",
+        "deep_screened": true,
+        "downstream_sources": ["n-tv.de", "ndr.de"],
+        "decision": "selected",
+        "reason": "Frisk, underdækket dansk vinkel om organiseret taktisk stemmekampagne tæt på spærregrænsen; centralt dokumenteret af n-tv og kontekstualiseret af NDR.",
+        "model_prompt_version": "canonical-news-task-2026-09-15"
+      }
+    ],
+    "final_qa_duplicate": false,
+    "share_reason": "En politisk kampagneorganisation forsøger åbent at flytte taktiske stemmer til et parti på spærregrænsen for at påvirke, hvem der kan danne regering.",
+    "hero_candidates": [
+      {
+        "source_url": "https://upload.wikimedia.org/wikipedia/commons/6/6a/Campact_DZ_31934_01.jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "credit_text": "C.Suthorn / Wikimedia Commons",
+        "rights_notes": "Original uploader work; Commons file is 7680x4320 and licensed CC BY-SA 4.0.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": true,
+        "alt_text": "Campact-aktivister ved en demonstration i Tyskland"
+      },
+      {
+        "source_url": "https://upload.wikimedia.org/wikipedia/commons/b/be/Christoph_Bautz_von_Campact_bei_Hand_in_Hand_gegen_den_Faschismus._%2853519460283%29.jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "CC BY 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "credit_text": "Stefan Müller / PIC-ONE / Wikimedia Commons",
+        "rights_notes": "Commons original 1920x1277; Flickr license verified as CC BY 2.0.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": true,
+        "alt_text": "Campact-leder Christoph Bautz taler ved en demonstration i Berlin"
+      }
+    ]
+  }
+}
