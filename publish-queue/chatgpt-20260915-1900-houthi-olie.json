@@ -1,0 +1,165 @@
+{
+  "queue_id": "chatgpt-20260915-1900-houthi-olie",
+  "slug": "houthier-klemmer-verdens-olie-graedens-port",
+  "headline": "Houthierne strammer grebet om »Grådens Port« – olieprisen er over 108 dollar",
+  "deck": "Iran-støttede houthier kontrollerer nu næsten hele Yemens vestkyst. Samtidig er en saudisk olierørledning sat ud af drift.",
+  "category_slug": "udland",
+  "kind": "news",
+  "body_markdown": "## SAGEN KORT\n\n- De Iran-støttede houthier har taget effektiv kontrol over næsten hele Yemens vestkyst og står nu ved Bab el-Mandeb, en af verdens vigtigste sejlruter.\n- Saudi-Arabiens øst-vestlige olierørledning er samtidig lukket efter et angreb. En længere lukning kan ifølge handlere fjerne op mod fire procent af verdens olieforsyning.\n\nEn hurtig militær fremrykning i Yemen har på få dage flyttet en af Mellemøstens farligste konflikter helt ud til en af verdens vigtigste handelsruter.\n\nDe Iran-støttede houthier, den væbnede bevægelse der kontrollerer store dele af Yemen, har ifølge Reuters nu effektiv kontrol over næsten hele landets vestkyst langs Det Røde Hav. Gruppen har blandt andet indtaget havnebyen Mokha og øen Perim midt i Bab el-Mandeb-strædet.\n\nNavnet Bab el-Mandeb betyder omtrent »Grådens Port«. Strædet forbinder Det Røde Hav med Adenbugten og Det Indiske Ocean og er kun omkring 29 kilometer bredt på det smalleste sted.\n\nIfølge FN-tal gengivet af Washington Post passerer omkring 8,7 procent af verdens søbårne handel gennem strædet. Det gælder blandt andet omkring 13 procent af den søbårne råolie og 20 procent af containertrafikken.\n\n## To flaskehalse på én gang\n\nSituationen er særlig alvorlig, fordi Saudi-Arabiens alternative olierute samtidig er ramt.\n\nLandets omkring 1.200 kilometer lange øst-vestlige rørledning fører olie fra felterne ved Den Persiske Golf til eksporthavnen Yanbu ved Det Røde Hav. Den har været en central omvej, mens trafikken gennem Hormuzstrædet har været forstyrret af krigen.\n\nMen rørledningen blev lukket efter et droneangreb fredag. Reuters skriver, at en længere lukning ifølge handlere kan fjerne op mod fire procent af verdens olieforsyning. Saudi-Arabien har endnu ikke oplyst, hvornår den kan åbne igen.\n\nSamtidig kan houthiernes nye position ved Bab el-Mandeb true den anden ende af Saudi-Arabiens eksportvej.\n\nBrent-olien steg tirsdag til over 108 dollar tønden, det højeste niveau siden maj.\n\n## Alarmer nåede Mekka og Jeddah\n\nKonflikten er også rykket tættere på saudiske storbyer. Tirsdag udsendte Saudi-Arabien kortvarige sikkerhedsalarmer over et stort område, blandt andet i Mekka og Jeddah. Myndighederne meldte ikke umiddelbart om nedslag.\n\nMandagens houthiangreb sårede ifølge den saudisk-ledede koalition 13 civile. Saudiarabiske og yemenitiske fly har samtidig bombet houthiernes stillinger i Yemen.\n\nUSA står dermed over for et vanskeligt valg. Washington kan holde sig tilbage og acceptere en voksende risiko for verdenshandlen, eller støtte Saudi-Arabien militært og risikere at blive trukket dybere ind i endnu en front. Indtil videre har amerikansk støtte ifølge Reuters været begrænset til efterretninger.\n\nFN's Sikkerhedsråd skal tirsdag diskutere den forværrede krise omkring Bab el-Mandeb. Saudi-Arabiens kronprins Mohammed bin Salman og Egyptens præsident Abdel Fattah al-Sisi har samtidig understreget behovet for at sikre fri sejlads gennem Det Røde Hav.\n\nFor verdens oliehandel er problemet nu usædvanligt konkret: Den ene saudiske omvej er lukket, mens en Iran-støttet bevægelse har rykket frem til den anden.",
+  "source_metadata": [
+    {
+      "publisher": "Reuters",
+      "url": "https://www.reuters.com/world/middle-east/houthis-strike-saudi-targets-anew-talks-over-strait-hormuz-stall-2026-09-15/",
+      "source_type": "authoritative",
+      "title": "Saudi Arabia reports wide-ranging security alerts after week of strikes",
+      "published_at": "2026-09-15"
+    },
+    {
+      "publisher": "The Washington Post",
+      "url": "https://www.washingtonpost.com/world/2026/09/15/iran-gains-leverage-with-bab-al-mandab-strait-under-houthi-control/",
+      "source_type": "authoritative",
+      "title": "Why Houthi control of the ‘Gate of Tears’ may be Iran’s biggest victory yet",
+      "published_at": "2026-09-15"
+    },
+    {
+      "publisher": "The Guardian",
+      "url": "https://www.theguardian.com/world/2026/sep/15/houthi-rebels-seize-red-sea-hanish-islands-saudi-oil-warning",
+      "source_type": "authoritative",
+      "title": "Houthis seize strategic Red Sea islands as analysts warn of impending oil crunch",
+      "published_at": "2026-09-15"
+    }
+  ],
+  "editorial_metadata": {
+    "discovery_run_id": "news-20260915-1900",
+    "share_reason": "Jeg sender dig den her, fordi en Iran-støttet bevægelse nu sidder ved en af verdens vigtigste olieruter samtidig med, at Saudi-Arabiens alternative rørledning er lukket.",
+    "hero_candidates": [
+      {
+        "source_url": "https://upload.wikimedia.org/wikipedia/commons/c/cc/Perim_and_entire_Shaikh_Said_Peninsula.jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "Public domain — NASA",
+        "license_url": "https://commons.wikimedia.org/wiki/File:Perim_and_entire_Shaikh_Said_Peninsula.jpg",
+        "credit_text": "NASA",
+        "rights_notes": "NASA image, public domain in the United States; Wikimedia Commons file page confirms licensing.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": false,
+        "alt_text": "Satellitfoto af Perim-øen og Bab el-Mandeb-strædet mellem Yemen og Afrikas Horn"
+      },
+      {
+        "source_url": "https://upload.wikimedia.org/wikipedia/commons/7/70/Perim_and_Shaikh_Said_Peninsula.jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "Public domain — NASA",
+        "license_url": "https://commons.wikimedia.org/wiki/Category:Perim_Island",
+        "credit_text": "NASA",
+        "rights_notes": "NASA/ISS imagery listed by Wikimedia Commons; Media Worker must validate exact file and rights before use.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": false,
+        "alt_text": "Satellitbillede af Perim og Yemens kyst ved Bab el-Mandeb"
+      },
+      {
+        "source_url": "https://upload.wikimedia.org/wikipedia/commons/4/4f/ISS022-E-9109_-_View_of_Yemen.jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "Public domain — NASA",
+        "license_url": "https://commons.wikimedia.org/wiki/Category:Perim_Island",
+        "credit_text": "NASA",
+        "rights_notes": "NASA/ISS image listed in Wikimedia Commons Perim category; Media Worker must validate exact file and rights before use.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": false,
+        "alt_text": "Rumfoto af Yemens kyst og farvandet ved Det Røde Hav"
+      }
+    ],
+    "discovery_audit": [
+      {
+        "candidate_id": "news-20260915-1900-c1",
+        "source_pool": "discovery",
+        "path_used": "discovery",
+        "rank_position": 1,
+        "deep_screened": true,
+        "discovery_source_name": "Apollo News",
+        "discovery_source_url": "https://apollo-news.net/oel-dilemma-der-kampf-um-die-nadeloehre-des-welthandels/",
+        "discovery_domain": "apollo-news.net",
+        "candidate_headline": "Houthiernes fremrykning truer oliehandlen ved Bab el-Mandeb",
+        "candidate_topic": "Houthi control of Red Sea chokepoint and Saudi oil supply",
+        "decision": "selected",
+        "decision_reason": "Fresh major development verified independently by Reuters and other authoritative newspapers",
+        "downstream_sources": ["reuters.com", "washingtonpost.com", "theguardian.com"],
+        "semantic_assessment": {"dedupe": "bypassed_preflight_permission_denied", "documentation": "strong"},
+        "model_name": "GPT-5.6 Sol",
+        "prompt_version": "docs/automations/news-task.md@2bf8f48c35896404e39430a4f2c376d92e298a6c"
+      },
+      {
+        "candidate_id": "news-20260915-1900-c2",
+        "source_pool": "discovery",
+        "path_used": "discovery",
+        "rank_position": 2,
+        "deep_screened": false,
+        "discovery_source_name": "Apollo News",
+        "discovery_source_url": "https://apollo-news.net/gegen-dreckschleuder-medien-ard-zdf-und-taz-starten-demokratie-kampagne/",
+        "discovery_domain": "apollo-news.net",
+        "candidate_headline": "150 tyske medier går sammen om demokratikampagne",
+        "candidate_topic": "German media democracy campaign",
+        "decision": "ranked_not_screened",
+        "decision_reason": "Lower immediate consequence than selected candidate",
+        "downstream_sources": [],
+        "model_name": "GPT-5.6 Sol",
+        "prompt_version": "docs/automations/news-task.md@2bf8f48c35896404e39430a4f2c376d92e298a6c"
+      },
+      {
+        "candidate_id": "news-20260915-1900-c3",
+        "source_pool": "discovery",
+        "path_used": "discovery",
+        "rank_position": 3,
+        "deep_screened": false,
+        "discovery_source_name": "Apollo News",
+        "discovery_source_url": "https://apollo-news.net/wir-brauchen-in-diesem-land-auslaender-schiesst-kuenast-gegen-chrupalla/",
+        "discovery_domain": "apollo-news.net",
+        "candidate_headline": "Künast og Chrupalla i hård tysk migrationsduel",
+        "candidate_topic": "German migration debate",
+        "decision": "ranked_not_screened",
+        "decision_reason": "Talk-show conflict weaker than selected geopolitical development",
+        "downstream_sources": [],
+        "model_name": "GPT-5.6 Sol",
+        "prompt_version": "docs/automations/news-task.md@2bf8f48c35896404e39430a4f2c376d92e298a6c"
+      },
+      {
+        "candidate_id": "news-20260915-1900-c4",
+        "source_pool": "discovery",
+        "path_used": "discovery",
+        "rank_position": 4,
+        "deep_screened": false,
+        "discovery_source_name": "NIUS",
+        "discovery_source_url": "https://nius.de/politik/generaldebatte-bundestag-haushalt-2026",
+        "discovery_domain": "nius.de",
+        "candidate_headline": "Merz kalder remigration et synonym for etnisk udrensning",
+        "candidate_topic": "German migration rhetoric",
+        "decision": "ranked_not_screened",
+        "decision_reason": "Older than selected development",
+        "downstream_sources": [],
+        "model_name": "GPT-5.6 Sol",
+        "prompt_version": "docs/automations/news-task.md@2bf8f48c35896404e39430a4f2c376d92e298a6c"
+      },
+      {
+        "candidate_id": "news-20260915-1900-c5",
+        "source_pool": "discovery",
+        "path_used": "discovery",
+        "rank_position": 5,
+        "deep_screened": false,
+        "discovery_source_name": "NIUS",
+        "discovery_source_url": "https://nius.de/politik/spd-gruene-linke-drohung-bundeszwang",
+        "discovery_domain": "nius.de",
+        "candidate_headline": "Flere tyske partier åbner for Bundeszwang mod AfD-regering",
+        "candidate_topic": "German federal coercion debate",
+        "decision": "ranked_not_screened",
+        "decision_reason": "Likely overlap with recent Morgentidende coverage and older than selected development",
+        "downstream_sources": [],
+        "model_name": "GPT-5.6 Sol",
+        "prompt_version": "docs/automations/news-task.md@2bf8f48c35896404e39430a4f2c376d92e298a6c"
+      }
+    ]
+  }
+}
