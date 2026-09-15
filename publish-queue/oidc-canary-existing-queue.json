@@ -1,0 +1,10 @@
+{
+  "queue_id": "kvarti-20260915-0944-wien-migration",
+  "slug": "mere-end-hver-anden-i-wien-har-nu-migrationsbaggrund",
+  "headline": "Mere end hver anden i Wien har nu migrationsbaggrund",
+  "category_slug": "udland",
+  "kind": "news",
+  "body_markdown": "OIDC idempotency canary. This payload must resolve to the already-existing article and must not create a second row.",
+  "source_metadata": [],
+  "editorial_metadata": {}
+}
