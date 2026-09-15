@@ -1,0 +1,149 @@
+{
+  "queue_id": "20260915-1915-kvartover-soeder-haftbefehl",
+  "slug": "soeder-vil-stoppe-ydelser-til-efterlyste-unionen-stemte-imod-samme-forslag",
+  "headline": "Söder vil stoppe ydelser til efterlyste – Unionen stemte imod samme forslag",
+  "deck": "Tyskland kan fortsat udbetale grundsikring til personer med en åben arrestordre. Nu kræver CSU-chefen et øjeblikkeligt stop.",
+  "category_slug": "udland",
+  "kind": "news",
+  "body_markdown": "**SAGEN KORT**\n\n- Bayerns ministerpræsident og CSU-formand Markus Söder kræver, at personer, der er eftersøgt med arrestordre, mister retten til tysk grundsikring.\n- CDU/CSU stemte tidligere i år imod et AfD-forslag, der ville stoppe ydelserne; den tyske regering arbejder nu selv på at lukke hullet.\n\nBayerns ministerpræsident og CSU-formand Markus Söder kræver nu et øjeblikkeligt stop for tyske sociale ydelser til personer, som politiet leder efter med en arrestordre.\n\n»Den, der er eftersøgt med arrestordre, må ikke have ret til grundsikring. Det skal ændres med det samme,« sagde Söder ifølge det tyske medie NIUS.\n\nKravet rammer et opsigtsvækkende hul mellem politi og socialforvaltning: En arrestordre afbryder ikke automatisk retten til grundsikring, og myndighederne udveksler som udgangspunkt ikke de nødvendige oplysninger automatisk.\n\n## Mere end 148.000 personer var eftersøgt\n\nProblemet er ikke lille. Et forslag i Forbundsdagen oplyste med henvisning til officielle politital, at 148.515 personer 1. april 2025 var registreret med ikke-fuldbyrdede arrestordrer. Hvor mange af de eftersøgte der faktisk modtager sociale ydelser, er ikke fastslået.\n\nDet er derfor vigtigt at skelne mellem antallet af eftersøgte og antallet af ydelsesmodtagere: De officielle oplysninger dokumenterer, at en arrestordre ikke i sig selv stopper ydelserne, men ikke at alle eller størstedelen af de eftersøgte får penge fra staten.\n\nSagen har fået ny politisk kraft, fordi Söders eget parti tidligere stod på den modsatte side af et konkret forslag. Det indvandringskritiske parti AfD havde fremsat et forslag med titlen »Stop borgerpenge ved arrestordrer – ingen støtte til eftersøgte lovovertrædere«. Forbundsdagen oplyser, at forslaget senere blev forkastet.\n\nCDU/CSU var blandt partierne, der stemte imod.\n\n## Regeringen vil selv lukke hullet\n\nSöders krav står samtidig ikke længere alene. Regeringspartierne CDU/CSU og SPD har besluttet at arbejde for at stoppe udbetalinger til personer, der unddrager sig myndighederne. Arbejds- og indenrigsministeriet arbejder ifølge tyske medier på en løsning med bedre dataudveksling mellem politi, justitsmyndigheder og de myndigheder, der udbetaler grundsikring.\n\nHer støder ønsket på spørgsmål om både databeskyttelse, teknik og den præcise juridiske afgrænsning. En arrestordre kan desuden have forskellige baggrunde, og en registrering er ikke det samme som en dom for en ny forbrydelse.\n\nDen politiske kontrast er alligevel klar: Et forslag om at stoppe ydelserne blev afvist, mens CDU/CSU stemte imod. Nu kræver en af Unionens mest fremtrædende politikere, at netop dette princip gennemføres straks.\n\nFor den tyske regering bliver næste spørgsmål derfor ikke længere kun, om hullet skal lukkes, men hvor hurtigt myndighederne kan bygge et system, der faktisk fortæller socialforvaltningen, når en ydelsesmodtager samtidig er eftersøgt.",
+  "source_metadata": [
+    {
+      "publisher": "Deutscher Bundestag",
+      "url": "https://www.bundestag.de/dokumente/textarchiv/2025/kw42-de-buergergeld-1114092",
+      "source_type": "authoritative",
+      "title": "Stopp des Bürgergeldes bei Haftbefehlen"
+    },
+    {
+      "publisher": "Deutscher Bundestag",
+      "url": "https://dserver.bundestag.de/btd/21/022/2102222.pdf",
+      "source_type": "primary_official",
+      "title": "Drucksache 21/2222"
+    },
+    {
+      "publisher": "Deutscher Bundestag",
+      "url": "https://www.bundestag.de/dokumente/textarchiv/kw03-de-grundsicherung-1134298",
+      "source_type": "authoritative",
+      "title": "Kontroverse über Umgestaltung des Bürgergelds zu neuer Grundsicherung"
+    }
+  ],
+  "editorial_metadata": {
+    "discovery_run_id": "news-20260915-1915-kvartover",
+    "discovery_audit": [
+      {
+        "candidate_id": "candidate-1",
+        "source_pool": "discovery",
+        "path_used": "discovery",
+        "rank_position": 1,
+        "deep_screened": true,
+        "discovery_source_name": "NIUS",
+        "discovery_source_url": "https://nius.de/politik/news/soeder-buergergeld-fuer-gesuchte-verbrecher/3d894be1-002e-475f-b2ac-18a11cbda213",
+        "discovery_domain": "nius.de",
+        "candidate_headline": "Söder will Bürgergeld für gesuchte Verbrecher stoppen",
+        "candidate_topic": "Grundsikring til personer eftersøgt med arrestordre",
+        "decision": "selected",
+        "decision_reason": "Fresh policy reversal with authoritative Bundestag documentation",
+        "downstream_sources": ["bundestag.de", "dserver.bundestag.de"],
+        "semantic_assessment": {"shareability": "high", "core_interest_match": "state power, welfare and law enforcement"},
+        "model_name": "GPT-5.6 Sol",
+        "prompt_version": "docs/automations/news-task.md@2bf8f48c"
+      },
+      {
+        "candidate_id": "candidate-2",
+        "source_pool": "discovery",
+        "path_used": "discovery",
+        "rank_position": 2,
+        "deep_screened": false,
+        "discovery_source_name": "NIUS",
+        "discovery_source_url": "https://nius.de/nius-live/clara-von-nathusius-friedrich-merz-cdu",
+        "discovery_domain": "nius.de",
+        "candidate_headline": "Reichelt über Clara von Nathusius: Sie hat die Kanzlerschaft von Friedrich Merz beerdigt",
+        "candidate_topic": "Intern CDU-kritik af Friedrich Merz",
+        "decision": "not_screened_after_selection",
+        "decision_reason": "Higher-ranked candidate qualified"
+      },
+      {
+        "candidate_id": "candidate-3",
+        "source_pool": "discovery",
+        "path_used": "discovery",
+        "rank_position": 3,
+        "deep_screened": false,
+        "discovery_source_name": "Document",
+        "discovery_source_url": "https://www.document.no/2026/09/15/portugal-reconquista-bevegelsen-ville-oppna-52-prosents-oppslutning-som-politisk-parti",
+        "discovery_domain": "document.no",
+        "candidate_headline": "Portugal: Reconquista-bevægelsen måles til 5,2 procent",
+        "candidate_topic": "Portugisisk indvandringskritisk bevægelse",
+        "decision": "not_screened_after_selection",
+        "decision_reason": "Higher-ranked candidate qualified"
+      },
+      {
+        "candidate_id": "candidate-4",
+        "source_pool": "discovery",
+        "path_used": "discovery",
+        "rank_position": 4,
+        "deep_screened": false,
+        "discovery_source_name": "NIUS",
+        "discovery_source_url": "https://nius.de/politik/news/nrw-abschiebehaftanstalt-moenchengladbach/7812a61a-6400-46ef-81ff-424f4c5713fe",
+        "discovery_domain": "nius.de",
+        "candidate_headline": "NRW planlægger ny udrejsearrest til 313 millioner euro",
+        "candidate_topic": "Tysk udrejsearrest og migrationspolitik",
+        "decision": "not_screened_after_selection",
+        "decision_reason": "Higher-ranked candidate qualified"
+      },
+      {
+        "candidate_id": "candidate-5",
+        "source_pool": "discovery",
+        "path_used": "discovery",
+        "rank_position": 5,
+        "deep_screened": false,
+        "discovery_source_name": "Document",
+        "discovery_source_url": "https://www.document.no/2026/09/15/hellas-afghansk-bokser-som-slo-ihjel-britisk-hjelpearbeider-grisebanket-i-fengselet",
+        "discovery_domain": "document.no",
+        "candidate_headline": "Afghansk drabssigtet angrebet i græsk fængsel",
+        "candidate_topic": "Drabssag og fængselsvold i Grækenland",
+        "decision": "not_screened_after_selection",
+        "decision_reason": "Higher-ranked candidate qualified"
+      }
+    ],
+    "hero_candidates": [
+      {
+        "source_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/2026-02-04%20Markus%20Soeder%202280.jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "CC BY-SA 3.0 DE",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.en",
+        "credit_text": "Michael Lucan / Wikimedia Commons",
+        "rights_notes": "Own work; Commons file page states CC BY-SA 3.0 Germany; original 1420x947",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": true,
+        "alt_text": "Markus Söder ved et arrangement i München i februar 2026"
+      },
+      {
+        "source_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/2026-02-04%20Markus%20Soeder%202272.jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "CC BY-SA 3.0 DE",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.en",
+        "credit_text": "Michael Lucan / Wikimedia Commons",
+        "rights_notes": "Own work; Commons file page states CC BY-SA 3.0 Germany; original 1420x947",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": true,
+        "alt_text": "Markus Söder fotograferet i München i februar 2026"
+      },
+      {
+        "source_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/2026-02-04%20Markus%20Soeder%202331.jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "CC BY-SA 3.0 DE",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.en",
+        "credit_text": "Michael Lucan / Wikimedia Commons",
+        "rights_notes": "Own work; Commons file page states CC BY-SA 3.0 Germany; original 1420x947",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": true,
+        "alt_text": "CSU-formand Markus Söder i München i februar 2026"
+      }
+    ]
+  }
+}
