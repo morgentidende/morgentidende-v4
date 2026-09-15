@@ -50,7 +50,9 @@ Registret forventes at vokse hurtigt i begyndelsen og langsommere senere.
 
 Automation må gerne op- eller nedklassificere tidligere automatiske vurderinger, når ny research begrunder det. `editor_locked=true` betyder, at chefredaktørens beslutning ikke må ændres automatisk.
 
-Et ukendt domæne behandles som `discovery_only`, indtil det er klassificeret og registry-opdateringen er afleveret.
+Et ukendt domæne behandles som `discovery_only`, indtil det er klassificeret. Automation skal fortsat sende nye klassifikationer i `source_registry_updates`. Som backend-sikkerhedsnet bliver domæner, der i en artikelpayload eksplicit står i `source_metadata` med `source_type = authoritative` eller `primary_official`, registreret som `authoritative` transaktionelt før artiklen oprettes og før QA/source-gaten kører. Editor-låste registry-beslutninger kan ikke overskrives af dette sikkerhedsnet.
+
+Det betyder, at en artikel ikke må ende blokeret alene fordi automationen korrekt vurderede en ny kilde som authoritative, men glemte den parallelle `source_registry_updates`-post. Payloadens klassifikation og registry bliver bragt i sync før QA.
 
 ## Payload-format
 
