@@ -1,0 +1,16 @@
+{
+  "payload_type": "discovery_audit",
+  "queue_id": "source-registry-selftest-20260915b",
+  "run_id": "source-registry-selftest-20260915b",
+  "discovery_audit": [],
+  "source_registry_updates": [
+    {
+      "source_name": "Registry Selftest",
+      "domain": "registry-selftest.example",
+      "classification": "discovery_only",
+      "region": "selftest",
+      "rationale": "temporary bridge self-test",
+      "discovered_via": "system-selftest"
+    }
+  ]
+}
