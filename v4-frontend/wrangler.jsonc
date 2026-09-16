@@ -10,5 +10,9 @@
   },
   "observability": {
     "enabled": true
+  },
+  "vars": {
+    "PUBLIC_SUPABASE_URL": "https://lfttxjxfggjcxmdfjndk.supabase.co",
+    "AWS_SES_REGION": "eu-north-1"
   }
 }

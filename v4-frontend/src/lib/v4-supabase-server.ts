@@ -1,10 +1,15 @@
-import { createClient } from '@supabase/supabase-js';
+import { createClient, type SupabaseClient } from '@supabase/supabase-js';
+import { getNewsletterRuntimeEnv, hasSupabaseServerEnv, type NewsletterRuntimeEnv } from './runtime-env';
 
-const url = import.meta.env.PUBLIC_SUPABASE_URL;
-const serviceRoleKey = import.meta.env.SUPABASE_SERVICE_ROLE_KEY;
+const createServerClient = (env: NewsletterRuntimeEnv): SupabaseClient | null => {
+  if (!hasSupabaseServerEnv(env)) return null;
+  return createClient(env.supabaseUrl, env.supabaseSecretKey, {
+    auth: { persistSession: false, autoRefreshToken: false }
+  });
+};
 
-export const v4SupabaseServer = url && serviceRoleKey
-  ? createClient(url, serviceRoleKey, {
-      auth: { persistSession: false, autoRefreshToken: false }
-    })
-  : null;
+export const getV4SupabaseServer = (locals?: App.Locals) =>
+  createServerClient(getNewsletterRuntimeEnv(locals));
+
+// Local/dev fallback when Worker runtime env is not injected.
+export const v4SupabaseServer = createServerClient(getNewsletterRuntimeEnv());
