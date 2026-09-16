@@ -1,0 +1,92 @@
+{
+  "queue_id": "news-20260916-1400-eu-migrant-emergency",
+  "slug": "eu-vil-kunne-lempe-regler-ved-masseankomst-af-migranter",
+  "headline": "EU vil kunne lempe regler midlertidigt ved pludselig masseankomst af migranter",
+  "category_slug": "udland",
+  "manchet": "Efter sommerens migrationskrise varsler Ursula von der Leyen et nyt nødberedskab, der skal give EU-landene større handlefrihed ved ekstraordinære grænsekriser.",
+  "sagen_kort": [
+    "EU-Kommissionen vil foreslå et nyt nødberedskab, der kan aktiveres ved pludselige, meget store migrantbevægelser under strengt fastlagte betingelser.",
+    "Ordningen skal kunne give midlertidig fleksibilitet i de normale procedurer, men Kommissionen siger, at grundlæggende rettigheder fortsat skal respekteres."
+  ],
+  "body_markdown": "EU-Kommissionen vil give medlemslandene et nyt nødredskab, når Europas ydre grænser rammes af pludselige og meget store migrantbevægelser.\n\nKommissionsformand Ursula von der Leyen annoncerede onsdag planen i sin årlige tale om EU's tilstand i Europa-Parlamentet i Strasbourg. Hun pegede på sommerens begivenheder som tegn på, at de eksisterende værktøjer ikke er tilstrækkelige i ekstraordinære situationer.\n\nDet nye europæiske nødberedskab skal ifølge von der Leyen kun kunne aktiveres efter strengt fastlagte kriterier. Når det sker, skal medlemslandene i en begrænset periode kunne få større fleksibilitet i de normale procedurer.\n\nHun beskrev ordningen som et svar på situationer, hvor meget store migrantbevægelser er fremkaldt eller bruges som politisk pressionsmiddel.\n\n»Europa har brug for midlerne til at beskytte sine grænser til enhver tid,« sagde von der Leyen ifølge Reuters.\n\nSamtidig understregede hun, at EU fortsat skal overholde sine værdier og grundlæggende rettigheder. Den konkrete balance mellem hurtigere indgreb ved grænsen og de almindelige retssikkerhedsgarantier bliver derfor central, når Kommissionen fremlægger det egentlige lovforslag.\n\nPlanen kommer, mens EU allerede er i gang med en større stramning af reglerne for hjemsendelse af personer uden lovligt ophold. Europa-Parlamentets udvalg for borgernes rettigheder vedtog i marts sin position til nye fælles regler, som blandt andet kan give mulighed for længere frihedsberøvelse af personer, der ikke samarbejder om deres hjemsendelse, samt hjemsendelsescentre i tredjelande.\n\nDet nye nødberedskab er noget andet: Det skal efter Kommissionens udmelding være et ekstra redskab til de situationer, hvor presset på en ydre EU-grænse pludselig bliver så stort, at de almindelige procedurer ikke vurderes at være tilstrækkelige.\n\nVon der Leyen gjorde samtidig klart, at grænsekontrol efter hendes opfattelse ikke står i modsætning til EU's værdier. »Vi vil altid overholde vores værdier og grundlæggende rettigheder. Men vi vil aldrig gå på kompromis med beskyttelsen af vores grænser,« sagde hun.\n\nDe præcise kriterier for aktivering, hvilke procedurer der konkret kan fraviges, og hvor længe undtagelserne kan gælde, bliver først afgørende, når Kommissionens forslag foreligger.",
+  "source_metadata": [
+    {
+      "url": "https://www.reuters.com/world/eu-propose-emergency-protection-against-massive-migrant-flows-von-der-leyen-says-2026-09-16/",
+      "name": "Reuters",
+      "source_class": "authoritative",
+      "role": "central_reporting"
+    },
+    {
+      "url": "https://www.europarl.europa.eu/news/en/press-room/20260309IPR37702/",
+      "name": "Europa-Parlamentet",
+      "source_class": "authoritative",
+      "role": "background_return_rules"
+    },
+    {
+      "url": "https://audiovisual.ec.europa.eu/en/stories/M-010025",
+      "name": "EU-Kommissionens audiovisuelle tjeneste",
+      "source_class": "authoritative",
+      "role": "primary_soteu_context"
+    }
+  ],
+  "editorial_metadata": {
+    "final_qa_duplicate": false,
+    "story_cluster_id": "eu-migration-emergency-framework-2026",
+    "discovery_run_id": "news-20260916-1400",
+    "candidate_id": "candidate-eu-migrant-emergency",
+    "source_pool": "discovery",
+    "candidates_tried": 2,
+    "duplicate_of": "PR #553",
+    "audit": [
+      {
+        "rank": 1,
+        "candidate_headline": "Von der Leyen vil gøre Canada til EU's første associerede medlem",
+        "deep_screened": false,
+        "decision": "duplicate",
+        "reason": "Næsten-identisk transport-PR #553 var allerede afleveret i samme nyhedsflow."
+      },
+      {
+        "rank": 2,
+        "candidate_headline": "EU vil indføre nødberedskab ved pludselige massive migrantbevægelser",
+        "deep_screened": true,
+        "downstream_sources": ["Reuters", "Europa-Parlamentet", "EU-Kommissionens audiovisuelle tjeneste"],
+        "decision": "selected",
+        "reason": "Frisk væsentlig migrationshistorie med direkte Kommissionsudmelding og autoritativ dokumentation."
+      }
+    ],
+    "model_prompt_version": "canonical-news-task-2026-09-16",
+    "hero_candidates": [
+      {
+        "rank": 1,
+        "source_url": "https://commons.wikimedia.org/wiki/File:Visit_of_Ursula_von_der_Leyen,_President_of_the_European_Commission,_to_Greenland_(P-070390-00-47).jpg",
+        "license": "CC BY 4.0",
+        "attribution": "European Union, 2026",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "width": 6000,
+        "height": 4000,
+        "description": "Ursula von der Leyen, september 2026"
+      },
+      {
+        "rank": 2,
+        "source_url": "https://commons.wikimedia.org/wiki/File:Visit_of_Ursula_von_der_Leyen,_President_of_the_European_Commission,_to_Sweden_(P-069760-00-12).jpg",
+        "license": "CC BY 4.0",
+        "attribution": "European Union, 2026 / Christophe Licoppe",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "width": 2667,
+        "height": 4000,
+        "description": "Ursula von der Leyen ved officielt besøg i 2026"
+      },
+      {
+        "rank": 3,
+        "source_url": "https://commons.wikimedia.org/wiki/File:Participation_of_Ursula_von_der_Leyen,_President_of_the_European_Commission,_in_the_G7_summit_(P-070010-00-77).jpg",
+        "license": "CC BY 4.0",
+        "attribution": "European Union, 2026 / Dati Bendo",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "description": "Ursula von der Leyen ved G7-topmøde i 2026"
+      }
+    ]
+  }
+}
