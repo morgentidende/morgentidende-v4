@@ -1,0 +1,31 @@
+{
+  "queue_id": "news-20260916-1800-orlen-crypto",
+  "slug": "polsk-oliegigant-sendte-milliarder-ud-i-kryptohandel-olien-kom-naesten-ikke",
+  "headline": "Polsk oliegigant sendte 1,5 milliarder kroner ud i kryptohandel – olien kom næsten ikke",
+  "deck": "En ny undersøgelse afdækker USB-nøgler med kryptovaluta, tomme supertankere og et statsligt selskab, der nu forsøger at få pengene tilbage.",
+  "category_slug": "penge",
+  "body_markdown": "Polens statskontrollerede energikoncern Orlen betalte i slutningen af 2023 et forskud på omkring 1,5 milliarder kroner (230 millioner dollar) for seks millioner tønder venezuelansk olie. Den aftalte råolie kom ikke frem.\n\nEn ny undersøgelse fra Financial Times beskriver, hvordan pengene bevægede sig gennem et netværk af mellemhandlere og kryptovalutaen USDT, mens tre supertankere ventede ud for Venezuela uden at få den last, de var sendt efter.\n\nHandlen blev indgået af Orlens schweiziske handelsdatterselskab, Orlen Trading Switzerland. Selskabet aftalte at købe seks millioner tønder tung venezuelansk råolie for omkring 2,2 milliarder kroner (345 millioner dollar) fra det Dubai-baserede handelsselskab Hannon International. Inden for fem dage blev to tredjedele af beløbet betalt på forskud.\n\nIfølge Financial Times blev store beløb derefter vekslet til USDT, en kryptovaluta der følger dollarkursen. I Caracas blev digitale nøgler til kryptopunge med millioner af dollar overdraget på USB-nøgler til lokale mellemhandlere. Flere led i kæden bestrider dele af hinandens forklaringer, og Hannon fastholder, at selskabet fungerede som mellemled for Orlen.\n\nMens pengene skiftede hænder, lå de chartrede tankskibe stille. Ingen af de seks millioner tønder råolie i den oprindelige kontrakt blev lastet. Et senere forsøg gav omkring 500.000 tønder brændselsolie, før Orlen Trading Switzerland opsagde den oprindelige kontrakt i marts 2024.\n\nSagen er større end den ene venezuelanske handel. Den regionale anklagemyndighed i Warszawa rejste i august tiltale mod tre tidligere ledende medarbejdere i Orlen og det schweiziske datterselskab. Anklagemyndigheden mener, at tre olieaftaler fra 2023 påførte selskaberne et tab på omkring 2,4 milliarder kroner (378 millioner dollar). De tiltalte risikerer op til 25 års fængsel.\n\nTiltalerne er ikke domme. Anklagemyndigheden beskylder de tre for mangelfuldt tilsyn og for ikke at have beskyttet selskabets økonomiske interesser. En særskilt efterforskning vedrører den tidligere chef for Orlen Trading Switzerland, Samer Awad.\n\nOrlen forsøger fortsat at få forskudsbetalinger tilbage. Reuters beskrev allerede i 2024, at 330 millioner dollar var sendt til to mellemhandlere i Dubai for venezuelansk olie, som Venezuelas statslige olieselskab PDVSA ifølge Reuters ikke havde modtaget betaling for.\n\nFinancial Times' nye undersøgelse føjer dermed et usædvanligt lag til en allerede kendt erhvervsskandale: Pengene forlod ikke blot Orlen gennem almindelige bankoverførsler. En del af jagten på venezuelansk olie endte i kryptopunge og på USB-nøgler, mens tankskibene ventede tomme.",
+  "source_metadata": [
+    {"url":"https://www.ft.com/content/6c387cda-61b0-4396-9353-0d7d99781f9b","title":"Financial Times – How Poland lost $230mn trying to buy Venezuelan oil with crypto","source_class":"authoritative"},
+    {"url":"https://www.gov.pl/web/pr-warszawa/akt-oskarzenia-w-sprawie-wyrzadzenia-orlen-sa-szkody-w-wysokosci-15-miliarda-zlotych","title":"Regionalanklagemyndigheden i Warszawa – tiltale om tab i Orlen","source_class":"authoritative"},
+    {"url":"https://www.reuters.com/markets/commodities/poland-hunts-330-mln-orlen-payments-venezuela-oil-sources-say-2024-05-14/","title":"Reuters – Poland hunts for $330 mln of Orlen payments for Venezuela oil","source_class":"authoritative"}
+  ],
+  "editorial_metadata": {
+    "sagen_kort": [
+      "Orlens schweiziske handelsarm betalte omkring 1,5 milliarder kroner i forskud for seks millioner tønder venezuelansk råolie, som ikke blev leveret under den oprindelige aftale.",
+      "Polske anklagere har tiltalt tre tidligere ledende medarbejdere i en større sag om tre olieaftaler, der ifølge anklagemyndigheden kostede omkring 2,4 milliarder kroner."
+    ],
+    "final_qa_duplicate": false,
+    "discovery_run_id": "news-20260916-1800-hel",
+    "candidate_id": "orlen-crypto-oil-20260916",
+    "discovery_audit": [
+      {"source_pool":"discovery","source_path":"Brussels Signal","rank":1,"candidate_headline":"Von der Leyen vil gøre Canada til EU's første associerede medlem","deep_screened":true,"downstream_sources":["Reuters","AP"],"decision":"rejected_duplicate","reason":"Næsten identisk med PR #553.","model_prompt_version":"canonical-news-task-2026-09-16"},
+      {"source_pool":"discovery","source_path":"Brussels Signal","rank":2,"candidate_headline":"Poland’s Orlen loses $230 million in Venezuela crypto oil deal","deep_screened":true,"downstream_sources":["Financial Times","Warsaw Regional Prosecutor's Office","Reuters"],"decision":"selected","reason":"Frisk FT-undersøgelse med stærke nye detaljer, autoritativ dokumentation og ingen næsten-identisk historie i observerbar 7-dages [PUBLISH]-historik.","model_prompt_version":"canonical-news-task-2026-09-16"}
+    ],
+    "hero_candidates": [
+      {"rank":1,"source_url":"https://commons.wikimedia.org/wiki/File:P%C5%82ock_-_PKN_Orlen-003.JPG","rights":"CC BY-SA 4.0","commercial_use_allowed":true,"local_storage_allowed":true,"width":3008,"height":2000,"description":"Orlens raffinaderi i Płock"},
+      {"rank":2,"source_url":"https://commons.wikimedia.org/wiki/File:P%C5%82ock_-_PKN_Orlen.JPG","rights":"CC BY-SA 4.0","commercial_use_allowed":true,"local_storage_allowed":true,"width":3008,"height":2000,"description":"Orlens petrokemiske anlæg i Płock"},
+      {"rank":3,"source_url":"https://commons.wikimedia.org/wiki/File:W%C5%82oc%C5%82awek-Orlen_CCGT_Factory.jpg","rights":"CC BY-SA 4.0","commercial_use_allowed":true,"local_storage_allowed":true,"width":2005,"height":1398,"description":"Orlen-anlæg i Włocławek"}
+    ]
+  }
+}
