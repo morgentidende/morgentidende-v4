@@ -1,7 +1,6 @@
 ---
 import V4Layout from '../../layouts/V4Layout.astro';
 import V4Card from '../../components/V4Card.astro';
-import NewsletterSignup from '../../components/NewsletterSignup.astro';
 import { loadArticlePageData } from '../../lib/article-data';
 import { buildArticleRecommendations, buildBriefPoints } from '../../lib/article-view-helpers';
 import { buildArticleMeta, buildSourceItems, formatArticleDateTime } from '../../lib/article-meta';
@@ -126,10 +125,6 @@ const {
         <button class="v4-share-action v4-copy-link" type="button" data-copy-link={canonical || ''}>
           <span class="v4-share-link-icon" aria-hidden="true">↗</span><span class="v4-copy-label">Kopier link</span>
         </button>
-      </div>
-
-      <div class="v4-article-newsletter">
-        {category === 'Viden' || category === 'Liv' ? <NewsletterSignup variant="weekly" magazineName={category} /> : <NewsletterSignup />}
       </div>
 
       {remainingStoryRelated.length ? (
