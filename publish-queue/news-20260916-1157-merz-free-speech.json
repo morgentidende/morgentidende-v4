@@ -1,0 +1,92 @@
+{
+  "queue_id": "news-20260916-1157-merz-free-speech",
+  "slug": "merz-free-speech-klarnavne-internet",
+  "headline": "Merz vil have klarnavne på nettet: »Kom ikke til mig med Free Speech«",
+  "category_slug": "udland",
+  "manchet": "Tysklands kansler kobler anonymitet på nettet til demokratiets sikkerhed. En ung forsker udfordrede ham på kilder og undersøgende journalistik.",
+  "sagen_kort": [
+    "Friedrich Merz argumenterede ved et møde med unge forskere for, at brugere på nettet bør kunne identificeres med deres rigtige navn.",
+    "Da han blev spurgt til anonymitetens betydning for informanter og undersøgende journalistik, afviste kansleren en generel henvisning til ytringsfrihed."
+  ],
+  "body_markdown": "Tysklands kansler Friedrich Merz har kastet sig ind i en af de mest følsomme frihedsdebatter på nettet: retten til at optræde anonymt.\n\nVed tirsdagens modtagelse af vinderne af den tyske forskerkonkurrence Jugend forscht i kanslerkontoret argumenterede Merz for en ordning, hvor personer, der skriver offentligt på nettet, skal kunne identificeres med deres rigtige navn. Arrangementet og datoen fremgår af den tyske regerings egen omtale og livestream.\n\nIfølge det tyske nyhedsmedie Apollo News blev kansleren under den efterfølgende samtale spurgt direkte, hvordan et krav om klarnavn kan forenes med beskyttelsen af informanter og undersøgende journalistik, hvis anonymiteten på nettet forsvinder.\n\nMerz svarede, at anonym kommunikation efter hans opfattelse kan gøre det uklart, hvem der står bag et budskab, og knyttede problemet til falske profiler, automatiserede konti og beskyttelsen af demokratiet. I den forbindelse sagde han: »Bitte komme mir keiner mit Free Speech« – på dansk omtrent: »Kom ikke til mig med Free Speech.«\n\nUdtalelsen er markant, fordi spørgsmålet ikke alene handler om grove eller ulovlige ytringer. Et generelt krav om identificerbare brugere rammer også mennesker, der har legitime grunde til ikke at stå offentligt frem med navn – eksempelvis informanter, ansatte, der afslører kritisable forhold, og borgere, der diskuterer følsomme emner. Det var netop den konflikt, den unge spørger rejste.\n\nMerz' argument er omvendt, at anonymiteten gør det vanskeligere at placere ansvar for indhold og kan udnyttes til manipulation. Han fremstillede derfor identifikation som et middel til at beskytte den demokratiske samtale, ikke som et mål om at forbyde bestemte politiske synspunkter.\n\nDen tyske regerings officielle side bekræfter, at Merz 15. september modtog vinderne af den 61. Jugend forscht-konkurrence i Berlin. Regeringen fremhæver især hans tale om forskning, uddannelse og innovation; diskussionen om klarnavne fremgår ikke af den offentliggjorte opsummering. Selve arrangementet blev sendt via regeringens mediatjeneste.\n\nForslaget rejser dermed et klassisk dilemma: Mere identifikation kan gøre det lettere at holde mennesker ansvarlige for ulovlige handlinger, men mindre anonymitet kan samtidig gøre det farligere at tale frit, når arbejdsgivere, myndigheder eller andre magtfulde aktører kan reagere på det sagte.\n\nMerz fremlagde ved arrangementet ikke en færdig lovtekst. Udtalelserne skal derfor læses som kanslerens politiske position, ikke som en allerede vedtaget tysk regel.",
+  "source_metadata": [
+    {
+      "title": "Kanzler ehrt Preisträgerinnen und Preisträger von Jugend forscht",
+      "url": "https://www.bundesregierung.de/breg-de/suche/jugend-forscht-2452646",
+      "publisher": "Bundesregierung",
+      "source_class": "authoritative",
+      "published_date": "2026-09-15"
+    },
+    {
+      "title": "Empfang der Preisträgerinnen und Preisträger des 61. Bundeswettbewerbs Jugend forscht",
+      "url": "https://www.bundesregierung.de/breg-de/mediathek/livestream/ab-ca-10-00-uhr-empfang-der-preistraegerinnen-und-preistraeger-des-61-bundeswettbewerbs-jugend-forscht-durch-den-bundeskanzler-1768080",
+      "publisher": "Bundesregierung",
+      "source_class": "primary",
+      "published_date": "2026-09-15"
+    },
+    {
+      "title": "Keiner komme mir mit Free Speech – Merz über die Klarnamenpflicht",
+      "url": "https://apollo-news.net/keiner-komme-mir-mit-free-speech-meint-friedrich-merz-ueber-die-klarnamenpflicht-wegen-des-afd-triumphs/",
+      "publisher": "Apollo News",
+      "source_class": "discovery_only",
+      "published_date": "2026-09-16"
+    }
+  ],
+  "editorial_metadata": {
+    "discovery_run_id": "news-run-20260916-1157",
+    "final_qa_duplicate": false,
+    "story_cluster_id": "merz-online-anonymity-20260915",
+    "candidate_id": "cand-merz-free-speech",
+    "source_pool": "discovery",
+    "candidates_tried": 1,
+    "duplicate_of": null,
+    "share_test": "Jeg sender dig den her, fordi Tysklands kansler direkte afviste en Free Speech-indvending, da han blev udfordret på et klarnavnskrav og beskyttelsen af informanter.",
+    "audit": [
+      {
+        "candidate_id": "cand-merz-free-speech",
+        "rank": 1,
+        "candidate_headline": "Merz vil have klarnavne på nettet og afviser Free Speech-indvending",
+        "deep_screened": true,
+        "downstream_sources": ["Bundesregierung", "Apollo News"],
+        "decision": "selected",
+        "reason": "Frisk, dokumenterbar friheds- og ytringsfrihedshistorie med primær regeringsvideo og officiel arrangementsbekræftelse; ingen nær-identisk historie fundet i 7-dages GitHub PUBLISH-grundlag.",
+        "model_prompt_version": "canonical-news-task-2026-09-16"
+      }
+    ],
+    "hero_candidates": [
+      {
+        "rank": 1,
+        "source_url": "https://commons.wikimedia.org/wiki/File:20240417_Friedrich_Merz_0647.jpg",
+        "description": "Friedrich Merz under samtale med journalister",
+        "license": "CC BY-SA 3.0 DE",
+        "attribution": "Michael Lucan",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "known_width": 1249,
+        "known_height": 856
+      },
+      {
+        "rank": 2,
+        "source_url": "https://commons.wikimedia.org/wiki/File:Friedrich_Merz,_2025.06.26_(03).jpg",
+        "description": "Friedrich Merz som tysk forbundskansler",
+        "license": "European Union reuse / attribution",
+        "attribution": "European Union",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "known_width": 2128,
+        "known_height": 3190
+      },
+      {
+        "rank": 3,
+        "source_url": "https://commons.wikimedia.org/wiki/File:Friedrich_Merz_May_2025.jpg",
+        "description": "Friedrich Merz i 2025",
+        "license": "CC BY-SA 4.0",
+        "attribution": "Sandro Halank",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "known_width": 1451,
+        "known_height": 1936
+      }
+    ]
+  }
+}
