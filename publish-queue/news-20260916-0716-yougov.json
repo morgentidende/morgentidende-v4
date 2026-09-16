@@ -1,0 +1,60 @@
+{
+  "queue_id": "news-20260916-0716-yougov",
+  "slug": "afd-29-union-18-yougov-brandmur",
+  "headline": "AfD 29 procent mod Unionens 18 – flertal vil ikke længere afvise samarbejde",
+  "manchet": "En ny YouGov-måling giver AfD et forspring på 11 point. Samtidig siger 51 procent nej til en ubetinget politisk brandmur.",
+  "category_slug": "udland",
+  "kind": "news",
+  "sagen_kort": [
+    "AfD står til 29 procent i YouGovs septembermåling, mens CDU/CSU falder til et historisk YouGov-lavpunkt på 18 procent.",
+    "51 procent mener nu, at andre partier ikke principielt bør udelukke samarbejde med AfD; i august var andelen 44 procent."
+  ],
+  "body_markdown": "AfD er fortsat Tysklands største parti i en ny landsdækkende YouGov-måling. Partiet står til 29 procent, mens kansler Friedrich Merz' CDU/CSU falder til 18 procent – det laveste niveau for Unionen, som YouGov har målt.\n\nForskellen mellem de to er dermed 11 procentpoint. AfD går ét point frem siden august, mens CDU/CSU går to tilbage. De Grønne står til 16 procent, SPD til 13, Die Linke til 10, FDP til 5 og BSW til 4 procent.\n\nMålingen kommer en uge efter landdagsvalget i Sachsen-Anhalt og få dage før valg i Mecklenburg-Vorpommern og Berlin. Den lægger dermed yderligere pres på Merz og Unionen på et tidspunkt, hvor partiet også diskuterer sit forhold til AfD.\n\n## Brandmuren mister opbakning\n\nDet mest markante skifte findes ikke kun i partiernes tal. YouGov spurgte også tyskerne, om de øvrige partier principielt bør udelukke samarbejde med AfD.\n\n51 procent svarer nu, at samarbejde ikke bør udelukkes på forhånd. 40 procent mener fortsat, at de andre partier principielt bør afvise samarbejde. I august var billedet omvendt: 44 procent var imod en ubetinget udelukkelse, mens 46 procent støttede den.\n\nSkiftet er særligt tydeligt blandt CDU/CSU-vælgere. Ifølge WELTs gengivelse af målingen mener 55 procent af Unionens egne vælgere, at samarbejde med AfD ikke bør udelukkes principielt, mens 38 procent vil fastholde afvisningen.\n\nSamtidig er der en vigtig modsatrettet pointe i tallene: 59 procent af de adspurgte betegner fortsat AfD som højreekstremt, mens 30 procent er uenige. Den faldende opbakning til brandmuren betyder derfor ikke, at et flertal har ændret vurdering af partiets politiske karakter.\n\n## Unionen ligger også lavt i andre målinger\n\nYouGov-resultatet står ikke alene om at vise en stor afstand mellem AfD og Unionen. WELT peger på, at en aktuel INSA-måling giver AfD 29 procent og CDU/CSU 19,5 procent. Andre institutter måler dog Unionen højere: Forschungsgruppe Wahlen og Allensbach ligger omkring 22 procent, mens Forsa og Infratest dimap ligger på 21 procent.\n\nYouGov gennemførte målingen 11.–14. september. 1.787 personer oplyste deres partivalg. Den angivne statistiske usikkerhed er omkring 2,5 procentpoint.\n\nFor Merz er hovedproblemet derfor ikke et enkelt dramatisk tal, men at to udviklinger falder sammen: Unionen står historisk svagt i YouGovs serie, mens et flertal for første gang i denne måling ikke længere ønsker, at samarbejde med AfD skal være udelukket på forhånd.",
+  "source_metadata": [
+    {
+      "source_name": "YouGov Deutschland",
+      "url": "https://yougov.com/de-de/artikel/55554-yougov-sonntagsfrage-september-2026-union-auf-historischem-tief-jeder-zweite-gegen-ausschluss-einer-zusammenarbeit-mit-der-afd",
+      "source_type": "primary_official",
+      "domain": "yougov.com"
+    },
+    {
+      "source_name": "WELT",
+      "url": "https://www.welt.de/politik/deutschland/article6aa8cbad250f8ce245e4d05b/schock-fuer-kanzler-merz-union-stuerzt-in-mehreren-umfragen-bundesweit-unter-20-prozent.html",
+      "source_type": "authoritative",
+      "domain": "welt.de"
+    }
+  ],
+  "source_registry_updates": [],
+  "editorial_metadata": {
+    "discovery_run_id": "news-20260916-0716",
+    "final_qa_duplicate": false,
+    "discovery_audit": [
+      {
+        "candidate_id": "nius-yougov-20260915",
+        "source_pool": "discovery",
+        "rank": 1,
+        "candidate_headline": "AfD 29 procent, CDU/CSU 18 procent og svækket brandmur",
+        "deep_screened": true,
+        "downstream_sources": ["YouGov Deutschland", "WELT"],
+        "decision": "selected",
+        "reason": "Fresh, strongly documented discovery story with a primary polling source, major political significance and no near-identical item found in the observed seven-day GitHub publish history.",
+        "model_prompt_version": "canonical-news-task-20260916"
+      }
+    ],
+    "hero_candidates": [
+      {
+        "source_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/20240417-Friedrich%20Merz%201808.jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "CC BY-SA 3.0 DE",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0/de/",
+        "credit_text": "Michael Lucan",
+        "rights_notes": "Wikimedia Commons original; 1640×1051; commercial reuse and local storage permitted with attribution/share-alike.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": true,
+        "alt_text": "Tysklands kansler Friedrich Merz"
+      }
+    ]
+  }
+}
