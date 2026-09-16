@@ -1,0 +1,74 @@
+{
+  "queue_id": "kvartover-20260917-0115-germany-terror-plan",
+  "slug": "tyskland-terrorplan-mindst-et-aars-faengsel-knivangreb",
+  "headline": "Tyskland svarer på islamistisk terror: Mindst et års fængsel for farlige knivangreb",
+  "category_slug": "udland",
+  "deck": "Efter terrorangrebet ved Berlins Pride-parade vedtager regeringen en ti-punktsplan med hårdere straffe og nye sikkerhedstiltag.",
+  "body_markdown": "Den tyske regering vil hæve minimumsstraffen til et års fængsel for særligt farlig vold med kniv eller andre farlige redskaber. Tiltaget er en del af en ny ti-punktsplan mod islamistisk terror, som regeringen vedtog onsdag.\n\nPlanen kommer efter terrorangrebet ved Pride-paraden Christopher Street Day i Berlin den 25. juli. Den tyske regering fremhæver selv angrebet som den seneste alvorlige påmindelse om truslen fra islamistisk terror.\n\nIndenrigsminister Alexander Dobrindt siger, at islamisme og andre former for ekstremisme skal bekæmpes konsekvent med retsstatens midler. Planen er udarbejdet i fællesskab af indenrigsministeriet og justitsministeriet.\n\nEt af de mest konkrete punkter er en ændring af straffeloven. Ved farlig legemsbeskadigelse med kniv eller et andet farligt redskab skal minimumsstraffen hæves til et års fængsel. Det gælder altså ikke enhver episode, hvor en kniv indgår, men den særligt farlige form for vold, som lovændringen skal omfatte.\n\nRegeringen vil samtidig ensrette reglerne for elektronisk fodlænke og forebyggende frihedsberøvelse af personer, som myndighederne vurderer kan begå alvorlige politisk motiverede forbrydelser. Kabinettet har desuden vedtaget indførelse af lagring af IP-adresser. De enkelte ændringer skal gennem de relevante lovgivningsprocesser, før de kan få fuld virkning.\n\nKnivvold er allerede et markant sikkerhedspolitisk tema i Tyskland. Ifølge et svar fra den tyske regering registrerede forbundspolitiet 577 voldshændelser med medbragte eller anvendte knive i første halvår af 2026. Blandt de mistænkte var 155 tyske statsborgere og 177 udenlandske statsborgere, mens statsborgerskabet var ukendt eller uafklaret for 111. Tallene omfatter forbundspolitiets område og er ikke en samlet opgørelse over al knivkriminalitet i Tyskland.\n\nRegeringens plan er bredere end knivvold. Målet er ifølge regeringen både at styrke beskyttelsen mod terror og ekstremisme og at bevare et liberalt og tolerant samfund. Dermed kobler Berlin hårdere straffe og flere sikkerhedsbeføjelser med et udtrykkeligt krav om, at indsatsen skal ske inden for retsstatens rammer.\n\nDen politiske balance bliver central i den videre behandling. Flere af planens elementer giver myndighederne stærkere redskaber før eller efter alvorlige forbrydelser, mens regeringen samtidig fremhæver frihed som noget, der skal beskyttes sammen med sikkerheden. Det endelige indhold afhænger derfor også af den lovgivning, der følger efter kabinettets beslutning.",
+  "source_metadata": [
+    {
+      "url": "https://www.bundesregierung.de/breg-de/bundesregierung/bundeskanzleramt/massnahmen-gegen-terrorismus-2452850",
+      "title": "Bundesregierung beschließt 10-Punkte-Plan für Schutz vor Terrorismus",
+      "source_type": "primary"
+    },
+    {
+      "url": "https://www.bundestag.de/presse/hib/kurzmeldungen-1206434",
+      "title": "Gewaltdelikte mit Messern im ersten Halbjahr 2026",
+      "source_type": "primary"
+    }
+  ],
+  "editorial_metadata": {
+    "sagen_kort": [
+      "Den tyske regering har vedtaget en ti-punktsplan mod islamistisk terror, der blandt andet vil hæve minimumsstraffen for særligt farlig vold med kniv til et års fængsel.",
+      "Planen følger terrorangrebet ved Christopher Street Day i Berlin den 25. juli og omfatter også elektronisk fodlænke, forebyggende frihedsberøvelse og lagring af IP-adresser."
+    ],
+    "final_qa_duplicate": false,
+    "discovery_run_id": "news-20260917-0115-kvartover",
+    "hero_candidates": [
+      {
+        "rank": 1,
+        "source_url": "https://commons.wikimedia.org/wiki/File:Visit_of_Magnus_Brunner,_European_Commissioner,_to_Germany._14_(cropped).jpg",
+        "description": "Tysklands indenrigsminister Alexander Dobrindt i Berlin i 2025; central minister bag den nye terrorplan.",
+        "license": "CC BY 4.0",
+        "attribution": "Adam Berry / European Union, 2025 / EC Audiovisual Service / Wikimedia Commons",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true
+      },
+      {
+        "rank": 2,
+        "source_url": "https://commons.wikimedia.org/wiki/File:Stefanie_Hubig_by_Olaf_Kosinsky-1.jpg",
+        "description": "Justitsminister Stefanie Hubig, hvis ministerium sammen med indenrigsministeriet har udarbejdet planen.",
+        "license": "CC BY-SA 3.0 DE",
+        "attribution": "Olaf Kosinsky / Wikimedia Commons",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "width": 2386,
+        "height": 3498
+      },
+      {
+        "rank": 3,
+        "source_url": "https://commons.wikimedia.org/wiki/File:2012_Alexander_Dobrindt.JPG",
+        "description": "Portræt af Alexander Dobrindt; alternativt dokumentarisk motiv af den ansvarlige indenrigsminister.",
+        "license": "CC BY-SA 3.0",
+        "attribution": "J. Patrick Fischer / Wikimedia Commons",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "width": 2848,
+        "height": 4272
+      }
+    ],
+    "discovery_audit": [
+      {
+        "candidate_id": "cand-germany-terror-plan",
+        "source_pool": "discovery/nius",
+        "rank": 1,
+        "candidate_headline": "Tysk regering vedtager ti-punktsplan mod islamistisk terror og skærper straf for farlige knivangreb",
+        "deep_screened": true,
+        "downstream_sources": ["Bundesregierung", "Deutscher Bundestag"],
+        "decision": "selected",
+        "reason": "Frisk profilrelevant sikkerheds- og islamismehistorie; centrale fakta dokumenteret af tyske primærkilder, og ingen næsten-identisk artikel fundet i observerbar syv-dages [PUBLISH]-historik.",
+        "model_prompt_version": "canonical-news-task-2026-09-17"
+      }
+    ]
+  }
+}
