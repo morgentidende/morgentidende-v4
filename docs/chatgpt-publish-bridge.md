@@ -88,7 +88,7 @@ Den redaktionelle 7-dages-regel for almindelige nyheder ejes ikke af bridge/back
 
 Producenten ejer discovery og rangering. Media Worker ejer download, MIME/signatur, faktiske pixelmål, rettighedsgate, SHA-256, lokal arkivering, permanent/transient fejlklassifikation, fallback og retry.
 
-Nye news-producenter bør normalt sende højst to rangerede, selvstændigt rettighedsgodkendte originalkandidater i `editorial_metadata.hero_candidates`. Ét stærkt lovligt hero er tilstrækkeligt. Magazine- eller specialflows kan bruge et større kandidatbudget, hvis deres egen canonical kontrakt kræver det. `hero_candidate_url` (ental) understøttes fortsat bagudkompatibelt og behandles som en liste med ét element.
+For almindelige news-payloads er den bindende standard **3–6 rangerede, selvstændigt rettighedsgodkendte kandidater** i `editorial_metadata.hero_candidates`. **1–2 kandidater er kun tilladt med en eksplicit `editorial_metadata.hero_exception.reason`**, som forklarer hvorfor flere lovlige kandidater ikke kunne findes inden for researchbudgettet. **0 kandidater afvises.** Ét stærkt lovligt hero er tilstrækkeligt, når Media Worker har fundet og valideret en kandidat. Magazine- og specialflows kan have deres egen canonical kontrakt.
 
 Eksempel:
 
@@ -113,6 +113,11 @@ Eksempel:
         "source_url": "https://.../original-2.jpg",
         "commercial_use_allowed": true,
         "local_storage_allowed": true
+      },
+      {
+        "source_url": "https://.../original-3.jpg",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true
       }
     ]
   }
@@ -121,13 +126,13 @@ Eksempel:
 
 Producenten bør bruge dimensionsmetadata som forfilter og foretrække mindst 1200×675. Kendte kandidater under 800×450 må ikke sendes. Søgemetadata er aldrig autoritative: Media Worker måler altid den faktisk downloadede original og håndhæver minimum 800×450.
 
-Undgå thumbnail-/preview-URL'er og kendte nedskaleringsparametre. Brug originalfil-URL når kilden tilbyder den.
+Undgå thumbnail-/preview-URL'er og kendte nedskaleringsparametre. Brug originalfil-URL eller Wikimedia File-side, når kilden tilbyder den; Media Worker resolver Wikimedia gennem Commons API før download.
 
 Hver kandidat skal selv have `commercial_use_allowed=true` og `local_storage_allowed=true`; rettigheder må ikke arves blindt fra kandidat 1.
 
-Ved permanent fejl, fx for lille fil, ugyldigt format, 404/410 eller ulovlig/ikke-arkiverbar kilde, går den eksisterende fallback-motor direkte til næste kandidat. Ved transient fejl, fx timeout, 429 eller 5xx, beholdes samme kandidat og den eksisterende retry-kø bruges. Først når kandidatbudgettet er udtømt, må media-jobbet terminalisere og artiklen forblive scheduled/missing hero.
+Ved permanent fejl, fx for lille fil, ugyldigt format, 404/410 eller ulovlig/ikke-arkiverbar kilde, går Media Worker direkte til næste kandidat i samme job. Ved transient fejl, fx timeout, 429 eller 5xx, beholdes samme kandidat og retry-køen bruges. Først når kandidatlisten er udtømt, må media-jobbet terminalisere og artiklen forblive scheduled/missing hero.
 
-GitHub-broen må ikke implementere en separat hero-orchestrator. Den omsætter kandidatlisten til Media Workerens eksisterende `source_url` + `fallback_candidates`-kontrakt.
+GitHub-broen må ikke implementere en separat hero-orchestrator. Den validerer news-kontrakten og omsætter kandidatlisten til Media Workerens `source_url` + `fallback_candidates`-kontrakt; selve fallback-state-machine ejes kun af Media Worker.
 
 ## Idempotency
 
@@ -143,7 +148,7 @@ Audit-only payloads opretter ingen artikel og kalder ikke publication-gates.
 
 ## Scheduled Task-standard
 
-Autonome artikelopgaver afleverer via GitHub-broen. Almindelige news-runs følger den komplette producer-kontrakt i `docs/automations/news-task.md` og skal ikke åbne denne fil. Media Worker ejer teknisk hero-retry/recovery. Hvis kun én lovlig kandidat findes, kan `hero_candidate_url` fortsat bruges.
+Autonome artikelopgaver afleverer via GitHub-broen. Almindelige news-runs følger den komplette producer-kontrakt i `docs/automations/news-task.md` og skal ikke åbne denne fil. Media Worker ejer teknisk hero-retry/recovery. For almindelige news-payloads gælder 3–6 hero-kandidater som standard; 1–2 kræver eksplicit `hero_exception.reason`.
 
 ## Driftsprincip
 
