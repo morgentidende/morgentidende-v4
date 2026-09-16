@@ -1,0 +1,64 @@
+{
+  "queue_id": "news-20260916-1045-lueders-arabisk",
+  "slug": "bsw-kandidat-foerer-valgkamp-paa-arabisk-i-berlin",
+  "headline": "BSW-kandidat fører valgkamp på arabisk i Berlin",
+  "category_slug": "udland",
+  "manchet": "Fire dage før Berlin-valget forsøger Michael Lüders at mobilisere arabiske og muslimske vælgere i Neukölln.",
+  "sagen_kort": [
+    "Michael Lüders fra BSW har offentliggjort en arabisk valgvideo og opfordrer borgere med arabiske og muslimske rødder til at stemme.",
+    "I Neukölln siger Lüders, at Sonnenallee minder ham om Beirut og Damaskus, og at han elsker miljøet og menneskene dér."
+  ],
+  "body_markdown": "Fire dage før valget til Berlins delstatsparlament forsøger BSW-politikeren Michael Lüders målrettet at mobilisere vælgere med arabiske og muslimske rødder i bydelen Neukölln.\n\nI en valgvideo taler Lüders på arabisk direkte til denne gruppe. Han siger, at han ved, at mange borgere med arabiske eller muslimske rødder generelt ikke ønsker at deltage i valg, men kalder det den forkerte holdning og opfordrer dem til at bruge deres stemme.\n\nLüders er kandidat for partiet Bündnis Sahra Wagenknecht, BSW, og indgår samtidig i partiets spidskandidatduo ved Berlin-valget 20. september. Den tyske public service-station rbb har ham med blandt de seks spidskandidater i onsdagens store valgmøde.\n\nValgkampen på arabisk er ikke kun omtalt af politiske nichemedier. Berliner Zeitung beskrev allerede 13. september, hvordan Lüders bruger arabisk i kampen om stemmer i Berlin.\n\n### »Som Beirut eller Damaskus«\n\nI en anden video fra Neuköllns Sonnenallee fremhæver Lüders områdets arabiske præg. Han fortæller, at han selv har studeret i Syrien, og siger, at han holder af atmosfæren. Om kvarteret siger han, at det føles, som om man befinder sig i Beirut eller Damaskus, og tilføjer, at han elsker det og menneskene dér.\n\nLüders' egen biografi bekræfter, at han studerede arabisk litteratur i Damaskus og senere islamvidenskab, statskundskab og journalistik i Berlin. Han var desuden præsident for Det Tysk-Arabiske Selskab fra 2015 til 2022.\n\nDen arabiske appel hænger også sammen med BSW's udenrigspolitiske profil. Lüders fremhæver i valgkampen partiets støtte til palæstinensernes rettigheder og modstand mod tyske våbenleverancer til Israel som årsager til, at han oplever positive reaktioner i Neukölln.\n\n### Berlin stemmer søndag\n\nBerlin vælger nyt delstatsparlament søndag 20. september. rbb oplyser, at Lüders er blandt de kandidater, som efter den aktuelle vurdering repræsenterer partier med realistisk mulighed for at komme ind med en gruppe af medlemmer i parlamentet.\n\nAt føre valgkamp på et andet sprog er ikke i sig selv usædvanligt i en storby med mange indvandrere. Det markante i Lüders' kampagne er den meget præcise politiske målretning: Han henvender sig direkte til arabiske og muslimske vælgere og kobler appellen til både deres deltagelse i valget og BSW's politik i Mellemøsten.",
+  "source_metadata": [
+    {
+      "name": "Berliner Zeitung",
+      "url": "https://mobil.berliner-zeitung.de/article/distanz-zur-afd-werbung-auf-arabisch-wie-das-bsw-berlin-um-jede-stimme-kaempft-10388981",
+      "class": "authoritative",
+      "role": "Uafhængig dokumentation af Lüders' arabiske valgkamp"
+    },
+    {
+      "name": "rbb24",
+      "url": "https://www.rbb24.de/politik/berlin-wahl-2026/beitraege/berlin-wahl-2026-wahlarena-fragerunde-politiker-buerger-talk.html",
+      "class": "authoritative",
+      "role": "Valgdato og Lüders' status i Berlin-valgkampen"
+    },
+    {
+      "name": "Michael Lüders",
+      "url": "https://michael-lueders.de/impressum/",
+      "class": "authoritative",
+      "role": "Primær biografisk dokumentation for Damaskus-studier og Tysk-Arabisk Selskab"
+    }
+  ],
+  "editorial_metadata": {
+    "final_qa_duplicate": false,
+    "story_cluster_id": "berlin-election-2026-lueders-arabic-campaign",
+    "discovery_run_id": "newsrun-20260916-1045",
+    "model_prompt_version": "canonical-news-task-2026-09-16",
+    "hero_candidates": [
+      {
+        "rank": 1,
+        "source_url": "https://commons.wikimedia.org/wiki/File:Berlin_panorama.jpg",
+        "description": "Berlin-panorama med Rigsdagsområdet; direkte relevant som dokumentarisk stedmotiv til Berlin-valget",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "license": "CC BY 2.0",
+        "width": 1920,
+        "height": 874,
+        "mime_type": "image/jpeg"
+      }
+    ],
+    "discovery_audit": [
+      {
+        "candidate_id": "cand-lueders-arabisk",
+        "source_pool": "discovery",
+        "source_path": "Apollo News -> Berliner Zeitung/rbb/primary biography",
+        "rank": 1,
+        "candidate_headline": "BSW-kandidat fører valgkamp på arabisk i Berlin",
+        "deep_screened": true,
+        "downstream_sources": ["Berliner Zeitung", "rbb24", "Michael Lüders"],
+        "decision": "selected",
+        "reason": "Frisk, veldokumenteret og tydeligt relevant for avisens migrations-, identitets- og politiske profil; ingen næsten-identisk historie i observerbar 7-dages [PUBLISH]-historik."
+      }
+    ]
+  }
+}
