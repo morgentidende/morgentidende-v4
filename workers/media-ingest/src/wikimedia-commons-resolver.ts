@@ -2,6 +2,12 @@ type CommonsExtMetadataValue = { value?: string };
 
 type CommonsImageInfo = {
   url?: string;
+  thumburl?: string;
+  thumbwidth?: number;
+  thumbheight?: number;
+  width?: number;
+  height?: number;
+  size?: number;
   descriptionurl?: string;
   sha1?: string;
   mime?: string;
@@ -32,6 +38,7 @@ export type CommonsResolveResult =
 
 const COMMONS_API = 'https://commons.wikimedia.org/w/api.php';
 const COMMONS_USER_AGENT = 'MorgentidendeMedia/1.0 (https://morgentidende.dk)';
+const COMMONS_TARGET_WIDTH = 1600;
 
 const sourceUrl = (payload: Record<string, unknown>) => (
   typeof payload.source_url === 'string' ? payload.source_url : ''
@@ -82,10 +89,6 @@ export const isWikimediaCommonsPayload = (payload: Record<string, unknown>) => {
   return commonsFileTitleFromUrl(sourceUrl(payload)) !== null;
 };
 
-export const isCommonsDeadUrlFailure = (body: Record<string, unknown>) => (
-  body.error === 'source_fetch_failed' && (Number(body.status) === 404 || Number(body.status) === 410)
-);
-
 const htmlToText = (value: string) => value
   .replace(/<br\s*\/?>/gi, ' ')
   .replace(/<[^>]+>/g, ' ')
@@ -133,6 +136,7 @@ export const resolveWikimediaCommonsPayload = async (
     inprop: 'url',
     iilimit: '1',
     iiprop: 'timestamp|user|url|size|sha1|mime|mediatype|canonicaltitle|extmetadata',
+    iiurlwidth: String(COMMONS_TARGET_WIDTH),
     iiextmetadatafilter: 'LicenseShortName|LicenseUrl|UsageTerms|Attribution|Artist|Credit|AttributionRequired|Copyrighted|Permission|Restrictions',
   });
 
@@ -173,9 +177,7 @@ export const resolveWikimediaCommonsPayload = async (
 
   const page = data.query?.pages?.[0];
   const info = page?.imageinfo?.[0];
-  if (!page || page.missing || !info?.url) {
-    return { kind: 'permanent', error: 'commons_file_missing' };
-  }
+  if (!page || page.missing || !info?.url) return { kind: 'permanent', error: 'commons_file_missing' };
   if (page.ns !== 6 || !String(page.title || '').toLowerCase().startsWith('file:')) {
     return { kind: 'permanent', error: 'commons_identity_not_file' };
   }
@@ -222,20 +224,19 @@ export const resolveWikimediaCommonsPayload = async (
       || info.user
       || '',
   );
-  if (attributionRequired && !creditText) {
-    return { kind: 'permanent', error: 'commons_attribution_missing' };
-  }
+  if (attributionRequired && !creditText) return { kind: 'permanent', error: 'commons_attribution_missing' };
 
   const canonicalTitle = page.title || title;
   const filePageUrl = info.descriptionurl
     || `https://commons.wikimedia.org/wiki/${encodeURIComponent(canonicalTitle.replace(/ /g, '_')).replace(/%3A/gi, ':')}`;
   const metadata = metadataRecord(payload);
+  const resolvedUrl = info.thumburl || info.url;
 
   return {
     kind: 'resolved',
     payload: {
       ...payload,
-      source_url: info.url,
+      source_url: resolvedUrl,
       source_provider: 'wikimedia_commons',
       source_asset_id: page.pageid ? String(page.pageid) : canonicalTitle,
       license_name: licenseShortName,
@@ -252,9 +253,15 @@ export const resolveWikimediaCommonsPayload = async (
           file_title: canonicalTitle,
           pageid: page.pageid || null,
           file_page_url: filePageUrl,
-          original_direct_url: sourceUrl(payload),
+          submitted_url: sourceUrl(payload),
           canonical_direct_url: info.url,
+          resolved_direct_url: resolvedUrl,
           sha1: info.sha1 || null,
+          original_width: info.width || null,
+          original_height: info.height || null,
+          original_bytes: info.size || null,
+          resolved_width: info.thumbwidth || info.width || null,
+          resolved_height: info.thumbheight || info.height || null,
         },
         commons_license_snapshot: {
           license_short_name: licenseShortName,
