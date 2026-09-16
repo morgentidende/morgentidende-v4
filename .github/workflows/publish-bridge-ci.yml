@@ -6,6 +6,8 @@ on:
       - '.github/scripts/process-chatgpt-publish-queue.mjs'
       - '.github/scripts/publish-kind.mjs'
       - '.github/scripts/publish-kind.test.mjs'
+      - '.github/scripts/publish-payload-shape.mjs'
+      - '.github/scripts/publish-payload-shape.test.mjs'
       - '.github/workflows/publish-bridge-ci.yml'
 
 permissions:
@@ -18,3 +20,5 @@ jobs:
       - uses: actions/checkout@v4
       - name: Test publish kind contract
         run: node --test .github/scripts/publish-kind.test.mjs
+      - name: Test publish payload shape contract
+        run: node --test .github/scripts/publish-payload-shape.test.mjs
