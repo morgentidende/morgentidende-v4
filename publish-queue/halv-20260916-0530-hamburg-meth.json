@@ -1,0 +1,69 @@
+{
+  "queue_id": "halv-20260916-0530-hamburg-meth",
+  "slug": "15-ton-crystal-meth-fundet-i-rissaekke-fra-pakistan",
+  "headline": "1,5 ton crystal meth fundet i rissække fra Pakistan",
+  "deck": "En container med tusindvis af sække ris gemte på en af Hamburgs største meth-fangster. Bagmændene er stadig ukendte.",
+  "category_slug": "udland",
+  "kind": "news",
+  "body_markdown": "## SAGEN KORT\n\n- Tysk politi og told fandt omkring 1,5 ton crystal meth skjult i en container med ris fra Pakistan.\n- Stoffet vurderes til omkring 213 millioner kroner, mens efterforskerne fortsat leder efter bagmændene.\n\nEn container ankom til Hamburg med, hvad fragtpapirerne beskrev som tusindvis af sække hvid ris fra Pakistan. Men da tyske toldere sendte containeren gennem røntgen, var der noget, der ikke passede.\n\nEfterforskerne åbnede lasten og fandt en krystallinsk substans gemt i et trecifret antal af de formodede rissække. En hurtigtest gav udslag, og en senere toksikologisk undersøgelse bekræftede fundet: methamfetamin, bedre kendt som crystal meth.\n\nI alt blev omkring 1,5 ton beslaglagt. Anklagemyndigheden i Hamburg anslår værdien til cirka 213 millioner kroner (28,5 millioner euro). NDR beskriver beslaglæggelsen som en af de største af sin art i Hamburg i de senere år.\n\n## Et tip førte tolden til containeren\n\nFundet blev gjort allerede i begyndelsen af maj, men blev først offentliggjort af anklagemyndigheden i slutningen af august. Ifølge NDR havde myndighederne fået et tip om flere containere, der var sejlet fra Pakistan til Hamburg.\n\nRøntgenkontrollen viste tydelige uregelmæssigheder i én container. Først efter at den var åbnet og tømt helt, stod omfanget klart.\n\nDer er foreløbig ingen oplysninger om, hvem der stod bag forsendelsen. Anklagemyndigheden, delstatspolitiets narkotikaenhed og toldens efterforskere undersøger sagen som mistanke om ulovlig indførsel af en meget stor mængde narkotika.\n\nMyndighederne understreger samtidig, at de ikke har fundet tegn på, at de 1,5 ton var bestemt til Hamburgs lokale narkotikamarked. Havnen kan dermed have været transitpunkt for en last på vej videre i Europa.\n\n## Millionlast gemt blandt almindelige varer\n\nMetoden viser den udfordring, Europas store containerhavne står overfor: enorme mængder helt almindelig handelsvare bevæger sig gennem terminalerne hver dag, mens smuglere forsøger at skjule narkotika midt i den lovlige fragt.\n\nI denne sag var dækhistorien enkel. På papiret var lasten ris. I virkeligheden lå crystal meth til mere end 200 millioner kroner gemt mellem sækkene.\n\nEfterforskerne har endnu ikke offentliggjort anholdelser. Derfor står det centrale spørgsmål fortsat åbent: hvem kunne sende 1,5 ton meth fra Pakistan til en af Europas største havne – og hvor skulle lasten hen bagefter?",
+  "source_metadata": [
+    {
+      "source_name": "NDR",
+      "url": "https://www.ndr.de/nachrichten/hamburg/zoll-stellt-15-tonnen-crystal-meth-im-hamburger-hafen-sicher%2Ccrystal-meth-136.html",
+      "domain": "ndr.de",
+      "source_type": "authoritative"
+    },
+    {
+      "source_name": "WELT / dpa",
+      "url": "https://www.welt.de/regionales/hamburg/article6a9003850c649aabd97155f5/1-5-tonnen-crystal-meth-im-hamburger-hafen-entdeckt.html",
+      "domain": "welt.de",
+      "source_type": "authoritative"
+    }
+  ],
+  "source_registry_updates": [],
+  "editorial_metadata": {
+    "discovery_run_id": "halv-20260916-0530",
+    "discovery_audit": [
+      {
+        "candidate_id": "hamburg-meth-record",
+        "source_pool": "discovery",
+        "rank": 1,
+        "candidate_headline": "Crystal-Meth-Rekord im Hamburger Hafen: 1,5 Tonnen",
+        "deep_screened": true,
+        "downstream_sources": ["NDR", "WELT/dpa"],
+        "decision": "selected",
+        "reason": "Strong documented cross-border crime story; central facts independently verified by authoritative German sources; no near-identical Morgentidende [PUBLISH] item in observed seven-day history.",
+        "model_prompt_version": "docs/automations/news-task.md@e5e4b628"
+      }
+    ],
+    "final_qa_duplicate": false,
+    "hero_candidates": [
+      {
+        "source_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Aerial_image_of_the_Eurogate_and_Burchardkai_container_terminals_(view_from_the_southeast).jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "credit_text": "Carsten Steger / Wikimedia Commons / CC BY-SA 4.0",
+        "rights_notes": "Own work; original 5500x3600 JPEG. Commercial reuse and local archival permitted with attribution and share-alike terms.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": true,
+        "alt_text": "Luftfoto af containerterminalerne Eurogate og Burchardkai i Hamburgs havn"
+      },
+      {
+        "source_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Hamburg_Hafen_Containerterminal.jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "credit_text": "Raimond Spekking / Wikimedia Commons / CC BY-SA 4.0",
+        "rights_notes": "Own work; original 2500x1700 JPEG. Commercial reuse and local archival permitted with attribution and share-alike terms.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": true,
+        "alt_text": "Containerskib og kraner ved Containerterminal Tollerort i Hamburgs havn"
+      }
+    ]
+  }
+}
