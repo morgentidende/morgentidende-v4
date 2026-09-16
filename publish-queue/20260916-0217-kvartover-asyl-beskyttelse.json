@@ -1,0 +1,70 @@
+{
+  "queue_id": "20260916-0217-kvartover-asyl-beskyttelse",
+  "slug": "tyskland-faerre-asylansoegere-men-naesten-halvdelen-faar-beskyttelse",
+  "headline": "Færre søger asyl i Tyskland – men næsten halvdelen får beskyttelse",
+  "dek": "Nye tal viser et markant fald i ansøgninger, mens beskyttelsesandelen er steget til 47,4 procent. Familiesager fylder næsten halvdelen af de positive afgørelser.",
+  "category_slug": "udland",
+  "kind": "news",
+  "body_markdown": "## SAGEN KORT\n\n- Tyskland modtog 39.646 førstegangsansøgninger om asyl i første halvår 2026, klart færre end året før.\n- Den korrigerede beskyttelsesandel steg til 47,4 procent, og familiesager stod for 45,6 procent af de positive afgørelser.\n\nAntallet af nye asylansøgere i Tyskland er faldet kraftigt. Men blandt dem, der får deres sag realitetsbehandlet, er sandsynligheden for at få en form for beskyttelse samtidig steget markant.\n\nDet viser nye oplysninger fra den tyske regering om afgørelser hos Bundesamt für Migration und Flüchtlinge (BAMF), det føderale asylkontor.\n\nI første halvår 2026 blev der registreret 39.646 førstegangsansøgninger. Samtidig lå den såkaldte korrigerede beskyttelsesandel på 47,4 procent. For hele 2025 var den 37,5 procent.\n\nDen korrigerede andel ser bort fra sager, hvor myndighederne ikke tager stilling til selve behovet for beskyttelse, eksempelvis fordi et andet europæisk land har ansvaret for sagen. Tallet betyder derfor ikke, at 47,4 procent af alle, der krydser grænsen eller indgiver en ansøgning, automatisk får ophold.\n\n## Familiesager fylder næsten halvdelen\n\nEn særlig stor del af de positive afgørelser skyldes familiesammenhæng. I årets første seks måneder blev der ifølge regeringens oplysninger givet beskyttelsesstatus i 21.195 tilfælde på grundlag af reglerne om familiebeskyttelse.\n\nDet svarer til 45,6 procent af de positive afgørelser, når også afgørelser om forbud mod udsendelse regnes med. Familiebeskyttelse betyder grundlæggende, at nære familiemedlemmer i bestemte situationer kan få afledt beskyttelse fra et familiemedlem, der allerede har en beskyttelsesstatus.\n\nTallene giver dermed et mere sammensat billede end udviklingen i antallet af nye ansøgninger alene. Tyskland har fået markant færre nye asylansøgninger, men en større andel af de realitetsbehandlede sager end tidligere ender med beskyttelse.\n\n## Afghanere skiller sig ud\n\nUdviklingen er særlig tydelig blandt ansøgere fra Afghanistan. Her lå den korrigerede beskyttelsesandel på 89,3 procent. For afghanske kvinder var den knap 95 procent.\n\nDen høje andel blandt kvinder hænger blandt andet sammen med en dom fra EU-Domstolen fra 2024. Domstolen fastslog, at den systematiske diskrimination, som kvinder udsættes for under Talibans styre, kan være tilstrækkelig til at begrunde flygtningestatus.\n\nSamtidig viser regeringens tal, at mange ansøgere fortsat kommer uden gyldigt identitetsdokument. 61,3 procent havde ikke et gyldigt pas eller andet identitetspapir ved ansøgningen. Det er ikke i sig selv dokumentation for falsk identitet, men betyder, at myndighederne i mange sager må fastslå identiteten på andet grundlag.\n\nDet centrale paradoks i de nye tal er derfor tydeligt: Presset målt på nye ansøgninger er faldet kraftigt, mens chancen for beskyttelse blandt de sager, der faktisk afgøres på indholdet, er steget.",
+  "source_metadata": [
+    {
+      "title": "Asylanträge: Schutzquote steigt deutlich",
+      "publisher": "dpa via Yahoo Finance",
+      "url": "https://de.finance.yahoo.com/nachrichten/asylantr%C3%A4ge-schutzquote-steigt-deutlich-073323455.html",
+      "published_at": "2026-09-13",
+      "source_class": "authoritative"
+    },
+    {
+      "title": "Flüchtlingsstatistik: Schutzquote in Deutschland steigt deutlich",
+      "publisher": "Handelsblatt",
+      "url": "https://www.handelsblatt.com/politik/international/fluechtlingsstatistik-schutzquote-in-deutschland-steigt-deutlich/100254147.html",
+      "published_at": "2026-09-13",
+      "source_class": "authoritative"
+    }
+  ],
+  "editorial_metadata": {
+    "story_kind": "news",
+    "share_reason": "Jeg sender dig den her, fordi Tyskland får langt færre nye asylansøgninger, samtidig med at næsten halvdelen af de realitetsbehandlede sager nu ender med beskyttelse, og familiesager fylder næsten halvdelen af de positive afgørelser.",
+    "final_qa_duplicate": false,
+    "discovery_run_id": "news-20260916-0217-kvartover",
+    "discovery_audit": [
+      {
+        "candidate_id": "bka-organiseret-kriminalitet-2025",
+        "source_pool": "discovery",
+        "rank": 1,
+        "candidate_headline": "BKA: Organiseret kriminalitet bliver mere brutal og rekrutterer børn",
+        "deep_screened": true,
+        "downstream_sources": ["BKA", "Tagesschau"],
+        "decision": "rejected_duplicate",
+        "reason": "Næsten-identisk med nylige [PUBLISH]-historier PR 455 og PR 464 om BKA-rapporten og rekruttering af helt ned til 13-årige.",
+        "model_prompt_version": "canonical-news-task-2026-09-16"
+      },
+      {
+        "candidate_id": "bamf-schutzquote-familienschutz-2026h1",
+        "source_pool": "discovery",
+        "rank": 2,
+        "candidate_headline": "Færre asylansøgninger, men beskyttelsesandelen stiger til 47,4 procent",
+        "deep_screened": true,
+        "downstream_sources": ["Bundesregierung/BAMF-tal via dpa", "Handelsblatt"],
+        "decision": "selected",
+        "reason": "Frisk, dokumenteret og profilrelevant udvikling; ikke næsten-identisk med PR 407, som handlede om asylansøgninger ved landgrænsen.",
+        "model_prompt_version": "canonical-news-task-2026-09-16"
+      }
+    ],
+    "hero_candidates": [
+      {
+        "source_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/D-5-64-000-2302%20Frankenstra%C3%9Fe%20208%2C%20210%20N%C3%BCrnberg%2020241110%200467.jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "credit_text": "Tilman2007 / Wikimedia Commons",
+        "rights_notes": "Own work; Wikimedia Commons file page states CC BY-SA 4.0; 8187×5421 px.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": true,
+        "alt_text": "Bygningen i Nürnberg, hvor det tyske føderale asylkontor BAMF har hovedsæde"
+      }
+    ]
+  }
+}
