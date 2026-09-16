@@ -1,0 +1,71 @@
+{
+  "queue_id": "news-20260916-0800-peters-merz",
+  "slug": "cdu-kandidat-holder-merz-paa-afstand-foer-valg",
+  "headline": "CDU-kandidat holder Merz på afstand før afgørende valg",
+  "manchet": "Fire dage før valget ligger CDU på syv procent. Spidskandidaten Daniel Peters vil holde forbundspolitikken ude af valgkampen.",
+  "category_slug": "udland",
+  "kind": "news",
+  "sagen_kort": [
+    "CDU's spidskandidat Daniel Peters reagerede køligt på udsigten til valgkampshjælp fra kansler Friedrich Merz.",
+    "En aktuel ZDF-måling placerer CDU på blot syv procent i Mecklenburg-Vorpommern, mens AfD står til 37 procent."
+  ],
+  "body_markdown": "Fire dage før delstatsvalget i Mecklenburg-Vorpommern forsøger CDU's spidskandidat Daniel Peters at skabe afstand til sin egen forbundskansler, Friedrich Merz.\n\nUnder NDR's tv-debat tirsdag aften blev Peters spurgt, hvad han ville sige, hvis Merz tilbød at komme og hjælpe ham i valgkampen. Svaret var køligt: Hvis kansleren vil komme, må han komme. Peters understregede samtidig, at det er delstatens politik – ikke forbundspolitikken – der bør stå i centrum.\n\nAfstanden kommer på et kritisk tidspunkt for CDU. En aktuel ZDF-måling placerer partiet på blot syv procent i Mecklenburg-Vorpommern. Det indvandringskritiske AfD står til 37 procent, mens regeringspartiet SPD følger efter. Hvis målingen rammer resultatet, vil CDU være tæt på spærregrænsen og stå til et historisk dårligt delstatsvalg.\n\nPeters fastholdt i NDR-debatten, at CDU kommer i landdagen og vil få en vigtig rolle. Han fremstillede partiet som alternativet både til en regering med SPD, Linke og De Grønne og til en AfD-ledet regering.\n\nDen kølige holdning til Merz er ikke helt ny. Peters har allerede tidligere i valgkampen understreget, at Friedrich Merz ikke er på stemmesedlen, og han har efterlyst en tydeligere CDU-profil over for SPD i forbundsregeringen.\n\nNDR's debat samlede Peters med spidskandidaterne fra Linke, De Grønne og BSW. Onsdag aften følger den direkte duel mellem SPD's ministerpræsident Manuela Schwesig og AfD's Leif-Erik Holm. Selve delstatsvalget finder sted 20. september.\n\nFor CDU er regnestykket dermed usædvanligt hårdt: Partiet skal på fire dage forsøge at løfte sig fra syv procent, mens dets egen spidskandidat samtidig signalerer, at hjælp fra kansleren ikke nødvendigvis er det, der skal redde valgkampen.",
+  "source_metadata": [
+    {
+      "source_name": "NDR",
+      "url": "https://www.ndr.de/fernsehen/sendungen/mecklenburg-vorpommern-hat-die-wahl-15092026%2Cmv-hat-die-wahl-100.html",
+      "source_type": "authoritative"
+    },
+    {
+      "source_name": "WELT/dpa",
+      "url": "https://www.welt.de/article6aa9a8d69cfc210a32c4ab50",
+      "source_type": "authoritative"
+    }
+  ],
+  "source_registry_updates": [],
+  "editorial_metadata": {
+    "discovery_run_id": "news-20260916-0800",
+    "final_qa_duplicate": false,
+    "duplicate_of": "PR #511",
+    "duplicate_exclusions": ["USA visa restrictions South Africa"],
+    "discovery_audit": [
+      {
+        "candidate_id": "sa-visa",
+        "source_pool": "discovery",
+        "rank": 1,
+        "candidate_headline": "USA indfører visumrestriktioner mod sydafrikanere",
+        "deep_screened": true,
+        "downstream_sources": ["Reuters", "U.S. State Department coverage"],
+        "decision": "duplicate",
+        "reason": "Nearly identical story already delivered in PR #511",
+        "model_prompt_version": "canonical-news-task-20260916"
+      },
+      {
+        "candidate_id": "peters-merz",
+        "source_pool": "discovery",
+        "rank": 2,
+        "candidate_headline": "CDU-kandidat holder Merz på afstand før afgørende valg",
+        "deep_screened": true,
+        "downstream_sources": ["NDR", "WELT/dpa"],
+        "decision": "selected",
+        "reason": "Fresh, documented election story with material political significance and no near-identical item in current PUBLISH history",
+        "model_prompt_version": "canonical-news-task-20260916"
+      }
+    ],
+    "hero_candidates": [
+      {
+        "source_url": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Daniel_Peters.jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "credit_text": "CDU-Landtagsfraktion Mecklenburg-Vorpommern / Wikimedia Commons",
+        "rights_notes": "Own work published by copyright holder under CC BY-SA 4.0; original 5000x4232 JPEG",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": true,
+        "alt_text": "Daniel Peters, CDU's spidskandidat i Mecklenburg-Vorpommern"
+      }
+    ]
+  }
+}
