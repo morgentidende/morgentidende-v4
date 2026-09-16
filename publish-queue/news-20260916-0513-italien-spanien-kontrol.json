@@ -1,0 +1,57 @@
+{
+  "queue_id": "news-20260916-0513-italien-spanien-kontrol",
+  "slug": "italien-forlaenger-graensekontrol-spanien-terror-risiko",
+  "headline": "Italien forlænger grænsekontrol mod Spanien: Frygter terrorinfiltration",
+  "dek": "Kontrollen fortsætter efter migrantkrisen i Ceuta. Spanien svarer igen med egne kontroller af rejsende fra Italien.",
+  "category_slug": "udland",
+  "kind": "news",
+  "body_markdown": "Italien forlænger de midlertidige grænsekontroller for rejsende fra Spanien med yderligere 15 dage. Den italienske regering begrunder beslutningen med fortsat høj risiko for den indre sikkerhed og en mulig fare for terrorister, der forsøger at udnytte migrationsstrømme.\n\n## Kontrol i lufthavne og havne\n\nBeslutningen er truffet af Italiens indenrigsminister Matteo Piantedosi efter en vurdering fra landets udvalg for analyse af migration og grænsesikkerhed. Kontrollen gælder rejsende, der ankommer fra Spanien med fly og skib.\n\nIfølge det italienske nyhedsbureau ANSA har Piantedosi meddelt forlængelsen til EU-Kommissionen og de øvrige EU-landes indenrigsministre. Ministeriet peger på både \"høje risici for den indre sikkerhed\" og en mulig risiko for \"terrorinfiltration\".\n\nKontrollerne blev oprindeligt indført efter den massive tilstrømning fra Marokko til den spanske enklave Ceuta i slutningen af juli. Spaniens myndigheder har siden opjusteret antallet af mennesker, der krydsede grænsen, til omkring 72.000. Langt de fleste er vendt tilbage til Marokko, men tusinder har fortsat opholdt sig i Ceuta.\n\n## Spanien svarer igen\n\nSpanien afviser den italienske begrundelse. Udenrigsminister José Manuel Albares har kaldt forlængelsen både absurd, nytteløs og skammelig og fremhævet, at migranter i Ceuta ikke automatisk har fri adgang til resten af Schengenområdet.\n\nMadrid har samtidig valgt at forlænge sine egne kontroller af rejsende fra Italien. Dermed fortsætter det usædvanlige grænseopgør mellem to store Schengenlande, selv om fly- og færgeforbindelserne fortsætter.\n\nItalien oplyste efter den første måned med kontrollen, at mere end 180.000 rejsende fra Spanien var blevet kontrolleret. 31 personer var blevet nægtet indrejse, mens seks var blevet anholdt.\n\nSchengenreglerne tillader midlertidig genindførelse af kontrol ved de indre grænser, når et land vurderer, at der foreligger en alvorlig trussel mod den offentlige orden eller den indre sikkerhed. EU-Kommissionen understreger samtidig, at sådanne indgreb skal være ekstraordinære og tidsbegrænsede.\n\nForlængelsen betyder derfor ikke, at grænsen mellem Spanien og Italien er lukket. Men mere end halvanden måned efter masseankomsten til Ceuta har krisen fortsat en konkret konsekvens for den frie bevægelighed mellem to af EU's største lande.",
+  "sagen_kort": [
+    "Italien forlænger kontrollen af rejsende fra Spanien med 15 dage og henviser blandt andet til mulig terrorinfiltration.",
+    "Spanien afviser begrundelsen, men har samtidig forlænget sine egne kontroller af rejsende fra Italien."
+  ],
+  "source_metadata": [
+    {
+      "source_name": "ANSA",
+      "url": "https://www.ansa.it/sito/notizie/flash/2026/09/15/litalia-proroga-di-altri-15-giorni-il-blocco-di-schengen-con-la-spagna_9183c12a-e911-4807-b713-4daee315d180.html",
+      "source_type": "authoritative"
+    },
+    {
+      "source_name": "Associated Press",
+      "url": "https://apnews.com/article/92dc26ce21c112ccb37ba4e62e6da2a0",
+      "source_type": "authoritative"
+    }
+  ],
+  "editorial_metadata": {
+    "discovery_run_id": "news-20260916-0513",
+    "final_qa_duplicate": false,
+    "discovery_audit": [
+      {
+        "candidate_id": "italien-spanien-graensekontrol",
+        "source_pool": "discovery",
+        "rank": 1,
+        "candidate_headline": "Italien forlænger grænsekontrol mod Spanien: Frygter terrorinfiltration",
+        "deep_screened": true,
+        "downstream_sources": ["ANSA", "Associated Press"],
+        "decision": "selected",
+        "reason": "Frisk discovery-historie med konkret Schengen-, migrations- og sikkerhedskonsekvens; dokumenteret af nyhedsbureauer og ikke næsten-identisk med observerbar 7-dages publish-historik.",
+        "model_prompt_version": "canonical-news-task-2026-09-16"
+      }
+    ],
+    "hero_candidates": [
+      {
+        "source_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Asif_Nazrul_And_Matteo_Piantedosi_Sign_Mou_2025-05-06_(PID-0002038).jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "Public domain",
+        "license_url": "https://commons.wikimedia.org/wiki/File:Asif_Nazrul_And_Matteo_Piantedosi_Sign_Mou_2025-05-06_(PID-0002038).jpg",
+        "credit_text": "Press Information Department, Government of Bangladesh / Wikimedia Commons",
+        "rights_notes": "Wikimedia Commons states that the 1800x855 original is a work of Bangladesh's Press Information Department and is in the public domain; commercial reuse and local storage are permitted.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": false,
+        "alt_text": "Italiens indenrigsminister Matteo Piantedosi ved et møde om migration i 2025"
+      }
+    ]
+  }
+}
