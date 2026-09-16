@@ -1,0 +1,59 @@
+{
+  "queue_id": "news-20260916-0827-neubrandenburg",
+  "payload_type": "article",
+  "slug": "14-aarig-pint-i-timevis-af-boerne-og-unge-politiet-fandt-videoerne-paa-nettet",
+  "headline": "14-årig pint i timevis af børn og unge – politiet fandt videoerne på nettet",
+  "dek": "Ti mistænkte mellem ni og 15 år er identificeret efter videoer af volden. Flere var under den kriminelle lavalder.",
+  "category_slug": "udland",
+  "sagen_kort": [
+    "En 14-årig dreng blev ifølge politiet i Neubrandenburg slået, sparket og brændt over flere timer; omkring ti børn og unge er mistænkt.",
+    "De mistænkte er ni til 15 år. Politiet oplyser, at gruppen omfattede tyske, albanske, tunesiske og tysk-tyrkiske børn og unge, mens offeret er tysker."
+  ],
+  "body_markdown": "En 14-årig tysk dreng blev ifølge politiet pint i flere timer af en gruppe børn og unge i den nordøsttyske by Neubrandenburg. Politiet kom på sporet af sagen, fordi videoer af volden cirkulerede på sociale medier.\n\nOptagelserne viser ifølge politiets foreløbige oplysninger, hvordan drengen bliver sparket og slået, også med genstande. Han blev desuden påført forbrændinger. Da sagen blev anmeldt, blev hans skader vurderet som lettere.\n\nPolitiet har identificeret omkring ti mistænkte drenge og piger mellem ni og 15 år. Gruppen omfatter ifølge politiets egen meddelelse tyskere, albanere, tunesere og tysk-tyrkere. Offeret er tysker. Politiet har ikke oplyst en fordeling mellem grupperne og har heller ikke angivet et motiv.\n\n### Videoerne afslørede gruppen\n\nPolitiet fik lørdag oplysninger om en voldsvideo på sociale medier. Efterforskere sikrede derefter flere videoer, som ifølge politiet alle viser den samme hændelse fra onsdagen før. Optagelserne var så tydelige, at både offeret og de mistænkte kunne identificeres.\n\nDer efterforskes blandt andet for farlig legemsbeskadigelse, tvang, fornærmelse og krænkelse af privatlivet gennem videooptagelserne. Fordi flere af de mistænkte er under 14 år, er de under den kriminelle lavalder i Tyskland.\n\nDen regionale public service-station NDR bekræfter sagens centrale forløb på baggrund af politiets oplysninger. NDR fremhæver, at de fire mistænkte, som allerede er fyldt 14 år, er anmeldt, mens forholdene for børn under 14 år registreres hos ungdomsmyndighederne.\n\n### Anden alvorlig sag på kort tid\n\nSagen er den anden alvorlige episode med ungdomsvold i Neubrandenburg på få uger. Ifølge det tyske nyhedsbureau dpa havde tre børn og unge mellem 12 og 15 år kort forinden sparket en 12-årig. En polititalskvinde oplyste, at der ikke er forbindelse mellem de to sager, men at begge grupper allerede var kendt af politiet.\n\nDet gør den nye sag mere end blot til endnu en video fra sociale medier: Politiet har identificeret de involverede, sikret flere optagelser og åbnet en egentlig strafferetlig efterforskning. Samtidig sætter de meget lave aldre en klar grænse for, hvor mange af de mistænkte der overhovedet kan mødes med straf efter tysk ret.",
+  "source_metadata": [
+    {
+      "name": "Polizeipräsidium Neubrandenburg",
+      "url": "https://www.presseportal.de/blaulicht/pm/108747/6351351",
+      "type": "primary",
+      "published_at": "2026-09-14T10:43:00+02:00"
+    },
+    {
+      "name": "NDR",
+      "url": "https://www.ndr.de/nachrichten/mecklenburg-vorpommern/gewaltvideo-aus-neubrandenburg-junge-von-gleichaltrigen-gequaelt%2Cgewaltvideos-102.html",
+      "type": "authoritative",
+      "published_at": "2026-09-14T13:23:00+02:00"
+    }
+  ],
+  "editorial_metadata": {
+    "final_qa_duplicate": false,
+    "story_cluster_id": "neubrandenburg-youth-violence-202609",
+    "discovery_run_id": "news-20260916-0827",
+    "hero_candidates": [
+      {
+        "rank": 1,
+        "source_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Neubrandenburg%20Marktplatz%2001.JPG",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Neubrandenburg_Marktplatz_01.JPG",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "license": "CC0 1.0",
+        "width": 2048,
+        "height": 1536,
+        "alt": "Markedspladsen i Neubrandenburg set fra oven."
+      }
+    ],
+    "discovery_audit": [
+      {
+        "candidate_id": "cand-neubrandenburg-violence",
+        "source_pool": "discovery",
+        "source_path": "rmx.news -> Polizeipräsidium Neubrandenburg/NDR",
+        "rank": 1,
+        "candidate_headline": "14-year-old German boy tortured for hours by youths",
+        "deep_screened": true,
+        "downstream_sources": ["Polizeipräsidium Neubrandenburg", "NDR"],
+        "decision": "selected",
+        "reason": "Fresh, strongly documented crime story; primary police source verifies ages, violence, video evidence and nationalities; no near-identical Morgentidende PR found in seven-day comparison.",
+        "model_prompt_version": "canonical-news-task-2026-09-16"
+      }
+    ]
+  }
+}
