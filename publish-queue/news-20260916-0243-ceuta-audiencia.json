@@ -1,0 +1,67 @@
+{
+  "queue_id": "news-20260916-0243-ceuta-audiencia",
+  "slug": "ceuta-regeringsdelegeret-efterforskes-national-domstol",
+  "headline": "Ceuta-sag vokser: Regeringens mand trækkes ind i national efterforskning",
+  "category_slug": "udland",
+  "kind": "news",
+  "manchet": "En lokal dommer sender sagen mod regeringens delegerede videre. Nationaldomstolen undersøger den massive grænsekrise og dødsfaldene.",
+  "sagen_kort": [
+    "Sagen mod regeringens delegerede i Ceuta, Miguel Ángel Pérez Triano, overføres til Spaniens Audiencia Nacional.",
+    "Den større efterforskning omfatter den organiserede masseindtrængen fra Marokko og dødsfald under svømmeturen til Ceuta."
+  ],
+  "body_markdown": "Efterspillet efter sommerens enorme migrantindtrængen i den spanske enklave Ceuta rykker nu tættere på regeringens egen repræsentant i byen. En dommer i Ceuta har besluttet at sende sagen om regeringens delegerede, Miguel Ángel Pérez Triano, videre til Spaniens nationale domstol Audiencia Nacional.\n\nBeslutningen betyder, at undersøgelsen af Pérez Trianos håndtering af begivenhederne 30. og 31. juli samles med den større nationale efterforskning af, hvordan titusinder af mennesker på kort tid kom ind fra Marokko.\n\n## Dommer ser direkte forbindelse\n\nIfølge nyhedsbureauet Europa Press vurderer dommer María de la Luz Lozano, at de to sager hænger både faktuelt og personmæssigt sammen. Anklagemyndigheden havde også bedt om, at sagerne blev samlet.\n\nAudiencia Nacional undersøger allerede organiseringen, mobiliseringen og følgerne af den massive indtrængen. Undersøgelsen omfatter også dødsfaldene blandt mennesker, der forsøgte at svømme ind i Ceuta.\n\nDen større sag ledes af dommer María Tardón. Hun havde dagen før bedt retten i Ceuta om at sende materialet om Pérez Triano til Madrid, så hun kunne vurdere, om det skulle indgå i hovedsagen. Nu har Ceuta-dommeren altså besluttet at træde til side og sende hele sagen videre.\n\n## Varsler er blevet et centralt spørgsmål\n\nPérez Triano er den spanske centralregerings øverste lokale repræsentant i Ceuta. Sagen mod ham udspringer af spørgsmål om, hvilke varsler myndighederne modtog før grænsekrisen, og hvordan de reagerede.\n\nSpaniens efterretningstjeneste CNI advarede 29. juli om opslag og grupper på sociale medier, der opfordrede til en massebevægelse mod grænsen. Pérez Triano har senere sagt, at han ikke selv kendte til CNI-varslet, og at der var tale om en uformel kommunikation med et medlem af hans stab.\n\nSamtidig har Guardia Civil oplyst til dommeren, at de tidligere varsler, som styrken havde modtaget, ikke forudsagde en indtrængen i den størrelse, der faktisk fandt sted. Det er et vigtigt forbehold i en sag, hvor den politiske kamp i Spanien i høj grad handler om, hvor meget regeringen vidste på forhånd.\n\n## Mindst 80 lig modtaget efter krisen\n\nKonsekvenserne var voldsomme. Det retsmedicinske institut i Ceuta havde 6. august modtaget 80 lig efter personer, der var omkommet i havet under forsøg på at nå enklaven. Myndighederne opgav under krisen forskellige løbende tal for, hvor mange der kom over grænsen.\n\nDen nye retsafgørelse er ikke en dom over Pérez Triano. Men den gør hans rolle til en del af den nationale undersøgelse af en af Spaniens mest alvorlige grænsekriser i nyere tid – en undersøgelse, der nu både handler om organiseringen bag massebevægelsen, myndighedernes varsler og de mange dødsfald.",
+  "source_metadata": [
+    {
+      "source_name": "Europa Press",
+      "url": "https://www.europapress.es/nacional/noticia-juzgado-ceuta-remite-audiencia-nacional-causa-contra-delegado-gobierno-entrada-masiva-20260915130444.html",
+      "domain": "europapress.es",
+      "source_type": "authoritative"
+    },
+    {
+      "source_name": "El País",
+      "url": "https://elpais.com/espana/2026-09-15/la-jueza-de-ceuta-deja-en-manos-de-la-audiencia-nacional-la-causa-contra-el-delegado-del-gobierno.html",
+      "domain": "elpais.com",
+      "source_type": "authoritative"
+    },
+    {
+      "source_name": "Europa Press",
+      "url": "https://www.europapress.es/nacional/noticia-instituto-medicina-legal-ceuta-recibe-cuerpos-80-fallecidos-crisis-migratoria-20260806001104.html",
+      "domain": "europapress.es",
+      "source_type": "authoritative"
+    }
+  ],
+  "source_registry_updates": [],
+  "story_cluster_id": "ceuta-migrant-crisis-2026",
+  "editorial_metadata": {
+    "discovery_run_id": "kvarti-20260916-0243",
+    "final_qa_duplicate": false,
+    "discovery_audit": [
+      {
+        "candidate_id": "libertaddigital-ceuta-audiencia",
+        "source_pool": "discovery",
+        "rank": 1,
+        "candidate_headline": "Ceuta sender sagen mod regeringens delegerede til Audiencia Nacional",
+        "deep_screened": true,
+        "downstream_sources": ["europapress.es", "elpais.com"],
+        "decision": "selected",
+        "reason": "Frisk væsentlig juridisk videreudvikling i Ceuta-sagen, dokumenteret af to autoritative medier. GitHub [PUBLISH]-historikken viser tidligere Ceuta-dækning, men ikke denne overførsel af regeringens lokale repræsentant til den nationale efterforskning.",
+        "model_prompt_version": "news-task-canonical-2026-09-16"
+      }
+    ],
+    "hero_candidates": [
+      {
+        "source_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Ceuta%20border%20fence.jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "CC BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "credit_text": "Wikimedia Commons",
+        "rights_notes": "Wikimedia Commons file; commercial reuse and local storage permitted with attribution/share-alike. Original is 2700x1800.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": true,
+        "alt_text": "Grænsehegnet mellem Ceuta og Marokko"
+      }
+    ]
+  }
+}
