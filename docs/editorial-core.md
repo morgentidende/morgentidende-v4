@@ -14,7 +14,7 @@ Denne fil ejer kun fælles artikelkrav og Journalistens afsluttende redaktionell
 
 5. Manchetten er højst 2 sætninger og cirka 20 ord. Den skal primært forklare, **hvorfor historien er vigtig eller aktuel nu**, og må ikke blot omskrive rubrikken.
 
-6. `SAGEN KORT` består altid af præcis 2 tydeligt forskellige, verificerede hovedpointer. De skal primært være de to stærkeste fakta og må ikke blot gentage rubrik eller manchet. `SAGEN KORT` leveres kun som det strukturerede felt `sagen_kort` og må aldrig skrives som overskrift, liste eller sektion i `body_markdown`.
+6. `SAGEN KORT` består altid af præcis 2 tydeligt forskellige, verificerede hovedpointer. De skal primært være de to stærkeste fakta og må ikke blot gentage rubrik eller manchet. `SAGEN KORT` leveres kun som det strukturerede felt `editorial_metadata.sagen_kort` og må aldrig skrives som overskrift, liste eller sektion i `body_markdown`. Backend kan midlertidigt flytte et top-level `sagen_kort` ind i metadata; feltnavnet forbliver `sagen_kort` også når Viden/Liv viser labelen Artiklen kort.
 
 7. `body_markdown` må ikke begynde med H1 eller gentage rubrikken. Et almindeligt afsnit må ikke begynde direkte med `tal.` hvis Markdown kan fejlfortolke det som en nummereret liste.
 
@@ -30,7 +30,7 @@ Denne fil ejer kun fælles artikelkrav og Journalistens afsluttende redaktionell
 
 13. **Udenlandske pengebeløb skal gøres forståelige i danske kroner.** Når en artikel nævner et beløb i en udenlandsk valuta, skal den samtidig eller først angive en rimeligt afrundet værdi i DKK efter en aktuel eller relevant historisk kurs. Rubrik og `SAGEN KORT` skal som udgangspunkt bruge danske kroner, når det gør historien mere forståelig for danske læsere. Første gang et centralt beløb optræder i brødteksten, kan originalvalutaen med fordel bevares i parentes efter DKK-beløbet, fx `628 millioner kroner (72 millioner pund)`, når originalvalutaen har journalistisk betydning.
 
-14. **Ingen næsten-identiske historier inden for 7 dage.** Før aflevering skal journalisten sammenligne den foreslåede historie med de seneste 7 dages relevante publicerede/afleverede historier ud fra hovedbegivenhed, hovedfaktum, centrale personer/institutioner, tal, geografi og emner — ikke kun rubrikken. Hvis sagen allerede er dækket med samme væsentlige indhold, skal journalisten vælge en anden historie. En ny artikel om samme sag er kun tilladt, hvis der er sket en **væsentlig videreudvikling**, som i sig selv er stærk nok til at fortjene en ny artikel. Praktisk test: Opfølgeren skal kunne opsummeres i mindst ét væsentligt faktum eller en konkret konsekvens, som den tidligere artikel ikke kunne have skrevet på sit publiceringstidspunkt. Hvis den nye hovedsætning allerede kunne have stået i den gamle artikel, er det ikke en ny opfølger. En legitim opfølger bruger samme `story_cluster_id` og det strukturerede `Læs også`-relationssystem. Små formuleringer, en ny kilde uden nyt hovedfaktum, kosmetisk ændrede tal eller en ny rubrik er ikke tilstrækkeligt.
+14. **Ingen næsten-identiske historier inden for 7 dage.** Før aflevering skal journalisten sammenligne den foreslåede historie med de seneste 7 dages relevante publicerede/afleverede historier ud fra hovedbegivenhed, hovedfaktum, centrale personer/institutioner, tal, geografi og emner — ikke kun rubrikken. Hvis sagen allerede er dækket med samme væsentlige indhold, skal journalisten vælge en anden historie. En ny artikel om samme sag er kun tilladt, hvis der er sket en **væsentlig videreudvikling**, som i sig selv er stærk nok til at fortjene en ny artikel. Praktisk test: Opfølgeren skal kunne opsummeres i mindst ét væsentligt faktum eller en konkret konsekvens, som den tidligere artikel ikke kunne have skrevet på sit publiceringstidspunkt. Hvis den nye hovedsætning allerede kunne have stået i den gamle artikel, er det ikke en ny opfølger. En legitim opfølger bruger samme `story_cluster_key` og det strukturerede `Læs også`-relationssystem. Små formuleringer, en ny kilde uden nyt hovedfaktum, kosmetisk ændrede tal eller en ny rubrik er ikke tilstrækkeligt.
 
 15. **Alle artikler skal udvikles med højt delingspotentiale uden at gå på kompromis med dokumentation eller relevante forbehold.** Delbarhed er et håndværksmål under skrivningen, ikke en selvstændig grund til mere research eller til at svække faktuel præcision. Løft stærke dokumenterede fakta, tal, citater, konsekvenser og kontraster frem; gør abstrakte emner konkrete; undgå mekanisk “på den ene side, på den anden side”-sprog; sørg for arbejdsdeling mellem rubrik og manchet; og lad hvert afsnit tilføre dokumentation, konsekvens, citat eller forklaring frem for gentagelse. Før aflevering skal journalisten kunne færdiggøre sætningen **"Jeg sender dig den her, fordi …"** med et konkret dokumenteret faktum eller en dokumenteret konsekvens. Hvis det kun kan ske med overdrivelse, spekulation eller en udeladt væsentlig indvending, skal vinklen rettes.
 
@@ -40,9 +40,9 @@ For alle artikler, inklusive breaking og direkte chat-publicering, laver den sam
 
 ### Skal være afklaret før aflevering
 
-- Den semantiske 7-dages-dedupe er gennemført. Hvis artiklen er en legitim opfølger, opfylder den testen i regel 14 og bruger samme `story_cluster_id` samt de nødvendige strukturerede relationer.
+- Den semantiske 7-dages-dedupe er gennemført. Hvis artiklen er en legitim opfølger, opfylder den testen i regel 14 og bruger samme `story_cluster_key` samt de nødvendige strukturerede relationer.
 - Centrale faktuelle påstande og væsentlige forbehold er dokumenteret.
-- `sagen_kort`, `source_metadata`, hero og øvrige strukturerede felter er leveret i deres kanoniske form efter den aktuelle run-kontrakt.
+- `editorial_metadata.sagen_kort`, `deck`, `source_metadata`, hero og øvrige strukturerede felter er leveret i deres kanoniske form efter den aktuelle run-kontrakt.
 
 ### Ret sikkert i slut-QA
 
