@@ -1,0 +1,91 @@
+{
+  "payload_type": "article",
+  "queue_id": "news-20260916-1315-rotterdam",
+  "slug": "gravid-kvinde-draebt-ved-115-km-t-nu-kraever-anklager-otte-maaneders-faengsel",
+  "headline": "Gravid kvinde dræbt ved 115 km/t: Nu kræver anklager otte måneders fængsel",
+  "category_slug": "udland",
+  "manchet": "Den 33-årige Elisabeth og hendes ufødte barn døde efter sammenstødet i Rotterdam. Dommen falder 28. september.",
+  "sagen_kort": [
+    "En 18-årig bilist kørte ifølge anklagemyndigheden 115 km/t på en vej med 50-grænse, da han ramte den 33-årige Elisabeths bil i Rotterdam.",
+    "Elisabeth, som var 14 uger gravid, døde samme dag; anklageren kræver otte måneders fængsel og fem års frakendelse af kørekortet."
+  ],
+  "body_markdown": "En 33-årig gravid kvinde mistede livet efter et voldsomt sammenstød i Rotterdam. Nu har den hollandske anklagemyndighed krævet otte måneders fængsel til den unge bilist, der ifølge anklageren kørte 115 kilometer i timen på en vej, hvor grænsen var 50.\n\nUlykken skete på Toepad i Rotterdam i marts 2025. Kvinden, Elisabeth, var 14 uger gravid med sit første barn. Hun døde senere samme dag af sine kvæstelser.\n\nDen tiltalte var netop fyldt 18 år og havde fået kørekort få dage tidligere. Ifølge omtalen af retsmødet kørte han i en BMW X1, da han med høj fart ramte Elisabeths bil i siden.\n\nAnklagemyndigheden har krævet otte måneders ubetinget fængsel og fem års frakendelse af kørekortet. Kravet er endnu ikke en dom. Retten ventes at afsige dom 28. september.\n\nSagen har også rejst spørgsmål om, hvorvidt bilisten var påvirket. Anklagemyndigheden mener, at der var tegn på brug af drivgas fra såkaldt anti-dust-spray, men ifølge den hollandske omtale kan påvirkningen ikke bevises. Den tiltalte afviser at have inhaleret stoffet.\n\nDe centrale, dokumenterede forhold er derfor hastigheden, det dødelige sammenstød og anklagerens strafkrav. Påstanden om påvirkning er omstridt og er ikke lagt til grund som et fastslået faktum.\n\nElisabeths pårørende kritiserede under retsmødet den tiltaltes forklaring og opfordrede ham til at tage ansvar. Sagen er ikke afsluttet, og det er retten, der afgør både skyld og straf.",
+  "source_metadata": [
+    {
+      "title": "Ali A. rijdt twee dagen na achttiende verjaardag zwangere Elisabeth (33) dood: OM eist 8 maanden cel",
+      "url": "https://www.headliner.nl/item/ali-a-rijdt-twee-dagen-na-achttiende-verjaardag-zwangere-elisabeth-33-dood-om-eist-8-maanden-cel-telegraaf-2248479",
+      "publisher": "De Telegraaf via Headliner",
+      "source_class": "independent_secondary",
+      "published_date": "2026-09-14"
+    },
+    {
+      "title": "Geen schijn van kans voor zwangere Elisabeth als zij met 115 km p/u wordt aangereden",
+      "url": "https://www.stadindex.nl/rotterdam/3598782-ali-a-rijdt-twee-dagen-na-achttiende-verjaardag-zwangere-elisabeth-33-dood-om-eist-8-maanden-cel",
+      "publisher": "RTV Rijnmond via Stadindex",
+      "source_class": "independent_secondary",
+      "published_date": "2026-09-14"
+    }
+  ],
+  "editorial_metadata": {
+    "story_cluster_id": "rotterdam-elisabeth-fatal-crash-202609",
+    "final_qa_duplicate": false,
+    "discovery_run_id": "news-20260916-1315",
+    "discovery_audit": [
+      {
+        "candidate_id": "c1-eu-emergency-returns",
+        "source_pool": "discovery",
+        "source_path": "Brussels Signal -> EU migration/Ceuta cluster",
+        "rank": 1,
+        "candidate_headline": "EU vil åbne for nødspor til hurtigere hjemsendelser efter Ceuta",
+        "deep_screened": true,
+        "downstream_sources": ["Brussels Signal"],
+        "decision": "discarded",
+        "reason": "For tæt på avisens allerede omfattende Ceuta/migrationsklynge; utilstrækkelig ny selvstændig dokumentation til endnu en artikel i samme cluster."
+      },
+      {
+        "candidate_id": "c2-rotterdam",
+        "source_pool": "discovery",
+        "source_path": "Remix News -> De Telegraaf/RTV Rijnmond",
+        "rank": 2,
+        "candidate_headline": "Gravid kvinde dræbt ved 115 km/t: Anklager kræver otte måneder",
+        "deep_screened": true,
+        "downstream_sources": ["De Telegraaf", "RTV Rijnmond"],
+        "decision": "selected",
+        "reason": "Stærk og konkret retshistorie med høj menneskelig interesse; kernefakta bekræftet i to uafhængige hollandske omtaler. Udokumenterede identitets- og påvirkningsvinkler er udeladt eller tydeligt kvalificeret.",
+        "model_prompt_version": "canonical-news-task-2026-09-16"
+      }
+    ],
+    "hero_candidates": [
+      {
+        "rank": 1,
+        "source_url": "https://commons.wikimedia.org/wiki/File:Rotterdam_toepad65.jpg",
+        "description": "Toepad i Rotterdam, vejen hvor ulykken skete",
+        "license": "Public domain",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "width": 2200,
+        "height": 1555
+      },
+      {
+        "rank": 2,
+        "source_url": "https://commons.wikimedia.org/wiki/File:Rotterdam-Skyline_(cropped).jpg",
+        "description": "Rotterdams skyline med Erasmusbroen",
+        "license": "CC BY 4.0",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "width": 5100,
+        "height": 2500
+      },
+      {
+        "rank": 3,
+        "source_url": "https://commons.wikimedia.org/wiki/File:Skyline_Rotterdam_(2026).jpg",
+        "description": "Rotterdams skyline fotograferet i 2026",
+        "license": "CC BY-SA 4.0",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "width": 4272,
+        "height": 2848
+      }
+    ]
+  }
+}
