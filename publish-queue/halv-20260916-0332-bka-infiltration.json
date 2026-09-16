@@ -1,0 +1,72 @@
+{
+  "queue_id": "halv-20260916-0332-bka-infiltration",
+  "slug": "bka-kriminelle-netvaerk-forsoger-at-traenge-ind-i-stat-og-erhvervsliv",
+  "headline": "BKA slår alarm: Kriminelle netværk forsøger at trænge ind i stat og erhvervsliv",
+  "manchet": "Tysk politi registrerede mindst 215 forsøg på at påvirke myndigheder og virksomheder – og 95 tilfælde med hjælp fra insidere.",
+  "category_slug": "udland",
+  "kind": "news",
+  "sagen_kort": [
+    "Tysklands føderale kriminalpoliti registrerede mindst 215 tilfælde, hvor organiserede kriminelle forsøgte at påvirke statslige, økonomiske eller samfundsmæssige strukturer i 2025.",
+    "Myndighederne registrerede samtidig 95 såkaldte insiderhandlinger, hvor personer på indersiden hjalp kriminelle netværk."
+  ],
+  "body_markdown": "Tysklands føderale kriminalpoliti, Bundeskriminalamt (BKA), advarer om, at organiserede kriminelle netværk i stigende grad forsøger at få indflydelse på myndigheder, virksomheder og andre centrale dele af samfundet.\n\nI BKA's nye situationsrapport om organiseret kriminalitet for 2025 blev der registreret 101 efterforskninger med former for påvirkning af statslige, økonomiske eller samfundsmæssige strukturer. I disse sager fandt myndighederne mindst 215 konkrete påvirkningsforsøg. Året før var tallet 178.\n\n## Politi og retsvæsen er mål\n\nIfølge rapporteringen om BKA's nye tal var politi og retsvæsen blandt de områder, der oftest blev forsøgt påvirket. Kriminelle netværk kan blandt andet forsøge at skaffe oplysninger, påvirke efterforskninger eller lægge pres på personer, der står i vejen for deres forretning.\n\nBKA registrerede desuden 95 såkaldte insiderhandlinger. Det kan være ansatte, som allerede befinder sig inde i en virksomhed eller organisation og bruger deres adgang til at hjælpe kriminelle. Eksempler i rapporten omfatter ansatte i transportvirksomheder, der skjuler containeres oprindelse, og bankansatte, der gennemfører ulovlige overførsler.\n\nTallene kommer fra BKA's nye Bundeslagebild Organisierte Kriminalität 2025, som blev præsenteret 15. september. Rapporten viser samtidig en bredere vækst i den organiserede kriminalitet: 683 efterforskninger omfattede knap 8.000 mistænkte, og næsten syv ud af ti sager havde forbindelse på tværs af landegrænser.\n\n## Trusler mod vidner og efterforskere\n\nRapporten beskriver også forsøg på at skræmme vidner og efterforskere. Metoderne spænder ifølge gennemgangen fra bestikkelse og offentlig udskamning til direkte trusler, i nogle tilfælde også mod familiemedlemmer. Formålet kan være at få personer til at tie eller trække forklaringer tilbage.\n\nBKA-chef Holger Münch siger, at organiseret kriminalitet har ændret karakter. Netværkene arbejder mere digitalt, internationalt og med en arbejdsdeling, hvor tjenester som våben, hvidvask, logistik og vold kan købes hos andre kriminelle.\n\nDet betyder, at kampen ikke længere kun handler om at anholde den person, der står med narkotika eller et våben. Myndighederne skal også beskytte de institutioner og medarbejdere, som kriminelle forsøger at bruge indefra.\n\nDe 215 registrerede påvirkningsforsøg er ikke det samme som 215 vellykkede infiltrationer. Men stigningen fra året før viser, at forsøg på at få adgang til eller påvirke lovlige strukturer nu er en tydelig del af den trussel, BKA beskriver.",
+  "source_metadata": [
+    {
+      "source_name": "WELT",
+      "url": "https://www.welt.de/article6aa9267077bd109fcdd01e82",
+      "domain": "welt.de",
+      "source_type": "authoritative",
+      "title": "Die neue Organisierte Kriminalität überzieht Deutschland ungehemmt"
+    },
+    {
+      "source_name": "Tagesschau",
+      "url": "https://www.tagesschau.de/inland/innenpolitik/bundeslagebild-bandenkriminalitaet-100.html",
+      "domain": "tagesschau.de",
+      "source_type": "authoritative",
+      "title": "Kriminelle Gruppen werden digitaler und brutaler"
+    }
+  ],
+  "editorial_metadata": {
+    "discovery_run_id": "halv-20260916-0332",
+    "discovery_audit": [
+      {
+        "candidate_id": "russian-frigate-denmark",
+        "source_pool": "breaking",
+        "rank": 1,
+        "candidate_headline": "Russisk fregat affyrede nødblus mod dansk militærhelikopter",
+        "deep_screened": false,
+        "downstream_sources": ["Reuters", "AP"],
+        "decision": "rejected_duplicate",
+        "reason": "Næsten-identisk med PR #441 i den observerbare 7-dages [PUBLISH]-historik",
+        "model_prompt_version": "news-task.md@e5e4b628"
+      },
+      {
+        "candidate_id": "bka-infiltration-2025",
+        "source_pool": "discovery",
+        "rank": 1,
+        "candidate_headline": "BKA: organiserede kriminelle forsøger at påvirke myndigheder og virksomheder",
+        "deep_screened": true,
+        "downstream_sources": ["WELT", "Tagesschau"],
+        "decision": "selected",
+        "reason": "Frisk, dokumenteret og særskilt vinkel fra tidligere BKA-historie om rekruttering af børn",
+        "model_prompt_version": "news-task.md@e5e4b628"
+      }
+    ],
+    "final_qa_duplicate": false,
+    "hero_candidates": [
+      {
+        "source_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Bka-wiesbaden-w1.jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "CC BY-SA 3.0 DE",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0/de/",
+        "credit_text": "Wo st 01 / Wikimedia Commons",
+        "rights_notes": "Own work; Wikimedia Commons file page states CC BY-SA 3.0 Germany. Original dimensions 1360x1024.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": true,
+        "alt_text": "Luftfoto af Bundeskriminalamts bygninger i Wiesbaden"
+      }
+    ]
+  }
+}
