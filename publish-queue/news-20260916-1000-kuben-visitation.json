@@ -1,0 +1,66 @@
+{
+  "queue_id": "news-20260916-1000-kuben-visitation",
+  "slug": "ap-politiker-vil-visitere-elever-efter-knivstikkeri-personvern-er-ikke-det-vigtigste",
+  "headline": "Ap-politiker vil visitere elever efter knivstikkeri: »Personvern er ikke det vigtigste«",
+  "category_slug": "udland",
+  "body_markdown": "Et alvorligt knivstikkeri på en af Oslos største gymnasieskoler har udløst en usædvanlig hård melding fra Arbeiderpartiets ledende skolepolitiker i hovedstaden. Eivor Evenrud vil åbne for visitation af elever og kontrol af tasker og skabe – også hvis det går ud over privatlivet.\n\nTirsdag blev en elev på Kuben videregående skole på Økern alvorligt såret under et slagsmål. En anden mindreårig elev blev anholdt og sigtet for drabsforsøg. Politiet rykkede ud efter proceduren for igangværende livstruende vold, og den formodede gerningsmand blev ifølge norske medier pågrebet få minutter efter alarmen.\n\nKort efter gik Eivor Evenrud, Arbeiderpartiets gruppeansvarlige for kultur og uddannelse i Oslo byråd, offentligt ud med et krav om langt mere håndfaste sikkerhedsforanstaltninger.\n\n»Ransak sekker/skap, krev at foreldre involveres, innfør visitasjon. I dont care. Personvern er ikke det viktigste her,« skrev hun ifølge VG. På dansk: Undersøg tasker og skabe, kræv at forældrene inddrages, og indfør visitation. Privatliv er ikke det vigtigste her.\n\nEvenrud sagde desuden, at hun selv ville have holdt sin datter hjemme, indtil kommunen kunne garantere, at en lignende hændelse ikke skete igen. Hun mener, at grænsen for, hvad der er blevet normaliseret i Oslo-skolen, for længst er overskredet.\n\nKuben videregående skole oplyser selv, at skolen har omkring 1.800 elever. Skolen har tidligere været ramt af alvorlige voldsepisoder.\n\n## Eget parti siger fra\n\nForslaget møder modstand i Evenruds eget parti. Mari Morken, næstleder i Oslo Arbeiderparti, understregede over for Aftenposten, at Evenruds synspunkter ikke er Arbeiderpartiets politik.\n\nMorken advarede mod at stemple hele skoler på baggrund af enkelthændelser og fremhævede, at Oslo-skolen overordnet er tryg. Hun afviste dog ikke, at der kan være behov for nye tiltag for at beskytte elever og lærere.\n\nDen ansvarlige skolebyråd, Julie Remen Midtgarden fra Høyre, kaldte tidligere hændelsen meget alvorlig og sagde, at ingen elever skal opleve vold på deres skole. Evenrud mener ikke, at sådanne erklæringer er nok.\n\nDermed står Oslo med en klassisk frihedskonflikt i konkret form: Hvor langt må en skole gå i kontrollen med hundredvis af uskyldige elever for at forhindre, at én elev bærer en kniv ind? Efter tirsdagens angreb har en fremtrædende politiker sat sikkerheden foran privatlivet – mens hendes eget parti trækker en tydelig grænse.",
+  "sagen_kort": [
+    "En elev på Kuben videregående skole i Oslo blev tirsdag alvorligt såret ved et knivstikkeri; en mindreårig elev er sigtet for drabsforsøg.",
+    "Arbeiderpartiets skolepolitiker Eivor Evenrud kræver visitation og kontrol af tasker og skabe, men partiets Oslo-ledelse siger, at det ikke er partiets politik."
+  ],
+  "source_metadata": [
+    {
+      "name": "VG",
+      "url": "https://www.vg.no/nyheter/i/V6vvA4/oslo-arbeiderparti-gaar-hardt-ut-mot-skolepolitikken-i-oslo",
+      "class": "authoritative",
+      "role": "Hovedkilde til Evenruds udtalelser, hændelsen og Arbeiderpartiets modreaktion"
+    },
+    {
+      "name": "Aftenposten",
+      "url": "https://www.aftenposten.no/norge/i/5pKKOO/ap-topp-i-oslo-etter-knivstikking-paa-skole-innfoer-visitasjon-i-dont-care",
+      "class": "authoritative",
+      "role": "Uafhængig dokumentation af visitationskravet og den interne partimodstand"
+    },
+    {
+      "name": "Kuben videregående skole",
+      "url": "https://kuben.vgs.no/",
+      "class": "authoritative",
+      "role": "Primærkilde til skolens størrelse og identitet"
+    }
+  ],
+  "editorial_metadata": {
+    "final_qa_duplicate": false,
+    "story_cluster_id": "kuben-oslo-school-safety-20260915",
+    "discovery_run_id": "news-run-20260916-1000",
+    "source_pool": "discovery",
+    "candidate_audit": [
+      {
+        "candidate_id": "cand-kuben-visitation",
+        "rank": 1,
+        "candidate_headline": "Ap-top vil visitere Oslo-elever efter knivstikkeri",
+        "source_path": "Document.no -> Aftenposten/VG -> Kuben",
+        "deep_screened": true,
+        "downstream_sources": ["VG", "Aftenposten", "Kuben videregående skole"],
+        "decision": "selected",
+        "reason": "Frisk friheds- og sikkerhedshistorie med stærkt verificeret citat, konkret hændelse og tydelig modstemme; ingen næsten-identisk historie fundet i observerbar syv-dages [PUBLISH]-historik.",
+        "model_prompt_version": "canonical-news-task@2aed590f"
+      }
+    ],
+    "hero_candidates": [
+      {
+        "rank": 1,
+        "source_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/KUBEN.jpg",
+        "source_page_url": "https://commons.wikimedia.org/wiki/File:KUBEN.jpg",
+        "description": "Kuben videregående skole i Oslo",
+        "license": "CC BY-SA 4.0",
+        "creator": "QUB1",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "width": 5120,
+        "height": 2880,
+        "mime_type": "image/jpeg"
+      }
+    ],
+    "shareability_test": "Jeg sender dig den her, fordi en ledende Ap-skolepolitiker efter et alvorligt knivstikkeri kræver visitation af elever og siger direkte, at privatlivet ikke er det vigtigste – mens hendes eget parti siger fra."
+  }
+}
