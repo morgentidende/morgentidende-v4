@@ -1,0 +1,29 @@
+{
+  "queue_id": "kvarti-20260916-2042-eu-wallet",
+  "slug": "24-af-27-eu-lande-ser-ud-til-at-misse-frist-for-digital-id",
+  "headline": "24 af 27 EU-lande ser ud til at misse frist for digitalt ID",
+  "category_slug": "udland",
+  "deck": "EU-landene skal tilbyde en digital identitetsapp inden jul. Kun tre er klar, mens privatlivsregler fortsat vækker debat.",
+  "body_markdown": "EU's plan om en fælles ramme for digitale identitetsapps er kommet skævt fra start. Ifølge Euronews ser 24 af unionens 27 medlemslande ud til at misse fristen 24. december 2026 for at stille mindst én godkendt digital identitetsapp til rådighed.\n\nAppen skal kunne samle digitale beviser som identitetskort, kørekort, eksamensbeviser, oplysninger om sygesikring og bankoplysninger. Den enkelte borger skal selv kunne vælge, om appen skal bruges, og fysiske dokumenter forbliver gyldige.\n\nFristen følger EU-forordningen om en europæisk ramme for digital identitet. Reglerne pålægger medlemslandene at tilbyde mindst én digital identitetsapp efter fælles europæiske standarder, så den kan bruges på tværs af landegrænser.\n\nMen udrulningen er meget ujævn. Italien er længst fremme med næsten otte millioner månedlige brugere, mens Tyskland ifølge Euronews først planlægger lancering i januar 2027. Nederlandene har udskudt sin løsning til slutningen af 2027 efter et forsøg med blot 57 deltagere, og Bulgarien arbejder fortsat med den nødvendige lovgivning.\n\nEU-finansierede forsøg med omkring 350 organisationer har indtil nu udstedt mere end 1.500 digitale beviser og gennemført over 8.000 transaktioner på tværs af landegrænser. Formålet er blandt andet at gøre det lettere at identificere sig, underskrive dokumenter og bruge offentlige og private tjenester i andre EU-lande.\n\nOrdningen rejser samtidig spørgsmål om privatliv og datasikkerhed. Den europæiske rettighedsorganisation EDRi har kritiseret udkast til de nærmere regler og advaret mod krav om ansigtsgenkendelse og svagere beskyttelse af personoplysninger. EU-systemet er omvendt udformet med blandt andet mulighed for kun at dele de nødvendige oplysninger og med begrænsninger på, hvordan forskellige anvendelser kan kobles sammen.\n\nForsinkelsen betyder ikke, at borgerne mister deres nuværende identitetspapirer ved årsskiftet. Brugen af den digitale løsning er frivillig. Men den viser et markant gab mellem EU's lovbestemte tidsplan og medlemslandenes praktiske gennemførelse.\n\nFor virksomheder kommer næste store frist senere. De skal som udgangspunkt kunne modtage den europæiske digitale identitet fra 24. december 2027, mens banker på grund af regler mod hvidvask skal kunne håndtere den tidligere i 2027.",
+  "source_metadata": [
+    {"url": "https://www.euronews.com/my-europe/2026/09/16/eu-digital-wallet-24-of-27-members-will-miss-the-deadline", "title": "EU digital wallet: 24 of 27 members will miss the deadline", "publisher": "Euronews", "source_class": "authoritative", "published_at": "2026-09-16"},
+    {"url": "https://eur-lex.europa.eu/eli/reg/2024/1183/oj", "title": "Regulation (EU) 2024/1183 establishing the European Digital Identity Framework", "publisher": "EUR-Lex", "source_class": "authoritative", "published_at": "2024-04-30"}
+  ],
+  "editorial_metadata": {
+    "sagen_kort": [
+      "24 af EU's 27 medlemslande ser ifølge Euronews ud til at misse fristen 24. december 2026 for at tilbyde mindst én godkendt digital identitetsapp.",
+      "Appen skal kunne rumme blandt andet identitet, kørekort og andre digitale beviser; brugen er frivillig, mens privatlivsgrupper kritiserer dele af de nærmere regler."
+    ],
+    "final_qa_duplicate": false,
+    "hero_candidates": [
+      {"rank": 1, "source_url": "https://commons.wikimedia.org/wiki/File:Weekly_college_meeting_of_the_von_der_Leyen_Commission,_04-03-2026_(P-069155-00-42).jpg", "description": "Henna Virkkunen, EU-Kommissionens næstformand med ansvar for teknologisk suverænitet, sikkerhed og demokrati", "license": "CC BY 4.0", "commercial_use_allowed": true, "local_storage_allowed": true, "width": 6000, "height": 4000},
+      {"rank": 2, "source_url": "https://commons.wikimedia.org/wiki/File:Participation_of_Henna_Virkkunen,_Executive_Vice-President_of_the_European_Commission,_in_the_European_Cyber_Security_Organisation_(ECSO)_10-Year_Anniversary_(P-070102-00-06).jpg", "description": "Henna Virkkunen ved et europæisk arrangement om digital sikkerhed", "license": "CC BY 4.0", "commercial_use_allowed": true, "local_storage_allowed": true, "width": 5873, "height": 3915},
+      {"rank": 3, "source_url": "https://commons.wikimedia.org/wiki/File:EU_flag-map.svg", "description": "Kort over EU med EU-flag som reserveillustration", "license": "Public domain", "commercial_use_allowed": true, "local_storage_allowed": true, "width": 3840, "height": 3869}
+    ],
+    "discovery_run_id": "kvarti-20260916-2042",
+    "discovery_audit": [
+      {"candidate_id": "cand-1", "source_pool": "discovery", "source_path": "Brussels Signal", "rank": 1, "candidate_headline": "Spansk politiforbund advarer om op mod fire millioner efter regularisering", "deep_screened": false, "downstream_sources": [], "decision": "rejected", "reason": "Semantisk dublet af PR #582 og allerede registreret som dublet i PR #585", "model_prompt_version": "canonical-news-task-2026-09-16"},
+      {"candidate_id": "cand-2", "source_pool": "discovery", "source_path": "Brussels Signal", "rank": 2, "candidate_headline": "24 af 27 EU-lande ser ud til at misse frist for digital identitetsapp", "deep_screened": true, "downstream_sources": ["Euronews", "EUR-Lex"], "decision": "selected", "reason": "Frisk EU- og privatlivshistorie med høj profilrelevans; hovedtallet dokumenteres af Euronews og den juridiske ramme af EUR-Lex", "model_prompt_version": "canonical-news-task-2026-09-16"}
+    ]
+  }
+}
