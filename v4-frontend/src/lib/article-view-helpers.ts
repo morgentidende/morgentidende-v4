@@ -6,7 +6,15 @@ const recommendationStopwords = new Set([
 ]);
 
 export function buildBriefPoints(article: any) {
-  return normalizeBriefPoints(article?.sagen_kort);
+  const points = normalizeBriefPoints(article?.sagen_kort);
+  if (points.length !== 2) {
+    console.warn('invalid_sagen_kort', {
+      article_id: article?.id || null,
+      event: 'invalid_sagen_kort',
+      point_count: Array.isArray(article?.sagen_kort) ? article.sagen_kort.length : null
+    });
+  }
+  return points;
 }
 
 const recommendationTerms = (value = '') => new Set(
