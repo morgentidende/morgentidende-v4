@@ -1,7 +1,7 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "morgentidende-v4",
-  "main": "@astrojs/cloudflare/entrypoints/server",
+  "main": "./src/worker.ts",
   "compatibility_date": "2026-09-07",
   "compatibility_flags": ["nodejs_compat"],
   "assets": {
@@ -10,6 +10,9 @@
   },
   "observability": {
     "enabled": true
+  },
+  "triggers": {
+    "crons": ["0 4 * * *", "0 5 * * *"]
   },
   "vars": {
     "PUBLIC_SUPABASE_URL": "https://lfttxjxfggjcxmdfjndk.supabase.co",
