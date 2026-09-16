@@ -1,0 +1,77 @@
+{
+  "queue_id": "halv-20260916-0630-dpi-islamist-manosphere",
+  "slug": "islamistisk-manosphere-lokker-unge-med-traening-karriere-og-netvaerk",
+  "headline": "Islamistisk »manosphere« lokker unge med træning, karriere og netværk",
+  "category_slug": "udland",
+  "kind": "news",
+  "manchet": "Ny østrigsk årsrapport beskriver, hvordan islamistiske miljøer pakker ideologi ind i selvudvikling, sport og forretning.",
+  "sagen_kort": [
+    "Østrigs Dokumentationsstelle Politischer Islam beskriver en voksende islamistisk livsstilsbranche med kurser, retreats, sport og netværksmøder.",
+    "Rapporten advarer også om forsøg på at påvirke digitale videnskilder, som senere kan blive opsamlet af søgemaskiner og sprogmodeller."
+  ],
+  "body_markdown": "Islamistiske miljøer i Østrig og det tysksprogede Europa bruger i stigende grad selvudvikling, fitness, karriere og netværk som indgang til et religiøst-politisk verdensbillede. Det fremgår af den nye årsrapport fra den østrigske Dokumentationsstelle Politischer Islam (DPI), et offentligt fond, der forsker i religiøst motiveret politisk ekstremisme.\n\nRapporten blev offentliggjort 10. september og beskriver en professionalisering af miljøer, der ifølge DPI forsøger at gøre politisk islam attraktiv for især unge gennem formater, som ligner almindelig livsstils- og selvhjælpskultur.\n\nEt eksempel er projektet Rujulah 1000, som DPI knytter til en ledende person i den salafistiske missionsorganisation IMAN. Projektet tilbyder blandt andet retreats og kurser og markedsfører et ideal om »sand mandighed«. Fælles bøn kombineres ifølge rapporten med forretnings- og netværksarrangementer.\n\nDPI beskriver fænomenet som en slags islamistisk manosphere, hvor fast tro, selvoptimering og streng disciplin kobles til forestillingen om »maskulin excellence«. Også sportsmærker og fitnessmiljøer nævnes som eksempler på, hvordan et islamistisk livssyn kan forbindes med træning og identitet.\n\nDet afgørende for rapportens forfattere er ikke sport eller selvudvikling i sig selv, men at de almindelige aktiviteter kan fungere som lav tærskel ind i miljøer, hvor liberalt demokrati fremstilles som et system, der grundlæggende bør afvises. DPI skriver, at bøger, coaching, retreats og netværksmøder samtidig kan udvikle sig til en egentlig forretning.\n\nRapporten peger også på en nyere kampplads: de digitale videnskilder, som søgemaskiner, chatbots og store sprogmodeller bygger svar på. Ifølge DPI forsøger aktører at få bestemte fortællinger ind på åbne platforme gennem selektiv kildebrug, gentagne talepunkter og citater taget ud af deres sammenhæng.\n\nSom konkret eksempel nævner DPI propagandamediet Gaza Now, der blev grundlagt af en aktivist bosat i Linz. Ifølge rapporten har den arabiske kanal over 1,3 millioner følgere og den engelske knap 200.000. DPI skriver, at kanalen blandt andet deler materiale fra Hamas' væbnede gren og andre islamistiske enheder, hvor krigere fremstilles heroisk.\n\nDPI-direktør Lisa Fellhofer siger i forbindelse med rapporten, at aktører inden for politisk islam er blevet mere professionelle og varierede i deres metoder. Hun fremhæver især nye identitetstilbud og samspillet mellem digitale og fysiske netværk som en udfordring for liberale demokratier.\n\nRapporten er udgivet af en institution, hvis opgave netop er at dokumentere politisk islam, og dens vurderinger skal derfor læses som institutionens analyse af miljøerne. Den dokumenterer ikke, at almindelige muslimske fitness-, karriere- eller netværksaktiviteter i sig selv er islamistiske. Dens pointe er mere afgrænset: bestemte organisationer og aktører bruger de populære formater bevidst som ramme for ideologisk påvirkning.\n\nDet gør udviklingen vanskeligere at få øje på end traditionel politisk agitation. Hvis rapportens analyse holder, møder nogle unge ikke først ideologien i en politisk organisation, men gennem noget, der ligner et tilbud om at blive stærkere, mere succesfuld og del af et fællesskab.",
+  "source_metadata": [
+    {
+      "source_name": "Dokumentationsstelle Politischer Islam",
+      "url": "https://www.dokumentationsstelle.at/news/aktuelles/dpi-jahresbericht-veroeffentlicht-2026",
+      "source_type": "primary_official",
+      "classification": "authoritative",
+      "note": "Officiel offentliggørelse og hovedpointer fra Jahresbericht 2025, offentliggjort 10. september 2026."
+    },
+    {
+      "source_name": "Dokumentationsstelle Politischer Islam – Publikationen",
+      "url": "https://www.dokumentationsstelle.at/publikationen",
+      "source_type": "primary_official",
+      "classification": "authoritative",
+      "note": "Officiel publikationsside for årsrapporten."
+    }
+  ],
+  "source_registry_updates": [],
+  "editorial_metadata": {
+    "discovery_run_id": "news-20260916-0630",
+    "story_cluster_id": "at-dpi-political-islam-2026",
+    "final_qa_duplicate": false,
+    "duplicate_of": null,
+    "discovery_audit": [
+      {
+        "candidate_id": "ceuta-pepperspray-20260916",
+        "source_pool": "discovery",
+        "path": "libertaddigital.com",
+        "rank": 1,
+        "candidate_headline": "Peberspraysalget eksploderer i Ceuta",
+        "deep_screened": true,
+        "downstream_sources": ["Europa Press", "El País", "El Español"],
+        "decision": "duplicate",
+        "reason": "Næsten-identisk med [PUBLISH] PR #488: Kvinder i Ceuta ruster sig med peberspray",
+        "model_prompt_version": "canonical-news-task-20260916"
+      },
+      {
+        "candidate_id": "dpi-islamist-manosphere-20260916",
+        "source_pool": "discovery",
+        "path": "austria/islamism-topic-scan",
+        "rank": 2,
+        "candidate_headline": "Ny årsrapport: islamistiske miljøer bruger selvudvikling, fitness og netværk som indgang",
+        "deep_screened": true,
+        "downstream_sources": ["Dokumentationsstelle Politischer Islam"],
+        "decision": "selected",
+        "reason": "Frisk officiel årsrapport, stærk profilrelevans og ingen næsten-identisk [PUBLISH]-historie i 7-dages-grundlaget",
+        "model_prompt_version": "canonical-news-task-20260916"
+      }
+    ],
+    "hero_candidates": [
+      {
+        "source_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Vienna_Favoritenstra%C3%9Fe_%2852693412272%29.jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "CC BY 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "credit_text": "Jorge Franganillo / Wikimedia Commons",
+        "rights_notes": "Original 4453×2968 photograph; commercial reuse and local storage permitted with attribution.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": true,
+        "alt_text": "Gadeliv på Favoritenstraße i Wien"
+      }
+    ]
+  }
+}
