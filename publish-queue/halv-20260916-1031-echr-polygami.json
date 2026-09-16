@@ -1,0 +1,61 @@
+{
+  "queue_id": "halv-20260916-1031-echr-polygami",
+  "slug": "menneskerettighedsdomstol-holland-maa-afvise-boern-fra-polygame-aegteskaber",
+  "headline": "Menneskerettighedsdomstol: Holland må afvise børn fra polygame ægteskaber",
+  "category_slug": "udland",
+  "body_markdown": "Den Europæiske Menneskerettighedsdomstol har givet Holland medhold i en sag om familiesammenføring, hvor en yemenitisk flygtning ønskede fem børn fra sit andet og tredje ægteskab til landet.\n\nManden havde indgået tre ægteskaber i Yemen og fået i alt 13 børn. Efter at han fik asyl i Holland, søgte han om familiesammenføring med sin første hustru og alle børnene. De hollandske myndigheder accepterede den første hustru og deres otte børn, men afviste de fem børn fra de to øvrige ægteskaber.\n\nSagen endte ved Den Europæiske Menneskerettighedsdomstol i Strasbourg. Domstolen fastslog enstemmigt 8. september, at Holland ikke havde krænket retten til familieliv efter artikel 8 i menneskerettighedskonventionen.\n\nDommerne lagde vægt på, at der er en stærk europæisk enighed om at forbyde flerkoneri. Alle Europarådets medlemslande forbyder ifølge dommen flerkoneri, og landene har derfor et betydeligt råderum, når de afgør, om børn fra sådanne ægteskaber skal have adgang gennem familiesammenføring.\n\nDomstolen understregede samtidig, at der faktisk var familieliv mellem faderen og de fem børn. Men retten til familieliv betyder ikke, at et land skal anerkende følgerne af ægteskaber, der strider mod landets egen retsorden.\n\nFaderen kendte ifølge dommen det hollandske forbud, men valgte at fastholde alle tre ægteskaber. Han havde også fået mulighed for at opløse de to senere ægteskaber, men gjorde det ikke.\n\nDe fem børn boede på tidspunktet for den hollandske afgørelse i Tyrkiet med deres mødre. Domstolen lagde blandt andet vægt på, at de havde adgang til skole og sundhedsydelser dér, og at faderen kunne besøge dem.\n\nSagen havde dog en usædvanlig senere udvikling. Faderens anden hustru kom efterfølgende til Holland med sine børn og fik selv asyl i juni 2025. Hendes egen sag om familiesammenføring var ifølge dommen fortsat under behandling. Det ændrede ikke domstolens vurdering af den oprindelige hollandske afgørelse.\n\nDommen sætter dermed en klar grænse mellem retten til familieliv og staters ret til at håndhæve et forbud mod flerkoneri i udlændingesager. Den siger ikke, at børn fra polygame ægteskaber generelt kan afvises; myndighederne skal fortsat vurdere de konkrete omstændigheder og barnets interesser.",
+  "sagen_kort": [
+    "En yemenitisk flygtning med tre hustruer og 13 børn fik afslag på at hente fem børn fra sit andet og tredje ægteskab til Holland.",
+    "Menneskerettighedsdomstolen fastslår enstemmigt, at Holland ikke krænkede retten til familieliv ved afslaget."
+  ],
+  "source_metadata": [
+    {
+      "title": "A.A. v. the Netherlands",
+      "publisher": "European Court of Human Rights",
+      "url": "https://www.echr.coe.int/w/a.a.-v.-the-netherlands",
+      "source_class": "authoritative",
+      "published_date": "2026-09-08"
+    },
+    {
+      "title": "Case of A.A. v. the Netherlands (Application no. 7481/23)",
+      "publisher": "European Court of Human Rights / HUDOC",
+      "url": "https://hudoc.echr.coe.int/eng?i=001-252192",
+      "source_class": "authoritative",
+      "published_date": "2026-09-08"
+    }
+  ],
+  "editorial_metadata": {
+    "final_qa_duplicate": false,
+    "story_cluster_id": "echr-polygamy-family-reunification-2026",
+    "discovery_run_id": "halv-20260916-1031",
+    "discovery_audit": [
+      {
+        "candidate_id": "cand-1-echr-polygami",
+        "source_pool": "discovery",
+        "source_path": "Brussels Signal -> ECHR/HUDOC",
+        "rank": 1,
+        "candidate_headline": "European top court says Netherlands does not have to recognise Yemeni polygamy",
+        "deep_screened": true,
+        "downstream_sources": ["European Court of Human Rights", "HUDOC"],
+        "decision": "selected",
+        "reason": "Strong migration/legal story; central facts confirmed by primary ECHR judgment and press release; no near-identical story found in observed seven-day GitHub [PUBLISH] history.",
+        "model_prompt_version": "canonical docs/automations/news-task.md@2aed590f7b342eb8aea0c60c7974bcec6ee7d9a1"
+      }
+    ],
+    "hero_candidates": [
+      {
+        "rank": 1,
+        "source_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Courtroom_European_Court_of_Human_Rights_01.JPG",
+        "source_page_url": "https://commons.wikimedia.org/wiki/File:Courtroom_European_Court_of_Human_Rights_01.JPG",
+        "credit": "Adrian Grycuk",
+        "license": "CC BY-SA 3.0 PL",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "width": 4683,
+        "height": 2895,
+        "mime_type": "image/jpeg",
+        "relevance": "Courtroom of the European Court of Human Rights in Strasbourg, the institution that issued the judgment."
+      }
+    ]
+  }
+}
