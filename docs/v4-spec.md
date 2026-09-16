@@ -1,6 +1,6 @@
 # Morgentidende v4 – gældende produkt- og driftsspecifikation
 
-Denne fil ejer produkt-, frontend-, CMS-, publicerings- og driftsregler. Fælles journalistiske artikelkrav ligger i `docs/editorial-core.md`; nyhedsprofilen ligger i `docs/news-editorial-profile-and-discovery.md`; Viden/Liv-regler ligger i `docs/magazine-editorial-policy.md`.
+Denne fil ejer produkt-, frontend-, CMS-, publicerings- og driftsregler. Fælles journalistiske artikelkrav ligger i `docs/editorial-core.md`; nyhedsprofilen ligger i `docs/news-editorial-profile.md`; Viden/Liv-regler ligger i `docs/magazine-editorial-policy.md`.
 
 Historiske løsninger, tidligere designversioner, deaktiverede automations og udgåede forsøg hører hjemme i Git-historikken eller audit-loggen og er ikke aktive sandhedskilder.
 
@@ -13,12 +13,13 @@ Historiske løsninger, tidligere designversioner, deaktiverede automations og ud
 
 ## Redaktionel drift
 - De aktive ChatGPT-Opgaver definerer den aktuelle udgivelsesrytme. Denne specifikation må ikke indføre en konkurrerende dagskvote eller få en planlagt normal kørsel til at springe publicering over.
-- Alle artikler, også breaking, bruger den aktive korte, fail-open prepublication-QA-buffer på 2 minutter før de bliver synlige.
+- Alle artikler, også breaking, bruger den aktive korte prepublication-release-buffer på 45 sekunder før de tidligst kan blive synlige. De centrale source/media/QA-gates er fortsat fail-closed.
 - Artikler kan også bestilles, skrives og publiceres direkte fra ChatGPT-chatten.
 - Live-forsiden og ekstern URL-verifikation er diagnostik, ikke godkendelsesgates. Ved ekstern fejl bruges Supabase/CMS som autoritativ fallback.
 
 ## Hero og mediedrift
 - Alle artikler skal have hero. Hero-flowet er fail-closed ved publicering: en artikel må ikke blive synlig, før hero er `ready`, rettighederne er dokumenteret, den permanente arkiv-/delivery-URL er på plads, og de bindende media-gates er bestået. Media Worker ejer download, validering, retry og fallback mellem lovlige kandidater; hvis ingen lovlig hero-kandidat kan verificeres, skal den redaktionelle kørsel stoppe frem for at publicere uden hero.
+- Den kanoniske tekniske media/hero-runbook ligger i `docs/backend/media.md`. Producerprompter må ikke kopiere backend-runbooken.
 - **Midlertidig AI-hero-prøve:** Morgentidende bruger i en afgrænset prøveperiode markant flere AI-genererede heros for at gøre forsiden visuelt stærkere og mere delbar.
 - AI-heros må være fotorealistiske, når motivet er fiktivt eller generisk og ikke kan forveksles med dokumentation af en konkret virkelig hændelse.
 - AI-heros må ikke afbilde virkelige personer eller fremstille konkrete virkelige nyhedsbegivenheder som dokumentariske fotografier.
@@ -97,13 +98,14 @@ Statusser:
 - `published`
 - `unpublished`
 
-- `publish_at` bestemmer, hvornår en scheduled artikel bliver synlig.
+- `publish_at` bestemmer, hvornår en scheduled artikel tidligst kan blive synlig sammen med den gemte `qa_release_at` og de centrale publication-gates.
 - Breaking/lead er metadata på artikler/story clusters og må ikke kobles unødvendigt til kategori.
 - `autopublish_enabled` er globalt nødstop for autonom publicering og bruges kun ved systemiske fejl, fx gentagne publiceringsfejl, dubletstorm, auth/CMS-fejl eller ødelagte data.
-- Alle artikler, inklusive breaking og direkte chat-publicering, har en 2-minutters prepublication-QA-buffer. `qa_release_at` er en hård release-deadline: journalistens slut-QA, teknisk QA-warning, timeout, 504 eller manglende ekstern live-verifikation må ikke forlænge bufferen.
-- Redaktionelt slut-QA i bufferen udføres af den samme ChatGPT-journalist efter reglerne i `docs/editorial-core.md`.
-- Supabase `article-qa` er kun et deterministisk teknisk sikkerhedsnet. Det må ikke kalde betalte eksterne AI/API-tjenester. Det må automatisk udføre sikre tekniske fixes, fx normalisere escaped markdown, fjerne almindelige eksterne brødtekstlinks og erstatte et brudt hero med fallback.
-- Midlertidige Supabase REST-fejl i teknisk QA retries én gang kort. Retry må aldrig forlænge `qa_release_at` eller blive en gate.
+- Alle artikler, inklusive breaking og direkte chat-publicering, har en 45-sekunders prepublication-release-buffer. `qa_release_at` er et minimumstidspunkt for release; den forlænges ikke af efterfølgende hero-attach eller retry, men artiklen bliver heller ikke publiceret, før de bindende source/media/QA-gates er bestået.
+- Redaktionelt slut-QA udføres af den samme ChatGPT-journalist før publish-handoff efter reglerne i `docs/editorial-core.md`; bufferens længde er ikke et journalistisk regelsæt.
+- Supabase `article-qa` er et deterministisk teknisk sikkerhedsnet. Det må ikke kalde betalte eksterne AI/API-tjenester. Det må automatisk udføre sikre tekniske fixes, fx normalisere escaped markdown og fjerne almindelige eksterne brødtekstlinks.
+- Midlertidige Supabase REST-fejl i teknisk QA kan retries efter den aktive recovery-policy. Retry må ikke flytte den gemte `qa_release_at`.
+- Hero/media-validitet er en separat publication dependency og indgår ikke i artikeltekst/source-QA-hashen.
 - Supabase `v4_public_articles` er den autoritative første kontrol efter release. Ekstern åbning/crawl af URL er sekundær diagnostik og må højst give warning.
 - Den aktive Supabase-trigger/Edge Function-implementering ejer den tekniske QA-mekanik. Automationsprompter skal kun henvise til den centrale slut-QA-regel og må ikke kopiere dens checkliste eller genimplementere den tekniske QA.
 
