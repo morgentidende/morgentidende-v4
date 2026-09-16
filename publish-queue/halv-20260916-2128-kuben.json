@@ -1,0 +1,28 @@
+{
+  "queue_id": "halv-20260916-2128-kuben",
+  "slug": "17-aarig-sigtet-for-drabsforsoeg-var-tidligere-doemt-for-machete-og-kniv",
+  "headline": "17-årig sigtet for drabsforsøg på skole – var tidligere dømt for machete og kniv",
+  "category_slug": "udland",
+  "deck": "En 16-årig blev stukket flere gange på en skole i Oslo. Den sigtede havde allerede to domme for våben og vold.",
+  "body_markdown": "En 17-årig dreng, der er sigtet for drabsforsøg efter en knivstikning på Kuben videregående skole i Oslo, var allerede dømt to gange for alvorlig kriminalitet med knive og macheter.\n\nTirsdag blev en 16-årig elev stukket flere gange på skolen på Økern. Han blev alvorligt såret, men norsk politi oplyste onsdag, at han var uden for livsfare. Den 17-årige medelev blev anholdt kort efter angrebet og har accepteret to ugers varetægtsfængsling. Han var onsdag endnu ikke afhørt og havde ikke taget stilling til sigtelsen.\n\nDen nye sag får ekstra vægt af den sigtedes korte, men alvorlige straffehistorik. Den norske avis VG har gennemgået dommene mod ham.\n\nDen første dom faldt i Oslo tingrett i oktober 2025. Som 15-årig deltog han ifølge retten i et groft røveri ved en skole, hvor en medgerningsmand havde en pistol, mens han selv bar en machete med et 27 centimeter langt blad. Retten fandt det bevist, at han truede offeret med macheten og stak ham i låret.\n\nHan blev også dømt for grove trusler og ulovlig våbenbesiddelse. Næsten seks måneder senere blev han taget med en jagtkniv med et blad på omkring 18 centimeter ved en metrostation. Straffen blev et års ungdomsstraf, med fængsel som alternativ hvis ungdomsstraffen ikke blev gennemført.\n\nMen mens han afsonede ungdomsstraffen, blev han igen taget med våben. I februar i år fandt politiet en machete med et cirka 28 centimeter langt blad i hans bukselinning ved en metrostation. Tre dage senere havde han en kniv med på en videregående skole. Ved en senere ransagning fandt politiet desuden en kampøkse i hans hjem.\n\nI april blev han dømt igen. Retten lagde særlig vægt på, at det var anden gang, han blev dømt for at bære kniv. Han fik yderligere 120 dages ungdomsstraf.\n\nTirsdagens knivstikning på Kuben har nu ført til en langt alvorligere sigtelse. Politiet efterforsker fortsat, hvad der førte frem til angrebet. Den 17-åriges forsvarer har ikke ønsket at kommentere sagen.\n\nHændelsen har samtidig udløst debat om våben på skoler i Oslo. Lærernes organisation Utdanningsforbundet Oslo har udtrykt bekymring over det, den beskriver som en stigning i våben blandt elever. En lokal politiker fra Arbeiderpartiet har efter angrebet foreslået visitation af elever, men forslaget har også mødt modstand i hendes eget parti.\n\nSagen rejser dermed et konkret spørgsmål om, hvor effektivt ungdomsstraffen beskytter andre, når en ung lovovertræder gentagne gange bliver taget med alvorlige våben. Den nye sigtelse er endnu ikke prøvet ved en domstol, og den 17-årige skal betragtes som uskyldig, indtil andet eventuelt er bevist.",
+  "source_metadata": [
+    {"name":"VG","url":"https://www.vg.no/nyheter/i/Okd55O/vg-har-sett-dommer-den-siktede-17-aaringen-har-vaert-doemt-for-aa-baere-kniv-og-machete-foer","type":"authoritative","published_date":"2026-09-16"},
+    {"name":"Aftenposten","url":"https://www.aftenposten.no/oslo/i/9p1wgp/knivstukket-16-aaring-utenfor-livsfare-siktet-17-aaring-samtykker-til-varetektsfengsling-i-to-uker","type":"authoritative","published_date":"2026-09-16"}
+  ],
+  "editorial_metadata": {
+    "sagen_kort": [
+      "En 17-årig er sigtet for drabsforsøg efter at en 16-årig elev blev stukket flere gange på Kuben videregående skole i Oslo.",
+      "Den sigtede var allerede dømt to gange; tidligere forhold omfattede macheter, knive, et groft røveri og et machetestik i låret på et offer."
+    ],
+    "final_qa_duplicate": false,
+    "hero_candidates": [
+      {"rank":1,"source_url":"https://commons.wikimedia.org/wiki/File:KUBEN.jpg","license":"CC BY-SA 4.0","commercial_use_allowed":true,"local_storage_allowed":true,"width":5120,"height":2880,"credit":"QUB1 / Wikimedia Commons","description":"Fotomontage af Kuben videregående skole i Oslo"},
+      {"rank":2,"source_url":"https://commons.wikimedia.org/wiki/File:2013-07_BiKuben.jpg","license":"CC BY-SA 3.0","commercial_use_allowed":true,"local_storage_allowed":true,"width":4800,"height":3389,"credit":"Kuben yrkesarena / QUB1 / Wikimedia Commons","description":"BiKuben-bygningen ved Kuben videregående skole i Oslo"}
+    ],
+    "hero_exception": {"reason":"Kun to tilstrækkeligt relevante, højopløselige Kuben-motiver med individuelt verificerede genbrugsrettigheder blev fundet inden for run-budgettet."},
+    "discovery_run_id":"halv-20260916-2128",
+    "discovery_audit":[
+      {"candidate_id":"kuben-knife-20260916","source_pool":"discovery","source_path":"Document.no -> VG/Aftenposten","rank":1,"candidate_headline":"17-åring sigtet for drabsforsøg var tidligere dømt for kniv og machete","deep_screened":true,"downstream_sources":["VG","Aftenposten"],"decision":"selected","reason":"Fresh, strongly documented crime/public-safety story with significant repeat-offending angle; no near-identical recent [PUBLISH] delivery found.","model_prompt_version":"canonical-news-task-2026-09-16"}
+    ]
+  }
+}
