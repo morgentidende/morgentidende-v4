@@ -9,6 +9,15 @@ const sql = readFileSync(
   'utf8'
 );
 
+const beginDrop = "drop function if exists public.newsletter_begin_signup(text, text, text, text, text);";
+const beginCreate = 'create or replace function public.newsletter_begin_signup(';
+
+test('changing begin_signup return type drops the old function first without CASCADE', () => {
+  assert.match(sql, /drop function if exists public\.newsletter_begin_signup\(text, text, text, text, text\);/i);
+  assert.doesNotMatch(sql, /cascade/i);
+  assert.ok(sql.toLowerCase().indexOf(beginDrop) < sql.indexOf(beginCreate));
+});
+
 test('begin_signup returns an internal reservation id with the DOI token', () => {
   assert.match(sql, /returns table\(confirmation_token text, confirmation_expires_at timestamptz, reservation_id uuid\)/);
   assert.match(sql, /v_reservation := gen_random_uuid\(\)/);
