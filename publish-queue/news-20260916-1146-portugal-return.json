@@ -1,0 +1,29 @@
+{
+  "queue_id": "news-20260916-1146-portugal-return",
+  "slug": "portugal-strammer-udvisning-migranter-kan-frihedsberoeves-et-aar",
+  "headline": "Portugal strammer udvisninger: Migranter kan frihedsberøves i op til et år",
+  "category_slug": "udland",
+  "sagen_kort": [
+    "Portugals nye regler kan forlænge frihedsberøvelse af udlændinge fra 60 til 180 dage og i visse tilfælde yderligere 180 dage.",
+    "Forfatningsdomstolen godkendte de prøvede regler, men kræver konkret vurdering af blandt andet børn og familiers forhold før udvisning."
+  ],
+  "body_markdown": "Portugal har sat nye og markant strammere regler for udvisning og asyl i kraft. Udlændinge kan efter de nye regler frihedsberøves i op til 180 dage, og perioden kan i visse tilfælde forlænges med yderligere 180 dage. Dermed kan den samlede frihedsberøvelse nå et år.\n\nReglerne gør det samtidig lettere at gennemføre tvungen udrejse af personer uden lovligt ophold. Den portugisiske regering har begrundet ændringerne med et ønske om hurtigere udsendelser og tydeligere konsekvenser ved ulovligt ophold.\n\nLovpakken blev inden ikrafttrædelsen prøvet af Portugals forfatningsdomstol. Domstolen fandt ikke de undersøgte bestemmelser forfatningsstridige. Det gjaldt blandt andet regler om udvisning, frihedsberøvelse, børn og beskyttelse af familielivet.\n\nGodkendelsen er dog ikke det samme som, at myndighederne frit kan udvise børn eller splitte familier. Domstolen understregede, at afgørelser ikke må ske automatisk. Myndighederne skal foretage en konkret og individuel vurdering, blandt andet af barnets tarv og familiens situation, og der skal være adgang til domstolsprøvelse.\n\nEn anden ændring er, at børn ikke længere har en absolut beskyttelse alene på grund af kortere tids ophold i Portugal. Også forældre til mindreårige kan i visse tilfælde pålægges at forlade landet. Men netop her kræver forfatningsdomstolen, at myndighederne vejer hensynet til barnet og familiens enhed ind i den enkelte sag.\n\nVed Portugals grænser kan personer, der nægtes indrejse, desuden frihedsberøves i op til 12 uger. I særlige krisesituationer kan perioden forlænges med yderligere seks uger.\n\nRegeringen har også flyttet mere ansvar for tvungen udrejse til det nationale politi Polícia de Segurança Pública, PSP. Det betyder, at politiet får en mere direkte rolle i håndhævelsen af afgørelser om, at udlændinge skal forlade landet.\n\nModstandere har især advaret mod følgerne for børn, familier og retten til effektiv domstolsprøvelse. Forfatningsdomstolens afgørelse hviler netop på, at reglerne anvendes individuelt og med mulighed for juridisk kontrol. Derfor bliver den praktiske håndhævelse afgørende for, hvor vidtgående stramningen bliver i konkrete sager.\n\nPortugal følger dermed en bredere europæisk bevægelse mod hurtigere tilbagesendelser af personer uden lovligt ophold. Den portugisiske lovgivning er samtidig knyttet til EU's nye pagt om migration og asyl, som trådte i kraft i juni 2026.",
+  "source_metadata": [
+    {"title":"Comunicado — Acórdão n.º 736/2026","url":"https://www.tribunalconstitucional.pt/tc/imprensa0200-bd9585.html","source_type":"primary","publisher":"Tribunal Constitucional de Portugal","accessed_at":"2026-09-16"},
+    {"title":"Expulsões, crianças e detenções: o que decidiu o Constitucional sobre a lei do retorno","url":"https://www.dn.pt/sociedade/expulses-crianas-e-detenes-o-que-decidiu-o-constitucional-sobre-a-lei-do-retorno","source_type":"authoritative","publisher":"Diário de Notícias","published_at":"2026-08-28"},
+    {"title":"Lei permite expulsão de crianças e facilita prisão de imigrantes entra em vigor","url":"https://app-brasil.publico.pt/2026/09/10/publico-brasil/noticia/lei-permite-expulsao-criancas-facilita-prisao-imigrantes-entra-vigor-2187608","source_type":"authoritative","publisher":"Público","published_at":"2026-09-10"}
+  ],
+  "editorial_metadata": {
+    "final_qa_duplicate": false,
+    "discovery_run_id": "news-20260916-1146",
+    "story_cluster_id": "portugal-return-asylum-law-2026",
+    "hero_candidates": [
+      {"rank":1,"source_url":"https://commons.wikimedia.org/wiki/File:Tribunal_Constitucional_Portugal.jpg","commercial_use_allowed":true,"local_storage_allowed":true,"license":"CC BY-SA 4.0","creator":"Cruks","width":3456,"height":5184,"mime_type":"image/jpeg","description":"Portugals forfatningsdomstol i Lissabon"},
+      {"rank":2,"source_url":"https://commons.wikimedia.org/wiki/File:Lisbon11.jpg","commercial_use_allowed":true,"local_storage_allowed":true,"license":"CC BY 2.5 / CC BY-SA 3.0 migrated","creator":"self-published Wikimedia contributor","mime_type":"image/jpeg","description":"Betjente fra Portugals Polícia de Segurança Pública i Lissabon"},
+      {"rank":3,"source_url":"https://commons.wikimedia.org/wiki/File:Portugal-Lisbon-airport_Humberto_Delgado-02ASD.jpg","commercial_use_allowed":true,"local_storage_allowed":true,"license":"CC BY-SA 4.0","creator":"Asurnipal","width":3264,"height":2448,"mime_type":"image/jpeg","description":"Humberto Delgado-lufthavnen i Lissabon, relevant for grænsekontrol og indrejse"}
+    ],
+    "discovery_audit": [
+      {"candidate_id":"portugal-return-law","source_pool":"discovery","rank":1,"candidate_headline":"Lei do Retorno — nye portugisiske regler om udvisning og frihedsberøvelse","deep_screened":true,"downstream_sources":["Tribunal Constitucional de Portugal","Diário de Notícias","Público"],"decision":"selected","reason":"Stram migrationslov med konkret betydning for udvisning, børn og frihedsberøvelse; dokumenteret af primær og autoritative kilder; ingen nær-identisk levering fundet i syv dages GitHub-historik","model_prompt_version":"canonical-news-task-2026-09-16"}
+    ]
+  }
+}
