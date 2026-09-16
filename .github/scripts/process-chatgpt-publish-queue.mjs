@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import { normalizePublishKind } from './publish-kind.mjs';
+import { validatePublishPayloadShape } from './publish-payload-shape.mjs';
 
 const file = process.env.QUEUE_FILE;
 const projectRef = process.env.SUPABASE_PROJECT_REF || 'lfttxjxfggjcxmdfjndk';
@@ -69,6 +70,12 @@ if (payloadType === 'discovery_audit') {
   if (payload.deck && String(payload.deck).length > 300) fail('deck_too_long');
 
   try {
+    validatePublishPayloadShape(payload);
+  } catch (error) {
+    fail(error instanceof Error ? error.message : 'invalid_payload_shape');
+  }
+
+  try {
     const kindResult = normalizePublishKind(payload.kind, payload.category_slug);
     if (kindResult) {
       payload.kind = kindResult.normalizedKind;
@@ -101,7 +108,11 @@ if (payloadType === 'discovery_audit') {
       const reason = String(payload.editorial_metadata.followup_reason ?? '').trim();
       if (!parentId) fail('followup_requires_parent');
       if (!allowedFollowupReasons.has(reason)) fail('followup_requires_reason');
-      if (typeof payload.story_cluster_id !== 'string' || !payload.story_cluster_id.trim()) fail('followup_requires_cluster');
+      const hasCluster = (
+        (typeof payload.story_cluster_id === 'string' && payload.story_cluster_id.trim())
+        || (typeof payload.story_cluster_key === 'string' && payload.story_cluster_key.trim())
+      );
+      if (!hasCluster) fail('followup_requires_cluster');
     }
   }
 
