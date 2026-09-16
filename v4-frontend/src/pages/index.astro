@@ -2,7 +2,6 @@
 import V4Layout from '../layouts/V4Layout.astro';
 import V4Card from '../components/V4Card.astro';
 import LiveCenter from '../components/LiveCenter.astro';
-import NewsletterSignup from '../components/NewsletterSignup.astro';
 import '../styles/frontpage.css';
 import '../styles/mobile-horizontal-cards.css';
 import '../styles/livecenter-mobile.css';
@@ -103,8 +102,6 @@ const frontpageNews = resolvedLiveCenter
         </>) : null}
       </section>
     ) : null}
-
-    {!loadError ? <NewsletterSignup /> : null}
 
     {!loadError ? (
       <section class="v4-section v4-magazine v4-magazine--viden">
