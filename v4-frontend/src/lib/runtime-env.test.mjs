@@ -34,8 +34,11 @@ test('README names the Cloudflare runtime variables', () => {
   assert.match(readme, /SUPABASE_SERVICE_ROLE_KEY/);
 });
 
-test('wrangler vars pin only the public Supabase URL', () => {
+test('wrangler vars pin only non-secret runtime values', () => {
   assert.match(wrangler, /"PUBLIC_SUPABASE_URL": "https:\/\/lfttxjxfggjcxmdfjndk\.supabase\.co"/);
+  assert.match(wrangler, /"AWS_SES_REGION": "eu-north-1"/);
   assert.doesNotMatch(wrangler, /SUPABASE_SECRET_KEY/);
   assert.doesNotMatch(wrangler, /SUPABASE_SERVICE_ROLE_KEY/);
+  assert.doesNotMatch(wrangler, /AWS_ACCESS_KEY_ID/);
+  assert.doesNotMatch(wrangler, /AWS_SECRET_ACCESS_KEY/);
 });
