@@ -1,0 +1,82 @@
+{
+  "queue_id": "news-20260916-0616-germany-border",
+  "slug": "tyskland-forlaenger-graensekontrol-danmark-marts-2027",
+  "headline": "Tyskland forlænger grænsekontrollen mod Danmark til marts 2027",
+  "manchet": "Berlin holder fast i kontrollen ved alle ni landegrænser. Ministeren siger, at 60.000 ulovlige indrejser er blevet forhindret.",
+  "category_slug": "udland",
+  "kind": "news",
+  "sagen_kort": [
+    "Tyskland har fra 16. september forlænget kontrollen ved alle ni landegrænser til 15. marts 2027.",
+    "Indenrigsminister Alexander Dobrindt siger, at grænsekontrollen har forhindret 60.000 ulovlige indrejser i denne regeringsperiode."
+  ],
+  "body_markdown": "Tyskland fortsætter kontrollen ved samtlige ni landegrænser – også grænsen til Danmark. Den nye periode gælder fra 16. september 2026 til 15. marts 2027.\n\nEU-Kommissionens aktuelle register over midlertidig kontrol ved Schengen-landenes indre grænser viser, at Tyskland begrunder forlængelsen med fortsat høj ulovlig migration, menneskesmugling og pres på landets asylsystem. Også krigen i Ukraine og sikkerhedssituationen i Mellemøsten og Centralasien indgår i begrundelsen.\n\n## 60.000 indrejser forhindret\n\nDen tyske indenrigsminister Alexander Dobrindt fra regeringspartiet CSU fremhævede i Forbundsdagen 10. september konkrete resultater af den strammere grænsepolitik.\n\nIfølge ministeren har myndighederne siden begyndelsen af den nuværende regeringsperiode forhindret 60.000 ulovlige indrejser ved grænserne. Samtidig er 11.600 arrestordrer blevet fuldbyrdet, og 1.700 menneskesmuglere er blevet anholdt. Tallene er regeringens egne.\n\nDobrindt beskrev udviklingen som en vending i migrationspolitikken og sagde, at regeringen også har øget hjemsendelserne. Ifølge ham er 42.000 mennesker uden asylgrundlag blevet sendt tilbage til deres hjemlande i koalitionens første år.\n\n## Danmark er blandt de ni grænser\n\nKontrollen omfatter Tysklands landgrænser til Danmark, Polen, Tjekkiet, Østrig, Schweiz, Frankrig, Luxembourg, Belgien og Nederlandene. Den tysk-danske grænse er dermed fortsat omfattet af en ordning, som i Schengen-området formelt er midlertidig.\n\nEU-Kommissionen oplyser, at genindførelse af kontrol ved indre grænser skal være en undtagelse og bruges som sidste udvej ved alvorlige trusler mod den offentlige orden eller indre sikkerhed.\n\nTyskland har gradvist udvidet kontrollen. Ved grænsen til Østrig har der været kontrol siden 2015. Polen, Tjekkiet og Schweiz kom til i 2023, mens Danmark, Frankrig, Belgien, Luxembourg og Nederlandene blev omfattet i september 2024.\n\nKontrollen betyder ikke, at grænserne lukkes, eller at alle rejsende bliver standset. Men tysk politi kan fortsat kontrollere personer og køretøjer ved overgange, herunder på ruterne mellem Danmark og Tyskland.\n\nForlængelsen betyder, at den brede kontrol ved alle Tysklands landegrænser vil have været i kraft i to et halvt år, når den nye periode udløber i marts næste år.",
+  "source_metadata": [
+    {
+      "source_name": "European Commission – Migration and Home Affairs",
+      "url": "https://home-affairs.ec.europa.eu/policies/schengen/schengen-area/temporary-reintroduction-border-control_en",
+      "source_type": "primary_official",
+      "classification": "authoritative"
+    },
+    {
+      "source_name": "Bundesregierung",
+      "url": "https://www.bundesregierung.de/breg-de/service/newsletter-und-abos/bulletin/bmi-haushalt-2027-2452370",
+      "source_type": "primary_official",
+      "classification": "authoritative"
+    },
+    {
+      "source_name": "Bundespolizei",
+      "url": "https://bundespolizei.de/aktuelles/meldungen/grenzkontrollen-verlaengert",
+      "source_type": "primary_official",
+      "classification": "authoritative"
+    }
+  ],
+  "editorial_metadata": {
+    "story_cluster_id": "germany-internal-border-controls-2026",
+    "final_qa_duplicate": false,
+    "share_reason": "Danmark er direkte omfattet, og Tysklands regering sætter konkrete tal på, hvor mange ulovlige indrejser kontrollen har forhindret.",
+    "hero_candidates": [
+      {
+        "source_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/German-Danish%20Border.jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "CC BY-SA 2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "credit_text": "Arne List / Wikimedia Commons",
+        "rights_notes": "Original 3805x2546 JPEG; commercial reuse and local storage permitted with attribution/share-alike.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": true,
+        "alt_text": "Grænsekontrol ved Kruså på den dansk-tyske grænse"
+      },
+      {
+        "source_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/2019-04-23%20-%20Grenz%C3%BCbergang%20Ellund%20A7%20-%20E45.jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "credit_text": "Fabian Horst / Wikimedia Commons",
+        "rights_notes": "Original 4640x3480 JPEG; commercial reuse and local storage permitted with attribution/share-alike.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": true,
+        "alt_text": "Grænseovergangen ved Ellund og Padborg på E45"
+      }
+    ],
+    "discovery_run_id": "news-20260916-0616",
+    "discovery_audit": [
+      {
+        "candidate_id": "germany-border-controls-2027",
+        "source_pool": "discovery",
+        "path": "discovery",
+        "rank": 1,
+        "candidate_headline": "Tyskland forlænger grænsekontrol ved alle ni landegrænser til marts 2027",
+        "deep_screened": true,
+        "downstream_sources": ["European Commission", "Bundesregierung", "Bundespolizei"],
+        "decision": "selected",
+        "reason": "Frisk, direkte dansk relevans, stærk migrations-/Schengen-vinkel og dokumenteret af primærkilder.",
+        "model_prompt_version": "canonical-news-task-2026-09-16"
+      }
+    ]
+  },
+  "source_registry_updates": []
+}
