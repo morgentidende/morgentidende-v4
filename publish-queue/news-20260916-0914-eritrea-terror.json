@@ -1,0 +1,65 @@
+{
+  "queue_id": "news-20260916-0914-eritrea-terror",
+  "slug": "tyskland-anholder-ledere-eritrea-terrorgruppe",
+  "headline": "Tyskland anholder to ledere af eritreisk terrorgruppe",
+  "category_slug": "udland",
+  "deck": "Gruppen ville vælte Eritreas regering og brugte ifølge anklagemyndigheden vold i Tyskland. Også politifolk blev angrebet.",
+  "sagen_kort": [
+    "To ledende medlemmer af Brigade N’Hamedu Deutschland er fængslet efter anholdelser i Stuttgart og ved Saarbrücken.",
+    "Den føderale anklagemyndighed siger, at gruppen organiserede voldelige aktioner og accepterede angreb på tysk politi som middel."
+  ],
+  "body_markdown": "Den tyske føderale anklagemyndighed har anholdt to mænd, som den mistænker for at have haft ledende roller i den eritreiske gruppe Brigade N’Hamedu Deutschland. Myndighederne betegner den tyske afdeling som en terrororganisation.\n\nDe to mænd blev anholdt tirsdag i Stuttgart og i nærheden af Saarbrücken. En dommer ved den tyske højesteret har siden varetægtsfængslet dem.\n\nDen ene er eritreisk statsborger og skal ifølge anklagemyndigheden have været gruppens generalsekretær. Den anden er tysk statsborger og beskrives som gruppens første formand. Begge skal have været centrale i opbygningen af organisationen og planlægningen af dens voldelige aktioner.\n\n## Ville vælte regeringen i Eritrea\n\nBrigade N’Hamedu Deutschland blev ifølge anklagemyndigheden grundlagt i august 2022 som en selvstændig tysk afdeling af en internationalt forbundet eritreisk oppositionsbevægelse. Målet er at vælte den autoritære regering i Eritrea.\n\nKonflikten blev imidlertid ført ind på tyske gader. Gruppen skal have organiseret vold ved arrangementer for tilhængere af Eritreas regering, blandt andet i Gießen i 2022 og 2023 og i Stuttgart i september 2023.\n\nIfølge anklagemyndigheden betragtede medlemmer vold mod tyske statslige institutioner og politifolk som et legitimt middel. Ved urolighederne skal deltagere blandt andet have brugt kaste- og slaggenstande målrettet mod hoveder. Flere mennesker blev såret, nogle alvorligt.\n\nDen eritreiske mand mistænkes desuden for personligt at have deltaget aktivt i uroligheder i Gießen.\n\n## Razzia nåede også Danmark\n\nEfterforskningen har stået på længe. I marts 2025 ransagede tyske myndigheder 19 steder i seks delstater. Omkring 200 betjente deltog, og der blev samtidig gennemført en ransagning i Danmark. Dengang blev ingen anholdt.\n\nSagen illustrerer samtidig en vanskelig konflikt: Brigade N’Hamedu bekæmper et af verdens mest undertrykkende regimer. Eritrea har ingen frie nationale valg, og menneskerettighedsorganisationer beskriver blandt andet tvungen militærtjeneste, vilkårlige fængslinger og alvorlige begrænsninger af ytrings- og religionsfriheden.\n\nDet ændrer ifølge de tyske myndigheder ikke vurderingen af de metoder, den tyske afdeling mistænkes for at have brugt. Modstanden mod regimet skal være blevet omsat til organiseret vold i Tyskland — også mod de politifolk, der var sat ind for at beskytte arrangementerne.",
+  "source_metadata": [
+    {
+      "url": "https://www.generalbundesanwalt.de/SharedDocs/Pressemitteilungen/DE/2026/Pressemitteilung-vom-15-09-2026.html?nn=478184",
+      "name": "Generalbundesanwalt",
+      "class": "authoritative",
+      "published_at": "2026-09-15"
+    },
+    {
+      "url": "https://www.tagesschau.de/inland/bundesanwaltschaft-festnahme-eritrea-terrorgruppe-100.html",
+      "name": "Tagesschau",
+      "class": "authoritative",
+      "published_at": "2026-09-15"
+    },
+    {
+      "url": "https://www.welt.de/politik/deutschland/article6aa91a0414e96b91c66fb05b/brigade-nhamedu-bundespolizei-nimmt-zwei-mutmassliche-mitglieder-von-eritrea-terrorgruppe-fest.html",
+      "name": "WELT",
+      "class": "authoritative",
+      "published_at": "2026-09-15"
+    }
+  ],
+  "editorial_metadata": {
+    "final_qa_duplicate": false,
+    "story_cluster_id": "brigade-nhamedu-germany-2026",
+    "discovery_run_id": "news-20260916-0914",
+    "hero_candidates": [
+      {
+        "rank": 1,
+        "source_url": "https://commons.wikimedia.org/wiki/File:Riot_officers,_Polizei,_Stuttgart_(2019)_-_1.jpg",
+        "license": "CC BY-SA 4.0",
+        "creator": "Kevin.B",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "width": 2387,
+        "height": 1808,
+        "mime_type": "image/jpeg",
+        "description": "Tysk uropoliti i Stuttgart; relevant sted- og politimotiv, ikke foto af den konkrete hændelse."
+      }
+    ],
+    "discovery_audit": [
+      {
+        "candidate_id": "eritrea-terror-arrests",
+        "source_pool": "discovery",
+        "source_path": "Apollo News -> Generalbundesanwalt/Tagesschau/WELT",
+        "rank": 1,
+        "candidate_headline": "To ledere af Brigade N’Hamedu anholdt i Tyskland",
+        "deep_screened": true,
+        "downstream_sources": ["Generalbundesanwalt", "Tagesschau", "WELT"],
+        "decision": "selected",
+        "reason": "Frisk, stærk og dokumenteret historie om terror, importeret politisk vold og angreb på politi; ingen næsten-identisk historie i observerbar 7-dages GitHub-historik.",
+        "model_prompt_version": "canonical-news-task-2026-09-16"
+      }
+    ]
+  }
+}
