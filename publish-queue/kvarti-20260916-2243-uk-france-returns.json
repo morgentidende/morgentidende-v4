@@ -1,0 +1,84 @@
+{
+  "queue_id": "kvarti-20260916-2243-uk-france-returns",
+  "slug": "britisk-returaftale-koster-488000-kroner-per-migrant",
+  "headline": "Britisk returaftale koster 488.000 kroner for hver migrant sendt til Frankrig",
+  "category_slug": "udland",
+  "deck": "Kun omkring 1.400 er sendt tilbage. Indenrigsministeren erkender, at ordningen har været svær at skalere op.",
+  "body_markdown": "Storbritanniens aftale med Frankrig om at sende visse bådmigranter tilbage over Den Engelske Kanal koster omkring 488.000 kroner pr. person. Det oplyste den britiske indenrigsminister Shabana Mahmood tirsdag under en høring i Underhusets indenrigsudvalg.\n\nMahmood angav udgiften til cirka 56.000 britiske pund pr. returneret person. Med pundkursen 16. september svarer det til omtrent 488.000 kroner. Hun tog samtidig forbehold for, at hun ville sende udvalget de seneste officielle tal skriftligt.\n\nOrdningen kaldes »én ind, én ud«. Storbritannien kan sende visse personer, der er kommet over Kanalen i små både, tilbage til Frankrig. Til gengæld modtager briterne et tilsvarende antal personer fra Frankrig, som opfylder ordningens krav til blandt andet sikkerhed og adgang til Storbritannien.\n\nMahmood sagde, at omkring 1.400 personer indtil nu er blevet sendt tilbage til Frankrig. Hun beskrev antallet som relativt lille og sagde, at det operationelt har været vanskeligt at øge antallet af tilbagesendelser kraftigt.\n\nDe seneste fuldt offentliggjorte tal fra det britiske indenrigsministerium viser, at 1.087 personer var sendt til Frankrig frem til 30. juni, mens 1.117 personer var blevet overført den modsatte vej til Storbritannien. Tallene stammer fra ministeriets egne operative registreringssystemer.\n\nIndenrigsministeren forsvarede samtidig prisen med, at den ifølge hende omtrent svarer til eller ligger under udgiften ved at have en asylansøger boende på hotel i et år. Hun fremhævede også, at aftalen har vist, at tilbagesendelser til Frankrig praktisk kan gennemføres.\n\nKritikken rammer derfor ikke kun prisen, men også omfanget. En ordning, der er tænkt som afskrækkelse mod de farlige bådrejser, har indtil videre omfattet en begrænset del af de mennesker, der krydser Kanalen. Mahmoods egen forklaring er, at den franske kapacitet gør en hurtig opskalering vanskelig.\n\nAftalen begyndte i august 2025 og var oprindeligt tidsbegrænset. Den er siden blevet forlænget ind i oktober. Dermed står den britiske regering nu med to spørgsmål på én gang: om Frankrig vil fortsætte samarbejdet, og om en ordning til næsten en halv million kroner pr. tilbagesendelse kan gøres stor nok til reelt at påvirke trafikken over Kanalen.",
+  "source_metadata": [
+    {
+      "url": "https://www.gov.uk/government/publications/the-border-security-commanders-annual-report-data/transfers-into-and-returns-from-the-united-kingdom-under-the-uk-france-agreement-on-the-prevention-of-dangerous-journeys-between-6-august-2025-and-30",
+      "title": "Transfers into and returns from the United Kingdom under the UK-France Agreement",
+      "publisher": "UK Home Office",
+      "source_class": "authoritative",
+      "published_date": "2026-07-16"
+    },
+    {
+      "url": "https://www.theguardian.com/world/2026/sep/15/uk-paying-56000-for-each-person-returned-to-france-under-one-in-one-out-scheme",
+      "title": "UK paying £56,000 for each person returned to France under ‘one in one out’ scheme",
+      "publisher": "The Guardian",
+      "source_class": "authoritative",
+      "published_date": "2026-09-15"
+    },
+    {
+      "url": "https://brusselssignal.eu/2026/09/uk-migrant-return-deal-with-france-is-costing-about-e65500-for-each-person-sent-back/",
+      "title": "UK migrant return deal with France is costing about €65,500 for each person sent back",
+      "publisher": "Brussels Signal",
+      "source_class": "discovery_only",
+      "published_date": "2026-09-16"
+    }
+  ],
+  "editorial_metadata": {
+    "sagen_kort": [
+      "Den britiske indenrigsminister oplyser, at hver tilbagesendelse til Frankrig hidtil har kostet omkring 488.000 kroner.",
+      "Omkring 1.400 personer er sendt tilbage siden ordningen begyndte; ministeren siger, at det har været vanskeligt at øge antallet kraftigt."
+    ],
+    "final_qa_duplicate": false,
+    "hero_candidates": [
+      {
+        "rank": 1,
+        "source_url": "https://commons.wikimedia.org/wiki/File:UK_Home_Secretary_Shabana_Mahmood_hosts_Belgiums_Interior_Minister_Bernard_Quintin_at_Carlton_Gardens_on_9_September_2026_in_London,_UK_-_1.jpg",
+        "license": "CC BY 4.0",
+        "author": "Niklas Hallen / UK Home Office",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "width": 5000,
+        "height": 3333
+      },
+      {
+        "rank": 2,
+        "source_url": "https://commons.wikimedia.org/wiki/File:Home_Secretary,_Shabana_Mahmood_visits_%E2%80%98Center_Sandholm%E2%80%99_in_Copenhagen,_Denmark_where_asylum_seekers_are_first_registered_with_police_and_are_provided_with_initial_asylum_accommodation,_25_February_2026_-_40.jpg",
+        "license": "CC BY 4.0",
+        "author": "Niklas Hallen / UK Home Office",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "width": 4500,
+        "height": 3000
+      },
+      {
+        "rank": 3,
+        "source_url": "https://commons.wikimedia.org/wiki/File:Home_Secretary,_Shabana_Mahmood_visits_%E2%80%98Center_Sandholm%E2%80%99_in_Copenhagen,_Denmark_where_asylum_seekers_are_first_registered_with_police_and_are_provided_with_initial_asylum_accommodation,_25_February_2026_-_26.jpg",
+        "license": "CC BY 4.0",
+        "author": "Niklas Hallen / UK Home Office",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "width": 4500,
+        "height": 3000
+      }
+    ],
+    "discovery_run_id": "kvarti-20260916-2243",
+    "discovery_audit": [
+      {
+        "candidate_id": "uk-france-return-cost",
+        "source_pool": "discovery",
+        "rank": 1,
+        "candidate_headline": "UK-France return deal costs £56,000 per person returned",
+        "deep_screened": true,
+        "downstream_sources": ["UK Home Office", "The Guardian"],
+        "decision": "selected",
+        "reason": "Fresh, high-interest migration and public-spending story with official figures and ministerial disclosure.",
+        "model_prompt_version": "canonical-news-task-2026-09-16"
+      }
+    ]
+  }
+}
