@@ -1,0 +1,66 @@
+{
+  "queue_id": "halv-20260916-0228-eritrea-terror",
+  "slug": "to-ledere-af-eritreisk-terrorgruppe-anholdt-i-tyskland",
+  "headline": "To ledere af eritreisk terrorgruppe anholdt i Tyskland",
+  "category_slug": "udland",
+  "kind": "news",
+  "manchet": "Tysklands forbundsanklager mistænker gruppen for målrettet vold mod eritreere og politi. En af de anholdte er tysk statsborger.",
+  "sagen_kort": [
+    "To mænd, der ifølge anklagemyndigheden var ledende i Brigade N’Hamedu Deutschland, er anholdt og varetægtsfængslet.",
+    "Gruppen mistænkes for at have organiseret voldelige angreb ved eritreiske arrangementer og accepteret vold mod tysk politi som middel."
+  ],
+  "body_markdown": "Tysklands forbundsanklager har anholdt to mænd, som mistænkes for at have haft ledende roller i den eritreiske oppositionsgruppe Brigade N’Hamedu Deutschland, som myndighederne behandler som en indenlandsk terrororganisation.\n\nDe to mænd blev tirsdag anholdt i Stuttgart og nær Saarbrücken. Den ene er eritreisk statsborger, mens den anden er tysk statsborger. En dommer ved den tyske forbundsdomstol har udstedt arrestordrer, og begge er blevet varetægtsfængslet.\n\n## Mistænkt for at organisere vold\n\nIfølge den tyske forbundsanklager var de to mænd centrale i opbygningen af gruppens strukturer i Tyskland og i organiseringen af voldelige aktioner. Den eritreiske mand skal i en periode have været generalsekretær, mens den tyske mand skal have været gruppens første formand.\n\nBrigade N’Hamedu er en internationalt forbundet eritreisk oppositionsbevægelse, der ønsker at vælte Eritreas autoritære regering. Ifølge de tyske myndigheder har den tyske afdeling forsøgt at nå dette mål gennem vold ved arrangementer for tilhængere af regeringen i Eritrea.\n\nForbundsanklageren skriver, at gruppens medlemmer betragtede vold mod tyske statsinstitutioner og repræsentanter for staten – blandt andet politifolk, der beskyttede arrangementerne – som et legitimt middel.\n\nVed uroligheder i blandt andet Gießen og Stuttgart skal medlemmer have brugt kaste- og slagvåben målrettet mod hoveder. Flere mennesker blev ifølge myndighederne alvorligt såret.\n\n## Razzia nåede også Danmark\n\nSagen har tidligere ført til en omfattende politiaktion. I marts 2025 blev 19 adresser ransaget i seks tyske delstater. Mere end 200 betjente deltog, og der blev samtidig gennemført en ransagning i Danmark. Dengang blev ingen anholdt.\n\nEfterforskningen knytter sig blandt andet til voldelige sammenstød ved eritreiske festivaler i Gießen i 2022 og 2023 og et eritreisk arrangement i Stuttgart i 2023.\n\nEritreas regering under præsident Isaias Afwerki er samtidig internationalt kritiseret for systematisk undertrykkelse og alvorlige menneskerettighedskrænkelser. Det ændrer ifølge den tyske sag ikke på mistanken om, at modstandere af regimet har organiseret politisk vold på tysk jord.\n\nAnholdelserne markerer dermed et nyt skridt i en efterforskning, der nu ikke alene handler om tidligere gadevold, men om mistanken om en organiseret terrorstruktur med ledelse og netværk i Tyskland.",
+  "source_metadata": [
+    {
+      "source_name": "Generalbundesanwalt",
+      "url": "https://www.generalbundesanwalt.de/SharedDocs/Pressemitteilungen/DE/2026/Pressemitteilung-vom-15-09-2026.html?nn=478184",
+      "domain": "generalbundesanwalt.de",
+      "source_type": "primary_official"
+    },
+    {
+      "source_name": "Tagesschau",
+      "url": "https://www.tagesschau.de/inland/bundesanwaltschaft-festnahme-eritrea-terrorgruppe-100.html",
+      "domain": "tagesschau.de",
+      "source_type": "authoritative"
+    },
+    {
+      "source_name": "WELT",
+      "url": "https://www.welt.de/politik/deutschland/article6aa91a0414e96b91c66fb05b/brigade-nhamedu-bundespolizei-nimmt-zwei-mutmassliche-mitglieder-von-eritrea-terrorgruppe-fest.html",
+      "domain": "welt.de",
+      "source_type": "authoritative"
+    }
+  ],
+  "source_registry_updates": [],
+  "editorial_metadata": {
+    "discovery_run_id": "halv-20260916-0228",
+    "final_qa_duplicate": false,
+    "discovery_audit": [
+      {
+        "candidate_id": "apollo-brigade-nhamedu",
+        "source_pool": "discovery",
+        "rank": 1,
+        "candidate_headline": "To ledere af Brigade N’Hamedu anholdt på terrormistanke",
+        "deep_screened": true,
+        "downstream_sources": ["generalbundesanwalt.de", "tagesschau.de", "welt.de"],
+        "decision": "selected",
+        "reason": "Frisk, underdækket dansk-relevant historie med officiel primærkilde og to autoritative sekundærkilder; ingen næsten-identisk historie observeret i 7-dages GitHub [PUBLISH]-historik.",
+        "model_prompt_version": "news-task-canonical-2026-09-16"
+      }
+    ],
+    "hero_candidates": [
+      {
+        "source_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Eitrea%20Martyrs%27%20Day%20Remembrance%20%26%20Celebration%202023%20Asmara%2C%20Eritrea.jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "CC BY-SA 2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "credit_text": "Sol Debre / Wikimedia Commons",
+        "rights_notes": "Wikimedia Commons file, Flickr license reviewed; commercial reuse and local storage permitted with attribution/share-alike.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": true,
+        "alt_text": "Eritreisk mindehøjtidelighed i Asmara i 2023"
+      }
+    ]
+  }
+}
