@@ -1,0 +1,87 @@
+{
+  "queue_id": "news-20260916-1445-traunstein-politi",
+  "slug": "suspenderet-politibetjent-anklaget-for-voldtaegt-af-14-aarig",
+  "headline": "Suspenderet politibetjent anklaget for voldtægt af 14-årig",
+  "category_slug": "udland",
+  "manchet": "Retssagen er begyndt i Bayern. Den 55-årige er også tiltalt for besiddelse af hundredvis af filer med seksuelle overgreb mod børn.",
+  "sagen_kort": [
+    "En 55-årig suspenderet tysk politibetjent er ved Landgericht Traunstein tiltalt for at have voldtaget en 14-årig pige i august 2025.",
+    "Anklagemyndigheden beskylder desuden betjenten for at have haft hundredvis af filer med seksuelle overgreb mod børn; de yngste børn på materialet skal have været omkring tre år."
+  ],
+  "body_markdown": "En 55-årig suspenderet politibetjent er kommet for retten i den bayerske by Traunstein, anklaget for at have voldtaget en 14-årig pige og for at have været i besiddelse af hundredvis af filer med seksuelle overgreb mod børn.\n\nRetssagen begyndte mandag ved Landgericht Traunstein, den regionale domstol i byen. Ifølge Süddeutsche Zeitung og nyhedstjenesten dpa skal den påståede voldtægt være sket i august 2025 under en fælles udflugt.\n\nAnklagemyndigheden mener, at betjenten voldtog pigen på toilettet i en fastfoodrestaurant. Forud for episoden skal den tiltalte have sendt en pornografisk besked til den mindreårige via WhatsApp.\n\nDen tiltalte er en transkvinde og er ifølge dpa anbragt i mændenes afdeling i fængslet JVA München. Oplysningen er relevant for den aktuelle placering under frihedsberøvelsen, men ændrer ikke på, at skyldsspørgsmålet skal afgøres af retten.\n\nSagen omfatter også alvorlige anklager om ulovligt materiale. Efterforskere siger ifølge dpa, at der blandt de hundredvis af filer var brutale seksuelle overgreb mod børn, og at de yngste børn på materialet var omkring tre år.\n\nDen 55-årige er desuden anklaget for at have fremstillet pornografiske optagelser med et dyr.\n\nPolitibetjenten er suspenderet fra tjenesten. De beskrevne forhold er anklager, og den tiltalte skal betragtes som uskyldig, indtil retten eventuelt fastslår andet.\n\nLandgericht Traunstein er en regional domstol i det sydøstlige Bayern. Rettens officielle hjemmeside bekræfter institutionens rolle og placering, mens de konkrete anklager i denne sag er gengivet af Süddeutsche Zeitung og dpa.",
+  "source_metadata": [
+    {
+      "url": "https://www.sueddeutsche.de/bayern/traunstein-polizistin-landgericht-prozess-kinderpornografie-vergewaltigung-li.3547822",
+      "name": "Süddeutsche Zeitung",
+      "source_class": "authoritative",
+      "role": "central_reporting"
+    },
+    {
+      "url": "https://www.diebayern.de/justiz/polizistin-soll-jugendliche-vergewaltigt-haben-3180558",
+      "name": "dpa / DieBayern.de",
+      "source_class": "authoritative",
+      "role": "independent_wire_reporting"
+    },
+    {
+      "url": "https://www.justiz.bayern.de/gerichte-und-behoerden/landgericht/traunstein/",
+      "name": "Bayerisches Staatsministerium der Justiz",
+      "source_class": "authoritative",
+      "role": "primary_institutional_context"
+    }
+  ],
+  "editorial_metadata": {
+    "final_qa_duplicate": false,
+    "story_cluster_id": "traunstein-police-officer-trial-2026",
+    "discovery_run_id": "news-20260916-1445",
+    "candidate_id": "candidate-traunstein-politi",
+    "source_pool": "discovery",
+    "candidates_tried": 1,
+    "duplicate_of": null,
+    "audit": [
+      {
+        "rank": 1,
+        "candidate_headline": "Suspenderet politibetjent anklaget for voldtægt af 14-årig i Bayern",
+        "deep_screened": true,
+        "downstream_sources": ["Süddeutsche Zeitung", "dpa / DieBayern.de", "Bayerisches Staatsministerium der Justiz"],
+        "decision": "selected",
+        "reason": "Frisk og alvorlig retssag med stærk menneskelig interesse; centrale anklager er uafhængigt gengivet af Süddeutsche Zeitung og dpa."
+      }
+    ],
+    "model_prompt_version": "canonical-news-task-2026-09-16",
+    "hero_candidates": [
+      {
+        "rank": 1,
+        "source_url": "https://commons.wikimedia.org/wiki/File:Amtsgericht_Traunstein.JPG",
+        "license": "CC BY-SA 4.0",
+        "attribution": "Willtron",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "width": 5152,
+        "height": 3864,
+        "description": "Dokumentarisk foto af retsbygning i Traunstein"
+      },
+      {
+        "rank": 2,
+        "source_url": "https://commons.wikimedia.org/wiki/File:Rosenheimer_Str._2_JVA_Traunstein-2.jpg",
+        "license": "CC BY-SA 3.0",
+        "attribution": "Rufus46",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "width": 4820,
+        "height": 3055,
+        "description": "Dokumentarisk foto af fængselsbygningen i Traunstein"
+      },
+      {
+        "rank": 3,
+        "source_url": "https://commons.wikimedia.org/wiki/File:Traunstein_Altes_Landgericht.jpg",
+        "license": "Public domain",
+        "attribution": "Tilman AB",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "width": 2848,
+        "height": 4272,
+        "description": "Dokumentarisk foto af det tidligere Landgericht i Traunstein"
+      }
+    ]
+  }
+}
