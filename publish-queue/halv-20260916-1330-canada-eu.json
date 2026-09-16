@@ -1,0 +1,90 @@
+{
+  "payload_type": "article",
+  "queue_id": "halv-20260916-1330-canada-eu",
+  "slug": "von-der-leyen-vil-goere-canada-til-eus-foerste-associerede-medlem",
+  "headline": "Von der Leyen vil gøre Canada til EU's første associerede medlem",
+  "category_slug": "udland",
+  "manchet": "Den nye status findes ikke i EU-traktaterne. Forslaget kommer, mens Canada søger tættere bånd til Europa.",
+  "sagen_kort": [
+    "EU-Kommissionens formand Ursula von der Leyen foreslår, at Canada bliver EU's første associerede medlem.",
+    "Statussen findes ikke i EU-traktaterne, og de konkrete rettigheder og pligter er endnu ikke fastlagt."
+  ],
+  "body_markdown": "EU-Kommissionens formand Ursula von der Leyen vil åbne døren for, at Canada kan blive EU's første associerede medlem. Forslaget markerer et usædvanligt skridt mod en tættere politisk og økonomisk forbindelse mellem EU og et land uden for Europa.\n\nVon der Leyen fremlagde forslaget onsdag i sin årlige tale om EU's tilstand i Europa-Parlamentet i Strasbourg, hvor Canadas premierminister Mark Carney var til stede. Hun sagde, at hun vil arbejde sammen med ham om at åbne døren for Canada som det første associerede medlem.\n\nDet afgørende forbehold er, at en sådan medlemsstatus ikke findes i EU's nuværende traktater. Det er derfor endnu uklart, hvilke rettigheder Canada i givet fald vil få, hvilke forpligtelser landet skal påtage sig, og hvordan ordningen juridisk skal etableres.\n\nForslaget kommer efter en periode med markant dårligere forhold mellem Canada og USA. Carney har søgt tættere forbindelser til Europa og har talt om en særlig alliance med EU, men ikke om almindeligt medlemskab. Omkring 70 procent af Canadas eksport går i dag til USA, ifølge Associated Press.\n\nVon der Leyen vil bygge videre på den eksisterende handelsaftale CETA og skabe det, hun kalder en fremtidsalliance. Samarbejdet skal blandt andet omfatte avanceret produktion, teknologi, forsvarsindustri, Arktis, energi, kritiske råstoffer, kunstig intelligens og cybersikkerhed.\n\nCanada er allerede rykket tættere på EU på forsvarsområdet. Landet blev i år det første ikke-europæiske land, der sluttede sig til EU's SAFE-program for fælles forsvarsindkøb.\n\nVon der Leyen understregede samtidig, at det tættere samarbejde ikke er rettet mod andre lande. Det er en vigtig markering, fordi initiativet kommer på et tidspunkt, hvor Canadas handelsforhold til USA er blevet mere konfliktfyldt.\n\nForslaget er dermed foreløbig en politisk invitation og ikke en færdig medlemsordning. Næste store skridt ventes ved et EU-Canada-topmøde i Montreal i oktober, hvor parterne skal drøfte, hvor langt det nye samarbejde kan gå.",
+  "source_metadata": [
+    {
+      "title": "EU opens door for Canada to become first associate member, EU Commission President says",
+      "url": "https://www.reuters.com/world/eu-opens-door-canada-become-first-associate-member-eu-commission-president-says-2026-09-16/",
+      "publisher": "Reuters",
+      "source_class": "authoritative",
+      "published_date": "2026-09-16"
+    },
+    {
+      "title": "EU chief Ursula von der Leyen says she wants Canada to become the bloc's 1st associate member",
+      "url": "https://apnews.com/article/3fdb111dd4d23d88b3de88c274c52711",
+      "publisher": "Associated Press",
+      "source_class": "authoritative",
+      "published_date": "2026-09-16"
+    }
+  ],
+  "editorial_metadata": {
+    "story_cluster_id": "eu-canada-associate-membership-20260916",
+    "final_qa_duplicate": false,
+    "discovery_run_id": "halv-20260916-1330",
+    "discovery_audit": [
+      {
+        "candidate_id": "c1-euskadi-arrests",
+        "source_pool": "discovery",
+        "source_path": "The Objective -> Basque Security Department",
+        "rank": 1,
+        "candidate_headline": "Udlændinge fylder markant blandt anholdte i Baskerlandet",
+        "deep_screened": true,
+        "downstream_sources": ["Basque Security Department"],
+        "decision": "discarded_duplicate",
+        "reason": "Næsten identisk historie allerede afleveret i PR #519 samme dag.",
+        "duplicate_of": "PR #519"
+      },
+      {
+        "candidate_id": "c2-canada-eu-associate",
+        "source_pool": "discovery",
+        "source_path": "Brussels Signal -> Reuters/AP",
+        "rank": 2,
+        "candidate_headline": "Von der Leyen vil gøre Canada til EU's første associerede medlem",
+        "deep_screened": true,
+        "downstream_sources": ["Reuters", "Associated Press"],
+        "decision": "selected",
+        "reason": "Frisk og markant EU-historie med stor geopolitisk betydning; centralt faktum dokumenteret af Reuters og AP, og traktatforbeholdet er tydeligt medtaget.",
+        "model_prompt_version": "canonical-news-task-2026-09-16"
+      }
+    ],
+    "hero_candidates": [
+      {
+        "rank": 1,
+        "source_url": "https://commons.wikimedia.org/wiki/File:Participation_of_Ursula_von_der_Leyen,_President_of_the_European_Commission,_in_the_G7_summit_(P-070010-00-77).jpg",
+        "description": "Ursula von der Leyen ved G7-topmødet i 2026",
+        "license": "CC BY 4.0",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true
+      },
+      {
+        "rank": 2,
+        "source_url": "https://commons.wikimedia.org/wiki/File:Address_by_Mark_Carney_at_the_World_Economic_Forum_Annual_Meeting_2026.jpg",
+        "description": "Canadas premierminister Mark Carney taler ved World Economic Forum i 2026",
+        "license": "CC BY 4.0",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "width": 1724,
+        "height": 969
+      },
+      {
+        "rank": 3,
+        "source_url": "https://commons.wikimedia.org/wiki/File:Ursula_von_der_Leyen_at_a_visit_in_Germany,_2026.jpg",
+        "description": "EU-Kommissionens formand Ursula von der Leyen i 2026",
+        "license": "CC BY 4.0",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "width": 2667,
+        "height": 4000
+      }
+    ]
+  }
+}
