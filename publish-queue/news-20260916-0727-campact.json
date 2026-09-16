@@ -1,0 +1,57 @@
+{
+  "queue_id": "news-20260916-0727-campact",
+  "slug": "campact-bruger-150000-euro-paa-at-faa-groenne-i-landdagen",
+  "headline": "Campact bruger 150.000 euro på at få De Grønne over spærregrænsen",
+  "category_slug": "udland",
+  "kind": "news",
+  "manchet": "Kampagnen skal forhindre et AfD-ledet flertal i Mecklenburg-Vorpommern. CDU får ingen anbefaling.",
+  "sagen_kort": [
+    "Campact investerer 150.000 euro i 8.250 plakater, 195.000 postforsendelser, annoncer og sociale medier for at få De Grønne i landdagen.",
+    "Udgifterne behandles efter tysk lov som en donation til De Grønne, selv om pengene ifølge Campact finansierer organisationens egen kampagne."
+  ],
+  "body_markdown": "Fire dage før delstatsvalget i Mecklenburg-Vorpommern går den politiske kampagneorganisation Campact direkte ind i kampen om spærregrænsen. Organisationen bruger 150.000 euro på en kampagne, der opfordrer vælgerne til at stemme strategisk på De Grønne.\n\nMålet er udtrykkeligt at forhindre, at det indvandringskritiske parti AfD kan ende med et regeringsflertal sammen med Bündnis Sahra Wagenknecht (BSW).\n\nCampact oplyser, at pengene skal betale for 8.250 plakater, 195.000 postforsendelser, annoncer og kampagner på sociale medier. Pengene kommer ifølge organisationen fra dens NoAfD-fond, som er finansieret af donationer fra mere end 75.000 mennesker.\n\n## Pengene går ikke direkte til partiet\n\nCampact understreger, at der ikke overføres 150.000 euro kontant til De Grønne. Organisationen betaler selv for kampagnen. Efter de tyske regler bliver udgifterne imidlertid behandlet som en donation til partiet, og støtten er derfor blevet indberettet.\n\nDet bekræftes også af tyske medier. Berliner Zeitung skriver, at De Grønne har anmeldt en støtte på 150.000 euro fra Campact, og at sådanne kampagner til fordel for et parti formelt regnes som partistøtte efter partiloven.\n\n## CDU ligger også tæt på grænsen\n\nDet særlige ved kampagnen er, at Campact ikke samtidig anbefaler vælgerne at stemme på CDU, selv om også det kristendemokratiske parti ligger tæt på spærregrænsen.\n\nCampacts administrerende direktør Christoph Bautz forklarer beslutningen med, at organisationen betragter De Grønne som mere pålidelige i afvisningen af samarbejde med AfD. Han peger på CDU-politikere i Mecklenburg-Vorpommern, som har sat spørgsmålstegn ved den såkaldte brandmur mod AfD.\n\nCampact kalder selv strategien en \"nødforanstaltning\". Organisationens argument er, at det afgørende ikke nødvendigvis er, hvilket parti der bliver størst, men hvor mange partier der kommer over femprocentsgrænsen og dermed deltager i fordelingen af mandater.\n\n## Små udsving kan ændre flertallet\n\nMeningsmålingerne gør netop spærregrænsen central. I en måling foretaget af Pollytix for Campact stod AfD til 36 procent, SPD til 30, Linke til 12, CDU og De Grønne til seks procent hver og BSW til fem procent. Andre aktuelle målinger har BSW under spærregrænsen og CDU lidt højere.\n\nDet betyder, at ganske små bevægelser omkring fem procent kan ændre mandatfordelingen markant. Campact argumenterer derfor for, at vælgere, der først og fremmest vil forhindre en AfD-ledet regering, bør bruge deres andenstemme på De Grønne.\n\nCampact brugte en lignende strategi ved delstatsvalget i Sachsen-Anhalt tidligere i september. Her opfordrede organisationen vælgere til strategisk at støtte både SPD og De Grønne. Denne gang koncentreres indsatsen alene om De Grønne.\n\nValget i Mecklenburg-Vorpommern afholdes 20. september.",
+  "source_metadata": [
+    {
+      "source_name": "Campact",
+      "url": "https://www.campact.de/presse/mitteilung/20260915-pm-landtagswahl-mecklenburg-vorpommern-campact-ruft-zur-strategischen-wahl-der-gruenen-auf/",
+      "source_type": "primary_official"
+    },
+    {
+      "source_name": "n-tv",
+      "url": "https://www.n-tv.de/politik/Campact-greift-in-den-naechsten-Wahlkampf-ein-id31307405.html",
+      "source_type": "authoritative"
+    },
+    {
+      "source_name": "Berliner Zeitung",
+      "url": "https://www.berliner-zeitung.de/article/warum-campact-den-gruenen-150000-euro-fuer-die-wahl-in-mecklenburg-vorpommern-zahlt-10396187",
+      "source_type": "authoritative"
+    }
+  ],
+  "editorial_metadata": {
+    "discovery_run_id": "news-20260916-0727",
+    "discovery_audit": [
+      {
+        "candidate_id": "campact-mv-greens-150k",
+        "source_pool": "discovery",
+        "rank": 1,
+        "candidate_headline": "Campact bruger 150.000 euro på strategisk valgkamp for De Grønne",
+        "deep_screened": true,
+        "downstream_sources": ["Campact", "n-tv", "Berliner Zeitung"],
+        "decision": "selected",
+        "reason": "Fresh, well-documented undercovered political influence story matching current profile",
+        "model_prompt_version": "canonical-news-task-20260916"
+      }
+    ],
+    "final_qa_duplicate": false,
+    "hero_candidates": [
+      {
+        "source_url": "https://www.campact.de/wp-content/uploads/2026/09/strategisch-waehlen-mv-2026.jpg",
+        "source_provider": "campact",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "rights_notes": "Primary campaign material; use subject to Media Worker rights verification",
+        "alt_text": "Campacts kampagne om strategisk stemmeafgivning i Mecklenburg-Vorpommern"
+      }
+    ]
+  }
+}
