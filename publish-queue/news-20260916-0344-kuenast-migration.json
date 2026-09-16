@@ -1,0 +1,23 @@
+{
+  "queue_id": "news-20260916-0344-kuenast-migration",
+  "slug": "kuenast-tyskland-har-brug-for-udlaendinge",
+  "headline": "Künast til AfD-chef: »Vi har brug for udlændinge i dette land«",
+  "category_slug": "udland",
+  "kind": "news",
+  "manchet": "En tv-debat om velfærd og migration endte i et skarpt sammenstød mellem Renate Künast og AfD-chef Tino Chrupalla.",
+  "body_markdown": "## SAGEN KORT\n\n- Grønne-politikeren Renate Künast siger, at Tyskland har brug for udlændinge og udenlandske arbejdere for blandt andet innovation.\n- AfD-chef Tino Chrupalla peger på, at udlændinge udgør en stor del af modtagerne af den tyske borgerydelse.\n\nEn debat om Tysklands pressede velfærdssystem udviklede sig mandag aften til et direkte sammenstød om indvandring mellem den tidligere grønne minister Renate Künast og Tino Chrupalla, formand for det indvandringskritiske parti AfD.\n\nI ntv-programmet *Blome & Pfeffer* kritiserede Chrupalla regeringens reformer af pension og sundhed og sagde, at borgerne ender med at betale mere. Da samtalen drejede over på den tyske borgerydelse, fremhævede han den høje andel udenlandske modtagere.\n\n»Vi har 45 procent udlændinge på borgerydelsen, og det må vi gøre noget ved,« sagde Chrupalla ifølge ntv.\n\nKünast afviste hans generalisering og svarede med en helt anden vurdering af indvandringens betydning.\n\n»Vi har brug for udlændinge i dette land,« sagde hun. Hun tilføjede, at Tyskland også har brug for mennesker, der bor nogle år i landet fra andre EU-lande eller resten af verden, fordi landet har brug for innovation.\n\n## To vidt forskellige billeder af migration\n\nOrdvekslingen rammer en af de mest centrale politiske konflikter i Tyskland efter AfD's markante fremgang: om indvandring først og fremmest skal ses som nødvendig arbejdskraft eller som en belastning, når en stor gruppe står uden for arbejdsmarkedet og modtager offentlig forsørgelse.\n\nKünasts argument er, at den tyske økonomi og arbejdsstyrke har brug for mennesker udefra. Chrupallas argument er, at regeringen ikke kan diskutere velfærdsreformer uden samtidig at forholde sig til udlændinges andel blandt modtagerne af borgerydelsen.\n\nDe to var heller ikke enige om den politiske betydning af AfD's valgresultat i Sachsen-Anhalt. Chrupalla fremhævede vælgernes mandat, mens Künast advarede mod at læse resultatet som opbakning til hele AfD's politiske projekt.\n\nPå ét punkt var de dog tættere på hinanden: Begge rettede hård kritik mod kansler Friedrich Merz og vurderede, at et rent skifte på CDU's formandspost ikke vil løse regeringens problemer.\n\nDebatten viser dermed en konflikt, der rækker længere end et enkelt tv-opgør: Tyskland mangler arbejdskraft, samtidig med at spørgsmålet om migration, offentlige ydelser og integration er blevet en afgørende politisk skillelinje.",
+  "source_metadata": [
+    {"name":"ntv","url":"https://www.n-tv.de/politik/In-einem-Punkt-sind-sich-Kuenast-und-Chrupalla-einig-id31305300.html","type":"authoritative","note":"Direkte referat fra Blome & Pfeffer, 14. september 2026."},
+    {"name":"WELT","url":"https://www.welt.de/politik/deutschland/article6aa8d36277bd109fcdd01743/chrupalla-und-kuenast-gehen-in-tv-talk-aufeinander-los-sonst-haetten-sie-ja-die-gruenen-gewaehlt.html","type":"authoritative","note":"Uafhængigt referat af tv-debatten, 15. september 2026."}
+  ],
+  "editorial_metadata": {
+    "discovery_run_id": "news-20260916-0344",
+    "discovery_audit": [
+      {"candidate_id":"kuenast-chrupalla-migration","source_pool":"discovery","rank":1,"candidate_headline":"Künast: Vi har brug for udlændinge i dette land","deep_screened":true,"downstream_sources":["ntv","WELT"],"decision":"selected","reason":"Frisk, dokumenterbar migrationshistorie med direkte citat og tydelig politisk konflikt; ingen næsten-identisk historie i observerbar 7-dages [PUBLISH]-historik.","model_prompt_version":"news-task canonical 2026-09-16"}
+    ],
+    "final_qa_duplicate": false,
+    "hero_candidates": [
+      {"source_url":"https://commons.wikimedia.org/wiki/Special:Redirect/file/MKr345008%20Emily%20B%C3%BCning%20und%20Renate%20K%C3%BCnast%20%28BDK%202023%29.jpg","source_provider":"wikimedia_commons","license_name":"CC BY-SA 4.0","license_url":"https://creativecommons.org/licenses/by-sa/4.0/","credit_text":"Martin Kraft / Wikimedia Commons / CC BY-SA 4.0","rights_notes":"Original 8192×5464; commercial reuse and local storage permitted with attribution/share-alike.","commercial_use_allowed":true,"local_storage_allowed":true,"modifications_allowed":true,"attribution_required":true,"alt_text":"Renate Künast ved De Grønnes delegeretmøde i Karlsruhe i 2023"}
+    ]
+  }
+}
