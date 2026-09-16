@@ -1,0 +1,62 @@
+{
+  "queue_id": "news-20260916-0500-zdf-privatisering",
+  "slug": "tysk-minister-aabner-for-at-privatisere-zdf",
+  "headline": "Tysk minister åbner for at privatisere ZDF",
+  "dek": "Wolfram Weimer vil gentænke Tysklands licensfinansierede medier og skære ARD ned til fire eller fem stationer. Fagforbund og journalister protesterer.",
+  "category_slug": "udland",
+  "kind": "news",
+  "body_markdown": "Tysklands kultur- og medieminister Wolfram Weimer har sat gang i en usædvanligt vidtgående debat om landets offentligt finansierede radio og tv. Ved en konference i Berlin luftede den partiløse minister ifølge deltagere muligheden for at privatisere tv-stationen ZDF og samtidig samle de ni regionale ARD-stationer i langt færre enheder.\n\n## Vil skære systemet kraftigt ned\n\nIfølge Deutschlandfunk Kultur sagde Weimer, at man må overveje, om det nuværende system med både ARD og ZDF fortsat er nødvendigt i sin nuværende form. Han beskrev samtidig en mulig fremtidig ARD-struktur som et \"firkløver\" med blot fire eller fem stationer.\n\nWeimers argument er blandt andet konkurrencen på mediemarkedet. De offentligt finansierede stationer får deres indtægter fra den obligatoriske tyske medieafgift, mens private mediehuse skal konkurrere om reklamer og abonnementer. Ifølge referaterne sagde ministeren, at private selskaber som RTL står \"med ryggen mod muren\", mens markedet i stigende grad bliver domineret af to blokke: de store teknologiselskaber og de offentligt finansierede medier.\n\nForslaget går væsentligt længere end den reform, der allerede er trådt i kraft i år. Den skal gøre ARD, ZDF og Deutschlandradio billigere og øge samarbejdet, men bevarer både ZDF og de ni regionale ARD-stationer.\n\n## Kraftig modstand\n\nForslaget udløste hurtigt kritik. Den tyske journalistforening DJV kræver, at regeringen holder fingrene fra ARD og ZDF. Forbundsformand Mika Beuster fremhæver, at et stærkt og uafhængigt offentligt mediesystem efter hans opfattelse er vigtigt i en tid med desinformation og stor magt hos digitale platforme.\n\nOgså fagforbundet ver.di afviser ideen. Forbundet peger samtidig på en afgørende juridisk begrænsning: Det er de tyske delstater og ikke forbundsregeringen, der bestemmer over radio- og tv-systemet. Weimer kan derfor sætte debatten i gang, men han kan ikke selv privatisere ZDF.\n\nMinisterens kontor har ikke bekræftet de konkrete formuleringer fra den ikke-offentlige konference. En talsperson sagde til Deutschlandradio, at ministeriet ikke kommenterer referater fra et lukket arrangement.\n\nDermed er en privatisering langt fra besluttet. Men det bemærkelsesværdige er, hvor langt debatten nu er rykket: En minister i den tyske regering taler åbent om et mediesystem med markant færre offentlige stationer – og muligvis helt uden et offentligt ZDF.",
+  "sagen_kort": [
+    "Tysklands kultur- og medieminister Wolfram Weimer har ifølge deltagere luftet muligheden for at privatisere ZDF.",
+    "Han forestiller sig samtidig, at de ni regionale ARD-stationer kan reduceres til fire eller fem større enheder."
+  ],
+  "source_metadata": [
+    {
+      "source_name": "Deutschlandfunk Kultur",
+      "url": "https://www.deutschlandfunkkultur.de/kultur-und-medienstaatsminister-weimer-bringt-eine-privatisierung-des-zdf-ins-gespraech-100.html",
+      "source_type": "authoritative"
+    },
+    {
+      "source_name": "RedaktionsNetzwerk Deutschland",
+      "url": "https://www.rnd.de/medien/zdf-privatisieren-ard-zusammenlegen-weimer-denkt-ueber-umbau-der-oeffentlich-rechtlichen-nach-FAPIT6Y4RFGVNO4MTAHWIKAW6M.html",
+      "source_type": "authoritative"
+    },
+    {
+      "source_name": "Deutscher Journalisten-Verband",
+      "url": "https://www.djv.de/news/pressemitteilungen/press-detail/ard-und-zdf-stehen-nicht-zur-disposition/",
+      "source_type": "primary_official"
+    }
+  ],
+  "editorial_metadata": {
+    "discovery_run_id": "news-20260916-0500",
+    "final_qa_duplicate": false,
+    "discovery_audit": [
+      {
+        "candidate_id": "zdf-privatisering",
+        "source_pool": "discovery",
+        "rank": 1,
+        "candidate_headline": "Tysk minister åbner for at privatisere ZDF",
+        "deep_screened": true,
+        "downstream_sources": ["Deutschlandfunk Kultur", "RND", "DJV"],
+        "decision": "selected",
+        "reason": "Frisk, stærk og dokumenterbar medie- og statsmagtshistorie med høj relevans for avisens frihedsprofil.",
+        "model_prompt_version": "canonical-news-task-2026-09-16"
+      }
+    ],
+    "hero_candidates": [
+      {
+        "source_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Wolfram_Weimer_enhanced.jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "credit_text": "Raimond Spekking / CC BY-SA 4.0, via Wikimedia Commons",
+        "rights_notes": "Wikimedia Commons file page states CC BY-SA 4.0 and commercial reuse permitted with attribution/share-alike.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": true,
+        "alt_text": "Tysklands kultur- og medieminister Wolfram Weimer"
+      }
+    ]
+  }
+}
