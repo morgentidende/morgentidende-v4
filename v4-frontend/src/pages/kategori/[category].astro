@@ -1,7 +1,6 @@
 ---
 import V4Layout from '../../layouts/V4Layout.astro';
 import V4Card from '../../components/V4Card.astro';
-import NewsletterSignup from '../../components/NewsletterSignup.astro';
 import { loadCategoryPageData } from '../../lib/category-data';
 
 Astro.response.headers.set('Cache-Control', 'public, max-age=0, s-maxage=60, stale-while-revalidate=120');
@@ -47,7 +46,6 @@ const pageTitle = category
             </div>
           </section>
         ) : <div class="v4-empty">Der er endnu ingen artikler i denne sektion.</div>}
-        {isMagazine && !backendUnavailable ? <NewsletterSignup variant="weekly" magazineName={category.name} /> : null}
       </>
     ) : backendUnavailable ? (
       <div class="v4-empty">Nyhederne kan ikke hentes lige nu. Prøv igen om et øjeblik.</div>
