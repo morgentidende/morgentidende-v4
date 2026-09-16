@@ -20,6 +20,7 @@ De aktive ChatGPT-automationer ejer kun deres opgavespecifikke mandat, tidsplan 
 - Supabase håndterer artikler, scheduling, relationer, QA-kø og versionshistorik.
 - Cloudflare driver frontend/deployment.
 - Ingen secrets må ligge i det offentlige repo.
+- Nyhedsbrev-signup bruger AWS SES. Runtime-secret-navne står i `v4-frontend/.env.example` og sættes som Cloudflare Worker secrets.
 - Offentlige læsere får kun adgang til eksplicitte `v4_public_*` views.
 
 ## Vedligeholdelsesregel
