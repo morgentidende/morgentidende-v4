@@ -85,7 +85,16 @@ export const POST: APIRoute = async ({ request, site, locals }) => {
   });
 
   if (!mail.ok) {
-    logNewsletter('newsletter_signup', { result: 'ses_failed', source, provider_status: mail.status });
+    const released = await supabase.rpc('newsletter_release_confirmation_reservation', {
+      p_email: email,
+      p_newsletter: 'daily'
+    });
+    logNewsletter('newsletter_signup', {
+      result: 'ses_failed',
+      source,
+      provider_status: mail.status,
+      reservation_released: !released.error
+    });
     return json(502, { message: 'Vi kunne ikke sende bekræftelsesmailen. Prøv igen om lidt.' });
   }
 
