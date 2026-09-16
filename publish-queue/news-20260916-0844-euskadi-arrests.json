@@ -1,0 +1,59 @@
+{
+  "queue_id": "news-20260916-0844-euskadi-arrests",
+  "payload_type": "article",
+  "slug": "59-procent-af-anholdelser-i-baskerlandet-gjaldt-personer-foedt-i-udlandet",
+  "headline": "59 procent af anholdelser i Baskerlandet gjaldt personer født i udlandet",
+  "dek": "Nye officielle tal fra baskisk politi viser en markant forskel mellem anholdte og befolkningens sammensætning.",
+  "category_slug": "udland",
+  "sagen_kort": [
+    "Baskisk politi foretog 5.050 anholdelser i første halvår 2026; 2.963 af dem gjaldt personer født uden for Spanien.",
+    "Det svarer til 58,7 procent af alle anholdelser i opgørelsen, som blev opdateret af den baskiske statistikmyndighed i september."
+  ],
+  "body_markdown": "Næsten seks ud af ti anholdelser foretaget af det baskiske regionalpoliti Ertzaintza i første halvår af 2026 gjaldt personer født uden for Spanien. Det viser nye tal fra den baskiske statistikmyndighed Eustat og regionens sikkerhedsministerium.\n\nI alt registrerede Ertzaintza 5.050 anholdelser i årets første seks måneder. Af dem gjaldt 2.963 personer født i udlandet, svarende til 58,7 procent. 2.087 anholdelser gjaldt personer født i Spanien.\n\nTallene er opgjort efter fødested og ikke statsborgerskab. De kan derfor ikke bruges som et mål for, hvor mange af de anholdte der er udenlandske statsborgere. De viser heller ikke i sig selv, hvorfor grupperne er forskelligt repræsenteret.\n\n### Mere end 70.000 registrerede lovbrud\n\nBaskerlandets sikkerhedsministerium oplyste i juli, at regionens politi samlet registrerede 70.733 lovbrud i første halvår. Det var 2,29 procent færre end i samme periode året før. Tre fjerdedele var lovbrud begået fysisk, mens knap en fjerdedel var netkriminalitet.\n\nMinisteriets bredere opgørelse for hele det baskiske politi omfattede 14.744 anholdelser, herunder 4.443 efter retskendelser. Den opgørelse er ikke direkte sammenlignelig med Eustats særskilte tabel for Ertzaintza, men den bekræfter, at myndighederne nu offentliggør mere detaljerede oplysninger om de involveredes oprindelse.\n\n### Fødested er ikke en forklaring\n\nStatistikken beskriver politiets anholdelser, ikke domfældelser. En anholdelse er derfor ikke det samme som, at en person senere bliver kendt skyldig. Samtidig kan forskelle i blandt andet alder, køn, bosætning og sociale forhold påvirke kriminalitetsmønstre. De offentliggjorte tabeller fastslår ikke årsagen til overrepræsentationen.\n\nDet nye ved tallene er selve gennemsigtigheden: For første halvår kan offentligheden nu se, hvordan Ertzaintzas anholdelser fordeler sig efter fødested. Det gør det muligt at diskutere kriminalitet og integration på baggrund af konkrete myndighedstal frem for skøn.",
+  "source_metadata": [
+    {
+      "name": "Eustat / Baskerlandets sikkerhedsministerium",
+      "url": "https://es.eustat.eus/elementos/ele0025700/ti_detenciones-e-investigaciones-efectuadas-por-la-ertzaintza-por-motivo-segun-lugar-de-nacimiento-de-la-persona-detenidainvestigada-ii2026/tbl0025732_c.html",
+      "type": "primary",
+      "published_at": "2026-09-11"
+    },
+    {
+      "name": "Baskerlandets regering – Irekia",
+      "url": "https://www.irekia.euskadi.eus/es/news/112219",
+      "type": "primary",
+      "published_at": "2026-07-30"
+    }
+  ],
+  "editorial_metadata": {
+    "final_qa_duplicate": false,
+    "story_cluster_id": "euskadi-arrests-origin-2026h1",
+    "discovery_run_id": "news-20260916-0844",
+    "hero_candidates": [
+      {
+        "rank": 1,
+        "source_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Officers%20of%20the%20Ertzaintza%20in%20Bilbao.jpg",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Officers_of_the_Ertzaintza_in_Bilbao.jpg",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "license": "CC BY-SA 4.0",
+        "width": 3583,
+        "height": 2371,
+        "alt": "Betjente fra det baskiske regionalpoliti Ertzaintza i Bilbao."
+      }
+    ],
+    "discovery_audit": [
+      {
+        "candidate_id": "cand-euskadi-arrests-origin",
+        "source_pool": "discovery",
+        "source_path": "theobjective.com -> Eustat/Baskerlandets sikkerhedsministerium",
+        "rank": 1,
+        "candidate_headline": "59% of Basque arrests involve foreign-born people",
+        "deep_screened": true,
+        "downstream_sources": ["Eustat", "Baskerlandets regering – Irekia"],
+        "decision": "selected",
+        "reason": "Fresh official statistics document the central numbers; wording distinguishes birthplace from citizenship and arrest from conviction; seven-day GitHub publish history search found no near-identical Euskadi/Ertzaintza story.",
+        "model_prompt_version": "canonical-news-task-2026-09-16"
+      }
+    ]
+  }
+}
