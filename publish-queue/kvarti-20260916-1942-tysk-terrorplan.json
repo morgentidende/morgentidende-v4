@@ -1,0 +1,29 @@
+{
+  "queue_id": "kvarti-20260916-1942-tysk-terrorplan",
+  "slug": "tyskland-skaerper-kursen-efter-islamistisk-csd-angreb",
+  "headline": "Efter islamistisk CSD-angreb: Tyskland vil give mindst ét års fængsel for farlige knivangreb",
+  "category_slug": "udland",
+  "deck": "En ny ti-punktsplan skærper også kursen mod kendte islamister, IS-propaganda og terrorfinansiering.",
+  "body_markdown": "Den tyske regering har onsdag vedtaget en ti-punktsplan mod islamistisk terror efter det dødelige angreb på Christopher Street Day i Berlin i juli. Et af de mest konkrete punkter er en markant skærpelse af straffen for særligt farlige knivangreb.\n\nIfølge den tyske regering skal farlig legemsbeskadigelse med kniv eller et andet farligt redskab fremover kunne udløse mindst ét års fængsel, når offeret bringes i livsfare eller risikerer alvorlige helbredsskader. Forbrydelsen skal dermed behandles som en alvorligere lovovertrædelse end i dag.\n\nPlanen kommer efter angrebet på Berlin CSD den 25. juli. En 21-årig mand kørte ind i en menneskemængde, dræbte en kvinde og sårede mindst 31 mennesker. Efterforskere fandt efterfølgende en video på hans telefon med et troskabsløfte til den muslimske terrorbevægelse Islamisk Stat, IS. Manden var allerede kendt af myndighederne som radikal islamist.\n\nIndenrigsminister Alexander Dobrindt understreger, at den skærpede straf for knivangreb ikke kun skal gælde forbrydelser med islamistisk baggrund. Regeringens plan retter sig samtidig specifikt mod terrortruslen på flere andre områder.\n\nKendte personer, som myndighederne vurderer kan udgøre en terrortrussel, skal kunne overvåges tættere. Regeringen vil blandt andet styrke brugen af elektroniske fodlænker og forbedre udvekslingen af oplysninger mellem politi, sikkerhedsmyndigheder, anklagere og domstole.\n\nOgså reglerne om prøveløsladelse og betingede domme skal ændres. Ved fængselsstraffe på mindst et halvt år skal domstolene udtrykkeligt kunne lægge større vægt på hensynet til offentlighedens sikkerhed.\n\nJustitsminister Stefanie Hubig siger ifølge den tyske public service-station ARD, at angrebet i Berlin igen viste, at islamistisk terrorisme udgør en alvorlig fare. Planen indeholder desuden hårdere kurs mod udbredelse af IS-propaganda og indsamling af penge til terrororganisationen.\n\nRegeringen vil også gøre det lettere for delstaternes politi at få teleselskaber til midlertidigt at sikre oplysninger om kommunikation i konkrete efterforskninger og faresituationer.\n\nDen tyske dommerforening hilser ifølge ARD planen velkommen i hovedtræk, men advarer mod at tro, at nye og hårdere regler alene løser problemet. Foreningen peger på, at anklagemyndighederne allerede er hårdt belastede, og at skærpede love også kræver et retssystem med kapacitet til at håndhæve dem.\n\nTi-punktsplanen er vedtaget af regeringen, men flere af de konkrete lovændringer skal nu gennem den parlamentariske proces, før de kan træde i kraft.",
+  "source_metadata": [
+    {"url": "https://www.bundesregierung.de/breg-de/bundesregierung/bundeskanzleramt/massnahmen-gegen-terrorismus-2452850", "title": "Bundesregierung beschließt 10-Punkte-Plan für Schutz vor Terrorismus", "publisher": "Bundesregierung", "source_class": "authoritative", "published_at": "2026-09-16"},
+    {"url": "https://www.bmi.bund.de/SharedDocs/pressemitteilungen/DE/2026/09/10-punkte-bmjv-bmi.html", "title": "Sicherheit stärken, Freiheit bewahren, Radikalisierung verhindern", "publisher": "Bundesministerium des Innern", "source_class": "authoritative", "published_at": "2026-09-16"},
+    {"url": "https://www.tagesschau.de/inland/innenpolitik/massnahmen-islamistischer-terror-100.html", "title": "Zehn-Punkte-Plan der Regierung gegen Terror", "publisher": "Tagesschau", "source_class": "authoritative", "published_at": "2026-09-16"}
+  ],
+  "editorial_metadata": {
+    "sagen_kort": [
+      "Tysklands regering har vedtaget en ti-punktsplan mod islamistisk terror efter CSD-angrebet i Berlin, hvor én blev dræbt og mindst 31 såret.",
+      "Særligt farlige knivangreb skal kunne give mindst ét års fængsel; planen strammer også kursen mod kendte terrortrusler, IS-propaganda og terrorfinansiering."
+    ],
+    "final_qa_duplicate": false,
+    "hero_candidates": [
+      {"rank": 1, "source_url": "https://commons.wikimedia.org/wiki/File:2026_Fastnacht_in_Franken_-_Alexander_Dobrindt_-_by_2eight_-_9SC3047.jpg", "description": "Indenrigsminister Alexander Dobrindt", "license": "CC BY-SA 3.0 DE", "commercial_use_allowed": true, "local_storage_allowed": true, "width": 1733, "height": 2600},
+      {"rank": 2, "source_url": "https://commons.wikimedia.org/wiki/File:Stefanie_Hubig_by_Olaf_Kosinsky-1.jpg", "description": "Justitsminister Stefanie Hubig", "license": "CC BY-SA 3.0 DE", "commercial_use_allowed": true, "local_storage_allowed": true, "width": 2386, "height": 3498},
+      {"rank": 3, "source_url": "https://commons.wikimedia.org/wiki/File:Bundesministerium_des_Innern_Berlin_2.jpg", "description": "Det tyske indenrigsministerium i Berlin", "license": "CC BY-SA 3.0", "commercial_use_allowed": true, "local_storage_allowed": true, "width": 2129, "height": 1606}
+    ],
+    "discovery_run_id": "news-20260916-1942",
+    "discovery_audit": [
+      {"candidate_id": "cand-1", "source_pool": "discovery", "source_path": "NIUS", "rank": 1, "candidate_headline": "Tyskland vedtager ti-punktsplan mod islamistisk terror", "deep_screened": true, "downstream_sources": ["Bundesregierung", "Bundesministerium des Innern", "Tagesschau"], "decision": "selected", "reason": "Frisk, stærk og dokumenteret sikkerheds- og islamismehistorie med officiel primærkilde", "model_prompt_version": "canonical-news-task-2026-09-16"}
+    ]
+  }
+}
