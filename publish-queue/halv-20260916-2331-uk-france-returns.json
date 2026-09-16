@@ -1,0 +1,87 @@
+{
+  "queue_id": "halv-20260916-2331-uk-france-returns",
+  "slug": "hver-retur-til-frankrig-koster-488000-kroner",
+  "headline": "Hver migrantretur til Frankrig koster Storbritannien 488.000 kroner",
+  "category_slug": "udland",
+  "deck": "Den britiske indenrigsminister forsvarer prisen: Den svarer omtrent til et års hotelophold for en asylansøger.",
+  "body_markdown": "Storbritanniens aftale med Frankrig om at sende migranter tilbage over Den Engelske Kanal koster omkring 488.000 kroner pr. person. Det oplyste indenrigsminister Shabana Mahmood tirsdag under en høring i Underhusets indenrigsudvalg.\n\nMahmood satte selv prisen til cirka 56.000 pund for hver person, der hidtil er sendt tilbage. Med en kurs på omkring 8,72 kroner pr. pund svarer det til knap 488.000 kroner. Hun understregede samtidig, at hun ville sende udvalget de seneste officielle tal skriftligt.\n\nOmkring 1.400 personer er ifølge Mahmood blevet sendt fra Storbritannien til Frankrig, siden forsøgsordningen begyndte i august 2025. Ganges ministerens gennemsnitspris med antallet af returer, svarer det til omtrent 684 millioner kroner. Det er et beregnet beløb og ikke et særskilt officielt oplyst samlet regnskab.\n\nOrdningen kaldes »én ind, én ud«. Storbritannien kan sende visse personer, der er kommet over Kanalen i små både, tilbage til Frankrig. Til gengæld tager briterne imod et tilsvarende antal asylansøgere fra Frankrig, som kommer gennem en lovlig ordning og består de nødvendige kontroller.\n\nMahmood forsvarede udgiften over for udvalget. Hun sagde, at prisen fortsat er omtrent den samme som eller lavere end udgiften ved at have en asylansøger boende på hotel i Storbritannien i et år.\n\nDen britiske avis The Guardian oplyser, at nogle af de personer, som er blevet sendt til Frankrig, senere er vendt tilbage til Storbritannien i lastbiler eller små både. Det rejser spørgsmålet om, hvor stor en varig effekt de kostbare returer har.\n\nMahmood sagde dog, at ordningen har vist, at det praktisk kan lade sig gøre at returnere personer til Frankrig. Hun erkendte samtidig, at antallet stadig er forholdsvis lille, og at det har været vanskeligt at opskalere antallet af ugentlige returer.\n\nForsøget står desuden foran en politisk skillevej. Det blev oprindeligt indført som en tidsbegrænset ordning og er nu forlænget ind i oktober. Frankrig har signaleret, at landet hellere ser en bredere aftale mellem Storbritannien og EU end at fortsætte alene med den bilaterale ordning.\n\nFor den britiske regering er regnestykket derfor dobbelt: Returerne skal både kunne gennemføres i langt større antal og være billigere eller mere effektive end alternativet, hvis ordningen skal blive et varigt redskab mod de ulovlige bådkrydsninger over Kanalen.",
+  "source_metadata": [
+    {
+      "url": "https://committees.parliament.uk/event/27650",
+      "title": "Shabana Mahmood questioned on work of the Home Office",
+      "source_name": "UK Parliament",
+      "source_class": "authoritative",
+      "published_date": "2026-09-15"
+    },
+    {
+      "url": "https://www.theguardian.com/world/2026/sep/15/uk-paying-56000-for-each-person-returned-to-france-under-one-in-one-out-scheme",
+      "title": "UK paying £56,000 for each person returned to France under ‘one in, one out’ scheme",
+      "source_name": "The Guardian",
+      "source_class": "authoritative",
+      "published_date": "2026-09-15"
+    },
+    {
+      "url": "https://wise.com/gb/currency-converter/gbp-to-dkk-rate/history",
+      "title": "British pound sterling to Danish kroner Exchange Rate History",
+      "source_name": "Wise",
+      "source_class": "authoritative",
+      "published_date": "2026-09-16"
+    }
+  ],
+  "editorial_metadata": {
+    "sagen_kort": [
+      "Den britiske regering oplyser, at hver migrant, der sendes tilbage til Frankrig under forsøgsordningen, hidtil har kostet cirka 488.000 kroner.",
+      "Omkring 1.400 personer er sendt tilbage siden august 2025; nogle er ifølge britiske medier senere kommet til Storbritannien igen."
+    ],
+    "final_qa_duplicate": false,
+    "discovery_run_id": "halv-20260916-2331",
+    "candidate_audit": [
+      {
+        "candidate_id": "uk-france-returns-cost",
+        "source_pool": "discovery",
+        "source_path": "Brussels Signal -> UK Parliament/The Guardian",
+        "rank": 1,
+        "candidate_headline": "UK migrant return deal costs £56,000 per person",
+        "deep_screened": true,
+        "downstream_sources": ["UK Parliament", "The Guardian", "Wise"],
+        "decision": "publish",
+        "reason": "Fresh, strongly documented migration/public-spending story with a primary parliamentary source and high profile match.",
+        "model_prompt_version": "canonical-news-task-2026-09-16"
+      }
+    ],
+    "hero_candidates": [
+      {
+        "rank": 1,
+        "source_url": "https://commons.wikimedia.org/wiki/File:Minister_for_Illegal_Migration_Michael_Tomlinson_visits_Western_Jetfoil,_Dover._(53547231591).jpg",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "license": "CC BY 2.0",
+        "rights_note": "Wikimedia Commons file page states CC BY 2.0; UK Government photograph at Dover concerning small-boat arrivals."
+      },
+      {
+        "rank": 2,
+        "source_url": "https://commons.wikimedia.org/wiki/File:Prime_Minister_Rishi_Sunak_visits_Border_Force_in_Dover_-_52952746573.jpg",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "license": "Open Government Licence / Commons",
+        "rights_note": "Wikimedia Commons file page identifies Crown copyright licensed under the Open Government Licence; Border Force cutter in Dover Strait."
+      },
+      {
+        "rank": 3,
+        "source_url": "https://commons.wikimedia.org/wiki/File:Prime_Minister_Rishi_Sunak_visits_Border_Force_in_Dover_-_52952432159.jpg",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "license": "CC BY 2.0",
+        "rights_note": "Wikimedia Commons file page states CC BY 2.0; documentary Border Force scene in Dover."
+      },
+      {
+        "rank": 4,
+        "source_url": "https://commons.wikimedia.org/wiki/File:Prime_Minister_Rishi_Sunak_visits_Border_Force_in_Dover_-_52952296261.jpg",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "license": "CC BY 2.0",
+        "rights_note": "Wikimedia Commons file page states CC BY 2.0; documentary Border Force photograph in Dover."
+      }
+    ]
+  }
+}
