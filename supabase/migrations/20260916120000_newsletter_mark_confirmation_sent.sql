@@ -1,5 +1,7 @@
 -- Minting a confirmation token must not start the 2-minute resend lock.
 -- The lock is applied only after SES has accepted the confirmation email.
+-- Concurrent first-time signups for the same email are serialized with a
+-- transaction-scoped advisory lock so only one minted token can be stored.
 
 create or replace function public.newsletter_begin_signup(
   p_email text,
@@ -31,11 +33,18 @@ begin
     raise exception 'invalid_newsletter_metadata';
   end if;
 
+  -- Serialize mint+upsert for this (email, newsletter) even when no row exists yet.
+  perform pg_advisory_xact_lock(hashtext(v_email), hashtext('daily'));
+
   select status, last_confirmation_sent_at
     into v_status, v_last_sent
   from public.newsletter_subscribers
   where email = v_email and newsletter = 'daily'
   for update;
+
+  if v_status = 'active' then
+    raise exception 'already_subscribed';
+  end if;
 
   if v_status = 'pending' and v_last_sent is not null and v_last_sent > now() - interval '2 minutes' then
     raise exception 'signup_rate_limited';
@@ -52,19 +61,16 @@ begin
     now(), null, null, encode(digest(v_token, 'sha256'), 'hex'), v_expires, null, now()
   )
   on conflict (email, newsletter) do update set
-    status = case when newsletter_subscribers.status = 'active' then 'active' else 'pending' end,
+    status = 'pending',
     delivery_time = '06:00',
     consent_version = excluded.consent_version,
     consent_text = excluded.consent_text,
     signup_source = excluded.signup_source,
-    signup_at = case when newsletter_subscribers.status = 'active' then newsletter_subscribers.signup_at else now() end,
-    confirmation_token_hash = case when newsletter_subscribers.status = 'active' then newsletter_subscribers.confirmation_token_hash else excluded.confirmation_token_hash end,
-    confirmation_expires_at = case when newsletter_subscribers.status = 'active' then newsletter_subscribers.confirmation_expires_at else excluded.confirmation_expires_at end,
-    updated_at = now();
-
-  if v_status = 'active' then
-    raise exception 'already_subscribed';
-  end if;
+    signup_at = now(),
+    confirmation_token_hash = excluded.confirmation_token_hash,
+    confirmation_expires_at = excluded.confirmation_expires_at,
+    updated_at = now()
+  where newsletter_subscribers.status is distinct from 'active';
 
   return query select v_token, v_expires;
 end;
