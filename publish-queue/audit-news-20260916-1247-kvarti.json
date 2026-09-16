@@ -1,0 +1,26 @@
+{
+  "payload_type": "discovery_audit",
+  "queue_id": "audit-news-20260916-1247-kvarti",
+  "terminal_reason": "INSUFFICIENT_DOCUMENTATION",
+  "discovery_run_id": "news-20260916-1247-kvarti",
+  "candidates_tried": 1,
+  "source_pool": "discovery",
+  "editorial_metadata": {
+    "candidates": [
+      {
+        "candidate_id": "pfe-south-africa-exhibition-20260909",
+        "rank": 1,
+        "candidate_headline": "European Parliament blocks Patriots for Europe exhibition on South Africa",
+        "source_path": "Brussels Signal -> attempted primary/authoritative verification",
+        "deep_screened": true,
+        "downstream_sources": [
+          "European Parliament public records/search",
+          "Brussels Signal"
+        ],
+        "decision": "rejected",
+        "reason": "The central case-specific claim that the European Parliament blocked the planned exhibition could not be independently documented by an accessible primary or authoritative source within the run budget. Available European Parliament material confirmed surrounding institutional context but not the blocking decision itself. Discovery-only reporting therefore cannot carry the central fact under the canonical source floor.",
+        "model_prompt_version": "docs/automations/news-task.md@a4f3b70f2df354f3710dfd6481dbf88437c4535b"
+      }
+    ]
+  }
+}
