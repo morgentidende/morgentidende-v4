@@ -1,0 +1,30 @@
+{
+  "queue_id": "halv-20260916-1929-eu-wallet",
+  "slug": "24-af-27-eu-lande-risikerer-at-misse-frist-for-digital-id-pung",
+  "headline": "24 af 27 EU-lande står til at misse frist for digital ID-pung",
+  "category_slug": "udland",
+  "deck": "EU kræver digitale identitetspunge inden jul. Kun tre medlemslande har ifølge Euronews systemer klar i tide.",
+  "body_markdown": "Kun tre af EU's 27 medlemslande står ifølge Euronews til at have en digital identitetspung klar inden fristen 24. december 2026. Dermed risikerer 24 lande at komme for sent med et system, som efter EU-reglerne skal tilbydes borgere, fastboende og virksomheder.\n\nDen digitale pung er tænkt som en app, hvor brugeren blandt andet kan opbevare og fremvise identitetsoplysninger, kørekort, eksamensbeviser og andre digitale dokumenter. EU-Kommissionen beskriver ordningen som frivillig for borgerne og understreger, at brugeren selv skal kunne bestemme, hvilke oplysninger der deles.\n\nKommissionens egne regler kræver, at hvert medlemsland tilbyder mindst én europæisk digital identitetspung. Fælles tekniske standarder skal gøre løsningerne anvendelige på tværs af landegrænser. Kommissionen fremhæver blandt andet lokal lagring af data, kontrol over deling og et indbygget overblik over, hvem oplysninger er delt med.\n\nMen udrulningen er langt fra ensartet. Euronews skriver, at Italien er længst fremme med næsten otte millioner månedlige brugere. Tyskland planlægger først lancering i januar 2027, mens Nederlandene har udskudt sin løsning til slutningen af 2027 efter et pilotforsøg med blot 57 brugere. Bulgarien arbejder fortsat med den nødvendige lovgivning.\n\nForsinkelsen kommer, mens EU samtidig udbygger de tekniske og juridiske krav omkring systemet. EU's cybersikkerhedsagentur ENISA arbejder med certificering af de digitale punge, og Kommissionen har vedtaget fælles standarder for blandt andet sikkerhed og brug på tværs af medlemslandene.\n\nPrivatliv er et centralt stridspunkt. Kommissionen siger, at systemet er designet til at beskytte persondata og undgå sporing og profilering. Euronews peger samtidig på kritik fra den europæiske digitalrettighedsorganisation EDRi, som har advaret mod udkast til regler, der efter organisationens vurdering kan svække privatlivsbeskyttelsen og indebære brug af ansigtsgenkendelse.\n\nFor borgerne er den vigtigste skelnen, at fristen gælder medlemslandenes pligt til at stille en løsning til rådighed. Det er ikke en frist, der tvinger den enkelte til at tage den digitale pung i brug. Ifølge Euronews vil eksisterende papirdokumenter fortsat være gyldige.\n\nKommissionen har tidligere fremhævet praktiske anvendelser som at åbne en bankkonto, bevise sin alder, forny recepter, leje en bil eller bruge digitale rejsedokumenter. Hvis Euronews' opgørelse holder, vil den fælles europæiske tidsplan imidlertid begynde med et markant efterslæb: knap ni ud af ti medlemslande står til ikke at være klar på den fastsatte dato.",
+  "source_metadata": [
+    {"name":"Euronews","url":"https://www.euronews.com/my-europe/2026/09/16/eu-digital-wallet-24-of-27-members-will-miss-the-deadline","type":"authoritative","published_at":"2026-09-16"},
+    {"name":"European Commission — EU Digital Identity Wallet","url":"https://ec.europa.eu/digital-building-blocks/sites/spaces/EUDIGITALIDENTITYWALLET/pages/881984674/Wallet+for+service+providers","type":"primary"},
+    {"name":"European Commission — technical standards","url":"https://digital-strategy.ec.europa.eu/en/news/commission-adopts-technical-standards-cross-border-european-digital-identity-wallets","type":"primary","published_at":"2024-11-28"}
+  ],
+  "editorial_metadata": {
+    "sagen_kort": [
+      "24 af EU's 27 medlemslande står ifølge Euronews til at misse fristen 24. december for at tilbyde en digital identitetspung.",
+      "Ordningen er frivillig for borgerne og skal kunne bruges til blandt andet ID, kørekort, eksamensbeviser og andre digitale dokumenter."
+    ],
+    "final_qa_duplicate": false,
+    "discovery_run_id": "halv-20260916-1929",
+    "story_cluster_key": "eu-digital-identitetspung",
+    "hero_candidates": [
+      {"rank":1,"source_url":"https://commons.wikimedia.org/wiki/File:Entr%C3%A9e_Commission_Europ%C3%A9enne_Berlaymont.jpg","license":"CC BY-SA 4.0","author":"Nicolas Richoffer","commercial_use_allowed":true,"local_storage_allowed":true,"width":2784,"height":1848,"reason":"EU-Kommissionens hovedsæde, direkte relevant for EU-reglerne bag den digitale identitetspung."},
+      {"rank":2,"source_url":"https://commons.wikimedia.org/wiki/File:European_Commission_Bruxelles.jpg","license":"CC BY-SA 4.0","author":"Serenapaliria","commercial_use_allowed":true,"local_storage_allowed":true,"width":2458,"height":1639,"reason":"Dokumentarisk foto af EU-Kommissionen i Bruxelles."},
+      {"rank":3,"source_url":"https://commons.wikimedia.org/wiki/File:European_Parliament_Strasbourg_04.jpg","license":"CC BY-SA 4.0","author":"FrDr","commercial_use_allowed":true,"local_storage_allowed":true,"width":4640,"height":6960,"reason":"Dokumentarisk foto fra Europa-Parlamentet, relevant som institutionelt EU-motiv."}
+    ],
+    "discovery_audit": [
+      {"candidate_id":"eu-wallet-24-of-27","source_pool":"discovery","source_path":"Brussels Signal -> Euronews -> European Commission","rank":1,"candidate_headline":"24 of 27 EU members will miss digital identity wallet deadline","deep_screened":true,"downstream_sources":["Euronews","European Commission"],"decision":"selected","reason":"Fresh, strong privacy/state-digitalisation story; central rollout facts independently documented by Euronews and legal framework by Commission.","model_prompt_version":"news-task.md@a005454d"}
+    ]
+  }
+}
