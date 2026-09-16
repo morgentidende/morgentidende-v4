@@ -7,7 +7,7 @@ Denne fil ejer kun de regler, som gælder på tværs af autonom artikelproduktio
 - **Fælles artikelkrav og journalistens eget slut-QA:** denne fil.
 - **Nyhedsprofil, politiske skalaer, discovery og bredt nyhedsmix:** `docs/news-editorial-profile-and-discovery.md`.
 - **Viden og Liv:** `docs/magazine-editorial-policy.md`.
-- **Hero-rettigheder, lokal arkivering, hosting og kreditering:** `docs/media-library.md`.
+- **Hero-rettigheder, lokal arkivering, medie-ingest og kreditering:** `docs/media-library.md`.
 - **Produkt, frontend, CMS, publiceringsbuffer og teknisk QA:** `docs/v4-spec.md` og den aktive Supabase-implementering.
 - Historiske filer, migrationshistorik og deaktiverede automations er ikke aktuelle regelsæt.
 
