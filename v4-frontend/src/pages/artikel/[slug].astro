@@ -27,6 +27,7 @@ const category = article ? categoryById.get(article.category_id) : '';
 const { bodyHtml, remainingStoryRelated } = await buildArticleBody(article, storyRelated);
 const briefPoints = buildBriefPoints(article);
 const showBrief = briefPoints.length === 2;
+const briefLabel = category === 'Viden' || category === 'Liv' ? 'Artiklen kort' : 'Sagen kort';
 
 const { relevantThree, currentThree } = buildArticleRecommendations(article, recommendations, storyRelated);
 const heroIsGraphic = /\.(svg|png)(\?|$)/i.test(article?.hero_url || '') && (article?.hero_credit === 'Morgentidende grafik' || (article?.hero_url || '').includes('dsa-big-brother'));
@@ -72,8 +73,8 @@ const {
       </header>
 
       {showBrief ? (
-        <aside class="v4-article-brief" aria-label="Sagen kort">
-          <div class="v4-article-brief__title">Sagen kort</div>
+        <aside class="v4-article-brief" aria-label={briefLabel}>
+          <div class="v4-article-brief__title">{briefLabel}</div>
           <ul>{briefPoints.map((point) => <li>{point}</li>)}</ul>
         </aside>
       ) : null}
