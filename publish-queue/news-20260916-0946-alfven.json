@@ -1,0 +1,65 @@
+{
+  "queue_id": "news-20260916-0946-alfven",
+  "slug": "svensk-aktivist-doemt-for-at-navngive-doemte-sexualforbrydere",
+  "headline": "Svensk aktivist dømt for at navngive dømte seksualforbrydere",
+  "category_slug": "udland",
+  "manchet": "Dommen har udløst politisk debat i Sverige, hvor regeringen nu vil se på reglerne om injurier.",
+  "sagen_kort": [
+    "Jonatan Alfvén er dømt for grov injurie efter opslag med navn, foto og bopæl på fem mænd, der var dømt for seksualforbrydelser.",
+    "Han får betinget dom og dagbøder og skal betale omkring 235.000 kroner i samlet erstatning til de fem mænd."
+  ],
+  "body_markdown": "En svensk aktivist er blevet dømt for grov injurie, efter at han på sociale medier offentliggjorde navn, foto og bopæl på fem mænd, der tidligere var dømt for seksualforbrydelser.\n\nStockholms tingsrätt oplyser, at den 34-årige mand havde mere end 100.000 følgere på Facebook og omkring 47.000 på Instagram. Opslagene blev delt i stort omfang. Retten fandt, at oplysningerne var egnede til at udsætte de fem mænd for andres ringeagt.\n\nAktivisten Jonatan Alfvén har erkendt, at han offentliggjorde oplysningerne, men gjorde gældende, at offentliggørelsen var forsvarlig. Ifølge SVT byggede opslagene hovedsageligt på offentligt tilgængelige domme. Tingsrätten vurderede imidlertid, at spredningen til en så stor og ubestemt kreds ikke var forsvarlig, og at der ikke var omstændigheder, som gjorde offentliggørelsen akut nødvendig.\n\nAlfvén er idømt en betinget dom og dagbøder. Han skal desuden betale 70.000 svenske kroner til hver af de fem mænd, samlet omkring 235.000 danske kroner (350.000 svenske kroner).\n\n## Sandheden er ikke altid nok\n\nSagen rammer en særlig del af svensk injurieret. At en oplysning er sand, betyder ikke automatisk, at den lovligt kan offentliggøres. Retten skal også vurdere, om det var forsvarligt at sprede oplysningen i den konkrete sammenhæng.\n\nAlfvén sagde efter dommen til SVT, at en fældende afgørelse var ventet på grund af den svenske lovgivning. Han kaldte størrelsen på erstatningen »helt horribel« og sagde, at han ønsker regler som i Norge og Danmark, hvor sandheden efter hans opfattelse tillægges større vægt. Han har varslet anke.\n\nDommen har samtidig løftet sagen fra en konflikt mellem en aktivist og fem dømte mænd til en bredere politisk debat om grænsen mellem privatliv og retten til at fortælle om alvorlig kriminalitet. SVT oplyser, at den svenske regering vil se på injurielovgivningen. Statsminister Ulf Kristersson har ifølge Sveriges Radio kaldt reglerne forældede.\n\nTingsrättens begrundelse peger den anden vej: Selv korrekte oplysninger kan efter svensk ret påføre mennesker og deres pårørende alvorlig skade, når de spredes med navn, billede og bopæl til et meget stort publikum.\n\nAlfvén har sagt, at han vil fortsætte sit arbejde for udsatte kvinder og børn. Dermed er den juridiske strid næppe slut med dommen i første instans.",
+  "source_metadata": [
+    {
+      "name": "Stockholms tingsrätt",
+      "url": "https://www.domstol.se/nyheter/2026/09/34-arig-man-doms-till-villkorlig-dom-och-boter-for-grovt-fortal/",
+      "type": "primary",
+      "authoritative": true
+    },
+    {
+      "name": "SVT Nyheter",
+      "url": "https://www.svt.se/nyheter/inrikes/aktivist-som-pekade-ut-sexbrottslingar-doms",
+      "type": "authoritative",
+      "authoritative": true
+    },
+    {
+      "name": "Sveriges Radio",
+      "url": "https://www.sverigesradio.se/artikel/jonatan-alfven-doms-for-att-ha-hangt-ut-domda-pedofiler",
+      "type": "authoritative",
+      "authoritative": true
+    }
+  ],
+  "editorial_metadata": {
+    "final_qa_duplicate": false,
+    "story_cluster_id": "se-alfven-defamation-2026",
+    "discovery_run_id": "news-run-20260916-0946",
+    "source_pool": "discovery",
+    "audit": [
+      {
+        "candidate_id": "cand-alfven-defamation",
+        "rank": 1,
+        "headline_topic": "Svensk aktivist dømt efter at have navngivet dømte seksualforbrydere",
+        "deep_screened": true,
+        "downstream_sources": ["Stockholms tingsrätt", "SVT Nyheter", "Sveriges Radio"],
+        "decision": "selected",
+        "reason": "Stærk ytringsfriheds- og retshistorie; centrale fakta dokumenteret af domstolen og to svenske public-service-medier; ingen næsten-identisk historie fundet i observerbar 7-dages GitHub [PUBLISH]-historik.",
+        "model_prompt_version": "canonical-news-task-2026-09-16"
+      }
+    ],
+    "hero_candidates": [
+      {
+        "rank": 1,
+        "source_url": "https://upload.wikimedia.org/wikipedia/commons/f/f4/StockholmsTingsratt20150704-1.JPG",
+        "source_page_url": "https://commons.wikimedia.org/wiki/File:StockholmsTingsratt20150704-1.JPG",
+        "credit": "Patrik Nylin / Wikimedia Commons",
+        "license": "CC BY-SA 4.0",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "width": 5184,
+        "height": 3456,
+        "mime_type": "image/jpeg",
+        "relevance": "Foto fra Stockholms tingsrätt, domstolen der afsagde dommen."
+      }
+    ]
+  }
+}
