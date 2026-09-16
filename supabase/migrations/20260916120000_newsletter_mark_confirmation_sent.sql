@@ -1,7 +1,25 @@
--- Minting a confirmation token must not start the 2-minute resend lock.
--- The lock is applied only after SES has accepted the confirmation email.
--- Concurrent first-time signups for the same email are serialized with a
--- transaction-scoped advisory lock so only one minted token can be stored.
+-- Confirmation send reservation:
+-- begin_signup mints a token and reserves it atomically.
+-- Concurrent callers cannot replace a live reservation.
+-- mark_confirmation_sent records a successful SES accept.
+-- release_confirmation_reservation clears a failed send.
+-- Stale reservations expire after 45 seconds so a crashed Worker cannot lock the address.
+
+alter table public.newsletter_subscribers
+  add column if not exists confirmation_send_state text not null default 'idle',
+  add column if not exists confirmation_reserved_at timestamptz;
+
+do $$
+begin
+  if not exists (
+    select 1 from pg_constraint
+    where conname = 'newsletter_subscribers_confirmation_send_state_check'
+  ) then
+    alter table public.newsletter_subscribers
+      add constraint newsletter_subscribers_confirmation_send_state_check
+      check (confirmation_send_state in ('idle', 'reserved', 'sent'));
+  end if;
+end $$;
 
 create or replace function public.newsletter_begin_signup(
   p_email text,
@@ -21,6 +39,9 @@ declare
   v_expires timestamptz;
   v_status text;
   v_last_sent timestamptz;
+  v_send_state text;
+  v_reserved_at timestamptz;
+  v_count integer;
 begin
   v_email := lower(trim(p_email));
   if v_email is null or length(v_email) < 3 or length(v_email) > 320 or v_email !~ '^[^[:space:]@]+@[^[:space:]@]+\.[^[:space:]@]+$' then
@@ -33,11 +54,10 @@ begin
     raise exception 'invalid_newsletter_metadata';
   end if;
 
-  -- Serialize mint+upsert for this (email, newsletter) even when no row exists yet.
   perform pg_advisory_xact_lock(hashtext(v_email), hashtext('daily'));
 
-  select status, last_confirmation_sent_at
-    into v_status, v_last_sent
+  select status, last_confirmation_sent_at, confirmation_send_state, confirmation_reserved_at
+    into v_status, v_last_sent, v_send_state, v_reserved_at
   from public.newsletter_subscribers
   where email = v_email and newsletter = 'daily'
   for update;
@@ -46,8 +66,12 @@ begin
     raise exception 'already_subscribed';
   end if;
 
-  if v_status = 'pending' and v_last_sent is not null and v_last_sent > now() - interval '2 minutes' then
+  if v_last_sent is not null and v_last_sent > now() - interval '2 minutes' then
     raise exception 'signup_rate_limited';
+  end if;
+
+  if v_send_state = 'reserved' and v_reserved_at is not null and v_reserved_at > now() - interval '45 seconds' then
+    raise exception 'signup_in_flight';
   end if;
 
   v_token := encode(gen_random_bytes(32), 'hex');
@@ -55,10 +79,12 @@ begin
 
   insert into public.newsletter_subscribers (
     email, newsletter, status, delivery_time, consent_version, consent_text, signup_source,
-    signup_at, confirmed_at, unsubscribed_at, confirmation_token_hash, confirmation_expires_at, last_confirmation_sent_at, updated_at
+    signup_at, confirmed_at, unsubscribed_at, confirmation_token_hash, confirmation_expires_at,
+    last_confirmation_sent_at, confirmation_send_state, confirmation_reserved_at, updated_at
   ) values (
     v_email, 'daily', 'pending', '06:00', p_consent_version, p_consent_text, nullif(trim(p_signup_source), ''),
-    now(), null, null, encode(digest(v_token, 'sha256'), 'hex'), v_expires, null, now()
+    now(), null, null, encode(digest(v_token, 'sha256'), 'hex'), v_expires,
+    null, 'reserved', now(), now()
   )
   on conflict (email, newsletter) do update set
     status = 'pending',
@@ -69,8 +95,24 @@ begin
     signup_at = now(),
     confirmation_token_hash = excluded.confirmation_token_hash,
     confirmation_expires_at = excluded.confirmation_expires_at,
+    confirmation_send_state = 'reserved',
+    confirmation_reserved_at = now(),
     updated_at = now()
-  where newsletter_subscribers.status is distinct from 'active';
+  where newsletter_subscribers.status is distinct from 'active'
+    and (
+      newsletter_subscribers.confirmation_send_state is distinct from 'reserved'
+      or newsletter_subscribers.confirmation_reserved_at is null
+      or newsletter_subscribers.confirmation_reserved_at <= now() - interval '45 seconds'
+    )
+    and (
+      newsletter_subscribers.last_confirmation_sent_at is null
+      or newsletter_subscribers.last_confirmation_sent_at <= now() - interval '2 minutes'
+    );
+  get diagnostics v_count = row_count;
+
+  if v_count = 0 then
+    raise exception 'signup_in_flight';
+  end if;
 
   return query select v_token, v_expires;
 end;
@@ -101,6 +143,8 @@ begin
 
   update public.newsletter_subscribers
   set last_confirmation_sent_at = now(),
+      confirmation_send_state = 'sent',
+      confirmation_reserved_at = null,
       updated_at = now()
   where email = v_email
     and newsletter = 'daily'
@@ -114,3 +158,39 @@ revoke all on function public.newsletter_mark_confirmation_sent(text,text) from 
 revoke all on function public.newsletter_mark_confirmation_sent(text,text) from authenticated;
 revoke all on function public.newsletter_mark_confirmation_sent(text,text) from anon;
 grant execute on function public.newsletter_mark_confirmation_sent(text,text) to service_role;
+
+create or replace function public.newsletter_release_confirmation_reservation(
+  p_email text,
+  p_newsletter text default 'daily'::text
+)
+returns boolean
+language plpgsql
+security definer
+set search_path = public
+as $$
+declare
+  v_email text;
+  v_count integer;
+begin
+  v_email := lower(trim(p_email));
+  if v_email is null or p_newsletter <> 'daily' then
+    return false;
+  end if;
+
+  update public.newsletter_subscribers
+  set confirmation_send_state = 'idle',
+      confirmation_reserved_at = null,
+      updated_at = now()
+  where email = v_email
+    and newsletter = 'daily'
+    and status = 'pending'
+    and confirmation_send_state = 'reserved';
+  get diagnostics v_count = row_count;
+  return v_count > 0;
+end;
+$$;
+
+revoke all on function public.newsletter_release_confirmation_reservation(text,text) from public;
+revoke all on function public.newsletter_release_confirmation_reservation(text,text) from authenticated;
+revoke all on function public.newsletter_release_confirmation_reservation(text,text) from anon;
+grant execute on function public.newsletter_release_confirmation_reservation(text,text) to service_role;
