@@ -1,0 +1,56 @@
+{
+  "queue_id": "news-20260916-0302-foxtrot-stavanger",
+  "slug": "tre-teenagere-retten-foxtrot-bestillingsdrab-england",
+  "headline": "Tre teenagere for retten: Tiltalt for at hjælpe Foxtrot med bestillingsdrab",
+  "category_slug": "udland",
+  "kind": "news",
+  "excerpt": "Tre unge fra Stavanger nægter sig skyldige i en sag om et planlagt drab i England for det svenske Foxtrot-netværk.",
+  "body_markdown": "**SAGEN KORT**\n\n- Tre teenagere fra Stavanger er kommet for retten, tiltalt for at have hjulpet med et planlagt bestillingsdrab i England.\n- Påtalemyndigheden knytter opdraget til det svenske kriminelle netværk Foxtrot. Alle tre nægter sig skyldige.\n\nTre teenagere fra Stavanger står nu for Sør-Rogaland tingrett, tiltalt for at have bidraget til et planlagt bestillingsdrab i England. Ifølge påtalemyndigheden kom drabsopdraget fra det svenske kriminelle netværk Foxtrot.\n\nSagen begyndte tirsdag. De tre tiltalte er 17, 18 og 19 år, og alle nægter sig skyldige i anklagerne om medvirken til drabsplanen.\n\n## Våben fundet på hotelværelse\n\nDen mand, som ifølge anklagemyndigheden skulle udføre drabet, er en 19-årig fra Stavanger. Han blev anholdt af britisk antiterrorpoliti på et hotelværelse i Huddersfield mellem Leeds og Manchester. Politiet fandt to håndvåben og ammunition på værelset.\n\nDen 19-årige blev tidligere på sommeren kendt skyldig ved en britisk domstol i at have planlagt drabet. Selve angrebet blev aldrig gennemført.\n\nNu handler den norske retssag om de tre unge, som ifølge anklagemyndigheden hjalp ham på forskellig vis.\n\nEn af de tiltalte, som nu er 19 år, beskyldes blandt andet for at have overført flere tusinde norske kroner til manden, der rejste til England. Pengene skulle ifølge anklagemyndigheden stamme fra dem, der bestilte drabet.\n\nEn 18-årig er tiltalt for at have hjulpet med at skaffe et nødpas, mens den 17-årige ifølge tiltalen formidlede selve opdraget.\n\n## Tiltalt efter mafiabestemmelse\n\nStatsadvokat Geir Evanger beskriver de tre som unge mænd, der på forskellige måder skal have bidraget til den 19-åriges rejse og drabsplan. Fordi politiet mener, at Foxtrot stod bag bestillingen, er de tiltalt efter den norske såkaldte mafiabestemmelse om kriminalitet begået som led i en organiseret kriminel gruppe.\n\nForsvarerne afviser, at de unge er skyldige. Den 17-åriges forsvarer Evelyn Egeli har fastslået, at hendes klient ikke erkender strafskyld. Det samme gælder den 18-årige og den 19-årige.\n\nSagen føjer sig til en række alvorlige sager med forbindelse mellem unge nordmænd og Foxtrot. En anden 17-årig, der beskrives som en hovedperson i det norske sagskompleks, blev i juni idømt 14 års forvaring for blandt andet drab og drabsforsøg. Han er også dømt for at have rekrutteret den 19-årige til opdraget i England. Dele af den dom er varslet anket.\n\nRetssagen mod de tre teenagere er planlagt til at fortsætte frem til 23. september.",
+  "source_metadata": [
+    {
+      "url": "https://www.vg.no/nyheter/i/L47BvJ/tre-tenaaringer-for-retten-tiltalt-etter-mafiaparagrafen",
+      "name": "VG / NTB",
+      "classification": "authoritative",
+      "notes": "Aktuel retsdækning 15. september 2026 med tiltale, alder, forsvarernes svar og statsadvokatens udtalelse."
+    },
+    {
+      "url": "https://www.aftenbladet.no/emne/drapsforbund-saken",
+      "name": "Stavanger Aftenblad",
+      "classification": "authoritative",
+      "notes": "Lokal hoveddækning af drapsforbund-sagskomplekset og Foxtrot-forbindelsen."
+    }
+  ],
+  "editorial_metadata": {
+    "story_cluster_id": "foxtrot-stavanger-drapsforbund-2026",
+    "discovery_run_id": "news-20260916-0302",
+    "final_qa_duplicate": false,
+    "discovery_audit": [
+      {
+        "candidate_id": "foxtrot-stavanger-trial",
+        "source_pool": "discovery",
+        "rank": 1,
+        "candidate_headline": "Tre tenåringer for retten – tiltalt etter mafiaparagrafen",
+        "deep_screened": true,
+        "downstream_sources": ["VG/NTB", "Stavanger Aftenblad"],
+        "decision": "selected",
+        "reason": "Frisk retssagsstart, stærk kriminalhistorie med nordisk Foxtrot-forbindelse og ingen næsten-identisk [PUBLISH]-historie i det observerede 7-dages-grundlag.",
+        "prompt_version": "docs/automations/news-task.md@e5e4b628"
+      }
+    ],
+    "hero_candidates": [
+      {
+        "source_url": "https://upload.wikimedia.org/wikipedia/commons/2/2e/Stavanger_tingrett.JPG",
+        "source_provider": "wikimedia_commons",
+        "license_name": "CC BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "credit_text": "Jarle Vines / Wikimedia Commons / CC BY-SA 3.0",
+        "rights_notes": "Own work; commercial reuse and modification permitted with attribution and share-alike.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": true,
+        "alt_text": "Stavanger tinghus, hvor Sør-Rogaland tingrett har rettssted."
+      }
+    ]
+  }
+}
