@@ -1,0 +1,97 @@
+{
+  "queue_id": "kvarti-20260917-0047-campact-gruene",
+  "slug": "campact-millionkampagne-groenne-mecklenburg-vorpommern",
+  "headline": "Kampagne bruger 1,1 millioner kroner på at få De Grønne over spærregrænsen",
+  "category_slug": "udland",
+  "deck": "Campact anbefaler direkte en stemme på De Grønne for at mindske AfD's chance for regeringsmagt ved søndagens delstatsvalg.",
+  "body_markdown": "Den tyske kampagneorganisation Campact bruger omkring 1,1 millioner kroner (150.000 euro) på en målrettet valgkampagne, der skal hjælpe De Grønne over spærregrænsen ved delstatsvalget i Mecklenburg-Vorpommern søndag 20. september.\n\nCampact oplyser selv, at kampagnen omfatter 8.250 plakater, 195.000 husstandsomdelte forsendelser og annoncer. Budskabet til vælgerne er usædvanligt direkte: Brug andenstemmen på De Grønne for at forhindre, at det indvandringskritiske AfD får mulighed for at lede delstatsregeringen.\n\nOrganisationen understreger, at pengene ikke overføres til partiet. Efter de tyske regler bliver udgifterne imidlertid behandlet som støtte til De Grønne, fordi Campacts kampagne konkret anbefaler vælgerne at stemme på partiet. De Grønne er ifølge Campact orienteret om anbefalingen og har accepteret den.\n\nCampacts egen begrundelse er parlamentarisk matematik. Organisationen vurderer, at AfD sammen med det systemkritiske BSW kan få flertal, hvis mindre partier falder under spærregrænsen på fem procent. Både De Grønne og det kristendemokratiske CDU ligger tæt på grænsen i målingerne.\n\nAlligevel anbefaler Campact kun De Grønne. Organisationens direktør Christoph Bautz begrunder valget med, at De Grønne efter hans vurdering står mere sikkert fast på den politiske afstand til AfD, mens enkelte CDU-politikere har åbnet for samarbejde. Campact siger samtidig, at organisationen tidligere har støttet forskellige partier og betegner sig som partipolitisk neutral.\n\nCampact skriver selv, at det i princippet vil være nok, at enten De Grønne eller CDU kommer i landdagen, hvis målet alene er at gøre et flertal mellem AfD og BSW vanskeligere. Organisationen vurderer dog, at den har langt bedre mulighed for at påvirke potentielle grønne vælgere end CDU-vælgere.\n\nKampagnen kommer få dage før valget. NDR bekræfter, at Mecklenburg-Vorpommern vælger ny landdag 20. september, og at spærregrænsen er central for mandatfordelingen.\n\nCampacts 150.000 euro svarer med en kurs omkring 7,46 kroner pr. euro til cirka 1,12 millioner kroner. Pengene kommer ifølge organisationen fra dens fond mod AfD, som er finansieret af bidrag fra mere end 75.000 mennesker.",
+  "source_metadata": [
+    {
+      "url": "https://www.campact.de/presse/mitteilung/20260915-pm-landtagswahl-mecklenburg-vorpommern-campact-ruft-zur-strategischen-wahl-der-gruenen-auf/",
+      "title": "Landtagswahl Mecklenburg-Vorpommern: Campact ruft zur strategischen Wahl der Grünen auf",
+      "source_type": "primary"
+    },
+    {
+      "url": "https://www.campact.de/strategisch-waehlen/mecklenburg-vorpommern-2026/",
+      "title": "Landtagswahl Mecklenburg-Vorpommern 2026: Taktisch wählen",
+      "source_type": "primary"
+    },
+    {
+      "url": "https://www.merkur.de/politik/landtagswahlen-in-mecklenburg-vorpommern-gruene-zittern-campact-organisiert-kampagne-zr-94494864.html",
+      "title": "150.000 Euro für Kampagne zur MV-Wahl: Campact ruft zur taktischen Wahl der Grünen auf",
+      "source_type": "authoritative"
+    },
+    {
+      "url": "https://www.ndr.de/nachrichten/mecklenburg-vorpommern/faq-alles-wichtige-zur-landtagswahl-2026-in-mecklenburg-vorpommern,mvwahl-216.html",
+      "title": "FAQ: Alles Wichtige zur Landtagswahl 2026 in Mecklenburg-Vorpommern",
+      "source_type": "authoritative"
+    }
+  ],
+  "editorial_metadata": {
+    "sagen_kort": [
+      "Campact bruger 150.000 euro – cirka 1,12 millioner kroner – på plakater, post og annoncer, der anbefaler vælgerne at stemme på De Grønne.",
+      "Organisationen siger, at målet er at forhindre et muligt AfD-ledet flertal; pengene går ikke direkte til partiet, men udgiften behandles efter reglerne som partistøtte."
+    ],
+    "final_qa_duplicate": false,
+    "discovery_run_id": "news-20260917-0047-kvarti",
+    "hero_candidates": [
+      {
+        "rank": 1,
+        "source_url": "https://commons.wikimedia.org/wiki/File:Nina_Chuba_singing_Brandmauer_demo_Berlin_2_Feb_2025_a.jpg",
+        "description": "Campact-organiseret demonstration i Berlin mod samarbejde med AfD; direkte relevant for organisationens aktuelle anti-AfD-kampagne.",
+        "license": "CC BY 4.0",
+        "attribution": "Robbie Morrison",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "width": 5700,
+        "height": 3600
+      },
+      {
+        "rank": 2,
+        "source_url": "https://commons.wikimedia.org/wiki/File:Landtag_Schwerin-Plenum_und_Pr%C3%A4sidum.jpg",
+        "description": "Plenarsalen i Mecklenburg-Vorpommerns landdag i Schwerin, hvor mandatfordelingen efter valget får virkning.",
+        "license": "CC BY-SA 3.0",
+        "attribution": "Martin Kraft / photo.martinkraft.com",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "width": 2000,
+        "height": 1333
+      },
+      {
+        "rank": 3,
+        "source_url": "https://commons.wikimedia.org/wiki/File:Landtag_Schwerin-Rednerpult.jpg",
+        "description": "Talerstolen i Mecklenburg-Vorpommerns landdag i Schwerin.",
+        "license": "CC BY-SA 3.0",
+        "attribution": "Martin Kraft / Wikimedia Commons",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "width": 1333,
+        "height": 2000
+      }
+    ],
+    "discovery_audit": [
+      {
+        "candidate_id": "cand-eritrea-brigade",
+        "source_pool": "discovery/apollo-news",
+        "rank": 1,
+        "candidate_headline": "To ledere af eritreisk terrorgruppe anholdt i Tyskland",
+        "deep_screened": true,
+        "downstream_sources": ["Generalbundesanwalt", "Tagesschau", "WELT"],
+        "decision": "rejected_duplicate",
+        "reason": "Semantisk dublet af PR #528.",
+        "model_prompt_version": "canonical-news-task-2026-09-17"
+      },
+      {
+        "candidate_id": "cand-campact-gruene-mv",
+        "source_pool": "discovery/apollo-news",
+        "rank": 2,
+        "candidate_headline": "Campact bruger 150.000 euro på strategisk valgkampagne for De Grønne",
+        "deep_screened": true,
+        "downstream_sources": ["Campact", "Merkur", "NDR"],
+        "decision": "selected",
+        "reason": "Frisk, dokumenteret og profilrelevant historie uden semantisk dublet i observerbar 7-dages [PUBLISH]-historik.",
+        "model_prompt_version": "canonical-news-task-2026-09-17"
+      }
+    ]
+  }
+}
