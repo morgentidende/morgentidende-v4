@@ -1,0 +1,52 @@
+{
+  "payload_type": "discovery_audit",
+  "queue_id": "audit-news-20260916-1115-kvartover",
+  "run_id": "news-20260916-1115-kvartover",
+  "terminal_reason": "INSUFFICIENT_DOCUMENTATION",
+  "discovery_audit": [
+    {
+      "candidate_id": "brussels-signal-ep-south-africa-exhibition",
+      "source_pool": "discovery",
+      "rank": 1,
+      "candidate_headline": "European Parliament blocks Patriots exhibition on South Africa",
+      "deep_screened": true,
+      "downstream_sources": ["brusselssignal.eu"],
+      "decision": "rejected",
+      "reason": "Discovery report was seven days old and the central censorship/pressure claim could not be independently anchored to a fresh authoritative or primary source within the run budget.",
+      "model_prompt_version": "canonical-news-task@a4f3b70"
+    },
+    {
+      "candidate_id": "rebelnews-notwithstanding-judges",
+      "source_pool": "discovery",
+      "rank": 2,
+      "candidate_headline": "Notwithstanding clause protects Canada from undemocratic judges",
+      "deep_screened": false,
+      "downstream_sources": ["rebelnews.com"],
+      "decision": "rejected",
+      "reason": "Commentary/video framing rather than a sufficiently strong fresh documentable news event for Morgentidende.",
+      "model_prompt_version": "canonical-news-task@a4f3b70"
+    },
+    {
+      "candidate_id": "rmx-british-trains-foreign-arrests",
+      "source_pool": "discovery",
+      "rank": 3,
+      "candidate_headline": "Foreign nationals overrepresented in British railway arrests",
+      "deep_screened": false,
+      "downstream_sources": ["rmx.news"],
+      "decision": "rejected",
+      "reason": "Underlying event/data was not fresh enough for this ordinary news run.",
+      "model_prompt_version": "canonical-news-task@a4f3b70"
+    },
+    {
+      "candidate_id": "tec-save-europe-act",
+      "source_pool": "discovery",
+      "rank": 4,
+      "candidate_headline": "Commission refusal of Save Europe Act citizens initiative",
+      "deep_screened": false,
+      "downstream_sources": ["europeanconservative.com"],
+      "decision": "rejected",
+      "reason": "Story was materially stale for the current run and did not justify publication as a new ordinary news article.",
+      "model_prompt_version": "canonical-news-task@a4f3b70"
+    }
+  ]
+}
