@@ -1,0 +1,76 @@
+{
+  "queue_id": "hel-20260917-0100-basque-arrests",
+  "slug": "baskerlandet-udenlandskfoedte-anholdelser-seksualforbrydelser",
+  "headline": "79 af 107 anholdte i seksualsager i Baskerlandet var født i udlandet",
+  "category_slug": "udland",
+  "deck": "Nye tal fra det baskiske politi viser en markant overrepræsentation blandt udenlandskfødte i flere kategorier af anholdelser.",
+  "body_markdown": "79 af de 107 personer, som det baskiske politi Ertzaintza anholdt for forbrydelser mod den seksuelle frihed i første halvår af 2026, var født uden for Spanien. Det svarer til knap 74 procent.\n\nTallene er offentliggjort af den baskiske sikkerhedsforvaltning og omtalt af det spanske medie The Objective. I alt foretog Ertzaintza 5.050 anholdelser i årets første seks måneder. 2.963 af de anholdte var født uden for Spanien, svarende til 58,7 procent.\n\nDet er vigtigt at skelne mellem fødested og statsborgerskab. Baskerlandets statistikbureau Eustat opgør, at 14 procent af befolkningen var født i udlandet ved den seneste offentliggjorte opgørelse, mens 10,2 procent havde udenlandsk statsborgerskab. Politiets nye opdeling handler om fødested og om anholdelser – ikke om domfældelser.\n\nOgså i flere andre kriminalitetskategorier er andelen høj. Ifølge politiets tal var 253 af 326 anholdte for røveri med vold eller trusler født uden for Spanien, 222 af 279 ved tyverier og 36 af 38 ved kørsel påvirket af alkohol eller stoffer.\n\nThe Objective fremhæver desuden personer født i Maghreb-landene i Nordafrika. Gruppen stod ifølge opgørelsen for 66 procent af anholdelserne for røveri med vold, 24 procent af anholdelserne i seksualsager og 37 procent af anholdelserne i drabssager.\n\nTallene kan ikke i sig selv forklare, hvorfor grupperne er overrepræsenterede. De viser heller ikke, hvor mange af de anholdte der senere bliver dømt, og de bør derfor ikke læses som en domfældelsesstatistik. Forskelle i blandt andet alder, køn og sociale forhold kan påvirke kriminalitetsmønstre, uden at denne opgørelse fastslår årsagerne.\n\nErtzaintza begyndte ifølge The Objective systematisk at offentliggøre denne opdeling efter fødested i slutningen af 2025. Dermed er det blevet muligt at sammenholde anholdelserne med befolkningssammensætningen mere direkte end tidligere.\n\nEustats seneste befolkningsopgørelse viser 310.959 udenlandskfødte indbyggere ud af godt 2,2 millioner. Gruppen udgjorde 14 procent af befolkningen, mens personer med udenlandsk statsborgerskab udgjorde 10,2 procent. Det understreger samtidig, hvorfor de to begreber ikke bør blandes sammen, når politiets tal vurderes.",
+  "source_metadata": [
+    {
+      "url": "https://theobjective.com/espana/pais-vasco/2026-09-16/detenidos-pais-vasco-extranjeros-delitos-sexuales/",
+      "title": "El 59% de los detenidos en el País Vasco son extranjeros: cometen el 74% de delitos sexuales",
+      "source_type": "authoritative"
+    },
+    {
+      "url": "https://en.eustat.eus/estad/id_268/ti_population-and-housing-census-population-structure/latest-press-release.html",
+      "title": "Population structure of the Basque Country. 1 January 2025",
+      "source_type": "primary"
+    }
+  ],
+  "editorial_metadata": {
+    "sagen_kort": [
+      "79 af 107 anholdte for forbrydelser mod den seksuelle frihed i første halvår af 2026 var født uden for Spanien, viser Ertzaintzas tal.",
+      "Udenlandskfødte udgjorde 14 procent af Baskerlandets befolkning i den seneste Eustat-opgørelse; politiets tal handler om anholdelser, ikke domfældelser."
+    ],
+    "final_qa_duplicate": false,
+    "discovery_run_id": "news-20260917-0100-hel",
+    "hero_candidates": [
+      {
+        "rank": 1,
+        "source_url": "https://commons.wikimedia.org/wiki/File:Officers_of_the_Ertzaintza_in_Bilbao.jpg",
+        "description": "Betjente fra Ertzaintza i Bilbao; direkte relevant dokumentarisk motiv til en artikel om politiets anholdelsesstatistik.",
+        "license": "CC BY-SA 4.0",
+        "attribution": "Kevin.B / Wikimedia Commons",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "width": 3583,
+        "height": 2371
+      },
+      {
+        "rank": 2,
+        "source_url": "https://commons.wikimedia.org/wiki/File:Ertzaintza_in_Bilbao,_Seat_(2022)_-_1.jpg",
+        "description": "Ertzaintza-køretøj i Bilbao, Baskerlandet.",
+        "license": "CC BY-SA 4.0",
+        "attribution": "Kevin.B / Wikimedia Commons",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "width": 4000,
+        "height": 3000
+      },
+      {
+        "rank": 3,
+        "source_url": "https://commons.wikimedia.org/wiki/File:Ertzaintza_Volkswagen_Bilbao.jpg",
+        "description": "Ertzaintza-politibil i Bilbao; relevant alternativt dokumentarisk motiv.",
+        "license": "CC BY-SA 3.0",
+        "attribution": "Javier Mediavilla Ezquibela / Wikimedia Commons",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "width": 2200,
+        "height": 1380
+      }
+    ],
+    "discovery_audit": [
+      {
+        "candidate_id": "cand-basque-arrest-stats",
+        "source_pool": "discovery/the-objective",
+        "rank": 1,
+        "candidate_headline": "Udenlandskfødte udgør 74 procent af anholdte i baskiske seksualsager",
+        "deep_screened": true,
+        "downstream_sources": ["The Objective", "Ertzaintza/Departamento de Seguridad", "Eustat"],
+        "decision": "selected",
+        "reason": "Frisk, stærk og profilrelevant statistik med tydelig afgrænsning mellem fødested, statsborgerskab, anholdelser og domfældelser; ingen semantisk dublet fundet i observerbar 7-dages [PUBLISH]-historik.",
+        "model_prompt_version": "canonical-news-task-2026-09-17"
+      }
+    ]
+  }
+}
