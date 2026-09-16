@@ -8,6 +8,7 @@ Udgiv præcis én ny evergreen-artikel til Viden eller Liv pr. kørsel, hvis der
 
 Læs og følg altid:
 - `docs/editorial-core.md`
+- `docs/editorial-language-glossary.md`
 - `docs/magazine-editorial-policy.md`
 - `docs/chatgpt-publish-bridge.md`
 
@@ -29,7 +30,7 @@ Backendens 7-dages gate er bindende sidste kontrol. Forsøg aldrig at omgå den 
 
 ## Research, artikel og hero
 
-Følg magazine-policyen for stil, nytte, kilder og redaktionel kvalitet.
+Følg magazine-policyen for stil, nytte, kilder og redaktionel kvalitet. Følg også den interne sprogordbog: brug almindeligt, etableret dansk; dan ikke hjemmelavede ord ved direkte oversættelse; og lav før aflevering én kort sprogpassage for mistænkelige sammensatte ord, direkte oversættelser, embedsmandssprog og unødvendige fremmedord.
 
 Følg hero-kontrakten i `docs/chatgpt-publish-bridge.md`. Find lovlige relevante ranked candidates; opfind aldrig rettigheder. Media Worker ejer download, MIME/signatur, dimensionskontrol, permanent/transient klassifikation, arkivering, fallback og retry.
 
