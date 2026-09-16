@@ -1,5 +1,7 @@
 # ChatGPT Scheduled Task → GitHub → Supabase publish bridge
 
+> **Producer-scope:** Almindelige news-runs må ikke læse denne fil. Deres komplette producer-kontrakt ligger i `docs/automations/news-task.md`. Denne fil er backend-/specialflow-reference og bevarer de detaljer, som ikke skal fylde normal news-kontekst.
+
 ## Formål
 
 Scheduled Tasks skriver ikke direkte til Supabase for artikelpublicering eller discovery-audit. En artikel eller et audit-only run afleveres som en afgrænset JSON-payload i en GitHub-PR. Den server-side bridge bevarer den eksisterende Supabase QA-, media- og publication-watchdog.
@@ -80,7 +82,7 @@ Hvis `story_kind` er `followup`, kræves desuden:
 
 Magazine-followups skal stadig have `topic_key`. `topic_key` beskriver emnet; followup-felterne beskriver relationen til den tidligere artikel.
 
-Den redaktionelle 7-dages-regel for almindelige nyheder ejes ikke af bridge/backend. Den semantiske beslutning træffes i journalistens slut-QA efter `docs/editorial-core.md` og `docs/dedupe-runtime-ownership.md`. Backend bevarer tekniske invariants som queue-id-idempotency, slug-konflikt, source/media/QA-gates, magazine `topic_key`-struktur og followup-validering.
+Den redaktionelle 7-dages-regel for almindelige nyheder ejes ikke af bridge/backend. Den semantiske beslutning træffes i Journalistens slut-QA efter `docs/editorial-core.md` og `docs/automations/news-task.md`. Backend bevarer tekniske invariants som queue-id-idempotency, slug-konflikt, source/media/QA-gates, magazine `topic_key`-struktur og followup-validering.
 
 ## Hero/media-handoff: én rangeret kandidatliste
 
@@ -141,9 +143,7 @@ Audit-only payloads opretter ingen artikel og kalder ikke publication-gates.
 
 ## Scheduled Task-standard
 
-Autonome artikelopgaver afleverer via GitHub-broen. Almindelige news-runs holder kandidat- og retry-budgettet lille efter `docs/automations/news-task.md`; Media Worker ejer teknisk hero-retry/recovery. Hvis kun én lovlig kandidat findes, kan `hero_candidate_url` fortsat bruges.
-
-Almindelige news-runs følger desuden discovery-audit-kontrakten i `docs/automations/news-task.md`.
+Autonome artikelopgaver afleverer via GitHub-broen. Almindelige news-runs følger den komplette producer-kontrakt i `docs/automations/news-task.md` og skal ikke åbne denne fil. Media Worker ejer teknisk hero-retry/recovery. Hvis kun én lovlig kandidat findes, kan `hero_candidate_url` fortsat bruges.
 
 ## Driftsprincip
 
