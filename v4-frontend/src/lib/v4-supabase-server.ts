@@ -3,13 +3,19 @@ import { getNewsletterRuntimeEnv, hasSupabaseServerEnv, type NewsletterRuntimeEn
 
 const createServerClient = (env: NewsletterRuntimeEnv): SupabaseClient | null => {
   if (!hasSupabaseServerEnv(env)) return null;
-  return createClient(env.supabaseUrl, env.supabaseSecretKey, {
-    auth: { persistSession: false, autoRefreshToken: false }
-  });
+  try {
+    return createClient(env.supabaseUrl, env.supabaseSecretKey, {
+      auth: { persistSession: false, autoRefreshToken: false }
+    });
+  } catch (error) {
+    console.info(JSON.stringify({
+      event: 'supabase_client_init_failed',
+      type: (error as Error)?.name || 'Error',
+      stack: String((error as Error)?.stack || (error as Error)?.message || 'unknown').slice(0, 800)
+    }));
+    return null;
+  }
 };
 
 export const getV4SupabaseServer = (locals?: App.Locals) =>
   createServerClient(getNewsletterRuntimeEnv(locals));
-
-// Local/dev fallback when Worker runtime env is not injected.
-export const v4SupabaseServer = createServerClient(getNewsletterRuntimeEnv());
