@@ -1,32 +1,12 @@
+import { normalizeBriefPoints } from './article-content-normalizer.mjs';
+
 const recommendationStopwords = new Set([
   'eller', 'ikke', 'som', 'med', 'til', 'fra', 'for', 'der', 'den', 'det', 'de', 'en', 'et', 'har', 'kan', 'vil',
   'skal', 'var', 'over', 'under', 'efter', 'før', 'sine', 'sin', 'sit', 'sig', 'mod', 'mere', 'nye', 'ny', 'om'
 ]);
 
 export function buildBriefPoints(article: any) {
-  const storedBriefPoints = Array.isArray(article?.sagen_kort)
-    ? article.sagen_kort.map((point: unknown) => String(point || '').trim()).filter(Boolean).slice(0, 2)
-    : [];
-
-  const plainBody = (article?.body_markdown || '')
-    .replace(/!\[[^\]]*\]\([^)]*\)/g, ' ')
-    .replace(/\[([^\]]+)\]\([^)]*\)/g, '$1')
-    .replace(/[#>*_`~\-]+/g, ' ')
-    .replace(/\s+/g, ' ')
-    .trim();
-  const summaryCandidates = [article?.deck || '', ...plainBody.split(/(?<=[.!?])\s+/)]
-    .map((sentence) => sentence.trim())
-    .filter((sentence) => sentence.length >= 45 && sentence.length <= 190);
-
-  const fallbackBriefPoints: string[] = [];
-  for (const sentence of summaryCandidates) {
-    const normalized = sentence.toLocaleLowerCase('da-DK').replace(/[^a-zæøå0-9]+/g, ' ').trim();
-    if (!normalized || fallbackBriefPoints.some((point) => point.toLocaleLowerCase('da-DK').replace(/[^a-zæøå0-9]+/g, ' ').trim() === normalized)) continue;
-    fallbackBriefPoints.push(sentence);
-    if (fallbackBriefPoints.length === 2) break;
-  }
-
-  return storedBriefPoints.length === 2 ? storedBriefPoints : fallbackBriefPoints;
+  return normalizeBriefPoints(article?.sagen_kort);
 }
 
 const recommendationTerms = (value = '') => new Set(
