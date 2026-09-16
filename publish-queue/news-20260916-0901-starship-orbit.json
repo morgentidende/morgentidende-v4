@@ -1,0 +1,71 @@
+{
+  "queue_id": "news-20260916-0901-starship-orbit",
+  "payload_type": "article",
+  "slug": "starship-skal-for-foerste-gang-i-kredsloeb-om-jorden",
+  "headline": "Starship skal for første gang i kredsløb om Jorden",
+  "dek": "SpaceX sigter mod 22. september. Den næsten ti timer lange test bliver rakettens hidtil største spring.",
+  "category_slug": "udland",
+  "sagen_kort": [
+    "SpaceX planlægger Starships 14. testflyvning tidligst 22. september, hvis de sidste myndighedsgodkendelser falder på plads.",
+    "Planen er omkring seks kredsløb i cirka 275 kilometers højde og udsendelse af de første Starlink V3-satellitter."
+  ],
+  "body_markdown": "Verdens største raketsystem står foran sin hidtil mest ambitiøse prøve. Rumfartsselskabet SpaceX vil tidligst 22. september sende Starship hele vejen i kredsløb om Jorden for første gang.\n\nHvis flyvningen gennemføres som planlagt, skal Starship op i omkring 275 kilometers højde og kredse cirka seks gange om Jorden. Testen ventes at vare næsten ti timer, før rumfartøjet efter planen lander i Stillehavet vest for Chile.\n\nDet er et markant skridt videre fra de hidtidige testflyvninger. Den seneste i juli fulgte en bane, hvor fartøjet nåede rummet, men ikke gennemførte et helt kredsløb om Jorden.\n\n### Første Starlink V3 skal med\n\nDen kommende flyvning bliver Starships 14. test og skal samtidig bruges til at sende de første Starlink V3-satellitter ud. Dermed bliver testen ikke kun et spørgsmål om, hvorvidt raketten kan nå kredsløb, men også om den kan begynde at udføre den type opgaver, SpaceX bygger systemet til.\n\nSpaceX har udviklet Starship som et fuldt og hurtigt genanvendeligt raketsystem. Selskabet beskriver det som centralt for både billigere opsendelser, en kraftig udbygning af Starlink og fremtidige missioner til Månen og Mars.\n\nUnder den næsten ti timer lange test vil SpaceX blandt andet afprøve opsendelse, adskillelse mellem det enorme Super Heavy-førstetrin og Starship, førstetrinnets returmanøvre og den afsluttende landing på havet.\n\n### Et spring efter år med eksplosioner og fremskridt\n\nStarship-programmet har været præget af både spektakulære eksplosioner og hurtige tekniske fremskridt. Ved den 12. test i maj lykkedes det den nye Starship V3 at nå de fleste af selskabets mål, blandt andet udsendelse af prøvesatellitter og en kontrolleret landing på havet.\n\nDet kommende forsøg er endnu ikke endeligt sikret. Reuters oplyser, at flyvningen fortsat afhænger af den sidste myndighedsgodkendelse. Lykkes den, vil SpaceX for første gang kunne afprøve Starship over mange timer i kredsløb og tage et afgørende skridt mod et raketsystem, der kan flyve gentagne gange mellem Jorden og rummet.",
+  "source_metadata": [
+    {
+      "name": "Reuters",
+      "url": "https://www.reuters.com/business/media-telecom/spacex-targets-first-starship-orbital-test-september-22-2026-09-15/",
+      "type": "authoritative",
+      "published_at": "2026-09-15"
+    },
+    {
+      "name": "SpaceX – EU Prospectus",
+      "url": "https://content.spacex.com/cms-assets/FINAL_Documents%20and%20Updates/SpaceX%20-%20EU%20Prospectus%20%28Approved%20by%20Bafin%29%20-%20June%205%2C%202026.pdf",
+      "type": "primary",
+      "published_at": "2026-06-05"
+    }
+  ],
+  "editorial_metadata": {
+    "final_qa_duplicate": false,
+    "story_cluster_id": "spacex-starship-flight-14-orbit",
+    "discovery_run_id": "news-20260916-0901",
+    "hero_candidates": [
+      {
+        "rank": 1,
+        "source_url": "https://upload.wikimedia.org/wikipedia/commons/5/5e/SpaceX_Starship_ignition_during_IFT-5.jpg",
+        "source_page": "https://commons.wikimedia.org/wiki/File:SpaceX_Starship_ignition_during_IFT-5.jpg",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "license": "CC BY 2.0",
+        "width": 2308,
+        "height": 2470,
+        "alt": "SpaceX Starship under opsendelse ved en tidligere testflyvning."
+      }
+    ],
+    "discovery_audit": [
+      {
+        "candidate_id": "cand-merz-klarnavn",
+        "source_pool": "discovery",
+        "source_path": "apollo-news.net",
+        "rank": 1,
+        "candidate_headline": "Merz støtter krav om rigtige navne på nettet",
+        "deep_screened": true,
+        "downstream_sources": [],
+        "decision": "rejected_duplicate",
+        "reason": "Near-identical canonical transport already exists as PR #514 from the same morning.",
+        "model_prompt_version": "canonical-news-task-2026-09-16"
+      },
+      {
+        "candidate_id": "cand-starship-orbit",
+        "source_pool": "discovery",
+        "source_path": "document.no -> Reuters/SpaceX",
+        "rank": 2,
+        "candidate_headline": "SpaceX targets first Starship orbital test on September 22",
+        "deep_screened": true,
+        "downstream_sources": ["Reuters", "SpaceX"],
+        "decision": "selected",
+        "reason": "Fresh, high-interest milestone verified by Reuters and SpaceX background material; seven-day GitHub publish history contains no near-identical Starship orbital-test article.",
+        "model_prompt_version": "canonical-news-task-2026-09-16"
+      }
+    ]
+  }
+}
