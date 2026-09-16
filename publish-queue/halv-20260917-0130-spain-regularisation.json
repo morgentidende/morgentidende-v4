@@ -1,0 +1,86 @@
+{
+  "queue_id": "halv-20260917-0130-spain-regularisation",
+  "slug": "spansk-politiforbund-advarer-regularisering-kan-ende-med-fire-millioner",
+  "headline": "Spansk politiforbund advarer: Regularisering kan ende med papirer til fire millioner",
+  "category_slug": "udland",
+  "deck": "Over 1,17 millioner søgte om ophold. Nu advarer politiforbundet Jupol om en langt større følgevirkning gennem familiesammenføring.",
+  "body_markdown": "Spaniens ekstraordinære regularisering af udlændinge kan på længere sigt føre til, at op mod fire millioner mennesker får opholdspapirer, hvis familiesammenføring regnes med. Det vurderer Jupol, Spaniens største fagforbund for betjente i det nationale politi, efter at ordningen modtog langt flere ansøgninger end først ventet.\n\nJupols generalsekretær Aarón Rivero fremlagde vurderingen under en lukket høring i en fælles kommission for Kongressen og Senatet, der undersøger følgerne af regulariseringen. Ifølge den spanske avis El Español kritiserede Rivero regeringen for manglende forudseenhed og anslog, at antallet over de kommende år kan vokse til omkring fire millioner gennem reglerne om familiesammenføring.\n\nDet er vigtigt at skelne mellem Jupols fremskrivning og de faktiske tal. Den spanske regerings migrationsministerium oplyser, at der ved fristens udløb 30. juni var modtaget 1.174.978 ansøgninger. Det er ansøgninger, ikke det samme som godkendte opholdstilladelser. Ved opgørelsen 2. juli var 609.737 sager behandlet, mens kun en mindre del af de endelige afgørelser på det tidspunkt var meddelt.\n\nOrdningen blev vedtaget af regeringen under premierminister Pedro Sánchez i april. Den omfatter personer, som opholdt sig ulovligt i Spanien, samt visse asylansøgere, der havde været i landet siden før 1. januar 2026 og kunne dokumentere mindst fem måneders sammenhængende ophold. Ansøgere skal blandt andet være uden straffeattest og må ikke udgøre en trussel mod den offentlige orden eller sikkerhed.\n\nNår en ansøgning blev taget under behandling, gav ordningen adgang til at bo og arbejde i Spanien. Regeringen begrundede initiativet med, at hundredtusinder allerede levede i landet uden almindelig opholdsstatus, og at regularisering skulle give dem rettigheder og pligter og bringe flere ind på det lovlige arbejdsmarked.\n\nDer er allerede en målbar arbejdsmarkedseffekt. Regeringen oplyste 2. september, at 337.917 personer, der var blevet regulariseret gennem ordningen, var tilmeldt den spanske sociale sikring ved udgangen af august. Omkring 80 procent var registreret som almindelige lønmodtagere.\n\nJupols fire millioner er derimod ikke et officielt regeringsskøn. Tallet bygger ifølge El Español på fagforbundets vurdering af, hvor mange der senere kan komme til gennem familiesammenføring. Hvor mange det faktisk bliver, afhænger blandt andet af, hvor mange ansøgninger der endeligt godkendes, og hvor mange af de godkendte der senere opfylder betingelserne for at få familiemedlemmer til Spanien.\n\nRivero brugte også høringen til at advare om nye migrationsruter og efterlyse større myndighedskontrol. Ifølge El Español fremlagde han materiale fra spanske migrationsmyndigheder og EU's grænseagentur Frontex. Kommissionen overvejer nu at indkalde repræsentanter fra Frontex for at belyse udviklingen.\n\nSagen rammer en central politisk konflikt i Spanien. Regeringen fremhæver integration på arbejdsmarkedet og rettigheder for mennesker, der allerede opholder sig i landet. Jupol og dele af oppositionen advarer om, at ordningens samlede omfang og afledte migration kan blive langt større end først antaget. Det sikre tal er foreløbig de knap 1,175 millioner indsendte ansøgninger; de fire millioner er en advarende fremskrivning, ikke et konstateret resultat.",
+  "source_metadata": [
+    {
+      "url": "https://www.inclusion.gob.es/gl/w/el-plazo-de-presentacion-de-solicitud-para-la-regularizacion-extraordinaria-concluye-con-1.174.978-solicitudes-recibidas",
+      "title": "El plazo de presentación de solicitud para la Regularización Extraordinaria concluye con 1.174.978 solicitudes recibidas",
+      "source_type": "primary"
+    },
+    {
+      "url": "https://www.inclusion.gob.es/gl/w/el-gobierno-aprueba-la-regularizacion-administrativa-extraordinaria-de-personas-migrantes-que-ya-residen-en-espana",
+      "title": "El Gobierno aprueba la regularización administrativa extraordinaria de personas migrantes que ya residen en España",
+      "source_type": "primary"
+    },
+    {
+      "url": "https://www.elespanol.com/espana/politica/20260915/jupol-alerta-congreso-regularizacion-sanchez-supondra-dar-papeles-total-millones-migrantes/1003744384815_0.html",
+      "title": "Jupol alerta en el Congreso que la regularización de Sánchez supondrá dar papeles en total a cuatro millones de migrantes",
+      "source_type": "authoritative"
+    },
+    {
+      "url": "https://www.europapress.es/economia/laboral-00346/noticia-gobierno-cifra-338000-extranjeros-regularizados-proceso-extraordinario-afiliados-seguridad-social-20260902121814.html",
+      "title": "El Gobierno cifra en 338.000 los extranjeros regularizados en proceso extraordinario afiliados a la Seguridad Social",
+      "source_type": "authoritative"
+    }
+  ],
+  "editorial_metadata": {
+    "sagen_kort": [
+      "Spaniens ekstraordinære regularisering modtog 1.174.978 ansøgninger frem til 30. juni, langt flere end de omkring 500.000 personer regeringen oprindeligt ventede kunne blive omfattet.",
+      "Politiforbundet Jupol vurderer, at antallet på længere sigt kan nå omkring fire millioner gennem familiesammenføring; tallet er en fremskrivning og ikke et officielt regeringsskøn."
+    ],
+    "final_qa_duplicate": false,
+    "discovery_run_id": "news-20260917-0130-halv",
+    "hero_candidates": [
+      {
+        "rank": 1,
+        "source_url": "https://commons.wikimedia.org/wiki/File:100226-sanchez-biografia4.jpg",
+        "description": "Spaniens premierminister Pedro Sánchez i 2026; hans regering vedtog den ekstraordinære regularisering.",
+        "license": "Attribution - Government of Spain",
+        "attribution": "Pool Moncloa / Carlos Spottorno de las Morenas; Ministry of the Presidency, Government of Spain / Wikimedia Commons",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "width": 2000,
+        "height": 1333
+      },
+      {
+        "rank": 2,
+        "source_url": "https://commons.wikimedia.org/wiki/File:Immigration_to_Spain_by_country_of_birth_at_1_January_2025.png",
+        "description": "Kort over de største udenlandskfødte grupper i Spanien; direkte relevant baggrund til migrationshistorien.",
+        "license": "CC BY-SA 4.0",
+        "attribution": "Preckthi / Wikimedia Commons",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "width": 1429,
+        "height": 659
+      },
+      {
+        "rank": 3,
+        "source_url": "https://commons.wikimedia.org/wiki/File:Ministerio_de_Trabajo_e_Inmigracion_(Spain).jpg",
+        "description": "Den tidligere centrale bygning for Spaniens arbejds- og immigrationsministerium i Madrid; institutionsmotiv til regulariseringssagen.",
+        "license": "Public domain",
+        "attribution": "Ignacio Renuncio / Wikimedia Commons",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "width": 2560,
+        "height": 1920
+      }
+    ],
+    "discovery_audit": [
+      {
+        "candidate_id": "cand-spain-regularisation-jupol",
+        "source_pool": "discovery/brussels-signal",
+        "rank": 1,
+        "candidate_headline": "Spansk politiforbund advarer om fire millioner med papirer efter regularisering",
+        "deep_screened": true,
+        "downstream_sources": ["Ministerio de Inclusión, Seguridad Social y Migraciones", "El Español", "Europa Press"],
+        "decision": "selected",
+        "reason": "Frisk og stærkt profilrelevant migrationshistorie. Det faktiske ansøgertal og ordningens regler er dokumenteret af ministeriet; Jupols fire-millionersvurdering attribueres tydeligt som en fremskrivning. Ingen næsten-identisk historie blev fundet i observerbar syv-dages [PUBLISH]-historik.",
+        "model_prompt_version": "canonical-news-task-2026-09-17"
+      }
+    ]
+  }
+}
