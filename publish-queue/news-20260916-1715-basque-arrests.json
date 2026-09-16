@@ -1,0 +1,28 @@
+{
+  "queue_id": "news-20260916-1715-basque-arrests",
+  "slug": "seks-ud-af-ti-anholdte-i-baskerlandet-er-foedt-i-udlandet",
+  "headline": "Seks ud af ti anholdte i Baskerlandet er født i udlandet",
+  "deck": "Nye politital viser markant overrepræsentation blandt anholdte – også i sager om seksualforbrydelser.",
+  "category_slug": "udland",
+  "body_markdown": "Næsten seks ud af ti personer, som det baskiske politi Ertzaintza anholdt i første halvår af 2026, var født uden for Spanien. Det viser nye tal fra politiets statistik, som det spanske medie The Objective har gennemgået.\n\nAf i alt 5.050 anholdte var 2.963 født i udlandet. Det svarer til 58,7 procent. Til sammenligning udgør personer født uden for Spanien omkring 10 procent af befolkningen i Baskerlandet.\n\nForskellen er endnu større i flere bestemte kriminalitetskategorier. Blandt 107 anholdelser for seksualforbrydelser gjaldt 79 personer født uden for Spanien – 74 procent. Ved voldeligt røveri var andelen 77,6 procent, mens den ved tyveri var 79,6 procent.\n\nTallene viser anholdelser og ikke domme. De kan derfor ikke bruges som mål for, hvor stor en andel af de dømte gerningsmænd der er født i udlandet. Statistikken siger heller ikke i sig selv noget om årsagerne til forskellene.\n\nEt officielt sikkerhedsnotat fra Ertzaintza viser samtidig et beslægtet mønster for seksualforbrydelser i 2025. Her var 40 procent af de registrerede gerningspersoner født i Baskerlandet eller andre dele af Spanien, mens 28 procent kom fra Latinamerika, 18 procent fra Maghreb og 14 procent fra andre lande.\n\nDet betyder, at 60 procent i den opgørelse var født uden for Spanien. Politiet understreger i rapporten, at tallene omfatter kendte og efterforskede seksualforbrydelser og ikke alene endelige domme.\n\nDe nye tal skiller sig også ud, fordi Baskerlandets samlede registrerede kriminalitet stort set er uændret. Officiel statistik viser 52.464 kendte lovovertrædelser i første halvår af 2026 mod 52.370 i samme periode året før – en stigning på blot 0,2 procent.\n\nDermed peger statistikken ikke på en generel kriminalitetseksplosion. Den viser derimod en markant forskel i, hvem der bliver anholdt inden for flere kriminalitetskategorier.\n\nDet er netop den forskel, som gør tallene politisk følsomme i Spanien: Andelen af udenlandskfødte blandt de anholdte ligger flere gange over deres andel af befolkningen, men statistikken kan ikke alene forklare hvorfor.",
+  "source_metadata": [
+    {"url":"https://www.ertzaintza.euskadi.eus/lfr/documents/62347/18472350/Estado%2BSeguridad-WEB-CAST-OK.pdf/fb2d8af7-10ec-a020-7ea6-c9701189f7cd?t=1780053068717","title":"Ertzaintza – sikkerhedsrapport 2025","source_class":"authoritative"},
+    {"url":"https://es-mig.eustat.eus/elementos/ele0025700/infracciones-penales-conocidas-por-la-ertzaintza-en-la-ca-de-euskadi-por-tipos-segun-territorio-historico/tbl0025730_c.html","title":"Eustat – kriminalitetsstatistik, første halvår 2026","source_class":"authoritative"},
+    {"url":"https://theobjective.com/espana/pais-vasco/2026-09-16/detenidos-pais-vasco-extranjeros-delitos-sexuales/","title":"The Objective – anholdelser i Baskerlandet","source_class":"authoritative"}
+  ],
+  "editorial_metadata": {
+    "sagen_kort": [
+      "2.963 af 5.050 anholdte i Baskerlandet i første halvår af 2026 var født uden for Spanien – 58,7 procent.",
+      "Ved seksualforbrydelser gjaldt 79 af 107 anholdelser personer født uden for Spanien, svarende til 74 procent."
+    ],
+    "final_qa_duplicate": false,
+    "discovery_run_id": "news-20260916-1715-kvartover",
+    "candidate_id": "basque-arrests-20260916",
+    "discovery_audit": [{"source_pool":"discovery","source_path":"The Objective","rank":1,"candidate_headline":"59% of detainees in Basque Country foreign-born; 74% in sexual offences","deep_screened":true,"downstream_sources":["Ertzaintza","Eustat","The Objective"],"decision":"selected","reason":"Fresh, strongly profile-relevant official-statistics story with central figures documented and no near-identical item in observable 7-day [PUBLISH] history.","model_prompt_version":"canonical-news-task-2026-09-16"}],
+    "hero_candidates": [
+      {"rank":1,"source_url":"https://commons.wikimedia.org/wiki/File:Officers_of_the_Ertzaintza_in_Bilbao.jpg","rights":"CC BY-SA 4.0","commercial_use_allowed":true,"local_storage_allowed":true,"width":3583,"height":2371,"description":"Ertzaintza officers and vehicles in Bilbao"},
+      {"rank":2,"source_url":"https://commons.wikimedia.org/wiki/File:Ertzaintza_in_Bilbao,_Toyota_Land_Cruiser_(2022).jpg","rights":"Wikimedia Commons free license; verify exact attribution on file page","commercial_use_allowed":true,"local_storage_allowed":true,"width":4000,"height":3000,"description":"Ertzaintza police vehicle in Bilbao"},
+      {"rank":3,"source_url":"https://commons.wikimedia.org/wiki/File:Ertzaintza_Volkswagen_Bilbao.jpg","rights":"CC BY-SA 3.0","commercial_use_allowed":true,"local_storage_allowed":true,"width":2200,"height":1380,"description":"Ertzaintza police vehicle in central Bilbao"}
+    ]
+  }
+}
