@@ -1,0 +1,30 @@
+{
+  "queue_id": "kvartover-20260917-0015-maizieres-grave",
+  "slug": "frankrig-96-katolske-grave-kors-odelagt-maizieres-metz",
+  "headline": "96 katolske grave ramt: Kors og krucifikser knust på fransk kirkegård",
+  "category_slug": "udland",
+  "deck": "En 32-årig kvinde har erkendt hærværket nær Metz. Anklagemyndigheden efterforsker sagen som mulig religionsmotiveret gravskænding.",
+  "body_markdown": "Kors og krucifikser på 96 grave blev tirsdag ødelagt på den gamle kirkegård i Maizières-lès-Metz i det nordøstlige Frankrig. Flere af de ødelagte kristne symboler blev samlet i bunker på jorden, oplyser anklagemyndigheden i Metz.\n\nSagen begyndte omkring klokken 6.50 tirsdag morgen, da lokale beboere kontaktede gendarmeriet. De fortalte, at de havde set en kvinde beskadige en grav og derefter forlade kirkegården. Da politiet gennemgik området, fandt efterforskerne skader på i alt 96 grave.\n\nSenere samme dag vendte en 32-årig kvinde selv tilbage til kirkegården og henvendte sig til politiet. Ifølge anklager David Touvet erklærede hun, at hun stod bag ødelæggelserne, og hun blev anholdt.\n\nHendes tilstand blev senere vurderet som uforenelig med fortsat tilbageholdelse, og hun blev indlagt på psykiatrisk afdeling. Efterforskningen fortsætter, og anklagemyndigheden oplyser, at afhøringen kan genoptages, når hendes tilstand tillader det.\n\nAnklagemyndigheden har åbnet en sag om krænkelse eller skænding af grave eller mindesmærker begået på grund af de afdødes faktiske eller formodede religiøse tilhørsforhold. Det betyder ikke, at kvindens konkrete motiv allerede er fastslået.\n\nBorgmester Julien Freyburger mener derimod, at mønstret i ødelæggelserne peger tydeligt mod kristendommen. Han har fremhævet, at netop kors, krucifikser og andre katolske symboler blev ramt systematisk, og kaldte hændelsen et sjældent voldsomt og fejt hærværk.\n\nDen lokale tv-station Moselle TV oplyser, at begge byens kirkegårde blev lukket, mens politi, anklagemyndighed og kriminalteknikere arbejdede på stedet. Maizières-lès-Metz har omkring 11.000 indbyggere og ligger nord for Metz.\n\nHærværket sker mindre end to uger før pave Leo XIV efter planen besøger Metz den 28. september. Der er i de gennemgåede kilder ikke dokumentation for, at besøget har forbindelse til ødelæggelserne.\n\nDet stærkeste dokumenterede faktum er derfor selve omfanget og udvælgelsen: 96 grave blev beskadiget, og anklagemyndigheden beskriver kors og krucifikser som brudt af og samlet på jorden. Om handlingen var drevet af et religiøst motiv, er fortsat et spørgsmål for efterforskningen.",
+  "source_metadata": [
+    {"url":"https://www.leparisien.fr/faits-divers/croix-et-crucifix-brises-une-centaine-de-tombes-degradees-dans-un-cimetiere-pres-de-metz-une-femme-en-garde-a-vue-16-09-2026-HWQLNTNM3ZCI7O45UZPQZ2ZGLQ.php","title":"Croix et crucifix brisés : une centaine de tombes dégradées dans un cimetière près de Metz","publisher":"Le Parisien / AFP","source_class":"authoritative","published_at":"2026-09-16"},
+    {"url":"https://www.rtl.fr/actu/justice-faits-divers/un-acte-scandaleux-une-femme-en-garde-a-vue-apres-la-profanation-d-une-centaine-de-tombes-dans-un-cimetiere-de-maizieres-les-metz-7900672862","title":"Une femme en garde à vue après la profanation d'une centaine de tombes","publisher":"RTL France","source_class":"authoritative","published_at":"2026-09-15"},
+    {"url":"https://moselle.tv/lancien-cimetiere-de-maizieres-les-metz-profane/","title":"L’ancien cimetière de Maizières-lès-Metz profané","publisher":"Moselle TV","source_class":"authoritative","published_at":"2026-09-15"}
+  ],
+  "editorial_metadata": {
+    "sagen_kort": [
+      "Efterforskere fandt skader på 96 grave i Maizières-lès-Metz, hvor kors og krucifikser var brudt af og samlet på jorden.",
+      "En 32-årig kvinde har erkendt ødelæggelserne; hendes konkrete motiv er ikke fastslået, og hun er blevet indlagt efter anholdelsen."
+    ],
+    "final_qa_duplicate": false,
+    "discovery_run_id": "kvartover-20260917-0015",
+    "model_prompt_version": "canonical-news-task-2026-09-17",
+    "hero_candidates": [
+      {"rank":1,"source_url":"https://commons.wikimedia.org/wiki/File:MAIZIERES_LES_METZ_(3).jpg","license":"CC BY 4.0","commercial_use_allowed":true,"local_storage_allowed":true,"known_width":1998,"known_height":1499,"description":"Saint-Martin-kirken i Maizières-lès-Metz, et direkte lokalt katolsk motiv"},
+      {"rank":2,"source_url":"https://commons.wikimedia.org/wiki/File:Maizi%C3%A8res-l%C3%A8s-Metz_vue_du_ciel.jpg","license":"CC BY-SA 4.0","commercial_use_allowed":true,"local_storage_allowed":true,"known_width":4000,"known_height":2672,"description":"Luftfoto af Maizières-lès-Metz"},
+      {"rank":3,"source_url":"https://commons.wikimedia.org/wiki/File:CC_Maizieres_Metz_R01.jpg","license":"CC BY 3.0","commercial_use_allowed":true,"local_storage_allowed":true,"known_width":3264,"known_height":2448,"description":"Offentlig bygning i Maizières-lès-Metz som lokalt stedmotiv"}
+    ],
+    "discovery_audit": [
+      {"candidate_id":"kvartover-0015-1","source_pool":"discovery","rank":1,"topic":"96 Catholic graves damaged and crosses broken at Maizières-lès-Metz cemetery","deep_screened":true,"downstream_sources":["Le Parisien/AFP","RTL France","Moselle TV"],"decision":"selected","reason":"Fresh, strongly documented, profile-relevant and no nearly identical 7-day GitHub PUBLISH match found"}
+    ]
+  }
+}
