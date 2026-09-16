@@ -1,0 +1,27 @@
+{
+  "queue_id": "news-20260916-1101-crete-arrivals",
+  "slug": "graekenland-topper-eu-ankomster-231-migranter-kreta",
+  "headline": "Grækenland topper EU's migrantankomster – 231 nåede Kreta på én dag",
+  "category_slug": "udland",
+  "sagen_kort": [
+    "231 mennesker nåede tirsdag Kreta i fire grupper efter sejladser fra Nordafrika.",
+    "Næsten 14.000 er kommet til Kreta i år, mens Grækenland samlet nærmer sig 26.000 ankomster."
+  ],
+  "body_markdown": "Fire både med i alt 231 mennesker nåede tirsdag den græske ø Kreta. To grupper blev reddet til søs, mens to andre nåede øens sydlige kyst, oplyser den græske kystvagt ifølge den græske avis Kathimerini.\n\nUdviklingen gør Kreta til et centralt punkt på den nye rute fra det østlige Libyen. Næsten 14.000 mennesker er kommet til øen siden årets begyndelse. På landsplan er tallet tæt på 26.000, hvilket ifølge FN-data gør Grækenland til det EU-land med flest ankomster hidtil i år.\n\nTil sammenligning kom knap 49.000 mennesker til Grækenland i hele 2025. EU's asylagentur beskrev allerede i sin rapport for 2026, hvordan overfarterne fra det østlige Libyen til Kreta næsten blev tredoblet i 2025, selv om presset ved EU's ydre grænser samlet faldt.\n\nDen seneste dags ankomster viser, hvor hurtigt ruterne kan flytte sig. EU-Rådets seneste samlede opgørelse viste 45.077 irregulære ankomster til EU frem til udgangen af juni 2026. Heraf gik 16.641 via den østlige rute, som omfatter Grækenland.\n\nKreta-ruten adskiller sig fra den traditionelle overfart fra Tyrkiet til de græske øer i Det Ægæiske Hav. Bådene mod Kreta sejler fra Nordafrika over en længere strækning af Middelhavet. Ifølge Kathimerini kommer de rejsende blandt andet fra Mellemøsten, det indiske subkontinent og Afrika, mens menneskesmuglere organiserer afgange fra Libyen.\n\nTallene skal læses med et vigtigt forbehold: EU's grænseagentur Frontex opgør registrerede grænsekrydsninger og ikke nødvendigvis unikke personer. Den samme person kan derfor i princippet registreres mere end én gang.\n\nDen græske regering har i år strammet kursen over for irregulær migration. Samtidig viser de nye tal, at presset ikke er forsvundet, men i høj grad har flyttet sig mod Kreta og den lange søvej fra Libyen.",
+  "source_metadata": [
+    {"title":"More than 230 migrants reach Crete as Greece tops EU arrivals","url":"https://www.ekathimerini.com/news/1315357/more-than-230-migrants-reach-crete-as-greece-tops-eu-arrivals/","source_type":"authoritative","publisher":"Kathimerini","published_at":"2026-09-15"},
+    {"title":"Migration flows: Eastern, Central and Western routes","url":"https://www.consilium.europa.eu/en/infographics/migration-flows-to-europe/","source_type":"primary","publisher":"Council of the European Union","accessed_at":"2026-09-16"},
+    {"title":"Asylum Report 2026 — Enhancing border management","url":"https://dip-aws.euaa.europa.eu/asylum-report-2026/24-enhancing-border-management","source_type":"primary","publisher":"European Union Agency for Asylum","published_at":"2026-05"}
+  ],
+  "editorial_metadata": {
+    "final_qa_duplicate": false,
+    "discovery_run_id": "news-20260916-1101",
+    "story_cluster_id": "greece-crete-libya-migration-2026",
+    "hero_candidates": [
+      {"rank":1,"source_url":"https://commons.wikimedia.org/wiki/File:20071013-Chania-PLS015-0066.jpg","commercial_use_allowed":true,"local_storage_allowed":true,"license":"CC BY-SA 3.0","creator":"K. Krallis","width":1536,"height":1152,"mime_type":"image/jpeg","description":"Græsk kystvagtskib i Chania på Kreta"}
+    ],
+    "discovery_audit": [
+      {"candidate_id":"crete-arrivals","source_pool":"discovery","rank":1,"candidate_headline":"More than 230 migrants reach Crete as Greece tops EU arrivals","deep_screened":true,"downstream_sources":["Kathimerini","Council of the EU","EUAA"],"decision":"selected","reason":"Fresh, documented migration story with strong profile fit and no near-identical seven-day publish delivery found","model_prompt_version":"canonical-news-task-2026-09-16"}
+    ]
+  }
+}
