@@ -1,0 +1,93 @@
+{
+  "queue_id": "news-20260916-1516-south-africa-visas",
+  "slug": "usa-indfoerer-visumforbud-mod-sydafrikanere-over-racediskrimination",
+  "headline": "USA indfører visumforbud mod sydafrikanere over racediskrimination",
+  "category_slug": "udland",
+  "manchet": "Washington retter nye sanktioner mod personer bag racebaserede regler og tvangsovertagelse af jord. Pretoria kalder begrundelsen misvisende.",
+  "sagen_kort": [
+    "USA vil nægte visum til sydafrikanere, som Washington vurderer har medvirket til racebaseret diskrimination, tvangsovertagelse af jord uden erstatning eller opfordring til vold mod minoriteter.",
+    "Sydafrikas regering afviser USA's fremstilling og siger, at landets politik skal rette op på historiske uligheder efter apartheid."
+  ],
+  "body_markdown": "USA skærper nu presset på Sydafrika med visumrestriktioner mod personer, som Washington mener har medvirket til racebaseret diskrimination, tvangsovertagelse af jord uden erstatning eller opfordring til vold mod etniske og racemæssige minoriteter.\n\nUSA's udenrigsminister Marco Rubio offentliggjorde tirsdag den nye politik. Der er ikke offentliggjort navne på de personer, som rammes, og tiltaget er derfor ikke et generelt visumforbud mod sydafrikanere.\n\nIfølge Rubio gælder restriktionerne personer, der er ansvarlige for eller har medvirket til at vedtage eller gennemføre love og politikker, som efter den amerikanske regerings vurdering muliggør de tre forhold. Han sagde samtidig, at den sydafrikanske regering ikke i tilstrækkelig grad har håndteret de bekymringer, USA tidligere har rejst.\n\nTiltaget er den seneste optrapning i et i forvejen anspændt forhold mellem Washington og Pretoria. Trump-regeringen har blandt andet kritiseret Sydafrikas jordpolitik og regler, der skal ændre økonomiske skævheder fra apartheidtiden. USA har også været stærkt kritisk over for Sydafrikas sag mod Israel ved Den Internationale Domstol.\n\nSydafrikas udenrigsministerium svarede onsdag, at USA's beslutning bygger på en forkert fremstilling af landets indenrigspolitik. Regeringen mener, at politikken skal rette op på historiske raceuligheder og fastholder, at uenigheder mellem landene bør håndteres gennem diplomati frem for ensidige sanktioner.\n\nStriden handler blandt andet om Sydafrikas lovgivning om jord. Kritikerne frygter, at muligheden for i særlige tilfælde at overtage jord uden erstatning svækker ejendomsretten og kan ramme det hvide mindretal. Den sydafrikanske regering afviser, at lovgivningen giver adgang til vilkårlig overtagelse af jord, og siger, at den skal bruges inden for landets forfatningsmæssige rammer.\n\nUSA har under Donald Trump allerede skåret i bistanden til Sydafrika og åbnet en særlig adgang for afrikanere, der siger, at de flygter fra forfølgelse. Den nye visumpolitik flytter konflikten et skridt videre ved at rette konsekvenser direkte mod personer, som Washington mener står bag diskriminerende regler eller handlinger.\n\nHvem der konkret bliver ramt, er endnu uklart. Dermed bliver den næste afgørende udvikling, om USA offentliggør navne eller begynder at håndhæve restriktionerne mod sydafrikanske embedsmænd og andre beslutningstagere.",
+  "source_metadata": [
+    {
+      "url": "https://www.reuters.com/world/africa/us-announces-visa-curbs-some-foreign-nationals-south-africa-2026-09-15/",
+      "name": "Reuters",
+      "source_class": "authoritative",
+      "role": "central_reporting"
+    },
+    {
+      "url": "https://www.reuters.com/world/africa/south-africa-says-us-misrepresented-its-policies-after-visa-curbs-2026-09-16/",
+      "name": "Reuters",
+      "source_class": "authoritative",
+      "role": "south_africa_response"
+    },
+    {
+      "url": "https://apnews.com/article/5cedd7e02f570f5bbf4cdd3cef365fb9",
+      "name": "Associated Press",
+      "source_class": "authoritative",
+      "role": "independent_confirmation"
+    }
+  ],
+  "editorial_metadata": {
+    "final_qa_duplicate": false,
+    "story_cluster_id": "us-south-africa-race-land-visa-restrictions-2026",
+    "discovery_run_id": "news-20260916-1516",
+    "candidate_id": "candidate-south-africa-visas",
+    "source_pool": "discovery",
+    "candidates_tried": 2,
+    "duplicate_of": "PR #555",
+    "audit": [
+      {
+        "rank": 1,
+        "candidate_headline": "EU vil kunne lempe regler ved pludselig masseankomst af migranter",
+        "deep_screened": false,
+        "downstream_sources": ["Reuters", "European Commission"],
+        "decision": "duplicate",
+        "reason": "Næsten-identisk historie er allerede afleveret som PR #555 og blev derfor ekskluderet resten af runnet."
+      },
+      {
+        "rank": 2,
+        "candidate_headline": "USA indfører visumrestriktioner mod sydafrikanere over race- og jordpolitik",
+        "deep_screened": true,
+        "downstream_sources": ["Reuters", "Associated Press", "South African Department of International Relations and Cooperation"],
+        "decision": "selected",
+        "reason": "Frisk, dokumenteret friheds- og ejendomsretshistorie med konkret amerikansk sanktion og tydeligt sydafrikansk modsvar."
+      }
+    ],
+    "model_prompt_version": "canonical-news-task-2026-09-16",
+    "hero_candidates": [
+      {
+        "rank": 1,
+        "source_url": "https://commons.wikimedia.org/wiki/File:Secretary_Rubio_Delivers_Remarks_to_the_Munich_Security_Conference_(55095058921).jpg",
+        "license": "Public domain - US Department of State",
+        "attribution": "U.S. Department of State / Freddie Everett",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "width": 2000,
+        "height": 1333,
+        "description": "Dokumentarisk foto af USA's udenrigsminister Marco Rubio, som annoncerede visumrestriktionerne"
+      },
+      {
+        "rank": 2,
+        "source_url": "https://commons.wikimedia.org/wiki/File:2026_U.S._Secretary_of_State_Marco_Rubio_meets_NATO_Secretary_General_Mark_Rutte_at_the_Department_of_State_in_Washington,_D.C._on_April_8th_(cropped).jpg",
+        "license": "Public domain - US Department of State",
+        "attribution": "U.S. Department of State / Freddie Everett",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "width": 2284,
+        "height": 1714,
+        "description": "Dokumentarisk foto af Marco Rubio i det amerikanske udenrigsministerium"
+      },
+      {
+        "rank": 3,
+        "source_url": "https://commons.wikimedia.org/wiki/File:Secretary_Rubio_Meets_with_Bolivian_President_(55134047661).jpg",
+        "license": "Public domain - US Department of State",
+        "attribution": "U.S. Department of State / Freddie Everett",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "description": "Dokumentarisk foto af Marco Rubio ved et officielt amerikansk diplomatisk møde i 2026"
+      }
+    ]
+  }
+}
