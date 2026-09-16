@@ -1,0 +1,80 @@
+{
+  "queue_id": "news-20260916-1659-italy-slovenia",
+  "slug": "italien-overvejer-at-droppe-graensekontrol-mod-slovenien",
+  "headline": "Italien overvejer at droppe grænsekontrol mod Slovenien",
+  "dek": "Kontrollen kan blive erstattet af fælles politiindsats, når den nuværende forlængelse udløber 18. december.",
+  "category_slug": "udland",
+  "body_markdown": "Italien overvejer at ophæve den midlertidige grænsekontrol mod Slovenien og i stedet bruge fælles politiindsatser til at bekæmpe ulovlig indvandring og beskytte sikkerheden.\n\nDet sagde Italiens udenrigsminister Antonio Tajani efter et møde med sin slovenske kollega Tone Kajzer i Nova Gorica tirsdag. Ifølge det italienske nyhedsbureau ANSA ser regeringen positivt på at erstatte kontrollen, når den nuværende forlængelse udløber 18. december.\n\nTajani pegede på en model med italienske og slovenske politifolk, der samarbejder på tværs af grænsen. Italien bruger allerede en lignende ordning sammen med Frankrig. Han sagde, at forslaget er drøftet med indenrigsminister Matteo Piantedosi.\n\nDen italienske kontrol ved grænsen til Slovenien blev indført i oktober 2023. Baggrunden var blandt andet sikkerhedssituationen i Europa og Mellemøsten samt bekymring for terrorisme, organiseret kriminalitet og ulovlig migration.\n\nSlovenien har allerede valgt en lignende kurs på sine grænser mod Kroatien og Ungarn. Den slovenske regering ophævede i juni de midlertidige kontroller og erstattede dem med blandt andet stikprøver baseret på risikovurderinger og andre politiindsatser på udsatte ruter. Regeringen argumenterede for, at sikkerheden dermed kunne styrkes uden fast grænsekontrol.\n\nKajzer kaldte den italiensk-slovenske grænse et sted for samarbejde og nye muligheder.\n\nPlanen er endnu ikke en endelig beslutning. Tajani sagde, at Italien overvejer muligheden positivt. Dermed kan kontrollen fortsætte efter december, hvis regeringen vurderer, at sikkerhedssituationen kræver det.\n\nSamtidig fastholder Italien ekstra kontrol med rejsende fra Spanien efter sommerens migrationskrise i Ceuta. Tajani understregede, at sådanne kontroller efter hans opfattelse ikke er rettet mod andre lande, men skal beskytte Italiens grænser og indre sikkerhed.\n\nSchengen-samarbejdet bygger normalt på fri bevægelighed uden kontrol ved de indre grænser. EU-reglerne giver dog medlemslandene mulighed for midlertidigt at genindføre kontrol, når der vurderes at være en alvorlig trussel mod den offentlige orden eller sikkerhed.",
+  "source_metadata": [
+    {
+      "name": "ANSA",
+      "url": "https://www.ansa.it/nuova_europa/en/news/sections/news/2026/09/15/italy-is-considering-alternatives-to-the-schengen-suspension-with-slovenia-fm_090b09fa-7670-4231-ad6a-4e22842c5b7a.html",
+      "type": "authoritative"
+    },
+    {
+      "name": "Sloveniens regering",
+      "url": "https://www.gov.si/en/news/2026-06-11-government-lifts-checks-at-borders-with-croatia-and-hungary/",
+      "type": "primary"
+    },
+    {
+      "name": "Europa-Kommissionen — Schengen",
+      "url": "https://home-affairs.ec.europa.eu/policies/schengen_en",
+      "type": "primary"
+    }
+  ],
+  "editorial_metadata": {
+    "sagen_kort": [
+      "Italien overvejer at ophæve grænsekontrollen mod Slovenien, når den nuværende forlængelse udløber 18. december.",
+      "Regeringen undersøger i stedet fælles politiindsatser, som skal bevare sikkerheden og bekæmpe ulovlig indvandring."
+    ],
+    "final_qa_duplicate": false,
+    "story_cluster_id": "italy-slovenia-schengen-2026",
+    "hero_candidates": [
+      {
+        "rank": 1,
+        "source_url": "https://commons.wikimedia.org/wiki/File:Cycle_path_Nova_Gorica_Slovenian-Italian_border_2023.jpg",
+        "license": "CC BY-SA 4.0",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "width": 4032,
+        "height": 2268,
+        "description": "Cykelsti ved den italiensk-slovenske grænse i Nova Gorica/Gorizia"
+      },
+      {
+        "rank": 2,
+        "source_url": "https://commons.wikimedia.org/wiki/File:Italy,_Gorizia_-_Slovenia,_Nova_Gorica_(18031926408).jpg",
+        "license": "CC BY 2.0",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "width": 3543,
+        "height": 2362,
+        "description": "Den italiensk-slovenske grænse mellem Gorizia og Nova Gorica"
+      },
+      {
+        "rank": 3,
+        "source_url": "https://commons.wikimedia.org/wiki/File:Confine_tra_italia_e_slovenia,_stazione_di_nova_gorica_01.JPG",
+        "license": "CC BY 3.0",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "width": 3220,
+        "height": 2236,
+        "description": "Grænsemarkering ved Transalpina-pladsen mellem Italien og Slovenien"
+      }
+    ],
+    "discovery_run_id": "news-20260916-1659-hel",
+    "discovery_audit": [
+      {
+        "candidate_id": "italy-slovenia-schengen",
+        "source_pool": "discovery",
+        "source_path": "Brussels Signal -> ANSA / Slovenian government / European Commission",
+        "rank": 1,
+        "candidate_headline": "Italy eyes end of Schengen suspension on border with Slovenia",
+        "deep_screened": true,
+        "downstream_sources": ["ANSA", "Sloveniens regering", "Europa-Kommissionen"],
+        "decision": "selected",
+        "reason": "Fresh, documented migration/border story; no near-identical item found in observable 7-day [PUBLISH] history.",
+        "model_prompt_version": "canonical-news-task-2026-09-16"
+      }
+    ]
+  }
+}
