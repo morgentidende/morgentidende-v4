@@ -3,7 +3,8 @@ import assert from 'node:assert/strict';
 import {
   containsSagenKortHeading,
   normalizeBriefPoints,
-  stripSagenKortSection
+  stripSagenKortSection,
+  stripStructuredBodySections
 } from './article-content-normalizer.mjs';
 
 test('two structured points are preserved and ordinary body is unchanged', () => {
@@ -61,4 +62,32 @@ test('case and whitespace variants are normalized', () => {
   const result = stripSagenKortSection(body);
   assert.equal(result.removed, true);
   assert.equal(result.bodyMarkdown, 'Tekst.');
+});
+
+test('manual Kilder section is removed but ordinary text is preserved', () => {
+  const body = 'Brødtekst.\n\n## Kilder\n- [Kilde A](https://example.com/a)\n- [Kilde B](https://example.com/b)\n\nAfslutning.';
+  const result = stripStructuredBodySections(body);
+  assert.deepEqual(result.removedSections, ['kilder']);
+  assert.equal(result.bodyMarkdown, 'Brødtekst.\n\nAfslutning.');
+});
+
+test('manual Læs også section is removed and structured relation remains canonical', () => {
+  const body = 'Brødtekst.\n\n### LÆS OGSÅ\n- [Tidligere artikel](/artikel/tidligere)\n\nVidere tekst.';
+  const result = stripStructuredBodySections(body);
+  assert.deepEqual(result.removedSections, ['laes_ogsaa']);
+  assert.equal(result.bodyMarkdown, 'Brødtekst.\n\nVidere tekst.');
+});
+
+test('HTML Kilder and Læs også lists are removed', () => {
+  const body = '<p>Brødtekst.</p><h2>Kilder</h2><ul><li>A</li></ul><h3>Læs også</h3><ol><li>B</li></ol><p>Slut.</p>';
+  const result = stripStructuredBodySections(body);
+  assert.deepEqual(result.removedSections, ['kilder', 'laes_ogsaa']);
+  assert.equal(result.bodyMarkdown, '<p>Brødtekst.</p><p>Slut.</p>');
+});
+
+test('ordinary sentences mentioning kilder or læs også are untouched', () => {
+  const body = 'Flere kilder bekræfter historien. Læs også ordene i deres sammenhæng.';
+  const result = stripStructuredBodySections(body);
+  assert.equal(result.removed, false);
+  assert.equal(result.bodyMarkdown, body);
 });
