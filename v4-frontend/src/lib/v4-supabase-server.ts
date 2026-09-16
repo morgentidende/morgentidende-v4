@@ -3,7 +3,7 @@ import { getNewsletterRuntimeEnv, hasSupabaseServerEnv, type NewsletterRuntimeEn
 
 const createServerClient = (env: NewsletterRuntimeEnv): SupabaseClient | null => {
   if (!hasSupabaseServerEnv(env)) return null;
-  return createClient(env.supabaseUrl, env.supabaseServiceRoleKey, {
+  return createClient(env.supabaseUrl, env.supabaseSecretKey, {
     auth: { persistSession: false, autoRefreshToken: false }
   });
 };

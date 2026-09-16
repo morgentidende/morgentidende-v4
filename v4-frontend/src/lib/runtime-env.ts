@@ -12,7 +12,7 @@ const pick = (runtime: RuntimeBag, key: string) => {
 
 export type NewsletterRuntimeEnv = {
   supabaseUrl: string;
-  supabaseServiceRoleKey: string;
+  supabaseSecretKey: string;
   awsRegion: string;
   awsAccessKeyId: string;
   awsSecretAccessKey: string;
@@ -23,7 +23,7 @@ export const getNewsletterRuntimeEnv = (locals?: App.Locals): NewsletterRuntimeE
   const runtime = readRuntimeEnv(locals);
   return {
     supabaseUrl: pick(runtime, 'PUBLIC_SUPABASE_URL'),
-    supabaseServiceRoleKey: pick(runtime, 'SUPABASE_SERVICE_ROLE_KEY'),
+    supabaseSecretKey: pick(runtime, 'SUPABASE_SECRET_KEY'),
     awsRegion: pick(runtime, 'AWS_SES_REGION') || pick(runtime, 'AWS_REGION'),
     awsAccessKeyId: pick(runtime, 'AWS_ACCESS_KEY_ID'),
     awsSecretAccessKey: pick(runtime, 'AWS_SECRET_ACCESS_KEY'),
@@ -32,7 +32,7 @@ export const getNewsletterRuntimeEnv = (locals?: App.Locals): NewsletterRuntimeE
 };
 
 export const hasSupabaseServerEnv = (env: NewsletterRuntimeEnv) =>
-  Boolean(env.supabaseUrl && env.supabaseServiceRoleKey);
+  Boolean(env.supabaseUrl && env.supabaseSecretKey);
 
 export const hasSesEnv = (env: NewsletterRuntimeEnv) =>
   Boolean(env.awsRegion && env.awsAccessKeyId && env.awsSecretAccessKey);
