@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import { normalizePublishKind } from './publish-kind.mjs';
+import { validatePublishPayloadFields } from './publish-payload-fields.mjs';
 
 const file = process.env.QUEUE_FILE;
 const projectRef = process.env.SUPABASE_PROJECT_REF || 'lfttxjxfggjcxmdfjndk';
@@ -64,7 +65,7 @@ if (payloadType === 'discovery_audit') {
   }
   if (!/^[a-z0-9][a-z0-9-]{1,179}$/.test(payload.slug)) fail('invalid_slug');
   if (payload.source_metadata !== undefined && !Array.isArray(payload.source_metadata)) fail('source_metadata_must_be_array');
-  if (payload.editorial_metadata !== undefined && (typeof payload.editorial_metadata !== 'object' || Array.isArray(payload.editorial_metadata) || payload.editorial_metadata === null)) fail('editorial_metadata_must_be_object');
+  if (payload.editorial_metadata !== undefined && (typeof payload.editorial_metadata !== 'object' || Array.isArray(payload.editorial_metadata) || payload.editorial_metadata === null)) fail('invalid_editorial_metadata');
   if (payload.headline.length > 220) fail('headline_too_long');
   if (payload.deck && String(payload.deck).length > 300) fail('deck_too_long');
 
@@ -82,6 +83,12 @@ if (payloadType === 'discovery_audit') {
 
   payload.source_metadata ??= [];
   payload.editorial_metadata ??= {};
+
+  try {
+    validatePublishPayloadFields(payload);
+  } catch (error) {
+    fail(error instanceof Error ? error.message : 'invalid_publish_payload_fields');
+  }
 
   if (payload.editorial_metadata.discovery_audit !== undefined) {
     if (!Array.isArray(payload.editorial_metadata.discovery_audit)) fail('discovery_audit_candidates_must_be_array');
@@ -101,7 +108,9 @@ if (payloadType === 'discovery_audit') {
       const reason = String(payload.editorial_metadata.followup_reason ?? '').trim();
       if (!parentId) fail('followup_requires_parent');
       if (!allowedFollowupReasons.has(reason)) fail('followup_requires_reason');
-      if (typeof payload.story_cluster_id !== 'string' || !payload.story_cluster_id.trim()) fail('followup_requires_cluster');
+      const clusterId = typeof payload.story_cluster_id === 'string' ? payload.story_cluster_id.trim() : '';
+      const clusterKey = typeof payload.story_cluster_key === 'string' ? payload.story_cluster_key.trim() : '';
+      if (!clusterId && !clusterKey) fail('followup_requires_cluster');
     }
   }
 
