@@ -74,7 +74,7 @@ Hvis artiklen er næsten-identisk med en historie fra de seneste 7 dage uden væ
 
 Der må højst ske én fuld ny historievalgsrunde efter at den oprindelige shortlist er udtømt. Hvis der stadig ikke findes en ikke-dublet, stop med `DUPLICATE_RETRY_EXHAUSTED` og aflever audit-only.
 
-En legitim væsentlig opfølger bruger samme `story_cluster_id` og struktureret `Læs også` efter `editorial-core.md`.
+En legitim væsentlig opfølger bruger samme `story_cluster_key` og struktureret `Læs også` efter `editorial-core.md`. Læg aldrig en tekstslug i `story_cluster_id`.
 
 Hvis intet rimeligt 7-dages-grundlag kan etableres, stop med `QA_HISTORY_UNAVAILABLE` og aflever audit-only.
 
@@ -128,7 +128,7 @@ Scheduled Task skriver aldrig artiklen direkte til Supabase.
 
 1. Opret en unik `publish/chatgpt-*` branch fra aktuel `main`.
 2. Skriv præcis én ny `publish-queue/<queue_id>.json` på branchen.
-3. Payloaden skal mindst indeholde `queue_id`, `slug`, `headline`, `category_slug`, `body_markdown`, top-level `source_metadata` array og `editorial_metadata` object. Medtag hero candidates, source-registry-opdateringer og audit, når relevant.
+3. Payloaden skal mindst indeholde `queue_id`, `slug`, `headline`, `category_slug`, `deck`, `body_markdown`, top-level `source_metadata` array og `editorial_metadata` object. `editorial_metadata.sagen_kort` skal være præcis to ikke-tomme strenge. Hvis artiklen tilhører en eksisterende sag, send `story_cluster_key` med den kanoniske slug fra `story_clusters`; send kun `story_cluster_id`, når UUID'en er kendt. En tekstslug må aldrig ligge i `story_cluster_id`. Backend kan midlertidigt acceptere aliaserne `manchet` → `deck` og top-level `sagen_kort` → `editorial_metadata.sagen_kort`; konflikter afvises. Medtag hero candidates, source-registry-opdateringer og audit, når relevant.
 4. Opret præcis én PR mod `main`; titlen starter `[PUBLISH] ` og body indeholder `<!-- morgentidende-chatgpt-publish -->`.
 5. Merge ikke transport-PR'en. Brug aldrig direkte Supabase-write som fallback. Backend ejer idempotens, slug/source/media/QA/publication-gates og lukker transport-PR'en efter vellykket aflevering.
 
