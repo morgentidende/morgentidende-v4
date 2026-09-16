@@ -1,0 +1,31 @@
+{
+  "queue_id": "hel-20260916-2357-merz-free-speech",
+  "slug": "merz-free-speech-klarnavne-internet",
+  "headline": "Merz vil have rigtige navne på nettet: »Kom ikke til mig med free speech«",
+  "category_slug": "udland",
+  "deck": "Tysklands kansler vil begrænse anonymitet på nettet. En ung forsker spurgte direkte til beskyttelsen af informanter og undersøgende journalister.",
+  "body_markdown": "Tysklands forbundskansler Friedrich Merz vil igen gøre det sværere at være anonym på nettet. Da en ung deltager ved forskningskonkurrencen Jugend forscht spurgte, hvordan et krav om rigtige navne kan forenes med beskyttelsen af informanter og undersøgende journalister, svarede kansleren med en bredere kritik af anonym kommunikation og sociale medier.\n\n»Kom ikke til mig med free speech,« sagde Merz under arrangementet i Forbundskansleriet i Berlin tirsdag. Ifølge den tyske avis Welt fortsatte han med, at det efter hans opfattelse ikke havde noget med fri tale at gøre, men snarere med en libertær politisk forståelse fra dele af USA, som han ikke deler.\n\nSpørgsmålet fra den unge forsker ramte en konkret konflikt i forslaget. Hvis brugere skal kunne identificeres med deres rigtige navn, kan det gøre det vanskeligere for whistleblowere, kilder og andre borgere at udtale sig uden risiko for personlige følger. Merz anerkendte, at der findes argumenter for anonymitet, men lagde hovedvægten på problemerne ved den.\n\nKansleren pegede blandt andet på falske oplysninger, personlige krænkelser, diskrimination og beskeder skabt af automatiserede konti. Han argumenterede for, at et liberalt samfund også skal kunne beskytte borgerne mod den slags.\n\nMerz' udtalelser faldt 15. september ved hans modtagelse af vinderne fra den 61. landsdækkende Jugend forscht-konkurrence. Den tyske regerings egen hjemmeside dokumenterer arrangementet og har offentliggjort både materiale og video fra modtagelsen. Welt og Apollo News gengiver den efterfølgende spørgerunde og citatet om free speech.\n\nForslaget om rigtige navne er ikke det samme som, at en sådan ordning allerede er vedtaget. Det er en politisk position fra kansleren, og de nærmere regler, undtagelser og den praktiske gennemførelse er ikke fastlagt i de kilder, Morgentidende har gennemgået.\n\nDebatten handler derfor om mere end dårlig opførsel på sociale medier. På den ene side står ønsket om at kunne placere ansvar for trusler, chikane og ulovligt indhold. På den anden står muligheden for at tale under pseudonym eller anonymt, som kan være vigtig for blandt andre kilder, kritikere og mennesker i udsatte positioner. Det var netop denne konflikt, den unge deltager bad kansleren forholde sig til.",
+  "source_metadata": [
+    {"url":"https://www.bundesregierung.de/breg-de/suche/jugend-forscht-2452646","title":"Kanzler ehrt Preisträgerinnen und Preisträger von Jugend forscht","publisher":"Bundesregierung","source_class":"authoritative","published_at":"2026-09-15"},
+    {"url":"https://www.bundesregierung.de/breg-de/mediathek/livestream/ab-ca-10-00-uhr-empfang-der-preistraegerinnen-und-preistraeger-des-61-bundeswettbewerbs-jugend-forscht-durch-den-bundeskanzler-1768080","title":"Empfang der Preisträgerinnen und Preisträger des 61. Bundeswettbewerbs Jugend forscht","publisher":"Bundesregierung","source_class":"authoritative","published_at":"2026-09-15"},
+    {"url":"https://www.welt.de/politik/deutschland/article6aa9841d949f8d3cb46381fa/klarnamenpflicht-bitte-komme-mir-keiner-mit-free-spech-merz-spricht-sich-erneut-gegen-anonymitaet-im-netz-aus.html","title":"Merz spricht sich erneut gegen Anonymität im Netz aus","publisher":"WELT","source_class":"authoritative","published_at":"2026-09-15"}
+  ],
+  "editorial_metadata": {
+    "sagen_kort": [
+      "Friedrich Merz vil have mindre anonymitet på nettet og afviste under en spørgerunde en indvending med ordene: »Kom ikke til mig med free speech.«",
+      "En ung deltager spurgte, hvordan krav om rigtige navne kan forenes med beskyttelsen af informanter og undersøgende journalister."
+    ],
+    "final_qa_duplicate": false,
+    "discovery_run_id": "hel-20260916-2357",
+    "model_prompt_version": "canonical-news-task-2026-09-16",
+    "hero_candidates": [
+      {"rank":1,"source_url":"https://commons.wikimedia.org/wiki/File:Friedrich_Merz_May_2025.jpg","license":"CC BY-SA 4.0","commercial_use_allowed":true,"local_storage_allowed":true,"known_width":1451,"known_height":1936,"description":"Portræt af Friedrich Merz"},
+      {"rank":2,"source_url":"https://commons.wikimedia.org/wiki/File:Bundeskanzler_Friedrich_Merz_empf%C3%A4ngt_Kristen_Michal_2025_-_54949067442.jpg","license":"CC BY 4.0","commercial_use_allowed":true,"local_storage_allowed":true,"known_width":3000,"known_height":2000,"description":"Friedrich Merz ved Forbundskansleriet"},
+      {"rank":3,"source_url":"https://commons.wikimedia.org/wiki/File:Friedrich_Merz,_2025.06.26_(01).jpg","license":"EU reuse terms; commercial use permitted with attribution","commercial_use_allowed":true,"local_storage_allowed":true,"known_width":3757,"known_height":5636,"description":"Friedrich Merz som tysk forbundskansler"}
+    ],
+    "discovery_audit": [
+      {"candidate_id":"hel-2357-1","source_pool":"discovery","rank":1,"topic":"EU digital identity wallet deadline","deep_screened":true,"downstream_sources":["Euronews","EUR-Lex","European Commission"],"decision":"rejected_duplicate","reason":"Nearly identical recent transport PRs #580 and #586"},
+      {"candidate_id":"hel-2357-2","source_pool":"discovery","rank":2,"topic":"Friedrich Merz backs real-name requirement online and rejects free-speech objection","deep_screened":true,"downstream_sources":["Bundesregierung","WELT"],"decision":"selected","reason":"Fresh, documented, profile-relevant and no nearly identical 7-day GitHub PUBLISH match found"}
+    ]
+  }
+}
