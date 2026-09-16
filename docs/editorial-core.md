@@ -7,7 +7,7 @@ Denne fil ejer kun de regler, som gælder på tværs af autonom artikelproduktio
 - **Fælles artikelkrav og journalistens eget slut-QA:** denne fil.
 - **Nyhedsprofil, politiske skalaer, discovery og bredt nyhedsmix:** `docs/news-editorial-profile-and-discovery.md`.
 - **Viden og Liv:** `docs/magazine-editorial-policy.md`.
-- **Hero-rettigheder, lokal arkivering, medie-ingest og kreditering:** `docs/media-library.md`.
+- **Hero-rettigheder, lokal arkivering, hosting og kreditering:** `docs/media-library.md`.
 - **Produkt, frontend, CMS, publiceringsbuffer og teknisk QA:** `docs/v4-spec.md` og den aktive Supabase-implementering.
 - Historiske filer, migrationshistorik og deaktiverede automations er ikke aktuelle regelsæt.
 
@@ -18,7 +18,7 @@ Denne fil ejer kun de regler, som gælder på tværs af autonom artikelproduktio
 3. Skriv flydende, naturligt og klart dansk med velkendte ord og varieret sætningsrytme. Unødvendige metodeetiketter og fagudtryk undgås, medmindre de er nødvendige for forståelsen. **Administrative begreber, systemtal og statistikker skal så vidt muligt oversættes til mennesker og konkrete konsekvenser. Skriv fx om asylansøgere, familier, borgere eller virksomheder frem for alene om `sager`, `anmodninger` og systemkoder, når datagrundlaget tillader det.**
 4. Rubrikker følger **faktum først**: når historien rummer et stærkt verificeret faktum, tal, citat eller en konkret konsekvens, skal det som udgangspunkt frem tydeligt. Nysgerrighed må bruges, men må ikke skjule en stærkere dokumenteret pointe. Rubrik og manchet må aldrig love mere, end dokumentationen bærer.
 5. Manchetten er højst 2 sætninger og cirka 20 ord.
-6. `SAGEN KORT` består altid af præcis 2 tydeligt forskellige hovedpointer.
+6. `SAGEN KORT` består altid af præcis 2 tydeligt forskellige hovedpointer. `SAGEN KORT` leveres kun som det strukturerede felt `sagen_kort` og må aldrig skrives som overskrift, liste eller sektion i `body_markdown`.
 7. `body_markdown` må ikke begynde med H1 eller gentage rubrikken. Et almindeligt afsnit må ikke begynde direkte med `tal.` hvis Markdown kan fejlfortolke det som en nummereret liste.
 8. Almindelige eksterne hyperlinks må ikke stå i brødteksten. Eksterne kilder vises **kun én gang** i den strukturerede, klikbare kildeliste nederst, genereret fra `source_metadata`. Journalisten må derfor aldrig selv skrive en `Kilder`-overskrift eller manuel kildeliste i `body_markdown`. Interne anbefalinger bruger det strukturerede `Læs også`-relationssystem. `source_metadata` skal altid leveres som en **top-level JSON-array af kildeobjekter** — aldrig indpakket som fx `{ "sources": [...] }`; brug `[]`, hvis der ikke er strukturerede kilder.
 9. Direkte citater og personlige erfaringer skal være verificerbare og gengives loyalt i deres dokumenterede kontekst.
