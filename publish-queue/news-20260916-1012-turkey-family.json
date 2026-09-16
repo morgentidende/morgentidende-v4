@@ -1,0 +1,51 @@
+{
+  "queue_id": "news-20260916-1012-turkey-family",
+  "slug": "tyrkiet-operation-min-familie-er-sikker-162-mistaenkte",
+  "headline": "Tyrkiet slår til mod LGBT-miljø: 162 mistænkte i »Min familie er sikker«-operation",
+  "category_slug": "udland",
+  "manchet": "Regeringen siger, at børn og familier skal beskyttes. Kritikere kalder razziaerne et angreb på grundlæggende rettigheder.",
+  "sagen_kort": [
+    "Tyrkiske myndigheder har indledt sager mod 162 mistænkte, ni foreninger og 13 virksomheder i 15 provinser.",
+    "Operationen rammer blandt andet LGBT- og hiv-organisationer; regeringen henviser til børn og familieværdier, mens menneskerettighedsfolk protesterer."
+  ],
+  "body_markdown": "Tyrkiske myndigheder har sat en landsdækkende politiaktion ind mod LGBT-foreninger, aktivister og virksomheder. Aktionen har fået navnet »Min familie er sikker« og omfatter ifølge justitsminister Akın Gürlek 162 mistænkte, ni foreninger og 13 virksomheder i 15 provinser.\n\nRazziaerne begyndte i weekenden i blandt andet Istanbul, Ankara, Izmir, Aydın og Mersin. Politiet gennemsøgte foreningskontorer, boliger og virksomheder, og snesevis af mennesker blev tilbageholdt. Reuters oplyste 15. september, at mindst 31 personer var blevet varetægtsfængslet, mens 126 demonstranter var blevet tilbageholdt ved protester i Ankara og Istanbul.\n\nRegeringen knytter aktionen direkte til præsident Recep Tayyip Erdoğans program »Familiens og befolkningens årti 2026-2035«. Ifølge justitsministeren er målet at beskytte børn, familien og den offentlige orden.\n\nAnklagemyndighederne undersøger blandt andet mistanke om prostitution og uanstændigt materiale. Den statslige nyhedstjeneste Anadolu oplyser desuden, at myndighedernes undersøgelser af pengestrømme har fundet betydelig udenlandsk finansiering til nogle af de berørte foreninger. At en organisation modtager udenlandsk støtte er ikke i sig selv dokumentation for kriminalitet.\n\nAktionen har også ramt organisationer, der arbejder med hiv. Reuters og Associated Press beskriver ransagninger af foreningskontorer og blokering af hjemmesider og konti på sociale medier. Homoseksuelle forhold er ikke ulovlige i Tyrkiet, men myndighederne har i en årrække begrænset Pride-arrangementer og andre LGBT-aktiviteter.\n\nMenneskerettighedsorganisationer afviser regeringens begrundelse. Den tyrkiske menneskerettighedsorganisation İHD kalder operationen statsstyret diskrimination og mener, at regeringen bruger beskyttelsen af familien som begrundelse for at svække civilsamfundet.\n\nEuroparådets menneskerettighedskommissær Michael O'Flaherty har ligeledes kritiseret indgrebene og advaret mod at bruge familieværdier som begrundelse for begrænsninger af grundlæggende rettigheder.\n\nKonflikten handler dermed ikke kun om de konkrete straffesager. Den rammer en større politisk strid i Tyrkiet om, hvor langt staten kan gå i forsøget på at beskytte traditionelle familieidealer, når indgrebene samtidig rammer lovlige foreninger og politisk aktivisme.",
+  "source_metadata": [
+    {"url":"https://www.aa.com.tr/tr/gundem/ailem-guvende-operasyonlarinda-162-supheli-9-dernek-ve-13-isletmeye-adli-islem-yapildi/4055614","name":"Anadolu Agency","type":"primary_adjacent","authoritative":true,"published_date":"2026-09-13"},
+    {"url":"https://www.reuters.com/world/middle-east/turkey-detains-26-people-after-raids-targeting-lgbtq-groups-2026-09-13/","name":"Reuters","type":"authoritative","authoritative":true,"published_date":"2026-09-13"},
+    {"url":"https://apnews.com/article/c782f5318613126fe072d29133e6bf5d","name":"Associated Press","type":"authoritative","authoritative":true,"published_date":"2026-09-13"}
+  ],
+  "editorial_metadata": {
+    "final_qa_duplicate": false,
+    "story_cluster_id": "turkey-family-lgbt-raids-2026-09",
+    "hero_candidates": [
+      {
+        "rank": 1,
+        "source_url": "https://commons.wikimedia.org/wiki/File:2025_Recep_Tayyip_Erdo%C4%9Fan_(cropped).jpg",
+        "original_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/2025%20Recep%20Tayyip%20Erdo%C4%9Fan%20(cropped).jpg",
+        "license": "CC BY-SA 4.0",
+        "attribution": "Ministerie van Buitenlandse Zaken / Phil Nijhuis",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "width": 1390,
+        "height": 1853,
+        "mime_type": "image/jpeg",
+        "relevance": "Præsident Erdoğan er den centrale politiske aktør bag programmet, som regeringen udtrykkeligt knytter operationen til."
+      }
+    ],
+    "discovery_run_id": "news-20260916-1012",
+    "discovery_audit": [
+      {
+        "candidate_id": "turkey-family-raids",
+        "source_pool": "discovery",
+        "source_path": "Brussels Signal -> Anadolu/Reuters/AP",
+        "rank": 1,
+        "candidate_headline": "Turkish authorities launch crackdown on LGBTQ+ support groups",
+        "deep_screened": true,
+        "downstream_sources": ["Anadolu Agency", "Reuters", "Associated Press"],
+        "decision": "selected",
+        "reason": "Fresh, strongly documented state-power/civil-liberties story with clear conflict and no near-identical item in observed seven-day [PUBLISH] history.",
+        "model_prompt_version": "canonical-news-task-2026-09-16"
+      }
+    ]
+  }
+}
