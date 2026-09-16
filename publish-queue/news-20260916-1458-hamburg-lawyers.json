@@ -1,0 +1,89 @@
+{
+  "queue_id": "news-20260916-1458-hamburg-lawyers",
+  "slug": "510-advokater-moedte-op-formand-stemt-ud-efter-politisk-opgoer",
+  "headline": "510 advokater mødte op: Formand stemt ud efter politisk opgør",
+  "category_slug": "udland",
+  "manchet": "Normalt kæmper pensionskassen for at samle 50 medlemmer. Denne gang kom 510, efter en gruppe advokater havde mobiliseret mod formanden.",
+  "sagen_kort": [
+    "Jörn Weitzmann mistede posten som formand for de hamburgske advokaters pensionskasse efter mere end 20 år; 431 stemte imod ham og 36 for.",
+    "Modstanderne henviste til hans politiske opslag på sociale medier, mens Weitzmann selv afviste betegnelser som højreradikal og kritiserede den politiske debatkultur."
+  ],
+  "body_markdown": "En medlemsforsamling, der normalt har svært ved overhovedet at samle de nødvendige 50 deltagere, blev mandag fyldt med 510 advokater i Hamborg. De var ikke først og fremmest kommet for pensionsregnskaberne. En gruppe advokater havde i ugerne op til mødet mobiliseret for at få den mangeårige formand Jörn Weitzmann stemt ud.\n\nWeitzmann havde stået i spidsen for Verwaltungsausschuss, den ledende bestyrelse i de hamburgske advokaters pensionskasse, i mere end to årtier. Ifølge det juridiske fagmedie Legal Tribune Online var hans genvalg normalt nærmest en formalitet. Denne gang endte afstemningen med 431 stemmer imod ham og blot 36 for.\n\nBag oprøret stod blandt andre advokaten Oliver Islam. Gruppen mente, at Weitzmanns offentlige opslag på X og LinkedIn var blevet stadig mere politisk ydergående og uforenelige med en repræsentativ post i advokatstanden. Under mødet blev der blandt andet henvist til opslag om AfD, migration, EU, coronapolitik og LGBT-spørgsmål.\n\nEt af Weitzmanns opslag efter AfD's valgsejr i Sachsen-Anhalt lød ifølge Legal Tribune Online, at partiets strategiske tålmodighed i det østlige Tyskland havde båret frugt. I et andet opslag skrev han om tyskere, der levede under det, han kaldte »erobringsmigrationens trældom«.\n\nKritikerne gik længere end til politisk uenighed. De hævdede, at hans synspunkter gjorde ham uegnet til at repræsentere advokatstanden. Islam sagde under mødet, at han ikke ønskede at fratage Weitzmann hans mening, men at han derfor heller ikke kunne give ham sin stemme.\n\nWeitzmann afviste anklagerne. Han sagde, at betegnelsen om at være placeret yderst politisk var et argument, der lukkede debatten, og han afviste også efter mødet både at være højreradikal og at stå AfD nær. Efter nederlaget kritiserede han, at private opslag på sociale medier efter hans opfattelse havde fortrængt diskussionen om pensionskassens egentlige opgaver. Han kaldte udviklingen bekymrende for den politiske debatkultur.\n\nDet dramatiske fremmøde gjorde udfaldet usædvanligt klart. Ifølge Legal Tribune Online plejer pensionskassens medlemsmøder knap at nå grænsen for at være beslutningsdygtige. Denne gang var salen på Grand Elysée Hotel fyldt, og afstemningen fandt først sted tæt på klokken 23 efter flere timers ordinære pensionspunkter.\n\nWeitzmann blev afløst af den hidtidige næstformand Horst Bonvie. Pensionskassens officielle hjemmeside angiver nu Bonvie som formand for bestyrelsen. Sagen viser samtidig en konkret konflikt mellem retten til at ytre politiske holdninger privat og medlemmernes lige så frie ret til at lade de holdninger afgøre, hvem de vil vælge til en repræsentativ post.",
+  "source_metadata": [
+    {
+      "url": "https://www.lto.de/recht/juristen/b/coup-vorsitzender-versorgungswerk-abgewaehlt-anwaltschaft-hamburg",
+      "name": "Legal Tribune Online",
+      "source_class": "authoritative",
+      "role": "central_reporting"
+    },
+    {
+      "url": "https://www.vw-ra-hh.de/impressum",
+      "name": "Versorgungswerk der Rechtsanwältinnen und Rechtsanwälte in Hamburg",
+      "source_class": "authoritative",
+      "role": "primary_institutional_confirmation"
+    }
+  ],
+  "editorial_metadata": {
+    "final_qa_duplicate": false,
+    "story_cluster_id": "hamburg-lawyers-pension-board-weitzmann-2026",
+    "discovery_run_id": "news-20260916-1458",
+    "candidate_id": "candidate-hamburg-lawyers-weitzmann",
+    "source_pool": "discovery",
+    "candidates_tried": 2,
+    "duplicate_of": "PR #553",
+    "audit": [
+      {
+        "rank": 1,
+        "candidate_headline": "Von der Leyen vil gøre Canada til EU's første associerede medlem",
+        "deep_screened": false,
+        "downstream_sources": ["Reuters", "Associated Press", "European Commission"],
+        "decision": "duplicate",
+        "reason": "Næsten-identisk historie er allerede afleveret som PR #553 og blev derfor ekskluderet resten af runnet."
+      },
+      {
+        "rank": 2,
+        "candidate_headline": "Hamborgske advokater stemmer mangeårig pensionsformand ud efter politisk opgør",
+        "deep_screened": true,
+        "downstream_sources": ["Legal Tribune Online", "Versorgungswerk der Rechtsanwältinnen und Rechtsanwälte in Hamburg"],
+        "decision": "selected",
+        "reason": "Frisk ytringsfriheds- og institutionshistorie med usædvanligt fremmøde, klart valgresultat og dokumenterede argumenter fra begge sider."
+      }
+    ],
+    "model_prompt_version": "canonical-news-task-2026-09-16",
+    "hero_candidates": [
+      {
+        "rank": 1,
+        "source_url": "https://commons.wikimedia.org/wiki/File:20230317_Hanseatisches_Oberlandesgericht_Hamburg.jpg",
+        "license": "CC BY 4.0",
+        "attribution": "Flocci Nivis / Livia Rasp",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "width": 4420,
+        "height": 2951,
+        "description": "Dokumentarisk foto af det hanseatiske retsmiljø i Hamborg"
+      },
+      {
+        "rank": 2,
+        "source_url": "https://commons.wikimedia.org/wiki/File:Hamburg_-_Hanseatisches_Oberlandesgericht.jpg",
+        "license": "CC BY 2.0",
+        "attribution": "Fred Romero",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "width": 5184,
+        "height": 3456,
+        "description": "Dokumentarisk foto af Hanseatisches Oberlandesgericht i Hamborg"
+      },
+      {
+        "rank": 3,
+        "source_url": "https://commons.wikimedia.org/wiki/File:Hanseatisches_Oberlandesgericht_in_Hamburg_01.png",
+        "license": "CC BY-SA 4.0",
+        "attribution": "Krzysztof Golik",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "width": 6000,
+        "height": 4000,
+        "description": "Dokumentarisk oversigt over Hanseatisches Oberlandesgericht i Hamborg"
+      }
+    ]
+  }
+}
