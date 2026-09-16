@@ -131,14 +131,22 @@ declare
   v_error text;
   v_sagen_kort jsonb := coalesce(p_editorial_metadata, '{}'::jsonb) -> 'sagen_kort';
 begin
-  if coalesce(jsonb_typeof(v_sagen_kort), 'null') <> 'array'
-     or jsonb_array_length(v_sagen_kort) <> 2
-     or exists (
-       select 1
-       from jsonb_array_elements(v_sagen_kort) as point(value)
-       where jsonb_typeof(point.value) <> 'string'
-          or btrim(point.value #>> '{}') = ''
-     ) then
+  -- Keep type/length checks separate so jsonb_array_* is never evaluated on a
+  -- scalar/object, regardless of expression planner ordering.
+  if coalesce(jsonb_typeof(v_sagen_kort), 'null') <> 'array' then
+    return 'sagen_kort_must_have_exactly_two_nonempty_points';
+  end if;
+
+  if jsonb_array_length(v_sagen_kort) <> 2 then
+    return 'sagen_kort_must_have_exactly_two_nonempty_points';
+  end if;
+
+  if exists (
+    select 1
+    from jsonb_array_elements(v_sagen_kort) as point(value)
+    where jsonb_typeof(point.value) <> 'string'
+       or btrim(point.value #>> '{}') = ''
+  ) then
     return 'sagen_kort_must_have_exactly_two_nonempty_points';
   end if;
 
