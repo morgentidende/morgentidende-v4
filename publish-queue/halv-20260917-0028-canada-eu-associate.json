@@ -1,0 +1,79 @@
+{
+  "queue_id": "halv-20260917-0028-canada-eu-associate",
+  "slug": "von-der-leyen-vil-gore-canada-til-eus-forste-associerede-medlem",
+  "headline": "Von der Leyen vil gøre Canada til EU's første associerede medlem",
+  "category_slug": "udland",
+  "deck": "Statussen findes ikke i EU-traktaterne. Forslaget kan åbne for tættere samarbejde om forsvar, teknologi, energi og råstoffer.",
+  "body_markdown": "EU-Kommissionens formand Ursula von der Leyen vil åbne døren for, at Canada bliver EU's første associerede medlem. Forslaget blev fremlagt onsdag under hendes årlige tale om EU's tilstand i Europa-Parlamentet i Strasbourg, hvor Canadas premierminister Mark Carney sad blandt tilhørerne.\n\nDet opsigtsvækkende er, at en sådan medlemskategori ikke findes i EU's traktater i dag. Ifølge Reuters vil ordningen derfor kræve forhandlinger om både indhold og juridisk form, og medlemslandene skal være enige, før den kan blive til noget. Canada er dermed ikke på vej til almindeligt EU-medlemskab.\n\nVon der Leyen sagde, at hun ønsker at løfte forholdet mellem EU og Canada til det højest mulige niveau. Hun pegede blandt andet på tættere samarbejde om avanceret produktion, teknologi, forsvarsindustri, energi, kritiske råstoffer og Arktis.\n\nForslaget kommer på et tidspunkt, hvor Canada forsøger at mindske sin økonomiske afhængighed af USA. Omkring 70 procent af canadisk eksport går ifølge AP til USA, men forholdet mellem de to nabolande er blevet markant dårligere under den amerikanske præsident Donald Trumps toldpolitik og hans gentagne udtalelser om Canada som USA's 51. stat.\n\nCarney har selv gjort klart, at Canada ikke søger fuldt medlemskab af EU. Han har i stedet talt om en »unik alliance« med unionen. Canada og EU har allerede frihandelsaftalen CETA og har de senere år udbygget samarbejdet om blandt andet forsvar og forskning.\n\nEn associeret status vil derfor først få konkret betydning, når parterne har besluttet, hvilke rettigheder og forpligtelser den faktisk skal indeholde. Reuters fremhæver, at EU traditionelt har været tilbageholdende med medlemslignende mellemformer uden en klar plads i traktaterne.\n\nDet kan blive et centralt stridspunkt. Et tættere canadisk forhold til det indre marked kan eksempelvis kræve, at Canada følger flere EU-regler uden nødvendigvis at få samme indflydelse på reglerne som de 27 medlemslande.\n\nVon der Leyens forslag viser samtidig, hvor langt både Bruxelles og Ottawa er villige til at gå for at bygge nye økonomiske og sikkerhedspolitiske forbindelser i en periode med voksende spændinger mellem vestlige allierede. Det næste afgørende spørgsmål bliver derfor ikke, hvad den nye status skal hedde, men hvilke dele af EU-samarbejdet Canada faktisk skal have adgang til — og på hvilke betingelser.",
+  "source_metadata": [
+    {
+      "url": "https://www.reuters.com/world/eu-opens-door-canada-become-first-associate-member-eu-commission-president-says-2026-09-16/",
+      "title": "EU's von der Leyen wants Canada to become bloc's first associate member",
+      "source_name": "Reuters",
+      "source_class": "authoritative",
+      "published_date": "2026-09-16"
+    },
+    {
+      "url": "https://www.reuters.com/world/eu-chief-wants-canada-become-an-associate-member-what-does-that-mean-2026-09-16/",
+      "title": "EU chief wants Canada to become an 'associate member'. What does that mean?",
+      "source_name": "Reuters",
+      "source_class": "authoritative",
+      "published_date": "2026-09-16"
+    },
+    {
+      "url": "https://apnews.com/article/europe-canada-carney-associate-member-3fdb111dd4d23d88b3de88c274c52711",
+      "title": "EU chief Ursula von der Leyen says she wants Canada to become the bloc's 1st associate member",
+      "source_name": "Associated Press",
+      "source_class": "authoritative",
+      "published_date": "2026-09-16"
+    }
+  ],
+  "editorial_metadata": {
+    "sagen_kort": [
+      "Ursula von der Leyen foreslår, at Canada bliver EU's første associerede medlem, selv om den medlemskategori ikke findes i EU-traktaterne.",
+      "Canada ønsker ikke fuldt EU-medlemskab, men søger tættere samarbejde med Europa, mens forholdet til USA er blevet mere anspændt."
+    ],
+    "final_qa_duplicate": false,
+    "discovery_run_id": "halv-20260917-0028",
+    "candidate_audit": [
+      {
+        "candidate_id": "canada-eu-associate-member",
+        "source_pool": "discovery",
+        "source_path": "Brussels Signal -> Reuters/AP",
+        "rank": 1,
+        "candidate_headline": "Von der Leyen proposes Canada as EU's first associate member",
+        "deep_screened": true,
+        "downstream_sources": ["Reuters", "Associated Press"],
+        "decision": "publish",
+        "reason": "Fresh, highly consequential EU sovereignty and transatlantic realignment story; independently documented by Reuters and AP and not found as a near-duplicate in observable recent [PUBLISH] history.",
+        "model_prompt_version": "canonical-news-task-2026-09-16"
+      }
+    ],
+    "hero_candidates": [
+      {
+        "rank": 1,
+        "source_url": "https://commons.wikimedia.org/wiki/File:Mark_Carney_attends_EU_State_of_the_Union_Address_2026.jpg",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "license": "CC BY 4.0",
+        "rights_note": "Wikimedia Commons states CC BY 4.0, attribution © European Union, 2026; 2667×4000 documentary photo from the September 16 State of the Union event depicting Mark Carney and Ursula von der Leyen."
+      },
+      {
+        "rank": 2,
+        "source_url": "https://commons.wikimedia.org/wiki/File:Magyar_VDL_2026_2.jpg",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "license": "CC BY 4.0",
+        "rights_note": "Wikimedia Commons states European Commission Audiovisual Service material is licensed CC BY 4.0; documentary 2026 photograph of Ursula von der Leyen."
+      },
+      {
+        "rank": 3,
+        "source_url": "https://commons.wikimedia.org/wiki/File:Address_by_Mark_Carney_at_the_World_Economic_Forum_Annual_Meeting_2026.jpg",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "license": "CC BY 4.0",
+        "rights_note": "Wikimedia Commons states the World Economic Forum source video was released under CC BY 4.0; documentary 2026 image of Mark Carney."
+      }
+    ]
+  }
+}
