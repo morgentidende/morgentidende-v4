@@ -1,0 +1,73 @@
+{
+  "payload_type": "article",
+  "queue_id": "news-20260916-1217-neubrandenburg",
+  "slug": "14-aarig-pint-i-timevis-ti-boern-og-unge-filmede-volden",
+  "headline": "14-årig pint i timevis: Ti børn og unge filmede volden",
+  "category_slug": "udland",
+  "manchet": "Tysk politi identificerede ti mistænkte på en video. Offeret blev slået, sparket og påført forbrændinger.",
+  "sagen_kort": [
+    "En 14-årig dreng i Neubrandenburg blev ifølge politiet mishandlet over flere timer med slag, spark, genstande og forbrændinger.",
+    "Ti børn og unge mellem ni og 15 år er identificeret; fire strafmyndige unge er anmeldt for blandt andet farlig legemsbeskadigelse og tvang."
+  ],
+  "body_markdown": "En 14-årig dreng i den østtyske by Neubrandenburg blev ifølge politiet udsat for vold og mishandling over flere timer. En video af overgrebet blev efterfølgende spredt på sociale medier.\n\nPolitiet blev lørdag gjort opmærksom på videoen. Ifølge den regionale public service-station NDR viser optagelserne, hvordan drengen bliver sparket og slået, også med genstande, og hvordan han bliver påført forbrændinger. Episoden skal være sket onsdag i sidste uge.\n\nEfterforskerne har identificeret ti piger og drenge på optagelserne. De mistænkte er mellem ni og 15 år. Fire af dem er fyldt 14 år og dermed gamle nok til at kunne straffes efter tysk ret.\n\nDe fire er anmeldt for mistanke om farlig legemsbeskadigelse, tvang, fornærmelse og krænkelse af offerets privatliv gennem videooptagelser. Anklagemyndigheden skal nu afgøre, om der skal rejses tiltale.\n\nDe øvrige mistænkte er under den kriminelle lavalder. Deres involvering bliver derfor registreret hos de sociale myndigheder frem for behandlet som en straffesag.\n\nSagen skiller sig ud både ved den lange varighed og ved, at volden blev filmet og delt. Politiets efterforskning er fortsat i gang, og der foreligger endnu ingen dom eller endelig fastslåelse af de enkelte mistænktes ansvar.\n\nNDR oplyser, at politiet efterforsker sagen som mistanke om farlig legemsbeskadigelse. Der er på nuværende tidspunkt ikke offentliggjort oplysninger, som dokumenterer et politisk, religiøst eller etnisk motiv bag overgrebet.",
+  "source_metadata": [
+    {
+      "title": "Gewaltvideo aus Neubrandenburg: Junge von Gleichaltrigen gequält",
+      "url": "https://www.ndr.de/nachrichten/mecklenburg-vorpommern/gewaltvideo-aus-neubrandenburg-junge-von-gleichaltrigen-gequaelt,gewaltvideos-102.html",
+      "publisher": "NDR",
+      "source_class": "authoritative",
+      "published_date": "2026-09-14"
+    }
+  ],
+  "editorial_metadata": {
+    "story_cluster_id": "neubrandenburg-youth-violence-202609",
+    "final_qa_duplicate": false,
+    "discovery_run_id": "news-20260916-1217",
+    "discovery_audit": [
+      {
+        "candidate_id": "c1-neubrandenburg",
+        "source_pool": "discovery",
+        "source_path": "Remix News -> NDR",
+        "rank": 1,
+        "candidate_headline": "14-årig mishandlet i timevis af gruppe i Neubrandenburg",
+        "deep_screened": true,
+        "downstream_sources": ["NDR"],
+        "decision": "selected",
+        "reason": "Frisk, stærk kriminalhistorie med autoritativ uafhængig dokumentation; centrale fakta dokumenteret uden at videreføre udokumenterede motiv- eller baggrundspåstande fra discovery-kilden.",
+        "model_prompt_version": "canonical-news-task-2026-09-16"
+      }
+    ],
+    "hero_candidates": [
+      {
+        "rank": 1,
+        "source_url": "https://commons.wikimedia.org/wiki/File:German_Police_Car,_Green_turns_to_blue._Vorpommern_Polizei_Mercedes._-_Flickr_-_sludgegulper.jpg",
+        "description": "Politibil fra Mecklenburg-Vorpommern",
+        "license": "CC BY-SA 2.0",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "width": 3264,
+        "height": 2448
+      },
+      {
+        "rank": 2,
+        "source_url": "https://commons.wikimedia.org/wiki/File:Neubrandenburg_Marktplatz_01.JPG",
+        "description": "Markedspladsen i Neubrandenburg",
+        "license": "CC0 1.0",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "width": 2048,
+        "height": 1536
+      },
+      {
+        "rank": 3,
+        "source_url": "https://commons.wikimedia.org/wiki/File:Neubrandenburg-rathaus.jpg",
+        "description": "Rådhuset i Neubrandenburg",
+        "license": "CC BY-SA 4.0",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "width": 3200,
+        "height": 2133
+      }
+    ]
+  }
+}
