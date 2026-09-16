@@ -1,0 +1,78 @@
+{
+  "queue_id": "news-20260916-0600-fpoe-38",
+  "slug": "fpoe-38-procent-oestrig-regering-mister-flertal",
+  "headline": "FPÖ rammer 38 procent – regeringen mister flertallet i ny måling",
+  "deck": "Herbert Kickls indvandringskritiske FPÖ er nu 17 point foran nærmeste rival. De tre regeringspartier når tilsammen kun 43 procent.",
+  "category_slug": "udland",
+  "kind": "news",
+  "sagen_kort": [
+    "FPÖ står til 38 procent i en ny OGM-måling – 9,2 procentpoint mere end ved valget i 2024.",
+    "Regeringspartierne ÖVP, SPÖ og NEOS står tilsammen til 43 procent og ville ikke have flertal."
+  ],
+  "body_markdown": "Det indvandringskritiske Frihedsparti, FPÖ, har udbygget sit forspring i Østrig og står nu til 38 procent i en ny måling fra analyseinstituttet OGM. Det er partiets højeste resultat i OGM's aktuelle serie og 9,2 procentpoint over valgresultatet fra 2024.\n\nNærmeste rival er det konservative regeringsparti ÖVP med 21 procent. Socialdemokratiske SPÖ følger med 15 procent, De Grønne med 13 procent, det liberale regeringsparti NEOS med 7 procent og kommunistiske KPÖ med 4 procent.\n\n## Regeringen under pres\n\nMålingen er særlig vanskelig for kansler Christian Stockers regering. ÖVP, SPÖ og NEOS får tilsammen 43 procent af stemmerne. En mandatberegning på baggrund af målingen giver dermed ikke de tre regeringspartier flertal i Nationalrådet.\n\nOGM interviewede 1.012 personer fra 8. til 10. september. Målingen blev lavet for den østrigske avis Kurier og offentliggjort i denne uge. En enkelt meningsmåling er et øjebliksbillede, men andre aktuelle målinger peger i samme retning. Et gennemsnit af de seneste målinger placerer FPÖ omkring 38 procent.\n\n## 17 point ned til nummer to\n\nAfstanden mellem FPÖ og ÖVP er nu 17 procentpoint. Ved parlamentsvalget i september 2024 blev FPÖ størst med 28,9 procent, mens ÖVP fik 26,3 procent. Siden er forskellen mellem de to partier vokset markant i målingerne.\n\nFPÖ ledes af Herbert Kickl og profilerer sig blandt andet på strammere migration, national suverænitet og kritik af den nuværende regerings kurs. Trods valgsejren i 2024 endte partiet uden for regeringen, fordi der ikke kunne samles en koalition omkring Kickl.\n\nDen nye måling betyder ikke, at et valg er nært forestående. Næste ordinære parlamentsvalg ventes først i 2029. Men tallene viser et politisk problem for regeringen: Hvis vælgerne stemte som i OGM-målingen, ville den nuværende trepartiregering miste sit parlamentariske flertal.",
+  "source_metadata": [
+    {
+      "source_name": "PolitPro",
+      "url": "https://politpro.eu/en/austria/polling-institutes/ogm",
+      "source_type": "authoritative",
+      "note": "Gengiver OGM-målingens feltperiode, stikprøve og partital samt tidligere OGM-målinger."
+    },
+    {
+      "source_name": "AlleUmfragen.at",
+      "url": "https://www.alleumfragen.at/",
+      "source_type": "authoritative",
+      "note": "Samler aktuelle østrigske målinger og viser seneste gennemsnit på tværs af institutter."
+    }
+  ],
+  "source_registry_updates": [
+    {
+      "source_name": "PolitPro",
+      "domain": "politpro.eu",
+      "classification": "authoritative",
+      "region": "Europe",
+      "rationale": "Structured polling database reproducing institute, commissioner, fieldwork, sample and exact published poll figures.",
+      "discovered_via": "exxpress.at"
+    },
+    {
+      "source_name": "AlleUmfragen.at",
+      "domain": "alleumfragen.at",
+      "classification": "authoritative",
+      "region": "Austria",
+      "rationale": "Structured Austrian polling aggregator used only to corroborate the broader polling trend.",
+      "discovered_via": "exxpress.at"
+    }
+  ],
+  "editorial_metadata": {
+    "discovery_run_id": "news-20260916-0600",
+    "final_qa_duplicate": false,
+    "discovery_audit": [
+      {
+        "candidate_id": "fpoe-ogm-38",
+        "source_pool": "discovery",
+        "path": "exxpress.at -> OGM/PolitPro",
+        "rank": 1,
+        "candidate_headline": "FPÖ står til 38 procent i ny OGM-måling",
+        "deep_screened": true,
+        "downstream_sources": ["politpro.eu", "alleumfragen.at"],
+        "decision": "selected",
+        "reason": "Fresh, strongly profile-relevant polling development with exact documented figures and no matching [PUBLISH] result found in GitHub search.",
+        "model_prompt_version": "canonical-news-task-2026-09-16"
+      }
+    ],
+    "hero_candidates": [
+      {
+        "source_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Herbert%20Kickl%20-%20Pressekonferenz%20am%2013.%20M%C3%A4rz%202020.JPG",
+        "source_provider": "wikimedia_commons",
+        "license_name": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "credit_text": "C.Stadler/Bwag",
+        "rights_notes": "Own work published by the photographer under CC BY-SA 4.0; original 4329×3247 JPEG.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": true,
+        "alt_text": "FPÖ-leder Herbert Kickl ved en pressekonference."
+      }
+    ]
+  }
+}
