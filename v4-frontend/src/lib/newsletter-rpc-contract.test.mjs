@@ -9,27 +9,23 @@ const sql = readFileSync(
   'utf8'
 );
 
-const beginFn = sql.slice(
-  sql.indexOf('create or replace function public.newsletter_begin_signup'),
-  sql.indexOf('create or replace function public.newsletter_mark_confirmation_sent')
-);
-
-test('concurrent first-time signups are serialized before token mint/upsert', () => {
-  const lockAt = beginFn.indexOf("pg_advisory_xact_lock(hashtext(v_email), hashtext('daily'))");
-  const selectAt = beginFn.indexOf('from public.newsletter_subscribers');
-  const insertAt = beginFn.indexOf('insert into public.newsletter_subscribers');
-  assert.ok(lockAt > 0, 'advisory lock must exist');
-  assert.ok(lockAt < selectAt, 'lock must be taken before selecting the row');
-  assert.ok(selectAt < insertAt, 'row lock must happen before upsert');
+test('begin_signup reserves the minted token before returning', () => {
+  assert.match(sql, /confirmation_send_state = 'reserved'/);
+  assert.match(sql, /confirmation_reserved_at = now\(\)/);
+  assert.match(sql, /raise exception 'signup_in_flight'/);
+  assert.match(sql, /interval '45 seconds'/);
 });
 
-test('already active subscribers raise before any mutation', () => {
-  const activeAt = beginFn.indexOf("if v_status = 'active'");
-  const insertAt = beginFn.indexOf('insert into public.newsletter_subscribers');
-  const conflictAt = beginFn.indexOf('on conflict (email, newsletter) do update');
-  const guardAt = beginFn.indexOf("where newsletter_subscribers.status is distinct from 'active'");
-  assert.ok(activeAt > 0);
-  assert.ok(activeAt < insertAt, 'already_subscribed must raise before INSERT/UPDATE');
-  assert.ok(conflictAt > 0);
-  assert.ok(guardAt > conflictAt, 'upsert must refuse to rewrite an active row');
+test('failed or crashed send can be retried without holding a DB transaction over SES', () => {
+  assert.match(sql, /function public.newsletter_release_confirmation_reservation/);
+  assert.match(sql, /confirmation_send_state = 'idle'/);
+  assert.match(sql, /confirmation_reserved_at <= now\(\) - interval '45 seconds'/);
+});
+
+test('active subscribers remain a no-op', () => {
+  const beginFn = sql.slice(
+    sql.indexOf('create or replace function public.newsletter_begin_signup'),
+    sql.indexOf('create or replace function public.newsletter_mark_confirmation_sent')
+  );
+  assert.ok(beginFn.indexOf("if v_status = 'active'") < beginFn.indexOf('insert into public.newsletter_subscribers'));
 });

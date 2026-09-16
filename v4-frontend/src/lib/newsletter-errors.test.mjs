@@ -20,6 +20,11 @@ test('maps confirmation rate limit to 429', () => {
   assert.equal(response.status, 429);
 });
 
+test('maps in-flight reservation to 429', () => {
+  const response = newsletterRpcResponse(classifyNewsletterRpcError({ message: 'signup_in_flight' }));
+  assert.equal(response.status, 429);
+});
+
 test('maps unexpected database errors to 500', () => {
   const response = newsletterRpcResponse(classifyNewsletterRpcError({ message: 'deadlock detected' }));
   assert.equal(response.status, 500);
