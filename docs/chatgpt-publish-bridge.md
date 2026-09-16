@@ -19,12 +19,22 @@ Artikelpayload, minimum:
   "queue_id": "unik-idempotency-nøgle",
   "slug": "artikel-slug",
   "headline": "Rubrik",
+  "deck": "Manchet",
   "category_slug": "viden",
   "body_markdown": "Brødtekst",
+  "story_cluster_key": "eksisterende-cluster-slug",
   "source_metadata": [],
-  "editorial_metadata": {}
+  "editorial_metadata": {
+    "sagen_kort": ["Første verificerede hovedpointe.", "Anden verificerede hovedpointe."]
+  }
 }
 ```
+
+`deck` er den kanoniske manchet. `manchet` accepteres midlertidigt som alias og afvises med `deck_alias_conflict`, hvis begge findes og er forskellige.
+
+`editorial_metadata.sagen_kort` er kanonisk og skal være præcis to ikke-tomme strenge. Et top-level `sagen_kort` accepteres midlertidigt som alias og flyttes ind i metadata; konflikt afvises med `sagen_kort_alias_conflict`. Backend genererer aldrig punkterne.
+
+`story_cluster_id` er kun UUID. Producenter, der kender den semantiske slug, sender `story_cluster_key`. Backend resolver nøglen mod `story_clusters.slug` og skriver det fundne UUID. Ukendt key giver `story_cluster_not_found:<key>`; der oprettes ikke et nyt cluster. Hvis både id og key findes, skal de pege på samme cluster, ellers `story_cluster_conflict`. En tekstslug i `story_cluster_id` er `invalid_story_cluster_id`.
 
 `payload_type` kan udelades for artikler og normaliseres da til `article`. `source_metadata` er en top-level JSON-array. `editorial_metadata` er et JSON-object. Eksisterende artikel-, lead-, breaking-, source- og hero-felter er fortsat understøttet.
 
@@ -78,7 +88,7 @@ Hvis `story_kind` er `followup`, kræves desuden:
 
 - `editorial_metadata.followup_parent_article_id`
 - `editorial_metadata.followup_reason`, som skal være én af `new_fact`, `official_response`, `arrest`, `new_data`, `court_decision`, `material_update`
-- top-level `story_cluster_id`, som skal være samme cluster som parent-artiklen
+- top-level `story_cluster_id` (UUID) eller `story_cluster_key` (eksisterende slug), som skal være samme cluster som parent-artiklen
 
 Magazine-followups skal stadig have `topic_key`. `topic_key` beskriver emnet; followup-felterne beskriver relationen til den tidligere artikel.
 
