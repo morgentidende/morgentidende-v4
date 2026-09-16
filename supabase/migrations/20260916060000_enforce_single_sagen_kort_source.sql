@@ -8,7 +8,10 @@ immutable
 set search_path = public
 as $$
 declare
+  v_original text := coalesce(p_body, '');
   v_body text := coalesce(p_body, '');
+  v_html_normalized text;
+  v_removed boolean := false;
   v_lines text[];
   v_out text[] := array[]::text[];
   v_i integer;
@@ -19,18 +22,27 @@ begin
   -- Raw HTML occasionally arrives inside body_markdown. Remove an exact Sagen
   -- kort heading and an immediately following HTML list. The second pass also
   -- removes an exact standalone heading if no well-formed list follows.
-  v_body := regexp_replace(
+  v_html_normalized := regexp_replace(
     v_body,
     '(?is)<h([1-6])[^>]*>[[:space:]]*sagen[[:space:]]+kort[[:space:]]*</h\1>[[:space:]]*<(ul|ol)[^>]*>.*?</\2>',
     '',
     'g'
   );
-  v_body := regexp_replace(
+  if v_html_normalized is distinct from v_body then
+    v_removed := true;
+    v_body := v_html_normalized;
+  end if;
+
+  v_html_normalized := regexp_replace(
     v_body,
     '(?is)<h([1-6])[^>]*>[[:space:]]*sagen[[:space:]]+kort[[:space:]]*</h\1>',
     '',
     'g'
   );
+  if v_html_normalized is distinct from v_body then
+    v_removed := true;
+    v_body := v_html_normalized;
+  end if;
 
   v_lines := string_to_array(v_body, E'\n');
   v_i := coalesce(array_lower(v_lines, 1), 1);
@@ -40,6 +52,7 @@ begin
     v_line := v_lines[v_i];
 
     if v_line ~* '^[[:space:]]{0,3}(#{1,6}[[:space:]]*)?sagen[[:space:]]+kort[[:space:]]*#*[[:space:]]*$' then
+      v_removed := true;
       v_cursor := v_i + 1;
 
       while v_cursor <= v_upper and btrim(v_lines[v_cursor]) = '' loop
@@ -67,6 +80,10 @@ begin
     v_out := array_append(v_out, v_line);
     v_i := v_i + 1;
   end loop;
+
+  if not v_removed then
+    return v_original;
+  end if;
 
   return array_to_string(v_out, E'\n');
 end;
