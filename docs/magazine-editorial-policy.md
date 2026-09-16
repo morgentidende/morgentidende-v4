@@ -31,4 +31,4 @@ Denne fil ejer kun de regler, der er særlige for Viden og Liv. Fælles artikelk
 - Evergreen-artikler SEO-optimeres ved publicering med tydelig søgeintention, naturlige søgeord, relevant metadata, klare H2/H3-afsnit og et kort direkte svar tidligt i artiklen uden keyword stuffing.
 - Brug almindelige danske ord frem for engelske forkortelser og fagudtryk, når et naturligt dansk ord findes. Hvis en nødvendig forkortelse eller et fagudtryk bruges, forklares det første gang.
 
-Alle øvrige fælles krav – bl.a. faktaverifikation, rubrik/manchet, præcis 2 punkter i `SAGEN KORT`, links, kildeliste, citater, hero, delbarhed og fail-open-principper – arves fra `docs/editorial-core.md` og skal ikke gentages her.
+Alle øvrige fælles krav – bl.a. faktaverifikation, rubrik/manchet, præcis 2 punkter i det strukturerede felt `sagen_kort`, links, kildeliste, citater, hero, delbarhed og fail-open-principper – arves fra `docs/editorial-core.md` og skal ikke gentages her. På Viden- og Liv-artikler vises feltets overskrift som **ARTIKLEN KORT**; dette er kun en visningslabel og ændrer ikke den fælles regel eller feltnavnet.
