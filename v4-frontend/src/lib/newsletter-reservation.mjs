@@ -1,6 +1,10 @@
 export const RESERVATION_TTL_MS = 45_000;
 export const RESEND_WINDOW_MS = 120_000;
 
+let reservationSeq = 0;
+export const nextReservationId = () => `res-${++reservationSeq}`;
+export const resetReservationSeq = () => { reservationSeq = 0; };
+
 export const decideBeginSignup = (row, now = Date.now()) => {
   if (!row) return { action: 'mint_and_reserve' };
   if (row.status === 'active') return { action: 'already_subscribed' };
@@ -27,21 +31,48 @@ export const applyBeginSignup = (row, now = Date.now()) => {
       status: 'pending',
       sendState: 'reserved',
       reservedAt: now,
+      reservationId: nextReservationId(),
       lastConfirmationSentAt: row?.lastConfirmationSentAt ?? null,
       tokenGeneration: (row?.tokenGeneration || 0) + 1
     }
   };
 };
 
-export const applySesFailure = (row) => ({
-  ...row,
-  sendState: 'idle',
-  reservedAt: null
-});
+export const applyMarkSent = (row, reservationId, now = Date.now()) => {
+  if (
+    row?.status === 'pending' &&
+    row.sendState === 'reserved' &&
+    row.reservationId === reservationId
+  ) {
+    return {
+      ok: true,
+      row: {
+        ...row,
+        sendState: 'sent',
+        reservedAt: null,
+        reservationId: null,
+        lastConfirmationSentAt: now
+      }
+    };
+  }
+  return { ok: false, row };
+};
 
-export const applySesSuccess = (row, now = Date.now()) => ({
-  ...row,
-  sendState: 'sent',
-  reservedAt: null,
-  lastConfirmationSentAt: now
-});
+export const applyRelease = (row, reservationId) => {
+  if (
+    row?.status === 'pending' &&
+    row.sendState === 'reserved' &&
+    row.reservationId === reservationId
+  ) {
+    return {
+      ok: true,
+      row: {
+        ...row,
+        sendState: 'idle',
+        reservedAt: null,
+        reservationId: null
+      }
+    };
+  }
+  return { ok: false, row };
+};
