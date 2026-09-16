@@ -1,0 +1,67 @@
+{
+  "queue_id": "news-20260916-0646-eralp",
+  "slug": "berlin-linke-eralp-vil-oege-statsborgerskaber-for-at-give-flere-stemmeret",
+  "headline": "Berlin-kandidat vil øge antallet af statsborgerskaber: Flere skal have stemmeret",
+  "category_slug": "udland",
+  "kind": "news",
+  "manchet": "Få dage før Berlin-valget kobler Linkens spidskandidat flere statsborgerskaber direkte til adgang til stemmeretten.",
+  "sagen_kort": [
+    "Linkens spidskandidat Elif Eralp siger, at hun vil øge antallet af statsborgerskaber, så flere får adgang til stemmeretten.",
+    "CDU-modkandidaten Stefan Evers vil samtidig fastholde udvisning af personer uden opholdsret og prioritere lovlig, kvalificeret indvandring."
+  ],
+  "body_markdown": "Få dage før valget i Berlin har den venstreorienterede oppositionspolitiker Elif Eralp gjort statsborgerskab og stemmeret til en del af valgkampens strid om migration.\n\nI en tv-duel på Welt mellem de to førende kandidater sagde Eralp, der er spidskandidat for partiet Die Linke, at hun vil have flere udlændinge naturaliseret.\n\n> \"Selvfølgelig vil jeg også øge antallet af statsborgerskaber, så flere mennesker også får adgang til stemmeretten og til det tyske statsborgerskab.\"\n\nHun begrundede ønsket med, at mennesker med gode og lige rettigheder i højere grad kan engagere sig i samfundet. Eralp ønsker samtidig en mere åben migrationspolitik og afviser, at mennesker med migrantbaggrund har en særlig pligt til først at bevise deres integration.\n\nUdmeldingen kommer på et følsomt tidspunkt. Berlin vælger nyt delstatsparlament 20. september, og en ZDF-måling offentliggjort i sidste uge placerede Die Linke på 23 procent og CDU på 21 procent. Målinger er øjebliksbilleder og ikke valgresultater, men de gør Eralp til en reel kandidat til at stå i spidsen for hovedstaden.\n\n## To vidt forskellige linjer\n\nCDU's spidskandidat Stefan Evers lagde i duellen en markant anden kurs frem. Han sagde, at Berlin har brug for lovlig og kvalificeret indvandring, men at personer, som kommer ulovligt og ikke har opholdsret, skal mærke, at myndighederne håndhæver loven.\n\nIfølge B.Z. blev der i duellen henvist til omkring 1.800 personer i Berlin, som var udrejsepligtige uden den form for midlertidig beskyttelse, der udsætter en udsendelse. Eralp svarede, at hendes mål er at få flere mennesker over i en sikker opholdsstatus, blandt andet når humanitære hensyn taler imod udsendelse.\n\nEralps kobling mellem naturalisation og stemmeret er ikke det samme som at give alle udlændinge stemmeret uden tysk pas. Tysk statsborgerskab giver som udgangspunkt den politiske stemmeret, som ikke-tyske borgere mangler ved delstats- og forbundsvalg. EU-borgere har særskilte rettigheder ved kommunalvalg.\n\nDie Linke har tidligere ønsket at gå længere. Eralp har argumenteret for stemmeret uafhængigt af tysk pas, og partiet har rejst forslag om at udvide valgretten for udlændinge. Den aktuelle udtalelse i tv-duellen handler konkret om at øge antallet af statsborgerskaber.\n\nDermed bliver spørgsmålet om, hvem der skal kunne blive tysk statsborger – og dermed vælger – en del af den sidste valgkamp i en by, hvor kampen om førstepladsen er tæt.",
+  "source_metadata": [
+    {
+      "source_name": "WELT",
+      "url": "https://www.welt.de/politik/deutschland/article6aa26cbc240b302c8a83fc5a/sachsen-anhalt-wahl-2026-nach-afd-sieg-news-liveticker.html?icid=teaser.liveticker.3",
+      "source_type": "authoritative",
+      "note": "Original WELT-TV duel coverage and direct Eralp/Evers quotations, 14 September 2026"
+    },
+    {
+      "source_name": "B.Z.",
+      "url": "https://www.bz-berlin.de/berlin/elif-eralp-gegen-stefan-evers-bleiberecht-oder-abschiebungen-6aa8df9c77bd109fcdd0180f",
+      "source_type": "authoritative",
+      "note": "Established Berlin print newspaper coverage of the migration and citizenship exchange, 15 September 2026"
+    },
+    {
+      "source_name": "WELT",
+      "url": "https://www.welt.de/politik/deutschland/article6aa3a5d8fbaa28676cf193aa/umfrage-linke-in-berlin-auf-platzeins-cdu-knapp-dahinter-rot-schwarz-rechnerisch-ohne-mehrheit.html",
+      "source_type": "authoritative",
+      "note": "ZDF/Forschungsgruppe Wahlen poll context for the 20 September Berlin election"
+    }
+  ],
+  "source_registry_updates": [],
+  "editorial_metadata": {
+    "discovery_run_id": "news-20260916-0646",
+    "discovery_audit": [
+      {
+        "candidate_id": "eralp-citizenship-vote",
+        "source_pool": "discovery",
+        "path": "discovery",
+        "rank": 1,
+        "candidate_headline": "Berlin-kandidat vil øge statsborgerskaber for at give flere adgang til stemmeret",
+        "deep_screened": true,
+        "downstream_sources": ["welt.de", "bz-berlin.de"],
+        "decision": "selected",
+        "reason": "Fresh, documented migration/democracy story shortly before a close Berlin election; authoritative coverage confirms direct quotation",
+        "model_prompt_version": "canonical-news-task-2026-09-16"
+      }
+    ],
+    "final_qa_duplicate": false,
+    "hero_candidates": [
+      {
+        "source_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Elif%20Eralp%2C%2013.12.25.jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "credit_text": "Ferran Cornellà / Wikimedia Commons",
+        "rights_notes": "Own work released by copyright holder under CC BY-SA 4.0; original 3321x4982 JPEG",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": true,
+        "alt_text": "Elif Eralp, spidskandidat for Die Linke ved valget i Berlin"
+      }
+    ]
+  }
+}
