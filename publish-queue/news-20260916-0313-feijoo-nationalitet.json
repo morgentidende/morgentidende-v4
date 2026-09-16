@@ -1,0 +1,101 @@
+{
+  "queue_id": "news-20260916-0313-feijoo-nationalitet",
+  "slug": "feijoo-vil-fratage-nationalitet-ved-grov-kriminalitet",
+  "headline": "Feijóo vil fratage naturaliserede spaniere statsborgerskabet ved grov kriminalitet",
+  "category_slug": "udland",
+  "kind": "news",
+  "manchet": "Spaniens største oppositionsparti vil ramme mordere, terrorister og gentagne seksualforbrydere. Regeringen kalder forslaget »helt vanvittigt«.",
+  "body_markdown": "## SAGEN KORT\n\n- Det konservative oppositionsparti PP forbereder en lov, der skal gøre det muligt at fratage naturaliserede spaniere statsborgerskabet ved blandt andet mord, terror og gentagen grov kriminalitet.\n- Regeringen afviser forslaget som »helt vanvittigt«. Spaniens forfatning beskytter samtidig spaniere, der er statsborgere fra fødslen, mod at få frataget deres nationalitet.\n\nSpaniens største oppositionsparti vil gøre statsborgerskab til noget, der kan mistes igen for naturaliserede spaniere, som begår de groveste forbrydelser.\n\nAlberto Núñez Feijóo, leder af det konservative Partido Popular (PP), bekræftede tirsdag, at partiet arbejder på et lovforslag om at fratage statsborgerskabet i bestemte tilfælde.\n\n»Når tilliden brydes, fordi den person, vi har givet statsborgerskab, tilhører en kriminel bande, tilhører en terrorgruppe eller gentagne gange begår alvorlig kriminalitet, skal vedkommende naturligvis vide, at den tillid er brudt, og at statsborgerskabet bliver trukket tilbage,« sagde Feijóo ifølge den landsdækkende radiostation Cadena SER.\n\nForslaget skal efter de foreløbige oplysninger blandt andet omfatte mord, terrorisme, organiseret kriminalitet og gentagne alvorlige seksualforbrydelser. De præcise juridiske grænser er endnu ikke fastlagt.\n\n## Regeringen: »Helt vanvittigt«\n\nReaktionen fra regeringen kom hurtigt. Transportminister Óscar Puente fra regeringspartiet PSOE kaldte forslaget »helt vanvittigt« og fremstillede det som et politisk træk fra Feijóo.\n\nEn spansk professor i forfatningsret, Joaquín Urías, pegede samtidig over for Cadena SER på, at lovgivningen allerede skelner mellem spaniere fra fødslen og personer, der senere har fået statsborgerskab. Han vurderede dog, at et bredt forslag om tab af nationalitet ved kriminalitet kan møde alvorlige forfatningsretlige spørgsmål.\n\nDen afgørende grænse står direkte i Spaniens forfatning. Artikel 11 fastslår, at spansk statsborgerskab erhverves, bevares og mistes efter loven, men at ingen spanier, der er statsborger fra fødslen, kan fratages sin nationalitet.\n\nDet betyder, at PP's model ikke kan anvendes ens på alle spanske statsborgere. En spanier fra fødslen er forfatningsmæssigt beskyttet mod fratagelse, mens lovgiver har et andet råderum over for personer, der senere har erhvervet statsborgerskabet.\n\n## Vox havde allerede foreslået det\n\nForslaget flytter PP ind på et område, hvor det indvandringskritiske parti Vox allerede har presset på. Cadena SER skriver, at Vox fremsatte et lignende initiativ i parlamentet for omkring to måneder siden. Vox har derfor både budt PP's kursændring velkommen og krævet handling med det samme.\n\nPP's parlamentariske talskvinde Ester Muñoz skærpede tirsdag budskabet yderligere. Hun sagde, at det efter hendes opfattelse er logisk at fratage statsborgerskabet fra indvandrere, der begår alvorlige voldelige forbrydelser, og beskrev nationaliteten som noget af det mest grundlæggende, et land kan give.\n\nDermed tegner der sig en ny politisk konflikt i Spanien: Ikke om hvorvidt staten kan straffe mordere og terrorister, men om en naturaliseret statsborger ved den groveste kriminalitet også skal kunne miste selve medlemskabet af nationen.",
+  "source_metadata": [
+    {
+      "source_name": "Cadena SER",
+      "url": "https://cadenaser.com/nacional/2026/09/15/feijoo-propone-retirar-la-nacionalidad-a-extranjeros-que-cometan-delitos-graves-cadena-ser/",
+      "source_type": "authoritative",
+      "note": "National Spanish radio network; documents Feijóo proposal, government response and constitutional-law objection."
+    },
+    {
+      "source_name": "Boletín Oficial del Estado",
+      "url": "https://boe.es/diario_boe/txt.php?id=BOE-A-1978-31229&lang=es",
+      "source_type": "primary_official",
+      "note": "Official Spanish Constitution, Article 11 on acquisition and loss of nationality and protection of Spaniards of origin."
+    },
+    {
+      "source_name": "Partido Popular",
+      "url": "https://www.pp.es/actualidad/articulos/munoz-es-gravisimo-lo-que-esta-haciendo-el-gobierno-de-permitir-que-haya-ministros-llamando-lobos-solitarios-como-si-fueran-terroristas-a-jueces/",
+      "source_type": "primary_official",
+      "note": "Direct party statement from parliamentary spokesperson Ester Muñoz on nationality policy, 15 September 2026."
+    }
+  ],
+  "source_registry_updates": [],
+  "editorial_metadata": {
+    "discovery_run_id": "news-20260916-0313",
+    "story_cluster_id": "spain-nationality-crime-2026",
+    "final_qa_duplicate": false,
+    "share_reason": "Et stort europæisk oppositionsparti vil gøre statsborgerskab betinget af, at naturaliserede borgere ikke begår de groveste forbrydelser, mens regeringen kalder ideen helt vanvittig.",
+    "hero_candidates": [
+      {
+        "source_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/ALBERTO_N%C3%9A%C3%91EZ_FEIJ%C3%93O.jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "CC0 1.0",
+        "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "credit_text": "Partido Popular PP / Wikimedia Commons",
+        "rights_notes": "Commons file is 2773x4160 and was reviewed as CC0; commercial use and local storage permitted.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": false,
+        "alt_text": "Alberto Núñez Feijóo, leder af Spaniens Partido Popular"
+      }
+    ],
+    "discovery_audit": [
+      {
+        "candidate_id": "spain-pp-nationality-crime",
+        "source_pool": "discovery",
+        "path": "theobjective.com",
+        "rank": 1,
+        "candidate_headline": "PP vil kunne fratage naturaliserede spaniere statsborgerskab ved grov kriminalitet",
+        "deep_screened": true,
+        "downstream_sources": ["Cadena SER", "Boletín Oficial del Estado", "Partido Popular"],
+        "decision": "selected",
+        "reason": "Fresh, undercovered in Denmark, strong profile match and independently documented by authoritative/primary sources.",
+        "model_prompt_version": "docs/automations/news-task.md@e5e4b628"
+      },
+      {
+        "candidate_id": "austria-stocker-spain-regularisation",
+        "source_pool": "discovery",
+        "path": "exxpress.at",
+        "rank": 2,
+        "candidate_headline": "Østrigs kansler angriber Spaniens migrantlegalisering",
+        "deep_screened": false,
+        "downstream_sources": [],
+        "decision": "not_selected",
+        "reason": "Already present in recent Morgentidende publish history.",
+        "model_prompt_version": "docs/automations/news-task.md@e5e4b628"
+      },
+      {
+        "candidate_id": "austria-guantanamo-vienna",
+        "source_pool": "discovery",
+        "path": "exxpress.at",
+        "rank": 3,
+        "candidate_headline": "Tidligere Guantanamo-fanger ved universitetet i Wien",
+        "deep_screened": false,
+        "downstream_sources": [],
+        "decision": "not_selected",
+        "reason": "Already present in recent Morgentidende publish history.",
+        "model_prompt_version": "docs/automations/news-task.md@e5e4b628"
+      },
+      {
+        "candidate_id": "austria-digital-parent-pass-delay",
+        "source_pool": "discovery",
+        "path": "exxpress.at",
+        "rank": 4,
+        "candidate_headline": "Østrigs digitale forældre-barn-pas forsinkes igen",
+        "deep_screened": false,
+        "downstream_sources": [],
+        "decision": "not_selected",
+        "reason": "Lower news value than selected candidate.",
+        "model_prompt_version": "docs/automations/news-task.md@e5e4b628"
+      }
+    ]
+  }
+}
