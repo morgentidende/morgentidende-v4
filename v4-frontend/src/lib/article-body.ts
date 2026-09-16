@@ -1,5 +1,6 @@
 import { marked } from 'marked';
 import sanitizeHtml from 'sanitize-html';
+import { stripSagenKortSection } from './article-content-normalizer.mjs';
 
 const escapeHtml = (value = '') => value
   .replace(/&/g, '&amp;')
@@ -32,8 +33,17 @@ const injectAfterParagraph = (html: string, paragraphNumber: number, insertion: 
 };
 
 export async function buildArticleBody(article: any, storyRelated: any[]) {
+  const normalizedBody = stripSagenKortSection(article?.body_markdown || '');
+  if (normalizedBody.removed) {
+    console.warn('duplicate_sagen_kort_removed', {
+      article_id: article?.id || null,
+      event: 'duplicate_sagen_kort_removed',
+      source_stage: 'render_guard'
+    });
+  }
+
   const rawBodyHtml = article
-    ? sanitizeHtml(await marked.parse(article.body_markdown || ''), {
+    ? sanitizeHtml(await marked.parse(normalizedBody.bodyMarkdown), {
         allowedTags: sanitizeHtml.defaults.allowedTags.concat(['img', 'figure', 'figcaption']),
         allowedAttributes: {
           ...sanitizeHtml.defaults.allowedAttributes,
