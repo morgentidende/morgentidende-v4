@@ -1,0 +1,102 @@
+{
+  "queue_id": "news-20260916-1301-piddington",
+  "slug": "piddington-uafhaengighed-asylcenter",
+  "headline": "Landsby stemmer for at forlade Storbritannien i protest mod asylcenter",
+  "category_slug": "udland",
+  "manchet": "285 af 312 stemte for symbolsk uafhængighed. Regeringen vil indkvartere 1.256 mandlige asylansøgere ved landsbyen med 358 indbyggere.",
+  "sagen_kort": [
+    "Piddington i Oxfordshire har ved en symbolsk folkeafstemning stemt 285 mod 26 for at erklære sig uafhængig af Storbritannien; én stemme var ugyldig.",
+    "Protesten retter sig mod regeringens plan om at indkvartere 1.256 mandlige asylansøgere på en tidligere militærbase tæt ved landsbyen."
+  ],
+  "body_markdown": "En lille engelsk landsby har valgt et usædvanligt våben i kampen mod regeringens asylplaner: Den har stemt for at forlade Storbritannien.\n\nI Piddington i Oxfordshire stemte 285 af 312 deltagere for en symbolsk uafhængighedserklæring, mens 26 stemte imod og én stemme var ugyldig. Afstemningen har ingen juridisk virkning, men er tænkt som en markant protest mod planerne om et stort asylcenter på en tidligere militærbase i nærheden.\n\nRegeringens plan er at indkvartere op til 1.256 mandlige asylansøgere på den tidligere Bicester Garrison mellem Piddington og Upper Arncott. Piddington havde 358 indbyggere ved folketællingen i 2021. Hvis centeret fyldes, vil antallet af asylansøgere dermed være mere end tre gange så stort som landsbyens befolkning.\n\nDet lokale Cherwell District Council oplyste allerede i juni, at kommunen ikke var blevet hørt, før indenrigsministeriet offentliggjorde planen. Kommunens leder, Lesley McLean, kaldte beslutningen vilkårlig og efterlyste oplysninger om blandt andet sikkerhed, infrastruktur og belastningen af lokale tjenester.\n\nBekymringen er fortsat central for modstanden. Lokale beboere har peget på, at området mangler infrastruktur til så stor en indkvartering, og kvindelige beboere har offentligt sagt, at de frygter for deres sikkerhed. Det er bekymringer om en planlagt indkvartering og ikke dokumentation for, at de kommende beboere har begået kriminalitet.\n\nRegeringen forsvarer brugen af større centre som et alternativ til dyre asylhoteller. Den britiske regering har gjort det til et mål at afvikle hotelindkvarteringen og flytte asylansøgere til større, mere samlede anlæg. Regeringen siger, at det skal reducere udgifterne og sprede indkvarteringen mere hensigtsmæssigt.\n\nDen symbolske afstemning ændrer derfor ikke Piddingtons juridiske status og kan ikke i sig selv standse asylcenteret. Men resultatet giver et usædvanligt klart mål for den lokale modstand: Mere end ni ud af ti af de afgivne gyldige stemmer gik til den symbolske løsrivelse.\n\nSagen kommer samtidig, mens myndighederne behandler den konkrete anvendelse af området. Cherwell District Council oplyser, at kommentarer til den aktuelle sag kan indsendes frem til 17. september.\n\nDermed er en landsby med få hundrede indbyggere blevet et nationalt symbol på striden om, hvor store asylcentre staten kan placere i små lokalsamfund, og hvor meget de berørte borgere skal høres først.",
+  "source_metadata": [
+    {
+      "title": "English village votes to leave UK in protest over migrant housing plan",
+      "url": "https://www.theguardian.com/uk-news/2026/sep/16/english-village-piddington-leave-uk-protest-migrant-housing-plan",
+      "publisher": "The Guardian",
+      "source_class": "authoritative",
+      "published_date": "2026-09-16"
+    },
+    {
+      "title": "Villagers hold referendum over plan to house migrants in ex-military Oxfordshire base",
+      "url": "https://www.itv.com/news/meridian/2026-09-15/villagers-hold-referendum-over-plan-to-house-migrants-in-ex-military-base",
+      "publisher": "ITV News",
+      "source_class": "authoritative",
+      "published_date": "2026-09-15"
+    },
+    {
+      "title": "Site A - Bicester Garrison: Home Office Proposals",
+      "url": "https://www.cherwell.gov.uk/BicesterGarrison",
+      "publisher": "Cherwell District Council",
+      "source_class": "primary",
+      "published_date": "2026-09-16"
+    }
+  ],
+  "editorial_metadata": {
+    "discovery_run_id": "news-run-20260916-1301",
+    "final_qa_duplicate": false,
+    "story_cluster_id": "piddington-asylum-centre-2026",
+    "candidate_id": "cand-piddington-independence",
+    "source_pool": "discovery",
+    "candidates_tried": 2,
+    "duplicate_of": "PR #519",
+    "share_test": "Jeg sender dig den her, fordi 285 landsbyboere stemte for symbolsk at forlade Storbritannien i protest mod et planlagt asylcenter med 1.256 mandlige asylansøgere ved en landsby med 358 indbyggere.",
+    "audit": [
+      {
+        "candidate_id": "cand-euskadi-arrests",
+        "rank": 1,
+        "candidate_headline": "59 procent af anholdelserne i Baskerlandet gjaldt udlandsfødte",
+        "deep_screened": true,
+        "downstream_sources": ["Basque Security Department", "The Objective"],
+        "decision": "duplicate",
+        "reason": "Næsten-identisk med PR #519 fra samme dag; samme hovedfaktum, geografi og statistik.",
+        "model_prompt_version": "canonical-news-task-2026-09-16"
+      },
+      {
+        "candidate_id": "cand-piddington-independence",
+        "rank": 2,
+        "candidate_headline": "Piddington stemmer symbolsk for at forlade Storbritannien i protest mod asylcenter",
+        "deep_screened": true,
+        "downstream_sources": ["The Guardian", "ITV News", "Cherwell District Council"],
+        "decision": "selected",
+        "reason": "Frisk, dokumenterbar migrations- og lokaldemokratihistorie med klart nyt hovedfaktum; ingen nær-identisk historie fundet i 7-dages GitHub PUBLISH-grundlag.",
+        "model_prompt_version": "canonical-news-task-2026-09-16"
+      }
+    ],
+    "hero_candidates": [
+      {
+        "rank": 1,
+        "source_url": "https://commons.wikimedia.org/wiki/File:St_Nicholas_church,_Piddington_-_geograph.org.uk_-_8177192.jpg",
+        "description": "St Nicholas-kirken i Piddington, Oxfordshire",
+        "license": "CC BY-SA 2.0",
+        "attribution": "Helen Steed",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "known_width": 4608,
+        "known_height": 2184
+      },
+      {
+        "rank": 2,
+        "source_url": "https://commons.wikimedia.org/wiki/File:The_Seven_Stars_in_Piddington_-_geograph.org.uk_-_4365668.jpg",
+        "description": "The Seven Stars i Piddington, Oxfordshire",
+        "license": "CC BY-SA 2.0",
+        "attribution": "Steve Daniels",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "known_width": 1500,
+        "known_height": 999
+      },
+      {
+        "rank": 3,
+        "source_url": "https://commons.wikimedia.org/wiki/File:The_A41_east_of_Blackthorn_-_geograph.org.uk_-_6186658.jpg",
+        "description": "Landskab og vej ved Piddington i Oxfordshire",
+        "license": "CC BY-SA 2.0",
+        "attribution": "David Howard",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "known_width": 1920,
+        "known_height": 1280
+      }
+    ]
+  }
+}
