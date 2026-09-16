@@ -1,0 +1,55 @@
+{
+  "queue_id": "news-20260916-0745-sa-visa",
+  "slug": "usa-indfoerer-visumrestriktioner-mod-sydafrikanere-for-racediskrimination-og-jordbeslag",
+  "headline": "USA indfører visumrestriktioner mod sydafrikanere for racediskrimination og jordbeslag",
+  "manchet": "Washington retter nye visumrestriktioner mod personer, der forbindes med racediskrimination, jordbeslag uden erstatning eller opfordring til vold.",
+  "category_slug": "udland",
+  "kind": "news",
+  "sagen_kort": [
+    "USA har indført en ny visumpolitik rettet mod visse sydafrikanere, som Washington mener medvirker til racediskrimination eller jordbeslag uden erstatning.",
+    "Ingen konkrete personer blev navngivet ved lanceringen, og Sydafrikas regering afviser amerikanske anklager om systematisk forfølgelse af landets hvide mindretal."
+  ],
+  "body_markdown": "USA skærper nu presset på Sydafrika med en ny visumpolitik, der kan ramme personer, som den amerikanske regering mener står bag racediskrimination, jordbeslag uden erstatning eller opfordringer til umiddelbar vold mod etniske eller racemæssige mindretal.\n\nUSA's udenrigsminister Marco Rubio annoncerede tirsdag restriktionerne som endnu et skridt i den markant forværrede relation mellem Washington og Pretoria. Ifølge Reuters gælder ordningen udenlandske statsborgere, som USA vurderer er ansvarlige for eller medvirker til sådanne handlinger og politikker i Sydafrika.\n\nDer blev ikke offentliggjort navne på personer, som konkret rammes. Det betyder, at den umiddelbare betydning især ligger i selve værktøjet: USA gør sydafrikansk indenrigspolitik om race og ejendomsret til et spørgsmål, der kan få personlige konsekvenser for adgang til USA.\n\n## En konflikt om jord og race\n\nTrump-regeringen har gennem længere tid kritiseret Sydafrikas politik for at rette op på de økonomiske og racemæssige skævheder, der fortsat præger landet efter apartheid. Den amerikanske regering mener, at dele af politikken diskriminerer hvide sydafrikanere og truer ejendomsretten.\n\nSydafrikas regering afviser den fremstilling. Præsident Cyril Ramaphosa har tidligere sagt, at landet må bekæmpe racistisk misinformation og samtidig beskytte sin suverænitet og sammenhængskraft efter apartheid. Regeringen fastholder, at dens reformer skal mindske historisk ulighed og ikke udgør en systematisk forfølgelse af hvide.\n\nDen nye visumpolitik nævner ifølge Reuters specifikt personer, der forbindes med love eller politikker, som muliggør beslaglæggelse af jord uden kompensation, racediskrimination eller tilskyndelse til umiddelbar vold mod minoritetsgrupper.\n\n## Forholdet er allerede kølet kraftigt ned\n\nVisumrestriktionerne kommer efter en række amerikanske skridt mod Sydafrika. Trump-regeringen har tidligere skåret i bistanden og lagt betydeligt diplomatisk pres på Pretoria. Uenigheden handler ikke kun om race- og jordpolitik, men også om Sydafrikas udenrigspolitik, herunder landets sag mod Israel ved Den Internationale Domstol.\n\nSamtidig har USA tilbudt beskyttelse til hvide sydafrikanere, som Washington mener risikerer forfølgelse. Sydafrikanske myndigheder bestrider, at der foregår et hvidt folkedrab eller en statslig kampagne mod hvide borgere.\n\nDen nye ordning flytter dermed konflikten fra hård diplomatisk retorik til et konkret amerikansk indrejseværktøj. Hvor bredt det bliver anvendt, afhænger nu af, hvem USA vurderer falder ind under kriterierne.",
+  "source_metadata": [
+    {
+      "url": "https://www.reuters.com/world/africa/us-announces-visa-curbs-some-foreign-nationals-south-africa-2026-09-15/",
+      "title": "Rubio announces US visa curbs for some foreign nationals from South Africa",
+      "publisher": "Reuters",
+      "source_class": "authoritative",
+      "published_at": "2026-09-15"
+    }
+  ],
+  "editorial_metadata": {
+    "discovery_run_id": "news-20260916-0745",
+    "final_qa_duplicate": false,
+    "discovery_audit": [
+      {
+        "candidate_id": "sa-us-visa-20260916",
+        "source_pool": "discovery",
+        "path": "Document.no -> Reuters",
+        "rank": 1,
+        "candidate_headline": "USA skærper visumregler mod sydafrikanere over race- og jordpolitik",
+        "deep_screened": true,
+        "downstream_sources": ["Reuters"],
+        "decision": "selected",
+        "reason": "Frisk, profilrelevant og dokumenteret af Reuters; ingen semantisk dublet fundet i GitHub [PUBLISH]-historik.",
+        "model_prompt_version": "canonical-news-task-2026-09-16"
+      }
+    ],
+    "hero_candidates": [
+      {
+        "source_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Official%20portrait%20of%20Secretary%20Marco%20Rubio.jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "Public domain — U.S. federal government work",
+        "license_url": "https://commons.wikimedia.org/wiki/File:Official_portrait_of_Secretary_Marco_Rubio.jpg",
+        "credit_text": "U.S. Department of State",
+        "rights_notes": "Official U.S. Department of State photograph; public domain as a work of the U.S. federal government. Original 4438×6101 JPEG.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": false,
+        "alt_text": "USA's udenrigsminister Marco Rubio"
+      }
+    ]
+  }
+}
