@@ -6,6 +6,8 @@ on:
       - '.github/scripts/process-chatgpt-publish-queue.mjs'
       - '.github/scripts/publish-kind.mjs'
       - '.github/scripts/publish-kind.test.mjs'
+      - '.github/scripts/publish-payload-fields.mjs'
+      - '.github/scripts/publish-payload-fields.test.mjs'
       - '.github/workflows/publish-bridge-ci.yml'
 
 permissions:
@@ -16,5 +18,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Test publish kind contract
-        run: node --test .github/scripts/publish-kind.test.mjs
+      - name: Test publish kind and payload-field contracts
+        run: node --test .github/scripts/publish-kind.test.mjs .github/scripts/publish-payload-fields.test.mjs
