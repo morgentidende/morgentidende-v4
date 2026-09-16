@@ -1,0 +1,87 @@
+{
+  "queue_id": "kvarti-20260916-1543-zelensky-droner",
+  "slug": "zelensky-russiske-droner-ramte-moldova-to-gange-under-mine-flyrejser",
+  "headline": "Zelensky: Russiske droner ramte Moldova to gange under mine flyrejser",
+  "category_slug": "udland",
+  "kind": "news",
+  "manchet": "Ukraines præsident knytter to droneindtrængninger til sine rejser via Moldova. Det er ikke dokumenteret, at hans fly var målet.",
+  "sagen_kort": [
+    "Volodymyr Zelensky siger, at russiske droner trængte ind i moldovisk luftrum både på ud- og hjemrejsen via Chisinau.",
+    "Reuters bekræfter droneindtrængningerne, men der er ikke fremlagt dokumentation for, at dronerne forsøgte at ramme præsidentflyet."
+  ],
+  "body_markdown": "Ukraines præsident Volodymyr Zelensky siger, at russiske droner to gange trængte ind i Moldovas luftrum, mens han rejste via landets hovedstad Chisinau. Han forbinder selv tidspunktet med sit præsidentfly, men den offentliggjorte dokumentation viser ikke, at flyet var et direkte mål.\n\nI et interview med den amerikanske tv-station CBS sagde Zelensky, at hans fly befandt sig i Moldova under den første hændelse. Han tilføjede, at noget tilsvarende skete, da han senere rejste hjem gennem Chisinau.\n\nReuters har dokumenteret, at russiske droner faktisk trængte ind i Moldovas luftrum på de relevante dage. Den 9. september lukkede de moldoviske myndigheder midlertidigt luftrummet, og Zelenskys afgang til Norge blev forsinket. En drone landede i en mark nord for Chisinau og udløste brand, mens en anden fortsatte ind over Rumænien.\n\n## En anden indtrængning få dage senere\n\nDen 14. september registrerede Moldova igen to droner i sit luftrum. Ifølge Reuters opholdt de sig over landet i omkring ti minutter hver. Zelensky siger, at det skete i forbindelse med hans hjemrejse.\n\nDen nye oplysning er, at præsidenten nu selv kæder begge episoder sammen med sine rejser. Han har dog ikke fremlagt oplysninger om dronernes afstand til flyet eller anden dokumentation for, at Rusland forsøgte at ramme ham.\n\nDet forbehold er centralt. Norges statsminister Jonas Gahr Støre sagde efter den første hændelse, at Zelenskys fly næsten var blevet ramt af en drone. Men han oplyste ikke, hvor tæt dronen var på flyet eller kilden til vurderingen. Ukrainske kilder beskrev efterfølgende påstanden om akut fare for præsidenten som overdrevet.\n\n## Moldova lukkede luftrummet\n\nNyhedsbureauet AP beskrev den første episode som en russisk droneindtrængning, der fik Moldova til midlertidigt at lukke dele af luftrummet. Tre afgange blev forsinket, herunder Zelenskys. Moldoviske myndigheder lod først flytrafikken fortsætte, efter at faren var vurderet ovre.\n\nHændelserne viser dermed med sikkerhed, at russiske droner har krydset Moldovas luftrum under Zelenskys rejser. Om sammenfaldet skyldtes et bevidst forsøg på at ramme eller true den ukrainske præsident, er der derimod ikke offentliggjort beviser for.\n\nRusland har tidligere afvist, at Zelenskys fly var truet under den første episode. Den russiske regering har endnu ikke fremlagt en offentlig forklaring, der dokumenterer, hvorfor dronerne befandt sig over Moldova på de tidspunkter.",
+  "source_metadata": [
+    {
+      "source_name": "Reuters",
+      "url": "https://www.straitstimes.com/world/europe/ukraines-zelenskiy-says-russian-drones-attacked-moldova-twice-while-he-was-in-transit",
+      "domain": "straitstimes.com",
+      "source_type": "authoritative"
+    },
+    {
+      "source_name": "Associated Press",
+      "url": "https://apnews.com/article/bddec39fed01f4ee7673511830f09a8c",
+      "domain": "apnews.com",
+      "source_type": "authoritative"
+    }
+  ],
+  "source_registry_updates": [],
+  "story_cluster_id": "zelensky-moldova-drone-incursions-2026",
+  "editorial_metadata": {
+    "discovery_run_id": "kvarti-20260916-1543",
+    "final_qa_duplicate": false,
+    "discovery_audit": [
+      {
+        "candidate_id": "theobjective-zelensky-moldova-drones",
+        "source_pool": "discovery",
+        "rank": 1,
+        "candidate_headline": "Zelensky siger Rusland to gange forsøgte at angribe hans fly med droner",
+        "deep_screened": true,
+        "downstream_sources": ["reuters.com", "apnews.com"],
+        "decision": "selected",
+        "reason": "Frisk international sikkerhedshistorie opdaget via The Objective. Reuters dokumenterer Zelenskys nye udtalelse og begge droneindtrængninger; AP dokumenterer første hændelse og luftrumslukningen. Vinklen er strammet, så et målrettet angreb ikke fremstilles som dokumenteret. GitHub 7-dages [PUBLISH]-historik gav ingen Zelensky-titelmatch og ingen observerbar næsten-identisk artikel.",
+        "model_prompt_version": "news-task-canonical-2026-09-16"
+      }
+    ],
+    "hero_candidates": [
+      {
+        "source_url": "https://commons.wikimedia.org/wiki/File:Volodymyr_zelenskyy_and_andy_burnham_navy.jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "CC BY 4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "credit_text": "President of Ukraine",
+        "rights_notes": "Wikimedia Commons; CC BY 4.0; original 1042x695; commercial reuse and local storage permitted with attribution.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": true,
+        "alt_text": "Ukraines præsident Volodymyr Zelensky"
+      },
+      {
+        "source_url": "https://commons.wikimedia.org/wiki/File:Chi%C8%99in%C4%83u_International_Airport.jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "credit_text": "Stolbovsky",
+        "rights_notes": "Wikimedia Commons; CC BY-SA 4.0; original 5184x3456; commercial reuse and local storage permitted with attribution and share-alike requirements.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": true,
+        "alt_text": "Chisinau internationale lufthavn i Moldova"
+      },
+      {
+        "source_url": "https://commons.wikimedia.org/wiki/File:Meeting_between_Ursula_von_der_Leyen_%26_Volodymyr_Zelenskyy_for_the_4th_anniversary_of_Ukraine_invasion_-_2026.jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "CC BY 4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "credit_text": "Dati Bendo / European Union, 2026",
+        "rights_notes": "Wikimedia Commons; EC Audiovisual Service image reviewed on Commons; CC BY 4.0; original 2667x4000; commercial reuse and local storage permitted with attribution.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": true,
+        "alt_text": "Volodymyr Zelensky under et møde i Kyiv i 2026"
+      }
+    ]
+  }
+}
