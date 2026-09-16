@@ -1,0 +1,79 @@
+{
+  "queue_id": "kvarti-20260917-0147-piddington",
+  "slug": "landsby-stemmer-sig-ud-af-storbritannien-i-protest-mod-asylcenter",
+  "headline": "Landsby stemmer sig ud af Storbritannien i protest mod asylcenter",
+  "category_slug": "udland",
+  "deck": "Piddingtons symbolske løsrivelse følger regeringens plan om at huse op til 1.256 asylansøgere på en militærgrund ved landsbyen.",
+  "body_markdown": "En lille engelsk landsby har valgt et usædvanligt våben i kampen mod et planlagt asylcenter: Indbyggerne har ved en symbolsk afstemning stemt for at løsrive Piddington fra Storbritannien.\n\nAfstemningen ændrer ikke landsbyens juridiske status, men er en protest mod den britiske regerings plan om at bruge en tidligere militærgrund ved Bicester i Oxfordshire til asylindkvartering. Ifølge The Telegraph vedtog landsbyen den symbolske løsrivelse efter voksende lokal modstand mod projektet.\n\nRegeringens egne plandokumenter viser, at Home Office søger tilladelse til at bruge området i ti år og indkvartere op til 1.256 asylansøgere. Planen omfatter nye modulbygninger, sundheds- og velfærdsfaciliteter, sikkerhedsinfrastruktur, veje, parkering og rekreative områder.\n\nPiddington havde 358 indbyggere ved folketællingen i 2021. Hvis centret fyldes til den ansøgte kapacitet, vil det derfor kunne rumme mere end tre gange så mange mennesker som selve landsbyen.\n\nModstanden handler ikke kun om antallet. Cherwell District Council, den lokale kommune, oplyser, at den først blev orienteret om regeringens planer kort før offentliggørelsen i juni og ikke var blevet hørt på forhånd. Kommunens leder Lesley McLean kaldte dengang beslutningen vilkårlig og efterlyste svar om blandt andet sikkerhed, politi, lokal infrastruktur og støtte til området.\n\nRegeringen har en anden begrundelse. Militærgrunden er en del af en større plan om at nedbringe brugen af hoteller til asylansøgere. Home Office annoncerede i juni tre mulige tidligere militæranlæg, der tilsammen kunne huse omkring 3.700 mennesker. Bicester-projektet er endnu ikke endeligt godkendt.\n\nSagen er nu i en formel planproces. Ministeriet for boliger og lokalsamfund har modtaget en hasteansøgning fra Home Office, og fristen for bemærkninger udløber 17. september. Den ansvarlige minister skal tage relevante indsigelser med i vurderingen, før der træffes afgørelse.\n\nPiddingtons afstemning kan ikke blokere projektet og kan ikke gøre landsbyen selvstændig. Men den gør den lokale konflikt konkret: En landsby med få hundrede indbyggere protesterer mod et statsligt projekt, der kan placere op til 1.256 asylansøgere lige i nærheden, mens den lokale kommune siger, at den ikke blev konsulteret før planerne blev offentliggjort.",
+  "source_metadata": [
+    {
+      "url": "https://www.gov.uk/guidance/urgent-crown-development-application-mod-bicester-site-a",
+      "title": "Urgent Crown Development application: MOD Bicester (Site A)",
+      "source_type": "primary"
+    },
+    {
+      "url": "https://www.cherwell.gov.uk/news/article/1326/home-office-announces-plans-for-new-asylum-housing-centre-near-bicester",
+      "title": "Home Office announces plans for new asylum housing centre near Bicester",
+      "source_type": "primary"
+    },
+    {
+      "url": "https://www.telegraph.co.uk/news/2026/09/16/piddington-village-election-result-leaving-uk-migrants/",
+      "title": "Piddington votes to leave UK over plans for migrant camp",
+      "source_type": "authoritative"
+    }
+  ],
+  "editorial_metadata": {
+    "sagen_kort": [
+      "Piddington har ved en symbolsk afstemning stemt for at løsrive sig fra Storbritannien i protest mod et planlagt asylcenter ved landsbyen.",
+      "Home Office søger tilladelse til at huse op til 1.256 asylansøgere på den tidligere militærgrund MOD Bicester i op til ti år."
+    ],
+    "final_qa_duplicate": false,
+    "discovery_run_id": "news-20260917-0147-kvarti",
+    "hero_candidates": [
+      {
+        "rank": 1,
+        "source_url": "https://commons.wikimedia.org/wiki/File:Bicester_Garrison_-_geograph.org.uk_-_464267.jpg",
+        "description": "Bicester Garrison i Oxfordshire, den militære lokalitet som asylplanen knytter sig til.",
+        "license": "CC BY-SA 2.0",
+        "attribution": "David Luther Thomas / Geograph Britain and Ireland / Wikimedia Commons",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true
+      },
+      {
+        "rank": 2,
+        "source_url": "https://commons.wikimedia.org/wiki/File:HM_Prison,_Bullingdon-geograph-3640850.jpg",
+        "description": "Luftfoto fra området ved Arncott Military Depot syd for Bicester, tæt på den planlagte lokalitet.",
+        "license": "Creative Commons via Geograph",
+        "attribution": "M J Richardson / Geograph Britain and Ireland / Wikimedia Commons",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "width": 3264,
+        "height": 2448
+      },
+      {
+        "rank": 3,
+        "source_url": "https://commons.wikimedia.org/wiki/File:Piddington_StNicholas_NaveNorth_Interior.JPG",
+        "description": "St Nicholas' kirke i Piddington, Oxfordshire; lokalt motiv fra landsbyen bag den symbolske protest.",
+        "license": "CC BY-SA 3.0",
+        "attribution": "Motacilla / Wikimedia Commons",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "width": 3000,
+        "height": 2000
+      }
+    ],
+    "discovery_audit": [
+      {
+        "candidate_id": "cand-piddington-asylum-protest",
+        "source_pool": "discovery/spiked",
+        "rank": 1,
+        "candidate_headline": "Piddington stemmer symbolsk for at forlade Storbritannien over planlagt asylcenter",
+        "deep_screened": true,
+        "downstream_sources": ["UK Government", "Cherwell District Council", "The Telegraph"],
+        "decision": "selected",
+        "reason": "Frisk, profilrelevant og usædvanlig migrationshistorie. Den symbolske afstemning dokumenteres af et autoritativt britisk medie; kapacitet, planstatus og manglende forhåndskonsultation dokumenteres af regering og kommune. Ingen næsten-identisk historie blev fundet i observerbar syv-dages [PUBLISH]-historik.",
+        "model_prompt_version": "canonical-news-task-2026-09-17"
+      }
+    ]
+  }
+}
