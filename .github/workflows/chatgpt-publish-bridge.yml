@@ -81,4 +81,16 @@ jobs:
         continue-on-error: true
         env:
           GH_TOKEN: ${{ github.token }}
-        run: gh pr close "$PR_NUMBER" --comment "Processed successfully through the Morgentidende GitHub bridge."
+          GH_REPO: ${{ github.repository }}
+        shell: bash
+        run: |
+          set -u
+          for attempt in 1 2 3; do
+            if gh pr close "$PR_NUMBER" --repo "$GH_REPO" --comment "Processed successfully through the Morgentidende GitHub bridge."; then
+              exit 0
+            fi
+            echo "Close attempt $attempt failed; retrying..." >&2
+            sleep $((attempt * 5))
+          done
+          echo "::warning::Article ingest succeeded, but transport PR cleanup failed after 3 attempts. The PR may be closed later without affecting article state."
+          exit 1
