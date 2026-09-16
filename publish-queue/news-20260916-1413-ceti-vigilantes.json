@@ -1,0 +1,101 @@
+{
+  "queue_id": "news-20260916-1413-ceti-vigilantes",
+  "slug": "tre-vagter-paa-skadestuen-efter-slagsmaal-paa-migrantcenter-i-ceuta",
+  "headline": "Tre vagter på skadestuen efter slagsmål på migrantcenter i Ceuta",
+  "category_slug": "udland",
+  "manchet": "Fagforbundet UGT kræver straks flere vagter og bedre beskyttelse på det overfyldte modtagecenter efter mandagens vold.",
+  "sagen_kort": [
+    "Tre sikkerhedsvagter på Ceutas midlertidige migrantcenter CETI blev kørt på hospitalet efter at være blevet angrebet under et slagsmål mellem beboere.",
+    "UGT siger, at centerets sikkerhed ikke længere er dimensioneret til presset efter sommerens store migrantankomst og kræver flere vagter og bedre udstyr."
+  ],
+  "body_markdown": "Tre sikkerhedsvagter på det midlertidige migrantcenter CETI i den spanske enklave Ceuta måtte mandag på hospitalet efter at være blevet angrebet, da de greb ind i et slagsmål mellem beboere.\n\nDet oplyser den lokale afdeling af fagforbundet UGT, som efter episoden kræver, at Spaniens ministerium for inklusion, social sikring og migration straks øger antallet af vagter på centeret.\n\nIfølge den lokale avis Ceuta al Día opstod volden, da vagterne forsøgte at standse en konflikt mellem beboere. Alle tre blev efterfølgende kørt til Universitetshospitalet i Ceuta.\n\nTo af vagterne fik ifølge Libertad Digital skader på håndled og ribben og er sygemeldt. Den tredje fik en skade på læben. Oplysningerne stammer fra UGT's lokale afdeling.\n\nFagforbundet fremhæver, at vagterne netop har til opgave at gribe ind ved slagsmål, trusler og andre voldelige situationer, indtil politiet kan overtage, hvis det bliver nødvendigt.\n\nUGT mener imidlertid, at bemandingen og udstyret ikke længere svarer til forholdene på centeret. Organisationen siger, at den allerede før sommerens store migrantankomst havde bedt om mere sikkerhed.\n\n»Virkeligheden på CETI har ændret sig, og sikkerhedsmidlerne må også ændre sig,« lyder fagforbundets budskab ifølge Ceuta Actualidad.\n\nUGT kræver både flere vagter og bedre beskyttelses- og kommunikationsudstyr. Kravet rettes dels mod ministeriet, som har ansvaret for centeret, dels mod den virksomhed, der leverer sikkerhedstjenesten.\n\nCeuta har siden slutningen af juli været under ekstraordinært pres efter en stor irregulær migrantankomst fra Marokko. Det har skabt overbelægning og øget belastning på indkvartering og sikkerhed.\n\nEpisoden kommer derfor midt i en bredere strid om, hvorvidt myndighedernes beredskab er fulgt med udviklingen. UGT's dokumenterede krav handler konkret om arbejdsforhold og sikkerhed: Vagter, der skal standse vold, skal ifølge forbundet have bemanding og udstyr til faktisk at kunne gøre det forsvarligt.",
+  "source_metadata": [
+    {
+      "url": "https://www.ceutaldia.com/articulo/administracion/tres-vigilantes-ceti-urgencias-ser-agredidos-mediar-pelea-entre-residentes/20260915194235320728.html",
+      "name": "Ceuta al Día",
+      "source_class": "authoritative",
+      "role": "central_local_reporting"
+    },
+    {
+      "url": "https://www.ceutaactualidad.com/articulo/ceuta/fesmc-u-ceuta-condena-agresion-sufrida-tres-vigilantes-ceti-exige-ministerio-refuerzos-inmediatos-seguridad/20260915192545282504.html",
+      "name": "Ceuta Actualidad",
+      "source_class": "authoritative",
+      "role": "independent_local_reporting_and_ugt_statement"
+    },
+    {
+      "url": "https://www.libertaddigital.com/espana/2026-09-16/tres-vigilantes-del-ceti-de-ceuta-agredidos-al-mediar-en-una-reyerta-entre-inmigrantes-7460623/",
+      "name": "Libertad Digital",
+      "source_class": "discovery_only",
+      "role": "discovery_and_injury_detail"
+    }
+  ],
+  "editorial_metadata": {
+    "final_qa_duplicate": false,
+    "story_cluster_id": "ceuta-ceti-security-2026",
+    "discovery_run_id": "news-20260916-1413",
+    "candidate_id": "candidate-ceti-vigilantes",
+    "source_pool": "discovery",
+    "candidates_tried": 3,
+    "duplicate_of": "PR #553; PR #519",
+    "audit": [
+      {
+        "rank": 1,
+        "candidate_headline": "Von der Leyen vil gøre Canada til EU's første associerede medlem",
+        "deep_screened": false,
+        "decision": "duplicate",
+        "reason": "Næsten-identisk transport-PR #553 findes allerede i 7-dages-historikken."
+      },
+      {
+        "rank": 2,
+        "candidate_headline": "Nye baskiske politital viser stor overrepræsentation blandt udenlandsfødte anholdte",
+        "deep_screened": false,
+        "decision": "duplicate",
+        "reason": "Samme hovedfaktum og institution er allerede dækket i PR #519."
+      },
+      {
+        "rank": 3,
+        "candidate_headline": "Tre vagter på CETI i Ceuta på hospitalet efter slagsmål mellem beboere",
+        "deep_screened": true,
+        "downstream_sources": ["Ceuta al Día", "Ceuta Actualidad"],
+        "decision": "selected",
+        "reason": "Frisk konkret konsekvens af presset på Ceutas migrantmodtagelse, dokumenteret af to lokale nyhedsmedier med UGT som primær afsender."
+      }
+    ],
+    "model_prompt_version": "canonical-news-task-2026-09-16",
+    "hero_candidates": [
+      {
+        "rank": 1,
+        "source_url": "https://commons.wikimedia.org/wiki/File:Dos_septiembre_2026.jpg",
+        "license": "CC BY-SA 4.0",
+        "attribution": "Xemenendura",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "width": 4000,
+        "height": 3000,
+        "description": "Dokumentarisk foto fra Ceuta, 2. september 2026"
+      },
+      {
+        "rank": 2,
+        "source_url": "https://commons.wikimedia.org/wiki/File:Aduana_de_Ceuta_0.jpg",
+        "license": "CC BY-SA 4.0",
+        "attribution": "Xemenendura",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "width": 4000,
+        "height": 3000,
+        "description": "Grænseposten El Tarajal i Ceuta"
+      },
+      {
+        "rank": 3,
+        "source_url": "https://commons.wikimedia.org/wiki/File:CeutaBorderFence.jpg",
+        "license": "CC BY-SA 4.0",
+        "attribution": "Youtryandyoutry",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "width": 1836,
+        "height": 2540,
+        "description": "Grænsehegnet mellem Ceuta og Marokko set fra spansk side"
+      }
+    ]
+  }
+}
