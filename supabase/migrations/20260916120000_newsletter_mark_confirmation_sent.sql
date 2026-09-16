@@ -21,6 +21,10 @@ begin
   end if;
 end $$;
 
+-- CREATE OR REPLACE cannot change an existing function's return type.
+-- Production currently returns TABLE(confirmation_token text, confirmation_expires_at timestamptz).
+drop function if exists public.newsletter_begin_signup(text, text, text, text, text);
+
 create or replace function public.newsletter_begin_signup(
   p_email text,
   p_newsletter text default 'daily'::text,
