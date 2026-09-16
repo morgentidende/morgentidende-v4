@@ -1,0 +1,30 @@
+{
+  "queue_id": "news-20260916-2117-merz-klarnavn",
+  "slug": "merz-vil-have-klarnavne-paa-nettet-kom-mig-ikke-med-ytringsfrihed",
+  "headline": "Merz vil have klarnavne på nettet: »Kom mig ikke med ytringsfrihed«",
+  "category_slug": "udland",
+  "deck": "Tysklands kansler kobler anonymitet og bots til demokratiets problemer. En ung forsker spurgte, hvad der så sker med informanter.",
+  "body_markdown": "Tysklands kansler Friedrich Merz vil have slut med anonymitet på sociale medier. Da en ung forsker tirsdag spurgte, hvordan et krav om rigtige navne kan forenes med beskyttelsen af informanter og undersøgende journalister, afviste kansleren indvendingen med ordene: »Bitte komme mir keiner mit Free Speech.«\n\nPå dansk: Kom mig ikke med ytringsfrihed. Merz fortsatte ifølge den tyske avis Welt med, at det efter hans opfattelse ikke længere handler om ytringsfrihed. Han beskrev et meget vidtgående amerikansk syn på ytringsfrihed som et libertært politisk syn, han ikke deler.\n\nUdtalelserne faldt ved kanslerens modtagelse af vinderne fra den tyske forskningskonkurrence Jugend forscht i Berlin den 15. september. Den tyske regerings egen hjemmeside bekræfter arrangementet og har offentliggjort både tale og video fra dagen.\n\nSpørgsmålet til Merz ramte et centralt problem i forslaget. Den unge deltager spurgte direkte, hvordan et krav om rigtige navne kan fungere sammen med beskyttelsen af informanter og undersøgende journalistik, hvis anonymitet på nettet forsvinder. Welt skriver, at Merz ikke gav et konkret svar på den del af spørgsmålet.\n\nI stedet argumenterede kansleren for, at den digitale verden ikke bør have helt andre regler end den fysiske. Han pegede på falske oplysninger, personlige angreb og diskrimination som problemer, et liberalt samfund efter hans opfattelse skal kunne beskytte borgerne imod.\n\nMerz knyttede også debatten til anonyme konti og automatisk genererede beskeder. Han fremhævede, at man efter hans opfattelse risikerer at skade demokratiet, hvis man ikke ved, hvem der står bag en besked.\n\nKravet om rigtige navne er ikke nyt. I marts diskuterede Forbundsdagen allerede Merz' tidligere forslag. Her advarede modstandere om, at et krav om identificerbare brugere kan ramme anonym kommunikation og dermed også mennesker, som har en legitim grund til ikke at optræde under eget navn. Regeringssiden fremhævede samtidig behovet for bedre beskyttelse af børn og unge på digitale platforme.\n\nKonflikten er derfor større end spørgsmålet om grove kommentarer. Et system, hvor brugere skal kunne identificeres, kan gøre det lettere at stille personer til ansvar for ulovlige trusler og chikane. Men det rejser samtidig spørgsmålet om, hvordan informanter, kritikere, udsatte borgere og andre med et legitimt behov for anonymitet skal beskyttes.\n\nMerz' svar gør den konflikt usædvanligt tydelig: Den tyske kansler ønsker mere ansvar og identifikation på nettet, mens spørgsmålet om, hvem der fortsat skal kunne tale anonymt, endnu ikke har fået et konkret svar.",
+  "source_metadata": [
+    {"url": "https://www.bundesregierung.de/breg-de/suche/jugend-forscht-2452646", "title": "Kanzler ehrt Preisträgerinnen und Preisträger von Jugend forscht", "publisher": "Bundesregierung", "source_class": "authoritative", "published_date": "2026-09-15"},
+    {"url": "https://www.welt.de/politik/deutschland/article6aa9841d949f8d3cb46381fa/klarnamenpflicht-bitte-komme-mir-keiner-mit-free-spech-merz-spricht-sich-erneut-gegen-anonymitaet-im-netz-aus.html", "title": "Merz spricht sich erneut gegen Anonymität im Netz aus", "publisher": "WELT", "source_class": "authoritative", "published_date": "2026-09-15"},
+    {"url": "https://www.bundestag.de/dokumente/textarchiv/2026/kw10-de-aktuelle-stunde-digitale-teilhabe-1151476", "title": "Aussprache über Gefährdungen der digitalen Teilhabe", "publisher": "Deutscher Bundestag", "source_class": "authoritative", "published_date": "2026-03-05"}
+  ],
+  "editorial_metadata": {
+    "sagen_kort": [
+      "Friedrich Merz kræver igen rigtige navne på nettet og afviste en indvending om ytringsfrihed under et møde med unge forskere.",
+      "En deltager spurgte specifikt til beskyttelsen af informanter og undersøgende journalister; ifølge Welt gav kansleren ikke et konkret svar på den del."
+    ],
+    "final_qa_duplicate": false,
+    "discovery_run_id": "news-20260916-2117-kvartover",
+    "story_cluster_key": "merz-klarnavne-internet",
+    "hero_candidates": [
+      {"rank": 1, "source_url": "https://commons.wikimedia.org/wiki/File:Friedrich_Merz,_2025.06.26_(01)_(cropped).jpg", "commercial_use_allowed": true, "local_storage_allowed": true, "license": "European Commission reuse policy / attribution required", "attribution": "© European Union, 1998–2026", "width": 3140, "height": 4184},
+      {"rank": 2, "source_url": "https://commons.wikimedia.org/wiki/File:Friedrich_Merz,_2025.06.26_(01).jpg", "commercial_use_allowed": true, "local_storage_allowed": true, "license": "European Commission reuse policy / attribution required", "attribution": "© European Union, 1998–2026", "width": 3757, "height": 5636},
+      {"rank": 3, "source_url": "https://commons.wikimedia.org/wiki/File:Friedrich_Merz,_2025.06.26_(03).jpg", "commercial_use_allowed": true, "local_storage_allowed": true, "license": "European Commission reuse policy / attribution required", "attribution": "© European Union, 1998–2026", "width": 2128, "height": 3190}
+    ],
+    "discovery_audit": [
+      {"candidate_id": "cand-1-merz-klarnavn", "source_pool": "discovery", "source_path": "Apollo News -> Bundesregierung/WELT/Bundestag", "rank": 1, "candidate_headline": "Merz kræver klarnavne og afviser Free Speech-indvending", "deep_screened": true, "downstream_sources": ["Bundesregierung", "WELT", "Deutscher Bundestag"], "decision": "selected", "reason": "Fresh, strongly profile-relevant and supported by primary/authoritative sources; no semantic duplicate found in seven-day GitHub PUBLISH history search.", "model_prompt_version": "canonical-news-task@a005454d"}
+    ]
+  }
+}
