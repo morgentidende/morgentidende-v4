@@ -1,0 +1,67 @@
+{
+  "queue_id": "news-20260916-0657-prien-afd",
+  "slug": "cdu-minister-stoetter-plan-om-at-undersoege-afd-forbud",
+  "headline": "CDU-minister støtter plan om at undersøge forbud mod AfD",
+  "category_slug": "udland",
+  "kind": "news",
+  "manchet": "Efter AfD's store valgsejr støtter CDU-næstformand Karin Prien en statslig undersøgelse af, om partiet kan forbydes.",
+  "sagen_kort": [
+    "CDU-næstformand Karin Prien støtter en fælles arbejdsgruppe mellem forbund og delstater, der skal undersøge mulige juridiske skridt mod AfD.",
+    "CSU-leder Markus Söder advarer om, at et forbudsforløb kan give AfD martyrstatus og i stedet styrke partiet."
+  ],
+  "body_markdown": "Efter AfD's markante valgsejr i Sachsen-Anhalt rykker debatten om et muligt partiforbud nu ind i toppen af regeringspartiet CDU.\n\nKarin Prien, der både er føderal familie- og uddannelsesminister og næstformand i CDU, støtter forslaget fra Nordrhein-Westfalens ministerpræsident Hendrik Wüst om at nedsætte en fælles arbejdsgruppe mellem forbund og delstater. Gruppen skal undersøge, hvilke forfatningsretlige muligheder staten har over for AfD.\n\nI ARD-programmet Caren Miosga søndag svarede Prien ja til, at den vej bør undersøges. Ifølge Stuttgarter Zeitung sagde hun: \"Det bør man gøre.\"\n\nUdmeldingen er bemærkelsesværdig, fordi CDU hidtil har været tilbageholdende over for et egentligt forbudsforløb. Wüst har understreget, at undersøgelsen skal være åben og ikke på forhånd have et forbud som mål. Hvis en juridisk gennemgang viser, at betingelserne for et forbud er opfyldt, mener han derimod, at sagen bør bringes videre.\n\n## AfD's valgsejr har flyttet debatten\n\nForslaget kom umiddelbart efter delstatsvalget i Sachsen-Anhalt, hvor AfD fik knap 44 procent af stemmerne. Partiets fremgang har øget presset på kansler Friedrich Merz og CDU og samtidig genåbnet diskussionen om, hvorvidt AfD skal bekæmpes politisk eller også juridisk.\n\nPrien gjorde samtidig klart, at et muligt forbudsforløb ikke er en hurtig måde at standse AfD ved de kommende valg. En afgørelse om at forbyde et parti træffes heller ikke af regeringen. Efter tysk ret kan blandt andre Forbundsdagen, Forbundsrådet eller forbundsregeringen indlede et forløb, men den endelige afgørelse ligger hos Forbundsforfatningsdomstolen.\n\nSPD-politikeren Anke Rehlinger, Saarlands ministerpræsident, støttede også en undersøgelse. Hun argumenterede for, at et demokrati har pligt til at reagere på oplysninger om mulige angreb på den frie demokratiske grundorden.\n\n## Söder advarer mod modsatrettet effekt\n\nDer er samtidig betydelig modstand i den konservative regeringsblok. Markus Söder, leder af CDU's bayerske søsterparti CSU, har advaret mod Wüsts forslag. Han vurderer, at et forbudsforløb er juridisk vanskeligt og kan ende med at give AfD en martyrrolle.\n\nWüst har selv advaret mod forhastede skridt og kaldt et partiforbud sidste udvej. Hans forslag er derfor i første omgang en juridisk undersøgelse, ikke en beslutning om at forsøge at forbyde AfD.\n\nDebatten stiller CDU over for et vanskeligt valg efter AfD's valgsejr: Partiet kan forsøge at slå AfD politisk gennem ændret kurs og vælgeropbakning, samtidig med at dele af CDU nu vil have staten til at undersøge, om der også findes en forfatningsretlig vej mod partiet.",
+  "source_metadata": [
+    {
+      "source_name": "Stuttgarter Zeitung",
+      "url": "https://www.stuttgarter-zeitung.de/politik/caren-miosga-karin-prien-ueber-afd-meine-mutter-haette-angst-gehabt-79466608.html",
+      "source_type": "authoritative",
+      "note": "Established German print newspaper; documents Priens support for a Bund-Länder review of a possible AfD ban, 14 September 2026"
+    },
+    {
+      "source_name": "ARD / WDR",
+      "url": "https://www.wdr.de/programmvorschau/ard/sendung/2026-09-13/21-45/poc_import_4004857882/caren-miosga.html",
+      "source_type": "primary_official",
+      "note": "Official ARD programme page for the 13 September 2026 Caren Miosga broadcast and its AfD-ban debate"
+    },
+    {
+      "source_name": "WELT",
+      "url": "https://www.welt.de/politik/deutschland/article6a9ff18b54ff84194d4cae62/nrw-ministerpraesident-wuest-legt-in-afd-verbotsdebatte-nach-weidel-wuenscht-arbeitsgruppe-viel-vergnuegen.html",
+      "source_type": "authoritative",
+      "note": "Established German print newspaper; documents Wüst proposal, open-ended review and opposition including CSU concerns"
+    }
+  ],
+  "source_registry_updates": [],
+  "editorial_metadata": {
+    "discovery_run_id": "news-20260916-0657",
+    "discovery_audit": [
+      {
+        "candidate_id": "prien-afd-review",
+        "source_pool": "discovery",
+        "path": "discovery",
+        "rank": 1,
+        "candidate_headline": "Karin Prien støtter Wüsts arbejdsgruppe om mulige juridiske skridt mod AfD",
+        "deep_screened": true,
+        "downstream_sources": ["stuttgarter-zeitung.de", "wdr.de", "welt.de"],
+        "decision": "selected",
+        "reason": "Fresh post-election development in German debate over AfD; directly documented by established print media and ARD programme material",
+        "model_prompt_version": "canonical-news-task-2026-09-16"
+      }
+    ],
+    "final_qa_duplicate": false,
+    "hero_candidates": [
+      {
+        "source_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Karin_Prien_at_Republica25_2025-05-28_03.jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "CC BY 4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "credit_text": "Leonhard Lenz / Wikimedia Commons",
+        "rights_notes": "Own work released by copyright holder under CC BY 4.0; original 5424x8144 JPEG",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": true,
+        "alt_text": "Karin Prien, tysk CDU-minister og næstformand i partiet"
+      }
+    ]
+  }
+}
