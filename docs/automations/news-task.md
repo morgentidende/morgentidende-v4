@@ -80,11 +80,15 @@ Hvis intet rimeligt 7-dages-grundlag kan etableres, stop med `QA_HISTORY_UNAVAIL
 
 ## 5. Hero/media — producer-kontrakt
 
-Almindelige nyheder bruger ægte dokumentarisk materiale. Journalisten ejer motivvalg og kandidatlisten; Media Worker ejer download, MIME/signatur, faktiske pixelmål, rettighedsgate, SHA-256, lokal arkivering, fallback og retry.
+Almindelige nyheder bruger ægte dokumentarisk materiale. Journalisten ejer motivvalg og kandidatlisten; Media Worker ejer URL-resolution, download, MIME/signatur, faktiske pixelmål, rettighedsgate, SHA-256, lokal arkivering, fallback og retry.
 
-Producenten leverer normalt højst 2 rangerede kandidater i `editorial_metadata.hero_candidates`. Hver kandidat skal selv have en original `source_url` og dokumenterede rettighedsfelter; mindst `commercial_use_allowed=true` og `local_storage_allowed=true`. Rettigheder må aldrig gættes eller arves fra en anden kandidat.
+Producenten leverer **mindst 3 og højst 6 rangerede, forskellige hero-kandidater** i `editorial_metadata.hero_candidates`. Hver kandidat skal selv have en `source_url` og dokumenterede rettighedsfelter; mindst `commercial_use_allowed=true` og `local_storage_allowed=true`. Rettigheder må aldrig gættes eller arves fra en anden kandidat.
 
-Kendte kandidater under 800×450 må ikke sendes; foretræk mindst 1200×675, når metadata findes. Brug originalfil frem for thumbnail/preview. Ét stærkt lovligt hero er nok.
+Hvis der efter rimelig søgning kun findes 1–2 lovlige kandidater, må payloaden kun afleveres med en eksplicit `editorial_metadata.hero_exception` med en kort konkret `reason`. Exception er en nødudgang, ikke normal drift. En artikel med 0 hero-kandidater må aldrig afleveres som artikelpayload.
+
+Kendte kandidater under 800×450 må ikke sendes; foretræk mindst 1200×675, når metadata findes. For Wikimedia Commons må producenten gerne sende en legitim `File:`-/Commons-side-URL; Media Worker resolver den via Commons API og vælger en passende direkte/skaleret billed-URL. Producenten skal ikke lave separat HEAD/GET-preflight.
+
+Media Worker prøver kandidaterne i rækkefølge som **én state machine**: permanent fejl går straks videre til næste kandidat; transient fejl retryer samme kandidat. Først når hele kandidatlisten er udtømt, må hero-flowet terminalisere.
 
 Hvis ingen lovlig hero-kandidat kan findes inden for budgettet, stop med `NO_LEGAL_HERO` og aflever audit-only. Start ikke en helt ny artikel alene på grund af hero-mangel.
 
