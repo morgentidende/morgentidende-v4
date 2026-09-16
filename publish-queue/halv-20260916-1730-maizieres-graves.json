@@ -1,0 +1,67 @@
+{
+  "queue_id": "halv-20260916-1730-maizieres-graves",
+  "slug": "96-katolske-grave-vandaliseret-frankrig-kvinde-indlagt",
+  "headline": "96 katolske grave vandaliseret i Frankrig – mistænkt kvinde tvangsindlagt",
+  "category_slug": "udland",
+  "sagen_kort": [
+    "Kors og krucifikser på 96 grave blev ødelagt eller beskadiget på en kirkegård i Maizières-lès-Metz.",
+    "En 32-årig kvinde meldte sig selv og sagde, at hun stod bag; hun blev senere tvangsindlagt, og efterforskningen fortsætter."
+  ],
+  "body_markdown": "Kors og krucifikser på 96 katolske grave er blevet ødelagt eller beskadiget på den gamle kirkegård i Maizières-lès-Metz i det nordøstlige Frankrig. En 32-årig kvinde meldte sig senere selv til politiet og sagde, at hun havde begået hærværket.\n\nIfølge anklageren i Metz, David Touvet, fandt efterforskerne kors og krucifikser, som var blevet brækket eller beskadiget og samlet på jorden flere steder på kirkegården. Der er åbnet en efterforskning om krænkelse eller skænding af grave på grund af de afdødes virkelige eller formodede religion.\n\nKvinden henvendte sig tirsdag eftermiddag til politiet, mens betjentene stadig arbejdede på kirkegården. Hun blev anholdt, men hendes tilstand blev senere vurderet som uforenelig med fortsat frihedsberøvelse. Hun blev derfor tvangsindlagt. Anklageren oplyser, at efterforskningen fortsætter, og at afhøringen kan genoptages, når hendes tilstand tillader det.\n\nMotivet er endnu ikke fastslået. Det er derfor for tidligt at konkludere, hvorfor de katolske symboler blev ødelagt, eller om kvindens psykiske tilstand havde betydning for handlingerne.\n\nBorgmesteren i Maizières-lès-Metz, Julien Freyburger, mener, at den katolske religion blev målrettet, fordi kors, krucifikser og Kristusfigurer systematisk blev ramt. Han beskrev hærværket som et chok for familierne og byen.\n\nMoselles præfekt, Pascal Bolot, fordømte også ødelæggelserne og understregede, at gravsteder skal være steder med værdighed og beskyttelse mod vold og skænding.\n\nSagen kommer kort før pave Leo XIV efter planen besøger Metz den 28. september. Myndighederne har ikke offentliggjort oplysninger, der dokumenterer en forbindelse mellem besøget og hærværket.",
+  "source_metadata": [
+    {
+      "name": "Le Parisien / AFP",
+      "url": "https://www.leparisien.fr/faits-divers/croix-et-crucifix-brises-une-centaine-de-tombes-degradees-dans-un-cimetiere-pres-de-metz-une-femme-en-garde-a-vue-16-09-2026-HWQLNTNM3ZCI7O45UZPQZ2ZGLQ.php",
+      "class": "authoritative",
+      "role": "Bærer centrale fakta, anklagerens oplysninger, antal grave og tvangsindlæggelsen"
+    },
+    {
+      "name": "TF1 Info / AFP",
+      "url": "https://www.tf1info.fr/justice-faits-divers/cimetiere-profane-en-moselle-une-femme-soupconnee-d-avoir-degrade-une-centaine-de-tombes-hospitalisee-d-office-2464437.html",
+      "class": "authoritative",
+      "role": "Uafhængig kontrol af centrale fakta, præfektens reaktion og pavebesøget"
+    }
+  ],
+  "editorial_metadata": {
+    "final_qa_duplicate": false,
+    "story_cluster_id": "france-maizieres-cemetery-vandalism-2026-09-15",
+    "hero_candidates": [
+      {
+        "rank": 1,
+        "source_url": "https://commons.wikimedia.org/wiki/File:MAIZIERES_LES_METZ_(3).jpg",
+        "description": "Saint-Martin-kirken i Maizières-lès-Metz",
+        "license": "CC BY 4.0",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "known_width": 1998,
+        "known_height": 1499
+      },
+      {
+        "rank": 2,
+        "source_url": "https://commons.wikimedia.org/wiki/File:Maizi%C3%A8res-l%C3%A8s-Metz_vue_du_ciel.jpg",
+        "description": "Luftfoto af Maizières-lès-Metz",
+        "license": "CC BY-SA 4.0",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true
+      }
+    ],
+    "hero_exception": {
+      "reason": "Kun to tilstrækkeligt relevante dokumentariske Commons-kandidater med eksplicit dokumenterede kommercielle genbrugsrettigheder blev fundet inden for run-budgettet; ingen generisk eller rettighedsusikker kandidat er tilføjet for at nå tre."
+    },
+    "discovery_run_id": "halv-20260916-1730",
+    "discovery_audit": [
+      {
+        "candidate_id": "maizieres-graves",
+        "source_pool": "discovery",
+        "source_path": "Document.no -> franske autoritative medier/AFP",
+        "rank": 1,
+        "candidate_headline": "96 katolske grave vandaliseret i Maizières-lès-Metz",
+        "deep_screened": true,
+        "downstream_sources": ["Le Parisien/AFP", "TF1 Info/AFP"],
+        "decision": "article",
+        "reason": "Frisk, stærk og dokumenteret religions-/kriminalitetshistorie; centrale fakta verificeret, motiv fortsat åbent.",
+        "model_prompt_version": "canonical-news-task-2026-09-16"
+      }
+    ]
+  }
+}
