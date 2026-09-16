@@ -1,0 +1,31 @@
+{
+  "queue_id": "news-20260916-1917-eu-kids-act",
+  "slug": "eu-vil-forbyde-sociale-medier-for-boern-under-13-aar",
+  "headline": "EU vil forbyde sociale medier for børn under 13 år",
+  "deck": "Kommissionen fremlægger torsdag sit forslag: 13-14-årige skal kun kunne bruge forældrestyrede konti med tidsgrænse.",
+  "category_slug": "udland",
+  "body_markdown": "EU-Kommissionen vil sætte en fælles europæisk aldersgrænse for sociale medier. Børn under 13 år skal slet ikke kunne bruge sociale medier, mens unge under 15 år ikke skal kunne have deres egen personlige konto.\n\nDet varslede EU-Kommissionens formand, Ursula von der Leyen, onsdag i sin årlige tale om Unionens tilstand i Europa-Parlamentet i Strasbourg. Det konkrete lovforslag, EU Kids Act, skal efter planen fremlægges torsdag.\n\nFor 13- og 14-årige lægger Kommissionen op til en mellemform: De skal kun kunne bruge mindre konti, som oprettes og overvåges af forældre eller værger. Kontiene skal have færre funktioner og en daglig tidsgrænse på én time.\n\nFor unge mellem 15 og 18 år vil Kommissionen i stedet stille krav om, at platformene indretter tjenesterne sikkert for mindreårige. De nærmere juridiske krav kendes først, når lovforslaget bliver offentliggjort.\n\nVon der Leyen begrundede indgrebet med blandt andet vanedannende funktioner, anbefalinger af stadig mere ekstremt indhold og misbrug af pigers billeder til seksualiserede billeder. Hun gjorde samtidig klart, at ansvaret efter hendes opfattelse skal flyttes over på teknologivirksomhederne: Platformene skal kunne bevise, at deres tjenester er sikre for børn og unge.\n\nForslaget kommer efter flere måneders forberedelse. EU-Kommissionen præsenterede i april en europæisk løsning til alderskontrol, som ifølge Kommissionen skal gøre det muligt at dokumentere sin alder uden at udlevere flere personoplysninger end nødvendigt. Samme måned vurderede Kommissionen foreløbigt, at Meta ikke gjorde nok for at forhindre børn under 13 år i at bruge Facebook og Instagram.\n\nAlderskontrol bliver derfor et centralt praktisk spørgsmål. Hvis forskellige regler skal gælde for under 13-årige, 13-14-årige, 15-17-årige og voksne, skal platformene kunne skelne mellem aldersgrupperne. Kommissionen fremhæver sin egen løsning som et redskab til netop det.\n\nIndgrebet vil samtidig rejse en klassisk konflikt mellem beskyttelse og privatliv. Kommissionen siger, at alderskontrollen er udviklet med stærk beskyttelse af privatlivet, men de konkrete pligter for platforme og brugere kan først vurderes, når torsdagens lovtekst foreligger.\n\nVon der Leyen henviste til erfaringer fra blandt andet Australien og sagde, at Europa nu skal handle. Hvis forslaget bliver gennemført som varslet, vil det være et markant skridt fra krav til platformenes sikkerhed over mod direkte fælles regler for, hvornår europæiske børn må have adgang til sociale medier.",
+  "source_metadata": [
+    {"url":"https://audiovisual.ec.europa.eu/en/media/video/I-294488","title":"EU-Kommissionen – State of the Union 2026, Ursula von der Leyen","source_class":"authoritative"},
+    {"url":"https://www.reuters.com/world/eus-von-der-leyen-invite-frontier-labs-talks-tackling-ai-risks-2026-09-16/","title":"Reuters – Von der Leyen backs AI slowdown and announces social-media age limits","source_class":"authoritative"},
+    {"url":"https://digital-strategy.ec.europa.eu/en/news/commission-preliminarily-finds-meta-breach-digital-services-act-failing-prevent-minors-under-13","title":"EU-Kommissionen – Meta preliminary DSA finding on minors under 13","source_class":"authoritative"}
+  ],
+  "editorial_metadata": {
+    "sagen_kort": [
+      "EU-Kommissionen vil forbyde sociale medier for børn under 13 år og personlige konti for unge under 15 år.",
+      "13-14-årige skal efter planen kun kunne bruge forældrestyrede konti med begrænsede funktioner og højst én times daglig brug."
+    ],
+    "final_qa_duplicate": false,
+    "discovery_run_id": "news-20260916-1917-kvartover",
+    "candidate_id": "eu-kids-act-social-media-20260916",
+    "discovery_audit": [
+      {"source_pool":"discovery","source_path":"GB News / Spiked","rank":1,"candidate_headline":"Piddington stemmer for symbolsk løsrivelse i protest mod asylcenter","deep_screened":true,"downstream_sources":["AP","AFP","ITV"],"decision":"rejected","reason":"Semantisk dublet af PR #551 fra samme dag.","model_prompt_version":"canonical-news-task-2026-09-16"},
+      {"source_pool":"discovery","source_path":"Apollo News","rank":2,"candidate_headline":"EU vil lovregulere børn og unges brug af sociale medier","deep_screened":true,"downstream_sources":["European Commission","Reuters"],"decision":"selected","reason":"Frisk friheds- og reguleringshistorie med primær dokumentation fra dagens tale; observerbar 7-dages [PUBLISH]-historik indeholder ingen næsten-identisk artikel om de nye aldersgrænser.","model_prompt_version":"canonical-news-task-2026-09-16"}
+    ],
+    "hero_candidates": [
+      {"rank":1,"source_url":"https://commons.wikimedia.org/wiki/File:Visit_of_Ursula_von_der_Leyen,_President_of_the_European_European,_in_the_ERCC_(P-070367-00-04).jpg","rights":"CC BY 4.0; attribution © European Union, 2026; Commons license reviewed 14 September 2026","commercial_use_allowed":true,"local_storage_allowed":true,"width":4000,"height":2667,"description":"Ursula von der Leyen i Bruxelles, 31. august 2026"},
+      {"rank":2,"source_url":"https://commons.wikimedia.org/wiki/File:Participation_of_Ursula_von_der_Leyen,_President_of_the_European_Commission,_Teresa_Ribera,_Stéphane_Séjourné,_Executive_Vice-Presidents_of_the_European_Commission,_and_Wopke_Hoekstra,_European_Commissioner,_in_the_(P-068971-00-10).jpg","rights":"CC BY 4.0; attribution © European Union, 2026; Commons license reviewed 23 August 2026","commercial_use_allowed":true,"local_storage_allowed":true,"description":"Ursula von der Leyen ved European Industry Summit i 2026"},
+      {"rank":3,"source_url":"https://commons.wikimedia.org/wiki/File:Ursula_von_der_Leyen_(P-067642_00-12).jpg","rights":"CC BY 4.0; attribution © European Union, 2026; Commons license reviewed 19 August 2025","commercial_use_allowed":true,"local_storage_allowed":true,"width":2667,"height":4000,"description":"Ursula von der Leyen, dokumentarisk portræt fra EU-Kommissionens audiovisuelle tjeneste"}
+    ]
+  }
+}
