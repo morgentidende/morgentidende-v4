@@ -5,6 +5,7 @@ Denne fil er den korte kørselskontrakt for almindelige autonome nyhedsslots. Sc
 ## Ejerskab
 
 - `docs/editorial-core.md` ejer fælles artikelkrav og journalistens slut-QA, herunder 7-dages-reglen.
+- `docs/editorial-language-glossary.md` ejer journalistens lille, bindende ordbog for udenlandske begreber, direkte oversættelser og kendte sprogfælder.
 - `docs/news-editorial-profile-and-discovery.md` ejer aktuel emneprioritering/tone samt discovery-pool. Hent kun de relevante afsnit (`Aktuel indstilling`, `Discovery-regel` og den konkrete discovery-liste) frem for hele profilprosaen, når connectoren understøtter afgrænset læsning.
 - `docs/source-registry.md` og backend-registret ejer kendte domæners kildeklassifikation.
 - `docs/chatgpt-publish-bridge.md` ejer transport, payload og media-handoff.
@@ -46,7 +47,9 @@ Nye domæner behandles som `discovery_only`, indtil de er klassificeret. Eventue
 
 ## 3. Skriv artikel
 
-Følg `docs/editorial-core.md`. Skriv ikke links eller manuel kildeliste i brødteksten. `source_metadata` er en top-level array. Brug den stærkeste dokumenterede vinkel uden at gå længere end kilderne bærer.
+Følg `docs/editorial-core.md` og `docs/editorial-language-glossary.md`. Skriv ikke links eller manuel kildeliste i brødteksten. `source_metadata` er en top-level array. Brug den stærkeste dokumenterede vinkel uden at gå længere end kilderne bærer.
+
+Brug kun almindeligt, etableret dansk. Dan aldrig et nyt dansk ord ved direkte oversættelse fra engelsk, tysk eller andre sprog. Hvis et udenlandsk fagudtryk ikke har en naturlig dansk ækvivalent, skal betydningen forklares med almindelige danske ord. Før aflevering laver journalisten én kort sprogpassage efter ordbogen og omskriver mistænkelige sammensatte ord, direkte oversættelser, embedsmandssprog og unødvendige fremmedord.
 
 ## 4. Slut-QA og semantisk 7-dages-dedupe
 
