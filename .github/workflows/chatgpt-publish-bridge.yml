@@ -8,7 +8,7 @@ on:
       - 'publish-queue/*.json'
 
 permissions:
-  contents: write
+  contents: read
   pull-requests: write
   id-token: write
 
@@ -20,6 +20,7 @@ jobs:
   publish:
     if: >-
       github.event.pull_request.head.repo.full_name == github.repository &&
+      github.event.pull_request.user.login == 'morgentidende' &&
       startsWith(github.event.pull_request.head.ref, 'publish/chatgpt-') &&
       startsWith(github.event.pull_request.title, '[PUBLISH] ') &&
       contains(github.event.pull_request.body || '', '<!-- morgentidende-chatgpt-publish -->')
@@ -80,4 +81,4 @@ jobs:
         continue-on-error: true
         env:
           GH_TOKEN: ${{ github.token }}
-        run: gh pr close "$PR_NUMBER" --delete-branch --comment "Processed successfully through the Morgentidende GitHub bridge."
+        run: gh pr close "$PR_NUMBER" --comment "Processed successfully through the Morgentidende GitHub bridge."
