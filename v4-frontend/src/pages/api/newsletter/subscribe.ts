@@ -64,8 +64,10 @@ export const POST: APIRoute = async ({ request, site, locals }) => {
     return json(mapped.status, mapped.body);
   }
 
-  const token = Array.isArray(data) ? data[0]?.confirmation_token : null;
-  if (!token) {
+  const row = Array.isArray(data) ? data[0] : null;
+  const token = row?.confirmation_token;
+  const reservationId = row?.reservation_id;
+  if (!token || !reservationId) {
     logNewsletter('newsletter_signup', { result: 'missing_token', source });
     return json(500, { message: 'Tilmeldingen kunne ikke gennemføres. Prøv igen.' });
   }
@@ -87,25 +89,27 @@ export const POST: APIRoute = async ({ request, site, locals }) => {
   if (!mail.ok) {
     const released = await supabase.rpc('newsletter_release_confirmation_reservation', {
       p_email: email,
-      p_newsletter: 'daily'
+      p_newsletter: 'daily',
+      p_reservation_id: reservationId
     });
     logNewsletter('newsletter_signup', {
-      result: 'ses_failed',
+      result: released.error || released.data === false ? 'stale_release' : 'ses_failed',
       source,
-      provider_status: mail.status,
-      reservation_released: !released.error
+      provider_status: mail.status
     });
     return json(502, { message: 'Vi kunne ikke sende bekræftelsesmailen. Prøv igen om lidt.' });
   }
 
   const marked = await supabase.rpc('newsletter_mark_confirmation_sent', {
     p_email: email,
-    p_newsletter: 'daily'
+    p_newsletter: 'daily',
+    p_reservation_id: reservationId
   });
-  if (marked.error) {
-    logNewsletter('newsletter_signup', { result: 'mark_sent_failed', source });
+  if (marked.error || marked.data === false) {
+    logNewsletter('newsletter_signup', { result: 'stale_completion', source });
+  } else {
+    logNewsletter('newsletter_signup', { result: 'ok', source });
   }
 
-  logNewsletter('newsletter_signup', { result: 'ok', source });
   return json(200, { ok: true, message: NEUTRAL_SIGNUP_MESSAGE });
 };
