@@ -98,16 +98,26 @@ function stripMarkdownSection(body, section) {
   };
 }
 
+function stripOneSection(value, section) {
+  const original = String(value ?? '');
+  const htmlPass = stripInlineHtmlSection(original, section);
+  const markdownPass = stripMarkdownSection(htmlPass.bodyMarkdown, section);
+  const removed = htmlPass.removed || markdownPass.removed;
+  return {
+    bodyMarkdown: removed ? markdownPass.bodyMarkdown : original,
+    removed
+  };
+}
+
 export function stripStructuredBodySections(value) {
   const original = String(value ?? '');
   let bodyMarkdown = original;
   const removedSections = [];
 
   for (const section of SECTION_DEFS) {
-    const htmlPass = stripInlineHtmlSection(bodyMarkdown, section);
-    const markdownPass = stripMarkdownSection(htmlPass.bodyMarkdown, section);
-    if (htmlPass.removed || markdownPass.removed) removedSections.push(section.key);
-    bodyMarkdown = markdownPass.bodyMarkdown;
+    const result = stripOneSection(bodyMarkdown, section);
+    if (result.removed) removedSections.push(section.key);
+    bodyMarkdown = result.bodyMarkdown;
   }
 
   return {
@@ -118,11 +128,7 @@ export function stripStructuredBodySections(value) {
 }
 
 export function stripSagenKortSection(value) {
-  const result = stripStructuredBodySections(value);
-  return {
-    bodyMarkdown: result.bodyMarkdown,
-    removed: result.removedSections.includes('sagen_kort')
-  };
+  return stripOneSection(value, SECTION_DEFS[0]);
 }
 
 export function containsSagenKortHeading(value) {
