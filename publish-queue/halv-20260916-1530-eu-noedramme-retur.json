@@ -1,0 +1,87 @@
+{
+  "queue_id": "halv-20260916-1530-eu-noedramme-retur",
+  "slug": "eu-vil-have-noedregler-ved-pludselig-masseindvandring",
+  "headline": "EU vil have nødregler ved pludselig masseindvandring",
+  "category_slug": "udland",
+  "kind": "news",
+  "manchet": "Efter sommerens grænsekrise vil Kommissionen kunne fravige normale procedurer midlertidigt. Forslaget skal kun gælde under stramme kriterier.",
+  "sagen_kort": [
+    "EU-Kommissionen varsler en ny nødordning ved pludselige, meget store strømme af irregulære migranter.",
+    "Ordningen skal give midlertidig fleksibilitet i normale procedurer, men fortsat respektere grundlæggende rettigheder."
+  ],
+  "body_markdown": "EU-Kommissionen vil indføre en ny nødordning, som skal kunne aktiveres, når et medlemsland pludselig rammes af en meget stor strøm af irregulære migranter. Kommissionsformand Ursula von der Leyen fremlagde planen onsdag i sin årlige tale om EU's tilstand i Europa-Parlamentet i Strasbourg.\n\nIfølge Reuters skal den kommende europæiske nødordning kunne give medlemslandene midlertidig fleksibilitet i de normale procedurer under ekstraordinære omstændigheder. Von der Leyen sagde samtidig, at ordningen skal aktiveres efter stramme kriterier og bevare respekten for Europas grundlæggende værdier og rettigheder.\n\n## Sommerens krise ændrede dagsordenen\n\nForslaget kommer efter sommerens voldsomme migrantkrise ved den spanske enklave Ceuta. I slutningen af juli krydsede titusinder grænsen fra Marokko på kort tid. Krisen førte siden til både politisk strid, grænsekontrol mellem EU-lande og efterforskning af forløbet.\n\nVon der Leyen beskrev i talen behovet for at kunne reagere på pludselige massebevægelser, herunder situationer hvor migration bliver organiseret eller brugt som politisk pressionsmiddel. Den præcise lovtekst og de konkrete betingelser for at udløse nødordningen er endnu ikke fremlagt.\n\n## EU har allerede strammet reglerne for tilbagesendelse\n\nPlanen kommer oven i en større stramning af EU's regler for tilbagesendelse. Europa-Parlamentet vedtog i juni nye regler, som kræver, at personer uden lovligt ophold samarbejder med myndighederne om at forlade EU. Reglerne åbner også mulighed for længere frihedsberøvelse ved blandt andet flugtrisiko og for tilbagesendelsescentre i lande uden for EU.\n\nParlamentet understregede samtidig, at de nye regler skal respektere grundlæggende rettigheder, international ret og forbuddet mod kollektive udvisninger.\n\nDen nye nødordning er derfor ikke en vedtaget lov, men et politisk forslag fra Kommissionens formand. Dens betydning afhænger af, hvor vidtgående undtagelser Kommissionen faktisk foreslår, og hvilken opbakning de får blandt medlemslandene og i Europa-Parlamentet.\n\nAlligevel markerer udmeldingen et tydeligt skifte efter sommerens krise: Kommissionen vil have et særskilt redskab til situationer, hvor de almindelige migrationsregler vurderes for langsomme eller utilstrækkelige til en pludselig masseankomst.",
+  "source_metadata": [
+    {
+      "source_name": "Reuters",
+      "url": "https://www.reuters.com/world/eu-propose-emergency-protection-against-massive-migrant-flows-von-der-leyen-says-2026-09-16/",
+      "domain": "reuters.com",
+      "source_type": "authoritative"
+    },
+    {
+      "source_name": "Europa-Parlamentet",
+      "url": "https://www.europarl.europa.eu/news/en/press-room/20260611IPR45214/",
+      "domain": "europarl.europa.eu",
+      "source_type": "authoritative"
+    }
+  ],
+  "source_registry_updates": [],
+  "story_cluster_id": "ceuta-migrant-crisis-2026",
+  "editorial_metadata": {
+    "discovery_run_id": "halv-20260916-1530",
+    "final_qa_duplicate": false,
+    "discovery_audit": [
+      {
+        "candidate_id": "brussels-signal-eu-emergency-returns",
+        "source_pool": "discovery",
+        "rank": 1,
+        "candidate_headline": "Von der Leyen foreslår nødordning for hurtigere reaktion på masseankomster",
+        "deep_screened": true,
+        "downstream_sources": ["reuters.com", "europarl.europa.eu"],
+        "decision": "selected",
+        "reason": "Frisk og væsentlig politisk videreudvikling efter Ceuta-krisen, selvstændigt dokumenteret af Reuters og sat i retlig kontekst med Europa-Parlamentets vedtagne returregler. 7-dages GitHub-historikken indeholder Ceuta-dækning, men ikke Kommissionens nye nødordning.",
+        "model_prompt_version": "news-task-canonical-2026-09-16"
+      }
+    ],
+    "hero_candidates": [
+      {
+        "source_url": "https://commons.wikimedia.org/wiki/File:Official_Portrait_of_Ursula_von_der_Leyen.jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "CC BY 4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "credit_text": "Etienne Ansotte / European Union",
+        "rights_notes": "Wikimedia Commons; EC Audiovisual Service image reviewed on Commons; commercial reuse and local storage permitted with attribution.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": true,
+        "alt_text": "EU-Kommissionsformand Ursula von der Leyen"
+      },
+      {
+        "source_url": "https://commons.wikimedia.org/wiki/File:Ursula_von_der_Leyen_(P-067642_00-12).jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "CC BY 4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "credit_text": "European Commission",
+        "rights_notes": "Wikimedia Commons; European Commission Audiovisual Service; commercial reuse and local storage permitted with attribution; original 2667x4000.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": true,
+        "alt_text": "Ursula von der Leyen under et officielt besøg"
+      },
+      {
+        "source_url": "https://commons.wikimedia.org/wiki/File:Ursula_von_der_Leyen_%26_Emmanuel_Macron_-_February_2025.jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "CC BY 4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "credit_text": "Aurore Martignoni / European Union",
+        "rights_notes": "Wikimedia Commons; EC Audiovisual Service image reviewed on Commons; commercial reuse and local storage permitted with attribution; original 4000x2667.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": true,
+        "alt_text": "Ursula von der Leyen ved et europæisk møde"
+      }
+    ]
+  }
+}
