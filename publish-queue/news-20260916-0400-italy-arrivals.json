@@ -1,0 +1,65 @@
+{
+  "queue_id": "news-20260916-0400-italy-arrivals",
+  "slug": "italien-migrantankomster-faldet-56-procent-2026",
+  "headline": "Italiens migrantankomster er mere end halveret på ét år",
+  "dek": "21.393 migranter er kommet over havet i år mod 48.730 på samme tidspunkt sidste år. Bangladeshere er nu den største gruppe.",
+  "category_slug": "udland",
+  "kind": "news",
+  "sagen_kort": [
+    "Italiens indenrigsministerium har registreret 21.393 ankomster over havet i 2026 frem til 15. september – 56 procent færre end året før.",
+    "Bangladeshere udgør 25,3 procent af årets registrerede ankomster, mens knap 127.000 migranter befinder sig i Italiens modtagesystem."
+  ],
+  "body_markdown": "Antallet af migranter, der når Italien over Middelhavet, er faldet markant i år. Nye tal fra det italienske indenrigsministerium viser 21.393 registrerede ankomster frem til klokken 8 den 15. september. På samme tidspunkt sidste år var tallet 48.730.\n\nDet svarer til et fald på omkring 56 procent på ét år. Også sammenlignet med 2024, hvor 44.676 var ankommet på samme tidspunkt, er niveauet mere end halveret.\n\n## September ligger langt under sidste år\n\nFaldet kan også ses i de nyeste tal. I første halvdel af september kom 1.831 mennesker over havet til Italien. I hele september sidste år registrerede myndighederne 8.315 ankomster, mens tallet i september 2024 var 7.685.\n\nTallene siger ikke i sig selv, hvorfor færre når Italien. De viser den registrerede udvikling ved de italienske kyster og bør derfor ikke læses som et mål for den samlede migration mod Europa.\n\n## Hver fjerde kommer fra Bangladesh\n\nSammensætningen af de registrerede migranter er samtidig tydelig. 5.424 oplyser, at de er fra Bangladesh. Det svarer til 25,3 procent og gør bangladeshere til årets klart største nationalitetsgruppe blandt ankomsterne.\n\nDerefter følger 2.540 personer fra Somalia og 2.472 fra Algeriet. Sudan, Pakistan, Eritrea, Egypten og Tunesien er også blandt de største grupper. Nationaliteterne bygger på de oplysninger, migranterne selv giver ved ankomsten.\n\n## Næsten 127.000 i modtagesystemet\n\nSelv om antallet af nye ankomster er faldet kraftigt, befinder mange migranter sig fortsat i det italienske modtagesystem. De seneste myndighedstal viser 126.768 personer fordelt over landet.\n\n86.558 opholder sig i almindelige modtagecentre, 466 i såkaldte hotspots og 39.558 i SAI-systemet for indkvartering og integration. Lombardiet har med 15.921 personer den største andel af de registrerede migranter i modtagelse.\n\nUdviklingen giver den italienske regering et markant andet udgangspunkt end for et år siden: På årets første otte en halv måned er antallet af registrerede bådankomster reduceret med mere end 27.000 mennesker.",
+  "source_metadata": [
+    {
+      "source_name": "AgenSIR",
+      "url": "https://www.agensir.it/quotidiano/2026/9/15/migranti-da-inizio-anno-sbarcate-21-393-persone-sulle-nostre-coste-quasi-127mila-persone-accolte-in-tutta-italia/",
+      "source_type": "authoritative",
+      "notes": "Established Italian news agency report explicitly attributing the September 15 figures to Italy's Interior Ministry."
+    }
+  ],
+  "source_registry_updates": [
+    {
+      "source_name": "AgenSIR",
+      "domain": "agensir.it",
+      "classification": "authoritative",
+      "region": "Italy",
+      "rationale": "Established Italian news agency; this report directly reproduces current Interior Ministry migration figures.",
+      "discovered_via": "discovery scan"
+    }
+  ],
+  "editorial_metadata": {
+    "discovery_run_id": "news-20260916-0400",
+    "final_qa_duplicate": false,
+    "share_reason": "Jeg sender dig den her, fordi Italien på ét år har reduceret de registrerede migrantankomster over havet med 56 procent.",
+    "discovery_audit": [
+      {
+        "candidate_id": "italy-arrivals-20260915",
+        "source_pool": "discovery",
+        "path": "discovery",
+        "rank": 1,
+        "candidate_headline": "Italiens migrantankomster falder kraftigt",
+        "deep_screened": true,
+        "downstream_sources": ["AgenSIR / Italian Interior Ministry figures"],
+        "decision": "selected",
+        "reason": "Fresh official-data story, strong profile match, undercovered in recent Morgentidende [PUBLISH] history.",
+        "model_prompt_version": "news-task.md@e5e4b628"
+      }
+    ],
+    "hero_candidates": [
+      {
+        "source_url": "https://upload.wikimedia.org/wikipedia/commons/7/70/P0146700011H.jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "CC BY-SA 2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "credit_text": "Sara Prestianni / noborder network",
+        "rights_notes": "Wikimedia Commons documentary image related to migration to Lampedusa; original 3543×2362 JPEG. Attribution/share-alike required.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": true,
+        "alt_text": "Migranter på rejsen mod Lampedusa i Middelhavet"
+      }
+    ]
+  }
+}
