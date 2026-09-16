@@ -1,0 +1,29 @@
+{
+  "queue_id": "news-20260916-0412-houthi-islands",
+  "slug": "houthierne-tager-strategiske-oer-roedehavet-olie",
+  "headline": "Houthierne tager strategiske øer: Grebet om en af verdens vigtigste handelsruter strammes",
+  "manchet": "Den iransk støttede bevægelse kontrollerer nu flere nøglepunkter ved Bab al-Mandab. Olieprisen er samtidig presset over 100 dollar.",
+  "category_slug": "udland",
+  "kind": "news",
+  "sagen_kort": [
+    "Houthierne har erobret Greater og Lesser Hanish efter tidligere at have taget havnebyen Mokha og øen Perim ved Bab al-Mandab.",
+    "Strædet er en central passage mellem Det Indiske Ocean, Rødehavet og Suezkanalen, mens oliepriserne allerede er over 100 dollar tønden."
+  ],
+  "body_markdown": "Den iransk støttede Houthi-bevægelse i Yemen har udvidet sin kontrol over den sydlige del af Rødehavet med erobringen af øerne Greater og Lesser Hanish. Dermed sidder gruppen nu på flere strategiske punkter omkring Bab al-Mandab, den smalle passage mellem Yemen og Afrikas Horn.\n\nUdviklingen kommer få dage efter, at Houthierne tog den vigtige havneby Mokha og Perim, øen midt i selve Bab al-Mandab-strædet. Ifølge AP har offensiven været gruppens største territoriale fremgang siden våbenhvilen i 2022.\n\n## En flaskehals for verdenshandlen\n\nBab al-Mandab forbinder Det Indiske Ocean med Rødehavet og videre med Suezkanalen. Omkring 12 procent af verdenshandlen passerer normalt gennem området. Kontrollen er derfor langt mere end et lokalt spørgsmål i den yemenitiske borgerkrig.\n\nHouthierne har tidligere angrebet handelsskibe i Rødehavet. Gruppen siger nu, at international skibsfart generelt kan sejle sikkert, men har gjort en undtagelse for saudiske skibe. Det skaber ekstra usikkerhed, fordi Saudi-Arabien netop har fået større behov for ruten gennem Rødehavet.\n\nReuters rapporterede 10. september, at Brent-olie steg til 107,63 dollar pr. tønde, efter nye angreb på tankskibe og Houthiernes erobring af Mokha. Samtidig er trafikken gennem Hormuzstrædet presset af konflikten med Iran.\n\n## To strategiske stræder under pres\n\nSituationen betyder, at to af verdens vigtigste flaskehalse for oliehandel er under alvorligt pres på samme tid. Hormuz ligger ved Irans kyst, mens Bab al-Mandab ligger ved Yemen.\n\nErobringen af Hanish-øerne gør ikke i sig selv strædet lukket. Men den giver Houthierne et større geografisk fodfæste langs sejlruten og dermed flere muligheder for at true eller kontrollere skibstrafik.\n\nYemens internationalt anerkendte regering har lovet at omgruppere sine styrker. Saudi-Arabien, som støtter regeringen, har allerede gennemført luftangreb mod Houthi-stillinger.\n\nFor Europa er udviklingen særlig følsom. En længerevarende forstyrrelse af Bab al-Mandab kan tvinge flere skibe syd om Afrika, hvilket både forlænger transporttiden og øger omkostningerne. Den konkrete pris for europæiske forbrugere afhænger dog af, hvor meget skibstrafikken faktisk bliver forstyrret, og hvor længe konflikten varer.",
+  "source_metadata": [
+    {"name":"Associated Press","url":"https://apnews.com/article/e4e799701b382799a955969c212800ea","domain":"apnews.com","source_type":"authoritative"},
+    {"name":"Reuters","url":"https://www.reuters.com/business/energy/brent-holds-above-100-tanker-attacks-deepen-supply-fear-2026-09-10/","domain":"reuters.com","source_type":"authoritative"},
+    {"name":"Euronews","url":"https://www.euronews.com/2026/09/14/houthis-capture-more-yemeni-red-sea-islands-tightening-grip-on-bab-el-mandeb","domain":"euronews.com","source_type":"authoritative"}
+  ],
+  "editorial_metadata": {
+    "discovery_run_id": "news-20260916-0412",
+    "final_qa_duplicate": false,
+    "discovery_audit": [
+      {"candidate_id":"houthi-red-sea-islands","source_pool":"discovery","rank":1,"candidate_headline":"Houthierne tager strategiske øer i Rødehavet","deep_screened":true,"downstream_sources":["AP","Reuters","Euronews"],"decision":"publish","reason":"Fresh material development with global trade and energy consequences; no matching recent PUBLISH item observed","model_prompt_version":"news-task-canonical-2026-09-16"},
+      {"candidate_id":"feijoo-nationality","source_pool":"discovery","rank":2,"candidate_headline":"PP vil fratage nationalitet ved grov kriminalitet","deep_screened":true,"downstream_sources":["Europa Press","Cadena SER"],"decision":"duplicate","reason":"Already delivered as PR 478","model_prompt_version":"news-task-canonical-2026-09-16"}
+    ],
+    "hero_candidates": [
+      {"source_url":"https://commons.wikimedia.org/wiki/Special:Redirect/file/Houthi_fighters_in_Sanaa,_Yemen,_2024.jpg","source_provider":"wikimedia_commons","commercial_use_allowed":true,"local_storage_allowed":true,"modifications_allowed":true,"attribution_required":true,"credit_text":"Wikimedia Commons contributor","rights_notes":"Commons original; Media Worker must verify exact file license and dimensions before use","alt_text":"Houthi-krigere i Yemen"}
+    ]
+  }
+}
