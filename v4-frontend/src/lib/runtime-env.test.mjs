@@ -9,6 +9,7 @@ const runtimeEnv = readFileSync(resolve(here, 'runtime-env.ts'), 'utf8');
 const factory = readFileSync(resolve(here, 'v4-supabase-server.ts'), 'utf8');
 const envExample = readFileSync(resolve(here, '../../.env.example'), 'utf8');
 const readme = readFileSync(resolve(here, '../../../README.md'), 'utf8');
+const wrangler = readFileSync(resolve(here, '../../wrangler.jsonc'), 'utf8');
 
 test('runtime env reads SUPABASE_SECRET_KEY, not SERVICE_ROLE_KEY', () => {
   assert.match(runtimeEnv, /pick\(runtime, 'SUPABASE_SECRET_KEY'\)/);
@@ -31,4 +32,10 @@ test('README names the Cloudflare runtime variables', () => {
   assert.match(readme, /SUPABASE_SECRET_KEY/);
   assert.match(readme, /PUBLIC_SUPABASE_URL/);
   assert.match(readme, /SUPABASE_SERVICE_ROLE_KEY/);
+});
+
+test('wrangler vars pin only the public Supabase URL', () => {
+  assert.match(wrangler, /"PUBLIC_SUPABASE_URL": "https:\/\/lfttxjxfggjcxmdfjndk\.supabase\.co"/);
+  assert.doesNotMatch(wrangler, /SUPABASE_SECRET_KEY/);
+  assert.doesNotMatch(wrangler, /SUPABASE_SERVICE_ROLE_KEY/);
 });
