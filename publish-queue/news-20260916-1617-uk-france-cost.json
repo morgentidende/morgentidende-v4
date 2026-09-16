@@ -1,0 +1,103 @@
+{
+  "queue_id": "news-20260916-1617-uk-france-cost",
+  "slug": "storbritannien-betaler-knap-en-halv-million-kroner-pr-migrant-sendt-tilbage-til-frankrig",
+  "headline": "Storbritannien betaler knap en halv million kroner pr. migrant sendt tilbage til Frankrig",
+  "category_slug": "udland",
+  "manchet": "Indenrigsministeren erkender, at ordningen er svær at opskalere. Omkring 1.400 personer er sendt retur siden sidste sommer.",
+  "sagen_kort": [
+    "Storbritanniens aftale med Frankrig koster omkring 480.000 kroner (56.000 pund) for hver person, der sendes tilbage over Kanalen.",
+    "Omkring 1.400 er sendt til Frankrig siden august 2025, mens Storbritannien til gengæld modtager omtrent samme antal asylansøgere fra Frankrig."
+  ],
+  "body_markdown": "Det koster den britiske stat omkring 480.000 kroner (56.000 pund) for hver migrant, der bliver sendt tilbage til Frankrig under den såkaldte én-ind, én-ud-aftale. Det oplyste den britiske indenrigsminister Shabana Mahmood tirsdag under en høring i Underhusets indenrigsudvalg.\n\nOrdningen blev indført i august 2025 for at bremse de ulovlige bådoverfarter over Den Engelske Kanal. Storbritannien kan sende visse personer, der er ankommet i små både, tilbage til Frankrig. Til gengæld modtager briterne omtrent samme antal asylansøgere fra Frankrig, som opfylder aftalens sikkerheds- og adgangskrav.\n\nMahmood sagde, at omkring 1.400 personer indtil videre er blevet sendt tilbage til Frankrig. Hun beskrev samtidig antallet som relativt lille og erkendte, at det har været vanskeligt at opskalere hjemsendelserne til et langt højere ugentligt niveau.\n\nBeløbet på 56.000 pund pr. tilbagesendt person er højere end det britiske indenrigsministeriums tidligere opgjorte gennemsnitspris for en tvungen udsendelse på 48.800 pund. Mahmood tog dog forbehold for det præcise tal og lovede at sende udvalget en opdateret opgørelse.\n\nIndenrigsministeren forsvarede udgiften med, at den ifølge hende omtrent svarer til eller er lavere end prisen for at indkvartere en asylansøger på hotel i et år. Hun fremhævede også, at aftalen har vist, at tilbagesendelser til Frankrig faktisk kan gennemføres.\n\nKritikken retter sig især mod forholdet mellem pris og omfang. Med omkring 1.400 tilbagesendelser på godt et år er ordningen kun en mindre del af Storbritanniens håndtering af bådmigrationen. Nogle af de personer, der er sendt til Frankrig, er desuden siden kommet tilbage til Storbritannien med lastbil eller småbåd.\n\nSamtidig er antallet af bådankomster faldet markant i år. Frem til 14. september var 17.425 personer kommet til Storbritannien i små både, 44 procent færre end på samme tidspunkt sidste år. Den britiske kriminalitetsmyndighed National Crime Agency har peget på politiindsats og forstyrrelser af smuglernes forsyningskæder som vigtige forklaringer på faldet.\n\nPilotordningen var oprindeligt planlagt til at udløbe i juni, men er forlænget ind i oktober. Dens videre skæbne er usikker, og Frankrig har ønsket en bredere aftale mellem EU og Storbritannien frem for at bære ordningen alene.",
+  "source_metadata": [
+    {
+      "url": "https://committees.parliament.uk/event/27650",
+      "name": "UK Parliament — Home Affairs Committee",
+      "source_class": "authoritative",
+      "role": "primary_hearing"
+    },
+    {
+      "url": "https://www.theguardian.com/world/2026/sep/15/uk-paying-56000-for-each-person-returned-to-france-under-one-in-one-out-scheme",
+      "name": "The Guardian",
+      "source_class": "authoritative",
+      "role": "central_reporting"
+    },
+    {
+      "url": "https://www.gbnews.com/news/piddington-independence-referendum-village-leave-uk-fury-migrants",
+      "name": "GB News",
+      "source_class": "discovery_only",
+      "role": "discovery_context"
+    }
+  ],
+  "editorial_metadata": {
+    "final_qa_duplicate": false,
+    "story_cluster_id": "uk-france-one-in-one-out-migrant-returns-2026",
+    "discovery_run_id": "news-20260916-1617",
+    "candidate_id": "candidate-uk-france-return-cost",
+    "source_pool": "discovery",
+    "candidates_tried": 3,
+    "duplicate_of": "PR #553; PR #560",
+    "audit": [
+      {
+        "rank": 1,
+        "candidate_headline": "Von der Leyen vil åbne for Canada som EU's første associerede medlem",
+        "deep_screened": false,
+        "downstream_sources": ["Reuters", "European Commission"],
+        "decision": "duplicate",
+        "reason": "Næsten-identisk historie allerede afleveret som PR #553."
+      },
+      {
+        "rank": 2,
+        "candidate_headline": "Hamburgs advokatpensionsformand stemt ud efter politisk opgør",
+        "deep_screened": false,
+        "downstream_sources": ["Legal Tribune Online"],
+        "decision": "duplicate",
+        "reason": "Næsten-identisk historie allerede afleveret som PR #560."
+      },
+      {
+        "rank": 3,
+        "candidate_headline": "Britisk Frankrig-aftale koster 56.000 pund pr. tilbagesendt migrant",
+        "deep_screened": true,
+        "downstream_sources": ["UK Parliament Home Affairs Committee", "The Guardian"],
+        "decision": "selected",
+        "reason": "Frisk og konkret migrations- og skattehistorie med ministerens eget omkostningstal, dokumenteret parlamentarisk høring og tydelige forbehold."
+      }
+    ],
+    "model_prompt_version": "canonical-news-task-2026-09-16",
+    "hero_candidates": [
+      {
+        "rank": 1,
+        "source_url": "https://commons.wikimedia.org/wiki/File:Official_portrait_of_Shabana_Mahmood_MP_crop_1.jpg",
+        "license": "CC BY 3.0",
+        "attribution": "Richard Townshend / UK Parliament",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "width": 3000,
+        "height": 2000,
+        "description": "Dokumentarisk foto af indenrigsminister Shabana Mahmood, som oplyste omkostningen under høringen"
+      },
+      {
+        "rank": 2,
+        "source_url": "https://commons.wikimedia.org/wiki/File:Dover_Harbour_from_Western_Heights.jpg",
+        "license": "CC BY-SA 4.0",
+        "attribution": "Nilfanion / Wikimedia Commons",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "width": 11525,
+        "height": 2343,
+        "description": "Dokumentarisk panorama af Dover havn ved Den Engelske Kanal"
+      },
+      {
+        "rank": 3,
+        "source_url": "https://commons.wikimedia.org/wiki/File:Dover_-_Harbour_-_1.jpg",
+        "license": "CC BY-SA 4.0",
+        "attribution": "Benjism89 / Wikimedia Commons",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "width": 5472,
+        "height": 3648,
+        "description": "Dokumentarisk foto af Dover havn og kanaltrafikken"
+      }
+    ]
+  }
+}
