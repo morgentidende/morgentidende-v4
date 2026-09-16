@@ -1,0 +1,30 @@
+{
+  "queue_id": "kvarti-20260916-2146-correctiv",
+  "slug": "tysk-regering-fortsaetter-projektstoette-til-correctiv-trods-dom",
+  "headline": "Tysk regering fortsætter projektstøtte til Correctiv trods dom om tre udsagn",
+  "category_slug": "udland",
+  "deck": "En domstol forbød tre udsagn om det omstridte Potsdam-møde. Regeringen siger, at dommen ikke vedrører den offentlige projektstøtte.",
+  "body_markdown": "Den tyske regering vil ikke standse sin projektstøtte til mediet Correctiv, selv om en domstol tidligere i år forbød mediet at gentage tre udsagn fra dets omstridte dækning af et politisk møde i Potsdam.\n\nDet fremgår af et nyt svar fra den tyske regering til Forbundsdagen. Regeringen understreger samtidig, at Correctiv ikke får almindelig institutionsstøtte fra staten, og at projektmidlerne ikke må bruges til at forberede, producere eller sprede journalistiske artikler.\n\nSagen udspringer af Correctivs meget omtalte artikel om et møde nær Potsdam i november 2023, hvor blandt andre AfD-politikere og den østrigske aktivist Martin Sellner deltog. Artiklen udløste store demonstrationer i Tyskland.\n\nI marts gav Landgericht Berlin II AfD-medlemmet Gerrit Huy medhold i en sag mod Correctiv og forbød tre udsagn. Blandt dem var formuleringen om, at der på mødet var blevet fremlagt en »masterplan« for at udvise tyske statsborgere. Dommen er ikke endelig, og Correctiv har anket.\n\nAfD krævede efter dommen, at den offentlige støtte til Correctiv blev standset. Et flertal i Forbundsdagen afviste i april forslaget. Nu har partiet igen spurgt regeringen direkte, om dommen får konsekvenser for støtten. Svaret er nej.\n\nRegeringens begrundelse er, at projektstøtte normalt er adskilt fra modtagerens øvrige aktiviteter både indholdsmæssigt, personalemæssigt og organisatorisk. Derfor har dommen ifølge regeringen ingen direkte forbindelse til de projekter, staten støtter.\n\nRegeringen oplyser desuden, at den ikke har kendskab til, at bevilgede midler skulle være brugt i strid med formålet. Den fremhæver udtrykkeligt, at pengene ikke må finansiere Correctivs redaktionelle arbejde.\n\nCorrectiv bestrider den brede kritik af sin Potsdam-dækning. Mediet har anket Berlin-dommen og henviser blandt andet til andre retssager, hvor domstole er nået til andre resultater om omtalen af mødet. Landgericht Hamburg afviste i december 2025 to andre sager mod Correctiv, og også de afgørelser blev anket.\n\nDen aktuelle strid handler derfor om to forskellige spørgsmål: hvad Correctiv lovligt kunne skrive om Potsdam-mødet, og om en ikke-endelig dom over enkelte udsagn bør påvirke offentlig støtte til særskilte projekter. Den tyske regering fastholder, at de to ting ikke skal blandes sammen.",
+  "source_metadata": [
+    {"name":"Deutscher Bundestag","url":"https://www.bundestag.de/presse/hib/kurzmeldungen-1211212","type":"authoritative","published_date":"2026-09-10"},
+    {"name":"Deutscher Bundestag","url":"https://www.bundestag.de/dokumente/textarchiv/2026/kw17-de-correctiv-1166790","type":"authoritative","published_date":"2026-04-23"},
+    {"name":"Deutschlandfunk","url":"https://www.deutschlandfunk.de/correctiv-legt-nach-niederlage-vor-gericht-berufung-ein-100.html","type":"authoritative","published_date":"2026-04-20"}
+  ],
+  "editorial_metadata": {
+    "sagen_kort": [
+      "Den tyske regering vil fortsat yde projektstøtte til Correctiv og siger, at støtten er adskilt fra mediets journalistiske arbejde.",
+      "Landgericht Berlin II forbød i marts tre udsagn fra Correctivs Potsdam-dækning; dommen er ikke endelig, og Correctiv har anket."
+    ],
+    "final_qa_duplicate": false,
+    "hero_candidates": [
+      {"rank":1,"source_url":"https://commons.wikimedia.org/wiki/File:Bundestag_Plenarsaal_24.06.2023_1.jpg","license":"CC BY-SA 4.0","commercial_use_allowed":true,"local_storage_allowed":true,"width":3986,"height":2983,"credit":"Wikimedia Commons","description":"Plenarsalen i den tyske Forbundsdag, hvor spørgsmålet om Correctiv-støtten behandles politisk"},
+      {"rank":2,"source_url":"https://commons.wikimedia.org/wiki/File:2020-10-30_Rednerpult_Deutscher_Bundestag_by_OlafKosinsky_3026.jpg","license":"CC BY-SA 3.0 DE","commercial_use_allowed":true,"local_storage_allowed":true,"width":4549,"height":3154,"credit":"Olaf Kosinsky / Wikimedia Commons","description":"Talerstolen i den tyske Forbundsdag"},
+      {"rank":3,"source_url":"https://commons.wikimedia.org/wiki/File:Reichstag_Plenarsaal_des_Bundestags.jpg","license":"CC BY 3.0","commercial_use_allowed":true,"local_storage_allowed":true,"width":3264,"height":2448,"credit":"Andreas Praefcke / Wikimedia Commons","description":"Plenarsalen i Reichstag-bygningen i Berlin"}
+    ],
+    "discovery_run_id":"kvarti-20260916-2146",
+    "discovery_audit":[
+      {"candidate_id":"spain-regularisation-20260916","source_pool":"discovery","source_path":"Brussels Signal -> El Español/Europa Press","rank":1,"candidate_headline":"Spansk politiforbund: Regularisering kan nå fire millioner","deep_screened":true,"downstream_sources":["El Español","Europa Press"],"decision":"rejected_duplicate","reason":"Near-identical to recent [PUBLISH] PR #582.","model_prompt_version":"canonical-news-task-2026-09-16"},
+      {"candidate_id":"correctiv-funding-20260916","source_pool":"discovery","source_path":"Apollo News -> Deutscher Bundestag/Deutschlandfunk","rank":2,"candidate_headline":"Bundesregierung vil fortsætte projektstøtte til Correctiv trods dom","deep_screened":true,"downstream_sources":["Deutscher Bundestag","Deutschlandfunk"],"decision":"selected","reason":"Fresh public-funding/free-press story with direct parliamentary documentation and no near-identical recent [PUBLISH] delivery.","model_prompt_version":"canonical-news-task-2026-09-16"}
+    ]
+  }
+}
