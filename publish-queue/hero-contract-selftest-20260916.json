@@ -1,0 +1,18 @@
+{
+  "queue_id": "hero-contract-selftest-20260916",
+  "slug": "hero-contract-selftest-20260916",
+  "headline": "Hero contract self-test",
+  "category_slug": "udland",
+  "kind": "news",
+  "body_markdown": "Temporary transport validation self-test. This payload must be rejected before ingest.",
+  "source_metadata": [],
+  "editorial_metadata": {
+    "hero_candidates": [
+      {
+        "source_url": "https://example.com/test.jpg",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true
+      }
+    ]
+  }
+}
