@@ -1,0 +1,86 @@
+{
+  "queue_id": "news-20260916-0545-ceuta-pepperspray",
+  "slug": "ceuta-kvinder-peberspray-salg-femdoblet",
+  "headline": "Kvinder i Ceuta ruster sig med peberspray: Salget er femdoblet i lokal butik",
+  "category_slug": "udland",
+  "kind": "news",
+  "manchet": "Efter sommerens massive grænsekrise fortæller kvinder om frygt i gaderne. En lokal forhandler melder om 500 procent højere salg.",
+  "sagen_kort": [
+    "En våben- og friluftsforhandler i Ceuta siger, at salget af peberspray er steget 500 procent efter den massive migranttilstrømning i slutningen af juli.",
+    "Frygten kan også ses i officielle hændelsestal: Ceutas præsident opgjorde 1.001 overfald og 600 tilfælde af ulovlig indtrængen i august, mens regeringen har afsat 90 millioner euro til ekstra sikkerhed."
+  ],
+  "body_markdown": "En usædvanlig vare er blevet efterspurgt i den spanske enklave Ceuta: peberspray. Efter den massive tilstrømning over grænsen fra Marokko i slutningen af juli fortæller en lokal forhandler, at salget i hans butik er steget med 500 procent.\n\nForhandleren José Daniel Mendoza siger, at efterspørgslen blev så voldsom, at butikken i en periode måtte oprette ventelister. Først købte medlemmer af sikkerhedsstyrkerne spray til deres familier. Siden kom almindelige borgere til.\n\n»Det var på grund af den frygt, de havde,« fortæller Mendoza til Libertad Digital.\n\n## Kvinder fortæller om frygt\n\nHistorien om pebersprayen står ikke alene. Den landsdækkende tv-station Antena 3 har interviewet den 23-årige Isabel fra Ceuta, som brød grædende sammen under en direkte udsendelse. Hun fortalte, at hun bor tæt på en strand, der er blevet brugt som midlertidig lejr.\n\n»Alle har købt peberspray,« sagde hun og tilføjede, at hun og andre unge overvejer at forlade byen.\n\nEn anden ung kvinde, Marina, fortalte tidligere til samme tv-station, at hun var gået ud med sine kusiner, da syv mænd fulgte efter dem og råbte seksuelle bemærkninger. Hun sagde, at hun efter omtrent et minut tog sin peberspray frem.\n\nOgså før den seneste opgørelse fra Mendoza var tendensen synlig. El País beskrev ved skolestarten familier, som satte peberspray øverst på indkøbslisten før bøger og andet skoleudstyr.\n\n## Officielle tal viser flere hændelser\n\nDen oplevede utryghed er blevet et politisk stridspunkt. Spaniens indenrigsminister Fernando Grande-Marlaska har omtalt en del af utrygheden som subjektiv. Ceutas regionale præsident, Juan Jesús Vivas, afviser den beskrivelse.\n\nIfølge tal, som Vivas fremlagde 11. september, blev der i august registreret 1.001 overfald og 600 tilfælde af ulovlig indtrængen. Han kaldte stigningen i utrygheden »uomtvistelig« på baggrund af tallene.\n\nTallene betyder ikke, at alle hændelser kan knyttes til migranter. Det blev tydeligt efter en voldelig nat 12. september, hvor otte personer blev anholdt efter røverier, trusler og knivvold. Seks af de anholdte var borgere fra Ceuta og to var migranter, oplyste politiet ifølge EFE.\n\n## Regeringen bruger millioner på sikkerhed\n\nDen spanske regering har samtidig erkendt behovet for en omfattende ekstra indsats. En hjælpepakke til Ceuta omfatter 90 millioner euro – cirka 672 millioner kroner – til ekstra sikkerhed og 118 millioner euro – cirka 881 millioner kroner – til indkvartering og basal hjælp til migranter.\n\nRegeringen siger, at målet er at genoprette ro og tillid i byen. Marokko har samtidig afvist beskyldninger om, at landet bevidst stod bag den massive grænseoverskridelse.\n\nFor kvinder som Isabel og Marina er den politiske strid imidlertid blevet konkret i hverdagen. Mendoza fortæller, at hans butik på et tidspunkt begyndte at levere sikkerhedsudstyr hjem til kunder, fordi nogle var bange for selv at gå ud.\n\nDet er den detalje, der måske bedst viser, hvor meget hverdagen i Ceuta har ændret sig: Et produkt, de fleste aldrig havde haft brug for, er for nogle blevet noget, de ikke vil gå hjemmefra uden.",
+  "source_metadata": [
+    {
+      "source_name": "Europa Press",
+      "url": "https://www.europapress.es/nacional/noticia-vivas-rebate-datos-inseguridad-subjetiva-marlaska-hay-1001-agresiones-600-allanamientos-agosto-20260911140021.html",
+      "source_type": "authoritative"
+    },
+    {
+      "source_name": "Antena 3",
+      "url": "https://www.antena3.com/programas/y-ahora-sonsoles/lagrimas-joven-ceuti-23-anos-limite-todo-mundo-comprado-spray-pimienta_202609146aa8107a7486a40f2c9d2e86.html",
+      "source_type": "authoritative"
+    },
+    {
+      "source_name": "La Moncloa",
+      "url": "https://www.lamoncloa.gob.es/consejodeministros/resumenes/Paginas/2026/010926-rueda-prensa-ministros.aspx",
+      "source_type": "primary_official"
+    },
+    {
+      "source_name": "EFE / Heraldo",
+      "url": "https://www.heraldo.es/noticias/nacional/2026/09/12/ocho-detenidos-dos-heridos-por-arma-blanca-noche-tension-ceuta-2051293.html",
+      "source_type": "authoritative"
+    }
+  ],
+  "source_registry_updates": [
+    {
+      "source_name": "Europa Press",
+      "domain": "europapress.es",
+      "classification": "authoritative",
+      "region": "Spain",
+      "rationale": "Large established Spanish news agency",
+      "discovered_via": "libertaddigital.com"
+    },
+    {
+      "source_name": "Antena 3",
+      "domain": "antena3.com",
+      "classification": "authoritative",
+      "region": "Spain",
+      "rationale": "Large established national television broadcaster with original interviews",
+      "discovered_via": "libertaddigital.com"
+    }
+  ],
+  "editorial_metadata": {
+    "discovery_run_id": "news-20260916-0545",
+    "discovery_audit": [
+      {
+        "candidate_id": "ceuta-pepperspray-20260916",
+        "source_pool": "discovery",
+        "path": "libertaddigital.com",
+        "rank": 1,
+        "candidate_headline": "Ceuta: salg af peberspray stiger 500 procent i lokal butik",
+        "deep_screened": true,
+        "downstream_sources": ["Europa Press", "Antena 3", "La Moncloa", "EFE"],
+        "decision": "selected",
+        "reason": "Fresh discovery angle with strong human consequence, official incident data and multiple authoritative sources",
+        "model_prompt_version": "canonical-news-task-2026-09-16"
+      }
+    ],
+    "final_qa_duplicate": false,
+    "hero_candidates": [
+      {
+        "source_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/En_Ceuta%2C_s%C3%AD_03_-_Playa_del_Chorrillo.jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "CC BY 3.0",
+        "license_url": "https://creativecommons.org/licenses/by/3.0/",
+        "credit_text": "JJ Producciones / Wikimedia Commons",
+        "rights_notes": "Original 1920x1090; Creative Commons Attribution 3.0",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": true,
+        "alt_text": "Playa del Chorrillo i Ceuta"
+      }
+    ]
+  }
+}
