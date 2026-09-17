@@ -1,0 +1,32 @@
+{
+  "queue_id": "hel-20260917-1202-spain-regularisation",
+  "slug": "spansk-politiforbund-advarer-regularisering-kan-ende-med-fire-millioner",
+  "headline": "Spansk politiforbund advarer: Regularisering kan ende med papirer til fire millioner",
+  "category_slug": "udland",
+  "deck": "1,17 millioner søgte i regeringens ekstraordinære ordning. Politiforbundet Jupol frygter, at familiesammenføring kan mangedoble virkningen.",
+  "body_markdown": "Spaniens ekstraordinære regularisering af udlændinge er blevet langt større end regeringen først lagde op til. Nu advarer landets største forbund for betjente i det nationale politi, Jupol, om, at ordningen over de kommende år kan føre til opholdspapirer til op mod fire millioner mennesker, når familiesammenføring regnes med.\n\nAdvarslen kommer fra Jupols generalsekretær Aarón Rivero, som 14. september forklarede sig for en arbejdsgruppe under det spanske parlaments fælles udvalg for national sikkerhed. Mødet foregik bag lukkede døre, og tallet på fire millioner er Jupols beregning – ikke et officielt regeringsskøn.\n\nDet dokumenterede udgangspunkt er dog markant. Da ansøgningsfristen udløb 30. juni, havde myndighederne modtaget 1.174.978 ansøgninger. Regeringen havde tidligere talt om omkring 500.000 mulige modtagere. Ifølge migrationsminister Elma Saiz var 608.000 ansøgninger allerede under behandling ved den første officielle opgørelse i juli.\n\nJupol mener, at virkningen kan blive væsentligt større, fordi personer, der får lovligt ophold, senere kan søge om familiesammenføring. Forbundet anslår, at det samlede antal over nogle år kan nå omkring fire millioner. Beregningen er behæftet med betydelig usikkerhed: familiesammenføring er ikke automatisk, og spansk lov stiller blandt andet krav til opholdsstatus, bolig og økonomi.\n\nOrdningen blev indført for mennesker, som allerede opholdt sig i Spanien uden almindelig opholdstilladelse. Regeringen har fremhævet, at regulariseringen skal bringe mennesker ud af en tilværelse uden rettigheder og ind i det lovlige arbejds- og opholdssystem. Saiz sagde ved offentliggørelsen af ansøgningstallet, at det store antal viste behovet for ordningen.\n\nKritikken fra Jupol går den modsatte vej. Rivero beskylder regeringen for manglende forudseenhed og mener, at myndighederne undervurderede ordningens omfang. Hans fire-millioner-tal skal derfor læses som en advarsel fra en interesseorganisation for politifolk, ikke som en prognose, der allerede er bekræftet af staten.\n\nDebatten er blevet skærpet, efter at Spanien denne sommer samtidig oplevede kraftigt migrationspres omkring Ceuta. Det har gjort både grænsekontrol, kapacitet og regeringens migrationspolitik til centrale politiske stridspunkter.\n\nDen afgørende test bliver nu, hvor mange af de godt 1,17 millioner ansøgninger der faktisk godkendes, og hvor mange af de nye opholdstilladelser der senere fører til familiesammenføring. Først da kan det vurderes, om Jupols advarsel kommer i nærheden af virkeligheden.",
+  "source_metadata": [
+    {"url":"https://www.europapress.es/epsocial/igualdad/noticia-primeros-datos-proceso-regularizacion-117-millones-solicitudes-mitad-ya-tramitadas-20260702085557.html","type":"authoritative","role":"official figures relayed by Europa Press"},
+    {"url":"https://www.elespanol.com/espana/politica/20260915/jupol-alerta-congreso-regularizacion-sanchez-supondra-dar-papeles-total-millones-migrantes/1003744384815_0.amp.html","type":"authoritative","role":"independent national reporting of closed parliamentary hearing and Jupol estimate"},
+    {"url":"https://jupol.es/","type":"authoritative","role":"primary source for Jupol identity and status"}
+  ],
+  "editorial_metadata": {
+    "sagen_kort": [
+      "Spaniens ekstraordinære regularisering modtog 1.174.978 ansøgninger – mere end dobbelt så mange som regeringens oprindelige skøn på omkring 500.000.",
+      "Politiforbundet Jupol anslår, at familiesammenføring kan løfte den samlede virkning til omkring fire millioner, men tallet er et skøn og ikke en officiel prognose."
+    ],
+    "story_cluster_key": "spain-2026-extraordinary-migrant-regularisation",
+    "hero_candidates": [
+      {"rank":1,"source_url":"https://commons.wikimedia.org/wiki/File:Manifestaci%C3%B3n_de_apoyo_a_Ceuta_en_Cartagena_(20260902_195459).jpg","commercial_use_allowed":true,"local_storage_allowed":true,"license":"CC0 1.0","width":4000,"height":3000,"note":"Recent documentary Spain/Ceuta migration-context demonstration; public-domain dedication."},
+      {"rank":2,"source_url":"https://commons.wikimedia.org/wiki/File:Visit_of_Pedro_S%C3%A1nchez,_Spanish_Prime_Minister,_to_the_European_Commission_(P-067042-00-05).jpg","commercial_use_allowed":true,"local_storage_allowed":true,"license":"CC BY 4.0","note":"Pedro Sánchez; European Commission audiovisual image, license reviewed on Commons."},
+      {"rank":3,"source_url":"https://commons.wikimedia.org/wiki/File:Citroen_spanish_police_3860.JPG","commercial_use_allowed":true,"local_storage_allowed":true,"license":"GFDL / free license","width":2252,"height":1580,"note":"Documentary Spanish National Police vehicle; relevant to police-union angle."}
+    ],
+    "discovery_run_id": "hel-20260917-1202",
+    "discovery_direction": "prioritér stærk migration/frihed uden at gentage dagens allerede transporterede Australia-historie",
+    "audit": [
+      {"candidate_id":"hel1202-australia","rank":1,"headline":"Australia strammer migrationspolitikken","deep_screened":true,"decision":"duplicate","reason":"semantic duplicate of fresh transport PR #669"},
+      {"candidate_id":"hel1202-spain-jupol","rank":2,"headline":"Jupol warns Spanish regularisation could reach four million with family reunification","deep_screened":true,"decision":"selected","reason":"fresh, documented, profile-relevant; central official application figure independently established and union estimate clearly attributed"}
+    ],
+    "producer_check": {"semantic_7_day_dedupe":"passed against recent public/searchable history and fresh GitHub PUBLISH history; Australia candidate excluded after PR #669 duplicate","share_test":"Jeg sender dig den her, fordi Spaniens ordning fik 1,17 millioner ansøgninger mod et oprindeligt skøn omkring 500.000, mens landets største nationale politiforbund advarer om en mulig langt større følgevirkning via familiesammenføring."}
+  }
+}
