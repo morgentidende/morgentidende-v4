@@ -1,0 +1,29 @@
+{
+  "queue_id": "halv-20260917-0828-eu-emergency-returns",
+  "slug": "eu-vil-kunne-fravige-normale-regler-ved-massiv-migration",
+  "headline": "EU vil kunne fravige normale regler ved massiv migration",
+  "category_slug": "udland",
+  "deck": "Efter sommerens masseankomst til Ceuta vil Kommissionen skabe en nødordning, der midlertidigt kan gøre migrationsprocedurer mere fleksible.",
+  "body_markdown": "EU-Kommissionen vil foreslå en ny nødordning, som skal kunne aktiveres, når et medlemsland rammes af en pludselig og massiv tilstrømning af irregulære migranter. Forslaget blev annonceret onsdag af Kommissionens formand, Ursula von der Leyen, i hendes årlige tale om EU's tilstand i Strasbourg.\n\nOrdningen skal ifølge Kommissionen kun kunne bruges efter strengt fastlagte kriterier og i ekstraordinære situationer. Den skal give midlertidig fleksibilitet i de normale procedurer, samtidig med at grundlæggende rettigheder fortsat skal respekteres.\n\nVon der Leyen knyttede forslaget til sommerens begivenheder i den spanske enklave Ceuta, hvor en meget stor gruppe mennesker krydsede eller forsøgte at krydse grænsen fra Marokko. Hun fremhævede især situationer, hvor massebevægelser af migranter bliver organiseret eller brugt som politisk pressionsmiddel.\n\nKommissionens migrationsafdeling understregede efter talen, at alle EU's ydre grænser skal betragtes som europæiske grænser. Von der Leyen sagde samtidig, at EU's redskaber må udvikle sig, så unionen kan beskytte grænserne også under ekstraordinært pres.\n\nForslaget går videre end blot en ny nødprocedure. Kommissionen vil også styrke EU's grænseagentur Frontex, blandt andet for at få flere personer uden lovligt ophold sendt tilbage hurtigere. Tidlige varslingssystemer skal desuden forbedres, så store migrationsbevægelser kan opdages tidligere.\n\nReuters beskriver den kommende ordning som en mulighed for midlertidigt at fravige standardprocedurer under klart definerede ekstraordinære forhold. Detaljerne er endnu ikke fremlagt som færdig lovgivning, og forslaget er derfor ikke det samme som en allerede vedtaget ændring af EU's migrationsregler.\n\nUdspillet kommer efter en sommer, hvor grænsekrisen ved Ceuta satte spørgsmål om kontrol med EU's ydre grænser højt på den europæiske dagsorden. Kommissionens svar er nu, at de almindelige regler ikke nødvendigvis skal være den eneste værktøjskasse, hvis et medlemsland pludselig udsættes for en ekstraordinær masseankomst.",
+  "source_metadata": [
+    {"url":"https://home-affairs.ec.europa.eu/news/state-union-president-von-der-leyen-calls-common-european-response-borders-migration-and-security-2026-09-16_en","title":"State of the Union: President von der Leyen calls for a common European response on borders, migration and security","publisher":"European Commission","source_class":"authoritative","published_at":"2026-09-16"},
+    {"url":"https://www.reuters.com/world/eu-propose-emergency-protection-against-massive-migrant-flows-von-der-leyen-says-2026-09-16/","title":"EU to propose emergency protection against massive migrant flows, von der Leyen says","publisher":"Reuters","source_class":"authoritative","published_at":"2026-09-16"},
+    {"url":"https://ec.europa.eu/commission/presscorner/detail/en/SPEECH_26_1868","title":"2026 State of the Union Address by President von der Leyen","publisher":"European Commission","source_class":"authoritative","published_at":"2026-09-16"}
+  ],
+  "editorial_metadata": {
+    "sagen_kort": [
+      "EU-Kommissionen vil foreslå en nødordning til pludselige, massive tilstrømninger af irregulære migranter.",
+      "Ordningen skal kun gælde efter strenge kriterier og kan midlertidigt gøre de normale procedurer mere fleksible."
+    ],
+    "final_qa_duplicate": false,
+    "hero_candidates": [
+      {"rank":1,"source_url":"https://audiovisual.ec.europa.eu/en/media/photo/P-070449/00-16","description":"Ursula von der Leyen på talerstolen under talen om EU's tilstand 16. september 2026","commercial_use_allowed":true,"local_storage_allowed":true,"license":"CC BY 4.0 unless individually noted otherwise","rights_source_url":"https://acceptance.audiovisual.ec.europa.eu/en/conditions-of-use","credit":"© European Union, 2026, licensed under CC BY 4.0"},
+      {"rank":2,"source_url":"https://acceptance.audiovisual.ec.europa.eu/en/media/photo/P-070449/00-17","description":"Ursula von der Leyen sammen med Roberta Metsola og Mark Carney i Strasbourg 16. september 2026","commercial_use_allowed":true,"local_storage_allowed":true,"license":"CC BY 4.0 unless individually noted otherwise","rights_source_url":"https://acceptance.audiovisual.ec.europa.eu/en/conditions-of-use","credit":"© European Union, 2026, licensed under CC BY 4.0"},
+      {"rank":3,"source_url":"https://acceptance.audiovisual.ec.europa.eu/en/media/photo/P-070449/00-15","description":"Europa-Parlamentets bygning i Strasbourg under talen om EU's tilstand","commercial_use_allowed":true,"local_storage_allowed":true,"license":"CC BY 4.0 unless individually noted otherwise","rights_source_url":"https://acceptance.audiovisual.ec.europa.eu/en/conditions-of-use","credit":"© European Union, 2026, licensed under CC BY 4.0"}
+    ],
+    "discovery_run_id":"halv-20260917-0828",
+    "audit":[
+      {"candidate_id":"c1-eu-emergency-migration","source_pool":"discovery","rank":1,"candidate_headline":"EU emergency framework for mass migrant arrivals","deep_screened":true,"downstream_sources":["European Commission","Reuters"],"decision":"publish","reason":"Fresh, strongly documented migration/border policy development with direct EU relevance","model_prompt_version":"canonical-news-task-2026-09-17"}
+    ]
+  }
+}
