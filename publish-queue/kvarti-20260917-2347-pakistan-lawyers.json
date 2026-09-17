@@ -1,0 +1,41 @@
+{
+  "payload_type": "article",
+  "queue_id": "kvarti-20260917-2347-pakistan-lawyers",
+  "slug": "pakistan-loeslod-advokatpar-blev-anholdt-igen-timer-senere",
+  "headline": "Pakistans højesteret løslod advokatpar – timer senere blev de anholdt igen",
+  "category_slug": "udland",
+  "deck": "De to menneskeretsadvokater fik deres 17-årige straffe suspenderet. Samme dag endte de igen i fængsel i en anden sag.",
+  "body_markdown": "Pakistans højesteret suspenderede torsdag de 17-årige fængselsstraffe til menneskeretsadvokaten Imaan Mazari og hendes mand og kollega Hadi Ali Chattha. Retten beordrede dem løsladt mod kaution, mens deres anke behandles.\n\nLettelsen blev kortvarig. Få timer senere blev parret anholdt igen i en anden sag og sendt tilbage til Adiala-fængslet efter et retsmøde i Islamabad.\n\nDen oprindelige dom fra januar handlede om opslag på sociale medier. Mazari og Chattha blev dømt efter Pakistans lov om elektronisk kriminalitet for opslag, som anklagemyndigheden beskrev som statsfjendtlige. De har afvist anklagerne og sagt, at sagen hænger sammen med deres kritik af militære operationer og deres arbejde med sager om forsvundne aktivister.\n\nTorsdag suspenderede højesteret både straffene og den underliggende dom, indtil Islamabad High Court træffer en endelig afgørelse. Reuters rapporterede, at FN-eksperter og menneskeretsorganisationer tidligere har rejst spørgsmål om retssagens fairness. Pakistanske myndigheder fastholder, at landets domstole er uafhængige.\n\nMen inden parret nåede friheden, greb en anden sag ind. Ifølge Dawn og Geo News blev de anholdt i forbindelse med en sag ved Kohsar-politiet med anklager, der blandt andet omfatter tilskyndelse, et statsfjendtligt narrativ og indblanding i myndigheders arbejde. En antiterrordomstol afviste politiets ønske om 30 dages fysisk varetægt, men sendte dem i stedet i fængsel på retslig varetægt.\n\nDermed står to forskellige retsforløb nu side om side: Landets øverste domstol har midlertidigt sat de lange straffe for opslag på sociale medier ud af kraft, mens en ny sag betyder, at de to advokater fortsat er frihedsberøvede.\n\nMazari er kendt for at repræsentere journalister og etniske mindretal og for at kritisere Pakistans magtfulde militær. Hendes mor, den tidligere menneskerettighedsminister Shireen Mazari, takkede tidligere torsdag højesteret for afgørelsen. På det tidspunkt ventede familien endnu på, at parret skulle blive løsladt.",
+  "source_metadata": [
+    {"url":"https://www.reuters.com/world/asia-pacific/pakistans-top-court-suspends-sentences-rights-lawyer-mazari-husband-2026-09-17/","name":"Reuters","source_class":"authoritative","role":"central_facts"},
+    {"url":"https://www.dawn.com/news/2030611","name":"Dawn","source_class":"authoritative","role":"rearrest_and_court_remand"},
+    {"url":"https://www.geo.tv/latest/682453-sc-suspends-imaan-mazari-husbands-sentences-in-controversial-tweets-case","name":"Geo News","source_class":"authoritative","role":"rearrest_and_new_case"},
+    {"url":"https://tribune.com.pk/story/2629825/sc-grants-bail-to-imaan-mazari-hadi-ali-chattha-pending-ihc-decision","name":"The Express Tribune","source_class":"authoritative","role":"court_proceedings_and_case_background"}
+  ],
+  "editorial_metadata": {
+    "sagen_kort": [
+      "Pakistans højesteret suspenderede torsdag 17-årige fængselsstraffe til menneskeretsadvokaterne Imaan Mazari og Hadi Ali Chattha og gav dem kaution.",
+      "Få timer senere blev parret anholdt i en anden sag og sendt tilbage i fængsel på retslig varetægt."
+    ],
+    "frontpage_destination": "normal",
+    "story_cluster_key": "pakistan-imaan-mazari-2026",
+    "dedupe_context": {
+      "checked_at": "2026-09-17T23:50:00+02:00",
+      "window_days": 7,
+      "publish_prs_seen": 100,
+      "include_closed_publish_prs": true,
+      "newest_publish_pr": 743,
+      "public_articles_seen": null,
+      "result": "no_semantic_overlap_found"
+    },
+    "discovery_run_id": "kvarti-20260917-2347",
+    "discovery_audit": [
+      {"candidate_id":"pakistan-mazari-rearrest","rank":1,"status":"selected","story_brief":"Pakistan's Supreme Court suspended 17-year social-media-case sentences for rights lawyers Imaan Mazari and Hadi Ali Chattha, but hours later they were arrested in a separate case and returned to jail."}
+    ],
+    "hero_candidates": [
+      {"rank":1,"provider":"Wikimedia Commons","source_url":"https://commons.wikimedia.org/wiki/File:Supreme_Court_of_Pakistan,_Islamabad_by_Usman_Ghani.jpg","width":1833,"height":1232,"mime":"image/jpeg","license":"Wikimedia Commons license on file page; commercial reuse permitted subject to attribution/license terms","caption":"Pakistans højesteret i Islamabad; dokumentarisk stedfoto."},
+      {"rank":2,"provider":"Wikimedia Commons","source_url":"https://commons.wikimedia.org/wiki/File:Supreme_Court-Pakistan.jpg","width":7360,"height":4912,"mime":"image/jpeg","license":"CC BY-SA 3.0","caption":"Pakistans højesteret i Islamabad; dokumentarisk stedfoto."},
+      {"rank":3,"provider":"Wikimedia Commons","source_url":"https://commons.wikimedia.org/wiki/File:The_Supreme_Court_of_Pakistan_Islamabad_night_view.jpg","width":1600,"height":1200,"mime":"image/jpeg","license":"Creative Commons Attribution-ShareAlike license on file page","caption":"Pakistans højesteret i Islamabad om natten; dokumentarisk stedfoto."}
+    ]
+  }
+}
