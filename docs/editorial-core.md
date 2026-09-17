@@ -34,13 +34,21 @@ Denne fil ejer fælles artikelkrav og Journalistens **final check før handoff**
 
 14. **Ingen næsten-identiske historier inden for 7 dage.** Den semantiske dubletkontrol udføres **efter Research og før Write**, mens sagens substans er kendt, men før der bruges tid på at skrive artiklen. Kontrollen er semantisk og redaktionel — ikke en deterministisk fingerprint-, nøgleords- eller rubrik-gate.
 
-Sammenlign researchens story brief med de seneste 7 dages publicerede Morgentidende-artikler og helt friske `[PUBLISH]`-transporter, der endnu ikke er synlige offentligt. Sammenlign hovedbegivenhed, hovedfaktum, centrale aktører, tal, geografi og den konkrete nye udvikling. Samme sag kræver en væsentlig videreudvikling, der i sig selv fortjener en ny artikel.
+Dedupe-afgørelsen må kun træffes på et **friskt og komplet nok korpus**. Sammenlign researchens story brief med:
+- alle publicerede Morgentidende-artikler i det offentlige 7-dages-vindue,
+- alle GitHub-transport-PR'er med titelprefix `[PUBLISH] ` i samme 7-dages-vindue, inklusive både **open og closed** PR'er.
+
+Lukkede `[PUBLISH]`-PR'er må ikke ignoreres: bridge-flowet lukker netop succesfulde transporter efter ingest, ofte før den nye artikel er synlig offentligt. GitHub-korpus skal derfor enumereres med `state=all`; fuzzy tekst-/kode-søgning må ikke stå alene som historikgrundlag. Ved pagination/afkortning skal hele 7-dages-vinduet dækkes, ellers bruges `QA_HISTORY_UNAVAILABLE` før Write.
+
+Screen alle titler/metadata billigt og hent kun fuld payload for semantisk plausible overlap. Sammenlign derefter hovedbegivenhed, hovedfaktum, centrale aktører, tal, geografi og den konkrete nye udvikling. Samme sag kræver en væsentlig videreudvikling, der i sig selv fortjener en ny artikel.
+
+Gem et kompakt `editorial_metadata.dedupe_context` med tidspunkt, vindue, antal publicerede artikler set, antal `[PUBLISH]`-PR'er set, at closed PR'er var inkluderet, og seneste PR-nummer når observerbart. Dette er diagnostik og sporbarhed — ikke en ekstra deterministisk gate.
 
 Praktisk test: opfølgeren skal kunne opsummeres med mindst ét væsentligt nyt faktum eller en konkret konsekvens, som den gamle artikel ikke kunne have skrevet ved publicering. Legitim opfølger bruger samme `story_cluster_key` og struktureret `Læs også`.
 
 Hvis dedupe-fasen finder en næsten-identisk historie: registrér `duplicate_of`, ekskludér sagen/personen/institutionen resten af runnet, og returnér til et **helt nyt Discover**. Brug ikke blot næste kandidat fra den gamle shortlist. Et dubletfund afslutter ikke i sig selv runnet.
 
-Hvis researchen eller sagens substans ændres væsentligt efter dedupe, skal den semantiske dubletkontrol køres igen, før artiklen færdiggøres. Final check er ikke en ny dublet-gate.
+Hvis researchen eller sagens substans ændres væsentligt efter dedupe, skal den semantiske dubletkontrol køres igen, før artiklen færdiggøres. Hvis mere end cirka fem minutter er gået mellem dedupe-korpus og starten på Write, skal den friske `[PUBLISH]`-hale siden sidste check hentes og relevante nye transporter vurderes **før artikelprosa skrives**. Final check er ikke en ny dublet-gate.
 
 15. **Delingspotentiale.** Udvikl artikler med højt delingspotentiale uden at svække dokumentation eller forbehold. Løft stærke fakta, tal, citater, konsekvenser og kontraster frem; gør abstrakte emner konkrete. Før handoff skal sætningen **“Jeg sender dig den her, fordi …”** kunne afsluttes med et konkret dokumenteret faktum eller en dokumenteret konsekvens. Hvis det kræver overdrivelse, spekulation eller udeladelse af en væsentlig indvending, skal vinklen rettes.
 
@@ -50,7 +58,7 @@ For alle artikler, inklusive breaking og direkte chat-publicering, afsluttes Wri
 
 ### Skal være afklaret
 
-- den semantiske 7-dages-dedupe efter regel 14 er allerede gennemført før Write på et rimeligt aktuelt grundlag
+- den semantiske 7-dages-dedupe efter regel 14 er allerede gennemført før Write på et friskt, komplet nok korpus, og `editorial_metadata.dedupe_context` er bevaret
 - centrale fakta og væsentlige forbehold er dokumenteret
 - `editorial_metadata.sagen_kort`, `deck`, `source_metadata`, hero-kandidater og øvrige strukturerede felter følger den aktuelle run-kontrakt
 - hvis artiklen er en legitim opfølger, bruger den korrekt `story_cluster_key` og relationer
