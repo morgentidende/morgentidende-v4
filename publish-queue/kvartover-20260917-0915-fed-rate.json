@@ -1,0 +1,31 @@
+{
+  "queue_id": "kvartover-20260917-0915-fed-rate",
+  "slug": "trumps-centralbankchef-trodser-ham-renten-haeves-for-foerste-gang-i-tre-aar",
+  "headline": "Trumps centralbankchef trodser ham: Renten hæves for første gang i tre år",
+  "category_slug": "penge",
+  "deck": "Den amerikanske centralbank hæver renten med 0,25 procentpoint trods Donald Trumps krav om markant lavere renter. Inflationen er stadig for høj, lyder begrundelsen.",
+  "body_markdown": "Den amerikanske centralbank, Federal Reserve, har hævet sin toneangivende rente med 0,25 procentpoint til intervallet 3,75–4,00 procent. Det er den første amerikanske renteforhøjelse siden 2023.\n\nBeslutningen blev truffet enstemmigt af centralbankens rentekomité. Ifølge Federal Reserve vokser den økonomiske aktivitet fortsat solidt, mens inflationen stadig ligger for højt. Banken skriver, at renteforhøjelsen skal få inflationen hurtigere tilbage mod målet på 2 procent.\n\nDermed går centralbankchef Kevin Warsh direkte imod præsident Donald Trumps ønske om lavere renter. Trump skrev efter beslutningen, at amerikanske renter efter hans opfattelse burde være 1 procent eller lavere. Han fastholdt dog samtidig, at han fortsat har tillid til Warsh, som han selv udpegede til posten.\n\n## Flere forhøjelser kan følge\n\nFederal Reserves nye prognoser peger på, at renten kan blive hævet endnu en gang inden årets udgang. Medianen blandt rentekomitéens medlemmer ligger på 4,1 procent ved udgangen af 2026. Samtidig ventes den samlede PCE-inflation at være 3,7 procent i år og først nå 2-procentsmålet senere.\n\nDet er en markant vending efter flere år, hvor retningen overvejende har været mod lavere eller uændrede renter. Kevin Warsh tiltrådte tidligere i år og har understreget, at centralbanken skal kunne træffe beslutninger uafhængigt af Det Hvide Hus.\n\nTrump har argumenteret for, at lavere renter vil gøre finansiering billigere for både staten, virksomheder og boligkøbere. Centralbankens modargument er, at for lave renter, mens inflationen fortsat er høj, kan holde prisstigningerne oppe længere.\n\n## Dyrere lån – bedre vilkår for opsparing\n\nEn højere amerikansk styringsrente slår ikke mekanisk igennem på alle lån, men den gør normalt kort finansiering dyrere og kan påvirke blandt andet kreditkort, billån og virksomhedslån. Boligrenter bestemmes i høj grad af de lange markedsrenter, som allerede er steget.\n\nBeslutningen kan også mærkes uden for USA. Højere amerikanske renter kan styrke dollaren og påvirke globale obligations- og aktiemarkeder. For europæiske centralbanker bliver forskellen mellem amerikanske og europæiske renter samtidig en faktor i valutakurser og kapitalbevægelser.\n\nKonflikten er derfor større end et personligt opgør mellem Trump og Warsh: Præsidenten vil have billigere penge til en økonomi, han mener kan vokse hurtigere, mens centralbanken vurderer, at den vedvarende inflation kræver en strammere kurs.",
+  "source_metadata": [
+    {"url":"https://www.federalreserve.gov/newsevents/pressreleases/monetary20260916a.htm","title":"Federal Reserve issues FOMC statement","publisher":"Federal Reserve Board","source_class":"authoritative","published_date":"2026-09-16"},
+    {"url":"https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20260916.htm","title":"FOMC Projections materials, September 16, 2026","publisher":"Federal Reserve Board","source_class":"authoritative","published_date":"2026-09-16"},
+    {"url":"https://www.reuters.com/business/trump-says-us-interest-rates-should-be-1-or-lower-2026-09-16/","title":"Trump lashes out at Fed after Warsh backs rate hike","publisher":"Reuters","source_class":"authoritative","published_date":"2026-09-16"}
+  ],
+  "editorial_metadata": {
+    "sagen_kort": [
+      "Federal Reserve hæver renten 0,25 procentpoint til 3,75–4,00 procent – den første forhøjelse siden 2023.",
+      "Donald Trump kræver renter på 1 procent eller lavere, men siger samtidig, at han fortsat har tillid til centralbankchef Kevin Warsh."
+    ],
+    "final_qa_duplicate": false,
+    "hero_candidates": [
+      {"rank":1,"source_url":"https://commons.wikimedia.org/wiki/File:Eccles_Building_(26088200676).jpg","license":"Public domain – Board of Governors of the Federal Reserve System","commercial_use_allowed":true,"local_storage_allowed":true,"width":3000,"height":2250,"motif":"Federal Reserves Eccles Building i Washington"},
+      {"rank":2,"source_url":"https://commons.wikimedia.org/wiki/File:June_2026_Official_Portrait_of_Donald_J._Trump.jpg","license":"Public domain – U.S. federal government work","commercial_use_allowed":true,"local_storage_allowed":true,"width":3000,"height":2000,"motif":"Donald Trump ved skrivebordet i Det Hvide Hus"},
+      {"rank":3,"source_url":"https://commons.wikimedia.org/wiki/File:The_Federal_Reserve_-_Washington_DC.jpg","license":"CC BY 2.0","commercial_use_allowed":true,"local_storage_allowed":true,"width":9504,"height":6336,"motif":"Federal Reserve-bygningen i Washington set udefra"}
+    ],
+    "discovery_run_id": "kvartover-20260917-0915",
+    "discovery_audit": [
+      {"candidate_id":"ceuta-moroccan-agents","source_pool":"discovery","rank":1,"topic":"Påstande om marokkanske agenter, der guidede migranter mod Ceuta","deep_screened":true,"downstream_sources":["La Vanguardia","Audiencia Nacional reporting"],"decision":"rejected_duplicate","reason":"Samme kandidat blev allerede afvist i frisk transport PR #643 efter gennemgang af den meget tætte Ceuta-dækning, herunder PR #625."},
+      {"candidate_id":"fed-rate-hike","source_pool":"discovery","rank":2,"topic":"Federal Reserve hæver renten for første gang siden 2023 trods Trumps krav om lavere renter","deep_screened":true,"downstream_sources":["Federal Reserve Board","Reuters"],"decision":"selected","reason":"Frisk, stor økonomisk beslutning med klar konflikt, stærk primær dokumentation og ingen næsten-identisk artikel i observerbar 7-dages historik."}
+    ],
+    "model_prompt_version": "docs/automations/news-task.md@4cd9ca7"
+  }
+}
