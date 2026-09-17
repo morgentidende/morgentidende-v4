@@ -1,0 +1,94 @@
+name: Deploy social distribution
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'workers/social-publisher/**'
+      - 'supabase/functions/social-dispatcher/**'
+      - '.github/workflows/social-distribution-deploy.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: social-distribution-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+
+      - name: Setup Node
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '22'
+
+      - name: Install social publisher dependencies
+        working-directory: workers/social-publisher
+        run: npm ci --ignore-scripts --no-audit --no-fund
+
+      - name: Install Supabase CLI
+        uses: supabase/setup-cli@v1
+        with:
+          version: latest
+
+      - name: Resolve Cloudflare account and workers.dev URL
+        id: cf
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -n "$CLOUDFLARE_API_TOKEN"
+          zone_json=$(curl -fsS -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
+            'https://api.cloudflare.com/client/v4/zones?name=morgentidende.dk&status=active&per_page=5')
+          account_id=$(jq -r '.result[0].account.id // empty' <<<"$zone_json")
+          test -n "$account_id"
+          subdomain_json=$(curl -fsS -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
+            "https://api.cloudflare.com/client/v4/accounts/$account_id/workers/subdomain")
+          subdomain=$(jq -r '.result.subdomain // empty' <<<"$subdomain_json")
+          test -n "$subdomain"
+          echo "account_id=$account_id" >> "$GITHUB_OUTPUT"
+          echo "worker_url=https://morgentidende-social-publisher.${subdomain}.workers.dev" >> "$GITHUB_OUTPUT"
+
+      - name: Deploy adapter and dispatcher with one rotated internal token
+        working-directory: workers/social-publisher
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ steps.cf.outputs.account_id }}
+          SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+          WORKER_URL: ${{ steps.cf.outputs.worker_url }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -n "$CLOUDFLARE_API_TOKEN"
+          test -n "$CLOUDFLARE_ACCOUNT_ID"
+          test -n "$SUPABASE_ACCESS_TOKEN"
+          test -n "$WORKER_URL"
+
+          shared_token=$(openssl rand -hex 32)
+          trap 'unset shared_token' EXIT
+
+          printf '%s' "$shared_token" | npx wrangler secret put SOCIAL_PUBLISHER_TOKEN
+          npx wrangler deploy
+
+          cd ../..
+          supabase secrets set \
+            SOCIAL_PUBLISHER_TOKEN="$shared_token" \
+            SOCIAL_PUBLISHER_URL="$WORKER_URL" \
+            --project-ref lfttxjxfggjcxmdfjndk
+          supabase functions deploy social-dispatcher --project-ref lfttxjxfggjcxmdfjndk
+
+      - name: Verify social publisher health
+        env:
+          WORKER_URL: ${{ steps.cf.outputs.worker_url }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -fsS "$WORKER_URL/health" | jq -e '.ok == true and .provider == "metricool"' >/dev/null
