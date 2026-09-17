@@ -1,0 +1,18 @@
+{
+  "payload_type": "discovery_audit",
+  "queue_id": "kvartover-20260917-1915-audit",
+  "terminal_reason": "QA_HISTORY_UNAVAILABLE",
+  "discovery_run_id": "kvartover-20260917-1915",
+  "candidates_tried": 1,
+  "source_pool": "discovery",
+  "audit": {
+    "candidate_id": "canada-eu-associate-20260917",
+    "rank": 1,
+    "headline_topic": "EU plan om Canada som første associerede medlem",
+    "deep_screened": true,
+    "downstream_sources": ["Brussels Signal / von der Leyen State of the Union reporting"],
+    "decision": "hard_stop_before_write",
+    "reason": "Canonical seven-day dedupe requires a demonstrably complete public Morgentidende article-history corpus plus all recent [PUBLISH] transports. GitHub transports could be enumerated with state=all, but the public seven-day article corpus could not be established as complete in this runtime.",
+    "model_prompt_version": "docs/automations/news-task.md@9e3bb3e3655d02b1c729237b35b46d58be56a7d2"
+  }
+}
