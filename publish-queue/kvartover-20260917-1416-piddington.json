@@ -1,0 +1,34 @@
+{
+  "queue_id": "kvartover-20260917-1416-piddington",
+  "slug": "engelsk-landsby-stemmer-for-loesrivelse-i-protest-mod-asylcenter",
+  "headline": "Landsby med 350 indbyggere stemmer for løsrivelse: Regeringen vil placere 1.256 mandlige asylansøgere ved byen",
+  "category_slug": "udland",
+  "deck": "285 stemte for og 26 imod i den symbolske afstemning. Regeringen fastholder planen om det tidligere militærområde.",
+  "body_markdown": "En lille engelsk landsby har valgt et usædvanligt våben i striden med regeringen om et planlagt asylcenter: løsrivelse fra Storbritannien.\n\nI Piddington i Oxfordshire stemte 285 borgere for, at landsbyen skal søge selvbestemmelse og løsrivelse, mens 26 stemte imod. Én stemme var ugyldig. Afstemningen er symbolsk og har ingen juridisk virkning, men resultatet viser omfanget af den lokale modstand mod regeringens planer.\n\nStriden handler om det tidligere militærområde MoD Bicester tæt på landsbyen. Det britiske indenrigsministerium vil kunne indkvartere op til 1.256 mandlige asylansøgere på stedet. Piddington har omkring 350 indbyggere.\n\nDermed kan antallet af asylansøgere på anlægget blive mere end tre gange så stort som hele landsbyens befolkning.\n\nLandsbyrådets næstformand Susannah Parden erklærede efter resultatet, at Piddington er \"landsbyen, der brøler\". Formanden Tim McNally beskrev afstemningen som et eksempel på demokrati i praksis.\n\nModstanden handler både om selve størrelsen på centeret og om den måde, regeringen har gennemført processen på. Tim Bearder, der leder Oxfordshires amtsråd, sagde til BBC, at kampagnen havde gjort et stærkt arbejde med at synliggøre bekymringerne. Han kaldte stedet forkert både for lokalsamfundet og for asylansøgerne og kritiserede manglende inddragelse af de lokale.\n\nEn lokalrådspolitiker har desuden peget på, at området mangler sikre gangforbindelser, og at nærmeste sti ligger omkring to kilometer væk ad en trafikeret og uoplyst vej.\n\nRegeringen afviser imidlertid, at Piddington alene bør kunne slippe for at huse asylansøgere. Kulturminister Lisa Nandy sagde, at regeringen arbejder på at nedbringe puklen af ubehandlede asylsager og få behandlingen til at gå hurtigere. Samtidig argumenterede hun for, at byrden ved midlertidig indkvartering ikke kun bør lande i fattigere lokalsamfund.\n\nIndenrigsministeriet har tidligere forklaret, at brugen af større anlæg skal gøre det muligt at lukke asylhoteller og spare skatteyderne mere end en milliard pund på asylindkvartering. Ministeriet siger samtidig, at lokale myndigheder og politi bliver inddraget med henblik på sikkerheden omkring de nye centre.\n\nAfstemningen ændrer ikke Piddingtons juridiske status. Men med 285 ja-stemmer mod 26 nej-stemmer har landsbyen sendt et usædvanligt tydeligt politisk signal i en britisk debat, hvor placeringen af asylcentre allerede har udløst protester flere steder.",
+  "source_metadata": [
+    {"url":"https://www.theguardian.com/uk-news/2026/sep/16/english-village-piddington-leave-uk-protest-migrant-housing-plan","publisher":"The Guardian","source_class":"authoritative","role":"reporting_and_government_response"},
+    {"url":"https://apnews.com/article/72d568813051c91e4e6590970abedcd9","publisher":"Associated Press","source_class":"authoritative","role":"independent_confirmation"},
+    {"url":"https://www.thetimes.com/uk/politics/article/piddington-oxfordshire-independence-election-results-vote-asylum-seekers-kzk99cvrl","publisher":"The Times","source_class":"authoritative","role":"infrastructure_and_latest_followup"}
+  ],
+  "editorial_metadata": {
+    "sagen_kort": [
+      "285 borgere i Piddington stemte for symbolsk løsrivelse fra Storbritannien; 26 stemte imod og én stemme var ugyldig.",
+      "Regeringen planlægger at indkvartere op til 1.256 mandlige asylansøgere på et tidligere militærområde ved landsbyen, der har omkring 350 indbyggere."
+    ],
+    "frontpage_destination": "normal",
+    "story_cluster_key": "uk-piddington-asylum-centre-protest-2026",
+    "hero_candidates": [
+      {"rank":1,"source_url":"https://commons.wikimedia.org/wiki/File:The_A41_east_of_Blackthorn_-_geograph.org.uk_-_6186658.jpg","provider":"wikimedia_commons","width":1920,"height":1280,"license":"CC BY-SA 2.0","commercial_use_allowed":true,"local_storage_allowed":true,"attribution_required":true,"attribution":"David Howard / Geograph Britain and Ireland"},
+      {"rank":2,"source_url":"https://commons.wikimedia.org/wiki/File:The_B4011_near_Boarstall_-_geograph.org.uk_-_4876105.jpg","provider":"wikimedia_commons","width":2048,"height":1536,"license":"CC BY-SA 2.0","commercial_use_allowed":true,"local_storage_allowed":true,"attribution_required":true,"attribution":"David Howard / Geograph Britain and Ireland"},
+      {"rank":3,"source_url":"https://commons.wikimedia.org/wiki/File:Piddington_StNicholas_NaveNorth_Lancet.JPG","provider":"wikimedia_commons","width":1940,"height":2425,"license":"CC BY-SA 3.0","commercial_use_allowed":true,"local_storage_allowed":true,"attribution_required":true,"attribution":"Motacilla / Wikimedia Commons"}
+    ],
+    "discovery_audit": {
+      "discovery_run_id":"kvartover-20260917-1416",
+      "source_pool":"discovery",
+      "model_prompt_version":"canonical-news-task-2026-09-17",
+      "candidates":[
+        {"candidate_id":"piddington-20260916","rank":1,"headline_topic":"Piddington stemmer symbolsk for løsrivelse i protest mod asylcenter","deep_screened":true,"downstream_sources":["Associated Press","The Guardian","The Times"],"decision":"selected","reason":"frisk, veldokumenteret, høj profilmatch og stærkt konkret lokaldemokrati/migrationsfaktum"}
+      ]
+    }
+  }
+}
