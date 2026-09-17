@@ -16,7 +16,6 @@ type Policy = {
   enabled?: boolean;
   start_at?: string | null;
   base_url?: string;
-  adapter_url?: string;
   timezone?: string;
   min_provider_lead_seconds?: number;
   facebook?: { enabled?: boolean; delay_seconds?: number; exclude_categories?: string[] };
@@ -148,83 +147,6 @@ async function insertSocialRows(rows: Record<string, unknown>[]) {
   return Array.isArray(inserted) ? inserted.length : 0;
 }
 
-async function getReadyPosts() {
-  const response = await rest("social_posts?status=eq.ready&select=id,article_id,network,post_text,media_urls,media_alt_text,scheduled_for,metadata&order=scheduled_for.asc&limit=50");
-  if (!response.ok) throw new Error(`social_ready_fetch_failed:${response.status}`);
-  return await response.json();
-}
-
-async function patchPost(id: string, patch: Record<string, unknown>) {
-  const response = await rest(`social_posts?id=eq.${encodeURIComponent(id)}`, {
-    method: "PATCH",
-    headers: { Prefer: "return=minimal" },
-    body: JSON.stringify(patch),
-  });
-  if (!response.ok) throw new Error(`social_patch_failed:${response.status}:${await response.text()}`);
-}
-
-async function dispatch(post: any, policy: Policy, token: string) {
-  const adapterUrl = clean(policy.adapter_url || "").replace(/\/$/, "");
-  if (!adapterUrl || !token) throw new Error("social_adapter_not_configured");
-
-  const minLead = Math.max(60, Number(policy.min_provider_lead_seconds ?? 120));
-  const original = new Date(post.scheduled_for).getTime();
-  const publishAt = new Date(Math.max(original || 0, Date.now() + minLead * 1000)).toISOString();
-  const metadata = post.metadata && typeof post.metadata === "object" ? post.metadata : {};
-
-  let response: Response;
-  try {
-    response = await fetch(`${adapterUrl}/schedule`, {
-      method: "POST",
-      headers: {
-        authorization: `Bearer ${token}`,
-        "content-type": "application/json",
-      },
-      body: JSON.stringify({
-        network: post.network,
-        text: post.post_text,
-        publishAt,
-        timezone: policy.timezone || "Europe/Copenhagen",
-        mediaUrls: Array.isArray(post.media_urls) ? post.media_urls : [],
-        mediaAltText: Array.isArray(post.media_alt_text) ? post.media_alt_text : [],
-        isAiGenerated: Boolean(metadata.hero_ai_generated),
-      }),
-    });
-  } catch (error) {
-    await patchPost(post.id, {
-      status: "failed",
-      attempts: 1,
-      last_error_code: "provider_outcome_unknown",
-      last_error: String((error as Error)?.message || error),
-    });
-    return { id: post.id, status: "failed", reason: "provider_outcome_unknown" };
-  }
-
-  const raw = await response.text();
-  let body: any = raw;
-  try { body = JSON.parse(raw); } catch { /* keep raw */ }
-
-  if (!response.ok || body?.ok !== true) {
-    await patchPost(post.id, {
-      status: "failed",
-      attempts: 1,
-      last_error_code: String(body?.error || `provider_http_${response.status}`),
-      last_error: typeof raw === "string" ? raw.slice(0, 4000) : "provider_error",
-    });
-    return { id: post.id, status: "failed", reason: body?.error || response.status };
-  }
-
-  await patchPost(post.id, {
-    status: "scheduled",
-    scheduled_for: publishAt,
-    attempts: 1,
-    provider_ref: body,
-    last_error_code: null,
-    last_error: null,
-  });
-  return { id: post.id, status: "scheduled", network: post.network, scheduled_for: publishAt };
-}
-
 Deno.serve(async (req: Request) => {
   if (req.method !== "POST") return json({ ok: false, error: "method_not_allowed" }, 405);
   const token = runnerToken(req);
@@ -277,14 +199,9 @@ Deno.serve(async (req: Request) => {
     }
 
     const inserted = await insertSocialRows(rows);
-    const ready = await getReadyPosts();
-    const dispatched = [];
-    for (const post of Array.isArray(ready) ? ready : []) {
-      dispatched.push(await dispatch(post, policy, token));
-    }
-
-    return json({ ok: true, enabled: true, articles_seen: articles.length, inserted, dispatched });
+    return json({ ok: true, enabled: true, mode: "queue_only", articles_seen: articles.length, inserted, dispatched: [] });
   } catch (error) {
     return json({ ok: false, error: String((error as Error)?.message || error) }, 500);
   }
 });
+
