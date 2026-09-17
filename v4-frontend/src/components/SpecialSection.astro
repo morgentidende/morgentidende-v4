@@ -1,0 +1,65 @@
+---
+import V4Card from './V4Card.astro';
+
+interface Props {
+  title: string;
+  kicker?: string;
+  href: string;
+  articles: any[];
+  variant: 'viden' | 'liv';
+  emptyText?: string;
+}
+
+const {
+  title,
+  kicker = 'MAGASIN',
+  href,
+  articles,
+  variant,
+  emptyText = `${title}-sektionen er klar til artikler.`
+} = Astro.props;
+
+const visibleArticles = articles.slice(0, 4);
+const lead = visibleArticles[0];
+const secondary = visibleArticles.slice(1);
+---
+<section class:list={['v4-special-section', `v4-special-section--${variant}`]} aria-labelledby={`special-${variant}-title`}>
+  <header class="v4-special-section__header">
+    <div>
+      <div class="v4-special-section__kicker">{kicker}</div>
+      <h2 id={`special-${variant}-title`} class="v4-special-section__title">{title}</h2>
+    </div>
+    <a class="v4-special-section__more" href={href} aria-label={`Se alle artikler i ${title}`}>
+      Se alle <span aria-hidden="true">→</span>
+    </a>
+  </header>
+
+  {lead ? (
+    <div class="v4-special-section__grid">
+      <div class="v4-special-section__lead">
+        <V4Card
+          article={lead}
+          categoryName={title}
+          showDeck={false}
+          imageSizes="(max-width: 640px) calc(100vw - 60px), (max-width: 900px) 62vw, 52vw"
+        />
+      </div>
+      {secondary.length ? (
+        <div class="v4-special-section__rail">
+          {secondary.map((article, index) => (
+            <div class:list={['v4-special-section__rail-item', index === 2 && 'v4-special-section__rail-item--desktop-only']}>
+              <V4Card
+                article={article}
+                categoryName={title}
+                showDeck={false}
+                imageSizes="(max-width: 640px) 42vw, (max-width: 900px) 34vw, 22vw"
+              />
+            </div>
+          ))}
+        </div>
+      ) : null}
+    </div>
+  ) : (
+    <div class="v4-empty">{emptyText}</div>
+  )}
+</section>
