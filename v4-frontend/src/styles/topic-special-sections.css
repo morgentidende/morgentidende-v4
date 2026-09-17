@@ -1,0 +1,127 @@
+.v4-topic-special {
+  margin-top: 46px;
+  padding-top: 20px;
+  border-top: 2px solid color-mix(in srgb, var(--v4-rule) 72%, var(--v4-gold) 28%);
+}
+
+.v4-topic-special__header {
+  margin-bottom: 16px;
+}
+
+.v4-topic-special__eyebrow {
+  margin-bottom: 5px;
+  color: var(--v4-muted);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .14em;
+}
+
+.v4-topic-special__title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  font-family: var(--v4-serif);
+  font-size: clamp(28px, 3.4vw, 42px);
+  line-height: 1;
+  letter-spacing: -.015em;
+}
+
+.v4-topic-special__title-arrow {
+  display: inline-block;
+  color: var(--v4-gold);
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-size: .8em;
+  font-weight: 500;
+  transform: translateY(1px);
+}
+
+.v4-topic-special__viewport {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  overscroll-behavior-inline: contain;
+  scroll-behavior: smooth;
+  scroll-snap-type: x proximity;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  outline: none;
+}
+
+.v4-topic-special__viewport::-webkit-scrollbar {
+  display: none;
+}
+
+.v4-topic-special__track {
+  display: flex;
+  gap: 20px;
+  width: max-content;
+  padding: 0 max(20px, 8vw) 6px 0;
+}
+
+.v4-topic-special__card {
+  flex: 0 0 clamp(270px, 30vw, 360px);
+  scroll-snap-align: start;
+}
+
+.v4-topic-special__card .v4-card__media {
+  aspect-ratio: 16 / 9;
+}
+
+.v4-topic-special__card .v4-card__headline {
+  margin-top: 7px;
+  font-size: clamp(18px, 1.55vw, 24px);
+  line-height: 1.1;
+}
+
+.v4-topic-special__card .v4-kicker {
+  margin-top: 9px;
+  font-size: 10px;
+  letter-spacing: .11em;
+}
+
+@media (max-width: 900px) {
+  .v4-topic-special__track {
+    gap: 17px;
+    padding-right: 16vw;
+  }
+
+  .v4-topic-special__card {
+    flex-basis: min(46vw, 340px);
+  }
+}
+
+@media (max-width: 640px) {
+  .v4-topic-special {
+    margin-top: 34px;
+    padding-top: 17px;
+  }
+
+  .v4-topic-special__header {
+    margin-bottom: 13px;
+  }
+
+  .v4-topic-special__title {
+    gap: 8px;
+    font-size: 29px;
+  }
+
+  .v4-topic-special__track {
+    gap: 14px;
+    padding-right: 22vw;
+  }
+
+  .v4-topic-special__card {
+    flex-basis: 78vw;
+  }
+
+  .v4-topic-special__card .v4-card__headline {
+    font-size: 20px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .v4-topic-special__viewport {
+    scroll-behavior: auto;
+  }
+}
