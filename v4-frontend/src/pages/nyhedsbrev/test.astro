@@ -30,8 +30,12 @@ const statusText = result ? (messages[result] || `Resultat: ${result}`) : '';
     h1 { margin:0 0 10px; font-family:Georgia,'Times New Roman',serif; font-size:38px; }
     p { color:#c8ced6; line-height:1.55; }
     label { display:block; margin:26px 0 8px; font-weight:700; }
-    input { box-sizing:border-box; width:100%; padding:13px 14px; background:#0f1926; color:#fff; border:1px solid #5b6572; }
-    button { margin-top:14px; padding:13px 19px; border:0; background:#e1ad45; color:#17140c; font-weight:800; cursor:pointer; }
+    .key-wrap { position:relative; }
+    input { box-sizing:border-box; width:100%; padding:13px 50px 13px 14px; background:#0f1926; color:#fff; border:1px solid #5b6572; }
+    .toggle-key { position:absolute; right:8px; top:50%; transform:translateY(-50%); margin:0; padding:8px; border:0; background:transparent; color:#c8ced6; cursor:pointer; line-height:0; }
+    .toggle-key:hover { color:#fff; }
+    .toggle-key svg { width:22px; height:22px; stroke:currentColor; }
+    .send-button { margin-top:14px; padding:13px 19px; border:0; background:#e1ad45; color:#17140c; font-weight:800; cursor:pointer; }
     #status { min-height:24px; margin-top:18px; font-weight:700; }
     .ok { color:#e9bf64; }
     .note { font-size:13px; color:#9da6b1; }
@@ -44,12 +48,33 @@ const statusText = result ? (messages[result] || `Resultat: ${result}`) : '';
       <p>Sender den aktuelle rigtige nyhedsbrevsskabelon med de seneste historier til den ene aktive testabonnent. Funktionen nægter automatisk at sende, hvis der er mere end én aktiv abonnent.</p>
       <form method="post" action="/api/newsletter/test-send">
         <label for="key">Testnøgle</label>
-        <input id="key" name="key" type="password" autocomplete="off" spellcheck="false" required />
-        <button type="submit">Send test nu</button>
+        <div class="key-wrap">
+          <input id="key" name="key" type="password" autocomplete="off" spellcheck="false" required />
+          <button id="toggle-key" class="toggle-key" type="button" aria-label="Vis testnøgle" title="Vis testnøgle">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6Z" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+              <circle cx="12" cy="12" r="2.8" stroke-width="1.8" />
+            </svg>
+          </button>
+        </div>
+        <button class="send-button" type="submit">Send test nu</button>
       </form>
       <div id="status" class={result === 'sent' ? 'ok' : ''} aria-live="polite">{statusText}</div>
       <p class="note">Testudsendelsen opretter ikke et normalt dispatch og påvirker derfor ikke morgendagens automatiske nyhedsbrev.</p>
     </div>
   </main>
+  <script>
+    const input = document.querySelector('#key');
+    const toggle = document.querySelector('#toggle-key');
+    toggle?.addEventListener('click', () => {
+      if (!(input instanceof HTMLInputElement)) return;
+      const showing = input.type === 'text';
+      input.type = showing ? 'password' : 'text';
+      const label = showing ? 'Vis testnøgle' : 'Skjul testnøgle';
+      toggle.setAttribute('aria-label', label);
+      toggle.setAttribute('title', label);
+      input.focus();
+    });
+  </script>
 </body>
 </html>
