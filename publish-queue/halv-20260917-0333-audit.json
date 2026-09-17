@@ -1,0 +1,43 @@
+{
+  "payload_type": "discovery_audit",
+  "queue_id": "halv-20260917-0333-audit",
+  "terminal_reason": "DUPLICATE_RETRY_EXHAUSTED",
+  "discovery_run_id": "halv-20260917-0333",
+  "duplicate_of": "PR #611; PR #612; PR #606",
+  "editorial_metadata": {
+    "audit": {
+      "source_pool": "discovery",
+      "breaking_scan": "No verified high-Danish-impact breaking override established; direct DR/TV 2 web access was blocked by robots.txt.",
+      "candidates": [
+        {
+          "candidate_id": "eu-migration-emergency",
+          "rank": 1,
+          "candidate_headline": "Von der Leyen proposes emergency framework for mass migration movements",
+          "deep_screened": true,
+          "downstream_sources": ["European Commission", "Reuters"],
+          "decision": "duplicate",
+          "reason": "Near-identical canonical delivery already exists as PR #611."
+        },
+        {
+          "candidate_id": "canada-eu-associate",
+          "rank": 2,
+          "candidate_headline": "Canada proposed as EU's first associate member",
+          "deep_screened": false,
+          "downstream_sources": ["European Commission", "Reuters"],
+          "decision": "duplicate",
+          "reason": "Near-identical canonical delivery already exists as PR #612."
+        },
+        {
+          "candidate_id": "spain-regularisation",
+          "rank": 3,
+          "candidate_headline": "Spain extraordinary migrant regularisation",
+          "deep_screened": false,
+          "downstream_sources": [],
+          "decision": "duplicate",
+          "reason": "Recent canonical delivery already exists as PR #606."
+        }
+      ],
+      "model_prompt_version": "docs/automations/news-task.md@a005454dc4bb0b1e81c86a1576bf8abd00179b02"
+    }
+  }
+}
