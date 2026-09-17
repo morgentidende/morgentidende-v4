@@ -10,7 +10,7 @@ Den kanoniske rækkefølge er:
 
 **Discover begynder med et kort forsideblik.** Forsideredaktør er ikke en selvstændig rolle eller fase.
 
-**Dedupe køres efter Research, men før Write.** På det tidspunkt er sagens substans kendt godt nok til at sammenligne hovedbegivenhed, hovedfaktum, centrale aktører, tal, geografi og den konkrete nye udvikling. Der bruges ikke deterministisk fingerprint som redaktionel dublet-gate.
+**Dedupe køres efter Research, men før Write.** På det tidspunkt er sagens substans kendt godt nok til at sammenligne hovedbegivenhed, hovedfaktum, centrale aktører, tal, geografi og den konkrete nye udvikling. Der bruges ikke deterministisk fingerprint som redaktionel dublet-gate. Dedupe-vurderingen er semantisk; dens inputkorpus skal derimod hentes komplet og eksplicit.
 
 **Write afsluttes med Journalistens final check.** Der findes ikke en særskilt Producer-rolle. Final check er korrektur, forsideplacering og payload-kontrol — ikke ny research, ny dedupe eller backendens Article QA.
 
@@ -72,15 +72,34 @@ Researchfasen skal ende med et kompakt **story brief** til Dedupe og Write: hove
 
 ## 3. Semantisk 7-dages-dedupe
 
-Kør én semantisk dubletkontrol **før Write** på baggrund af story brief og researchen.
+Kør én semantisk dubletkontrol **efter Research og før Write** på baggrund af story brief og researchen. Genbrug ikke blot Discover-fasens 12–24-timers forsideblik; dedupe skal hente et friskt, særskilt korpus på dette tidspunkt.
 
-Sammenlign med:
-1. publicerede Morgentidende-artikler fra offentlig historik/feed de seneste 7 dage,
-2. GitHub `[PUBLISH]`-historik for helt friske transporter, som endnu ikke er synlige offentligt.
+### Bindende dedupe-korpus
 
-Følg regel 14 i `docs/editorial-core.md`. Vurdér mening og substans — ikke deterministisk fingerprint, ordlighed eller rubrikmatch alene.
+Hent to komplette kilder:
 
-Hvis kandidaten er næsten-identisk uden væsentlig videreudvikling: registrér `duplicate_of`, ekskludér den konkrete sag resten af runnet, og gå tilbage til §1 med det ekskluderede tema kendt. Lav et nyt Discover frem for blot at tage næste kandidat fra den gamle shortlist.
+1. **Publiceret historik:** alle Morgentidende-artikler i den offentlige historik/feed fra de seneste 7 dage.
+2. **GitHub-transporter:** alle PR'er i repoet med titel, der starter `[PUBLISH] `, og som er oprettet eller opdateret inden for de seneste 7 dage — **uanset om PR'en er open eller closed**. En succesfuld bridge lukker transport-PR'en efter ingest, så `closed` betyder ikke gammel eller irrelevant. Brug en PR-liste/søgning med `state=all` til enumeration; brug ikke en fuzzy tekst-/kode-søgning som erstatning for det komplette transportkorpus.
+
+Hvis en liste er pagineret eller afkortet, fortsæt indtil 7-dages-vinduet er dækket. Hvis det ikke kan afgøres, at korpus er komplet nok til en forsvarlig vurdering, stop **før Write** med `QA_HISTORY_UNAVAILABLE`.
+
+Lav først billig screening mod alle titler/metadata. Fetch kun fuld PR/payload for semantisk plausible matches. Sammenlign derefter story brief med hovedbegivenhed, hovedfaktum, centrale aktører, tal, geografi og den konkrete nye udvikling i de relevante eksisterende artikler/transporter.
+
+Selve afgørelsen er fortsat **semantisk og redaktionel**. Brug ikke deterministisk fingerprint, ordlighed, nøgleord eller rubrikmatch som dubletdommer.
+
+Gem et kompakt observerbart snapshot i `editorial_metadata.dedupe_context`:
+- `checked_at`
+- `window_days: 7`
+- `public_articles_seen`
+- `publish_prs_seen`
+- `include_closed_publish_prs: true`
+- `newest_publish_pr` når observerbar
+
+Snapshot'et er diagnostik, ikke en deterministisk publication-gate.
+
+Hvis mere end cirka **5 minutter** går fra dedupe-korpus blev hentet, til Write skal begynde, refresh kun den friske GitHub `[PUBLISH]`-hale siden `checked_at` og genvurdér eventuelle nye transporter **før første artikelprosa skrives**. Dette er samme dedupe-fase, ikke en ekstra sen QA-gate.
+
+Følg regel 14 i `docs/editorial-core.md`. Hvis kandidaten er næsten-identisk uden væsentlig videreudvikling: registrér `duplicate_of`, ekskludér den konkrete sag resten af runnet, og gå tilbage til §1 med det ekskluderede tema kendt. Lav et nyt Discover frem for blot at tage næste kandidat fra den gamle shortlist.
 
 Hvis kandidaten er en legitim opfølger, behold den og brug samme `story_cluster_key` samt struktureret `Læs også`.
 
@@ -119,7 +138,7 @@ Efter handoff prøver Media Worker kandidaterne som **én** state machine. Kandi
 
 Bevar kun et kompakt auditspor for kandidater, der faktisk blev rangordnet eller researchet. Brug ét stabilt `discovery_run_id` pr. run og ét stabilt `candidate_id` pr. kandidat.
 
-Minimum når observerbart: source pool/path, rank, headline/topic, deep-screened, downstream-kilder, decision/reason og model/prompt-version. Ved artikel ligger audit i `editorial_metadata`; ved legitimt hard stop leveres audit-only. Ingen separate eksterne checkpoint-writes.
+Minimum når observerbart: source pool/path, rank, headline/topic, deep-screened, downstream-kilder, decision/reason og model/prompt-version. For en leveret artikel skal `editorial_metadata.dedupe_context` desuden bevare det kompakte snapshot fra §3, så et senere sent dubletstop kan diagnosticeres uden at gætte. Ved artikel ligger audit i `editorial_metadata`; ved legitimt hard stop leveres audit-only. Ingen separate eksterne checkpoint-writes.
 
 ## 7. Hard stops
 
@@ -140,7 +159,7 @@ Scheduled Task skriver aldrig artiklen direkte til Supabase.
 
 1. Opret en unik `publish/chatgpt-*` branch fra aktuel `main`.
 2. Skriv præcis én ny `publish-queue/<queue_id>.json` på branchen.
-3. Payloaden skal mindst indeholde `queue_id`, `slug`, `headline`, `category_slug`, `deck`, `body_markdown`, top-level `source_metadata` og `editorial_metadata`. `editorial_metadata.sagen_kort` er præcis to ikke-tomme strenge. `editorial_metadata.frontpage_destination` skal være `normal`, `special_1` eller `special_2`. Medtag hero candidates, source-registry-opdateringer og audit, når relevant. Brug `story_cluster_key` for eksisterende sag; `story_cluster_id` kun når UUID er kendt.
+3. Payloaden skal mindst indeholde `queue_id`, `slug`, `headline`, `category_slug`, `deck`, `body_markdown`, top-level `source_metadata` og `editorial_metadata`. `editorial_metadata.sagen_kort` er præcis to ikke-tomme strenge. `editorial_metadata.frontpage_destination` skal være `normal`, `special_1` eller `special_2`. Medtag hero candidates, source-registry-opdateringer, `dedupe_context` og audit, når relevant. Brug `story_cluster_key` for eksisterende sag; `story_cluster_id` kun når UUID er kendt.
 4. Opret præcis én PR mod `main`; titlen starter `[PUBLISH] ` og body indeholder `<!-- morgentidende-chatgpt-publish -->`.
 5. Merge ikke transport-PR'en. Backend ejer idempotens, insert, media, Article QA og publication-gates og lukker transport-PR'en efter vellykket aflevering.
 
