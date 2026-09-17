@@ -1,0 +1,25 @@
+{
+  "payload_type": "discovery_audit",
+  "queue_id": "kvartover-20260917-2015-audit",
+  "terminal_reason": "QA_HISTORY_UNAVAILABLE",
+  "discovery_run_id": "kvartover-20260917-2015",
+  "source_pool": "discovery",
+  "candidates_tried": 1,
+  "audit": [
+    {
+      "candidate_id": "c1",
+      "rank": 1,
+      "headline": "Irregular EU border crossings fall across all major routes except Spain",
+      "source_path": "Brussels Signal -> Frontex",
+      "deep_screened": true,
+      "decision": "stop_before_write",
+      "reason": "QA_HISTORY_UNAVAILABLE",
+      "notes": "Fresh migration candidate surfaced, but recent transports already show dense overlapping migration coverage. Mandatory canonical dedupe additionally requires a demonstrably complete separate seven-day public Morgentidende article-history corpus. That corpus could not be established as complete in this runtime, so no article prose was written."
+    }
+  ],
+  "dedupe_observation": {
+    "github_publish_transports_enumerated_state_all": true,
+    "public_history_complete": false,
+    "include_closed_publish_prs": true
+  }
+}
