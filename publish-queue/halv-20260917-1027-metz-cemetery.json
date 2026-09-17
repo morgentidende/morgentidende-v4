@@ -1,0 +1,80 @@
+{
+  "queue_id": "halv-20260917-1027-metz-cemetery",
+  "slug": "96-katolske-grave-vandaliseret-frankrig",
+  "headline": "96 katolske grave vandaliseret i Frankrig: Kors og krucifikser knust",
+  "category_slug": "udland",
+  "deck": "En 32-årig kvinde har erkendt ødelæggelserne nær Metz. Anklagemyndigheden efterforsker sagen som mulig religiøst motiveret gravskænding.",
+  "body_markdown": "Kors og krucifikser på 96 katolske grave er blevet ødelagt på den gamle kirkegård i Maizières-lès-Metz i det nordøstlige Frankrig. En 32-årig kvinde har ifølge anklagemyndigheden selv meldt sig til politiet og erklæret, at hun stod bag ødelæggelserne.\n\nGendarmeriet blev alarmeret tidligt tirsdag morgen, efter at lokale beboere havde set en kvinde beskadige grave. Ved gennemgangen af kirkegården fandt efterforskerne kors og krucifikser, som var brækket eller revet løs og samlet i bunker på jorden.\n\nAnklageren i Metz, David Touvet, har oplyst, at efterforskningen er åbnet efter en bestemmelse om krænkelse eller vanhelligelse af grave på grund af de afdødes faktiske eller formodede religiøse tilhørsforhold. Det betyder ikke, at motivet allerede er endeligt fastslået.\n\nKvinden mødte senere samme dag selv op ved kirkegården og sagde, at hun havde begået ødelæggelserne. Hun blev anholdt, men hendes tilstand blev senere vurderet uforenelig med fortsat tilbageholdelse. Hun blev derfor tvangsindlagt, mens efterforskningen fortsætter.\n\nBorgmester Julien Freyburger mener, at ødelæggelserne var rettet mod katolicismen, fordi de kristne symboler blev ramt systematisk. Han har kaldt hændelsen et chok for byen og de berørte familier. Anklagemyndigheden har samtidig opfordret til forsigtighed med konklusioner om motivet, mens sagen undersøges.\n\nHændelsen har fået ekstra opmærksomhed, fordi pave Leo XIV efter planen besøger Metz den 28. september. Der er på nuværende tidspunkt ikke dokumenteret nogen forbindelse mellem pavebesøget og ødelæggelserne.\n\nMaizières-lès-Metz ligger i Moselle nær Metz og har omkring 11.000 indbyggere. Den gamle kirkegård rummer ifølge lokale myndigheder 1.472 grave; dermed blev omkring hver femtende grav på stedet ramt.",
+  "source_metadata": [
+    {
+      "url": "https://www.leparisien.fr/faits-divers/croix-et-crucifix-brises-une-centaine-de-tombes-degradees-dans-un-cimetiere-pres-de-metz-une-femme-en-garde-a-vue-16-09-2026-HWQLNTNM3ZCI7O45UZPQZ2ZGLQ.php",
+      "name": "Le Parisien / AFP",
+      "classification": "authoritative",
+      "role": "central_facts_and_prosecutor_statement"
+    },
+    {
+      "url": "https://www.tf1info.fr/justice-faits-divers/maizieres-les-metz-un-vandalisme-lache-un-cimetiere-profane-pres-de-metz-a-dix-jours-de-la-visite-du-pape-une-femme-en-garde-a-vue-2464364.html",
+      "name": "TF1 Info",
+      "classification": "authoritative",
+      "role": "mayor_and_local_context"
+    },
+    {
+      "url": "https://www.estrepublicain.fr/faits-divers-justice/2026/09/15/une-centaine-de-tombes-profanees-dans-l-ancien-cimetiere-de-maizieres-les-metz-la-religion-catholique-est-clairement-visee",
+      "name": "L'Est Républicain",
+      "classification": "authoritative",
+      "role": "investigation_and_caution_on_motive"
+    }
+  ],
+  "editorial_metadata": {
+    "sagen_kort": [
+      "Efterforskerne fandt skader på 96 grave, hvor kors og krucifikser var ødelagt eller brækket løs.",
+      "En 32-årig kvinde har erkendt ødelæggelserne og er siden blevet tvangsindlagt; efterforskningen fortsætter."
+    ],
+    "final_qa_duplicate": false,
+    "hero_candidates": [
+      {
+        "rank": 1,
+        "source_url": "https://commons.wikimedia.org/wiki/File:Crosses_at_the_St_Genevieve_des_Bois_Cemetery.jpg",
+        "description": "Dokumentarisk foto af kors på en kirkegård i Frankrig; illustrativt, ikke fra den berørte kirkegård.",
+        "license": "CC BY-SA 4.0",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "width": 3264,
+        "height": 2176
+      },
+      {
+        "rank": 2,
+        "source_url": "https://commons.wikimedia.org/wiki/File:Lambersart_cimetiere_du_bourg_croix.jpg",
+        "description": "Dokumentarisk foto af kirkegårdskors i Frankrig; illustrativt, ikke fra Maizières-lès-Metz.",
+        "license": "CC BY-SA 4.0",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true
+      },
+      {
+        "rank": 3,
+        "source_url": "https://commons.wikimedia.org/wiki/File:Maizi%C3%A8res-l%C3%A8s-Metz_vue_du_ciel.jpg",
+        "description": "Dokumentarisk luftfoto af Maizières-lès-Metz, byen hvor gravskændingen fandt sted.",
+        "license": "CC BY-SA 4.0",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "width": 4000,
+        "height": 2672
+      }
+    ],
+    "discovery_run_id": "halv-20260917-1027",
+    "discovery_audit": [
+      {
+        "candidate_id": "halv-1027-01",
+        "source_pool": "discovery",
+        "source_path": "Document.no -> AFP/Le Parisien, TF1 Info, L'Est Républicain",
+        "rank": 1,
+        "candidate_headline": "96 katolske grave vandaliseret nær Metz",
+        "deep_screened": true,
+        "downstream_sources": ["Le Parisien/AFP", "TF1 Info", "L'Est Républicain"],
+        "decision": "publish",
+        "reason": "Frisk, konkret og veldokumenteret religions- og kriminalitetshistorie; ingen næsten-identisk artikel fundet i rimeligt 7-dages public/GitHub-grundlag.",
+        "model_prompt_version": "canonical-news-task-2026-09-17"
+      }
+    ]
+  }
+}
