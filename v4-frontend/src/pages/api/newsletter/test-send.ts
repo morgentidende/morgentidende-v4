@@ -72,8 +72,8 @@ export const POST: APIRoute = async ({ request, locals }) => {
     include_liv?: boolean | null;
   };
   const articles = (articleResult.data || []).filter((article: any) => {
-    if (article.category_slug === 'viden' && subscriber.include_viden === false) return false;
-    if (article.category_slug === 'liv' && subscriber.include_liv === false) return false;
+    if (article.category_slug === 'viden' && subscriber.include_viden !== true) return false;
+    if (article.category_slug === 'liv' && subscriber.include_liv !== true) return false;
     return true;
   }).slice(0, 8);
   if (!articles.length) return reply(409, { ok: false, error: 'no_articles' });
@@ -82,8 +82,8 @@ export const POST: APIRoute = async ({ request, locals }) => {
   const localDate = copenhagenDate(now);
   const html = buildDailyNewsletterEmail(articles, unsubscribeUrl, localDate, {
     emailTheme: subscriber.email_theme || 'auto',
-    includeViden: subscriber.include_viden !== false,
-    includeLiv: subscriber.include_liv !== false
+    includeViden: subscriber.include_viden === true,
+    includeLiv: subscriber.include_liv === true
   });
 
   const mail = await sendSesHtmlEmail({
