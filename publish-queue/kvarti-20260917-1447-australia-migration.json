@@ -1,0 +1,33 @@
+{
+  "queue_id": "kvarti-20260917-1447-australia-migration",
+  "slug": "australien-strammer-migration-studerende-familie",
+  "headline": "Australien strammer migrationen: De fleste udenlandske studerende må ikke længere tage familien med",
+  "category_slug": "udland",
+  "deck": "Regeringen vil samtidig bremse visumskift og få nettomigrationen ned mod 225.000 om året.",
+  "body_markdown": "Australien vil stramme reglerne for midlertidig migration markant. De fleste udenlandske studerende skal fremover komme alene, mens reglerne for besøgende, backpackere og personer, der bliver efter visummets udløb, også skærpes.\n\nIndenrigsminister Tony Burke præsenterede torsdag reformen i National Press Club i Canberra. Regeringens eget mål er at få nettomigrationen ned til 245.000 i dette finansår og 225.000 i 2027/28. Nye officielle tal viser, at nettomigrationen allerede er faldet til 292.000 — 47 procent under toppen efter coronapandemien i 2023.\n\n### Studerende skal som hovedregel komme alene\n\nEn af de mest håndgribelige ændringer rammer udenlandske studerende. Partnere og børn skal som hovedregel ikke længere kunne følge med på de fleste studievisa. Der bliver undtagelser, blandt andet for visse studerende fra Stillehavsområdet og Sydøstasien.\n\nRegeringen strammer samtidig mulighederne for at forlænge opholdet ved at skifte mellem forskellige visumtyper. Studerende skal som udgangspunkt bevæge sig opad i uddannelsessystemet, hvis de vil have et nyt studievisum. Besøgsvisa skal have en betingelse om, at opholdet ikke kan forlænges ved at søge en anden visumtype inde fra Australien.\n\nBurke formulerede regeringens princip enkelt: Kommer man midlertidigt, skal man søge et midlertidigt visum. Vil man bo permanent i landet, skal man søge om permanent ophold. Har man ikke længere et gyldigt visum, skal man rejse.\n\n### Flere kontrollører og lodtrækning for backpackere\n\nRegeringen vil ansætte 100 ekstra medarbejdere til at håndhæve visumreglerne og undersøger, om et tidligere karantæneanlæg i Melbourne kan bruges til personer, der tilbageholdes efter udlændingereglerne.\n\nFor backpackere indføres der lodtrækning om muligheden for at forlænge et working-holiday-visum. Dermed vil ikke alle, der opfylder de øvrige krav, automatisk kunne forlænge opholdet.\n\nStramningerne kommer efter flere års debat om høje migrationstal, boligpres og leveomkostninger. Det indvandringskritiske parti One Nation har samtidig haft fremgang i meningsmålinger og foreslog tidligere på ugen at reducere antallet af midlertidige migranter med 750.000 over tre år. Burke afviser, at regeringens nye pakke er udformet som svar på partiets fremgang, og siger, at arbejdet har stået på længe.\n\n### Uddannelse er en stor eksportindtægt\n\nStramningen har en klar økonomisk bagside. International uddannelse bidrog med 53,6 milliarder australske dollar til økonomien i året frem til juni 2025 og er en af landets største eksportindtægter. Kritikere fra blandt andet hotel- og restaurationsbranchen frygter desuden mangel på arbejdskraft, hvis antallet af studerende og backpackere falder kraftigt.\n\nRegeringens argument er, at migration fortsat skal bidrage til vækst og skaffe de kvalifikationer, landet mangler, men at midlertidige visa ikke skal fungere som en bagvej til et varigt ophold. Reformens konkrete virkning vil afhænge af de endelige regler og undtagelser, som endnu ikke er fuldt beskrevet.",
+  "source_metadata": [
+    {"url":"https://minister.homeaffairs.gov.au/TonyBurke/Pages/speech-national-press-club-17092026.aspx","name":"Australian Department of Home Affairs — Tony Burke, National Press Club speech","source_class":"authoritative","published_date":"2026-09-17"},
+    {"url":"https://minister.homeaffairs.gov.au/TonyBurke/Pages/migration-reform-end-rorts-bring-skills-australia-needs-strong-economy.aspx","name":"Australian Department of Home Affairs — migration reform media release","source_class":"authoritative","published_date":"2026-09-17"},
+    {"url":"https://www.reuters.com/business/media-telecom/australia-bar-foreign-students-bringing-partners-children-while-they-study-2026-09-17/","name":"Reuters","source_class":"authoritative","published_date":"2026-09-17"}
+  ],
+  "editorial_metadata": {
+    "sagen_kort": [
+      "De fleste udenlandske studerende skal fremover ikke kunne tage partner og børn med til Australien på deres studievisum.",
+      "Regeringen sigter mod at sænke nettomigrationen fra 292.000 til 225.000 om året i 2027/28."
+    ],
+    "frontpage_destination": "normal",
+    "story_cluster_key": "australia-migration-reform-2026",
+    "hero_candidates": [
+      {"rank":1,"source_url":"https://commons.wikimedia.org/wiki/File:Five_Country_Ministerial_2025_-_Bilateral_Meeting_(54773586375).jpg","provider":"wikimedia_commons","description":"Australiens indenrigsminister Tony Burke under bilateralt møde i London i 2025","license":"CC BY 4.0","commercial_use_allowed":true,"local_storage_allowed":true,"width":6000,"height":4000,"credit":"Ryan Jenkinson / Parsons Media for the UK Home Office"},
+      {"rank":2,"source_url":"https://commons.wikimedia.org/wiki/File:Home_Secretary_attends_Five_Country_Ministerial_2025_-_Day_One_-_54773851367.jpg","provider":"wikimedia_commons","description":"Tony Burke sammen med Storbritanniens indenrigsminister Shabana Mahmood ved Five Country Ministerial 2025","license":"CC BY 4.0","commercial_use_allowed":true,"local_storage_allowed":true,"width":6000,"height":4000,"credit":"Andrew Parsons / Parsons Media for the UK Home Office"}
+    ],
+    "hero_exception": {"reason":"Kun to tilstrækkeligt relevante, dokumentariske Tony Burke-billeder med verificerede brugsrettigheder og mindst 1200×675 blev fundet inden for runnets korte researchramme."},
+    "discovery_audit": {
+      "discovery_run_id":"kvarti-20260917-1447",
+      "source_pool":"discovery",
+      "candidates":[{"candidate_id":"aus-migration-20260917","rank":1,"headline_topic":"Australien strammer studie-, besøgs- og working-holiday-visa","deep_screened":true,"downstream_sources":["Australian Department of Home Affairs","Reuters","SBS"],"decision":"selected","reason":"Frisk, dokumenteret migrationsreform med klare tal og høj profilmatch."}],
+      "dedupe":"GitHub default-branch code search fandt ingen tidligere artikel om den konkrete australske reform; Reuters- og primærkilder dokumenterer en ny offentliggørelse 17. september 2026.",
+      "model_prompt_version":"canonical news-task.md sha 45999fde9fcc849966ae94858f3671005bfe0756"
+    }
+  }
+}
