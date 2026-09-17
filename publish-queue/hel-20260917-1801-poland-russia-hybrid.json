@@ -1,0 +1,35 @@
+{
+  "queue_id": "hel-20260917-1801-poland-russia-hybrid",
+  "slug": "polen-advarer-rusland-forbereder-hybridangreb-mod-nato-lande",
+  "headline": "Polen advarer: Rusland forbereder hybridangreb mod NATO-lande",
+  "category_slug": "udland",
+  "deck": "Donald Tusk siger, at efterretninger peger på nye provokationer med droner og missiler. Polen sendte igen kampfly på vingerne torsdag.",
+  "body_markdown": "Polens premierminister Donald Tusk advarer om, at Rusland efter polske og allierede efterretningers vurdering forbereder nye hybride angreb mod lande, der støtter Ukraine. Han peger blandt andet på droner og missiler, som kan blive fremstillet som ulykker for at afprøve NATO-landenes reaktion.\n\nAdvarslen kommer samtidig med en ny bølge af russiske angreb mod Ukraine. Torsdag ramte missiler og droner blandt andet områder i det vestlige Ukraine tæt på Polen, og det polske militær sendte kampfly på vingerne. Lufthavnene i Rzeszów og Lublin blev midlertidigt lukket under de militære operationer.\n\nReuters rapporterer, at mere end 20 mennesker blev såret i torsdagens russiske angreb på otte ukrainske regioner. Polen oplyste ikke om nogen krænkelse af polsk luftrum under angrebene.\n\nTusk sagde torsdag, at de kommende måneder kan blive afgørende, fordi Rusland efter hans vurdering vil forsøge at øge presset på Ukraine og samtidig teste sammenholdet i NATO. Hans advarsel er en efterretningsvurdering og ikke dokumentation for, at et bestemt angreb mod Polen eller et andet NATO-land allerede er besluttet.\n\nBekymringen kommer efter flere konkrete hændelser omkring NATO's østlige grænse. Tidligere på ugen skød NATO-fly en drone ned over Litauen, og Polen fandt søndag en formodet russisk militærdrone nær Østersøkysten. Samtidig har Danmark protesteret over, at et russisk krigsskib affyrede nødblus tæt på en dansk militærhelikopter over Østersøen.\n\nTusk understregede, at Polen ikke søger krig, men at landet vil forsvare sig, hvis det bliver angrebet. Den polske regering ønsker samtidig, at sikkerhed får højeste prioritet i EU's kommende langtidsbudget.\n\nRusland har gentagne gange afvist vestlige beskyldninger om en koordineret hybrid kampagne mod NATO-landene. Moskva har blandt andet beskyldt europæiske regeringer for selv at skabe konfrontation gennem deres støtte til Ukraine. Det ændrer ikke ved, at de seneste hændelser har fået flere NATO-lande til at skærpe beredskabet omkring luftrum og kritisk infrastruktur.",
+  "source_metadata": [
+    {"url":"https://www.reuters.com/world/europe/russia-strikes-ukraines-kyiv-injures-three-odesa-officials-say-2026-09-17/","publisher":"Reuters","class":"authoritative","role":"Torsdagens russiske angreb, polske kampfly og lufthavnslukninger"},
+    {"url":"https://www.swissinfo.ch/spa/tusk-denuncia-que-rusia-contin%C3%BAa-sus-ataques-masivos-muy-cerca-de-frontera-polaca/92075939","publisher":"EFE / SWI swissinfo","class":"authoritative","role":"Tusks udtalelser 17. september om angreb tæt på Polen og polsk beredskab"},
+    {"url":"https://apnews.com/article/9671662649ebed2eca41879982f366ad","publisher":"Associated Press","class":"authoritative","role":"NATO-dronehændelsen i Litauen og russisk-dansk episode i Østersøen"}
+  ],
+  "editorial_metadata": {
+    "sagen_kort": [
+      "Donald Tusk siger, at polske og allierede efterretninger peger på russiske hybridprovokationer mod lande, der støtter Ukraine.",
+      "Polen sendte torsdag kampfly på vingerne under russiske angreb tæt på grænsen; der blev ikke meldt om krænkelse af polsk luftrum."
+    ],
+    "frontpage_destination": "normal",
+    "story_cluster_key": "russia-nato-hybrid-pressure-2026",
+    "hero_candidates": [
+      {"rank":1,"source_url":"https://commons.wikimedia.org/wiki/File:Donald_Tusk_met_with_NATO_SG_Mark_Rutte_in_Warsaw_(2024)_1.jpg","provider":"wikimedia_commons","width":1920,"height":1280,"commercial_use_allowed":true,"local_storage_allowed":true,"license":"CC BY 3.0 PL","attribution":"Gov.pl / Chancellery of the Prime Minister of Poland","license_url":"https://creativecommons.org/licenses/by/3.0/pl/deed.en"},
+      {"rank":2,"source_url":"https://commons.wikimedia.org/wiki/File:Donald_Tusk_2025.jpg","provider":"wikimedia_commons","width":1172,"height":1735,"commercial_use_allowed":true,"local_storage_allowed":true,"license":"CC BY 3.0 PL","attribution":"Gov.pl","license_url":"https://creativecommons.org/licenses/by/3.0/pl/deed.en"},
+      {"rank":3,"source_url":"https://commons.wikimedia.org/wiki/File:Donald_Tusk,_Ant%C3%B3nio_Costa_2025.jpg","provider":"wikimedia_commons","width":5808,"height":3872,"commercial_use_allowed":true,"local_storage_allowed":true,"license":"CC BY 3.0 PL","attribution":"Gov.pl","license_url":"https://creativecommons.org/licenses/by/3.0/pl/deed.en"}
+    ],
+    "discovery_audit": {
+      "discovery_run_id":"hel-20260917-1801",
+      "model_prompt_version":"canonical-news-task-2026-09-17",
+      "candidates":[
+        {"candidate_id":"c1-canada-eu-trade","rank":1,"source_pool":"discovery","headline_topic":"Trump/Canada/EU trade escalation","deep_screened":true,"decision":"duplicate","reason":"same developing Canada-EU cluster already transported earlier today"},
+        {"candidate_id":"c2-poland-russia-hybrid","rank":1,"source_pool":"major-media-fresh-discover","headline_topic":"Poland warns of Russian hybrid strikes","deep_screened":true,"downstream_sources":["Reuters","EFE","AP"],"decision":"selected","reason":"fresh NATO-security development with direct Danish relevance and authoritative corroboration"}
+      ]
+    }
+  },
+  "duplicate_of": null
+}
