@@ -1,8 +1,8 @@
 # Morgentidende – fælles redaktionel kerne
 
-Denne fil ejer fælles artikelkrav og Journalistens **producer-check før handoff**. Opgavespecifik kørsels-, transport-, media- og backendlogik hører ikke hjemme her.
+Denne fil ejer fælles artikelkrav og Journalistens **final check før handoff**. Opgavespecifik kørsels-, transport-, media- og backendlogik hører ikke hjemme her.
 
-**Begreber:** Den semantiske 7-dages-dedupe ligger efter Research og før Write. Producer-check er Journalistens sidste redaktionelle kontrol før GitHub-handoff. Backendens **Article QA** er en separat publication-gate og må først starte, når hero/media er valideret, `ready` og attached til artiklen.
+**Begreber:** Den semantiske 7-dages-dedupe ligger efter Research og før Write. Write afsluttes med Journalistens sidste redaktionelle kontrol og payload-check før GitHub-handoff. Backendens **Article QA** er en separat publication-gate og må først starte, når hero/media er valideret, `ready` og attached til artiklen.
 
 ## Fælles artikelkrav
 
@@ -38,15 +38,15 @@ Sammenlign researchens story brief med de seneste 7 dages publicerede Morgentide
 
 Praktisk test: opfølgeren skal kunne opsummeres med mindst ét væsentligt nyt faktum eller en konkret konsekvens, som den gamle artikel ikke kunne have skrevet ved publicering. Legitim opfølger bruger samme `story_cluster_key` og struktureret `Læs også`.
 
-Hvis dedupe-fasen finder en næsten-identisk historie: registrér `duplicate_of`, ekskludér sagen/personen/institutionen resten af runnet, og returnér til et **helt nyt forsideoverblik/historievalg**. Brug ikke blot næste kandidat fra den gamle shortlist. Et dubletfund afslutter ikke i sig selv runnet.
+Hvis dedupe-fasen finder en næsten-identisk historie: registrér `duplicate_of`, ekskludér sagen/personen/institutionen resten af runnet, og returnér til et **helt nyt Discover**. Brug ikke blot næste kandidat fra den gamle shortlist. Et dubletfund afslutter ikke i sig selv runnet.
 
-Hvis researchen eller sagens substans ændres væsentligt efter dedupe, skal den semantiske dubletkontrol køres igen, før artiklen færdiggøres. Producer-check er ikke en ny dublet-gate.
+Hvis researchen eller sagens substans ændres væsentligt efter dedupe, skal den semantiske dubletkontrol køres igen, før artiklen færdiggøres. Final check er ikke en ny dublet-gate.
 
 15. **Delingspotentiale.** Udvikl artikler med højt delingspotentiale uden at svække dokumentation eller forbehold. Løft stærke fakta, tal, citater, konsekvenser og kontraster frem; gør abstrakte emner konkrete. Før handoff skal sætningen **“Jeg sender dig den her, fordi …”** kunne afsluttes med et konkret dokumenteret faktum eller en dokumenteret konsekvens. Hvis det kræver overdrivelse, spekulation eller udeladelse af en væsentlig indvending, skal vinklen rettes.
 
-## Journalistens producer-check før handoff
+## Journalistens final check før handoff
 
-For alle artikler, inklusive breaking og direkte chat-publicering, laver Journalisten ét frisk genlæs af det færdige udkast **før GitHub-handoff**. Dette er korrektur og payload-kontrol, ikke dedupe, ikke backendens Article QA og ikke et nyt researchforløb.
+For alle artikler, inklusive breaking og direkte chat-publicering, afsluttes Write med ét frisk genlæs af det færdige udkast **før GitHub-handoff**. Dette er korrektur og payload-kontrol, ikke en selvstændig Producer-rolle, ikke dedupe, ikke backendens Article QA og ikke et nyt researchforløb.
 
 ### Skal være afklaret
 
@@ -70,7 +70,9 @@ Bevar journalistisk vinkel, dokumenterede fakta, evidensvurdering og citaters me
 
 ## Backendens Article QA
 
-Article QA er **post-media**. Backend må først enqueue Article QA, når den valgte hero er valideret og publication-ready. Hvis hero ændres efterfølgende, skal den aktuelle artikelversion behandles som ændret og den relevante QA/publication-state opdateres efter backendens kanoniske logik.
+Article QA er **post-media** og ejer kun tekst-/kildeintegritet for den aktuelle version. Backend må først enqueue Article QA, når den valgte hero er valideret og publication-ready. Heroens MIME, pixeldimensioner, rettigheder, arkivtilstand, URL og hero-unikhed ejes af Media Worker/databaseinvariants og skal ikke genimplementeres som parallelle Article QA-checks.
+
+Efter bestået current-version QA forsøger backend Safe Publish direkte. En periodisk release-runner må kun fungere som recovery, ikke som en kunstig ventefase.
 
 Opgavespecifikke automations skal henvise til denne fil i stedet for at kopiere checklisten.
 

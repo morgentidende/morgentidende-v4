@@ -61,86 +61,32 @@ De kanoniske `kind`-værdier er `news`, `comment`, `debate` og `magazine`. For `
 
 Nye magazine-payloads skal altid have en stabil `editorial_metadata.topic_key`. Uden `topic_key` afvises payloaden; topic-dedupe må aldrig falde tilbage til kun rubrik-sammenligning.
 
-Eksempel:
-
-```json
-{
-  "kind": "magazine",
-  "editorial_metadata": {
-    "topic_key": "gaatur-efter-mad",
-    "story_kind": "evergreen_explainer"
-  }
-}
-```
-
-`topic_key` beskriver selve evergreen-emnet og skal genbruges for samme væsentlige emne, også hvis rubrikken formuleres anderledes. Database-laget normaliserer nøglen med `normalize_story_key`; producenter bør fortsat sende en kort, stabil ASCII/slug-lignende nøgle.
-
-For `scheduled` og `published` magazine-artikler er `topic_key` en database-invariant. En aktiv magazine-artikel må ikke få key'en nulstillet eller ændret via almindelig UPDATE. En reel redaktionel korrektion skal gå gennem den auditerede server-side correction-RPC med actor og reason.
-
-`editorial_metadata.story_kind` er valgfri og defaultes til `evergreen_explainer`. Tilladte værdier for magazine er:
-
-- `evergreen_explainer`
-- `followup`
-- `new_study`
-- `update`
+`editorial_metadata.story_kind` er valgfri og defaultes til `evergreen_explainer`. Tilladte værdier er `evergreen_explainer`, `followup`, `new_study` og `update`.
 
 Hvis `story_kind` er `followup`, kræves desuden:
-
 - `editorial_metadata.followup_parent_article_id`
-- `editorial_metadata.followup_reason`, som skal være én af `new_fact`, `official_response`, `arrest`, `new_data`, `court_decision`, `material_update`
+- `editorial_metadata.followup_reason` i `new_fact`, `official_response`, `arrest`, `new_data`, `court_decision`, `material_update`
 - top-level `story_cluster_id` (UUID) eller `story_cluster_key` (eksisterende slug), som skal være samme cluster som parent-artiklen
 
-Magazine-followups skal stadig have `topic_key`. `topic_key` beskriver emnet; followup-felterne beskriver relationen til den tidligere artikel.
+Magazine-followups skal stadig have `topic_key`.
 
-Den redaktionelle 7-dages-regel for almindelige nyheder ejes ikke af bridge/backend. Den semantiske beslutning træffes i Journalistens producer-check efter `docs/editorial-core.md` og `docs/automations/news-task.md`. Backend bevarer tekniske invariants som queue-id-idempotency, slug-konflikt, source/media/QA-gates, magazine `topic_key`-struktur og followup-validering.
+Den redaktionelle 7-dages-regel for almindelige nyheder ejes ikke af bridge/backend. Den semantiske beslutning træffes efter Research og før Write efter `docs/editorial-core.md` og `docs/automations/news-task.md`. Backend bevarer tekniske invariants som queue-id-idempotency, slug-konflikt, source/media/QA-gates, magazine `topic_key`-struktur og followup-validering.
 
 ## Hero/media-handoff: én rangeret kandidatliste
 
 Producenten ejer discovery og rangering. Media Worker ejer download, MIME/signatur, faktiske pixelmål, rettighedsgate, SHA-256, lokal arkivering, permanent/transient fejlklassifikation, fallback og retry.
 
-For almindelige news-payloads er den bindende standard **3–6 rangerede, selvstændigt rettighedsgodkendte kandidater** i `editorial_metadata.hero_candidates`. **1–2 kandidater er kun tilladt med en eksplicit `editorial_metadata.hero_exception.reason`**, som forklarer hvorfor flere lovlige kandidater ikke kunne findes inden for researchbudgettet. **0 kandidater afvises.** Ét stærkt lovligt hero er tilstrækkeligt, når Media Worker har fundet og valideret en kandidat. Magazine- og specialflows kan have deres egen canonical kontrakt.
+For almindelige news-payloads er den bindende standard **3–6 rangerede, selvstændigt rettighedsgodkendte kandidater** i `editorial_metadata.hero_candidates`. **1–2 kandidater er kun tilladt med en eksplicit `editorial_metadata.hero_exception.reason`**. **0 kandidater afvises.**
 
-Eksempel:
+Når dimensioner er kendte, bør producenten vælge mindst **1200×675**. Kendte kandidater under **800×450** afvises allerede ved bridge-kontrakten. Ukendt størrelse kan accepteres som fallback, men Media Worker måler den faktiske fil og håndhæver 800×450 som absolut minimum.
 
-```json
-{
-  "editorial_metadata": {
-    "hero_candidates": [
-      {
-        "source_url": "https://.../original-1.jpg",
-        "source_provider": "wikimedia_commons",
-        "license_name": "CC BY-SA 4.0",
-        "license_url": "https://...",
-        "credit_text": "...",
-        "rights_notes": "...",
-        "commercial_use_allowed": true,
-        "local_storage_allowed": true,
-        "modifications_allowed": true,
-        "attribution_required": true,
-        "alt_text": "Kort neutral alt-tekst"
-      },
-      {
-        "source_url": "https://.../original-2.jpg",
-        "commercial_use_allowed": true,
-        "local_storage_allowed": true
-      },
-      {
-        "source_url": "https://.../original-3.jpg",
-        "commercial_use_allowed": true,
-        "local_storage_allowed": true
-      }
-    ]
-  }
-}
-```
+`source_url` skal være en direkte downloadbar billedfil, medmindre Media Worker har en eksplicit resolver for den pågældende kildetype. Wikimedia Commons File-sider er understøttet og resolveres via Commons API. Almindelige HTML-galleri-/fotosider er ikke gyldige hero-kilder. Undgå thumbnails, previews og nedskaleringsparametre.
 
-Producenten bør bruge dimensionsmetadata som forfilter og foretrække mindst 1200×675. Kendte kandidater under 800×450 må ikke sendes. Søgemetadata er aldrig autoritative: Media Worker måler altid den faktisk downloadede original og håndhæver minimum 800×450.
+Hver kandidat skal selv have `commercial_use_allowed=true` og `local_storage_allowed=true`; rettigheder og kandidat-specifik resolver-state må ikke arves fra en tidligere kandidat.
 
-Undgå thumbnail-/preview-URL'er og kendte nedskaleringsparametre. Brug originalfil-URL eller Wikimedia File-side, når kilden tilbyder den; Media Worker resolver Wikimedia gennem Commons API før download.
+Ved permanent fejl, fx for lille fil, ugyldigt format, 404/410 eller ulovlig/ikke-arkiverbar kilde, går Media Worker direkte til næste kandidat i samme state machine. Ved transient fejl, fx timeout, 429 eller 5xx, beholdes samme kandidat og retry-køen bruges.
 
-Hver kandidat skal selv have `commercial_use_allowed=true` og `local_storage_allowed=true`; rettigheder må ikke arves blindt fra kandidat 1.
-
-Ved permanent fejl, fx for lille fil, ugyldigt format, 404/410 eller ulovlig/ikke-arkiverbar kilde, går Media Worker direkte til næste kandidat i samme job. Ved transient fejl, fx timeout, 429 eller 5xx, beholdes samme kandidat og retry-køen bruges. Først når kandidatlisten er udtømt, må media-jobbet terminalisere og artiklen forblive scheduled/missing hero.
+Når alle kandidater er udtømt terminalt, markerer Media Worker jobbet `failed` og flytter den kanoniske bridge-artikel ud af `scheduled` til `draft` med `publication_attention.reason=hero_candidates_exhausted`. Der kræves ny redaktionel/media-input; ingen watchdog skal holde den kunstigt levende.
 
 GitHub-broen må ikke implementere en separat hero-orchestrator. Den validerer news-kontrakten og omsætter kandidatlisten til Media Workerens `source_url` + `fallback_candidates`-kontrakt; selve fallback-state-machine ejes kun af Media Worker.
 
@@ -152,17 +98,21 @@ Discovery-audit er separat idempotent på `(run_id, candidate_id)` og kan derfor
 
 ## Publicering og Article QA
 
-Bridge-funktionen indsætter artikelpayloads som `scheduled` og starter media-flowet. Når en primær eller senere fallback-kandidat bliver `ready`, knyttes artiklen til `hero_media_id`/intern `hero_url`. **Først derefter må Article QA enqueue.** Efter bestået Article QA fortsætter den centrale release/publication-gate.
+Bridge-funktionen indsætter artikelpayloads som `scheduled` og starter media-flowet. Når en primær eller senere fallback-kandidat bliver `ready`, knyttes artiklen til `hero_media_id`/intern `hero_url`. **Først derefter må Article QA enqueue.**
 
-Den bindende rækkefølge er:
+Article QA ejer tekst-/kildeintegritet for current version. Hero-load, MIME, dimensioner, rettigheder, arkivering og hero-unikhed ejes af Media Worker/databaseinvariants og må ikke genimplementeres som parallelle QA-checks.
 
-`scheduled → media ingest/attach → hero ready → Article QA → release gate → published`
+Den normale rækkefølge er:
+
+`scheduled → media ingest/attach → hero ready → Article QA → safe publish`
+
+Der er ingen kunstig fast QA-ventetid. Når current-version QA ender `passed` eller `warnings`, forsøger backend `publish_article_safely` direkte. Det eksisterende minutlige release-job bevares kun som recovery for mistede callbacks eller transiente driftsfejl og respekterer et eventuelt bevidst fremtidigt `publish_at`.
 
 Audit-only payloads opretter ingen artikel og kalder ikke publication-gates.
 
 ## Scheduled Task-standard
 
-Autonome artikelopgaver afleverer via GitHub-broen. Almindelige news-runs følger den komplette producer-kontrakt i `docs/automations/news-task.md` og skal ikke åbne denne fil. Media Worker ejer teknisk hero-retry/recovery. For almindelige news-payloads gælder 3–6 hero-kandidater som standard; 1–2 kræver eksplicit `hero_exception.reason`.
+Autonome artikelopgaver afleverer via GitHub-broen. Almindelige news-runs følger den komplette producer-kontrakt i `docs/automations/news-task.md` og skal ikke åbne denne fil. Media Worker ejer teknisk hero-retry/recovery.
 
 ## Driftsprincip
 
