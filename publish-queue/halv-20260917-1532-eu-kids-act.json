@@ -1,0 +1,81 @@
+{
+  "queue_id": "halv-20260917-1532-eu-kids-act",
+  "slug": "eu-vil-saette-15-aarsgraense-for-egne-sociale-medier-konti",
+  "headline": "EU vil sætte 15-årsgrænse for egne sociale medier-konti",
+  "category_slug": "udland",
+  "deck": "Nyt lovforslag vil samtidig kræve forældrestyrede konti for 13- og 14-årige og ramme vanedannende funktioner.",
+  "body_markdown": "Europa-Kommissionen fremlagde torsdag et omfattende forslag, der vil ændre børn og unges adgang til sociale medier i hele EU. Børn under 13 år skal ikke kunne have sociale medier-konti, mens unge først fra 15 år skal kunne oprette deres egen konto.\n\nFor 13- og 14-årige lægger forslaget op til særlige konti, som oprettes og styres gennem en forælder eller værge. Kommissionens plan går dermed længere end blot at sætte en aldersgrænse: Den vil også regulere, hvordan digitale tjenester må indrettes til mindreårige.\n\nForslaget, der kaldes EU KIDS Act, omfatter sociale medier, videodelingstjenester, onlinespil samt samtalerobotter og digitale ledsagere. Tjenesterne skal blandt andet begrænse funktioner, der kan fastholde børn på skærmen, såsom endeløs rulning, belønningsmekanismer og anbefalinger baseret på profilering.\n\nKommissionsformand Ursula von der Leyen begrundede indgrebet med, at den teknologi, børn møder, ikke er udviklet med deres trivsel og udvikling som udgangspunkt. Kommissionen vil flytte en større del af ansvaret over på virksomhederne og kræve, at tjenester til mindreårige er sikre i selve deres udformning.\n\nForslaget vil også kræve kontrol af brugernes alder. Virksomheder, der ikke overholder reglerne, kan efter planen få bøder på op til seks procent af deres globale årlige omsætning.\n\nNetop alderskontrollen har udløst kritik. Den europæiske brancheorganisation CCIA Europe, der blandt andre repræsenterer Google og Meta, advarer om, at omfattende indsamling af oplysninger om alder, identitet og forbindelsen mellem børn og forældre kan skabe attraktive mål for it-kriminelle. Organisationen mener desuden, at forslaget risikerer at overlappe med EU-regler, der allerede gælder.\n\nKommissionen fremhæver omvendt undersøgelser, der viser problemer blandt europæiske børn og unge: Ifølge Kommissionens materiale siger kun omkring halvdelen af børn mellem 9 og 16 år, at de føler sig sikre på nettet, mens 38 procent rapporterer søvnproblemer knyttet til sociale medier.\n\nForslaget er ikke lov endnu. Det skal forhandles med medlemslandene og Europa-Parlamentet, før reglerne kan træde i kraft. Dermed kan både aldersgrænser, kontrolkrav og de konkrete pligter for teknologivirksomheder blive ændret under forhandlingerne.",
+  "source_metadata": [
+    {
+      "url": "https://digital-strategy.ec.europa.eu/en/policies/kids-act",
+      "name": "Europa-Kommissionen – KIDS Act",
+      "source_class": "authoritative",
+      "role": "primary"
+    },
+    {
+      "url": "https://www.reuters.com/world/eu-commission-proposes-social-media-ban-children-under-13-2026-09-17/",
+      "name": "Reuters",
+      "source_class": "authoritative",
+      "role": "independent"
+    }
+  ],
+  "editorial_metadata": {
+    "sagen_kort": [
+      "EU-Kommissionen vil først tillade selvstændige sociale medier-konti fra 15 år.",
+      "13- og 14-årige skal efter forslaget kun kunne bruge forældrestyrede konti, mens virksomheder kan få bøder på op til seks procent af global omsætning."
+    ],
+    "frontpage_destination": "normal",
+    "story_cluster_key": "eu-kids-act-2026",
+    "hero_candidates": [
+      {
+        "source_url": "https://commons.wikimedia.org/wiki/File:Visit_of_Ursula_von_der_Leyen,_President_of_the_European_Commission,_to_Greenland_(P-070390-00-28).jpg",
+        "provider": "wikimedia_commons",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "license": "CC BY 4.0",
+        "width": 5534,
+        "height": 3680,
+        "credit": "Aurore Martignoni / European Union, 2026 / EC Audiovisual Service",
+        "rank": 1
+      },
+      {
+        "source_url": "https://commons.wikimedia.org/wiki/File:Visit_of_Ursula_von_der_Leyen,_President_of_the_European_Commission,_to_Greenland_(P-070390-00-47).jpg",
+        "provider": "wikimedia_commons",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "license": "CC BY 4.0",
+        "width": 6000,
+        "height": 4000,
+        "credit": "European Union, 2026 / EC Audiovisual Service",
+        "rank": 2
+      },
+      {
+        "source_url": "https://commons.wikimedia.org/wiki/File:Visit_of_Ursula_von_der_Leyen,_President_of_the_European_Commission,_to_Greenland_(P-070390-00-06).jpg",
+        "provider": "wikimedia_commons",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "license": "CC BY 4.0",
+        "width": 6000,
+        "height": 4000,
+        "credit": "Aurore Martignoni / European Union, 2026 / EC Audiovisual Service",
+        "rank": 3
+      }
+    ],
+    "discovery_audit": {
+      "discovery_run_id": "halv-20260917-1532",
+      "model_prompt_version": "canonical-news-task@45999fde9fcc849966ae94858f3671005bfe0756",
+      "candidates": [
+        {
+          "candidate_id": "eu-kids-act",
+          "rank": 1,
+          "headline_topic": "EU KIDS Act og aldersgrænser for sociale medier",
+          "source_pool": "discovery",
+          "deep_screened": true,
+          "downstream_sources": ["Europa-Kommissionen", "Reuters"],
+          "decision": "publish",
+          "reason": "Frisk EU-regulering med direkte betydning for familier, privatliv og digitale tjenester; primærkilde og uafhængig dokumentation tilgængelig."
+        }
+      ]
+    }
+  }
+}
