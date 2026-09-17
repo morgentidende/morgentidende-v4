@@ -1,10 +1,8 @@
-import { env as cloudflareEnv } from 'cloudflare:workers';
-
 type RuntimeBag = Record<string, string | undefined>;
 
 const readRuntimeEnv = (locals?: App.Locals): RuntimeBag => {
   const legacyRuntime = (locals as { runtime?: { env?: RuntimeBag } } | undefined)?.runtime?.env;
-  return legacyRuntime || (cloudflareEnv as RuntimeBag);
+  return legacyRuntime || {};
 };
 
 const pick = (runtime: RuntimeBag, key: string) => {
@@ -38,3 +36,4 @@ export const hasSupabaseServerEnv = (env: NewsletterRuntimeEnv) =>
 
 export const hasSesEnv = (env: NewsletterRuntimeEnv) =>
   Boolean(env.awsRegion && env.awsAccessKeyId && env.awsSecretAccessKey);
+
