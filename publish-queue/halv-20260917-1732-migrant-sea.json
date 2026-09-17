@@ -1,0 +1,32 @@
+{
+  "queue_id": "halv-20260917-1732-migrant-sea",
+  "slug": "faerre-migranter-krydser-havet-til-europa-men-flere-doer",
+  "headline": "40 procent færre krydser havet til Europa – men flere dør undervejs",
+  "category_slug": "udland",
+  "deck": "Næsten 60.000 er kommet ad søvejen i år. Samtidig er mindst 2.292 døde eller savnet, viser nye IOM-tal.",
+  "body_markdown": "Antallet af migranter og flygtninge, der når Europa ad søvejen, er faldet markant i år. Men rejsen er samtidig blevet mere dødelig.\n\nNæsten 60.000 mennesker var frem til midten af september ankommet til Europa ad søvejen i 2026. Det er omkring 39 procent færre end de cirka 98.000 i samme periode sidste år, ifølge FN's Internationale Organisation for Migration, IOM.\n\nSamtidig er mindst 2.292 mennesker registreret som døde eller savnede på ruterne. På samme tidspunkt sidste år var tallet 1.999. IOM advarer om, at det reelle antal kan være højere, fordi ikke alle forlis bliver registreret.\n\n## Den centrale rute er halveret\n\nDet største fald ses på den centrale Middelhavsrute mod Italien. Her er antallet af ankomster faldet fra mere end 48.000 sidste år til omkring 21.000 i år. Alligevel er antallet af døde og savnede på ruten steget fra 844 til 996.\n\nOgså på ruten mod Grækenland er der kommet færre mennesker, mens antallet af døde er steget. IOM peger blandt andet på overfyldte og usødygtige både fra Libyen som en væsentlig del af risikoen.\n\nTallene kommer samtidig med et voksende politisk pres i Europa for strammere kontrol med migrationen. EU-landene har i år arbejdet videre med regler, der blandt andet skal gøre det muligt at sende afviste migranter til lande uden for EU.\n\n## IOM vil have flere lovlige veje\n\nIOM's generaldirektør Amy Pope fremhæver, at mange af dødsfaldene efter organisationens vurdering kan undgås. Organisationen ønsker blandt andet bedre redningsindsats og flere lovlige muligheder for migration.\n\nDet efterlader en markant kontrast i årets tal: Europas søgrænser modtager langt færre mennesker end sidste år, men for dem, der forsøger rejsen, er risikoen for at dø eller forsvinde vokset.",
+  "source_metadata": [
+    {"name":"Reuters","url":"https://www.reuters.com/world/europe/migrant-sea-crossings-fall-become-more-deadly-iom-says-2026-09-17/","type":"authoritative","published_date":"2026-09-17"},
+    {"name":"Associated Press","url":"https://apnews.com/article/fa512b3ac2a31b8c4a79ae0e981ec94c","type":"authoritative","published_date":"2026-09-17"}
+  ],
+  "editorial_metadata": {
+    "sagen_kort": [
+      "Næsten 60.000 migranter og flygtninge er nået Europa ad søvejen i år – omkring 39 procent færre end sidste år.",
+      "Mindst 2.292 er samtidig registreret døde eller savnede, mod 1.999 på samme tidspunkt i 2025."
+    ],
+    "frontpage_destination": "normal",
+    "story_cluster_key": "europe-mediterranean-migration-2026",
+    "hero_candidates": [
+      {"rank":1,"source_url":"https://commons.wikimedia.org/wiki/File:Inflatable_boat_carrying_migrants_approaching_USS_Carney_(DDG-64)_in_the_Mediterranean_160729-N-EU999-004.jpg","provider":"wikimedia_commons","width":5472,"height":3648,"commercial_use_allowed":true,"local_storage_allowed":true,"license":"Public domain","credit":"U.S. Navy / Chief Information Systems Technician Wesley R. Dickey"},
+      {"rank":2,"source_url":"https://commons.wikimedia.org/wiki/File:Refugees_crossing_the_Mediterranean_sea_on_a_boat,_heading_from_Turkish_coast_to_the_northeastern_Greek_island_of_Lesbos,_29_January_2016.jpg","provider":"wikimedia_commons","width":4000,"height":2672,"commercial_use_allowed":true,"local_storage_allowed":true,"license":"CC BY-SA 4.0","credit":"Mstyslav Chernov/Unframe"},
+      {"rank":3,"source_url":"https://commons.wikimedia.org/wiki/File:160729-N-EU999-002_(28029046924).jpg","provider":"wikimedia_commons","width":2992,"height":2000,"commercial_use_allowed":true,"local_storage_allowed":true,"license":"Public domain","credit":"U.S. Navy"}
+    ],
+    "discovery_audit": {
+      "discovery_run_id":"halv-20260917-1732",
+      "model_prompt_version":"canonical-news-task-2026-09-17",
+      "candidates":[
+        {"candidate_id":"c1-iom-sea-2026","rank":1,"topic":"Færre søankomster til Europa, men flere døde","source_pool":"discovery/broad-authoritative","deep_screened":true,"downstream_sources":["Reuters","AP"],"decision":"selected","reason":"Friske IOM-tal, stærk migration/profil-relevans, høj dokumenterbarhed og klar kontrast."}
+      ]
+    }
+  }
+}
