@@ -1,0 +1,70 @@
+---
+export const prerender = false;
+---
+<!doctype html>
+<html lang="da">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width" />
+  <meta name="robots" content="noindex,nofollow,noarchive" />
+  <title>Test nyhedsbrev – Morgentidende</title>
+  <style>
+    :root { color-scheme: dark; }
+    body { margin:0; background:#0f1926; color:#f8f1e4; font-family:Arial,Helvetica,sans-serif; }
+    main { max-width:680px; margin:80px auto; padding:0 20px; }
+    .card { border:1px solid #374150; background:#182534; padding:32px; }
+    h1 { margin:0 0 10px; font-family:Georgia,'Times New Roman',serif; font-size:38px; }
+    p { color:#c8ced6; line-height:1.55; }
+    label { display:block; margin:26px 0 8px; font-weight:700; }
+    input { box-sizing:border-box; width:100%; padding:13px 14px; background:#0f1926; color:#fff; border:1px solid #5b6572; }
+    button { margin-top:14px; padding:13px 19px; border:0; background:#e1ad45; color:#17140c; font-weight:800; cursor:pointer; }
+    button:disabled { opacity:.55; cursor:wait; }
+    #status { min-height:24px; margin-top:18px; font-weight:700; }
+    .note { font-size:13px; color:#9da6b1; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="card">
+      <h1>Send testnyhedsbrev</h1>
+      <p>Sender den aktuelle rigtige nyhedsbrevsskabelon med de seneste historier til den ene aktive testabonnent. Funktionen nægter automatisk at sende, hvis der er mere end én aktiv abonnent.</p>
+      <label for="key">Testnøgle</label>
+      <input id="key" type="password" autocomplete="off" spellcheck="false" />
+      <button id="send" type="button">Send test nu</button>
+      <div id="status" aria-live="polite"></div>
+      <p class="note">Testudsendelsen opretter ikke et normalt dispatch og påvirker derfor ikke morgendagens automatiske nyhedsbrev.</p>
+    </div>
+  </main>
+  <script>
+    const button = document.querySelector('#send');
+    const input = document.querySelector('#key');
+    const status = document.querySelector('#status');
+
+    button?.addEventListener('click', async () => {
+      const key = input?.value || '';
+      if (!key) {
+        status.textContent = 'Indtast testnøglen.';
+        return;
+      }
+      button.disabled = true;
+      status.textContent = 'Sender…';
+      try {
+        const response = await fetch('/api/newsletter/test-send', {
+          method: 'POST',
+          headers: { 'x-newsletter-test-key': key }
+        });
+        const body = await response.json().catch(() => ({}));
+        if (!response.ok || !body.ok) {
+          status.textContent = `Kunne ikke sende (${body.error || response.status}).`;
+        } else {
+          status.textContent = `Sendt. ${body.articles} artikler til 1 testmodtager.`;
+        }
+      } catch {
+        status.textContent = 'Netværksfejl. Prøv igen.';
+      } finally {
+        button.disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>
