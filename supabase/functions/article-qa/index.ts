@@ -5,6 +5,7 @@ const SERVICE_KEY = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
 const restHeaders = { apikey: SERVICE_KEY, Authorization: `Bearer ${SERVICE_KEY}`, "Content-Type": "application/json" };
 const RETRYABLE = new Set([429, 500, 502, 503, 504]);
 const QA_ENGINE = "deterministic-v3-text-source";
+const QA_RUNNER_HEADER = "x-morgentidende-qa-token";
 
 const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
@@ -23,6 +24,16 @@ async function rpc(name: string, body: Record<string, unknown>): Promise<any> {
   const text = await response.text();
   if (!text) return null;
   try { return JSON.parse(text); } catch { return text; }
+}
+
+async function authorizeRunner(req: Request): Promise<boolean> {
+  const token = (req.headers.get(QA_RUNNER_HEADER) ?? "").trim();
+  if (!token) return false;
+  try {
+    return await rpc("authorize_article_qa_runner", { p_token: token }) === true;
+  } catch {
+    return false;
+  }
 }
 
 function normalizeEscapedMarkdown(markdown: string): string {
@@ -89,7 +100,15 @@ async function finishJob(job: any, expectedHash: string | null, status: string, 
   });
 }
 
-Deno.serve(async () => {
+Deno.serve(async (req: Request) => {
+  if (req.method !== "POST") {
+    return new Response("method_not_allowed", { status: 405, headers: { "cache-control": "no-store" } });
+  }
+
+  if (!(await authorizeRunner(req))) {
+    return new Response("unauthorized_runner", { status: 403, headers: { "cache-control": "no-store" } });
+  }
+
   const results: any[] = [];
 
   try {
@@ -184,5 +203,5 @@ Deno.serve(async () => {
     }
   }
 
-  return Response.json({ processed: results.length, results });
+  return Response.json({ processed: results.length, results }, { headers: { "cache-control": "no-store" } });
 });
