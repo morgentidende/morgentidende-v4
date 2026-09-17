@@ -1,16 +1,21 @@
 name = "morgentidende-social-publisher"
 main = "src/index.ts"
 compatibility_date = "2026-09-11"
+workers_dev = true
+
+[vars]
+METRICOOL_USER_ID = "5335379"
+METRICOOL_BLOG_ID = "6923586"
+SUPABASE_URL = "https://lfttxjxfggjcxmdfjndk.supabase.co"
+SUPABASE_PUBLISHABLE_KEY = "sb_publishable_g6gNTmnELIRP9eo4Re3pmQ_mhAJWuXn"
 
 [observability]
 enabled = true
 
-# This Worker is a stateless adapter. The database is the source of truth.
-# POST /schedule uses: Authorization: Bearer <SOCIAL_PUBLISHER_TOKEN>
+# Stateless provider adapter. The publication database remains the source of truth.
+# POST /schedule carries the dedicated social runner token as a Bearer token;
+# the Worker verifies it through the narrow Supabase authorization RPC.
 # Supported networks at launch: facebook, instagram.
 #
-# Runtime secrets required before deploy:
-# SOCIAL_PUBLISHER_TOKEN
+# Runtime secret required in Cloudflare:
 # METRICOOL_TOKEN
-# METRICOOL_USER_ID
-# METRICOOL_BLOG_ID

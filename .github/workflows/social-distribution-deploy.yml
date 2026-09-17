@@ -38,7 +38,7 @@ jobs:
         with:
           version: latest
 
-      - name: Resolve Cloudflare account and workers.dev URL
+      - name: Resolve Cloudflare account
         id: cf
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
@@ -50,45 +50,35 @@ jobs:
             'https://api.cloudflare.com/client/v4/zones?name=morgentidende.dk&status=active&per_page=5')
           account_id=$(jq -r '.result[0].account.id // empty' <<<"$zone_json")
           test -n "$account_id"
-          subdomain_json=$(curl -fsS -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
-            "https://api.cloudflare.com/client/v4/accounts/$account_id/workers/subdomain")
-          subdomain=$(jq -r '.result.subdomain // empty' <<<"$subdomain_json")
-          test -n "$subdomain"
           echo "account_id=$account_id" >> "$GITHUB_OUTPUT"
-          echo "worker_url=https://morgentidende-social-publisher.${subdomain}.workers.dev" >> "$GITHUB_OUTPUT"
 
-      - name: Deploy adapter and dispatcher with one rotated internal token
+      - name: Deploy Metricool adapter
         working-directory: workers/social-publisher
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ steps.cf.outputs.account_id }}
-          SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
-          WORKER_URL: ${{ steps.cf.outputs.worker_url }}
+          METRICOOL_TOKEN: ${{ secrets.METRICOOL_TOKEN }}
         shell: bash
         run: |
           set -euo pipefail
           test -n "$CLOUDFLARE_API_TOKEN"
           test -n "$CLOUDFLARE_ACCOUNT_ID"
-          test -n "$SUPABASE_ACCESS_TOKEN"
-          test -n "$WORKER_URL"
-
-          shared_token=$(openssl rand -hex 32)
-          trap 'unset shared_token' EXIT
-
-          printf '%s' "$shared_token" | npx wrangler secret put SOCIAL_PUBLISHER_TOKEN
+          test -n "$METRICOOL_TOKEN"
+          printf '%s' "$METRICOOL_TOKEN" | npx wrangler secret put METRICOOL_TOKEN
           npx wrangler deploy
 
-          cd ../..
-          supabase secrets set \
-            SOCIAL_PUBLISHER_TOKEN="$shared_token" \
-            SOCIAL_PUBLISHER_URL="$WORKER_URL" \
-            --project-ref lfttxjxfggjcxmdfjndk
-          supabase functions deploy social-dispatcher --project-ref lfttxjxfggjcxmdfjndk
-
-      - name: Verify social publisher health
+      - name: Deploy Supabase dispatcher
         env:
-          WORKER_URL: ${{ steps.cf.outputs.worker_url }}
+          SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
         shell: bash
         run: |
           set -euo pipefail
-          curl -fsS "$WORKER_URL/health" | jq -e '.ok == true and .provider == "metricool"' >/dev/null
+          test -n "$SUPABASE_ACCESS_TOKEN"
+          supabase functions deploy social-dispatcher --project-ref lfttxjxfggjcxmdfjndk
+
+      - name: Verify social publisher health
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -fsS 'https://morgentidende-social-publisher.morgentidende.workers.dev/health' \
+            | jq -e '.ok == true and .provider == "metricool" and .configured == true' >/dev/null
