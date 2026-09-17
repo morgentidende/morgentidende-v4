@@ -1,5 +1,6 @@
 ---
 import V4Card from './V4Card.astro';
+import '../styles/special-sections.css';
 
 interface Props {
   title: string;
@@ -47,7 +48,7 @@ const secondary = visibleArticles.slice(1);
       {secondary.length ? (
         <div class="v4-special-section__rail">
           {secondary.map((article, index) => (
-            <div class:list={['v4-special-section__rail-item', index === 2 && 'v4-special-section__rail-item--desktop-only']}>
+            <div class:list={['v4-special-section__rail-item', index === 2 ? 'v4-special-section__rail-item--desktop-only' : undefined]}>
               <V4Card
                 article={article}
                 categoryName={title}
