@@ -1,7 +1,10 @@
 -- Reduce write amplification on public.articles without weakening publication gates.
 --
--- 1) Merge the generic updated_at and published-editorial updated_at triggers.
+-- 1) Merge the article-specific updated_at and published-editorial updated_at triggers.
 -- 2) Keep article_versions as editorial history instead of recording QA/media/status churn.
+--
+-- public.set_updated_at() is intentionally preserved because categories,
+-- media_assets and story_clusters still use that shared helper.
 
 create or replace function public.touch_article_timestamps()
 returns trigger
@@ -32,7 +35,6 @@ drop trigger if exists articles_set_editorial_updated_at on public.articles;
 drop trigger if exists articles_set_updated_at on public.articles;
 
 drop function if exists public.set_editorial_updated_at();
-drop function if exists public.set_updated_at();
 
 create trigger articles_touch_timestamps
 before update on public.articles
