@@ -1,0 +1,34 @@
+{
+  "queue_id": "kvarti-20260917-1744-eu-migration-emergency",
+  "slug": "eu-vil-have-noedregel-mod-masseankomster-ved-graensen",
+  "headline": "EU vil have nødregel mod pludselige masseankomster ved grænsen",
+  "category_slug": "udland",
+  "deck": "Kommissionen vil kunne give medlemslande midlertidig fleksibilitet, når store migrantstrømme bliver fremprovokeret eller brugt som presmiddel.",
+  "body_markdown": "EU-Kommissionen vil indføre et nyt beredskab, der skal kunne aktiveres, når Europas ydre grænser rammes af pludselige og meget store migrantstrømme. Forslaget kommer efter sommerens krise ved den spanske enklave Ceuta og skal ifølge Kommissionens formand, Ursula von der Leyen, især kunne bruges, når migration bevidst bliver fremprovokeret eller brugt som politisk pressionsmiddel.\n\nPlanen blev fremlagt i von der Leyens tale om Unionens tilstand 16. september. Hun sagde, at Europa skal kunne beskytte sine grænser til enhver tid, og at det nye beredskab kun skal kunne udløses efter nøje fastlagte kriterier. I sådanne situationer skal medlemslandene kunne få tidsbegrænset fleksibilitet i de normale procedurer.\n\nDet er endnu ikke en vedtaget lov. Kommissionen skal først fremlægge det konkrete forslag, og dermed er det heller ikke afgjort præcist, hvilke asyl- og grænseprocedurer der kan fraviges, hvor længe det kan ske, eller hvilke garantier der skal gælde.\n\nUdspillet markerer alligevel en tydelig bevægelse i EU's migrationspolitik. Von der Leyen gjorde samtidig klart, at Frontex, EU's grænseagentur, skal styrkes, blandt andet for at få flere personer uden ret til ophold sendt ud. Hun formulerede princippet sådan, at det er europæerne – ikke menneskesmuglere – der skal afgøre, hvem der kommer ind i EU og på hvilke vilkår.\n\nBaggrunden er blandt andet erfaringerne fra Ceuta, hvor en pludselig tilstrømning i juli satte de spanske myndigheder og Schengen-systemet under pres. Kommissionen beskriver den type situation som noget andet end den almindelige løbende migration: et ekstraordinært pres, der kan kræve midlertidige nødregler.\n\nForslaget rejser samtidig et centralt juridisk spørgsmål: hvor langt EU-landene skal kunne gå i en akut situation uden at udhule retten til at søge asyl og andre grundlæggende rettigheder. Von der Leyen understregede, at fleksibiliteten skal være både tidsbegrænset og nøje afgrænset. Den endelige balance kan først vurderes, når lovteksten ligger på bordet.\n\nKommissionens strammere linje kommer samtidig med, at den irregulære migration ad flere ruter er faldet. Det ændrer ikke argumentet bag beredskabet: EU vil have et særskilt værktøj klar til situationer, hvor en grænse på kort tid udsættes for et ekstraordinært og muligvis bevidst organiseret pres.",
+  "source_metadata": [
+    {"url":"https://www.reuters.com/world/eu-propose-emergency-protection-against-massive-migrant-flows-von-der-leyen-says-2026-09-16/","publisher":"Reuters","source_class":"authoritative","published_date":"2026-09-16"},
+    {"url":"https://www.euronews.com/my-europe/2026/09/16/ursula-von-der-leyen-delivers-state-of-the-union-speech","publisher":"Euronews","source_class":"authoritative","published_date":"2026-09-16"}
+  ],
+  "editorial_metadata": {
+    "sagen_kort": [
+      "EU-Kommissionen vil oprette et nødberedskab til pludselige, meget store migrantstrømme ved de ydre grænser.",
+      "Ordningen skal kun aktiveres efter faste kriterier og give tidsbegrænset fleksibilitet i de normale procedurer."
+    ],
+    "frontpage_destination": "normal",
+    "story_cluster_key": "eu-migration-emergency-framework-2026",
+    "hero_candidates": [
+      {"rank":1,"source_url":"https://commons.wikimedia.org/wiki/File:Weekly_college_meeting_of_the_von_der_Leyen_Commission,_15-09-2026_(P-070451-00-02).jpg","provider":"Wikimedia Commons","license":"CC BY 4.0","commercial_use_allowed":true,"local_storage_allowed":true,"width":2667,"height":4000,"credit":"European Commission Audiovisual Service / Dati Bendo"},
+      {"rank":2,"source_url":"https://commons.wikimedia.org/wiki/File:Bilateral_meetings_of_Ursula_von_der_Leyen,_President_of_the_European_Commission,_on_the_sidelines_of_the_plenary_session_of_the_European_Parliament_(P-070450-00-01).jpg","provider":"Wikimedia Commons","license":"CC BY 4.0","commercial_use_allowed":true,"local_storage_allowed":true,"width":4000,"height":2667,"credit":"© European Union, 2026 / Dati Bendo"},
+      {"rank":3,"source_url":"https://commons.wikimedia.org/wiki/File:Participation_of_Ursula_von_der_Leyen,_President_of_the_European_Commission,_in_an_exchange_of_views_with_the_EP_Conference_of_Presidents_(P-070434-00-05).jpg","provider":"Wikimedia Commons","license":"CC BY 4.0","commercial_use_allowed":true,"local_storage_allowed":true,"width":3519,"height":2260,"credit":"European Commission Audiovisual Service"}
+    ],
+    "discovery_audit": {
+      "discovery_run_id":"kvarti-20260917-1744",
+      "source_pool":"discovery",
+      "candidates_tried":2,
+      "candidates":[
+        {"candidate_id":"iom-sea-crossings","rank":1,"topic":"Færre migranter når Europa ad søvejen, men flere dør","deep_screened":true,"decision":"duplicate","reason":"Samme hovedudvikling allerede afleveret i umiddelbart foregående ordinære run."},
+        {"candidate_id":"eu-emergency-migration","rank":1,"topic":"EU-Kommissionen foreslår nødberedskab mod ekstraordinære masseankomster","deep_screened":true,"downstream_sources":["Reuters","Euronews"],"decision":"publish","reason":"Frisk, dokumenteret EU-udvikling med høj profilrelevans og selvstændigt nyt hovedfaktum."}
+      ]
+    }
+  }
+}
