@@ -1,0 +1,79 @@
+{
+  "queue_id": "kvarti-20260917-0347-ai-slowdown",
+  "slug": "von-der-leyen-vil-bremse-kaploebet-mod-staerkere-ai",
+  "headline": "Von der Leyen vil bremse kapløbet mod stærkere AI",
+  "category_slug": "udland",
+  "deck": "EU-chefen vil samle de førende AI-laboratorier. Hun advarer om modeller, der kan gøre avancerede cyberangreb lettere.",
+  "body_markdown": "EU-Kommissionens formand Ursula von der Leyen vil forsøge at bremse kapløbet mod stadig stærkere kunstig intelligens og indkalde verdens førende AI-laboratorier til samtaler om sikkerhed. Udmeldingen kom onsdag i hendes årlige tale om EU's tilstand i Europa-Parlamentet.\n\nIfølge Reuters bakker von der Leyen op om tanken om at sænke tempoet i udviklingen af de mest avancerede AI-systemer. Hun vil invitere virksomhederne bag de førende modeller til drøftelser om, hvordan risiciene kan begrænses, før systemerne bliver endnu mere kraftfulde.\n\nBekymringen handler blandt andet om cybersikkerhed. Von der Leyen advarede om, at avancerede modeller snart kan gøre det muligt for fjendtlige aktører at gennemføre cyberangreb på et niveau, som i dag kræver langt større ekspertise. EU vil derfor arbejde sammen med blandt andre Storbritannien og Canada om afprøvning af modeller og AI-sikkerhed.\n\nKursen rummer en tydelig spænding i EU's egen politik. Europa-Kommissionen har samtidig gjort øget brug af kunstig intelligens til et centralt mål for europæisk konkurrenceevne. EU ønsker både hurtigere udbredelse af teknologien i virksomheder og offentlige institutioner og stærkere kontrol med de mest avancerede systemer.\n\nDen Europæiske Centralbanks formand Christine Lagarde advarede så sent som mandag om den modsatte risiko: at Europa kan blive afskåret fra afgørende AI-teknologi, fordi kontinentet er stærkt afhængigt af udenlandske leverandører. Hun har argumenteret for mere europæisk computerkapacitet og egne modeller for at mindske afhængigheden af især amerikansk teknologi.\n\nVon der Leyens forslag er endnu ikke et forbud mod at udvikle stærkere modeller, og der ligger ikke en vedtaget tidsplan for en pause. Det er foreløbig en politisk invitation til de førende laboratorier og andre lande om at finde fælles sikkerhedsregler.\n\nEU har allerede vedtaget AI-forordningen, der indfører forskellige krav efter systemernes risiko. Den nye udmelding går et skridt videre politisk ved at rette fokus mod selve tempoet i udviklingen af de mest avancerede modeller.\n\nDebatten deler også AI-branchen. Nogle ledere og forskere har advaret om, at udviklingen går hurtigere end sikkerhedsarbejdet. Andre frygter, at en europæisk opbremsning kan gøre det endnu vanskeligere for Europa at konkurrere med USA og Kina. Det centrale spørgsmål bliver derfor, om von der Leyen kan få de store laboratorier og andre regeringer med på en fælles linje, uden at Europa samtidig sakker yderligere bagud teknologisk.",
+  "source_metadata": [
+    {
+      "url": "https://www.reuters.com/world/eus-von-der-leyen-invite-frontier-labs-talks-tackling-ai-risks-2026-09-16/",
+      "title": "EU's von der Leyen backs AI slowdown, to invite frontier labs for talks",
+      "source_type": "authoritative"
+    },
+    {
+      "url": "https://commission.europa.eu/strategy-and-policy/state-union_en",
+      "title": "State of the Union 2026",
+      "source_type": "authoritative"
+    },
+    {
+      "url": "https://www.europarl.europa.eu/news/en/press-room/20260911IPR47459/meps-debate-state-of-the-eu-economy-security-climate-ai-social-media",
+      "title": "MEPs debate state of the EU: economy, security, climate, AI, social media",
+      "source_type": "authoritative"
+    }
+  ],
+  "editorial_metadata": {
+    "sagen_kort": [
+      "Ursula von der Leyen vil invitere de førende AI-laboratorier til samtaler om at begrænse risiciene ved de mest avancerede modeller.",
+      "Hun advarer om, at stærkere AI kan gøre avancerede cyberangreb lettere, mens EU samtidig forsøger at øge Europas brug af teknologien."
+    ],
+    "final_qa_duplicate": false,
+    "discovery_run_id": "news-20260917-0347-kvarti",
+    "hero_candidates": [
+      {
+        "rank": 1,
+        "source_url": "https://commons.wikimedia.org/wiki/File:Ursula_von_der_Leyen_(P-067642_00-12).jpg",
+        "description": "Dokumentarisk portræt af EU-Kommissionens formand Ursula von der Leyen, historiens centrale aktør.",
+        "license": "CC BY 4.0",
+        "attribution": "European Commission / Wikimedia Commons",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true
+      },
+      {
+        "rank": 2,
+        "source_url": "https://commons.wikimedia.org/wiki/File:Ursula_von_der_Leyen,_2021.jpg",
+        "description": "Alternativt dokumentarisk portræt af Ursula von der Leyen.",
+        "license": "CC BY 4.0",
+        "attribution": "European Commission, Etienne Ansotte / Wikimedia Commons",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "width": 4897,
+        "height": 6049
+      },
+      {
+        "rank": 3,
+        "source_url": "https://commons.wikimedia.org/wiki/File:Hemicycle_atmosphere_in_Strasbourg.jpg",
+        "description": "Europa-Parlamentets plenarsal i Strasbourg, hvor talen om EU's tilstand blev holdt.",
+        "license": "CC BY 4.0",
+        "attribution": "European Union / European Parliament / Wikimedia Commons",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "width": 6909,
+        "height": 4606
+      }
+    ],
+    "discovery_audit": [
+      {
+        "candidate_id": "cand-eu-ai-slowdown",
+        "source_pool": "discovery/brussels-signal-followup-and-major-media",
+        "rank": 1,
+        "candidate_headline": "Von der Leyen støtter opbremsning i udviklingen af de stærkeste AI-modeller",
+        "deep_screened": true,
+        "downstream_sources": ["Reuters", "European Commission", "European Parliament"],
+        "decision": "selected",
+        "reason": "Frisk 16. september-udmelding med tydelig friheds-, regulerings- og konkurrencevinkel. Centrale påstande dokumenteret af Reuters og EU-primærmateriale. Observerbar syv-dages [PUBLISH]-historik viser ingen næsten-identisk artikel om AI-opbremsning.",
+        "model_prompt_version": "canonical-news-task-2026-09-17"
+      }
+    ]
+  }
+}
