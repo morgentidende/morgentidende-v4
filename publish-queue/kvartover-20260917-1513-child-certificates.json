@@ -1,0 +1,32 @@
+{
+  "queue_id": "kvartover-20260917-1513-child-certificates",
+  "slug": "400-ansættelser-i-bero-boerneattest-stop-rammer-kommuner",
+  "headline": "400 ansættelser i bero i Aarhus: Børneattest-stop rammer seks store kommuner",
+  "category_slug": "indland",
+  "deck": "En fejl i Kriminalregisteret har stoppet nye børneattester i to uger. Nu advarer seks kommuner om problemer med driften.",
+  "body_markdown": "Seks af landets største kommuner advarer nu justitsminister Nicolai Wammen om, at stoppet for nye børneattester er blevet kritisk for skoler, daginstitutioner og andre tilbud til børn og unge.\n\nKøbenhavn, Aarhus, Aalborg, Odense, Esbjerg og Randers skriver i et fælles brev, at den manglende udstedelse af attester påvirker kommunernes mulighed for både at løse lovbundne opgaver og holde den daglige drift kørende.\n\nI Aarhus Kommune alene er omkring 400 ansættelser sat i bero. Tilsvarende problemer findes ifølge brevet i de øvrige kommuner, hvor institutioner, skoler, sociale tilbud og fritidsfaciliteter ikke kan få de nødvendige nye medarbejdere på arbejde.\n\nRigspolitiet satte udstedelsen af børneattester i bero 2. september, efter at politiet havde konstateret en fejl i Kriminalregisteret. Oplysninger om visse afgørelser var automatisk blevet slettet tidligere, end de skulle.\n\nRigspolitiet oplyste 10. september, at den foreløbige undersøgelse pegede på fejl ved 11 af omkring 1.400 relevante gerningskoder. Fem af de cirka 150 gerningskoder, der er relevante for børneattester, kan være berørt. Politiet havde på det tidspunkt genregistreret yderligere 16 afgørelser, som var blevet slettet for tidligt.\n\nProblemet har store praktiske konsekvenser, fordi arbejdsgivere skal indhente børneattest, når ansatte skal have direkte kontakt med børn under 15 år. Kommunerne kan derfor ikke bare gennemføre de berørte ansættelser som normalt.\n\nMichael Ziegler, formand for løn- og personaleudvalget i Kommunernes Landsforening, siger, at institutioner i mellemtiden kan blive nødt til at bruge flere vikarer, bede eksisterende ansatte arbejde over eller lade ledere tage vagter blandt børnene.\n\nRigspolitiet udsteder normalt omkring 450.000 børneattester om året, svarende til mere end 1.200 om dagen. Derfor vokser bunken af uafsluttede sager hurtigt, så længe udstedelsen er sat på pause.\n\nRigspolitiet har understreget, at arbejdet med at genskabe de slettede afgørelser fortsætter. Myndigheden har ikke i den seneste offentlige status sat en dato på, hvornår udstedelsen af børneattester kan genoptages.",
+  "source_metadata": [
+    {"url":"https://politi.dk/rigspolitiet/nyhedsliste/boerneattester-og-vaabentilladelser-er-fortsat-i-bero/2026/09/10","publisher":"Rigspolitiet","source_class":"authoritative","published_at":"2026-09-10"},
+    {"url":"https://www.dksocial.dk/ritzau/40a2c201-0789-4396-8a06-851af0c34657","publisher":"Ritzau / DK Social","source_class":"authoritative","published_at":"2026-09-17"},
+    {"url":"https://www.dkindkob.dk/ritzau/ca678c7e-c878-42fa-a14c-adda0c8c5dca","publisher":"Ritzau / DK Indkøb","source_class":"authoritative","published_at":"2026-09-17"}
+  ],
+  "editorial_metadata": {
+    "sagen_kort": [
+      "Omkring 400 ansættelser er sat i bero i Aarhus, fordi nye børneattester ikke kan udstedes.",
+      "Rigspolitiet satte attesterne på pause 2. september efter for tidlig sletning af oplysninger i Kriminalregisteret."
+    ],
+    "frontpage_destination": "normal",
+    "story_cluster_key": "dk-kriminalregister-boerneattester-2026-09",
+    "hero_candidates": [
+      {"rank":1,"source_url":"https://commons.wikimedia.org/wiki/File:K%C3%B8benhavn_-_Rigspolitiet_(30697723370).jpg","provider":"wikimedia_commons","license":"CC BY 2.0","attribution":"Fred Romero","commercial_use_allowed":true,"local_storage_allowed":true,"width":5184,"height":3456},
+      {"rank":2,"source_url":"https://commons.wikimedia.org/wiki/File:Rigspolitiet.jpg","provider":"wikimedia_commons","license":"CC BY-SA 4.0","attribution":"Leif Jørgensen","commercial_use_allowed":true,"local_storage_allowed":true,"width":2560,"height":1920}
+    ],
+    "hero_exception":{"reason":"Kun to direkte relevante, dokumentariske billeder af Rigspolitiets hovedsæde med verificerede genbrugsrettigheder og tilstrækkelige dimensioner blev fundet inden for runnets researchramme."},
+    "discovery_audit": {
+      "discovery_run_id":"kvartover-20260917-1513",
+      "source_pool":"major_media_fallback",
+      "candidates_tried":1,
+      "candidates":[{"candidate_id":"child-certificates","rank":1,"topic":"Stop for børneattester rammer kommunale ansættelser","deep_screened":true,"decision":"selected","reason":"Frisk konkret konsekvens: seks store kommuner advarer, og cirka 400 ansættelser er sat i bero alene i Aarhus."}]
+    }
+  }
+}
