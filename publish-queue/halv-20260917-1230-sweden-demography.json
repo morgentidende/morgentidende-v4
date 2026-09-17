@@ -1,0 +1,32 @@
+{
+  "queue_id": "halv-20260917-1230-sweden-demography",
+  "slug": "svensk-m-politiker-indvandring-kan-have-afgjort-valget",
+  "headline": "Svensk M-politiker: Indvandring kan have afgjort valget",
+  "category_slug": "udland",
+  "deck": "Kun omkring 30.000 stemmer skiller blokkene. Fredrik Kärrholm kritiserer sin egen regering for ikke at bremse nye statsborgerskaber.",
+  "body_markdown": "Et af Sveriges regeringspartier retter nu kritikken mod sin egen migrationspolitik efter det tætte riksdagsvalg. Fredrik Kärrholm, medlem af Riksdagen for Moderaterna, mener, at demografiske ændringer kan have været afgørende for, at regeringsblokken står til at miste magten.\n\nKärrholms argument er ikke et fastslået valgresultat, men en politisk analyse. Den endelige svenske stemmeoptælling er endnu ikke afsluttet, og Valmyndigheten understreger, at sene brev- og udlandsstemmer fortsat kan ændre resultatet.\n\nIfølge Kärrholm er forskellen mellem blokkene i det foreløbige resultat omkring 30.000 stemmer. Han peger samtidig på, at op mod 200.000 mennesker er blevet svenske statsborgere siden regeringsskiftet i 2022, og kalder det en fejl, at regeringen ikke satte behandlingen af nye statsborgerskaber på pause, mens strammere regler blev forberedt.\n\nKärrholm fremhæver især valgkredse med mange indvandrere. I dele af Rosengård i Malmö fik Socialdemokraterna og Vänsterpartiet tilsammen over 90 procent af stemmerne. Han bruger tallene som argument for, at vælgere med indvandrerbaggrund kan have flyttet balancen mellem blokkene.\n\nDet er imidlertid ikke muligt ud fra valgresultaterne alene at fastslå, hvordan bestemte befolkningsgrupper har stemt, eller at nye statsborgere har afgjort valget. Svensk valgstatistik registrerer stemmer efter geografiske distrikter, ikke den enkelte vælgers baggrund. Sammenhængen er derfor Kärrholms fortolkning af et meget tæt valg.\n\nValmyndigheten opgjorde før valget 8.046.725 stemmeberettigede til Riksdagen. Myndigheden oplyser samtidig, at den endelige optælling først er bindende, når länsstyrelserne har kontrolleret alle stemmer, personstemmer og gyldigheden af stemmesedlerne.\n\nKärrholms kritik er usædvanlig, fordi den rammer hans eget parti. Moderaterna har sammen med sine regeringspartnere gjort en strammere migrations- og statsborgerskabspolitik til en central del af regeringsgrundlaget. Hans pointe er, at stramningerne kom for sent til at påvirke, hvem der havde stemmeret ved dette valg.\n\nDiskussionen rammer dermed et større spørgsmål efter det svenske valg: Ikke kun hvorfor vælgerne skiftede parti, men også hvordan flere års indvandring og efterfølgende statsborgerskaber på længere sigt ændrer vælgerkorpsets sammensætning. Den præcise betydning for 2026-valget kan først vurderes mere sikkert, når det endelige resultat og mere detaljerede valganalyser foreligger.",
+  "source_metadata": [
+    {"url":"https://www.gp.se/nyheter/sverige/m-ledamot-hade-gjort-saddam-hussein-avundsjuk.b6879423-d884-5622-b1b6-3dc8e4bf8173","type":"authoritative","role":"TT reporting of Fredrik Kärrholm's argument, figures and self-criticism"},
+    {"url":"https://www.val.se/valresultat-och-statistik/statistik-och-data/radata-val-2026","type":"authoritative","role":"primary Valmyndigheten data on eligible voters and 2026 election statistics"},
+    {"url":"https://www.val.se/kommande-val/val-2026---riksdag-region-och-kommun","type":"authoritative","role":"primary Valmyndigheten explanation of ongoing count and final-result process"}
+  ],
+  "editorial_metadata": {
+    "sagen_kort": [
+      "Moderaterna-politikeren Fredrik Kärrholm peger på cirka 30.000 stemmers forskel mellem blokkene og op mod 200.000 nye statsborgere siden 2022.",
+      "Valgdata kan ikke i sig selv bevise, at nye statsborgere afgjorde valget; den endelige svenske optælling er fortsat i gang."
+    ],
+    "story_cluster_key": "sweden-2026-election-demography",
+    "hero_candidates": [
+      {"rank":1,"source_url":"https://commons.wikimedia.org/wiki/File:Bokm%C3%A4ssan_2024_386_%E2%80%93_Fredrik_K%C3%A4rrholm.jpg","commercial_use_allowed":true,"local_storage_allowed":true,"license":"CC BY-SA 4.0","width":5568,"height":3712,"note":"Documentary portrait of Fredrik Kärrholm, the central actor; attribution/share-alike required."},
+      {"rank":2,"source_url":"https://commons.wikimedia.org/wiki/File:20180517_Rosengard_Malmo_01_(42184111091).jpg","commercial_use_allowed":true,"local_storage_allowed":true,"license":"CC BY 3.0","width":5873,"height":3915,"note":"Documentary view of Rosengård in Malmö, central to the voting-pattern argument; attribution required."},
+      {"rank":3,"source_url":"https://commons.wikimedia.org/wiki/File:Riksdagshuset_i_Stockholm.jpg","commercial_use_allowed":true,"local_storage_allowed":true,"license":"CC0 1.0","width":1754,"height":1000,"note":"Swedish Riksdag building; public-domain dedication and directly relevant parliamentary context."}
+    ],
+    "discovery_run_id": "halv-20260917-1230",
+    "discovery_direction": "prioritér en frisk, dokumenterbar profilhistorie uden at gentage dagens tunge Canada-, EU-migrations-, Spanien- og Kosovo-dækning",
+    "audit": [
+      {"candidate_id":"halv1230-canada-eu","rank":1,"headline":"Canada invited to become EU associate member","deep_screened":true,"decision":"duplicate","reason":"near-identical fresh transport PR #593; related Trump/Canada follow-ups also transported in PR #659 and #668"},
+      {"candidate_id":"halv1230-sweden-demography","rank":1,"headline":"Moderate MP argues immigration may have decided Sweden election","deep_screened":true,"decision":"selected","reason":"fresh post-election development, profile-relevant and documentable with TT reporting plus primary Valmyndigheten data; causal claim explicitly attributed and qualified"}
+    ],
+    "producer_check": {"semantic_7_day_dedupe":"passed against fresh GitHub PUBLISH history after Canada candidate was excluded as duplicate; no near-identical transport found for Kärrholm demographic-election argument","share_test":"Jeg sender dig den her, fordi en svensk regeringspolitiker selv siger, at hans regering begik en fejl ved at lade op mod 200.000 nye statsborgerskaber gå igennem, mens kun omkring 30.000 stemmer skiller blokkene."}
+  }
+}
