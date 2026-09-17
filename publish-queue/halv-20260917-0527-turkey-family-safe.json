@@ -1,0 +1,29 @@
+{
+  "queue_id": "halv-20260917-0527-turkey-family-safe",
+  "slug": "tyrkiet-faengsler-lgbt-aktivister-familie-operation",
+  "headline": "Tyrkiet fængsler LGBT-aktivister i landsdækkende »Min familie er sikker«-aktion",
+  "category_slug": "udland",
+  "deck": "Otte medlemmer af en rettighedsorganisation er senest fængslet før retssag, mens regeringen henviser til børn og familieværdier.",
+  "body_markdown": "Tyrkiske domstole har fængslet flere LGBT-aktivister før retssag som led i en omfattende politiaktion, der har fået navnet »Min familie er sikker«. Senest blev otte medlemmer af LGBT-rettighedsorganisationen Kaos GL fængslet, mens syv andre blev løsladt under retsligt tilsyn.\n\nAktionen omfatter ifølge Tyrkiets justitsminister Akın Gürlek 162 mistænkte, ni foreninger og 13 virksomheder i 15 provinser. Efterforskningen koordineres af anklagemyndigheder i blandt andet Istanbul, Ankara, Izmir, Aydın og Mersin.\n\nMyndighederne siger, at efterforskningen blandt andet retter sig mod mistanke om prostitution, produktion og spredning af obskønt materiale samt aktiviteter, hvor børn skal være blevet udsat for sådant indhold. Politiet har foretaget ransagninger og beslaglæggelser og har blokeret en række hjemmesider og konti på sociale medier.\n\nJustitsministeriet kobler indsatsen til præsident Recep Tayyip Erdoğans program »2026-2035: Familien og befolkningens årti«. Gürlek siger, at staten har en forfatningsmæssig pligt til at beskytte børn og familier, og at myndighederne ikke vil tolerere kriminelle netværk, misbrug eller ulovlige aktiviteter rettet mod børn, unge og familier.\n\nMinisteriet oplyser samtidig, at den tyrkiske enhed for efterforskning af økonomisk kriminalitet undersøger udenlandske pengeoverførsler til nogle af de berørte foreninger. Myndighederne har ikke dermed fastslået, at udenlandsk finansiering i sig selv er ulovlig; forbindelsen mellem pengene og de forhold, der efterforskes, er fortsat under undersøgelse.\n\nSagen har udløst protester og skarp kritik. Reuters rapporterer, at 126 demonstranter tidligere på ugen blev tilbageholdt under protester i Ankara og Istanbul. Europarådets menneskerettighedskommissær Michael O'Flaherty har kritiseret indgrebene og advaret mod at bruge familieværdier som begrundelse for at begrænse grundlæggende rettigheder.\n\nKaos GL kalder anholdelserne politisk motiverede og kræver de fængslede løsladt. Også EU har udtrykt bekymring over anholdelser, retssager mod rettighedsgrupper og begrænsninger af medier.\n\nRegeringen fastholder derimod, at aktionen handler om konkrete mulige lovovertrædelser og beskyttelse af børn og offentlig orden. Dermed står to meget forskellige forklaringer over for hinanden: myndighedernes påstand om kriminalitetsbekæmpelse og kritikernes påstand om et bredere politisk indgreb mod LGBT-miljøet. De konkrete straffesager er endnu ikke afgjort.",
+  "source_metadata": [
+    {"url":"https://www.adalet.gov.tr/bakan-gurlek-cocuklarimizi-genclerimizi-ve-ailelerimizi-hedef-alan-hicbir-suc-yapilanmasina-musam","name":"Tyrkiets Justitsministerium","type":"primary","published_at":"2026-09-13"},
+    {"url":"https://www.reuters.com/world/middle-east/turkey-jails-8-lgbtq-activists-pending-trial-part-sweeping-investigation-2026-09-16/","name":"Reuters","type":"authoritative","published_at":"2026-09-16"},
+    {"url":"https://apnews.com/article/c782f5318613126fe072d29133e6bf5d","name":"Associated Press","type":"authoritative","published_at":"2026-09-14"}
+  ],
+  "editorial_metadata": {
+    "sagen_kort": [
+      "Tyrkiets landsdækkende aktion omfatter ifølge justitsministeriet 162 mistænkte, ni foreninger og 13 virksomheder i 15 provinser.",
+      "Otte medlemmer af Kaos GL er senest fængslet før retssag; rettighedsgrupper og europæiske institutioner kritiserer indgrebene."
+    ],
+    "final_qa_duplicate": false,
+    "hero_candidates": [
+      {"rank":1,"source_url":"https://commons.wikimedia.org/wiki/File:Ak%C4%B1n_G%C3%BCrlek_06032026.jpg","license":"CC BY 4.0","commercial_use_allowed":true,"local_storage_allowed":true,"width":3024,"height":4032,"credit":"Kayra / Wikimedia Commons","reason":"Justitsminister Akın Gürlek, som offentliggjorde omfanget af aktionen."},
+      {"rank":2,"source_url":"https://commons.wikimedia.org/wiki/File:Ak%C4%B1n_G%C3%BCrlek_06032026_(cropped).jpg","license":"CC BY 4.0","commercial_use_allowed":true,"local_storage_allowed":true,"width":1425,"height":2194,"credit":"Kayra / Wikimedia Commons","reason":"Tæt portræt af den ansvarlige justitsminister."},
+      {"rank":3,"source_url":"https://commons.wikimedia.org/wiki/File:Ak%C4%B1n_G%C3%BCrlek_and_Abdulkadir_Uralo%C4%9Flu_06032026.jpg","license":"CC BY 4.0","commercial_use_allowed":true,"local_storage_allowed":true,"width":3024,"height":4032,"credit":"Kayra / Wikimedia Commons","reason":"Dokumentarisk foto med justitsminister Gürlek."}
+    ],
+    "discovery_run_id":"halv-20260917-0527",
+    "discovery_audit":[
+      {"candidate_id":"turkey-family-safe","source_pool":"discovery","source_path":"Brussels Signal","rank":1,"headline_topic":"Tyrkisk landsdækkende aktion mod LGBT-grupper","deep_screened":true,"downstream_sources":["Tyrkiets Justitsministerium","Reuters","Associated Press"],"decision":"selected","reason":"Frisk væsentlig videreudvikling med fængslinger før retssag; stærk friheds- og statsmagtsvinkel, dokumenteret af primærkilde og internationale nyhedsbureauer.","model_prompt_version":"canonical-news-task-2026-09-17"}
+    ]
+  }
+}
