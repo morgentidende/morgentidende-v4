@@ -73,6 +73,40 @@ const patchJob = async (env: Env, id: string, patch: Record<string, unknown>) =>
   if (!response.ok) throw new Error(`queue_patch_failed:${response.status}`);
 };
 
+const markArticleMediaTerminal = async (
+  env: Env,
+  job: QueueJob,
+  reason: string,
+  details: Record<string, unknown>,
+) => {
+  if (!job.article_id) return;
+  try {
+    const response = await fetch(`${env.SUPABASE_URL}/rest/v1/rpc/mark_article_media_terminal_failure`, {
+      method: 'POST',
+      headers: supabaseHeaders(env),
+      body: JSON.stringify({
+        p_job_id: job.id,
+        p_reason: reason.slice(0, 500),
+        p_details: details,
+      }),
+    });
+    if (!response.ok) {
+      console.error('media_terminal_article_state_failed', {
+        job_id: job.id,
+        article_id: job.article_id,
+        status: response.status,
+        body: (await response.text()).slice(0, 300),
+      });
+    }
+  } catch (error) {
+    console.error('media_terminal_article_state_failed', {
+      job_id: job.id,
+      article_id: job.article_id,
+      error: error instanceof Error ? error.message : String(error),
+    });
+  }
+};
+
 const enqueueFallback = async (
   env: Env,
   payload: Record<string, unknown>,
@@ -333,19 +367,22 @@ const processJob = async (env: Env, job: QueueJob) => {
 
     if (transient) {
       const terminal = job.attempts >= 3;
+      const lastError = `ingest_${attempt.response.status}:${JSON.stringify(attempt.result).slice(0, 500)}`;
+      const result = {
+        ...attempt.result,
+        failure_class: 'transient',
+        terminal,
+        candidate_index: candidateIndex(payload),
+        tried,
+      };
       await patchJob(env, job.id, {
         status: terminal ? 'failed' : 'pending',
         payload,
         next_attempt_at: terminal ? null : retryAt(job.attempts),
-        last_error: `ingest_${attempt.response.status}:${JSON.stringify(attempt.result).slice(0, 500)}`,
-        result: {
-          ...attempt.result,
-          failure_class: 'transient',
-          terminal,
-          candidate_index: candidateIndex(payload),
-          tried,
-        },
+        last_error: lastError,
+        result,
       });
+      if (terminal) await markArticleMediaTerminal(env, job, lastError, result);
       return;
     }
 
@@ -355,35 +392,40 @@ const processJob = async (env: Env, job: QueueJob) => {
       continue;
     }
 
+    const lastError = `ingest_${attempt.response.status}:${JSON.stringify(attempt.result).slice(0, 500)}`;
+    const result = {
+      ...attempt.result,
+      failure_class: 'permanent',
+      terminal: true,
+      candidate_index: candidateIndex(payload),
+      candidates_exhausted: true,
+      tried,
+    };
     await patchJob(env, job.id, {
       status: 'failed',
       payload,
       next_attempt_at: null,
-      last_error: `ingest_${attempt.response.status}:${JSON.stringify(attempt.result).slice(0, 500)}`,
-      result: {
-        ...attempt.result,
-        failure_class: 'permanent',
-        terminal: true,
-        candidate_index: candidateIndex(payload),
-        candidates_exhausted: true,
-        tried,
-      },
+      last_error: lastError,
+      result,
     });
+    await markArticleMediaTerminal(env, job, lastError, result);
     return;
   }
 
+  const result = {
+    error: 'candidate_loop_guard_exhausted',
+    terminal: true,
+    candidate_index: candidateIndex(payload),
+    tried: arrayOfRecords(payload.tried),
+  };
   await patchJob(env, job.id, {
     status: 'failed',
     payload,
     next_attempt_at: null,
     last_error: 'candidate_loop_guard_exhausted',
-    result: {
-      error: 'candidate_loop_guard_exhausted',
-      terminal: true,
-      candidate_index: candidateIndex(payload),
-      tried: arrayOfRecords(payload.tried),
-    },
+    result,
   });
+  await markArticleMediaTerminal(env, job, 'candidate_loop_guard_exhausted', result);
 };
 
 const processQueue = async (env: Env) => {
@@ -398,7 +440,11 @@ const processQueue = async (env: Env) => {
         status: terminal ? 'failed' : 'pending',
         next_attempt_at: terminal ? null : retryAt(job.attempts),
         last_error: message.slice(0, 500),
+        ...(terminal ? { result: { error: message.slice(0, 500), terminal: true, failure_class: 'worker_error' } } : {}),
       });
+      if (terminal) {
+        await markArticleMediaTerminal(env, job, message, { failure_class: 'worker_error', terminal: true });
+      }
       console.error('media_queue_job_error', { job_id: job.id, error: message });
     }
   }
