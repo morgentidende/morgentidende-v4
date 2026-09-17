@@ -1,0 +1,17 @@
+{
+  "payload_type": "discovery_audit",
+  "queue_id": "halv-20260917-2030-audit",
+  "terminal_reason": "QA_HISTORY_UNAVAILABLE",
+  "discovery_run_id": "halv-20260917-2030",
+  "audit": {
+    "source_pool": "discovery",
+    "candidate_id": "candidate-1",
+    "rank": 1,
+    "headline_topic": "EU emergency migration framework for weaponised mass movements",
+    "deep_screened": true,
+    "downstream_sources": ["Reuters", "European Commission / State of the Union reporting"],
+    "decision": "hard_stop_before_write",
+    "reason": "Mandatory seven-day dedupe requires complete public Morgentidende article history plus all GitHub [PUBLISH] transports. GitHub state=all transport enumeration was available, but a demonstrably complete public seven-day Morgentidende article-history corpus could not be established in this runtime.",
+    "model_prompt_version": "canonical docs/automations/news-task.md@2026-09-17"
+  }
+}
