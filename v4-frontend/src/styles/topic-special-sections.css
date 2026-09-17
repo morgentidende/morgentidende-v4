@@ -1,15 +1,15 @@
 .v4-topic-special {
-  margin-top: 46px;
-  padding-top: 20px;
+  margin-top: 42px;
+  padding-top: 18px;
   border-top: 2px solid color-mix(in srgb, var(--v4-rule) 72%, var(--v4-gold) 28%);
 }
 
 .v4-topic-special__header {
-  margin-bottom: 16px;
+  margin-bottom: 13px;
 }
 
 .v4-topic-special__eyebrow {
-  margin-bottom: 5px;
+  margin-bottom: 4px;
   color: var(--v4-muted);
   font-size: 10px;
   font-weight: 800;
@@ -19,33 +19,36 @@
 .v4-topic-special__title {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 9px;
   margin: 0;
   font-family: var(--v4-serif);
-  font-size: clamp(28px, 3.4vw, 42px);
+  font-size: clamp(26px, 2.8vw, 36px);
   line-height: 1;
-  letter-spacing: -.015em;
+  letter-spacing: -.012em;
 }
 
 .v4-topic-special__title-arrow {
   display: inline-block;
   color: var(--v4-gold);
   font-family: ui-sans-serif, system-ui, sans-serif;
-  font-size: .8em;
+  font-size: .75em;
   font-weight: 500;
   transform: translateY(1px);
 }
 
 .v4-topic-special__viewport {
+  position: relative;
   width: 100%;
   overflow-x: auto;
   overflow-y: hidden;
   overscroll-behavior-inline: contain;
   scroll-behavior: smooth;
   scroll-snap-type: x proximity;
+  scroll-padding-inline: 0 24px;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
   outline: none;
+  touch-action: pan-x pan-y;
 }
 
 .v4-topic-special__viewport::-webkit-scrollbar {
@@ -54,14 +57,15 @@
 
 .v4-topic-special__track {
   display: flex;
-  gap: 20px;
+  gap: 18px;
   width: max-content;
-  padding: 0 max(20px, 8vw) 6px 0;
+  padding: 0 max(72px, 8vw) 8px 0;
 }
 
 .v4-topic-special__card {
-  flex: 0 0 clamp(270px, 30vw, 360px);
+  flex: 0 0 clamp(248px, 22vw, 292px);
   scroll-snap-align: start;
+  scroll-snap-stop: normal;
 }
 
 .v4-topic-special__card .v4-card__media {
@@ -69,45 +73,55 @@
 }
 
 .v4-topic-special__card .v4-card__headline {
-  margin-top: 7px;
-  font-size: clamp(18px, 1.55vw, 24px);
+  margin-top: 6px;
+  font-size: clamp(18px, 1.4vw, 22px);
   line-height: 1.1;
 }
 
 .v4-topic-special__card .v4-kicker {
-  margin-top: 9px;
+  margin-top: 8px;
   font-size: 10px;
   letter-spacing: .11em;
 }
 
+@media (max-width: 1100px) {
+  .v4-topic-special__card {
+    flex-basis: clamp(245px, 29vw, 285px);
+  }
+}
+
 @media (max-width: 900px) {
   .v4-topic-special__track {
-    gap: 17px;
-    padding-right: 16vw;
+    gap: 16px;
+    padding-right: 18vw;
   }
 
   .v4-topic-special__card {
-    flex-basis: min(46vw, 340px);
+    flex-basis: min(43vw, 320px);
   }
 }
 
 @media (max-width: 640px) {
   .v4-topic-special {
-    margin-top: 34px;
-    padding-top: 17px;
+    margin-top: 32px;
+    padding-top: 16px;
   }
 
   .v4-topic-special__header {
-    margin-bottom: 13px;
+    margin-bottom: 11px;
+  }
+
+  .v4-topic-special__eyebrow {
+    margin-bottom: 3px;
   }
 
   .v4-topic-special__title {
-    gap: 8px;
-    font-size: 29px;
+    gap: 7px;
+    font-size: 27px;
   }
 
   .v4-topic-special__track {
-    gap: 14px;
+    gap: 13px;
     padding-right: 22vw;
   }
 
