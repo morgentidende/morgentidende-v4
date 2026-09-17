@@ -3,8 +3,15 @@ import { buildDailyNewsletterEmail } from './newsletter-email';
 import { sendSesHtmlEmail } from './ses-email';
 
 type RuntimeEnv = Record<string, string | undefined>;
-type DailyArticle = { id: string; slug: string; headline: string; deck: string | null; published_at: string };
-type Delivery = { delivery_id: string; email: string; unsubscribe_token: string };
+type DailyArticle = { id: string; slug: string; headline: string; deck: string | null; published_at: string; category_slug?: string | null };
+type Delivery = {
+  delivery_id: string;
+  email: string;
+  unsubscribe_token: string;
+  email_theme?: 'auto' | 'light' | 'dark' | null;
+  include_viden?: boolean | null;
+  include_liv?: boolean | null;
+};
 
 const copenhagenClock = (date: Date) => {
   const parts = Object.fromEntries(new Intl.DateTimeFormat('en-CA', {
@@ -30,9 +37,7 @@ export const runDailyNewsletter = async (env: RuntimeEnv, scheduledAt = new Date
   const accessKeyId = env.AWS_ACCESS_KEY_ID || '';
   const secretAccessKey = env.AWS_SECRET_ACCESS_KEY || '';
   const from = env.NEWSLETTER_FROM || 'Morgentidende <nyhedsbrev@morgentidende.dk>';
-  if (!supabaseUrl || !supabaseKey || !region || !accessKeyId || !secretAccessKey) {
-    throw new Error('newsletter_runtime_env_missing');
-  }
+  if (!supabaseUrl || !supabaseKey || !region || !accessKeyId || !secretAccessKey) throw new Error('newsletter_runtime_env_missing');
 
   const supabase = createClient(supabaseUrl, supabaseKey, { auth: { persistSession: false, autoRefreshToken: false } });
   const articleResult = await supabase.rpc('newsletter_daily_articles', { p_now: scheduledAt.toISOString() });
@@ -64,10 +69,19 @@ export const runDailyNewsletter = async (env: RuntimeEnv, scheduledAt = new Date
         let errorCode: string | null = null;
         try {
           const unsubscribeUrl = `https://morgentidende.dk/api/newsletter/unsubscribe?token=${encodeURIComponent(delivery.unsubscribe_token)}`;
+          const selectedArticles = articles.filter((article) => {
+            if (article.category_slug === 'viden' && delivery.include_viden === false) return false;
+            if (article.category_slug === 'liv' && delivery.include_liv === false) return false;
+            return true;
+          }).slice(0, 8);
           const mail = await sendSesHtmlEmail({
             region, accessKeyId, secretAccessKey, from, to: delivery.email,
             subject: 'Morgentidende – dagens vigtigste historier',
-            html: buildDailyNewsletterEmail(articles, unsubscribeUrl, localDate)
+            html: buildDailyNewsletterEmail(selectedArticles, unsubscribeUrl, localDate, {
+              emailTheme: delivery.email_theme || 'auto',
+              includeViden: delivery.include_viden !== false,
+              includeLiv: delivery.include_liv !== false
+            })
           });
           ok = mail.ok;
           providerStatus = mail.status;
