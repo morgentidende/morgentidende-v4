@@ -1,15 +1,23 @@
 (() => {
   const input = document.getElementById('key');
   const toggle = document.getElementById('toggle-key');
+  const slash = document.getElementById('eye-slash');
   if (!(input instanceof HTMLInputElement) || !(toggle instanceof HTMLButtonElement)) return;
 
-  toggle.addEventListener('click', () => {
+  const syncIcon = () => {
     const showing = input.type === 'text';
-    input.type = showing ? 'password' : 'text';
-    const label = showing ? 'Vis testnøgle' : 'Skjul testnøgle';
+    if (slash instanceof SVGElement) slash.style.display = showing ? 'none' : '';
+    const label = showing ? 'Skjul testnøgle' : 'Vis testnøgle';
     toggle.setAttribute('aria-label', label);
     toggle.setAttribute('title', label);
-    toggle.setAttribute('aria-pressed', showing ? 'false' : 'true');
+    toggle.setAttribute('aria-pressed', showing ? 'true' : 'false');
+  };
+
+  syncIcon();
+
+  toggle.addEventListener('click', () => {
+    input.type = input.type === 'text' ? 'password' : 'text';
+    syncIcon();
     input.focus();
   });
 })();
