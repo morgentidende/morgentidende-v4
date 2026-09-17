@@ -3,7 +3,7 @@ import V4Layout from '../layouts/V4Layout.astro';
 import V4Card from '../components/V4Card.astro';
 import LiveCenter from '../components/LiveCenter.astro';
 import NewsletterSignup from '../components/NewsletterSignup.astro';
-import SpecialSection from '../components/SpecialSection.astro';
+import TopicSpecialSection from '../components/TopicSpecialSection.astro';
 import '../styles/frontpage.css';
 import '../styles/mobile-horizontal-cards.css';
 import '../styles/livecenter-mobile.css';
@@ -15,7 +15,7 @@ import { loadOfficialSwedenResults } from '../lib/sweden-live-results';
 Astro.response.headers.set('Cache-Control', 'public, max-age=0, s-maxage=30, stale-while-revalidate=60');
 Astro.response.headers.set('Cloudflare-CDN-Cache-Control', 'public, max-age=30, stale-while-revalidate=60');
 
-const { articles, categories, viden, liv, liveCenter, liveUpdates, loadError } = await loadFrontpageData();
+const { articles, categories, viden, liv, specialSections, liveCenter, liveUpdates, loadError } = await loadFrontpageData();
 
 if (loadError) {
   Astro.response.status = 503;
@@ -35,6 +35,7 @@ const liveCenterWithResults = liveCenter?.slug === 'sverige-valg-2026'
   : Promise.resolve(liveCenter);
 
 const resolvedLiveCenter = await liveCenterWithResults;
+const normalArticles = articles.filter((article) => article.frontpage_destination !== 'special_1' && article.frontpage_destination !== 'special_2');
 
 const {
   categoryById,
@@ -46,7 +47,7 @@ const {
   formerLead,
   formerLeadGraceActive,
   leadCategory
-} = buildFrontpageModel(articles, categories);
+} = buildFrontpageModel(normalArticles, categories);
 
 const liveFollowups = resolvedLiveCenter?.story_cluster_id
   ? articles
@@ -63,6 +64,9 @@ const frontpageNews = resolvedLiveCenter
       .sort((a, b) => new Date(b.published_at).getTime() - new Date(a.published_at).getTime())
       .slice(0, 15)
   : news;
+
+const special1 = specialSections.find((section) => section.slot === 1);
+const special2 = specialSections.find((section) => section.slot === 2);
 ---
 <V4Layout image={lead?.hero_url} noindex={loadError}>
   <div class="v4-shell">
@@ -105,26 +109,24 @@ const frontpageNews = resolvedLiveCenter
       </section>
     ) : null}
 
+    {!loadError && special1 ? <TopicSpecialSection section={special1} articles={articles} categoryById={categoryById} /> : null}
+
     {!loadError ? <NewsletterSignup /> : null}
 
     {!loadError ? (
-      <SpecialSection
-        title="Viden"
-        href="/kategori/viden"
-        articles={viden}
-        variant="viden"
-        emptyText="Viden-sektionen er klar til artikler."
-      />
+      <section class="v4-section v4-magazine v4-magazine--viden">
+        <div class="v4-kicker">MAGASIN</div><h2 class="v4-section-title">Viden</h2>
+        {viden.length ? <div class="v4-grid-4">{viden.map((article) => <V4Card article={article} showDeck={false} />)}</div> : <div class="v4-empty">Viden-blokken er klar til artikler.</div>}
+      </section>
     ) : null}
 
+    {!loadError && special2 ? <TopicSpecialSection section={special2} articles={articles} categoryById={categoryById} /> : null}
+
     {!loadError ? (
-      <SpecialSection
-        title="Liv"
-        href="/kategori/liv"
-        articles={liv}
-        variant="liv"
-        emptyText="Liv-sektionen er klar til artikler."
-      />
+      <section class="v4-section v4-magazine v4-magazine--liv">
+        <div class="v4-kicker">MAGASIN</div><h2 class="v4-section-title">Liv</h2>
+        {liv.length ? <div class="v4-grid-4">{liv.map((article) => <V4Card article={article} showDeck={false} />)}</div> : <div class="v4-empty">Liv-blokken er klar til artikler.</div>}
+      </section>
     ) : null}
 
     {!loadError && frontpageNews.length > 7 ? (
