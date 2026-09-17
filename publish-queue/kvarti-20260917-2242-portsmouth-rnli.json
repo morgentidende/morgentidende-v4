@@ -1,0 +1,42 @@
+{
+  "queue_id": "kvarti-20260917-2242-portsmouth-rnli",
+  "slug": "redningsstation-lukker-midlertidigt-efter-migrantprotester",
+  "headline": "Redningsstation lukker midlertidigt efter migrantprotester: Frivillige kaldt 'forrædere'",
+  "category_slug": "udland",
+  "deck": "RNLI har taget sin station i Portsmouth ud af drift efter trusler og overgreb mod frivillige. Redningsberedskabet fortsætter fra nabostationer.",
+  "body_markdown": "Den britiske søredningstjeneste RNLI har midlertidigt taget sin redningsstation i Portsmouth ud af drift efter protester og chikane mod frivillige i kølvandet på en redningsaktion med migranter i Den Engelske Kanal. Stationen har været ude af drift siden 10. september, oplyser RNLI.\n\nUroen begyndte efter 6. september, hvor RNLI hjalp omkring 120 mennesker fra en lille båd i land ved Eastney i Portsmouth. Demonstranter forsøgte efterfølgende at blokere veje, og frivillige blev blandt andet kaldt 'forrædere' for deres rolle i redningsaktionen.\n\nIfølge RNLI har ansatte og frivillige været udsat for både fysisk og digital chikane. Organisationens direktør, Peter Sparkes, har samtidig kritiseret det, han kalder bevidst misinformation om RNLI's arbejde i Kanalen.\n\nLukningen betyder ikke, at Portsmouth står uden søredning. RNLI siger, at beredskabet fortsætter gennem organisationens nabostationer og andre godkendte redningsressourcer. Organisationen håber at få stationen tilbage i drift hurtigst muligt.\n\nKonflikten rammer et følsomt punkt i den britiske migrationsdebat. Kritikere af bådmigrationen mener, at redningsoperationer kan være med til at gøre overfarten mulig, mens RNLI fastholder, at dens opgave er at redde mennesker i havsnød uanset deres baggrund eller migrationsstatus.\n\nRNLI afviser samtidig påstande om, at organisationen driver en skjult transporttjeneste for migranter eller huser asylansøgere. Organisationen oplyser, at kun en lille del af dens samlede redningsaktioner vedrører små migrantbåde i Kanalen.\n\nSagen har også fået konkrete følger for de frivilliges hverdag. RNLI har anbefalet medarbejdere og frivillige at overveje ikke at bære organisationens mærker offentligt, hvis de føler sig truet. Et RNLI-museum i Poole har ligeledes været midlertidigt lukket efter chikane.\n\nPolitiet har foretaget anholdelser i forbindelse med urolighederne i Portsmouth. En 42-årig mand har erkendt voldelig uorden og er desuden tiltalt for overfald på en politibetjent.\n\nDen midlertidige lukning illustrerer dermed et usædvanligt sammenstød mellem den voksende folkelige konflikt om illegal migration og en frivillig redningstjeneste, hvis erklærede opgave er at redde liv til søs. RNLI understreger, at den konkrete station kan være lukket, uden at selve redningsdækningen i området er ophørt.",
+  "source_metadata": [
+    {"url":"https://www.lbc.co.uk/article/rnli-portsmouth-suspends-service-volunteer-abuse-5Hjdhbb_2/","publisher":"LBC","class":"authoritative","role":"Aktuel dokumentation af RNLI's bekræftelse, dato for driftsstop, beredskab og organisationens reaktion"},
+    {"url":"https://www.independent.co.uk/news/uk/home-news/rnli-portsmouth-suspended-migrant-protests-b3051753.html","publisher":"The Independent","class":"authoritative","role":"Uafhængig dokumentation af protesterne, chikanen, stationens lukning og sikkerhedstiltag"},
+    {"url":"https://www.theguardian.com/uk-news/2026/sep/17/lifeboat-station-portsmouth-temporarily-shut-after-far-right-action","publisher":"The Guardian","class":"authoritative","role":"Uafhængig dokumentation af hændelsesforløb, RNLI's modargumenter og fortsat redningsdækning"}
+  ],
+  "editorial_metadata": {
+    "sagen_kort": [
+      "Portsmouths RNLI-station har været midlertidigt ude af drift siden 10. september efter chikane mod frivillige i forbindelse med migrantredninger.",
+      "RNLI siger, at søredningen omkring Portsmouth fortsætter via nabostationer og andre redningsressourcer trods lukningen."
+    ],
+    "frontpage_destination": "normal",
+    "story_cluster_key": "uk-portsmouth-migration-rnli-2026",
+    "dedupe_context": {
+      "checked_at": "2026-09-17T22:45:00+02:00",
+      "window_days": 7,
+      "publish_prs_seen": 100,
+      "include_closed_publish_prs": true,
+      "newest_publish_pr": 739
+    },
+    "hero_candidates": [
+      {"rank":1,"source_url":"https://commons.wikimedia.org/wiki/File:Portsmouth_Lifeboat_Station.jpg","provider":"wikimedia_commons","width":3872,"height":2592,"commercial_use_allowed":true,"local_storage_allowed":true,"license":"CC BY-SA 2.0","attribution":"Barry Shimmon / Wikimedia Commons","license_url":"https://creativecommons.org/licenses/by-sa/2.0/"},
+      {"rank":2,"source_url":"https://commons.wikimedia.org/wiki/File:RNLI_Lifeguard_-_geograph.org.uk_-_4586320.jpg","provider":"wikimedia_commons","width":4000,"height":2666,"commercial_use_allowed":true,"local_storage_allowed":true,"license":"CC BY-SA 2.0","attribution":"Peter Trimming / Wikimedia Commons","license_url":"https://creativecommons.org/licenses/by-sa/2.0/"},
+      {"rank":3,"source_url":"https://commons.wikimedia.org/wiki/File:RNLI_lifeboat_station,_Littlehampton.jpg","provider":"wikimedia_commons","width":4000,"height":3000,"commercial_use_allowed":true,"local_storage_allowed":true,"license":"CC BY-SA 4.0","attribution":"Simon Burchell / Wikimedia Commons","license_url":"https://creativecommons.org/licenses/by-sa/4.0/"}
+    ],
+    "discovery_audit": {
+      "discovery_run_id":"kvarti-20260917-2242",
+      "model_prompt_version":"canonical-news-task-2026-09-17",
+      "candidates":[
+        {"candidate_id":"c1-iom-sea-crossings","rank":1,"source_pool":"breaking-major-media","headline_topic":"Færre migranter krydser havet til Europa, men flere dør","deep_screened":true,"downstream_sources":["Reuters","AP","IOM"],"decision":"duplicate","reason":"samme hovedbegivenhed og hovedtal er allerede dækket i friske transporter #710 og #714"},
+        {"candidate_id":"c2-portsmouth-rnli","rank":1,"source_pool":"breaking-major-media","headline_topic":"Portsmouths RNLI-station ude af drift efter migrantprotester og chikane","deep_screened":true,"downstream_sources":["LBC","The Independent","The Guardian","RNLI statements"],"decision":"selected","reason":"frisk konkret udvikling 17. september, stærk migrations- og civilsamfundsvinkel og ingen semantisk overlappende transport i den primære syv-dages-ledger"}
+      ]
+    }
+  },
+  "duplicate_of": null
+}
