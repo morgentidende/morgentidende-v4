@@ -1,6 +1,6 @@
 # Morgentidende — media/hero backend-runbook
 
-Denne fil er den kanoniske tekniske beskrivelse af media/hero-pipelinen. Producer-regler for almindelige news-runs ligger i `docs/automations/news-task.md` og skal ikke kopieres herfra ind i prompts.
+Denne fil er den kanoniske tekniske beskrivelse af media/hero-pipelinen. Producentregler for almindelige news-runs ligger i `docs/automations/news-task.md` og skal ikke kopieres herfra ind i prompts.
 
 ## Sluttilstand
 
@@ -24,38 +24,55 @@ Efter article insert opretter `enqueue_github_bridge_media` et `media_ingest_job
 
 Media Worker claimer jobbet og håndterer:
 
+- provider/source-resolution når relevant,
 - download af originalfil,
 - MIME og filsignatur,
 - faktiske pixelmål,
-- minimum 800×450 og kvalitetspræference omkring 1200×675,
-- provider/source-resolution når relevant,
+- absolut minimum 800×450,
 - SHA-256-dedupe,
 - arkivmaster i R2,
 - provenance/rettighedsmetadata,
 - oprettelse eller genbrug af `media_assets`,
 - attach af `hero_media_id` og intern `hero_url` til artiklen.
 
+Producentens normale søgemål er originaler på mindst 1200×675. Kendte kandidater under 800×450 skal filtreres væk før handoff; Media Worker måler alligevel altid den faktisk hentede fil som sidste autoritative kontrol.
+
 ## Hero før Article QA
 
 For nye artikler er rækkefølgen bindende:
 
-`article insert → media ingest → hero ready + attached → Article QA enqueue → release gate → published`
+`article insert → media ingest → hero ready + attached → Article QA enqueue → Safe Publish → published`
 
 **Article QA må ikke enqueue, mens artiklen mangler et publication-ready hero.** Et hero er klar til QA, når det valgte `media_assets`-asset er `ready`, rettigheder og minimumsdimensioner er bestået, intern arkivreference findes, og artiklens `hero_media_id` peger på assettet.
 
 Media Worker/attach-flowet er dermed overgangen ind i QA-fasen. QA er ikke en parallel proces, der venter på billedet bagefter.
 
-## Retry og fallback
+## Én fallback-state-machine
 
-Permanente fejl, fx ugyldigt format, 404/410, for lille fil eller manglende arkiveringsret, skal terminaliseres eller føre direkte til næste allerede godkendte kandidat.
+Media Worker er **eneste ejer** af hero-fallback. Fast path og kø/recovery må bruge samme kandidatlogik; der må ikke eksistere parallelle fallback-implementeringer med forskellige regler.
 
-Transiente fejl, fx timeout, 408/425/429 eller 5xx, må gå gennem recovery/fallback-køen. `enqueue_media_ingest_fallback` bevares som database-sikkerhed for, at kun godkendte transient-tilstande kan skabe fallback-job.
+Permanente fejl, fx ugyldigt format, 404/410, for lille fil, HTML i stedet for billede eller manglende arkiveringsret, går direkte til næste allerede godkendte kandidat.
 
-Workerens kø/recovery er transportlogik; den er ikke i sig selv en ekstra publication-gate.
+Transiente fejl, fx timeout, 408/425/429 eller 5xx, beholder samme kandidat og må gå gennem recovery-køen. `enqueue_media_ingest_fallback` bevares som database-sikkerhed for, at kun godkendte transient-tilstande kan skabe retry-job.
+
+**Kandidat-specifik resolver-state må aldrig arves til næste kandidat.** Identiteter, resolved URLs, SHA-forventninger, dimensioner og licenssnapshots fra kandidat A skal ryddes, før kandidat B resolveres.
+
+Når alle kandidater er permanent udtømt, terminaliserer media-jobbet og artiklen flyttes fra `scheduled` til `draft` med `publication_attention.reason = hero_candidates_exhausted`. Der kræves ingen separat watchdog til dette.
+
+## Source URLs og resolvers
+
+`source_url` er enten:
+
+1. den direkte originale billed-/download-URL, eller
+2. en provider-side som Media Worker eksplicit understøtter med en resolver, fx en Wikimedia Commons File-side.
+
+En almindelig HTML-landingsside må ikke behandles som billedfil. Hvis en provider kun eksponerer HTML-sider, skal der enten findes en specifik resolver, eller producenten skal finde den egentlige original-/download-URL.
+
+Undgå thumbnails, previews og kendte nedskaleringsparametre. Wikimedia-resolveren læser authoritative `width`/`height` fra Commons API, afviser originaler under 800×450 før billeddownload og vælger kun en thumbnail, når den selv opfylder minimumskravet; ellers bruges originalen.
 
 ## Rettigheder
 
-Produceren kan sende rettighedsmetadata som kandidatpåstande, men publicering stoler ikke alene på producentens tekst. Det arkiverede asset er den kanoniske rettighedsrecord.
+Producenten kan sende rettighedsmetadata som kandidatpåstande, men publicering stoler ikke alene på producentens tekst. Det arkiverede asset er den kanoniske rettighedsrecord.
 
 Når relevant gemmes på assettet:
 
@@ -96,9 +113,11 @@ Legacy eksterne URLs kan mangle managed transforms. Nye assets skal gennem den i
 
 Hero/media er en publication dependency **før** Article QA. Artikeltekst/source-QA hashes ikke hero-attach som en redaktionel content-ændring, men QA-enqueue er stadig fail-closed på, at et validt hero allerede er attached.
 
-Media-validitet håndhæves af SQL write-validation, QA-enqueue-betingelserne og den centrale publication transition. Defense-in-depth her er tilsigtet.
+Article QA ejer tekst-/kildeintegritet for den aktuelle version. Heroens MIME, dimensioner, rettigheder, arkivtilstand, URL og hero-unikhed ejes af Media Worker/databaseinvariants og genimplementeres ikke i Article QA.
 
-Den aktuelle prepublication-release-policy er **45 sekunder** og ejes af Supabase publication/QA-logikken. Media-runbooken må ikke definere en alternativ buffer.
+Der er **ingen kunstig 45-sekunders QA-buffer**. Efter bestået current-version QA forsøger backend Safe Publish direkte. Den periodiske release-runner er kun recovery, hvis det direkte publish-forsøg ikke gennemføres.
+
+Media-validitet håndhæves fortsat af SQL write-validation, QA-enqueue-betingelserne og den centrale publication transition. Denne defense-in-depth beskytter samme media-invariant på relevante state transitions; den er ikke en ekstra media-orchestrator.
 
 ## Chatgenererede raster-heros
 
@@ -137,8 +156,9 @@ Når antallet af legacy-rækker er nul og ingen kode kan skabe nye, kan legacy-k
 
 ## Ownership
 
-- **Journalist/producer:** motivvalg og rangerede kandidater.
-- **Media Worker:** filverifikation, dimensioner, provider-resolution, SHA, arkivering, retry/fallback-eksekvering, asset creation og attach.
+- **Journalist:** motivvalg og rangerede kandidater som del af Write/final check.
+- **Media Worker:** provider-resolution, filverifikation, dimensioner, SHA, arkivering, retry/fallback-eksekvering, asset creation og attach.
 - **Database:** fail-closed hero-before-QA, rettigheds-/archive-/hero-match-gates og publication eligibility.
-- **Article QA:** redaktionel slutkontrol efter hero er klar.
+- **Article QA:** tekst-/kildeintegritet for den aktuelle version efter hero er klar.
+- **Safe Publish:** eneste endelige publication transition.
 - **Frontend:** responsive visning/crop og credit rendering; aldrig publication-gate.
