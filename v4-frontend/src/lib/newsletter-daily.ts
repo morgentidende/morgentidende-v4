@@ -70,8 +70,8 @@ export const runDailyNewsletter = async (env: RuntimeEnv, scheduledAt = new Date
         try {
           const unsubscribeUrl = `https://morgentidende.dk/api/newsletter/unsubscribe?token=${encodeURIComponent(delivery.unsubscribe_token)}`;
           const selectedArticles = articles.filter((article) => {
-            if (article.category_slug === 'viden' && delivery.include_viden === false) return false;
-            if (article.category_slug === 'liv' && delivery.include_liv === false) return false;
+            if (article.category_slug === 'viden' && delivery.include_viden !== true) return false;
+            if (article.category_slug === 'liv' && delivery.include_liv !== true) return false;
             return true;
           }).slice(0, 8);
           const mail = await sendSesHtmlEmail({
@@ -79,8 +79,8 @@ export const runDailyNewsletter = async (env: RuntimeEnv, scheduledAt = new Date
             subject: 'Morgentidende – dagens vigtigste historier',
             html: buildDailyNewsletterEmail(selectedArticles, unsubscribeUrl, localDate, {
               emailTheme: delivery.email_theme || 'auto',
-              includeViden: delivery.include_viden !== false,
-              includeLiv: delivery.include_liv !== false
+              includeViden: delivery.include_viden === true,
+              includeLiv: delivery.include_liv === true
             })
           });
           ok = mail.ok;
