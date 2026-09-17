@@ -1,9 +1,6 @@
-type RuntimeBag = Record<string, string | undefined>;
+import { env as cloudflareEnv } from 'cloudflare:workers';
 
-const readRuntimeEnv = (locals?: App.Locals): RuntimeBag => {
-  const legacyRuntime = (locals as { runtime?: { env?: RuntimeBag } } | undefined)?.runtime?.env;
-  return legacyRuntime || ((globalThis as typeof globalThis & { __MORGENTIDENDE_ENV?: RuntimeBag }).__MORGENTIDENDE_ENV || {});
-};
+type RuntimeBag = Record<string, string | undefined>;
 
 const pick = (runtime: RuntimeBag, key: string) => {
   const value = runtime[key] || import.meta.env[key];
@@ -19,8 +16,8 @@ export type NewsletterRuntimeEnv = {
   newsletterFrom: string;
 };
 
-export const getNewsletterRuntimeEnv = (locals?: App.Locals): NewsletterRuntimeEnv => {
-  const runtime = readRuntimeEnv(locals);
+export const getNewsletterRuntimeEnv = (_locals?: App.Locals): NewsletterRuntimeEnv => {
+  const runtime = cloudflareEnv as RuntimeBag;
   return {
     supabaseUrl: pick(runtime, 'PUBLIC_SUPABASE_URL'),
     supabaseSecretKey: pick(runtime, 'SUPABASE_SECRET_KEY'),
@@ -36,4 +33,3 @@ export const hasSupabaseServerEnv = (env: NewsletterRuntimeEnv) =>
 
 export const hasSesEnv = (env: NewsletterRuntimeEnv) =>
   Boolean(env.awsRegion && env.awsAccessKeyId && env.awsSecretAccessKey);
-
