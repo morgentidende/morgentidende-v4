@@ -1,0 +1,32 @@
+{
+  "payload_type": "discovery_audit",
+  "queue_id": "kvartover-20260917-1815-audit",
+  "terminal_reason": "QA_HISTORY_UNAVAILABLE",
+  "discovery_run_id": "kvartover-20260917-1815",
+  "audit": {
+    "source_pool": "discovery",
+    "breaking_scan": "No verified high-Danish-impact breaking override established in bounded scan.",
+    "candidates": [
+      {
+        "candidate_id": "iom-europe-sea-crossings-20260917",
+        "rank": 1,
+        "headline": "Europe migrant sea crossings fall, but become more deadly",
+        "deep_screened": true,
+        "downstream_sources": ["Reuters", "International Organization for Migration"],
+        "decision": "stopped_before_write",
+        "reason": "QA_HISTORY_UNAVAILABLE"
+      }
+    ],
+    "dedupe_context": {
+      "checked_at": "2026-09-17T18:15:33+02:00",
+      "window_days": 7,
+      "include_closed_publish_prs": true,
+      "publish_prs_seen": 100,
+      "newest_publish_pr": 717,
+      "public_articles_seen": null,
+      "corpus_complete": false,
+      "reason": "The required complete seven-day public article history could not be enumerated reliably in this runtime; canonical mandate requires stopping before Write rather than guessing."
+    },
+    "model_prompt_version": "docs/automations/news-task.md@main"
+  }
+}
