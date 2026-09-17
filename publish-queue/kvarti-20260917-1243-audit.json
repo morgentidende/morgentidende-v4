@@ -1,0 +1,39 @@
+{
+  "payload_type": "discovery_audit",
+  "queue_id": "kvarti-20260917-1243-audit",
+  "terminal_reason": "NO_PUBLISHABLE_CANDIDATE",
+  "discovery_run_id": "kvarti-20260917-1243",
+  "source_pool": "discovery",
+  "candidates_tried": 3,
+  "duplicate_of": ["PR #669", "PR #659"],
+  "discovery_audit": [
+    {
+      "candidate_id": "australia-migration-20260917",
+      "rank": 1,
+      "headline_topic": "Australien strammer midlertidige visa og vil sænke nettomigrationen til 225.000",
+      "deep_screened": true,
+      "downstream_sources": ["ABC News Australia", "Reuters"],
+      "decision": "duplicate",
+      "reason": "Næsten-identisk frisk transport findes allerede i PR #669; sagen blev ekskluderet og historievalget genstartet."
+    },
+    {
+      "candidate_id": "canada-eu-associate-20260916",
+      "rank": 2,
+      "headline_topic": "Von der Leyen foreslår Canada som EU's første associerede medlem",
+      "deep_screened": false,
+      "downstream_sources": ["Brussels Signal"],
+      "decision": "duplicate",
+      "reason": "Frisk transport om Canada/EU-sporet findes allerede i PR #659; temaet blev ekskluderet."
+    },
+    {
+      "candidate_id": "eu-procurement-20260908",
+      "rank": 3,
+      "headline_topic": "EU-plan vil give europæiske leverandører forrang i offentlige indkøb",
+      "deep_screened": true,
+      "downstream_sources": ["Brussels Signal"],
+      "decision": "reject",
+      "reason": "Historien er over en uge gammel og ikke stærk nok som almindelig nyhed i dette run efter to friske dubletfund."
+    }
+  ],
+  "model_prompt_version": "canonical-news-task@bcc78fae581f3b2d3f8555668d67fe7e711778e3"
+}
