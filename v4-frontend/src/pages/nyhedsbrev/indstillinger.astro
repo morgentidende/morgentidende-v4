@@ -1,0 +1,90 @@
+---
+import V4Layout from '../../layouts/V4Layout.astro';
+import { getV4SupabaseServer } from '../../lib/v4-supabase-server';
+
+export const prerender = false;
+Astro.response.headers.set('Cache-Control', 'no-store');
+
+const uuidPattern = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
+let token = Astro.url.searchParams.get('token') || '';
+let saved = false;
+let valid = false;
+let emailTheme: 'auto' | 'light' | 'dark' = 'auto';
+let includeViden = true;
+let includeLiv = true;
+const supabase = getV4SupabaseServer(Astro.locals);
+
+if (Astro.request.method === 'POST') {
+  const form = await Astro.request.formData();
+  token = String(form.get('token') || '');
+  const requestedTheme = String(form.get('email_theme') || 'auto');
+  emailTheme = requestedTheme === 'dark' || requestedTheme === 'light' ? requestedTheme : 'auto';
+  includeViden = form.get('include_viden') === 'on';
+  includeLiv = form.get('include_liv') === 'on';
+  if (supabase && uuidPattern.test(token)) {
+    const result = await supabase.rpc('newsletter_preferences_update', {
+      p_token: token,
+      p_email_theme: emailTheme,
+      p_include_viden: includeViden,
+      p_include_liv: includeLiv
+    });
+    saved = !result.error && result.data === true;
+  }
+}
+
+if (supabase && uuidPattern.test(token)) {
+  const current = await supabase.rpc('newsletter_preferences_get', { p_token: token });
+  const row = !current.error && Array.isArray(current.data) ? current.data[0] : null;
+  if (row) {
+    valid = true;
+    emailTheme = row.email_theme === 'dark' || row.email_theme === 'light' ? row.email_theme : 'auto';
+    includeViden = row.include_viden !== false;
+    includeLiv = row.include_liv !== false;
+  }
+}
+---
+<V4Layout title="Nyhedsbrevsindstillinger – Morgentidende" noindex={true}>
+  <section class="prefs-card">
+    <div class="v4-kicker">Morgentidende på mail</div>
+    <h1>Nyhedsbrevsindstillinger</h1>
+    {valid ? (
+      <>
+        <p class="intro">Vælg hvordan dine fremtidige nyhedsbreve skal se ud, og hvilke magasinsektioner der må være med.</p>
+        {saved && <div class="saved" role="status">Dine indstillinger er gemt.</div>}
+        <form method="post">
+          <input type="hidden" name="token" value={token} />
+          <fieldset>
+            <legend>Udseende</legend>
+            <label><input type="radio" name="email_theme" value="auto" checked={emailTheme === 'auto'} /> Automatisk <span>følg mailprogrammets tema</span></label>
+            <label><input type="radio" name="email_theme" value="light" checked={emailTheme === 'light'} /> Lys</label>
+            <label><input type="radio" name="email_theme" value="dark" checked={emailTheme === 'dark'} /> Mørk</label>
+          </fieldset>
+          <fieldset>
+            <legend>Magasiner</legend>
+            <label><input type="checkbox" name="include_viden" checked={includeViden} /> Magasinet Viden</label>
+            <label><input type="checkbox" name="include_liv" checked={includeLiv} /> Magasinet Liv</label>
+          </fieldset>
+          <button type="submit">Gem indstillinger</button>
+        </form>
+      </>
+    ) : (
+      <>
+        <p class="intro">Linket er ugyldigt eller abonnementet er ikke aktivt.</p>
+        <a class="home" href="/">Gå til forsiden</a>
+      </>
+    )}
+  </section>
+</V4Layout>
+
+<style>
+  .prefs-card{width:min(720px,calc(100% - 28px));margin:54px auto 90px;padding:clamp(30px,5vw,54px);background:var(--v4-surface);border-top:4px solid var(--v4-gold);box-shadow:0 18px 60px rgba(10,18,30,.09)}
+  h1{margin:10px 0 14px;font-family:var(--v4-serif);font-size:clamp(34px,5vw,48px);line-height:1.05}
+  .intro{margin:0 0 24px;color:var(--v4-muted);font-size:17px;line-height:1.6}
+  .saved{margin:0 0 22px;padding:12px 14px;border-left:4px solid var(--v4-gold);background:rgba(216,163,61,.12);font-weight:700}
+  fieldset{margin:0 0 24px;padding:0;border:0}
+  legend{margin-bottom:10px;font-family:var(--v4-serif);font-size:22px;font-weight:700}
+  label{display:block;margin:10px 0;font-size:16px;cursor:pointer}
+  label span{color:var(--v4-muted);font-size:14px}
+  input{margin-right:8px;accent-color:var(--v4-gold)}
+  button,.home{display:inline-block;padding:13px 20px;border:0;background:var(--v4-gold);color:#17140c;font-weight:800;cursor:pointer;text-decoration:none}
+</style>
