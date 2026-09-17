@@ -32,8 +32,10 @@ Hvis selve GitHub-write fejler, retry højst én gang og returnér `BRIDGE_FAILE
 
 1. Lav et kort breaking-scan af store danske medier. Brug kun override ved en frisk, dokumenterbar hændelse med høj dansk betydning, fx terror, stor ulykke/katastrofe, krig/NATO med direkte dansk berøring, regeringskrise, større cyberangreb eller myndighedsindgreb med umiddelbar virkning for mange danskere.
 2. Ellers brug `docs/discovery-sources.md`. Lav én billig shortlist på højst 5 friske kandidater ud fra aktualitet, dokumenterbarhed, graden af underdækning i danske medier og match med `docs/news-editorial-profile.md`.
-3. Research kandidaterne i rangeret rækkefølge, én ad gangen. Start ikke en ny discovery-runde, bare fordi én kandidat falder.
-4. Hvis hele shortlisten falder, må der laves højst én ny historievalgsrunde med dansk major-media fallback. Ingen yderligere fulde genstarter i samme run.
+3. Research kandidaterne i rangeret rækkefølge, én ad gangen. Start ikke en ny discovery-runde, bare fordi én kandidat falder af dokumentations-, aktualitets- eller nyhedsværdigrunde.
+4. Hvis hele shortlisten falder af andre grunde end slut-QA-dublet, må der laves højst én ny historievalgsrunde med dansk major-media fallback. Ingen yderligere fulde genstarter i samme run, medmindre slut-QA i §4 specifikt sender runnet tilbage til historievalg efter fund af en næsten-identisk artikel.
+
+**Der må ikke køres særskilt semantisk preflight-/early-dedupe i Discover eller Research.** Den eneste redaktionelle semantiske 7-dages-dubletbeslutning træffes i slut-QA efter §4.
 
 Lav nyhedsværdi alene er ikke en hard stop, men filler må ikke publiceres.
 
@@ -58,21 +60,23 @@ Brug kun almindeligt, etableret dansk. Dan aldrig et nyt dansk ord ved direkte o
 
 ## 4. Slut-QA og semantisk 7-dages-dedupe
 
-Den redaktionelle 7-dages-dedupe ejes af Journalisten og er del af den ene afsluttende kontrol før publish-handoff. Backend træffer ikke en ny selvstændig semantisk dubletbeslutning.
+Den redaktionelle 7-dages-dedupe ejes **kun** af Journalistens ene afsluttende QA. Backend træffer ikke en ny selvstændig semantisk dubletbeslutning, og Discover/Research må ikke stoppe eller kassere en kandidat alene på en særskilt semantisk dubletgate.
 
-Etabler ét rimeligt 7-dages-sammenligningsgrundlag:
-1. GitHub `[PUBLISH]`-historik for de seneste 7 dage, inklusive åbne og nyligt lukkede transport-PR'er.
-2. Brug kun offentlig Morgentidende-historik/feed som fallback eller supplement, hvis GitHub-historikken åbenlyst er utilstrækkelig.
+Etabler ét rimeligt 7-dages-sammenligningsgrundlag lige før publish-handoff:
+1. Faktisk publicerede Morgentidende-artikler fra de seneste 7 dage via offentlig historik/feed.
+2. Supplér med GitHub `[PUBLISH]`-historik for åbne eller nyligt lukkede transport-PR'er, så helt friske afleveringer, som endnu ikke er synlige offentligt, også kan opdages.
 
 Direkte Supabase-read er ikke nødvendig QA-gate. QA må ikke godkende på hukommelse alene.
 
-Hvis artiklen er næsten-identisk med en historie fra de seneste 7 dage uden væsentlig videreudvikling:
-- kassér udkastet,
-- registrér `duplicate_of`,
-- markér den konkrete sag/person/institution som ekskluderet resten af runnet,
-- gå direkte til næste kandidat på den eksisterende shortlist.
+Hvis QA finder, at udkastet er næsten-identisk med en historie fra de seneste 7 dage uden væsentlig videreudvikling, skal QA gøre præcis dette:
+- **afvis og kassér det aktuelle udkast; det må ikke afleveres til publish,**
+- registrér `duplicate_of` med den konkrete tidligere artikel/transport,
+- markér den konkrete sag/person/institution som ekskluderet resten af det aktuelle run,
+- **send runnet helt tilbage til §1 Historievalg og lav et nyt historievalg med eksplicit instruktion om ikke at vælge den fundne dublets sag igen.**
 
-Der må højst ske én fuld ny historievalgsrunde efter at den oprindelige shortlist er udtømt. Hvis der stadig ikke findes en ikke-dublet, stop med `DUPLICATE_RETRY_EXHAUSTED` og aflever audit-only.
+QA skal altså ikke blot gå videre til næste kandidat fra den gamle shortlist, og en fundet dublet må ikke i sig selv afslutte hele runnet. Det nye historievalg må vælge fra discovery-listen igen og derefter major-media fallback efter de normale regler. Hvis endnu et færdigt udkast senere viser sig at være dublet, gentages samme QA-restart med den nye sag ekskluderet.
+
+Et run må først ende uden artikel, når der efter disse QA-restarts reelt ikke findes en publicerbar ikke-dublet inden for det normale run-budget, eller en anden konkret hard stop rammes. Brug da `NO_PUBLISHABLE_CANDIDATE` eller den relevante konkrete stopkode — **ikke** `DUPLICATE_RETRY_EXHAUSTED`.
 
 En legitim væsentlig opfølger bruger samme `story_cluster_key` og struktureret `Læs også` efter `editorial-core.md`. Læg aldrig en tekstslug i `story_cluster_id`.
 
@@ -115,10 +119,12 @@ Tilladte konkrete stopkoder omfatter:
 - `CANONICAL_UNREADABLE`
 - `INSUFFICIENT_DOCUMENTATION`
 - `QA_HISTORY_UNAVAILABLE`
-- `DUPLICATE_RETRY_EXHAUSTED`
+- `NO_PUBLISHABLE_CANDIDATE`
 - `NO_LEGAL_HERO`
 - `BRIDGE_FAILED`
 - `BACKEND_REJECTED`
+
+`DUPLICATE_RETRY_EXHAUSTED` er ikke længere en gyldig terminal stopkode for almindelige news-runs; en QA-fundet dublet skal udløse nyt historievalg efter §4.
 
 Manglende kilde nummer to er ikke i sig selv en hard stop, hvis én autoritativ kilde bærer de centrale fakta.
 
