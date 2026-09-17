@@ -1,0 +1,25 @@
+{
+  "payload_type": "discovery_audit",
+  "queue_id": "kvarti-20260917-2046-audit",
+  "terminal_reason": "QA_HISTORY_UNAVAILABLE",
+  "discovery_run_id": "kvarti-20260917-2046",
+  "source_pool": "discovery",
+  "audit": {
+    "candidates_tried": 1,
+    "candidate_id": "kvarti-20260917-2046-c1",
+    "headline_topic": "Fresh ordinary-news candidate screened after breaking/discovery scan",
+    "deep_screened": true,
+    "decision": "hard_stop_before_write",
+    "reason": "Canonical semantic seven-day dedupe requires both a complete public Morgentidende article-history/feed corpus and all recent [PUBLISH] GitHub transports. The GitHub transport corpus was enumerated with state=all, but a demonstrably complete separate public seven-day article-history corpus could not be established in this runtime. No article prose was written.",
+    "model_prompt_version": "docs/automations/news-task.md@main"
+  },
+  "dedupe_context": {
+    "checked_at": "2026-09-17T20:46:00+02:00",
+    "window_days": 7,
+    "public_articles_seen": null,
+    "publish_prs_seen": 100,
+    "include_closed_publish_prs": true,
+    "newest_publish_pr": 728,
+    "corpus_complete": false
+  }
+}
