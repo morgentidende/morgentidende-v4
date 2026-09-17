@@ -1,8 +1,9 @@
 interface Env {
-  SOCIAL_PUBLISHER_TOKEN: string;
   METRICOOL_TOKEN: string;
   METRICOOL_USER_ID: string;
   METRICOOL_BLOG_ID: string;
+  SUPABASE_URL: string;
+  SUPABASE_PUBLISHABLE_KEY: string;
 }
 
 type Network = 'facebook' | 'instagram';
@@ -38,11 +39,26 @@ const json = (body: unknown, status = 200) =>
     }
   });
 
-const authorized = (request: Request, env: Env) => {
+async function authorized(request: Request, env: Env): Promise<boolean> {
   const header = request.headers.get('authorization') || '';
   const token = header.startsWith('Bearer ') ? header.slice(7).trim() : '';
-  return Boolean(env.SOCIAL_PUBLISHER_TOKEN && token === env.SOCIAL_PUBLISHER_TOKEN);
-};
+  if (!token || !env.SUPABASE_URL || !env.SUPABASE_PUBLISHABLE_KEY) return false;
+
+  try {
+    const response = await fetch(`${env.SUPABASE_URL.replace(/\/$/, '')}/rest/v1/rpc/authorize_social_adapter_token`, {
+      method: 'POST',
+      headers: {
+        apikey: env.SUPABASE_PUBLISHABLE_KEY,
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify({ p_token: token })
+    });
+    if (!response.ok) return false;
+    return (await response.json()) === true;
+  } catch {
+    return false;
+  }
+}
 
 const validNetwork = (value: unknown): value is Network =>
   value === 'facebook' || value === 'instagram';
@@ -121,7 +137,13 @@ export default {
         service: 'social-publisher',
         networks: ['facebook', 'instagram'],
         provider: 'metricool',
-        configured: Boolean(env.METRICOOL_TOKEN && env.METRICOOL_USER_ID && env.METRICOOL_BLOG_ID)
+        configured: Boolean(
+          env.METRICOOL_TOKEN &&
+          env.METRICOOL_USER_ID &&
+          env.METRICOOL_BLOG_ID &&
+          env.SUPABASE_URL &&
+          env.SUPABASE_PUBLISHABLE_KEY
+        )
       });
     }
 
@@ -129,7 +151,7 @@ export default {
       return json({ ok: false, error: 'not_found' }, 404);
     }
 
-    if (!authorized(request, env)) {
+    if (!(await authorized(request, env))) {
       return json({ ok: false, error: 'unauthorized' }, 401);
     }
 
