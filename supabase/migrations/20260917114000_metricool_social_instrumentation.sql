@@ -1,8 +1,6 @@
 -- Durable instrumentation for Facebook/Instagram dispatch via Metricool.
 -- The existing social_posts table remains the state-machine source of truth.
 
-alter type public.social_post_status add value if not exists 'scheduled' after 'publishing';
-
 alter table public.social_posts
   add column if not exists provider text not null default 'metricool',
   add column if not exists provider_post_id text,
@@ -60,7 +58,6 @@ set search_path = public
 as $$
 declare
   v_event_type text;
-  v_error_code text;
 begin
   if tg_op = 'INSERT' then
     insert into public.social_post_events(
@@ -94,8 +91,6 @@ begin
     return new;
   end if;
 
-  v_error_code := new.last_error_code;
-
   insert into public.social_post_events(
     social_post_id, article_id, platform, event_type,
     from_status, to_status, attempt, provider, provider_post_id,
@@ -103,7 +98,7 @@ begin
   ) values (
     new.id, new.article_id, new.platform, v_event_type,
     old.status, new.status, new.attempts, coalesce(new.provider, 'metricool'),
-    new.provider_post_id, v_error_code, new.last_error,
+    new.provider_post_id, new.last_error_code, new.last_error,
     jsonb_build_object(
       'scheduled_for', new.scheduled_for,
       'published_at', new.published_at,
@@ -118,7 +113,6 @@ $$;
 
 revoke all on function public.social_posts_instrument_change() from public, anon, authenticated;
 
--- Trigger runs before update so last_attempt_at can be filled atomically.
 drop trigger if exists social_posts_instrument_change on public.social_posts;
 create trigger social_posts_instrument_change
 before insert or update on public.social_posts
@@ -196,7 +190,7 @@ select
   case
     when sp.status = 'publishing'::public.social_post_status and sp.updated_at < now() - interval '10 minutes' then true
     when sp.status = 'ready'::public.social_post_status and sp.updated_at < now() - interval '30 minutes' then true
-    when sp.status = 'scheduled'::public.social_post_status and sp.scheduled_for is not null and sp.scheduled_for < now() - interval '15 minutes' and sp.published_at is null then true
+    when sp.status = 'publishing'::public.social_post_status and sp.scheduled_for is not null and sp.scheduled_for < now() - interval '15 minutes' and sp.published_at is null then true
     else false
   end as stuck
 from public.social_posts sp
@@ -206,4 +200,4 @@ revoke all on table public.social_dispatch_health from anon, authenticated;
 grant select on table public.social_dispatch_health to service_role;
 
 comment on table public.social_post_events is 'Append-only event history for social dispatch observability. Explicit request/response events should be written through social_post_record_event; state mutations are also captured automatically.';
-comment on view public.social_dispatch_health is 'Operational view for Metricool/SoMe dispatch. stuck=true flags ready/publishing/scheduled rows that have exceeded conservative age thresholds.';
+comment on view public.social_dispatch_health is 'Operational view for Metricool/SoMe dispatch. stuck=true flags ready or publishing rows that have exceeded conservative age thresholds.';
