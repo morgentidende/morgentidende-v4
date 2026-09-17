@@ -5,6 +5,10 @@ compatibility_date = "2026-09-11"
 [observability]
 enabled = true
 
+# This Worker is a stateless adapter. The database is the source of truth.
+# POST /schedule uses: Authorization: Bearer <SOCIAL_PUBLISHER_TOKEN>
+# Supported networks at launch: facebook, instagram.
+#
 # Runtime secrets required before deploy:
 # SOCIAL_PUBLISHER_TOKEN
 # METRICOOL_TOKEN
