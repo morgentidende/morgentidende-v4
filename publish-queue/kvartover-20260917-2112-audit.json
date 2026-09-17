@@ -1,0 +1,26 @@
+{
+  "payload_type": "discovery_audit",
+  "queue_id": "kvartover-20260917-2112-audit",
+  "terminal_reason": "QA_HISTORY_UNAVAILABLE",
+  "discovery_run_id": "kvartover-20260917-2112",
+  "source_pool": "discovery",
+  "candidates_tried": 1,
+  "candidates": [
+    {
+      "candidate_id": "israel-morocco-embassies-20260917",
+      "rank": 1,
+      "headline": "Israel og Marokko vil opgradere forbindelserne til fulde ambassader",
+      "source_path": "Brussels Signal -> primary/authoritative verification pending dedupe gate",
+      "deep_screened": true,
+      "decision": "stopped_before_write",
+      "reason": "QA_HISTORY_UNAVAILABLE"
+    }
+  ],
+  "audit": {
+    "canonical_entrypoint_read_from_main": "docs/automations/news-task.md",
+    "breaking_scan": "No verified high-Danish-impact override established in bounded scan.",
+    "github_publish_transport_enumeration": "state=all search completed for recent [PUBLISH] transports",
+    "public_history": "A demonstrably complete separate seven-day public Morgentidende article-history/feed corpus could not be established in this runtime.",
+    "schedule_or_enabled_changed": false
+  }
+}
