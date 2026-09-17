@@ -6,11 +6,13 @@ Denne fil er **eneste entrypoint** for almindelige autonome nyhedsruns. Schedule
 
 Den kanoniske rækkefølge er:
 
-`Forsideoverblik → Discover → Research → Write → Producer-check → GitHub-handoff → Hero/media ready → Article QA → Publish`
+`Forsideoverblik → Discover → Research → Semantisk 7-dages-dedupe → Write → Producer-check → GitHub-handoff → Hero/media ready → Article QA → Publish`
+
+Dedupe køres **efter research, men før artiklen skrives**. På det tidspunkt skal researchen være rig nok til at sammenligne hovedbegivenhed, hovedfaktum, centrale aktører, tal, geografi og den konkrete nye udvikling. Der bruges ikke deterministisk fingerprint som redaktionel dublet-gate.
 
 **Hero/media skal være publication-ready før backend sender artiklen til Article QA.** Scheduled Task leverer hero-kandidater ved handoff; Media Worker resolver, validerer, arkiverer og attacher heroen. Først derefter må backend enqueue Article QA.
 
-Journalistens producer-check før handoff er ikke backendens Article QA. Den sikrer kun, at payloaden er redaktionelt komplet og at den semantiske 7-dages-dedupe er gennemført.
+Producer-check er Journalistens sidste korrektur og payload-kontrol før handoff. Det er hverken dedupe-fasen eller backendens Article QA.
 
 Denne automation vælger ikke Viden eller Liv.
 
@@ -21,10 +23,11 @@ Læs kun det, den aktuelle fase kræver:
 - **0 Forsideoverblik:** denne fil §0 + `docs/news-editorial-profile.md`.
 - **1 Discover:** denne fil §1 + `docs/news-editorial-profile.md` + `docs/discovery-sources.md`.
 - **2 Research:** denne fil §2. Genbrug profilkontekst; læs ikke discovery-listen igen.
-- **3 Write:** `docs/editorial-core.md` + `docs/editorial-language-glossary.md` + `docs/news-editorial-profile.md`.
-- **4 Producer-check:** denne fil §4 + den fælles artikelkontrol i `docs/editorial-core.md`.
-- **5 Hero-handoff:** denne fil §5.
-- **6 Delivery:** denne fil §§6–8.
+- **3 Dedupe:** denne fil §3 + dubletreglen i `docs/editorial-core.md`.
+- **4 Write:** `docs/editorial-core.md` + `docs/editorial-language-glossary.md` + `docs/news-editorial-profile.md`.
+- **5 Producer-check:** denne fil §5 + den fælles artikelkontrol i `docs/editorial-core.md`.
+- **6 Hero-handoff:** denne fil §6.
+- **7 Delivery:** denne fil §§7–9.
 
 ## Runtime-princip
 
@@ -36,33 +39,22 @@ Et run ender i én terminal GitHub-leverance: artikelpayload eller `payload_type
 
 ## 0. Forsideoverblik
 
-Før historievalg skal journalisten kort optræde som **forsideredaktør**.
+Før historievalg optræder journalisten kort som **forsideredaktør**.
 
-Brug den offentlige Morgentidende-forside og, når nødvendigt, den offentlige artikelhistorik/feed til et billigt snapshot af de seneste cirka 12–24 timer. Formålet er ikke at bedømme hver tidligere artikel igen, men at se avisen som helhed.
+Brug den offentlige Morgentidende-forside og ved behov offentlig artikelhistorik/feed til et billigt snapshot af de seneste cirka 12–24 timer. Vurdér især emner, geografi, gentagne aktører/sager, underrepræsenterede områder og aktive specialtemaer.
 
-Vurdér kort:
-- hvilke emner/sager der allerede fylder meget,
-- kategori- og geografisk spredning,
-- om flere nylige artikler dækker samme person, parti, konflikt eller kulturkamp,
-- hvilke tydelige emneområder eller vinkler der er underrepræsenterede,
-- eventuelle aktive specialtemaer, når de fremgår af forsiden.
-
-Omsæt snapshot’et til **én kort discovery-retning** for dette run, fx `prioritér stærk økonomi/kriminalitet/teknologi uden for allerede tungt dækkede temaer`.
-
-Det er en prioritering, ikke en kvote. En klart større breaking-historie må altid tilsidesætte mixhensynet. Et underrepræsenteret emne må heller ikke vælges, hvis historien er svag eller dårligt dokumenteret.
-
-Forsideoverblikket må ikke udvikle sig til en ny selvstændig researchrunde. Genbrug snapshot’et gennem resten af runnet.
+Omsæt snapshot’et til **én kort discovery-retning**. Det er en prioritering, ikke en kvote; en klart større breaking-historie må tilsidesætte mixhensynet. Forsideoverblikket må ikke blive en selvstændig researchrunde.
 
 ## 1. Historievalg
 
-**Morgentidendes særkende er stærke, dokumenterbare nyheder, som andre danske medier overser eller prioriterer lavt.** Historievalget skal samtidig tage hensyn til retningen fra §0, så næste artikel vurderes i kontekst af den avis, der allerede står på forsiden.
+**Morgentidendes særkende er stærke, dokumenterbare nyheder, som andre danske medier overser eller prioriterer lavt.**
 
 1. Lav et kort breaking-scan af store danske medier. Override kun ved en frisk, dokumenterbar hændelse med høj dansk betydning, fx terror, stor ulykke/katastrofe, krig/NATO med direkte dansk berøring, regeringskrise, større cyberangreb eller myndighedsindgreb med umiddelbar virkning for mange danskere.
-2. Ellers brug `docs/discovery-sources.md`. Lav én shortlist på højst 5 friske kandidater ud fra aktualitet, dokumenterbarhed, underdækning i danske medier, profilmatch **og bidrag til et bedre samlet mix**.
+2. Ellers brug `docs/discovery-sources.md`. Lav én shortlist på højst 5 friske kandidater ud fra aktualitet, dokumenterbarhed, underdækning i danske medier, profilmatch og bidrag til et bedre samlet mix.
 3. Research kandidaterne i rangeret rækkefølge, én ad gangen.
-4. Hvis hele shortlisten falder af, må der laves højst én ny historievalgsrunde med dansk major-media fallback. QA-dublet-restart følger §4.
+4. Hvis hele shortlisten falder af, må der laves højst én ny historievalgsrunde med dansk major-media fallback.
 
-Der køres ingen særskilt semantisk early-dedupe i Discover eller Research. Lav nyhedsværdi alene er ikke en hard stop, men filler må ikke publiceres.
+Der køres ikke semantisk dedupe på en tynd discovery-beskrivelse. Dedupe sker først efter research i §3, så vurderingen bygger på sagens faktiske substans frem for rubrik- eller nøgleordslighed.
 
 ## 2. Research og kildegulv
 
@@ -74,25 +66,37 @@ Ukendte domæner behandles som `discovery_only`, indtil de er klassificeret. Red
 
 Centrale fakta skal bæres af mindst én `authoritative` eller relevant primær kilde. Normal researchramme er 2–3 autoritative/primære kilder. Stop, når centrale påstande og væsentlige forbehold er dokumenteret; brug kun ekstra kilder ved en konkret central konflikt eller usikkerhed.
 
-## 3. Skriv artikel
+Researchfasen skal ende med et kompakt **story brief** til dedupe og Write: hovedbegivenhed, stærkeste dokumenterede hovedfaktum, centrale aktører, sted/tid, væsentlige tal og hvad der konkret er nyt nu.
+
+## 3. Semantisk 7-dages-dedupe
+
+Kør én semantisk dubletkontrol **før Write** på baggrund af story brief og researchen.
+
+Sammenlign med:
+1. publicerede Morgentidende-artikler fra offentlig historik/feed de seneste 7 dage,
+2. GitHub `[PUBLISH]`-historik for helt friske transporter, som endnu ikke er synlige offentligt.
+
+Følg regel 14 i `docs/editorial-core.md`. Vurdér mening og substans — ikke deterministisk fingerprint, ordlighed eller rubrikmatch alene.
+
+Hvis kandidaten er næsten-identisk uden væsentlig videreudvikling: registrér `duplicate_of`, ekskludér den konkrete sag resten af runnet, og gå helt tilbage til §0–1 med det ekskluderede tema kendt. Brug ikke blot næste kandidat fra den gamle shortlist.
+
+Hvis kandidaten er en legitim opfølger, behold den og brug samme `story_cluster_key` samt struktureret `Læs også`.
+
+## 4. Skriv artikel
 
 Følg `docs/editorial-core.md`, `docs/editorial-language-glossary.md` og `docs/news-editorial-profile.md`. Brug den stærkeste dokumenterede vinkel uden at gå længere end kilderne bærer.
 
 Skriv ikke links eller manuel kildeliste i brødteksten. `source_metadata` er en top-level array. Brug almindeligt etableret dansk; lav én kort sprogpassage før producer-check.
 
-## 4. Producer-check og semantisk 7-dages-dedupe
+## 5. Producer-check
 
-Dette er Journalistens sidste check **før handoff**, ikke backendens Article QA.
+Dette er Journalistens sidste check **før handoff**, ikke backendens Article QA og ikke en ny dedupe-runde.
 
-Etabler ét rimeligt 7-dages-sammenligningsgrundlag lige før handoff:
-1. publicerede Morgentidende-artikler fra offentlig historik/feed,
-2. GitHub `[PUBLISH]`-historik for helt friske transporter, der endnu ikke er synlige offentligt.
+Kontrollér, at artiklen og payloaden er redaktionelt komplette, konsistente med den allerede godkendte research/dedupe og følger `docs/editorial-core.md`. Producer-check må rette sikre fejl i tekst/metadata, men må ikke starte ny research, skabe en ny vinkel eller genåbne dubletvurderingen uden konkret ny information.
 
-Følg dubletreglen i `docs/editorial-core.md`. Hvis udkastet er næsten-identisk uden væsentlig videreudvikling: kassér det, registrér `duplicate_of`, ekskludér den konkrete sag resten af runnet, og gå helt tilbage til §0–1 med det ekskluderede tema kendt. Brug ikke blot næste kandidat fra den gamle shortlist.
+Hvis en rettelse kræver ny research eller ændrer sagens substans, returnér til relevant tidligere fase; ved substantiel ændring skal §3 køres igen før Write afsluttes.
 
-Producer-check må rette sikre fejl i tekst/metadata, men må ikke starte ny research eller skabe en ny vinkel. Hvis historien kræver ny research, returnér til relevant tidligere fase.
-
-## 5. Hero/media — producer-kontrakt
+## 6. Hero/media — producer-kontrakt
 
 Almindelige nyheder bruger ægte dokumentarisk materiale. Journalisten ejer motivvalg og kandidatlisten; Media Worker ejer URL-resolution, download, MIME/signatur, faktiske pixelmål, rettighedsgate, SHA-256, arkivering, fallback og retry.
 
@@ -102,13 +106,13 @@ Kun 1–2 lovlige kandidater kræver eksplicit `editorial_metadata.hero_exceptio
 
 Efter handoff prøver Media Worker kandidaterne som én state machine. Permanent fejl går til næste kandidat; transient fejl retryer samme kandidat. **Article QA må ikke enqueue, før et valideret asset er `ready` og attached som artikelhero.**
 
-## 6. Discovery-audit
+## 7. Discovery-audit
 
 Bevar kun et kompakt auditspor for kandidater, der faktisk blev rangordnet eller researchet. Brug ét stabilt `discovery_run_id` pr. run og ét stabilt `candidate_id` pr. kandidat.
 
 Minimum når observerbart: source pool/path, rank, headline/topic, deep-screened, downstream-kilder, decision/reason og model/prompt-version. Ved artikel ligger audit i `editorial_metadata`; ved legitimt hard stop leveres audit-only. Ingen separate eksterne checkpoint-writes.
 
-## 7. Hard stops
+## 8. Hard stops
 
 Tilladte stopkoder omfatter:
 - `CANONICAL_UNREADABLE`
@@ -121,7 +125,7 @@ Tilladte stopkoder omfatter:
 
 `DUPLICATE_RETRY_EXHAUSTED` er ikke gyldig. Manglende kilde nummer to er ikke i sig selv hard stop, hvis én autoritativ kilde bærer de centrale fakta.
 
-## 8. Aflevering — producer-kontrakt
+## 9. Aflevering — producer-kontrakt
 
 Scheduled Task skriver aldrig artiklen direkte til Supabase.
 
