@@ -50,7 +50,7 @@ const statusText = result ? (messages[result] || `Resultat: ${result}`) : '';
         <label for="key">Testnøgle</label>
         <div class="key-wrap">
           <input id="key" name="key" type="password" autocomplete="off" spellcheck="false" required />
-          <button id="toggle-key" class="toggle-key" type="button" aria-label="Vis testnøgle" title="Vis testnøgle">
+          <button id="toggle-key" class="toggle-key" type="button" aria-label="Vis testnøgle" aria-pressed="false" title="Vis testnøgle">
             <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
               <path d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6Z" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
               <circle cx="12" cy="12" r="2.8" stroke-width="1.8" />
@@ -63,18 +63,6 @@ const statusText = result ? (messages[result] || `Resultat: ${result}`) : '';
       <p class="note">Testudsendelsen opretter ikke et normalt dispatch og påvirker derfor ikke morgendagens automatiske nyhedsbrev.</p>
     </div>
   </main>
-  <script>
-    const input = document.querySelector('#key');
-    const toggle = document.querySelector('#toggle-key');
-    toggle?.addEventListener('click', () => {
-      if (!(input instanceof HTMLInputElement)) return;
-      const showing = input.type === 'text';
-      input.type = showing ? 'password' : 'text';
-      const label = showing ? 'Vis testnøgle' : 'Skjul testnøgle';
-      toggle.setAttribute('aria-label', label);
-      toggle.setAttribute('title', label);
-      input.focus();
-    });
-  </script>
+  <script is:inline src="/newsletter-test-eye.js" defer></script>
 </body>
 </html>
