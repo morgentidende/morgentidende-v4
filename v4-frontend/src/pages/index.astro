@@ -2,6 +2,7 @@
 import V4Layout from '../layouts/V4Layout.astro';
 import V4Card from '../components/V4Card.astro';
 import LiveCenter from '../components/LiveCenter.astro';
+import NewsletterSignup from '../components/NewsletterSignup.astro';
 import '../styles/frontpage.css';
 import '../styles/mobile-horizontal-cards.css';
 import '../styles/livecenter-mobile.css';
@@ -123,6 +124,8 @@ const frontpageNews = resolvedLiveCenter
         <div class="v4-grid-4">{frontpageNews.slice(7, 15).map((article) => <V4Card article={article} categoryName={categoryById.get(article.category_id)} showDeck={false} />)}</div>
       </section>
     ) : null}
+
+    {!loadError ? <NewsletterSignup /> : null}
   </div>
 </V4Layout>
 
@@ -141,3 +144,4 @@ const frontpageNews = resolvedLiveCenter
     .v4-latest-title { margin-bottom: 16px; font-size: 28px; }
   }
 </style>
+
