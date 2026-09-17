@@ -8,6 +8,8 @@ on:
       - '.github/scripts/publish-kind.test.mjs'
       - '.github/scripts/publish-payload-shape.mjs'
       - '.github/scripts/publish-payload-shape.test.mjs'
+      - '.github/scripts/validate-news-hero-contract.mjs'
+      - '.github/scripts/validate-news-hero-contract.test.mjs'
       - '.github/workflows/publish-bridge-ci.yml'
 
 permissions:
@@ -22,3 +24,5 @@ jobs:
         run: node --test .github/scripts/publish-kind.test.mjs
       - name: Test publish payload shape contract
         run: node --test .github/scripts/publish-payload-shape.test.mjs
+      - name: Test news hero contract
+        run: node --test .github/scripts/validate-news-hero-contract.test.mjs
