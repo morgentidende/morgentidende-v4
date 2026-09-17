@@ -45,7 +45,7 @@ Vurdér kort:
 - kategori- og geografisk spredning,
 - om flere nylige artikler dækker samme person, parti, konflikt eller kulturkamp,
 - hvilke tydelige emneområder eller vinkler der er underrepræsenterede,
-- eventuelle aktive specialtemaer, når de fremgår af forsiden.
+- hvilke to specialsektioner der aktuelt er aktive på forsiden, og hvilke sager de følger.
 
 Omsæt snapshot’et til **én kort discovery-retning** for dette run, fx `prioritér stærk økonomi/kriminalitet/teknologi uden for allerede tungt dækkede temaer`.
 
@@ -80,7 +80,7 @@ Følg `docs/editorial-core.md`, `docs/editorial-language-glossary.md` og `docs/n
 
 Skriv ikke links eller manuel kildeliste i brødteksten. `source_metadata` er en top-level array. Brug almindeligt etableret dansk; lav én kort sprogpassage før producer-check.
 
-## 4. Producer-check og semantisk 7-dages-dedupe
+## 4. Producer-check, forsideplacering og semantisk 7-dages-dedupe
 
 Dette er Journalistens sidste check **før handoff**, ikke backendens Article QA.
 
@@ -89,6 +89,13 @@ Etabler ét rimeligt 7-dages-sammenligningsgrundlag lige før handoff:
 2. GitHub `[PUBLISH]`-historik for helt friske transporter, der endnu ikke er synlige offentligt.
 
 Følg dubletreglen i `docs/editorial-core.md`. Hvis udkastet er næsten-identisk uden væsentlig videreudvikling: kassér det, registrér `duplicate_of`, ekskludér den konkrete sag resten af runnet, og gå helt tilbage til §0–1 med det ekskluderede tema kendt. Brug ikke blot næste kandidat fra den gamle shortlist.
+
+Vælg derefter artikelens forsideplacering semantisk:
+- `editorial_metadata.frontpage_destination = "special_1"`, hvis artiklen klart er en videreudvikling i den sag, som den aktive Specialsektion 1 følger.
+- `editorial_metadata.frontpage_destination = "special_2"`, hvis artiklen klart er en videreudvikling i den sag, som den aktive Specialsektion 2 følger.
+- Ellers `editorial_metadata.frontpage_destination = "normal"`.
+
+En specialsektion er et løbende sagsforløb, ikke en alternativ kategori. Artikler i specialsektionerne skal som udgangspunkt ikke ind i det almindelige top-down-flow; de kommer kronologisk ind længst til venstre i den relevante vandrette strøm. En reel breaking-historie kan stadig få særskilt breaking-behandling, men destination og breaking-status må ikke sættes modstridende uden en klar redaktionel grund.
 
 Producer-check må rette sikre fejl i tekst/metadata, men må ikke starte ny research eller skabe en ny vinkel. Hvis historien kræver ny research, returnér til relevant tidligere fase.
 
@@ -127,7 +134,7 @@ Scheduled Task skriver aldrig artiklen direkte til Supabase.
 
 1. Opret en unik `publish/chatgpt-*` branch fra aktuel `main`.
 2. Skriv præcis én ny `publish-queue/<queue_id>.json` på branchen.
-3. Payloaden skal mindst indeholde `queue_id`, `slug`, `headline`, `category_slug`, `deck`, `body_markdown`, top-level `source_metadata` og `editorial_metadata`. `editorial_metadata.sagen_kort` er præcis to ikke-tomme strenge. Medtag hero candidates, source-registry-opdateringer og audit, når relevant. Brug `story_cluster_key` for eksisterende sag; `story_cluster_id` kun når UUID er kendt.
+3. Payloaden skal mindst indeholde `queue_id`, `slug`, `headline`, `category_slug`, `deck`, `body_markdown`, top-level `source_metadata` og `editorial_metadata`. `editorial_metadata.sagen_kort` er præcis to ikke-tomme strenge. `editorial_metadata.frontpage_destination` skal være `normal`, `special_1` eller `special_2`. Medtag hero candidates, source-registry-opdateringer og audit, når relevant. Brug `story_cluster_key` for eksisterende sag; `story_cluster_id` kun når UUID er kendt.
 4. Opret præcis én PR mod `main`; titlen starter `[PUBLISH] ` og body indeholder `<!-- morgentidende-chatgpt-publish -->`.
 5. Merge ikke transport-PR'en. Backend ejer idempotens, insert, media, Article QA og publication-gates og lukker transport-PR'en efter vellykket aflevering.
 
