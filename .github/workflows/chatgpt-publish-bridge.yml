@@ -65,18 +65,12 @@ jobs:
           git show "$HEAD_SHA:$queue_file" > "$queue_file"
           echo "queue_file=$queue_file" >> "$GITHUB_OUTPUT"
 
-      - name: Validate queue payload
-        env:
-          QUEUE_FILE: ${{ steps.scope.outputs.queue_file }}
-          VALIDATE_ONLY: '1'
-        run: node .github/scripts/process-chatgpt-publish-queue.mjs
-
       - name: Validate ordinary-news hero resilience
         env:
           QUEUE_FILE: ${{ steps.scope.outputs.queue_file }}
         run: node .github/scripts/validate-news-hero-contract.mjs
 
-      - name: Process through OIDC-authenticated Supabase Edge Function
+      - name: Validate transport and process through OIDC-authenticated Supabase Edge Function
         env:
           QUEUE_FILE: ${{ steps.scope.outputs.queue_file }}
         run: node .github/scripts/process-chatgpt-publish-queue.mjs
