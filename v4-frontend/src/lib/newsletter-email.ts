@@ -5,18 +5,15 @@ const escapeHtml = (value: string) => value
   .replace(/\"/g, '&quot;')
   .replace(/'/g, '&#039;');
 
-const sunMark = (size = 52) => `<div role="img" aria-label="Morgentidendes sol" style="width:${size}px;height:${size}px;line-height:${size}px;margin:0 auto 10px;border-radius:50%;background:#0b2c4a;color:#e9bf64;text-align:center;font-family:Georgia,'Times New Roman',serif;font-size:${Math.round(size * .64)}px;font-weight:700;">☀</div>`;
+const sunLogo = (size = 52) => `<img src="cid:morgentidende-sun" width="${size}" height="${size}" alt="Morgentidendes sol" style="display:block;width:${size}px;height:${size}px;margin:0 auto 10px;border:0;outline:none;text-decoration:none;" />`;
 
 const formatDanishDate = (localDate: string) => {
   const [year, month, day] = localDate.split('-').map(Number);
   if (!year || !month || !day) return localDate;
   const date = new Date(Date.UTC(year, month - 1, day, 12));
-  const formatted = new Intl.DateTimeFormat('da-DK', {
-    weekday: 'long', day: 'numeric', month: 'long', year: 'numeric', timeZone: 'Europe/Copenhagen'
-  }).format(date);
-  const [weekday, rest] = formatted.split(' ');
-  const capitalized = weekday ? weekday.charAt(0).toUpperCase() + weekday.slice(1) : '';
-  return `${capitalized} d. ${rest || ''}`.trim();
+  const weekdays = ['Søndag', 'Mandag', 'Tirsdag', 'Onsdag', 'Torsdag', 'Fredag', 'Lørdag'];
+  const months = ['januar', 'februar', 'marts', 'april', 'maj', 'juni', 'juli', 'august', 'september', 'oktober', 'november', 'december'];
+  return `${weekdays[date.getUTCDay()]} d. ${day}. ${months[month - 1]} ${year}`;
 };
 
 export const buildNewsletterConfirmationEmail = (confirmationUrl: string) => {
@@ -29,7 +26,7 @@ export const buildNewsletterConfirmationEmail = (confirmationUrl: string) => {
         <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="max-width:640px;background:#fffaf2;border:1px solid #ddd2c0;">
           <tr>
             <td style="padding:30px 34px;background:#182534;color:#fffaf0;text-align:center;">
-              ${sunMark(54)}
+              ${sunLogo(54)}
               <div style="font-family:Georgia,'Times New Roman',serif;font-size:34px;line-height:1;font-weight:700;letter-spacing:-1px;">Morgentidende</div>
               <div style="margin-top:9px;color:#e9bf64;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;">Dagligt nyhedsbrev</div>
             </td>
@@ -62,9 +59,11 @@ export const buildDailyNewsletterEmail = (
 ) => {
   const theme = preferences.emailTheme || 'auto';
   const isDark = theme === 'dark';
+  const includeViden = preferences.includeViden === true;
+  const includeLiv = preferences.includeLiv === true;
   const filtered = articles.filter((article) => {
-    if (article.category_slug === 'viden' && preferences.includeViden === false) return false;
-    if (article.category_slug === 'liv' && preferences.includeLiv === false) return false;
+    if (article.category_slug === 'viden' && !includeViden) return false;
+    if (article.category_slug === 'liv' && !includeLiv) return false;
     return true;
   }).slice(0, 8);
 
@@ -123,19 +122,19 @@ export const buildDailyNewsletterEmail = (
   <table class="email-bg outer" role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background:${outerBg};padding:26px 12px;"><tr><td align="center">
     <table class="email-card" role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="max-width:680px;background:${cardBg};border:1px solid ${borderColor};">
       <tr><td class="masthead" style="padding:30px 38px 29px;background:#182534;color:#fffaf0;text-align:center;border-top:4px solid #d8a33d;">
-        ${sunMark(52)}
+        ${sunLogo(52)}
         <div style="font-family:Georgia,'Times New Roman',serif;font-size:34px;line-height:1;font-weight:700;letter-spacing:-.8px;">Morgentidende</div>
-        <div style="margin-top:10px;color:#e9bf64;font-size:11px;line-height:1;font-weight:800;letter-spacing:1.5px;text-transform:none;">Morgenoverblik · ${safeDate}</div>
+        <div style="margin-top:10px;color:#e9bf64;font-size:11px;line-height:1;font-weight:800;letter-spacing:1.5px;">Morgenoverblik · ${safeDate}</div>
       </td></tr>
       <tr><td class="content" style="padding:34px 40px 16px;background:${cardBg};">
         <h1 style="margin:0 0 7px;font-family:Georgia,'Times New Roman',serif;font-size:31px;line-height:1.12;color:${headlineColor};">Dagens vigtigste historier</h1>
         <p style="margin:0 0 18px;color:${mutedColor};font-size:14px;line-height:1.45;">Kort og klart fra det seneste døgn.</p>
         <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">${items}</table>
       </td></tr>
-      <tr><td class="prefs" style="padding:24px 40px;background:${cardBg};border-top:1px solid ${borderColor};">
-        <div class="prefs-title" style="font-family:Georgia,'Times New Roman',serif;font-size:18px;font-weight:700;color:${headlineColor};margin-bottom:6px;">Tilpas fremtidige nyhedsbreve</div>
-        <div class="prefs-copy" style="font-size:13px;line-height:1.55;color:${mutedColor};margin-bottom:12px;">Vælg <strong>Automatisk, Lys eller Mørk</strong> visning og om du vil have <strong>Magasinet Viden</strong> og <strong>Magasinet Liv</strong> med.</div>
-        <a href="${safePreferences}" style="display:inline-block;padding:10px 14px;background:#d8a33d;color:#17140c;text-decoration:none;font-size:13px;font-weight:800;">Vælg indstillinger</a>
+      <tr><td class="prefs" style="padding:25px 40px;background:${cardBg};border-top:1px solid ${borderColor};">
+        <div class="prefs-title" style="font-family:Georgia,'Times New Roman',serif;font-size:19px;font-weight:700;color:${headlineColor};margin-bottom:7px;">Tilmeld også Morgentidendes ugemagasiner</div>
+        <div class="prefs-copy" style="font-size:13px;line-height:1.6;color:${mutedColor};margin-bottom:13px;">Viden og Liv udkommer hver søndag morgen. De er som udgangspunkt slået fra, og du vælger selv, om du vil have Viden, Liv eller begge med. Her kan du også vælge Lys, Mørk eller Automatisk visning.</div>
+        <a href="${safePreferences}" style="display:inline-block;padding:10px 14px;background:#d8a33d;color:#17140c;text-decoration:none;font-size:13px;font-weight:800;">Vælg magasiner og udseende</a>
       </td></tr>
       <tr><td class="footer" style="padding:20px 40px 28px;background:${cardBg};border-top:1px solid ${borderColor};color:${mutedColor};font-size:12px;line-height:1.65;">
         Du modtager denne mail, fordi du har bekræftet Morgentidendes daglige nyhedsbrev. <a href="${safeUnsubscribe}" style="color:${mutedColor};text-decoration:underline;">Afmeld nyhedsbrevet</a>.
