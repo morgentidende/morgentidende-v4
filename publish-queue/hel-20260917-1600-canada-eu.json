@@ -1,0 +1,34 @@
+{
+  "queue_id": "hel-20260917-1600-canada-eu",
+  "slug": "canada-aabner-for-eu-associeret-medlem",
+  "headline": "Canada åbner for historisk EU-alliance – Trump truer med hård told",
+  "category_slug": "udland",
+  "deck": "Mark Carney vil tættere på Europa, mens Washington advarer om handelsstraf. Den nye EU-status er endnu ikke defineret.",
+  "body_markdown": "Canada er klar til at gå markant tættere på EU. Det slog premierminister Mark Carney fast torsdag i Europa-Parlamentet i Strasbourg, dagen efter at EU-Kommissionens formand Ursula von der Leyen foreslog at gøre Canada til EU's første associerede medlem.\n\nCarney tog imod ambitionen, men lagde samtidig vægt på indholdet frem for betegnelsen. Han beskrev målet som en alliance, der skal være stærk nok til, at ingen kan diktere parternes valg.\n\nForslaget er usædvanligt, fordi en sådan status ikke i dag er en almindelig medlemskategori i EU. Kommissionens idé er endnu ikke udformet i detaljer, og den vil kræve opbakning fra medlemslandene. Carney har desuden sagt, at en endelig aftale skal debatteres og stemmes om i Canadas parlament.\n\n### Fra handel til forsvar og teknologi\n\nPlanerne går betydeligt længere end den eksisterende handelsaftale CETA. Von der Leyen har peget på tættere samarbejde om blandt andet forsvarsindustri, kritiske råstoffer, energi, kunstig intelligens, cybersikkerhed og Arktis.\n\nCarney sagde i Strasbourg, at Canada og Europa er stærke hver for sig, men endnu stærkere sammen. Han afviste samtidig, at målet er at skabe en ny stormagtsblok i konkurrence med USA og Kina.\n\n### Trump advarer Europa\n\nDen amerikanske præsident Donald Trump reagerede skarpt på forslaget. Han sagde onsdag, at hvis han vurderer EU's skridt som fjendtligt, kan USA indføre meget høje toldsatser eller standse handel med Europa på en række områder.\n\nEU-Kommissionen afviser, at initiativet er rettet mod USA. En talsmand for Kommissionen understregede torsdag, at et stærkere partnerskab med Canada skal styrke de to parter og ikke er vendt mod andre.\n\nCarney fastholdt efter talen Canadas ret til selv at vælge sine internationale samarbejdspartnere. Dermed er et endnu løst europæisk forslag på blot et døgn blevet til en ny konfliktlinje i forholdet mellem EU, Canada og USA.\n\nDet afgørende næste spørgsmål er, hvad et associeret medlemskab konkret skal indeholde. Først når Kommissionen lægger en model frem, vil det stå klart, hvor tæt Canada reelt kan blive knyttet til EU uden at blive egentligt medlem.",
+  "source_metadata": [
+    {"url":"https://audiovisual.ec.europa.eu/de/media/video/I-293061","type":"primary","title":"State of the European Union 2026 – Ursula von der Leyen"},
+    {"url":"https://audiovisual.ec.europa.eu/de/media/video/I-294232","type":"primary","title":"Mark Carney address to the European Parliament"},
+    {"url":"https://www.reuters.com/world/americas/trump-warns-eu-tariffs-over-canadas-potential-associate-membership-calls-it-2026-09-17/","type":"authoritative","title":"EU and Canada are stronger together, Carney says after Trump derides EU alliance"}
+  ],
+  "editorial_metadata": {
+    "sagen_kort": [
+      "EU-Kommissionen foreslår Canada som EU's første associerede medlem, og premierminister Mark Carney tager positivt imod ambitionen.",
+      "Donald Trump truer med meget høje toldsatser eller handelsstop, hvis USA vurderer det tættere EU-Canada-samarbejde som fjendtligt."
+    ],
+    "frontpage_destination": "normal",
+    "story_cluster_key": "canada-eu-associate-membership-2026",
+    "hero_candidates": [
+      {"rank":1,"source_url":"https://commons.wikimedia.org/wiki/File:European_Parliament_Strasbourg_Hemicycle_-_Diliff.jpg","commercial_use_allowed":true,"local_storage_allowed":true,"width":6000,"height":3389,"license":"CC BY-SA 3.0","credit":"David Iliff"},
+      {"rank":2,"source_url":"https://commons.wikimedia.org/wiki/File:Mark_Carney_at_Rideau_Hall,_2025.jpg","commercial_use_allowed":true,"local_storage_allowed":true,"width":4000,"height":6000,"license":"CC BY 4.0","credit":"Hayden Soloviev"},
+      {"rank":3,"source_url":"https://commons.wikimedia.org/wiki/File:Prime_Minister_Mark_Carney_-_2025_(54591686189)_(cropped2).jpg","commercial_use_allowed":true,"local_storage_allowed":true,"width":1998,"height":2713,"license":"CC BY 2.0","credit":"Simon Dawson / Number 10"},
+      {"rank":4,"source_url":"https://commons.wikimedia.org/wiki/File:Mark_Carney_in_2025_(cropped).jpg","commercial_use_allowed":true,"local_storage_allowed":true,"width":1116,"height":1473,"license":"Public domain (US federal government)","credit":"The White House / Daniel Torok"}
+    ],
+    "discovery_audit": {
+      "discovery_run_id":"hel-20260917-1600",
+      "source_pool":"discovery",
+      "candidates":[
+        {"candidate_id":"canada-eu-1","rank":1,"headline_topic":"Canada og EU åbner for associeret medlemskab","deep_screened":true,"downstream_sources":["European Commission audiovisual","European Parliament audiovisual","Reuters"],"decision":"selected","reason":"Frisk stor suverænitets-, handels- og geopolitisk historie med primær dokumentation og konkret amerikansk modreaktion","model_prompt_version":"canonical-news-task-2026-09-17"}
+      ]
+    }
+  }
+}
