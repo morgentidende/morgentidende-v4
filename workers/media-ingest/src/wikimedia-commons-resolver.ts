@@ -39,6 +39,8 @@ export type CommonsResolveResult =
 const COMMONS_API = 'https://commons.wikimedia.org/w/api.php';
 const COMMONS_USER_AGENT = 'MorgentidendeMedia/1.0 (https://morgentidende.dk)';
 const COMMONS_TARGET_WIDTH = 1600;
+const HERO_MIN_WIDTH = 800;
+const HERO_MIN_HEIGHT = 450;
 
 const sourceUrl = (payload: Record<string, unknown>) => (
   typeof payload.source_url === 'string' ? payload.source_url : ''
@@ -205,6 +207,22 @@ export const resolveWikimediaCommonsPayload = async (
     return { kind: 'permanent', error: 'commons_resolved_asset_not_image' };
   }
 
+  const originalWidth = Number(info.width || 0);
+  const originalHeight = Number(info.height || 0);
+  if (originalWidth > 0 && originalHeight > 0
+      && (originalWidth < HERO_MIN_WIDTH || originalHeight < HERO_MIN_HEIGHT)) {
+    return {
+      kind: 'permanent',
+      error: 'commons_original_too_small',
+      detail: {
+        width: originalWidth,
+        height: originalHeight,
+        minimum_width: HERO_MIN_WIDTH,
+        minimum_height: HERO_MIN_HEIGHT,
+      },
+    };
+  }
+
   const ext = info.extmetadata || {};
   const licenseShortName = htmlToText(extValue(ext, 'LicenseShortName'));
   const licenseUrl = extValue(ext, 'LicenseUrl').trim();
@@ -230,7 +248,11 @@ export const resolveWikimediaCommonsPayload = async (
   const filePageUrl = info.descriptionurl
     || `https://commons.wikimedia.org/wiki/${encodeURIComponent(canonicalTitle.replace(/ /g, '_')).replace(/%3A/gi, ':')}`;
   const metadata = metadataRecord(payload);
-  const resolvedUrl = info.thumburl || info.url;
+  const thumbIsLargeEnough = Number(info.thumbwidth || 0) >= HERO_MIN_WIDTH
+    && Number(info.thumbheight || 0) >= HERO_MIN_HEIGHT;
+  const resolvedUrl = thumbIsLargeEnough ? info.thumburl! : info.url;
+  const resolvedWidth = thumbIsLargeEnough ? info.thumbwidth : info.width;
+  const resolvedHeight = thumbIsLargeEnough ? info.thumbheight : info.height;
 
   return {
     kind: 'resolved',
@@ -260,8 +282,8 @@ export const resolveWikimediaCommonsPayload = async (
           original_width: info.width || null,
           original_height: info.height || null,
           original_bytes: info.size || null,
-          resolved_width: info.thumbwidth || info.width || null,
-          resolved_height: info.thumbheight || info.height || null,
+          resolved_width: resolvedWidth || null,
+          resolved_height: resolvedHeight || null,
         },
         commons_license_snapshot: {
           license_short_name: licenseShortName,

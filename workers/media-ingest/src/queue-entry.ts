@@ -203,15 +203,30 @@ const recordAttempt = (
   return tried;
 };
 
+const cleanMetadataForNextCandidate = (value: unknown): Record<string, unknown> => {
+  if (!value || typeof value !== 'object' || Array.isArray(value)) return {};
+  const metadata = { ...(value as Record<string, unknown>) };
+  for (const key of [
+    'commons_identity',
+    'commons_expected_sha1',
+    'commons_license_snapshot',
+    'commons_resolved_at',
+    'media_candidate_index',
+    'fallback_advanced_at',
+    'fallback_from_source_url',
+    'fallback_reason',
+    'fallback_hop',
+  ]) delete metadata[key];
+  return metadata;
+};
+
 const nextCandidatePayload = (
   current: Record<string, unknown>,
   tried: Record<string, unknown>[],
 ): Record<string, unknown> | null => {
   const fallbacks = arrayOfRecords(current.fallback_candidates);
   const nextIndex = candidateIndex(current) + 1;
-  const currentMetadata = current.metadata && typeof current.metadata === 'object' && !Array.isArray(current.metadata)
-    ? current.metadata as Record<string, unknown>
-    : {};
+  const sharedMetadata = cleanMetadataForNextCandidate(current.metadata);
 
   while (fallbacks.length > 0) {
     const next = fallbacks.shift()!;
@@ -227,7 +242,7 @@ const nextCandidatePayload = (
       candidate_index: nextIndex,
       tried,
       metadata: {
-        ...currentMetadata,
+        ...sharedMetadata,
         ...nextMetadata,
         media_candidate_index: nextIndex,
         fallback_advanced_at: new Date().toISOString(),
@@ -245,28 +260,39 @@ const handleFastIngest = async (request: Request, env: Env): Promise<Response> =
     return worker.fetch(request, env);
   }
 
-  const attempt = await attemptIngest(env, payload);
-  if (attempt.response.ok) return attempt.response;
+  let current = payload;
+  for (let guard = 0; guard < 7; guard += 1) {
+    const attempt = await attemptIngest(env, current);
+    if (attempt.response.ok) return attempt.response;
 
-  if (!isTransientIngestFailure(attempt.response, attempt.result as ErrorBody)) return attempt.response;
+    const tried = recordAttempt(attempt.payload, attempt.result, attempt.response);
+    const transient = isTransientIngestFailure(attempt.response, attempt.result as ErrorBody);
 
-  const failure: ErrorBody = {
-    ...(attempt.result as ErrorBody),
-    http_status: attempt.response.status,
-  };
+    if (transient) {
+      const failure: ErrorBody = {
+        ...(attempt.result as ErrorBody),
+        http_status: attempt.response.status,
+      };
+      try {
+        const jobId = await enqueueFallback(env, { ...attempt.payload, tried }, failure);
+        return jsonResponse({
+          ok: false,
+          queued: true,
+          job_id: jobId,
+          reason: failure.error || `ingest_${attempt.response.status}`,
+        }, 202);
+      } catch (error) {
+        console.error('media_fallback_queue_error', error);
+        return attempt.response;
+      }
+    }
 
-  try {
-    const jobId = await enqueueFallback(env, attempt.payload, failure);
-    return jsonResponse({
-      ok: false,
-      queued: true,
-      job_id: jobId,
-      reason: failure.error || `ingest_${attempt.response.status}`,
-    }, 202);
-  } catch (error) {
-    console.error('media_fallback_queue_error', error);
-    return attempt.response;
+    const next = nextCandidatePayload(attempt.payload, tried);
+    if (!next) return attempt.response;
+    current = next;
   }
+
+  return jsonResponse({ error: 'hero_fallback_limit_reached' }, 422);
 };
 
 const processJob = async (env: Env, job: QueueJob) => {
