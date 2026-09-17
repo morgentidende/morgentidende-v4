@@ -1,0 +1,19 @@
+{
+  "payload_type": "discovery_audit",
+  "queue_id": "hel-20260917-0501-audit",
+  "terminal_reason": "DUPLICATE_RETRY_EXHAUSTED",
+  "editorial_metadata": {
+    "discovery_run_id": "hel-20260917-0501",
+    "source_pool": "discovery",
+    "candidates_tried": 4,
+    "duplicate_of": ["PR #611", "PR #606", "PR #617", "PR #615"],
+    "audit": [
+      {"candidate_id":"eu-migration-emergency","rank":1,"candidate_headline":"EU proposes emergency framework for sudden mass migrant arrivals","deep_screened":true,"downstream_sources":["European Commission","Reuters"],"decision":"duplicate","reason":"Near-identical recent transport PR #611"},
+      {"candidate_id":"spain-regularisation","rank":2,"candidate_headline":"Spanish police union warns regularisation could reach four million","deep_screened":true,"downstream_sources":["Spain Inclusion Ministry","Spanish parliamentary hearing"],"decision":"duplicate","reason":"Near-identical recent transport PR #606"},
+      {"candidate_id":"austria-fpoe-poll","rank":3,"candidate_headline":"FPÖ reaches 38 percent and governing parties lack majority","deep_screened":true,"downstream_sources":["OGM","Kurier"],"decision":"duplicate","reason":"Near-identical recent transport PR #617"},
+      {"candidate_id":"ai-slowdown","rank":4,"candidate_headline":"Von der Leyen backs slowing frontier AI development","deep_screened":true,"downstream_sources":["European Commission","Reuters"],"decision":"duplicate","reason":"Near-identical recent transport PR #615"}
+    ],
+    "breaking_scan":"No verified fresh high-Danish-impact breaking override established within the canonical run budget.",
+    "final_qa_duplicate": true
+  }
+}
