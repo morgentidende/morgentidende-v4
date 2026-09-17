@@ -2,8 +2,6 @@ import "jsr:@supabase/functions-js/edge-runtime.d.ts";
 
 const SUPABASE_URL = Deno.env.get("SUPABASE_URL")!;
 const SERVICE_KEY = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
-const SOCIAL_PUBLISHER_URL = (Deno.env.get("SOCIAL_PUBLISHER_URL") || "").replace(/\/$/, "");
-const SOCIAL_PUBLISHER_TOKEN = Deno.env.get("SOCIAL_PUBLISHER_TOKEN") || "";
 const RUNNER_HEADER = "x-morgentidende-social-runner-token";
 
 const restHeaders = {
@@ -18,6 +16,7 @@ type Policy = {
   enabled?: boolean;
   start_at?: string | null;
   base_url?: string;
+  adapter_url?: string;
   timezone?: string;
   min_provider_lead_seconds?: number;
   facebook?: { enabled?: boolean; delay_seconds?: number; exclude_categories?: string[] };
@@ -57,8 +56,9 @@ async function rpc(name: string, body: Record<string, unknown>): Promise<unknown
   try { return JSON.parse(text); } catch { return text; }
 }
 
-async function authorize(req: Request) {
-  const token = (req.headers.get(RUNNER_HEADER) || "").trim();
+const runnerToken = (req: Request) => (req.headers.get(RUNNER_HEADER) || "").trim();
+
+async function authorize(token: string) {
   if (!token) return false;
   try {
     return await rpc("authorize_social_dispatcher_runner", { p_token: token }) === true;
@@ -163,10 +163,9 @@ async function patchPost(id: string, patch: Record<string, unknown>) {
   if (!response.ok) throw new Error(`social_patch_failed:${response.status}:${await response.text()}`);
 }
 
-async function dispatch(post: any, policy: Policy) {
-  if (!SOCIAL_PUBLISHER_URL || !SOCIAL_PUBLISHER_TOKEN) {
-    throw new Error("social_publisher_not_configured");
-  }
+async function dispatch(post: any, policy: Policy, token: string) {
+  const adapterUrl = clean(policy.adapter_url || "").replace(/\/$/, "");
+  if (!adapterUrl || !token) throw new Error("social_adapter_not_configured");
 
   const minLead = Math.max(60, Number(policy.min_provider_lead_seconds ?? 120));
   const original = new Date(post.scheduled_for).getTime();
@@ -175,10 +174,10 @@ async function dispatch(post: any, policy: Policy) {
 
   let response: Response;
   try {
-    response = await fetch(`${SOCIAL_PUBLISHER_URL}/schedule`, {
+    response = await fetch(`${adapterUrl}/schedule`, {
       method: "POST",
       headers: {
-        authorization: `Bearer ${SOCIAL_PUBLISHER_TOKEN}`,
+        authorization: `Bearer ${token}`,
         "content-type": "application/json",
       },
       body: JSON.stringify({
@@ -228,7 +227,8 @@ async function dispatch(post: any, policy: Policy) {
 
 Deno.serve(async (req: Request) => {
   if (req.method !== "POST") return json({ ok: false, error: "method_not_allowed" }, 405);
-  if (!(await authorize(req))) return json({ ok: false, error: "unauthorized_runner" }, 403);
+  const token = runnerToken(req);
+  if (!(await authorize(token))) return json({ ok: false, error: "unauthorized_runner" }, 403);
 
   try {
     const policy = await getPolicy();
@@ -280,7 +280,7 @@ Deno.serve(async (req: Request) => {
     const ready = await getReadyPosts();
     const dispatched = [];
     for (const post of Array.isArray(ready) ? ready : []) {
-      dispatched.push(await dispatch(post, policy));
+      dispatched.push(await dispatch(post, policy, token));
     }
 
     return json({ ok: true, enabled: true, articles_seen: articles.length, inserted, dispatched });
