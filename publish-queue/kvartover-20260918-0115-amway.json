@@ -1,0 +1,88 @@
+{
+  "queue_id": "kvartover-20260918-0115-amway",
+  "slug": "amway-betaler-14-milliarder-efter-anklager-om-vildledende-rekruttering",
+  "headline": "Amway betaler 1,4 milliarder kroner efter anklager om vildledende rekruttering",
+  "category_slug": "penge",
+  "deck": "Det er den største økonomiske inddrivelse nogensinde i en amerikansk FTC-sag mod et netværksfirma. Amway afviser myndighedernes beskrivelse af forretningen.",
+  "sagen_kort": [
+    "Amway og to tilknyttede selskaber har indgået et foreslået forlig på 225 millioner dollar, cirka 1,4 milliarder kroner, med USA's forbrugermyndighed FTC og delstaten Washington.",
+    "Myndighederne hævder, at de fleste deltagere hos de to tilknyttede selskaber efter 2020 brugte mere på varer og træning, end de tjente; Amway siger, at selskabet grundlæggende er uenig i myndighedernes beskrivelse."
+  ],
+  "body_markdown": "Netværksfirmaet Amway og to af dets største tilknyttede trænings- og rekrutteringsselskaber skal betale 225 millioner dollar, cirka 1,4 milliarder kroner, for at afslutte en sag rejst af USA's forbrugermyndighed Federal Trade Commission, FTC, og delstaten Washington.\n\nMyndighederne anklager Amway, World Wide Group og Leadership Team Development for vildledende og urimelige metoder i rekrutteringen af nye selvstændige sælgere. Det foreslåede forlig er ifølge FTC den største økonomiske inddrivelse, myndigheden nogensinde har opnået i en sag mod et firma med netværkssalg.\n\nNæsten hele beløbet skal ifølge FTC gå til deltagere, der har tabt penge. Forliget er indleveret til en føderal domstol i staten Washington og får først retskraft, når dommeren godkender det.\n\n## Løfter om høj indtjening\n\nIfølge klagen fortalte de to tilknyttede selskaber potentielle deltagere, at de kunne tjene mere end 40.000 dollar om året. Washingtons justitsministerium oplyser, at kun omkring én procent nåede det niveau, mens de fleste, der sluttede sig til de to selskaber efter 2020, brugte mere på Amway-produkter og træning, end de modtog i indkomst fra Amway.\n\nMyndighederne hævder desuden, at deltagere blev tilskyndet til at købe faste mængder produkter hver måned, også når de ikke kunne videresælge dem eller selv ønskede dem. FTC mener, at systemet dermed gav økonomiske incitamenter til køb og rekruttering, som ikke afspejlede reel efterspørgsel fra kunder.\n\nKlagen går endnu videre. Myndighederne hævder, at deltagere blev instrueret i at registrere salg, som ikke havde fundet sted, så forretningen fremstod mere baseret på salg til kunder og mindre på rekruttering og deltagernes egne indkøb. Det er myndighedernes anklager; sagen er afsluttet med et foreslået forlig og ikke en dom efter en fuld retssag.\n\n## Amway afviser beskrivelsen\n\nAmway bestrider myndighedernes fremstilling. En talsperson siger til Reuters, at selskabet grundlæggende er uenig i myndighedernes beskrivelse af forretningen og fremhæver, at medlemmer er kontraktligt forpligtet til at følge omfattende adfærdsregler.\n\nForliget indebærer samtidig konkrete ændringer. Deltagere skal fremover videresælge mindst 70 procent af de produkter, de køber fra Amway hver måned. Rekrutteres en deltager, som køber varer uden at videresælge dem, skal rekruttererens betaling reduceres markant.\n\nAmway skal også afskedige deltagere, der registrerer falske salg eller lærer andre at gøre det, og selskabets salgsdata skal løbende kontrolleres af en uafhængig revisor. Nye deltagere hos de to tilknyttede selskaber må desuden ikke opkræves betaling for træning eller tjenester i deres første år.\n\nSagen rammer et centralt spørgsmål i netværkssalg: om indtjeningen først og fremmest kommer fra reelt salg til slutkunder eller fra en struktur, hvor deltagere køber varer og rekrutterer nye deltagere. Det nye forlig ændrer Amways incitamenter netop på det punkt, samtidig med at selskabet fastholder, at myndighedernes karakteristik er forkert.",
+  "source_metadata": {
+    "primary": {
+      "name": "Federal Trade Commission",
+      "url": "https://search.ftc.gov/news-events/news/press-releases/2026/09/ftc-takes-historic-action-against-multilevel-marketing-operator-amway-unfair-deceptive-business",
+      "published_date": "2026-09-17",
+      "registry_source": true
+    },
+    "corroboration": [
+      {"name": "Washington State Attorney General", "url": "https://www.atg.wa.gov/news/news-releases/wa-ftc-reach-225m-settlement-amway-unfair-and-deceptive-business-practices", "published_date": "2026-09-17"},
+      {"name": "Reuters", "url": "https://www.reuters.com/legal/government/amway-corp-affiliates-pay-225-million-under-proposed-order-ftc-says-2026-09-17/", "published_date": "2026-09-17"}
+    ]
+  },
+  "editorial_metadata": {
+    "article_type": "news",
+    "language": "da",
+    "source_pool": "major-media-fallback",
+    "candidates_tried": 1,
+    "frontpage_destination": "normal",
+    "final_check": "passed",
+    "profile": "canonical-news-task",
+    "sagen_kort": [
+      "Amway og to tilknyttede selskaber har indgået et foreslået forlig på 225 millioner dollar, cirka 1,4 milliarder kroner, med USA's forbrugermyndighed FTC og delstaten Washington.",
+      "Myndighederne hævder, at de fleste deltagere hos de to tilknyttede selskaber efter 2020 brugte mere på varer og træning, end de tjente; Amway siger, at selskabet grundlæggende er uenig i myndighedernes beskrivelse."
+    ],
+    "dedupe_context": {
+      "checked_at": "2026-09-18T01:19:00+02:00",
+      "window_days": 7,
+      "publish_prs_seen": 100,
+      "include_closed_publish_prs": true,
+      "newest_publish_pr": 748,
+      "public_articles_seen": null,
+      "duplicate_of": null,
+      "note": "Primary GitHub publish ledger screened with state=all. No semantically overlapping Amway/FTC settlement transport observed. Public history is best-effort supplement under current canonical mandate."
+    }
+  },
+  "hero_candidates": [
+    {
+      "provider": "Wikimedia Commons",
+      "provider_page": "https://commons.wikimedia.org/wiki/File:Amway_Headquarters.jpg",
+      "license": "CC0 1.0",
+      "credit": "WMrapids",
+      "dimensions": "3642x1132",
+      "relevance": "Amways faktiske hovedkvarter i Ada, Michigan"
+    },
+    {
+      "provider": "Wikimedia Commons",
+      "provider_page": "https://commons.wikimedia.org/wiki/File:FTC_Building_entrance_Washington_DC_2025-02-07_13-30-57.jpg",
+      "license": "CC BY 4.0",
+      "credit": "G. Edward Johnson",
+      "dimensions": "7493x4215",
+      "relevance": "Indgangen til FTC's hovedkvarter, myndigheden bag forliget"
+    },
+    {
+      "provider": "Wikimedia Commons",
+      "provider_page": "https://commons.wikimedia.org/wiki/File:Federal_Trade_Commission_Building_(53839143157).jpg",
+      "license": "CC BY 2.0",
+      "credit": "Ajay Suresh",
+      "dimensions": "5184x3888",
+      "relevance": "FTC's hovedkvarter i Washington, D.C."
+    },
+    {
+      "provider": "Wikimedia Commons",
+      "provider_page": "https://commons.wikimedia.org/wiki/File:The_Apex_Building,_headquarters_of_the_Federal_Trade_Commission,_on_Constitution_Avenue_and_7th_Streets_in_Washington,_D.C.jpg",
+      "license": "CC BY 4.0",
+      "credit": "Harrison Keely",
+      "dimensions": "3396x2262",
+      "relevance": "Dokumentarisk foto af FTC-bygningen"
+    }
+  ],
+  "audit": {
+    "discovery_run_id": "kvartover-20260918-0115",
+    "candidate_id": "amway-ftc-settlement",
+    "research_date": "2026-09-18",
+    "hero_rights_checked": true,
+    "semantic_dedupe_performed_once": true
+  }
+}
