@@ -2,7 +2,7 @@
 
 Denne fil ejer fælles artikelkrav og Journalistens **producer-check før handoff**. Opgavespecifik kørsels-, transport-, media- og backendlogik hører ikke hjemme her.
 
-**Begreber:** Producer-check er Journalistens sidste redaktionelle kontrol før GitHub-handoff. Backendens **Article QA** er en separat publication-gate og må først starte, når hero/media er valideret, `ready` og attached til artiklen.
+**Begreber:** Den semantiske 7-dages-dedupe ligger efter Research og før Write. Producer-check er Journalistens sidste redaktionelle kontrol før GitHub-handoff. Backendens **Article QA** er en separat publication-gate og må først starte, når hero/media er valideret, `ready` og attached til artiklen.
 
 ## Fælles artikelkrav
 
@@ -32,22 +32,28 @@ Denne fil ejer fælles artikelkrav og Journalistens **producer-check før handof
 
 13. **Udenlandsk valuta.** Centrale udenlandske beløb angives samtidig eller først i rimeligt afrundede DKK efter relevant kurs. Rubrik og `SAGEN KORT` bruger som udgangspunkt DKK, når det hjælper læseren. Originalvaluta kan stå i parentes ved første centrale omtale.
 
-14. **Ingen næsten-identiske historier inden for 7 dage.** Den semantiske dubletkontrol udføres i producer-check lige før handoff, ikke som særskilt discovery-, research- eller backend-gate. Sammenlign hovedbegivenhed, hovedfaktum, centrale aktører, tal, geografi og emne — ikke kun rubrikken. Samme sag kræver en væsentlig videreudvikling, der i sig selv fortjener en ny artikel. Praktisk test: opfølgeren skal kunne opsummeres med mindst ét væsentligt nyt faktum eller en konkret konsekvens, som den gamle artikel ikke kunne have skrevet ved publicering. Legitim opfølger bruger samme `story_cluster_key` og struktureret `Læs også`.
+14. **Ingen næsten-identiske historier inden for 7 dage.** Den semantiske dubletkontrol udføres **efter Research og før Write**, mens sagens substans er kendt, men før der bruges tid på at skrive artiklen. Kontrollen er semantisk og redaktionel — ikke en deterministisk fingerprint-, nøgleords- eller rubrik-gate.
 
-Hvis producer-check finder en næsten-identisk artikel: kassér udkastet, registrér `duplicate_of`, ekskludér sagen/personen/institutionen resten af runnet, og returnér til et **helt nyt forsideoverblik/historievalg**. Brug ikke blot næste kandidat fra den gamle shortlist. Et dubletfund afslutter ikke i sig selv runnet.
+Sammenlign researchens story brief med de seneste 7 dages publicerede Morgentidende-artikler og helt friske `[PUBLISH]`-transporter, der endnu ikke er synlige offentligt. Sammenlign hovedbegivenhed, hovedfaktum, centrale aktører, tal, geografi og den konkrete nye udvikling. Samme sag kræver en væsentlig videreudvikling, der i sig selv fortjener en ny artikel.
+
+Praktisk test: opfølgeren skal kunne opsummeres med mindst ét væsentligt nyt faktum eller en konkret konsekvens, som den gamle artikel ikke kunne have skrevet ved publicering. Legitim opfølger bruger samme `story_cluster_key` og struktureret `Læs også`.
+
+Hvis dedupe-fasen finder en næsten-identisk historie: registrér `duplicate_of`, ekskludér sagen/personen/institutionen resten af runnet, og returnér til et **helt nyt forsideoverblik/historievalg**. Brug ikke blot næste kandidat fra den gamle shortlist. Et dubletfund afslutter ikke i sig selv runnet.
+
+Hvis researchen eller sagens substans ændres væsentligt efter dedupe, skal den semantiske dubletkontrol køres igen, før artiklen færdiggøres. Producer-check er ikke en ny dublet-gate.
 
 15. **Delingspotentiale.** Udvikl artikler med højt delingspotentiale uden at svække dokumentation eller forbehold. Løft stærke fakta, tal, citater, konsekvenser og kontraster frem; gør abstrakte emner konkrete. Før handoff skal sætningen **“Jeg sender dig den her, fordi …”** kunne afsluttes med et konkret dokumenteret faktum eller en dokumenteret konsekvens. Hvis det kræver overdrivelse, spekulation eller udeladelse af en væsentlig indvending, skal vinklen rettes.
 
 ## Journalistens producer-check før handoff
 
-For alle artikler, inklusive breaking og direkte chat-publicering, laver Journalisten ét frisk genlæs af det færdige udkast **før GitHub-handoff**. Dette er korrektur og payload-kontrol, ikke backendens Article QA og ikke et nyt researchforløb.
+For alle artikler, inklusive breaking og direkte chat-publicering, laver Journalisten ét frisk genlæs af det færdige udkast **før GitHub-handoff**. Dette er korrektur og payload-kontrol, ikke dedupe, ikke backendens Article QA og ikke et nyt researchforløb.
 
 ### Skal være afklaret
 
-- 7-dages-dedupe efter regel 14 er gennemført på et rimeligt aktuelt grundlag.
-- Centrale fakta og væsentlige forbehold er dokumenteret.
-- `editorial_metadata.sagen_kort`, `deck`, `source_metadata`, hero-kandidater og øvrige strukturerede felter følger den aktuelle run-kontrakt.
-- Hvis artiklen er en legitim opfølger, bruger den korrekt `story_cluster_key` og relationer.
+- den semantiske 7-dages-dedupe efter regel 14 er allerede gennemført før Write på et rimeligt aktuelt grundlag
+- centrale fakta og væsentlige forbehold er dokumenteret
+- `editorial_metadata.sagen_kort`, `deck`, `source_metadata`, hero-kandidater og øvrige strukturerede felter følger den aktuelle run-kontrakt
+- hvis artiklen er en legitim opfølger, bruger den korrekt `story_cluster_key` og relationer
 
 ### Må rettes sikkert
 
@@ -60,7 +66,7 @@ For alle artikler, inklusive breaking og direkte chat-publicering, laver Journal
 - hero-motiv/kandidatrangering, hvis et allerede fundet bedre lovligt valg findes uden ny research
 - delbarhed kun ved disponering af allerede dokumenteret materiale
 
-Bevar journalistisk vinkel, dokumenterede fakta, evidensvurdering og citaters mening. Kræver en rettelse ny research eller ny vinkel, returnér til den relevante tidligere fase.
+Bevar journalistisk vinkel, dokumenterede fakta, evidensvurdering og citaters mening. Kræver en rettelse ny research eller ændrer den sagens substans, returnér til den relevante tidligere fase og genkør dedupe efter regel 14, før artiklen færdiggøres.
 
 ## Backendens Article QA
 
