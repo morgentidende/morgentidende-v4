@@ -1,0 +1,115 @@
+{
+  "payload_type": "article",
+  "queue_id": "halv-20260917-2332-bremen-church",
+  "slug": "is-tilhaenger-anholdt-kirke-bremen-angreb",
+  "headline": "IS-tilhænger havde skaffet pistol og udset kirke som første mål",
+  "category_slug": "udland",
+  "deck": "En 24-årig iraker er fængslet i Tyskland. Anklagemyndigheden siger, at han ville angribe mennesker, han anså som vantro.",
+  "body_markdown": "En 24-årig irakisk statsborger er torsdag blevet varetægtsfængslet i Tyskland, mistænkt for at have forberedt et islamistisk terrorangreb mod en kirke i Bremen.\n\nDen tyske forbundsanklagemyndighed oplyser, at Gailan Al-M. deler den radikalislamistiske ideologi hos terrorbevægelsen Islamisk Stat (IS). Ifølge den arrestordre, som myndigheden gengiver, begyndte han i foråret 2025 at planlægge angreb i Tyskland mod mennesker, han betragtede som vantro.\n\nPlanerne var ifølge anklagemyndigheden kommet længere end til samtaler. Den mistænkte havde allerede skaffet sig en pistol og rekognosceret ved en kirke i Bremen, som skulle være gruppens første mål. Myndigheden har ikke offentliggjort navnet på kirken.\n\nHan skal samtidig have forsøgt at opbygge en gruppe omkring planerne. Én endnu uidentificeret person blev ifølge anklagemyndigheden rekrutteret, mens forsøg på at få flere med mislykkedes.\n\n### Anholdt nordøst for Berlin\n\nGailan Al-M. blev torsdag anholdt i Landkreis Barnim i delstaten Brandenburg af det tyske kriminalpoliti BKA og forbundspolitiet. Arrestordren var udstedt 8. september. Senere torsdag blev han fremstillet for en dommer ved den tyske forbundsdomstol, som besluttede, at han skal sidde varetægtsfængslet.\n\nMistanken omfatter forsøg på at stifte en terrororganisation, forberedelse af en alvorlig statsfarlig voldshandling og overtrædelse af våbenloven. Der er tale om anklagemyndighedens mistanke og ikke en dom.\n\nTyske NDR og ARD's Tagesschau gengiver samme hovedforløb på baggrund af forbundsanklagemyndighedens oplysninger. NDR fremhæver, at manden efter myndighedernes oplysninger allerede var bevæbnet, mens Tagesschau beskriver kirken i Bremen som det planlagte første mål.\n\nSagen føjer sig til en række tyske efterforskninger af personer med forbindelse eller ideologisk tilknytning til IS. Den konkrete sag skiller sig ud ved, at myndighederne siger, at et fysisk mål allerede var udpeget, en pistol var anskaffet, og mindst én anden person var blevet rekrutteret.",
+  "source_metadata": [
+    {
+      "url": "https://www.presseportal.de/blaulicht/pm/14981/6354178",
+      "name": "Der Generalbundesanwalt beim Bundesgerichtshof",
+      "source_class": "authoritative",
+      "role": "primary",
+      "published_at": "2026-09-17T14:42:00+02:00"
+    },
+    {
+      "url": "https://www.ndr.de/nachrichten/niedersachsen/oldenburg_ostfriesland/is-anhaenger-soll-anschlag-auf-kirche-in-bremen-geplant-haben%2Cterrorverdacht-120.html",
+      "name": "NDR",
+      "source_class": "authoritative",
+      "role": "independent_confirmation",
+      "published_at": "2026-09-17T17:14:00+02:00"
+    },
+    {
+      "url": "https://www.tagesschau.de/inland/regional/niedersachsen/is-anhaenger-soll-anschlag-auf-kirche-in-bremen-geplant-haben%2Cterrorverdacht-120.html",
+      "name": "Tagesschau",
+      "source_class": "authoritative",
+      "role": "independent_confirmation",
+      "published_at": "2026-09-17T17:14:00+02:00"
+    }
+  ],
+  "hero_candidates": [
+    {
+      "rank": 1,
+      "source_url": "https://commons.wikimedia.org/wiki/File:St.-Pauli-Kirche_Bremen.jpg",
+      "provider": "wikimedia_commons",
+      "depiction": "St.-Pauli-Kirche i Bremen; illustrativt kirkemotiv fra byen, ikke identificeret som det konkrete mål",
+      "width": 3954,
+      "height": 3473,
+      "mime_type": "image/jpeg",
+      "license": "CC BY-SA 4.0",
+      "author": "Exprimidor",
+      "commercial_reuse": true,
+      "attribution_required": true
+    },
+    {
+      "rank": 2,
+      "source_url": "https://commons.wikimedia.org/wiki/File:Bremen,_die_Weser,_Blick_zur_Kirche_St._Stephani.JPG",
+      "provider": "wikimedia_commons",
+      "depiction": "Bremen med St. Stephani; illustrativt kirkemotiv fra byen, ikke identificeret som det konkrete mål",
+      "width": 4255,
+      "height": 2832,
+      "mime_type": "image/jpeg",
+      "license": "CC BY 4.0",
+      "author": "Dguendel",
+      "commercial_reuse": true,
+      "attribution_required": true
+    },
+    {
+      "rank": 3,
+      "source_url": "https://commons.wikimedia.org/wiki/File:558_Arbergen_Kirche_Westportal_Bogen.JPG",
+      "provider": "wikimedia_commons",
+      "depiction": "Johanniskirche i Bremen-Arbergen; illustrativt kirkemotiv fra byen, ikke identificeret som det konkrete mål",
+      "width": 4000,
+      "height": 3000,
+      "mime_type": "image/jpeg",
+      "license": "CC BY-SA 4.0",
+      "author": "Ulamm",
+      "commercial_reuse": true,
+      "attribution_required": true
+    }
+  ],
+  "editorial_metadata": {
+    "sagen_kort": [
+      "Tysklands forbundsanklagemyndighed siger, at den 24-årige havde skaffet en pistol og rekognosceret ved en kirke i Bremen.",
+      "Han mistænkes for at dele IS' radikalislamistiske ideologi og for at have rekrutteret én endnu ukendt person til planerne."
+    ],
+    "frontpage_destination": "normal",
+    "story_cluster_key": "germany-is-terror-plots-2026",
+    "dedupe_context": {
+      "checked_at": "2026-09-17T23:36:00+02:00",
+      "window_days": 7,
+      "publish_prs_seen": 100,
+      "include_closed_publish_prs": true,
+      "newest_publish_pr": 742,
+      "public_articles_seen": null,
+      "decision": "not_duplicate",
+      "note": "Recent ledger includes a separate Wuppertal synagogue arson case (#742), but no transport concerning the Bremen church terror plot."
+    },
+    "discovery_audit": {
+      "discovery_run_id": "halv-20260917-2332",
+      "candidates": [
+        {
+          "candidate_id": "bremen-is-church",
+          "headline": "IS-tilhænger mistænkt for planlagt angreb på kirke i Bremen",
+          "status": "selected",
+          "source_pool": "breaking-major-media",
+          "freshness_date": "2026-09-17"
+        },
+        {
+          "candidate_id": "poland-us-base",
+          "headline": "Trump siger, at der er fremskridt mod permanent amerikansk hærbase i Polen",
+          "status": "ranked_not_selected",
+          "source_pool": "breaking-major-media"
+        },
+        {
+          "candidate_id": "klopp-national-pride",
+          "headline": "Klopp vil generobre tysk national stolthed",
+          "status": "ranked_not_selected",
+          "source_pool": "breaking-major-media"
+        }
+      ]
+    }
+  }
+}
