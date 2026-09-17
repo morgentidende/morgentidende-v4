@@ -1,0 +1,42 @@
+---
+import V4Card from './V4Card.astro';
+import '../styles/topic-special-sections.css';
+
+interface Props {
+  section: any;
+  articles: any[];
+  categoryById: Map<string, string>;
+}
+
+const { section, articles, categoryById } = Astro.props;
+const visible = articles
+  .filter((article) => article.story_cluster_id === section.story_cluster_id)
+  .sort((a, b) => new Date(b.published_at).getTime() - new Date(a.published_at).getTime())
+  .slice(0, 12);
+---
+{visible.length ? (
+  <section class="v4-topic-special" aria-labelledby={`topic-special-${section.slot}`}>
+    <div class="v4-topic-special__header">
+      <div class="v4-topic-special__eyebrow">FØLG UDVIKLINGEN</div>
+      <h2 id={`topic-special-${section.slot}`} class="v4-topic-special__title">
+        {section.label}
+        <span class="v4-topic-special__title-arrow" aria-hidden="true">→</span>
+      </h2>
+    </div>
+
+    <div class="v4-topic-special__viewport" tabindex="0" aria-label={`${section.label}: rul vandret for flere historier`}>
+      <div class="v4-topic-special__track">
+        {visible.map((article) => (
+          <div class="v4-topic-special__card">
+            <V4Card
+              article={article}
+              categoryName={categoryById.get(article.category_id)}
+              showDeck={false}
+              imageSizes="(max-width: 640px) 78vw, (max-width: 900px) 46vw, 30vw"
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+) : null}
