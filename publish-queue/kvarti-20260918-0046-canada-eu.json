@@ -1,0 +1,61 @@
+{
+  "queue_id": "kvarti-20260918-0046-canada-eu",
+  "slug": "canada-vil-taettere-paa-eu-trump-truer-med-told",
+  "headline": "Canada vil tættere på EU – Trump truer Europa med hård told",
+  "category_slug": "udland",
+  "deck": "Canadas premierminister Mark Carney bakker op om EU's helt nye idé om et canadisk »associeret medlemskab«. USA's præsident Donald Trump advarer om, at aftalen kan blive opfattet som en fjendtlig handling.",
+  "sagen_kort": [
+    "Canada hilser EU-Kommissionens forslag om et hidtil ukendt associeret medlemskab velkommen, men understreger, at landet ikke søger fuldt EU-medlemskab.",
+    "Trump truer med meget hård told mod Europa, hvis den nye EU-Canada-aftale efter amerikansk vurdering bliver en fjendtlig handling."
+  ],
+  "body_markdown": "Canada er klar til at knytte sig markant tættere til EU. Torsdag bakkede premierminister Mark Carney op om EU-Kommissionens forslag om at gøre Canada til unionens første associerede medlem.\n\nForslaget blev fremsat onsdag af EU-Kommissionens formand Ursula von der Leyen. Statussen findes ikke i EU-traktaterne i dag, og både indholdet og den juridiske konstruktion skal derfor først forhandles.\n\n»Canada welcomes this ambition,« sagde Carney i Europa-Parlamentet i Strasbourg. Han fremhævede samtidig, at Canada ikke ønsker fuldt medlemskab af EU og ikke vil afgive national suverænitet.\n\nCarney beskrev i stedet målet som en ny alliance, der skal gøre både Canada og Europa mindre sårbare. Han pegede blandt andet på handel, forsvar, kritiske mineraler, energi, kunstig intelligens, rumfart og finansielle tjenester som områder, hvor samarbejdet kan udbygges. Han ønsker også lettere adgang for unge til at bo, arbejde og studere på tværs af Atlanten.\n\n## Trump advarer Europa\n\nUdspillet kommer midt i en alvorlig handelskonflikt mellem USA og Canada. Donald Trump har reageret skarpt på EU's invitation og advaret om konsekvenser for Europa.\n\n»If it’s a good intention, that’s fine. If it’s a bad intention, we’ll put very heavy tariffs on Europe,« sagde Trump ifølge Euronews.\n\nEU afviser, at initiativet er rettet mod USA. EU's handelskommissær Maroš Šefčovič siger, at unionen viser solidaritet med Canada, men samtidig håber, at Washington og Ottawa vender tilbage til forhandlingsbordet.\n\nCarney understregede også, at det tættere samarbejde ikke skal danne en ny stormagtsblok. Ifølge premierministeren skal alliancen tværtimod styrke landenes evne til selv at bestemme over økonomi, sikkerhed og internationale partnerskaber.\n\n## Konservative frygter EU-indflydelse\n\nForslaget møder modstand i Canada. Den konservative oppositionsleder Pierre Poilievre støtter frihandel og forsvarssamarbejde med Europa, men advarer mod, at EU-regler kan følge med en ny status.\n\n»No EU taxes, no EU laws, and no EU open-border immigration policies should be imposed on Canadians,« skrev Poilievre ifølge Euronews.\n\nCarney siger, at en endelig aftale skal respektere canadisk suverænitet og forelægges parlamentet i Ottawa. Dermed er der endnu langt fra den politiske invitation til en færdig konstruktion.\n\nEn mulig juridisk vej er EU-traktatens artikel 217, som giver unionen mulighed for at indgå associeringsaftaler med tredjelande. Det er dog ikke det samme som medlemskab, og der findes endnu ingen fast model for den status, von der Leyen har tilbudt Canada.\n\nEU og Canada ventes at arbejde videre med modellen frem mod deres topmøde i Montreal i slutningen af oktober. Canada har allerede taget et skridt ind i et tættere europæisk sikkerhedssamarbejde som det første ikke-europæiske land i EU's SAFE-program for fælles forsvarsindkøb.",
+  "source_metadata": {
+    "primary": {
+      "name": "Euronews",
+      "url": "https://www.euronews.com/my-europe/2026/09/17/associate-membership-for-canada-is-not-against-anyone-brussels-tells-trump",
+      "published_date": "2026-09-17",
+      "registry_source": true
+    },
+    "corroboration": [
+      {"name": "Associated Press", "url": "https://apnews.com/article/ef4559ce5972abb47444e469f42005bb", "published_date": "2026-09-17"},
+      {"name": "Reuters", "url": "https://www.reuters.com/world/americas/carney-pushes-idea-making-canada-associate-member-eu-wsj-reports-2026-09-13/", "published_date": "2026-09-13"}
+    ]
+  },
+  "editorial_metadata": {
+    "article_type": "news",
+    "language": "da",
+    "source_pool": "discovery",
+    "candidates_tried": 2,
+    "final_check": "passed",
+    "profile": "canonical-news-task"
+  },
+  "dedupe_context": {
+    "window_days": 7,
+    "checked_once": true,
+    "duplicate_of": null,
+    "note": "Recent publish PR history searched for Canada/EU and social-media candidate; Canada-EU story not found."
+  },
+  "hero_candidates": [
+    {
+      "provider": "Wikimedia Commons",
+      "provider_page": "https://commons.wikimedia.org/wiki/File:Mark_Carney_meets_Ursula_von_der_Leyen_2026-09_(1).jpg",
+      "license": "CC BY 4.0",
+      "credit": "European Commission Audiovisual Service / Christophe Licoppe; © European Union, 2026",
+      "dimensions": "4000x2667",
+      "relevance": "Mark Carney meets Ursula von der Leyen in Strasbourg on 16 September 2026"
+    },
+    {
+      "provider": "Wikimedia Commons",
+      "provider_page": "https://commons.wikimedia.org/wiki/File:Mark_Carney_meets_Ursula_von_der_Leyen_2026-09_(3).jpg",
+      "license": "CC BY 4.0",
+      "credit": "European Commission Audiovisual Service / Christophe Licoppe; © European Union, 2026",
+      "dimensions": "2667x4000",
+      "relevance": "Mark Carney meets Ursula von der Leyen in Strasbourg on 16 September 2026"
+    }
+  ],
+  "audit": {
+    "research_date": "2026-09-18",
+    "hero_rights_checked": true,
+    "semantic_dedupe_performed_once": true
+  }
+}
