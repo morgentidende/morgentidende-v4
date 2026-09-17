@@ -149,10 +149,9 @@ begin
 end;
 $$;
 
+-- Internal helper: callable only by the owning definer context, not by API roles.
 revoke all on function public.enqueue_github_bridge_media_for_article(uuid)
-  from public, anon, authenticated;
-grant execute on function public.enqueue_github_bridge_media_for_article(uuid)
-  to service_role;
+  from public, anon, authenticated, service_role;
 
 create or replace function public.ingest_github_publish_payload(p_payload jsonb)
 returns uuid
@@ -215,4 +214,4 @@ comment on function public.ingest_github_publish_payload(jsonb) is
   'Canonical GitHub article-ingest transaction: validated/idempotent article core, discovery audit capture, then exactly-once initial media enqueue.';
 
 comment on function public.enqueue_github_bridge_media_for_article(uuid) is
-  'Creates the exactly-once initial Media Worker job for a GitHub-bridge article; Media Worker owns all subsequent fallback/recovery.';
+  'Internal exactly-once initial Media Worker enqueue for a GitHub-bridge article; Media Worker owns all subsequent fallback/recovery.';
