@@ -1,0 +1,31 @@
+{
+  "payload_type": "article",
+  "queue_id": "halv-20260917-1627-qatargate",
+  "slug": "qatargate-graesk-parlament-ophaever-tidligere-eu-kommissaers-immunitet",
+  "headline": "Qatargate: Græsk parlament ophæver tidligere EU-kommissærs immunitet",
+  "category_slug": "udland",
+  "deck": "Belgisk arrestordre mistænker Dimitris Avramopoulos for korruption og hvidvask. Han afviser anklagerne og vil møde myndighederne frivilligt.",
+  "body_markdown": "Det græske parlament har torsdag ophævet den tidligere EU-kommissær Dimitris Avramopoulos' parlamentariske immunitet. Dermed er vejen åbnet for, at belgiske myndigheder kan gå videre med deres efterforskning i Qatargate-sagen.\n\nAvramopoulos, der i dag er medlem af parlamentet for regeringspartiet Nyt Demokrati, var EU-kommissær for migration, indre anliggender og medborgerskab fra 2014 til 2019. En belgisk undersøgelsesdommer udstedte i juni en europæisk arrestordre på ham med mistanke om deltagelse i en kriminel organisation, offentlig korruption og hvidvask.\n\nDen 73-årige politiker afviser enhver ulovlig forbindelse til sagen. Han har selv bedt parlamentet om at ophæve immuniteten og har ifølge græske medier sagt, at han vil møde frivilligt frem for de belgiske myndigheder.\n\nSagen udspringer af Qatargate, den omfattende korruptionsefterforskning, der brød ud i Bruxelles i 2022. Belgiske efterforskere mener, at Qatar forsøgte at påvirke EU's politik gennem kontantbetalinger og betalinger via organisationer. Qatar har gentagne gange afvist anklagerne.\n\nBelgiske myndigheder har ifølge Reuters beslaglagt omkring 1,5 millioner euro i kontanter i forbindelse med den samlede sag. Det svarer til cirka 11 millioner kroner. En del af pengene blev fundet i en stor kuffert på et hotel i Bruxelles.\n\nAvramopoulos sad fra 2020 til 2021 i det rådgivende æresråd for organisationen Fight Impunity, som er blevet knyttet til efterforskningen. Han siger, at posten alene var rådgivende og repræsentativ, og at han hverken havde ledelsesansvar eller kontrol med organisationens økonomi.\n\nI et notat til det græske parlament har han også afvist, at han deltog i ulovlig påvirkning til fordel for Qatar. Han fremhæver desuden, at EU-Kommissionens senere arbejde med visumfrihed for qatarske borgere ikke blev foreslået eller vedtaget under hans periode som kommissær.\n\nParlamentets etiske udvalg havde allerede enstemmigt anbefalet, at immuniteten blev ophævet. Torsdag stemte parlamentet for ophævelsen. Beslutningen er ikke en dom over Avramopoulos, men fjerner den parlamentariske beskyttelse, der hidtil har stået i vejen for arrestation og retsforfølgning i forbindelse med den belgiske efterforskning.",
+  "source_metadata": [
+    {"url": "https://www.reuters.com/world/greek-parliament-lifts-immunity-ex-commissioner-amid-qatargate-probe-2026-09-17/", "name": "Reuters", "class": "authoritative", "published_date": "2026-09-17"},
+    {"url": "https://www.news247.gr/politiki/vouli-irthi-i-asilia-tou-dimitri-avramopoulou/", "name": "News247 Greece", "class": "authoritative", "published_date": "2026-09-17"},
+    {"url": "https://www.tovima.com/politics/greek-parliament-to-vote-on-avramopoulos-immunity-in-qatargate/", "name": "To Vima", "class": "authoritative", "published_date": "2026-09-10"}
+  ],
+  "editorial_metadata": {
+    "sagen_kort": [
+      "Grækenlands parlament har ophævet Dimitris Avramopoulos' immunitet, så den belgiske Qatargate-efterforskning kan fortsætte.",
+      "En europæisk arrestordre omfatter mistanke om kriminel organisation, korruption og hvidvask; Avramopoulos afviser enhver ulovlighed."
+    ],
+    "frontpage_destination": "normal",
+    "story_cluster_key": "qatargate-eu-corruption",
+    "hero_candidates": [
+      {"rank": 1, "source_url": "https://commons.wikimedia.org/wiki/File:Dimitris_AVRAMOPOULOS.jpg", "provider": "wikimedia_commons", "width": 4205, "height": 2799, "commercial_use_allowed": true, "local_storage_allowed": true, "license": "EU reuse with attribution", "attribution": "© European Union"},
+      {"rank": 2, "source_url": "https://commons.wikimedia.org/wiki/File:Visit_by_Dimitris_Avramopoulos,_Member_of_the_EC,_to_The_Netherlands_(P-037574-00-10).jpg", "provider": "wikimedia_commons", "width": 2539, "height": 3155, "commercial_use_allowed": true, "local_storage_allowed": true, "license": "CC BY 4.0", "attribution": "© European Union, 2018"},
+      {"rank": 3, "source_url": "https://commons.wikimedia.org/wiki/File:Herbert_Kickl,_Dimitris_Avramopoulos_%26_Fatmir_Xhafaj_in_Tirana,_Albania_-_2018.jpg", "provider": "wikimedia_commons", "width": 5568, "height": 3712, "commercial_use_allowed": true, "local_storage_allowed": true, "license": "EU reuse/Commons license", "attribution": "Gent Shkullaku / European Union, 2018 / EC Audiovisual Service"}
+    ],
+    "discovery_run_id": "halv-20260917-1627",
+    "discovery_audit": [
+      {"candidate_id": "qatargate-avramopoulos", "source_pool": "discovery", "rank": 1, "headline_topic": "Græsk parlament ophæver Avramopoulos' immunitet i Qatargate", "deep_screened": true, "decision": "selected", "reason": "Frisk væsentlig udvikling i stor EU-korruptionssag; autoritativt dokumenteret og ingen dublet fundet i GitHub-søgning."}
+    ]
+  }
+}
