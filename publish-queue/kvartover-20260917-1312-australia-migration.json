@@ -1,0 +1,34 @@
+{
+  "queue_id": "kvartover-20260917-1312-australia-migration",
+  "slug": "australien-strammer-migrationen-studerende-familier",
+  "headline": "Australien strammer migrationen: Udenlandske studerende får sværere ved at tage familien med",
+  "category_slug": "udland",
+  "deck": "Regeringen vil ned på 225.000 i årlig nettomigration og skærper samtidig kontrollen med midlertidige visa.",
+  "body_markdown": "Australiens regering strammer nu reglerne for midlertidig indvandring i et forsøg på at få nettomigrationen ned på 225.000 personer om året i 2027-28. Et centralt greb er at begrænse udenlandske studerendes mulighed for at tage partner og børn med til landet.\n\nIndenrigs- og immigrationsminister Tony Burke fremlagde torsdag ændringerne i National Press Club i Canberra. Regeringen vil også gøre det vanskeligere at forlænge et ophold gennem gentagne skift mellem forskellige midlertidige visa og øge indsatsen mod personer, der bliver i Australien efter deres visum er udløbet.\n\nDe nye tiltag kommer samme dag, som Australian Bureau of Statistics offentliggjorde friske befolkningstal. De viser, at nettomigrationen fra udlandet var 292.100 personer i de 12 måneder frem til udgangen af marts 2026. Det er 17.400 færre end året før, men fortsat væsentligt over regeringens mål for 2027-28.\n\nAustraliens befolkning voksede samlet med 392.700 personer på et år og nåede 27,9 millioner. Nettomigrationen stod dermed for knap tre fjerdedele af befolkningstilvæksten.\n\nBurke argumenterer samtidig imod et langt større fald i indvandringen. Han sagde under præsentationen, at en for kraftig reduktion ville skade australske serviceydelser og økonomien. Regeringens linje er derfor at styre mere præcist, hvem der kommer, bliver og forlader landet, frem for at lukke kraftigt ned for migrationen.\n\nStramningerne retter sig især mod den midlertidige migration. Regeringen vil blandt andet begrænse såkaldt visumskifte blandt udenlandske studerende og sætte nye betingelser på besøgsvisa, så de i flere tilfælde ikke kan bruges som indgang til et længere ophold.\n\nSamtidig vil Australien fortsat prioritere kvalificeret arbejdskraft til områder med mangel på ansatte, blandt andet sundhed, byggeri, uddannelse og landbrug. Det er en central balance i regeringens plan: færre skal blive gennem midlertidige ordninger, mens arbejdskraft, som landet konkret mangler, fortsat skal kunne komme ind.\n\nOppositionen og regeringskritikere har presset Labor-regeringen på migrationen, mens De Grønne og organisationer på asylområdet har kritiseret dele af stramningerne. Regeringen fastholder, at ændringerne både skal sikre kontrollen med systemet og undgå en nedgang i migrationen, som efter dens vurdering vil skade økonomien.",
+  "source_metadata": [
+    {"url":"https://www.abs.gov.au/statistics/people/population/national-state-and-territory-population/mar-2026","title":"National, state and territory population, March 2026","publisher":"Australian Bureau of Statistics","source_class":"authoritative","published_date":"2026-09-17"},
+    {"url":"https://www.abc.net.au/news/2026-09-17/labor-to-unveil-delayed-migration-overhaul/107161834","title":"Labor's long-awaited migration overhaul targets temporary visas","publisher":"ABC News Australia","source_class":"authoritative","published_date":"2026-09-17"},
+    {"url":"https://www.theguardian.com/australia-news/2026/sep/17/labor-immigration-students-families-overstay-visa-tony-burke","title":"Labor targets backpackers, students and visa overstayers in immigration plan","publisher":"The Guardian Australia","source_class":"authoritative","published_date":"2026-09-17"}
+  ],
+  "editorial_metadata": {
+    "sagen_kort": [
+      "Australien vil reducere den årlige nettomigration til 225.000 personer i 2027-28.",
+      "Nye regler rammer især midlertidige visa og udenlandske studerendes mulighed for at tage familien med."
+    ],
+    "frontpage_destination": "normal",
+    "story_cluster_key": "australia-migration-policy-2026",
+    "hero_candidates": [
+      {"rank":1,"source_url":"https://commons.wikimedia.org/wiki/File:2025_Tony_Burke_(cropped).jpg","license":"CC BY 4.0","commercial_use_allowed":true,"local_storage_allowed":true,"width":905,"height":1204,"description":"Tony Burke ved bilaterale samtaler i London i 2025","credit":"Ryan Jenkinson / Parsons Media for UK Home Office"},
+      {"rank":2,"source_url":"https://commons.wikimedia.org/wiki/File:Walk_For_Respect,_Tony_Burke_2014.JPG","license":"CC BY-SA 3.0","commercial_use_allowed":true,"local_storage_allowed":true,"width":2464,"height":1632,"description":"Tony Burke ved Walk For Respect i Sydney i 2014","credit":"Ashishlohorung"},
+      {"rank":3,"source_url":"https://commons.wikimedia.org/wiki/File:20051115_Australia_NSW_Sydney_IRProtest_TonyBurke.jpg","license":"CC BY-SA 2.5","commercial_use_allowed":true,"local_storage_allowed":true,"width":3456,"height":2304,"description":"Tony Burke ved demonstration i Sydney i 2005","credit":"Jasabella"}
+    ],
+    "discovery_audit": {
+      "discovery_run_id":"kvartover-20260917-1312",
+      "source_pool":"discovery",
+      "model_prompt_version":"canonical-news-task-2026-09-17",
+      "candidates":[
+        {"candidate_id":"aus-migration-20260917","rank":1,"headline_topic":"Australien strammer midlertidig migration","deep_screened":true,"downstream_sources":["Australian Bureau of Statistics","ABC News Australia","The Guardian Australia"],"decision":"selected","reason":"Fresh policy announcement, strong profile match, authoritative same-day data and independent reporting; no semantic duplicate found in public/GitHub search."}
+      ]
+    }
+  }
+}
