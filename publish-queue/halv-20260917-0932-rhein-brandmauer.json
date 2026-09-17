@@ -1,0 +1,31 @@
+{
+  "queue_id": "halv-20260917-0932-rhein-brandmauer",
+  "slug": "cdu-ministerpraesident-vil-vaek-fra-udgrænsning-af-afd",
+  "headline": "CDU-ministerpræsident vil væk fra udgrænsning af AfD",
+  "category_slug": "udland",
+  "deck": "Efter AfD's valgsejr udfordrer Boris Rhein en central CDU-strategi: Problemer skal diskuteres, også når AfD rejser dem.",
+  "body_markdown": "Hessens ministerpræsident Boris Rhein fra CDU kræver en ny måde at håndtere det indvandringskritiske parti AfD og dets vælgere på. Han afviser ikke den politiske afstand til partiet, men mener, at CDU skal gå fra udgrænsning til tydelig politisk afgrænsning og åben debat.\n\nRhein skriver i et debatindlæg i den tyske avis Welt, at problemer ikke forsvinder, fordi man fortier eller fortrænger dem, gemmer dem bag politiske brandmure eller forsøger at forbyde partier. Tværtimod risikerer uløste problemer efter hans vurdering at drive vælgere længere ud mod de politiske fløje.\n\nUdmeldingen kommer efter AfD's markante valgsejr i Sachsen-Anhalt og få dage før delstatsvalget i Mecklenburg-Vorpommern. Den rammer dermed direkte ind i en voksende diskussion i CDU om, hvorvidt den hidtidige strategi over for AfD virker.\n\n## Vil diskutere de emner, AfD rejser\n\nRheins hovedpointe er, at den politiske midte ikke bør undlade at tale om et problem eller vælge en løsning, alene fordi AfD også har rejst emnet eller støtter løsningen. Alt, der bekymrer vælgerne, skal efter hans opfattelse kunne diskuteres i den politiske midte.\n\nHan kritiserer samtidig det, han beskriver som stempling af andre politiske positioner i kampen mod højrefløjen. Ifølge Rhein kan en strategi, der udelukker vælgere, deres vurderinger og deres emner fra en åben politisk diskussion, ende med at styrke AfD i stedet for at svække partiet.\n\nDet er ikke et forslag om samarbejde med AfD. Rhein fastholder, at CDU skal holde klar politisk afstand til både yderfløjen på venstre side og AfD. Han kritiserer blandt andet AfD for et etnisk defineret samfundssyn og for partiets forhold til russiske Vladimir Putin.\n\n## Presset vokser efter valgsejr\n\nDiskussionen er blevet skærpet efter AfD's valgsejr i Sachsen-Anhalt. CDU står samtidig under pres frem mod valget i Mecklenburg-Vorpommern, hvor AfD igen kæmper om at blive størst.\n\nRhein er ikke alene om at stille spørgsmål ved den hidtidige kurs. Tübingens partiløse borgmester Boris Palmer, tidligere medlem af De Grønne, sagde onsdag til Welt TV, at den såkaldte brandmur og kampen mod højre efter hans vurdering er slået fejl, og at de etablerede partier igen må kunne gå i dialog.\n\nRheins udmelding er dog særlig bemærkelsesværdig, fordi den kommer fra en siddende CDU-ministerpræsident. Han angriber ikke partiets princip om politisk afstand til AfD, men selve forestillingen om, at AfD kan svækkes ved at holde partiets vælgere og emner uden for den almindelige politiske debat.",
+  "source_metadata": [
+    {"url":"https://www.welt.de/debatte/plus6aaa4a3c91d8cffaad47b08b/kurs-der-union-probleme-verschwinden-nicht-dadurch-dass-man-sie-hinter-brandmauern-verbannt.html","title":"Probleme verschwinden nicht dadurch, dass man sie hinter Brandmauern verbannt","publisher":"WELT / Boris Rhein","source_class":"authoritative","published_date":"2026-09-16"},
+    {"url":"https://www.afp.com/de/cdu-ministerpraesident-rhein-fordert-ende-der-ausgrenzung-der-afd","title":"CDU-Ministerpräsident Rhein fordert Ende der Ausgrenzung der AfD","publisher":"AFP","source_class":"authoritative","published_date":"2026-09-16"},
+    {"url":"https://www.welt.de/politik/deutschland/article6aaa6ab3bfb40073cb2f3757/boris-palmer-fuer-die-kuenftige-strategie-im-umgang-mit-der-afd-bleiben-noch-zwei-moeglichkeiten-sagt-tuebingens-ob.html","title":"Für die künftige Strategie im Umgang mit der AfD bleiben noch zwei Möglichkeiten","publisher":"WELT","source_class":"authoritative","published_date":"2026-09-16"}
+  ],
+  "editorial_metadata": {
+    "sagen_kort": [
+      "Hessens CDU-ministerpræsident Boris Rhein mener, at udgrænsning kan styrke AfD og vil i stedet møde partiet og dets vælgere med åben politisk debat.",
+      "Rhein fastholder klar politisk afstand til AfD og foreslår ikke et samarbejde med partiet."
+    ],
+    "final_qa_duplicate": false,
+    "hero_candidates": [
+      {"rank":1,"source_url":"https://commons.wikimedia.org/wiki/File:BORIS-RHEIN-4363.jpg","license":"CC BY-SA 3.0","commercial_use_allowed":true,"local_storage_allowed":true,"width":2143,"height":3000,"motif":"Portræt af Boris Rhein"},
+      {"rank":2,"source_url":"https://commons.wikimedia.org/wiki/File:Boris-Rhein-Passbild2sw2.jpg","license":"CC BY-SA 3.0","commercial_use_allowed":true,"local_storage_allowed":true,"width":1050,"height":1350,"motif":"Officielt portræt af Boris Rhein"},
+      {"rank":3,"source_url":"https://commons.wikimedia.org/wiki/File:Boris-rhein-2011-ffm-080.jpg","license":"CC BY-SA 3.0","commercial_use_allowed":true,"local_storage_allowed":true,"width":2850,"height":3291,"motif":"Boris Rhein ved offentligt arrangement"}
+    ],
+    "discovery_run_id": "halv-20260917-0932",
+    "discovery_audit": [
+      {"candidate_id":"ceuta-moroccan-agents","source_pool":"discovery","rank":1,"topic":"Spansk dommer vil identificere marokkanske agenter ved Ceuta","deep_screened":true,"downstream_sources":["EFE","Europa Press","El País"],"decision":"rejected_duplicate","reason":"Final history check found the same Ceuta-agent angle already rejected in fresh transport PR #643 within the dense Ceuta cluster; draft discarded and historical selection restarted."},
+      {"candidate_id":"rhein-brandmauer","source_pool":"discovery","rank":1,"topic":"Boris Rhein udfordrer CDU's udgrænsningsstrategi over for AfD","deep_screened":true,"downstream_sources":["Boris Rhein/WELT","AFP","WELT"],"decision":"selected","reason":"Fresh statement from a sitting CDU state premier after AfD's election victory, independently documented and no near-identical Morgentidende transport found in the seven-day QA history."}
+    ],
+    "model_prompt_version": "docs/automations/news-task.md@4cd9ca7"
+  }
+}
