@@ -1,0 +1,10 @@
+{
+  "queue_id": "kvarti-20260917-0745-audit",
+  "delivery_type": "discovery_audit",
+  "terminal_reason": "NO_PUBLISHABLE_CANDIDATE",
+  "source_pool": "discovery",
+  "candidates_tried": 2,
+  "duplicate_of": ["#625"],
+  "final_qa_duplicate": false,
+  "note": "Canonical ordinary-news run. Fresh breaking scan found no verified high-Danish-impact override. Discovery candidate on alleged Moroccan-agent guidance in Ceuta was rejected after final history review because the Ceuta migration cluster has very recent coverage (#625) and the available documentation did not justify another standalone article. A second pass found no sufficiently fresh, strong, independently documented non-duplicate candidate within the canonical run budget. No article queued."
+}
