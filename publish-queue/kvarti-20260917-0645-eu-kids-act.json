@@ -1,0 +1,85 @@
+{
+  "payload_type": "article",
+  "queue_id": "kvarti-20260917-0645-eu-kids-act",
+  "slug": "eu-vil-forbyde-sociale-medier-for-boern-under-13",
+  "headline": "EU vil forbyde sociale medier for børn under 13",
+  "category_slug": "udland",
+  "deck": "13- og 14-årige skal kun kunne få forældrestyrede konti. EU vil samtidig lægge ansvaret for sikkerheden på platformene.",
+  "body_markdown": "EU-Kommissionens formand Ursula von der Leyen varsler et EU-dækkende forbud mod sociale medier for børn under 13 år. For 13- og 14-årige skal adgangen begrænses til særlige konti, som oprettes og styres af forældre eller værger.\n\nPlanen er en del af den kommende EU Kids Act, som Kommissionen vil fremlægge. I sin tale om Unionens tilstand i Strasbourg sagde von der Leyen, at de særlige konti skal have færre funktioner og en tidsbegrænsning. Kommissionens audiovisuelle tjeneste gengiver talen med en grænse på én time om dagen.\n\nFor unge mellem 15 og 18 år skal platformene ifølge planen være forpligtet til at indrette deres tjenester med sikkerhed for mindreårige som udgangspunkt.\n\nDet er endnu et forslag og ikke gældende lov. De nærmere regler, håndhævelsen og den endelige lovtekst skal gennem EU's lovgivningsproces, før begrænsningerne kan træde i kraft.\n\n## Platformene skal bevise sikkerheden\n\nVon der Leyen begrundede indgrebet med blandt andet vanedannende funktioner, stadig mere ekstremt indhold og tilfælde, hvor pigers billeder bruges til seksualiserede billeder skabt med kunstig intelligens.\n\nHun vil samtidig vende bevisbyrden, så teknologivirksomhederne skal dokumentere, at deres tjenester er sikre for børn. \"Det er os, der bestemmer vores regler, ikke de store teknologivirksomheder,\" sagde hun i talen.\n\nAssociated Press beskriver forslaget som del af en bredere international bevægelse mod aldersgrænser på sociale medier. Frankrigs forfatningsråd underkendte i august et fransk forbud for børn under 15 år med henvisning til, at indgrebet i ytrings- og kommunikationsfriheden ikke var nødvendigt og proportionalt. Den erfaring viser, at også EU-planen kan møde en juridisk diskussion om balancen mellem børnebeskyttelse, forældres råderum og grundlæggende frihedsrettigheder.\n\nKommissionen vil desuden senere foreslå en bredere Digital Fairness Act rettet mod blandt andet funktioner, der er designet til at fastholde brugere. Det forslag skal også omfatte voksne.",
+  "source_metadata": [
+    {
+      "url": "https://cyprus.representation.ec.europa.eu/news/2026-state-union-address-president-von-der-leyen-2026-09-16_en",
+      "title": "2026 State of the Union Address by President von der Leyen",
+      "publisher": "European Commission",
+      "source_class": "authoritative",
+      "published_date": "2026-09-16"
+    },
+    {
+      "url": "https://audiovisual.ec.europa.eu/en/media/video/I-294488",
+      "title": "State of the Union 2026 statement by Ursula von der Leyen",
+      "publisher": "European Commission Audiovisual Service",
+      "source_class": "authoritative",
+      "published_date": "2026-09-16"
+    },
+    {
+      "url": "https://apnews.com/article/3e7176ea409ba4af0a069f5ca7dd9680",
+      "title": "EU chief proposes bloc-wide social media ban for kids under 13",
+      "publisher": "Associated Press",
+      "source_class": "authoritative",
+      "published_date": "2026-09-16"
+    }
+  ],
+  "editorial_metadata": {
+    "sagen_kort": [
+      "EU-Kommissionen vil forbyde børn under 13 år at bruge sociale medier og begrænse 13- og 14-årige til forældrestyrede konti.",
+      "Planen er endnu ikke lov; den skal gennem EU's lovgivningsproces, og centrale detaljer om håndhævelse er endnu ikke fastlagt."
+    ],
+    "final_qa_duplicate": false,
+    "hero_candidates": [
+      {
+        "rank": 1,
+        "source_url": "https://commons.wikimedia.org/wiki/File:Weekly_college_meeting_of_the_von_der_Leyen_Commission,_15-09-2026_(P-070451-00-02).jpg",
+        "license": "CC BY 4.0",
+        "attribution": "© European Union, 2026 / EC Audiovisual Service / Dati Bendo",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "known_width": 2667,
+        "known_height": 4000
+      },
+      {
+        "rank": 2,
+        "source_url": "https://commons.wikimedia.org/wiki/File:Bilateral_meetings_of_Ursula_von_der_Leyen,_President_of_the_European_Commission,_on_the_sidelines_of_the_plenary_session_of_the_European_Parliament_(P-070450-00-01).jpg",
+        "license": "CC BY 4.0",
+        "attribution": "© European Union, 2026 / Dati Bendo",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "known_width": 4000,
+        "known_height": 2667
+      },
+      {
+        "rank": 3,
+        "source_url": "https://commons.wikimedia.org/wiki/File:Weekly_college_meeting_of_the_von_der_Leyen_Commission,_15-09-2026_(P-070451-00-01).jpg",
+        "license": "CC BY 4.0",
+        "attribution": "© European Union, 2026 / EC Audiovisual Service / Dati Bendo",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "known_width": 4000,
+        "known_height": 2667
+      }
+    ],
+    "discovery_run_id": "kvarti-20260917-0645",
+    "discovery_audit": [
+      {
+        "candidate_id": "eu-kids-act",
+        "source_pool": "discovery",
+        "rank": 1,
+        "candidate_headline": "EU vil indføre aldersgrænser for sociale medier",
+        "deep_screened": true,
+        "downstream_sources": ["European Commission", "European Commission Audiovisual Service", "Associated Press"],
+        "decision": "selected",
+        "reason": "Fresh, strongly documented EU regulation story with direct relevance to personal freedom, parental control and digital regulation; no near-identical Morgentidende delivery found in the seven-day public/searchable and recent PUBLISH history.",
+        "model_prompt_version": "canonical-news-task-2026-09-17"
+      }
+    ]
+  }
+}
