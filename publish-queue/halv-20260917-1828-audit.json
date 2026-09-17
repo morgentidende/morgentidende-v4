@@ -1,0 +1,29 @@
+{
+  "payload_type": "discovery_audit",
+  "queue_id": "halv-20260917-1828-audit",
+  "terminal_reason": "QA_HISTORY_UNAVAILABLE",
+  "discovery_run_id": "halv-20260917-1828",
+  "source_pool": "discovery",
+  "candidates": [
+    {
+      "candidate_id": "c1",
+      "rank": 1,
+      "headline": "Fresh ordinary-news discovery scan",
+      "deep_screened": false,
+      "decision": "stopped_before_write",
+      "reason": "Canonical seven-day semantic dedupe requires both complete public article history and all recent [PUBLISH] transports. The GitHub transport corpus was enumerated with state=all, but the public seven-day Morgentidende article-history corpus could not be reliably enumerated in this runtime."
+    }
+  ],
+  "editorial_metadata": {
+    "dedupe_context": {
+      "checked_at": "2026-09-17T18:28:10+02:00",
+      "window_days": 7,
+      "public_articles_seen": null,
+      "publish_prs_seen": 100,
+      "include_closed_publish_prs": true,
+      "newest_publish_pr": 719,
+      "corpus_complete": false
+    },
+    "schedule_enabled_state_untouched": true
+  }
+}
