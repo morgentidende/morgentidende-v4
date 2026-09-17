@@ -1,0 +1,41 @@
+{
+  "payload_type": "article",
+  "queue_id": "kvartover-20260918-0017-us-base-poland",
+  "slug": "trump-usa-naermer-sig-ny-militaerbase-i-polen",
+  "headline": "Trump: USA nærmer sig ny militærbase i Polen",
+  "category_slug": "udland",
+  "deck": "En placering kan blive offentliggjort snart. Polen vil have en varig amerikansk tilstedeværelse på NATO's østflanke.",
+  "body_markdown": "USA og Polen har gjort betydelige fremskridt i arbejdet med at etablere en amerikansk hærbase i Polen, siger USA's præsident Donald Trump. Hvis projektet bliver til noget, kan placeringen ifølge præsidenten blive offentliggjort meget snart.\n\nDer er endnu ikke truffet en endelig beslutning. Det er den afgørende reservation i en sag, der ellers kan få stor sikkerhedspolitisk betydning for NATO's østflanke.\n\nTrump krediterede Polens præsident Karol Nawrocki for fremgangen og kaldte en mulig base et historisk skridt for alliancen mellem de to lande. Nawrocki har gennem længere tid presset på for en stærkere og mere varig amerikansk militær tilstedeværelse i Polen.\n\nPolen huser allerede tusindvis af amerikanske soldater og den permanente amerikanske hærgarnison USAG Poland, som understøtter amerikanske styrker på en række steder i landet. Selve de amerikanske kampstyrker har imidlertid hidtil været udstationeret på rotationsbasis. En ny base med varig amerikansk tilstedeværelse vil derfor være et yderligere skridt i det militære samarbejde.\n\nDen polske præsidents sikkerhedsapparat har tidligere argumenteret for, at en permanent amerikansk tilstedeværelse er vigtig for både Polen og Europas forsvar. Efter et møde med Trump i Washington sidste år sagde Nawrocki, at parterne havde haft konkrete drøftelser om at udvide den amerikanske tilstedeværelse.\n\nSamtidig gennemgår Pentagon USA's samlede militære styrke i Europa. Den gennemgang har skabt bekymring blandt nogle NATO-allierede for mulige reduktioner andre steder på kontinentet. Reuters har rapporteret, at forslag om at reducere den samlede amerikanske styrke i Europa indgår i debatten, men at gennemgangen endnu ikke er afsluttet.\n\nPolens forsvarsminister Wladyslaw Kosiniak-Kamysz sagde allerede i juni, at det amerikanske forsvarsministerium var åbent over for Polens tilbud om en permanent amerikansk militær tilstedeværelse, men understregede dengang, at ingen beslutning var truffet.\n\nDen nye melding fra Trump viser dermed fremdrift, men ikke en færdig aftale. Det næste konkrete tegn bliver, om Washington og Warszawa offentliggør en placering og præciserer, hvilke styrker og funktioner en ny base faktisk skal rumme.",
+  "source_metadata": [
+    {"url":"https://www.reuters.com/world/europe/trump-says-progress-made-toward-establishing-us-army-base-poland-2026-09-17/","name":"Reuters","source_class":"authoritative","role":"central_facts_and_current_status"},
+    {"url":"https://en.bbn.gov.pl/en/news/906,White-House-Talks-between-the-Presidents-of-Poland-and-the-USA.html","name":"Polens Nationale Sikkerhedsbureau","source_class":"authoritative","role":"primary_background_on_us_presence_talks"},
+    {"url":"https://www.president.pl/news/president-i-stand-and-will-continue-to-stand-guard-over-the-polish-american-alliance,120948","name":"Polens præsidentkontor","source_class":"authoritative","role":"primary_background_on_polish_us_security_policy"}
+  ],
+  "editorial_metadata": {
+    "sagen_kort": [
+      "Donald Trump siger, at USA og Polen har gjort betydelige fremskridt mod en ny amerikansk hærbase, og at en placering kan blive offentliggjort snart.",
+      "Der er endnu ingen endelig aftale; amerikanske kampstyrker i Polen har hidtil været udstationeret på rotationsbasis."
+    ],
+    "frontpage_destination": "normal",
+    "story_cluster_key": "usa-polen-militaer-2026",
+    "dedupe_context": {
+      "checked_at": "2026-09-18T00:20:00+02:00",
+      "window_days": 7,
+      "publish_prs_seen": 100,
+      "include_closed_publish_prs": true,
+      "newest_publish_pr": 744,
+      "public_articles_seen": null,
+      "result": "no_semantic_overlap_found"
+    },
+    "discovery_run_id": "kvartover-20260918-0017",
+    "discovery_audit": [
+      {"candidate_id":"us-army-base-poland","rank":1,"status":"selected","story_brief":"Donald Trump says major progress has been made toward establishing a U.S. Army base in Poland and that a location could be announced soon; Poland supports a permanent U.S. presence, but no final decision has been announced."}
+    ],
+    "hero_candidates": [
+      {"rank":1,"provider":"Wikimedia Commons","source_url":"https://commons.wikimedia.org/wiki/File:Administrative_building_renovation_on_Camp_Ko%C5%9Bciuszko_(9826704).jpg","mime":"image/jpeg","license":"Public domain — U.S. Army work","caption":"Camp Kościuszko i Poznań, hvor amerikansk militær infrastruktur i Polen udbygges; dokumentarisk foto fra 2026."},
+      {"rank":2,"provider":"Wikimedia Commons","source_url":"https://commons.wikimedia.org/wiki/File:V_Corps_Hosts_Senior_Leader_Forum_in_Poland_(8998092).jpg","width":6240,"height":4160,"mime":"image/jpeg","license":"Public domain — U.S. Army work","caption":"Amerikanske V Corps på Camp Kościuszko i Polen; dokumentarisk foto."},
+      {"rank":3,"provider":"Wikimedia Commons","source_url":"https://commons.wikimedia.org/wiki/File:U_S_Army_V_Corps_Bids_Farewell_to_Deputy_Commanding_General_for_Maneuver_(9241555).jpg","width":4337,"height":3098,"mime":"image/jpeg","license":"Public domain — U.S. Army work","caption":"Amerikanske og allierede styrker på Camp Kościuszko i Polen; dokumentarisk foto."},
+      {"rank":4,"provider":"Wikimedia Commons","source_url":"https://commons.wikimedia.org/wiki/File:USACE_construction_mission_in_Poland_supports_USAG_Poland_with_improvements_at_Camp_K_(9170621).jpg","width":4818,"height":3216,"mime":"image/jpeg","license":"Public domain — U.S. Army work","caption":"Amerikanske militære byggeprojekter på Camp Kościuszko i Polen; dokumentarisk foto."}
+    ]
+  }
+}
