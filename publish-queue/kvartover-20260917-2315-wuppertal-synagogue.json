@@ -1,0 +1,39 @@
+{
+  "queue_id": "kvartover-20260917-2315-wuppertal-synagogue",
+  "slug": "afghansk-mand-anholdt-efter-brandangreb-mod-synagoge-i-wuppertal",
+  "headline": "Afghansk mand anholdt efter brandangreb mod synagoge i Wuppertal",
+  "category_slug": "udland",
+  "deck": "En 37-årig er anholdt, efter brandbar væske blev antændt ved en synagoge. Ingen kom til skade, og statssikkerhedspolitiet efterforsker sagen.",
+  "body_markdown": "En 37-årig mand af afghansk oprindelse er blevet anholdt efter et brandangreb mod den Bergische Synagoge i Wuppertal i den tyske delstat Nordrhein-Westfalen torsdag eftermiddag. Ifølge politiet blev brandbar væske hældt ud og antændt på en trappe ved en sideindgang til synagogen.\n\nMedlemmer af den jødiske menighed fik hurtigt slukket ilden. Ingen mennesker kom til skade, og de materielle skader var begrænsede. Den mistænkte blev kort efter pågrebet i nærheden. Politiets afdeling for statssikkerhed har overtaget efterforskningen.\n\nWDR, der henviser til politiet i Wuppertal og den jødiske menighed, beskriver den anholdte som en 37-årig mand af afghansk oprindelse. Myndighederne har endnu ikke offentliggjort et motiv, og det er derfor ikke fastslået, hvorfor synagogen blev angrebet.\n\nAngrebet skete få dage før Jom Kippur, jødedommens helligste mærkedag. Josef Schuster, præsident for Centralrådet for Jøder i Tyskland, kalder hændelsen et brandangreb og advarer om en voksende normalisering af jødehad. Han fremhæver samtidig tidspunktet kort før den jødiske højtid og kræver, at myndighederne sikrer gudstjenesterne.\n\nDen 95-årige Ruth Yael Tutzinger, æresformand for den jødiske menighed i Wuppertal, sagde til WDR, at hændelsen vækker minder fra hendes barndom under Anden Verdenskrig. Hun fortalte samtidig om et miljø, hvor jøder og Holocaust-overlevende oplever trusler og chikane.\n\nSynagogen i Wuppertal har tidligere været mål for et brandangreb. I 2014 kastede tre palæstinensiske mænd brandsatser mod bygningen. Også dengang var skaderne begrænsede. Den historik gør torsdagens hændelse særligt følsom for den lokale jødiske menighed.\n\nPolitiet har ikke på nuværende tidspunkt knyttet den mistænktes afghanske baggrund til et motiv. Den centrale ubesvarede del af sagen er derfor, om efterforskningen kan dokumentere et antisemitisk, politisk eller andet motiv bag angrebet.",
+  "source_metadata": [
+    {"url":"https://www1.wdr.de/nrw/bergisches-land/anschlag-auf-synagoge-wuppertal-100.html","publisher":"WDR","class":"authoritative","role":"Hoveddokumentation med oplysninger fra Polizei Wuppertal og Jüdische Kultusgemeinde Wuppertal om hændelsen, den anholdte, skader og efterforskning"},
+    {"url":"https://www.tagesschau.de/inland/regional/nordrheinwestfalen/wdr-anschlag-auf-synagoge-wuppertal-mann-warf-beutel-mit-brennbarer-fluessigkeit-gegen-gotteshaus-100.html","publisher":"Tagesschau","class":"authoritative","role":"Uafhængig dokumentation af brandangrebet, anholdelsen og reaktionerne fra den jødiske menighed"},
+    {"url":"https://www.zentralratderjuden.de/presseerklaerungen/pressestatement-zum-brandanschlag-auf-das-gebaeude-der-synagoge-in-wuppertal-17-09-2026/","publisher":"Zentralrat der Juden in Deutschland","class":"primary","role":"Primærkilde til Josef Schusters reaktion og sammenhængen med Jom Kippur"}
+  ],
+  "editorial_metadata": {
+    "sagen_kort": [
+      "En 37-årig mand af afghansk oprindelse er anholdt, efter brandbar væske blev antændt ved en sideindgang til synagogen i Wuppertal.",
+      "Ingen kom til skade, og skaderne var begrænsede; politiets statssikkerhedsafdeling efterforsker nu sagen, mens motivet endnu er ukendt."
+    ],
+    "frontpage_destination": "normal",
+    "story_cluster_key": "wuppertal-synagogue-arson-2026",
+    "dedupe_context": {
+      "checked_at": "2026-09-17T23:19:00+02:00",
+      "window_days": 7,
+      "publish_prs_seen": 100,
+      "include_closed_publish_prs": true,
+      "newest_publish_pr": 741
+    },
+    "hero_candidates": [
+      {"rank":1,"source_url":"https://commons.wikimedia.org/wiki/File:Wuppertal,_Gemarker_Str._15,_Fassade_Paul-Humburg-Str.,_Bergische_Synagoge.jpg","provider":"wikimedia_commons","width":3353,"height":2373,"commercial_use_allowed":true,"local_storage_allowed":true,"license":"CC BY-SA 4.0","attribution":"Im Fokus / Wikimedia Commons","license_url":"https://creativecommons.org/licenses/by-sa/4.0/"}
+    ],
+    "discovery_audit": {
+      "discovery_run_id":"kvartover-20260917-2315",
+      "model_prompt_version":"canonical-news-task-2026-09-17",
+      "candidates":[
+        {"candidate_id":"c1-wuppertal-synagogue","rank":1,"source_pool":"discovery","headline_topic":"Brandangreb mod synagoge i Wuppertal; 37-årig afghansk mand anholdt","deep_screened":true,"downstream_sources":["WDR","Tagesschau","Zentralrat der Juden","Polizei Wuppertal via WDR"],"decision":"selected","reason":"frisk 17. september-hændelse med stærk kriminalitets-, antisemitisme- og integrationsrelevans; centrale fakta er dokumenteret og ingen semantisk overlappende [PUBLISH]-transport blev fundet"}
+      ]
+    }
+  },
+  "duplicate_of": null
+}
