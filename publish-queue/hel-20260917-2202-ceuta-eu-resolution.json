@@ -1,0 +1,42 @@
+{
+  "queue_id": "hel-20260917-2202-ceuta-eu-resolution",
+  "slug": "eu-parlamentet-kalder-migrantpresset-mod-ceuta-hybrid-krigsfoerelse",
+  "headline": "EU-Parlamentet kalder migrantpresset mod Ceuta et redskab i hybrid krigsførelse",
+  "category_slug": "udland",
+  "deck": "Et flertal kræver stærkere grænsekontrol og pres på Marokko. Kritikere siger, at den hårde formulering går længere end beviserne.",
+  "body_markdown": "Europa-Parlamentet har med 339 stemmer mod 225 vedtaget en resolution, der beskriver udnyttelse af irregulær migration mod den spanske by Ceuta som et redskab i hybrid krigsførelse. Samtidig kræver parlamentet stærkere beskyttelse af EU's ydre grænse og mere samarbejde med Marokko om tilbagesendelser.\n\nResolutionen kommer efter de massive grænsepassager 30. og 31. juli. Parlamentet beklager, at 141 mennesker mistede livet til søs under begivenhederne, og skriver, at tabene kunne have været undgået. Ceuta og Melillas spanske suverænitet og territoriale integritet er ifølge teksten hævet over tvivl.\n\nFlertallet vil have Spanien til at styrke politi- og sikkerhedsstyrkerne i Ceuta og bruge den europæiske nødhjælp og støtten fra EU-agenturer fuldt ud. Marokko opfordres samtidig til at leve op til sine forpligtelser om grænsekontrol og tilbagesendelse.\n\nResolutionen retter også kritik mod den spanske regerings omfattende regularisering af migranter uden lovligt ophold. Parlamentet betegner ordningen som en tiltrækningsfaktor og advarer mod at sende et signal om, at ulovlig indrejse senere kan føre til lovligt ophold.\n\nTeksten blev vedtaget med støtte fra blandt andre Det Europæiske Folkeparti og flere partier på den indvandringskritiske fløj. Socialdemokrater, grønne og venstrefløjen stemte imod, mens de liberale var delte. Resolutionen er politisk og ikke bindende lovgivning.\n\nDen hårdeste formulering er om hybrid krigsførelse. Den er parlamentets politiske vurdering og ikke det samme som en dokumenteret konklusion om, at den marokkanske stat organiserede massepassagerne. Det marokkanske medie Hespress har med henvisning til Parlamentets eget researchmateriale fremhævet, at flere mulige årsager er nævnt, blandt andet misinformation på sociale medier, menneskesmuglere og spansk migrationspolitik.\n\nDermed rummer dagens beslutning både et markant politisk kursskifte og et vigtigt forbehold: Et flertal i Europa-Parlamentet vil nu behandle masseankomster som et muligt sikkerhedsproblem for EU's territorium, men ansvaret for den konkrete krise er fortsat omstridt.",
+  "source_metadata": [
+    {"url":"https://barcelona.europarl.europa.eu/es/news/ceuta-borders-protection","publisher":"Europa-Parlamentet","class":"authoritative","role":"Primærkilde til resolutionens indhold, stemmetal, dødstal, grænsekrav og formuleringen om hybrid krigsførelse"},
+    {"url":"https://efe.com/euro-efe/2026-09-17/eurocamara-texto-ceuta-invadida-rechazo-progresista/","publisher":"EFE","class":"authoritative","role":"Uafhængig dokumentation af afstemningen, den politiske splittelse og resolutionens ikke-bindende karakter"},
+    {"url":"https://en.hespress.com/145577-eu-parliaments-hybrid-warfare-language-on-ceuta-outpaces-evidence-cited-against-morocco.html","publisher":"Hespress","class":"authoritative","role":"Dokumenteret modspil til hybridkrigsførelses-formuleringen og alternative forklaringer nævnt i Parlamentets research"}
+  ],
+  "editorial_metadata": {
+    "sagen_kort": [
+      "Europa-Parlamentet vedtog resolutionen med 339 stemmer mod 225 og kræver stærkere beskyttelse af EU's ydre grænse ved Ceuta.",
+      "Flertallet kalder udnyttelse af irregulær migration et redskab i hybrid krigsførelse, men formuleringen er en politisk vurdering og ikke bevis for marokkansk styring."
+    ],
+    "frontpage_destination": "normal",
+    "story_cluster_key": "ceuta-migrationskrise-2026",
+    "dedupe_context": {
+      "checked_at": "2026-09-17T22:05:00+02:00",
+      "window_days": 7,
+      "publish_prs_seen": 100,
+      "include_closed_publish_prs": true,
+      "newest_publish_pr": 734
+    },
+    "hero_candidates": [
+      {"rank":1,"source_url":"https://commons.wikimedia.org/wiki/File:European_Parliament_hemicycle_Strasbourg_(cropped).jpg","provider":"wikimedia_commons","width":5472,"height":3648,"commercial_use_allowed":true,"local_storage_allowed":true,"license":"CC BY-SA 4.0","attribution":"Gzen92","license_url":"https://creativecommons.org/licenses/by-sa/4.0/"},
+      {"rank":2,"source_url":"https://commons.wikimedia.org/wiki/File:Hemicycle_of_the_European_Parliament,_Strasbourg_2023_002.jpg","provider":"wikimedia_commons","width":2048,"height":1536,"commercial_use_allowed":true,"local_storage_allowed":true,"license":"CC BY 4.0","attribution":"Sebastian Wallroth","license_url":"https://creativecommons.org/licenses/by/4.0/"},
+      {"rank":3,"source_url":"https://commons.wikimedia.org/wiki/File:Hemicycle_of_the_European_Parliament,_Strasbourg_2023_003.jpg","provider":"wikimedia_commons","width":2048,"height":1536,"commercial_use_allowed":true,"local_storage_allowed":true,"license":"CC BY 4.0","attribution":"Sebastian Wallroth","license_url":"https://creativecommons.org/licenses/by/4.0/"}
+    ],
+    "discovery_audit": {
+      "discovery_run_id":"hel-20260917-2202",
+      "model_prompt_version":"canonical-news-task-2026-09-17",
+      "candidates":[
+        {"candidate_id":"c1-meta-fake-ads","rank":1,"source_pool":"breaking-major-media","headline_topic":"Tysk domstol holder Meta ansvarlig for falske annoncer","deep_screened":false,"decision":"excluded","reason":"allerede leveret i frisk PUBLISH-transport #734"},
+        {"candidate_id":"c2-ceuta-eu-resolution","rank":2,"source_pool":"discovery","headline_topic":"Europa-Parlamentet vedtager ny Ceuta-resolution om hybrid krigsførelse og grænsekontrol","deep_screened":true,"downstream_sources":["Europa-Parlamentet","EFE","Hespress"],"decision":"selected","reason":"frisk afstemning og væsentlig ny politisk udvikling i eksisterende Ceuta-klynge; tidligere transporter dækker andre konkrete Ceuta-begivenheder"}
+      ]
+    }
+  },
+  "duplicate_of": null
+}
