@@ -1,0 +1,80 @@
+{
+  "queue_id": "hel-20260918-0057-eu-kids-act",
+  "slug": "eu-vil-forbyde-sociale-medier-for-boern-under-13",
+  "headline": "EU vil forbyde sociale medier for børn under 13 år",
+  "category_slug": "udland",
+  "deck": "Et nyt EU-forslag vil samtidig kræve forældrestyrede konti for 13- og 14-årige. Kritikere advarer om risikoen ved omfattende alderskontrol.",
+  "sagen_kort": [
+    "EU-Kommissionens nye KIDS-forslag vil udelukke børn under 13 år fra sociale medier og først tillade selvstændige konti fra 15 år.",
+    "13- og 14-årige skal kun kunne bruge begrænsede konti under forældrekontrol, mens platformene skal bevise, at tjenesterne er sikre for mindreårige."
+  ],
+  "body_markdown": "Børn under 13 år skal ikke længere kunne have konti på sociale medier i EU, hvis et nyt forslag fra EU-Kommissionen bliver vedtaget. Forslaget blev fremlagt torsdag og vil indføre fælles aldersgrænser i hele unionen.\n\nDen såkaldte KIDS-forordning omfatter ikke kun sociale medier, men også blandt andet videoplatforme, onlinespil og digitale samtaletjenester. Målet er ifølge Kommissionen at beskytte børn mod tjenester, der er udviklet til at fastholde brugernes opmærksomhed og indsamle data.\n\nFor børn fra 13 til og med 14 år lægger forslaget op til særlige begrænsede konti, som styres af en forælder eller værge. De skal blandt andet kunne begrænses til højst en times daglig brug. Først fra 15 år skal unge kunne oprette en selvstændig konto.\n\n## Platformene får bevisbyrden\n\nEn central ændring er, at det ikke længere alene skal være myndigheder og familier, der reagerer, når noget går galt. Platformene skal på forhånd kunne dokumentere, at deres tjenester er alderssvarende og sikre i selve udformningen.\n\nEU-Kommissionens formand Ursula von der Leyen begrunder indgrebet med, at børn i dag bruger meget avanceret teknologi, som ikke oprindeligt blev udviklet med deres trivsel for øje. Kommissionen vil derfor gøre virksomhederne ansvarlige for at dokumentere sikkerheden.\n\nForslaget lægger også op til begrænsninger på funktioner, der kan fastholde børn i tjenesterne, og til stærkere beskyttelse mod uønsket kontakt. Alderskontrol bliver dermed en afgørende del af systemet.\n\n## Privatliv bliver stridspunkt\n\nNetop alderskontrollen kan blive et af de mest omstridte punkter. Teknologibranchen har advaret om, at omfattende kontrol af brugernes alder kan skabe nye risici for privatlivet, hvis den kræver indsamling eller behandling af flere personoplysninger.\n\nKommissionen siger, at alderskontrollen skal være databesparende. Men den praktiske balance mellem at bevise en brugers alder og samtidig undgå unødig identifikation bliver central, når lovforslaget skal forhandles.\n\nForslaget er endnu ikke lov. Det skal behandles af både EU-landene og Europa-Parlamentet, og teksten kan derfor blive ændret, før reglerne eventuelt træder i kraft.\n\nHvis forslaget vedtages i sin nuværende form, vil det være et markant skifte fra nationale og platformsbaserede aldersgrænser til fælles EU-regler, hvor både adgangen til sociale medier og den måde tjenesterne udformes på bliver reguleret efter barnets alder.",
+  "source_metadata": {
+    "primary": {
+      "name": "European Commission",
+      "url": "https://digital-strategy.ec.europa.eu/en/news/eu-kids-act-restrict-social-media-platforms-access-children-eu",
+      "published_date": "2026-09-17",
+      "registry_source": true
+    },
+    "corroboration": [
+      {"name": "Reuters", "url": "https://www.reuters.com/legal/litigation/what-is-eus-planned-kids-act-2026-09-17/", "published_date": "2026-09-17"},
+      {"name": "Reuters", "url": "https://www.reuters.com/world/eu-commission-proposes-social-media-ban-children-under-13-2026-09-17/", "published_date": "2026-09-17"}
+    ]
+  },
+  "editorial_metadata": {
+    "article_type": "news",
+    "language": "da",
+    "source_pool": "major-media-fresh-discover",
+    "candidates_tried": 3,
+    "frontpage_destination": "normal",
+    "final_check": "passed",
+    "profile": "canonical-news-task",
+    "sagen_kort": [
+      "EU-Kommissionens nye KIDS-forslag vil udelukke børn under 13 år fra sociale medier og først tillade selvstændige konti fra 15 år.",
+      "13- og 14-årige skal kun kunne bruge begrænsede konti under forældrekontrol, mens platformene skal bevise, at tjenesterne er sikre for mindreårige."
+    ],
+    "dedupe_context": {
+      "checked_at": "2026-09-18T00:57:00+02:00",
+      "window_days": 7,
+      "publish_prs_seen": 100,
+      "include_closed_publish_prs": true,
+      "newest_publish_pr": 747,
+      "public_articles_seen": null,
+      "duplicate_of": null,
+      "note": "Primary GitHub publish ledger screened; no semantically matching KIDS Act article found. Australia and Ceuta candidates excluded as already covered/recently transported."
+    }
+  },
+  "hero_candidates": [
+    {
+      "provider": "Wikimedia Commons",
+      "provider_page": "https://commons.wikimedia.org/wiki/File:Social_media_icons_(rubin-Social-media-icons-2x).jpg",
+      "license": "CC BY 4.0",
+      "credit": "Rubin Observatory/NSF/AURA/J. Pinto",
+      "dimensions": "2000x2000",
+      "relevance": "Dokumentarisk illustration af sociale medie-platforme, som forslaget regulerer"
+    },
+    {
+      "provider": "Wikimedia Commons",
+      "provider_page": "https://commons.wikimedia.org/wiki/File:Social_Media_App_Icons_On_The_Screen_of_A_Smartphone.jpg",
+      "license": "CC BY 2.0",
+      "credit": "mikemacmarketing",
+      "dimensions": "2000x1600",
+      "relevance": "Smartphone med sociale medie-apps"
+    },
+    {
+      "provider": "Wikimedia Commons",
+      "provider_page": "https://commons.wikimedia.org/wiki/File:Visit_of_Ursula_von_der_Leyen,_President_of_the_European_Commission,_to_Sweden_(P-069760-00-12).jpg",
+      "license": "CC BY 4.0",
+      "credit": "European Commission Audiovisual Service / Christophe Licoppe; © European Union, 2026",
+      "dimensions": "2667x4000",
+      "relevance": "EU-Kommissionens formand Ursula von der Leyen, som præsenterer og forsvarer forslaget"
+    }
+  ],
+  "audit": {
+    "discovery_run_id": "hel-20260918-0057",
+    "candidate_id": "eu-kids-act",
+    "research_date": "2026-09-18",
+    "hero_rights_checked": true,
+    "semantic_dedupe_performed_once": true
+  }
+}
