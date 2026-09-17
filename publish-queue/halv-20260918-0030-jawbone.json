@@ -1,0 +1,41 @@
+{
+  "payload_type": "article",
+  "queue_id": "halv-20260918-0030-jawbone",
+  "slug": "usa-vil-give-borgere-ret-til-at-sagsoge-embedsmaend-for-censurpres",
+  "headline": "USA vil give borgere ret til at sagsøge embedsmænd for censurpres",
+  "category_slug": "udland",
+  "deck": "Et tværpolitisk lovforslag er sendt videre fra Senatets handelsudvalg med 18 mod 10 stemmer.",
+  "body_markdown": "Amerikanere skal kunne sagsøge føderale myndigheder og embedsmænd, hvis staten ulovligt presser private virksomheder til at undertrykke ytringer. Det er kernen i et lovforslag, som Senatets handelsudvalg onsdag sendte videre med 18 stemmer mod 10.\n\nForslaget hedder JAWBONE Act og er fremsat af den republikanske senator Ted Cruz og den demokratiske senator Ron Wyden. Det skal gøre det lettere at holde staten ansvarlig, når offentlige myndigheder forsøger at få sociale medier, tv-selskaber eller andre private virksomheder til at begrænse ytringer, som ellers er beskyttet af USA's forfatning.\n\nLovforslaget er ikke vedtaget endnu. Det skal fortsat gennem hele Senatet og Repræsentanternes Hus, før det eventuelt kan blive lov.\n\nEfter udvalgets behandling vil borgere efter forslaget kunne rejse sag mod en føderal myndighed eller ansat, selv hvis presset ikke ender med, at en ytring faktisk bliver fjernet. Der åbnes også for økonomisk erstatning. Samtidig skal myndigheder indberette visse kontakter med private virksomheder til Kongressen.\n\nSagen har fået en usædvanlig tværpolitisk dimension. Cruz har især peget på Biden-regeringens kontakt med store teknologivirksomheder om blandt andet corona og valgrelaterede oplysninger. Wyden har omvendt fremhævet Trump-regeringens pres på medievirksomheder og sagt, at problemet hverken er partipolitisk eller nyt.\n\nReuters beskriver, hvordan både republikanere og demokrater under udvalgsbehandlingen brugte eksempler fra regeringer ledet af det modsatte parti. Det giver lovforslaget en bredere begrundelse end den sædvanlige amerikanske konflikt om moderation på sociale medier.\n\nKritikken af den type lovgivning handler blandt andet om grænsen mellem ulovlig tvang og legitim kontakt mellem myndigheder og virksomheder. Regeringen kan have saglige grunde til at advare virksomheder om eksempelvis kriminalitet, udenlandske påvirkningsoperationer eller konkrete sikkerhedstrusler. Lovforslagets praktiske betydning vil derfor afhænge af, hvordan domstolene skelner mellem information, overtalelse og egentlig tvang.\n\nForslaget har støtte fra organisationer med meget forskellige politiske profiler, herunder American Civil Liberties Union, Foundation for Individual Rights and Expression og Center for Democracy and Technology.\n\nUdvalgets afstemning er det hidtil vigtigste lovgivningsmæssige skridt for forslaget. Næste afgørende spørgsmål er, om Senatets ledelse tager det op til afstemning i hele kammeret.",
+  "source_metadata": [
+    {"url":"https://www.commerce.senate.gov/press/rep/release/boxing-reform-bill-heads-to-the-senate-floor/","name":"U.S. Senate Committee on Commerce, Science, and Transportation","source_class":"authoritative","role":"primary_committee_vote_and_status"},
+    {"url":"https://www.commerce.senate.gov/press/rep/release/cruz-wyden-introduce-legislation-to-guard-first-amendment-speech-rights-against-government-jawboning/","name":"U.S. Senate Committee on Commerce, Science, and Transportation","source_class":"authoritative","role":"primary_bill_purpose_and_sponsors"},
+    {"url":"https://www.reuters.com/world/us-senate-panel-approves-bill-bar-government-officials-pressuring-networks-free-2026-09-16/","name":"Reuters","source_class":"authoritative","role":"independent_current_reporting_and_counterpoints"}
+  ],
+  "editorial_metadata": {
+    "sagen_kort": [
+      "JAWBONE Act vil give amerikanere mulighed for at sagsøge føderale myndigheder og ansatte for ulovligt pres på private virksomheder om at begrænse beskyttede ytringer.",
+      "Senatets handelsudvalg sendte forslaget videre med 18 mod 10 stemmer; det skal stadig vedtages af hele Kongressen for at blive lov."
+    ],
+    "frontpage_destination": "normal",
+    "story_cluster_key": "usa-ytringsfrihed-jawbone-2026",
+    "dedupe_context": {
+      "checked_at": "2026-09-18T00:33:00+02:00",
+      "window_days": 7,
+      "publish_prs_seen": 100,
+      "include_closed_publish_prs": true,
+      "newest_publish_pr": 745,
+      "public_articles_seen": null,
+      "result": "no_semantic_overlap_found"
+    },
+    "discovery_run_id": "halv-20260918-0030",
+    "discovery_audit": [
+      {"candidate_id":"jawbone-act-committee","rank":1,"status":"selected","story_brief":"The U.S. Senate Commerce Committee advanced the bipartisan JAWBONE Act 18-10 on September 16. It would create a cause of action against federal agencies or employees that coerce private companies to suppress First Amendment-protected speech and add congressional reporting requirements."}
+    ],
+    "hero_candidates": [
+      {"rank":1,"provider":"Wikimedia Commons","source_url":"https://commons.wikimedia.org/wiki/File:Washington_260424_US_Capitol_02.jpg","width":4200,"height":2800,"mime":"image/jpeg","license":"CC BY-SA 4.0 — Oren Rozen","caption":"USA's Capitol i Washington, hvor lovforslaget nu kan gå videre til behandling i Senatet."},
+      {"rank":2,"provider":"Wikimedia Commons","source_url":"https://commons.wikimedia.org/wiki/File:United_States_Capitol_backside.jpg","width":4608,"height":3456,"mime":"image/jpeg","license":"CC BY-SA 4.0","caption":"USA's Capitol i Washington; dokumentarisk foto."},
+      {"rank":3,"provider":"Wikimedia Commons","source_url":"https://commons.wikimedia.org/wiki/File:2014-04-06-United-States-Capitol-Washington-DC.jpg","width":2500,"height":1797,"mime":"image/jpeg","license":"CC BY-SA 4.0 — Gunnar Klack","caption":"USA's Capitol i Washington; dokumentarisk foto."},
+      {"rank":4,"provider":"Wikimedia Commons","source_url":"https://commons.wikimedia.org/wiki/File:US_Capitol,_Washington_DC5.jpg","width":5749,"height":3915,"mime":"image/jpeg","license":"CC BY-SA 2.0 — dconvertini","caption":"USA's Capitol i Washington; dokumentarisk foto."}
+    ]
+  }
+}
