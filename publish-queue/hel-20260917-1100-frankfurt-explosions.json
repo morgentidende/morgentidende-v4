@@ -1,0 +1,28 @@
+{
+  "queue_id": "hel-20260917-1100-frankfurt-explosions",
+  "slug": "to-nye-eksplosioner-rammer-frankfurt-serie-fortsaetter",
+  "headline": "To nye eksplosioner rammer Frankfurt: Serie af sprængninger fortsætter",
+  "category_slug": "udland",
+  "deck": "Et cafésted og en shisha-bar blev beskadiget tidligt torsdag. Frankfurt-området er ramt af flere lignende sprængninger på få dage.",
+  "body_markdown": "To eksplosioner rystede tidligt torsdag morgen Frankfurt am Main med få minutters mellemrum. Ifølge det regionale public service-medie Hessenschau, som henviser til politiet, eksploderede sprængladninger omkring klokken 4.20 foran et cafésted på Berger Straße i bydelen Nordend og foran en shisha-bar på den centrale handelsgade Zeil.\n\nBegge forretninger blev kraftigt beskadiget, og flere ruder blev knust. Politiet oplyser ifølge tyske medier, at ingen mennesker kom til skade. En person blev anholdt i nærheden, men politiet har foreløbig ikke offentliggjort nærmere oplysninger om vedkommendes mulige rolle.\n\nSprængningerne kommer efter flere lignende hændelser i Frankfurt og nabobyen Offenbach i de seneste dage. Også ved de tidligere eksplosioner opstod der betydelige materielle skader uden meldinger om personskade.\n\nÅrsagen og et eventuelt motiv er endnu ikke fastslået. Der er heller ikke offentliggjort dokumentation for, at alle hændelserne har samme gerningsmand eller baggrund. Politiet efterforsker derfor fortsat, om der er en forbindelse mellem sprængningerne.\n\nEn kvinde i området beskrev over for tyske medier detonationen som voldsom og fortalte, at hun kunne mærke rystelsen, selv om hun befandt sig i en sidegade. En anden beboer fortalte, at hun efter eksplosionen så en mand gemme sig i en hæk. Politiet bekræftede senere, at en person var blevet anholdt i nærheden, men har ikke knyttet anholdelsen sikkert til sprængningerne.\n\nDet centrale ubesvarede spørgsmål er nu, hvorfor flere sprængladninger på kort tid er eksploderet ved forretninger i Frankfurt-området. Indtil politiet offentliggør mere om motiv, mistænkte eller mulige forbindelser mellem hændelserne, er der ikke grundlag for at fastslå, hvad der ligger bag serien.",
+  "source_metadata": [
+    {"url": "https://www.hessenschau.de/panorama/erneut-explosionen-in-frankfurt---laeden-auf-berger-strasse-und-zeil-beschaedigt-v3%2Cexplosionen-frankfurt-100.html", "name": "Hessenschau", "type": "authoritative", "note": "Regional public-service reporting citing Frankfurt police; locations, time, damage and preceding explosions."},
+    {"url": "https://www.welt.de/article6aaba7126c12d34b7f43d615", "name": "Welt/dpa", "type": "authoritative", "note": "dpa-based follow-up on no injuries, witness accounts and arrest near the scene."}
+  ],
+  "editorial_metadata": {
+    "sagen_kort": [
+      "To sprængladninger eksploderede omkring klokken 4.20 foran to forretninger i Frankfurt; ingen meldes såret.",
+      "Flere lignende eksplosioner har ramt Frankfurt og Offenbach de seneste dage, men motiv og sammenhæng er endnu ikke fastslået."
+    ],
+    "final_qa_duplicate": false,
+    "hero_candidates": [
+      {"source_url": "https://commons.wikimedia.org/wiki/File:Frankfurt,_Berger_Stra%C3%9Fe_265.jpg", "license": "CC0 1.0", "commercial_use_allowed": true, "local_storage_allowed": true, "width": 5159, "height": 5280, "description": "Berger Straße i Frankfurt, en af gaderne ramt af torsdagens sprængninger."},
+      {"source_url": "https://commons.wikimedia.org/wiki/File:Frankfurt,_Berger_Stra%C3%9Fe_150.JPG", "license": "CC0 1.0", "commercial_use_allowed": true, "local_storage_allowed": true, "width": 4924, "height": 3252, "description": "Berger Straße i Frankfurt."},
+      {"source_url": "https://commons.wikimedia.org/wiki/File:Frankfurt,_Berger_Stra%C3%9Fe_267.jpg", "license": "CC0 1.0", "commercial_use_allowed": true, "local_storage_allowed": true, "width": 4832, "height": 4336, "description": "Berger Straße i Frankfurt."}
+    ],
+    "discovery_run_id": "hel-20260917-1100",
+    "discovery_audit": [
+      {"candidate_id": "frankfurt-explosions", "source_pool": "discovery", "source_path": "nius.de", "rank": 1, "candidate_headline": "To nye eksplosioner i Frankfurt", "deep_screened": true, "downstream_sources": ["Hessenschau", "Welt/dpa"], "decision": "publish", "reason": "Fresh dramatic event, independently documented by authoritative German sources; continuation of a multi-incident series.", "model_prompt_version": "canonical-news-task-2026-09-17"}
+    ]
+  }
+}
