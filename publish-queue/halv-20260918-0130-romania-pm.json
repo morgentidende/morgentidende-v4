@@ -1,0 +1,88 @@
+{
+  "queue_id": "halv-20260918-0130-romania-pm",
+  "slug": "rumaniens-praesident-udpeger-tredje-statsministerkandidat-paa-faa-maaneder",
+  "headline": "Rumæniens præsident udpeger tredje statsministerkandidat på få måneder",
+  "category_slug": "udland",
+  "deck": "EU-politikeren Siegfried Mureșan får ti dage til at samle et flertal. To tidligere forsøg på at danne regering er allerede strandet.",
+  "sagen_kort": [
+    "Rumæniens præsident Nicușor Dan har udpeget den liberale EU-parlamentariker Siegfried Mureșan som kandidat til posten som statsminister.",
+    "Mureșan har ti dage til at fremlægge en regering og søge parlamentets tillid, mens den langvarige politiske krise lægger pres på landets kreditværdighed."
+  ],
+  "body_markdown": "Rumæniens præsident Nicușor Dan har udpeget EU-parlamentarikeren Siegfried Mureșan som landets næste kandidat til posten som statsminister. Dermed gør præsidenten et nyt forsøg på at bryde en politisk fastlåsning, der har efterladt landet med en midlertidig regering i flere måneder.\n\nMureșan er medlem af det liberale Nationale Liberale Parti, PNL, og har siddet i Europa-Parlamentet siden 2014. Han får nu ti dage til at sammensætte en regering og derefter bede parlamentet om et tillidsvotum.\n\nDet er langt fra sikkert, at han kan samle flertal. Præsidentens to tidligere kandidater er ikke endt med en fungerende regering: Eugen Tomac trak sig, mens Adrian Veștea ikke kunne samle den nødvendige støtte.\n\n## Regeringskrisen trækker ud\n\nKrisen begyndte i maj, da den daværende proeuropæiske regeringskoalition brød sammen. Socialdemokraterne, PSD, som er parlamentets største parti, forlod regeringssamarbejdet og var med til at vælte regeringen ved et mistillidsvotum.\n\nPSD ønsker i stedet partileder Sorin Grindeanu som statsminister og har gjort klart, at partiet ikke vil støtte en regering, som det selv står udenfor. Det efterlader Mureșan med en vanskelig parlamentarisk opgave.\n\nPræsident Dan har kritiseret partierne for at sætte egne valginteresser over behovet for politisk stabilitet. Han har heller ikke udelukket et nyvalg, hvis det fortsat viser sig umuligt at danne en regering.\n\nEt nyvalg ville være usædvanligt i Rumænien. Samtidig står det nationalkonservative parti Alliance for Rumænernes Enhed, AUR, stærkt i meningsmålingerne, hvilket kan gøre etablerede partier tilbageholdende med at sende vælgerne til stemmeurnerne igen.\n\n## Kreditvurdering under pres\n\nDen politiske fastlåsning er ikke kun et spørgsmål om ministerposter. Rumænien kæmper samtidig med store offentlige underskud og behov for økonomiske reformer. Kreditvurderingsbureauerne Fitch og Moody's har advaret om, at politisk stabilitet og troværdige finanspolitiske tiltag er vigtige for landets kreditvurdering.\n\nStandard & Poor's har en ny vurdering af Rumænien planlagt til 2. oktober. Et tab af status som investeringsværdigt land kan gøre det dyrere for staten at låne penge.\n\nMureșan er 44 år og har især arbejdet med økonomi og EU-budgetter. Han er næstformand i den konservative-kristendemokratiske EPP-gruppe i Europa-Parlamentet og medansvarlig for Parlamentets arbejde med EU's næste langtidsbudget.\n\nHans nominering løser derfor ikke krisen i sig selv. Den afgørende prøve bliver, om en politiker med stærk Bruxelles-erfaring kan finde de stemmer i Bukarest, som præsidentens tidligere kandidater ikke kunne samle.",
+  "source_metadata": {
+    "primary": {
+      "name": "Reuters",
+      "url": "https://www.reuters.com/world/romanian-liberal-mep-siegfried-muresan-nominated-prime-minister-2026-09-17/",
+      "published_date": "2026-09-17",
+      "registry_source": true
+    },
+    "corroboration": [
+      {"name": "Associated Press", "url": "https://www.washingtonpost.com/world/2026/09/17/romania-prime-minister-siegfried-muresan-nomination-dan/bec15e52-b2ba-11f1-92c2-5c918f4a6127_story.html", "published_date": "2026-09-17"},
+      {"name": "European Commission", "url": "https://commission.europa.eu/siegfried-muresan_en", "published_date": null}
+    ]
+  },
+  "editorial_metadata": {
+    "article_type": "news",
+    "language": "da",
+    "source_pool": "breaking-major-media",
+    "candidates_tried": 1,
+    "frontpage_destination": "normal",
+    "final_check": "passed",
+    "profile": "canonical-news-task",
+    "sagen_kort": [
+      "Rumæniens præsident Nicușor Dan har udpeget den liberale EU-parlamentariker Siegfried Mureșan som kandidat til posten som statsminister.",
+      "Mureșan har ti dage til at fremlægge en regering og søge parlamentets tillid, mens den langvarige politiske krise lægger pres på landets kreditværdighed."
+    ],
+    "dedupe_context": {
+      "checked_at": "2026-09-18T01:34:00+02:00",
+      "window_days": 7,
+      "publish_prs_seen": 100,
+      "include_closed_publish_prs": true,
+      "newest_publish_pr": 749,
+      "public_articles_seen": null,
+      "duplicate_of": null,
+      "note": "Primary GitHub [PUBLISH] ledger screened with state=all. No semantically overlapping Siegfried Mureșan nomination transport observed; public history is best-effort supplement under the current canonical mandate."
+    }
+  },
+  "hero_candidates": [
+    {
+      "provider": "Wikimedia Commons",
+      "provider_page": "https://commons.wikimedia.org/wiki/File:1718698107626_20240617_MURESAN_Siegfried_RO_004.jpg",
+      "license": "EU reuse / attribution required; commercial reuse permitted",
+      "credit": "© European Union 2024 - Source: EP",
+      "dimensions": "3528x4536",
+      "relevance": "Officielt dokumentarisk portræt af Siegfried Mureșan"
+    },
+    {
+      "provider": "Wikimedia Commons",
+      "provider_page": "https://commons.wikimedia.org/wiki/File:21-07-07_Muresan_portrait_STR_14.jpg",
+      "license": "CC BY-SA 4.0",
+      "credit": "Cugoh",
+      "dimensions": "9085x6059",
+      "relevance": "Dokumentarisk foto af Mureșan i Europa-Parlamentet"
+    },
+    {
+      "provider": "Wikimedia Commons",
+      "provider_page": "https://commons.wikimedia.org/wiki/File:Siegfried_MURESAN_(16635674846).jpg",
+      "license": "CC BY-SA 2.0",
+      "credit": "euranet_plus / Francois Walschaerts",
+      "dimensions": "3543x5315",
+      "relevance": "Dokumentarisk foto af Mureșan"
+    },
+    {
+      "provider": "Wikimedia Commons",
+      "provider_page": "https://commons.wikimedia.org/wiki/File:21-07-07_Muresan_portrait_STR_3.jpg",
+      "license": "CC BY-SA 4.0",
+      "credit": "Cugoh",
+      "dimensions": "10835x7226",
+      "relevance": "Alternativt dokumentarisk foto af Mureșan i Europa-Parlamentet"
+    }
+  ],
+  "audit": {
+    "discovery_run_id": "halv-20260918-0130",
+    "candidate_id": "romania-muresan-pm-nomination",
+    "research_date": "2026-09-18",
+    "hero_rights_checked": true,
+    "semantic_dedupe_performed_once": true
+  }
+}
