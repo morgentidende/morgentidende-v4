@@ -1,0 +1,31 @@
+{
+  "queue_id": "kvarti-20260917-0547-ceuta-port-camp",
+  "slug": "spansk-domstol-bremser-migrantlejr-i-ceutas-havn",
+  "headline": "Spansk domstol bremser migrantlejr i Ceutas havn",
+  "category_slug": "udland",
+  "deck": "Politiet advarer om sikkerheden ved havnen. Regeringen kalder lejren akut nødvendig og forsvarer placeringen.",
+  "body_markdown": "En spansk domstol har midlertidigt bremset regeringens plan om at indrette en migrantlejr i havnen i Ceuta, mens retten tager stilling til en hastesag om sikkerheden ved placeringen.\n\nDen nationale domstol Audiencia Nacional har meddelt transportministeriet, at regeringens ordre ikke må gennemføres, før retten har afgjort en anmodning om en foreløbig standsning. Ministeriet har samtidig fået 12 timer til at sende sagens dokumenter til retten.\n\nPlanen omfatter omkring 16.000 kvadratmeter i havnens vestlige område. Her vil regeringen etablere et midlertidigt modtagecenter for omkring 1.000 migranter, der kom til Ceuta under den store tilstrømning fra Marokko i slutningen af juli. Regeringen har senere oplyst, at den planlagte løsning kan huse op mod 1.700 mennesker.\n\nDet spanske politiforbund Sindicato Unificado de Policía, SUP, har indbragt planen for retten. Forbundet mener, at myndighederne først skal dokumentere, at placeringen er forsvarlig i forhold til havnedrift, evakuering, beredskab og arbejdsmiljø.\n\nSUP peger især på, at en stor koncentration af mennesker i havneområdet kan ændre forholdene for adgang, evakuering og politiindsats. I nærheden ligger blandt andet anlæg knyttet til brændstof og energiforsyning.\n\nDomstolens indgreb er foreløbigt. Den har endnu ikke afgjort, om regeringens plan faktisk er ulovlig eller uforsvarlig, men har sat gennemførelsen på pause, mens den undersøger sagen.\n\nRegeringen reagerer skarpt. Kilder i regeringskontoret siger ifølge Europa Press, at de er forundrede over beslutningen og mener, at den bremser en løsning, som var klar til at blive sat i værk.\n\nRegeringen fastholder, at havneområdet er det bedst egnede sted, og at sikkerheden er i orden. Den fremhæver også, at mange migranter fortsat opholder sig under dårlige forhold i improviserede lejre i Ceuta, og at det derfor haster med at skaffe ordentlige indkvarteringsforhold.\n\nCeutas lokale regering har tidligere været imod placeringen i havnen og henvist til negative tekniske vurderinger fra havnemyndigheden. Samtidig har den sagt, at den vil samarbejde om at finde andre steder.\n\nSagen føjer dermed endnu en konflikt til migrationskrisen i den spanske enklave: Staten vil hurtigt flytte mennesker væk fra gader og strande, mens politi og lokale myndigheder rejser spørgsmål om, hvorvidt en kritisk havn er det rigtige sted at samle dem.",
+  "story_cluster_key": "ceuta-migrationskrise-2026",
+  "source_metadata": [
+    {"title":"La AN ordena al Gobierno paralizar el campamento para migrantes en el Puerto de Ceuta hasta resolver si lo suspende","url":"https://www.europapress.es/nacional/noticia-an-ordena-gobierno-paralizar-campamento-migrantes-puerto-ceuta-resolver-si-suspende-20260916185714.html","publisher":"Europa Press","source_class":"authoritative","published_at":"2026-09-16"},
+    {"title":"La Audiencia Nacional frena el campamento del puerto de Ceuta hasta estudiar la orden del Gobierno","url":"https://efe.com/espana/2026-09-16/audiencia-nacional-campamento-migrantes-ceuta-gobierno/","publisher":"EFE","source_class":"authoritative","published_at":"2026-09-16"},
+    {"title":"El Gobierno muestra su perplejidad por la paralización del campamento para migrantes: Ceuta no puede esperar","url":"https://www.europapress.es/nacional/noticia-gobierno-muestra-perplejidad-paralizacion-campamento-migrantes-ceuta-no-puede-esperar-20260916214526.html","publisher":"Europa Press","source_class":"authoritative","published_at":"2026-09-16"}
+  ],
+  "editorial_metadata": {
+    "sagen_kort": [
+      "Audiencia Nacional har midlertidigt stoppet regeringens plan om en migrantlejr på omkring 16.000 kvadratmeter i Ceutas havn.",
+      "Et politiforbund rejser spørgsmål om sikkerhed og beredskab; regeringen siger, at placeringen er sikker og akut nødvendig."
+    ],
+    "final_qa_duplicate": false,
+    "story_cluster_key": "ceuta-migrationskrise-2026",
+    "hero_candidates": [
+      {"rank":1,"source_url":"https://commons.wikimedia.org/wiki/File:Puerto_de_Ceuta_00.jpg","source":"Wikimedia Commons","license":"CC BY-SA 4.0","commercial_use_allowed":true,"local_storage_allowed":true,"known_width":4288,"known_height":2848,"reason":"Direkte relevant dokumentarisk foto af Ceutas havn, hvor lejren er planlagt."},
+      {"rank":2,"source_url":"https://commons.wikimedia.org/wiki/File:Puerto_de_Ceuta.jpg","source":"Wikimedia Commons","license":"CC BY-SA 3.0","commercial_use_allowed":true,"local_storage_allowed":true,"known_width":3456,"known_height":2304,"reason":"Dokumentarisk oversigtsfoto af Ceutas havn."},
+      {"rank":3,"source_url":"https://commons.wikimedia.org/wiki/File:Puerto_de_Ceuta_001.jpg","source":"Wikimedia Commons","license":"CC BY-SA 4.0","commercial_use_allowed":true,"local_storage_allowed":true,"known_width":2863,"known_height":1953,"reason":"Nyere dokumentarisk foto af Ceutas havneområde."}
+    ],
+    "discovery_run_id": "kvarti-20260917-0547",
+    "audit": [
+      {"candidate_id":"ceuta-port-camp","source_pool":"discovery","source_path":"Libertad Digital -> Europa Press/EFE","rank":1,"candidate_headline":"Audiencia Nacional bremser migrantlejr i Ceutas havn","deep_screened":true,"downstream_sources":["Europa Press","EFE"],"decision":"selected","reason":"Frisk, væsentlig juridisk videreudvikling med selvstændigt nyt hovedfaktum; dokumenteret af to autoritative nyhedsbureauer.","model_prompt_version":"canonical-news-task-2026-09-17"}
+    ]
+  }
+}
