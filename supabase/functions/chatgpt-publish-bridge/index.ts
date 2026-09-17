@@ -6,9 +6,6 @@ const EXPECTED_AUD = "morgentidende-publish-bridge";
 const EXPECTED_REPO = "morgentidende/morgentidende-v4";
 const EXPECTED_WORKFLOW_REF_PREFIX = "morgentidende/morgentidende-v4/.github/workflows/chatgpt-publish-bridge.yml@";
 const ISSUER = "https://token.actions.githubusercontent.com";
-const ALLOWED_MAGAZINE_STORY_KINDS = new Set(["evergreen_explainer", "followup", "new_study", "update"]);
-const ALLOWED_FOLLOWUP_REASONS = new Set(["new_fact", "official_response", "arrest", "new_data", "court_decision", "material_update"]);
-const ALLOWED_KINDS = new Set(["news", "comment", "debate", "magazine"]);
 const ALLOWED_PAYLOAD_TYPES = new Set(["article", "discovery_audit"]);
 const ALLOWED_SOURCE_CLASSIFICATIONS = new Set(["authoritative", "discovery_only"]);
 
@@ -50,18 +47,6 @@ async function verifyGithubOidc(token: string): Promise<Json> {
   return payload;
 }
 
-function normalizeKind(kind: unknown, categorySlug: unknown): string {
-  const category = String(categorySlug ?? "").trim().toLowerCase();
-  const raw = String(kind ?? "").trim().toLowerCase();
-  if (category === "viden" || category === "liv") {
-    if (!raw || raw === "magazine" || raw === "article" || raw === "evergreen") return "magazine";
-    throw new Error("kind_category_conflict");
-  }
-  if (!raw) return "news";
-  if (!ALLOWED_KINDS.has(raw)) throw new Error("invalid_article_kind");
-  return raw;
-}
-
 function validateSourceRegistryUpdates(value: unknown) {
   if (value == null) return;
   if (!Array.isArray(value)) throw new Error("source_registry_updates_must_be_array");
@@ -79,7 +64,10 @@ function validateSourceRegistryUpdates(value: unknown) {
   }
 }
 
-function validatePayload(payload: Json): "article" | "discovery_audit" {
+// The Edge layer owns authentication and transport-shape sanity only.
+// Article business rules (kind/category, magazine topic/followup, cluster-key
+// resolution, aliases and publication invariants) are canonical in Postgres.
+function validateTransportShape(payload: Json): "article" | "discovery_audit" {
   const payloadType = String(payload.payload_type ?? "article").trim().toLowerCase();
   if (!ALLOWED_PAYLOAD_TYPES.has(payloadType)) throw new Error("invalid_payload_type");
   payload.payload_type = payloadType;
@@ -105,28 +93,12 @@ function validatePayload(payload: Json): "article" | "discovery_audit" {
   if (!Array.isArray(payload.source_metadata ?? [])) throw new Error("invalid_source_metadata");
   if (payload.editorial_metadata != null && (typeof payload.editorial_metadata !== "object" || Array.isArray(payload.editorial_metadata))) throw new Error("invalid_editorial_metadata");
 
-  const normalizedKind = normalizeKind(payload.kind, payload.category_slug);
-  payload.kind = normalizedKind;
   const metadata = (payload.editorial_metadata ?? {}) as Json;
   if (metadata.discovery_audit != null) {
     if (!Array.isArray(metadata.discovery_audit)) throw new Error("discovery_audit_candidates_must_be_array");
     if ((metadata.discovery_audit as unknown[]).length > 50) throw new Error("discovery_audit_too_many_candidates");
   }
 
-  if (normalizedKind === "magazine") {
-    const topicKey = String(metadata.topic_key ?? "").trim();
-    if (!topicKey) throw new Error("magazine_topic_key_required");
-    const storyKind = String(metadata.story_kind ?? "evergreen_explainer").trim();
-    if (!ALLOWED_MAGAZINE_STORY_KINDS.has(storyKind)) throw new Error("magazine_story_kind_invalid");
-    metadata.story_kind = storyKind;
-    payload.editorial_metadata = metadata;
-    if (storyKind === "followup") {
-      if (!String(metadata.followup_parent_article_id ?? "").trim()) throw new Error("followup_requires_parent");
-      const reason = String(metadata.followup_reason ?? "").trim();
-      if (!ALLOWED_FOLLOWUP_REASONS.has(reason)) throw new Error("followup_requires_reason");
-      if (!String(payload.story_cluster_id ?? "").trim()) throw new Error("followup_requires_cluster");
-    }
-  }
   return "article";
 }
 
@@ -152,7 +124,7 @@ Deno.serve(async (req: Request) => {
     if (!auth.startsWith("Bearer ")) return json({ error: "missing_oidc" }, 401);
     const claims = await verifyGithubOidc(auth.slice(7));
     const payload = await req.json() as Json;
-    const payloadType = validatePayload(payload);
+    const payloadType = validateTransportShape(payload);
     if (payloadType === "discovery_audit") {
       const count = await callRpc("ingest_github_discovery_audit_payload", { p_payload: payload });
       return json({ ok: true, audit_count: count, run_id: claims.run_id ?? null });
