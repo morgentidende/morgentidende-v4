@@ -1,0 +1,42 @@
+{
+  "queue_id": "halv-20260917-2230-montana-deepfake",
+  "slug": "dommer-bremser-montana-lov-mod-ai-valgannoncer",
+  "headline": "Dommer bremser Montana-lov mod AI-valgannoncer: Rammer kritik, men tillader ros",
+  "category_slug": "udland",
+  "deck": "En føderal dommer vurderer, at delstatens deepfake-regler sandsynligvis diskriminerer politiske synspunkter og strider mod ytringsfriheden.",
+  "body_markdown": "En amerikansk føderal dommer har midlertidigt blokeret Montana fra at håndhæve en lov om AI-genererede valgannoncer mod en konservativ politisk gruppe. Dommer Susan Watters vurderer, at loven sandsynligvis strider mod USA's forfatningsbeskyttede ytringsfrihed, fordi den behandler negative og positive AI-fremstillinger af politikere forskelligt.\n\nSagen udspringer af valgmateriale fra gruppen Accountability in State Government. Gruppen brugte AI-genererede billeder af kandidater med blandt andet prideflag og skilte med foretrukne pronominer som kritik af deres politiske stemmer. Kandidater klagede efterfølgende over materialet.\n\nMontanas lov, Senate Bill 25, blev vedtaget i 2025 for at regulere deepfakes i valgkampen. Den kræver blandt andet tydelig mærkning af visse AI-redigerede politiske budskaber i perioden op til et valg og åbner for både civile sanktioner og, ved gentagne overtrædelser, strafferetlige følger. Delstatens lovgivere begrundede reglerne med, at realistiske falske billeder, lyd og video kan sprede misinformation hurtigt og skade frie og fair valg.\n\nMen ifølge Reuters fandt Watters et grundlæggende problem i den måde, loven skelner mellem politiske budskaber på. Reglerne kan ramme AI-materiale, der skal skade en kandidats omdømme, mens gunstige AI-fremstillinger ikke behandles på samme måde. Dommeren vurderede derfor, at loven sandsynligvis diskriminerer efter synspunkt.\n\nKendelsen er foreløbig. Watters har ikke ophævet loven i hele Montana, men har forbudt myndighederne at undersøge eller retsforfølge den konkrete gruppe efter reglerne, mens sagen fortsætter. Det skyldes blandt andet amerikansk højesteretspraksis, som begrænser føderale dommeres brug af landsdækkende eller meget brede påbud.\n\nMontanas justitsministerium siger ifølge Reuters, at det er skuffet over afgørelsen og overvejer næste skridt. Tilhængere af loven peger på, at kunstigt fremstillede billeder kan få vælgere til at tro, at en kandidat har sagt eller gjort noget, som aldrig er sket. Selve lovteksten beskriver generativ AI som en trussel mod frie og fair valg, når teknologien bruges til realistiske falske fremstillinger.\n\nModparten mener derimod, at staten ikke må afgøre, hvilke former for politisk kritik der er tilladte. Gruppen og dens advokater fremhæver, at politisk satire, karikatur og hård kritik traditionelt står meget stærkt under den amerikanske forfatnings første tillæg.\n\nSagen rammer dermed en voksende konflikt i amerikansk valgret: Delstater forsøger at beskytte vælgere mod manipulerende AI-indhold, samtidig med at reglerne skal holde sig inden for en meget bred beskyttelse af politiske ytringer. Flere amerikanske delstater har allerede indført krav eller begrænsninger for AI-genereret valgmateriale, og Montanas sag kan blive endnu en prøve på, hvor grænsen går.",
+  "source_metadata": [
+    {"url":"https://www.reuters.com/legal/government/us-judge-blocks-montana-enforcing-deepfake-election-ads-law-against-conservative-2026-09-17/","publisher":"Reuters","class":"authoritative","role":"Aktuel uafhængig dokumentation af kendelsen, parterne, dommerens begrundelse og delstatens reaktion"},
+    {"url":"https://archive.legmt.gov/content/Sessions/69th/Contractor_index/CH0541.pdf","publisher":"Montana Legislature","class":"authoritative","role":"Primær lovtekst til Senate Bill 25 om deepfakes i valgkommunikation, formål, definitioner og sanktioner"},
+    {"url":"https://hlli.org/accountability-in-state-government-and-dan-bartel-v-austin-knudsen/","publisher":"Hamilton Lincoln Law Institute","class":"authoritative","role":"Partskilde med sagsforløb, dato for kendelsen og beskrivelse af det omstridte valgmateriale; bruges med tydelig partskritik"}
+  ],
+  "editorial_metadata": {
+    "sagen_kort": [
+      "En føderal dommer har blokeret Montana fra at håndhæve sin deepfake-valglov mod en konservativ politisk gruppe, mens sagen fortsætter.",
+      "Dommeren vurderer, at loven sandsynligvis diskriminerer efter synspunkt, fordi skadelige AI-fremstillinger rammes anderledes end gunstige fremstillinger."
+    ],
+    "frontpage_destination": "normal",
+    "story_cluster_key": "usa-ai-valg-ytringsfrihed-2026",
+    "dedupe_context": {
+      "checked_at": "2026-09-17T22:34:00+02:00",
+      "window_days": 7,
+      "publish_prs_seen": 100,
+      "include_closed_publish_prs": true,
+      "newest_publish_pr": 737
+    },
+    "hero_candidates": [
+      {"rank":1,"source_url":"https://commons.wikimedia.org/wiki/File:Billings,_Montana._the_new_federal_courthouse.JPG","provider":"wikimedia_commons","width":3888,"height":2592,"commercial_use_allowed":true,"local_storage_allowed":true,"license":"CC BY-SA 3.0","attribution":"Sara goth / Wikimedia Commons","license_url":"https://creativecommons.org/licenses/by-sa/3.0/"},
+      {"rank":2,"source_url":"https://commons.wikimedia.org/wiki/File:MK01799_Montana_State_Capitol.jpg","provider":"wikimedia_commons","width":2487,"height":1728,"commercial_use_allowed":true,"local_storage_allowed":true,"license":"CC BY-SA 3.0","attribution":"Martin Kraft / Wikimedia Commons","license_url":"https://creativecommons.org/licenses/by-sa/3.0/"},
+      {"rank":3,"source_url":"https://commons.wikimedia.org/wiki/File:20210805_77_Montana_State_Capitol,_Helena,_Montana_(51813232911).jpg","provider":"wikimedia_commons","width":3648,"height":2736,"commercial_use_allowed":true,"local_storage_allowed":true,"license":"CC BY 2.0","attribution":"David Wilson / Wikimedia Commons","license_url":"https://creativecommons.org/licenses/by/2.0/"}
+    ],
+    "discovery_audit": {
+      "discovery_run_id":"halv-20260917-2230",
+      "model_prompt_version":"canonical-news-task-2026-09-17",
+      "candidates":[
+        {"candidate_id":"c1-australia-migration","rank":1,"source_pool":"breaking-major-media","headline_topic":"Australien strammer regler for studerende og midlertidig migration","deep_screened":true,"downstream_sources":["Australian Home Affairs","Reuters"],"decision":"duplicate","reason":"næsten identisk udvikling allerede dækket af friske transporter, blandt andet PR #699, #688, #680 og #669"},
+        {"candidate_id":"c2-montana-deepfake","rank":1,"source_pool":"breaking-major-media","headline_topic":"Føderal dommer bremser Montanas deepfake-valglov af hensyn til ytringsfriheden","deep_screened":true,"downstream_sources":["Reuters","Montana Legislature","Hamilton Lincoln Law Institute"],"decision":"selected","reason":"frisk kendelse 16. september, stærk ytringsfrihedsprofil og ingen semantisk overlappende transport i den primære syv-dages-ledger"}
+      ]
+    }
+  },
+  "duplicate_of": null
+}
