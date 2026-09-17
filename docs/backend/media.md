@@ -35,6 +35,16 @@ Media Worker claimer jobbet og håndterer:
 - oprettelse eller genbrug af `media_assets`,
 - attach af `hero_media_id` og intern `hero_url` til artiklen.
 
+## Hero før Article QA
+
+For nye artikler er rækkefølgen bindende:
+
+`article insert → media ingest → hero ready + attached → Article QA enqueue → release gate → published`
+
+**Article QA må ikke enqueue, mens artiklen mangler et publication-ready hero.** Et hero er klar til QA, når det valgte `media_assets`-asset er `ready`, rettigheder og minimumsdimensioner er bestået, intern arkivreference findes, og artiklens `hero_media_id` peger på assettet.
+
+Media Worker/attach-flowet er dermed overgangen ind i QA-fasen. QA er ikke en parallel proces, der venter på billedet bagefter.
+
 ## Retry og fallback
 
 Permanente fejl, fx ugyldigt format, 404/410, for lille fil eller manglende arkiveringsret, skal terminaliseres eller føre direkte til næste allerede godkendte kandidat.
@@ -84,9 +94,9 @@ Legacy eksterne URLs kan mangle managed transforms. Nye assets skal gennem den i
 
 ## QA og publicering
 
-Hero/media er en separat publication dependency. Artikeltekst/source-QA hashes ikke længere hero-attach som en redaktionel content-ændring.
+Hero/media er en publication dependency **før** Article QA. Artikeltekst/source-QA hashes ikke hero-attach som en redaktionel content-ændring, men QA-enqueue er stadig fail-closed på, at et validt hero allerede er attached.
 
-Media-validitet håndhæves fortsat af SQL write-validation og den centrale publication transition. Defense-in-depth her er tilsigtet.
+Media-validitet håndhæves af SQL write-validation, QA-enqueue-betingelserne og den centrale publication transition. Defense-in-depth her er tilsigtet.
 
 Den aktuelle prepublication-release-policy er **45 sekunder** og ejes af Supabase publication/QA-logikken. Media-runbooken må ikke definere en alternativ buffer.
 
@@ -128,6 +138,7 @@ Når antallet af legacy-rækker er nul og ingen kode kan skabe nye, kan legacy-k
 ## Ownership
 
 - **Journalist/producer:** motivvalg og rangerede kandidater.
-- **Media Worker:** filverifikation, dimensioner, provider-resolution, SHA, arkivering, retry/fallback-eksekvering og asset creation.
-- **Database:** fail-closed rettigheds-/archive-/hero-match-gates og publication eligibility.
+- **Media Worker:** filverifikation, dimensioner, provider-resolution, SHA, arkivering, retry/fallback-eksekvering, asset creation og attach.
+- **Database:** fail-closed hero-before-QA, rettigheds-/archive-/hero-match-gates og publication eligibility.
+- **Article QA:** redaktionel slutkontrol efter hero er klar.
 - **Frontend:** responsive visning/crop og credit rendering; aldrig publication-gate.

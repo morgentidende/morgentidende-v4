@@ -4,7 +4,7 @@
 
 ## Formål
 
-Scheduled Tasks skriver ikke direkte til Supabase for artikelpublicering eller discovery-audit. En artikel eller et audit-only run afleveres som en afgrænset JSON-payload i en GitHub-PR. Den server-side bridge bevarer den eksisterende Supabase QA-, media- og publication-watchdog.
+Scheduled Tasks skriver ikke direkte til Supabase for artikelpublicering eller discovery-audit. En artikel eller et audit-only run afleveres som en afgrænset JSON-payload i en GitHub-PR. Den server-side bridge bevarer Supabase media-, Article QA- og publication-gates.
 
 ## Hård transportkontrakt
 
@@ -92,7 +92,7 @@ Hvis `story_kind` er `followup`, kræves desuden:
 
 Magazine-followups skal stadig have `topic_key`. `topic_key` beskriver emnet; followup-felterne beskriver relationen til den tidligere artikel.
 
-Den redaktionelle 7-dages-regel for almindelige nyheder ejes ikke af bridge/backend. Den semantiske beslutning træffes i Journalistens slut-QA efter `docs/editorial-core.md` og `docs/automations/news-task.md`. Backend bevarer tekniske invariants som queue-id-idempotency, slug-konflikt, source/media/QA-gates, magazine `topic_key`-struktur og followup-validering.
+Den redaktionelle 7-dages-regel for almindelige nyheder ejes ikke af bridge/backend. Den semantiske beslutning træffes i Journalistens producer-check efter `docs/editorial-core.md` og `docs/automations/news-task.md`. Backend bevarer tekniske invariants som queue-id-idempotency, slug-konflikt, source/media/QA-gates, magazine `topic_key`-struktur og followup-validering.
 
 ## Hero/media-handoff: én rangeret kandidatliste
 
@@ -150,9 +150,13 @@ GitHub-broen må ikke implementere en separat hero-orchestrator. Den validerer n
 
 Discovery-audit er separat idempotent på `(run_id, candidate_id)` og kan derfor genafleveres uden dobbeltrækker.
 
-## Publicering og QA
+## Publicering og Article QA
 
-Bridge-funktionen indsætter artikelpayloads som `scheduled` og kalder `public.publish_article_safely(article_id)`. Når en primær eller senere fallback-kandidat bliver `ready`, knyttes samme artikel til `hero_media_id`/intern `hero_url`; eksisterende QA og publication watchdog fortsætter derefter publiceringen. Hero/media-regler omgås aldrig.
+Bridge-funktionen indsætter artikelpayloads som `scheduled` og starter media-flowet. Når en primær eller senere fallback-kandidat bliver `ready`, knyttes artiklen til `hero_media_id`/intern `hero_url`. **Først derefter må Article QA enqueue.** Efter bestået Article QA fortsætter den centrale release/publication-gate.
+
+Den bindende rækkefølge er:
+
+`scheduled → media ingest/attach → hero ready → Article QA → release gate → published`
 
 Audit-only payloads opretter ingen artikel og kalder ikke publication-gates.
 
