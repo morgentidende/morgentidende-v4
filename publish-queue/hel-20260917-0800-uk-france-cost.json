@@ -1,0 +1,84 @@
+{
+  "queue_id": "hel-20260917-0800-uk-france-cost",
+  "slug": "storbritannien-betaler-56000-pund-for-hver-migrant-der-sendes-tilbage-til-frankrig",
+  "headline": "Storbritannien betaler 56.000 pund for hver migrant, der sendes tilbage til Frankrig",
+  "category_slug": "udland",
+  "deck": "Kun omkring 1.400 er sendt retur under den britisk-franske ordning. Indenrigsministeren forsvarer prisen med, at et års hotelophold kan koste omtrent det samme.",
+  "body_markdown": "Storbritannien betaler omkring 56.000 pund – cirka 485.000 kroner – for hver migrant, der bliver sendt tilbage til Frankrig under den såkaldte 'én ind, én ud'-ordning. Det oplyste den britiske indenrigsminister Shabana Mahmood tirsdag under en høring i parlamentets indenrigsudvalg.\n\nOrdningen blev indført som et forsøg på at dæmpe de ulovlige bådankomster over Den Engelske Kanal. Storbritannien kan sende en migrant, der er kommet over Kanalen i en lille båd, tilbage til Frankrig. Til gengæld modtager briterne en asylansøger fra Frankrig gennem en lovlig rute.\n\nMahmood sagde til udvalget, at omkring 1.400 personer hidtil er blevet sendt tilbage til Frankrig, og at prisen pr. returnering efter hendes bedste aktuelle skøn er omkring 56.000 pund. Hun lovede samtidig at sende udvalget de seneste præcise tal skriftligt.\n\nBeløbet svarer til omkring 65.500 euro. Mahmood forsvarede udgiften med, at den fortsat er billigere end eller omtrent på niveau med at indkvartere en migrant på hotel i Storbritannien i et år.\n\nTallene sætter samtidig størrelsen på ordningen i perspektiv. Officielle tal offentliggjort i juli viste, at 1.087 personer var blevet sendt til Frankrig frem til udgangen af juni, mens 1.117 asylansøgere var kommet den anden vej til Storbritannien. Ordningen flytter dermed mennesker begge veje og er ikke en ensidig hjemsendelsesordning.\n\nDen britiske regering fremhæver, at modellen skal gøre den ulovlige sejlrute mindre attraktiv og svække menneskesmuglernes forretningsmodel. Da aftalen blev lanceret i juli 2025, kaldte regeringen samarbejdet med Frankrig et gennembrud og sagde, at personer, som tager den farlige bådrute, skulle risikere at ende tilbage i Frankrig.\n\nMen Mahmood erkendte under høringen, at antallet af returneringer fortsat er relativt lille. Hun pegede blandt andet på mangel på pladser i udrejsecentre som en praktisk begrænsning, der har gjort det vanskeligt at opskalere ordningen.\n\nSamtidig betaler Storbritannien store beløb til Frankrig for en bredere indsats mod bådtrafikken. I april indgik landene en treårig aftale på op til 660 millioner pund. Omkring 500 millioner skal blandt andet finansiere flere franske betjente, overvågning, droner, helikoptere og maritime patruljer, mens yderligere 160 millioner pund er gjort afhængige af resultater.\n\nKritikken af 'én ind, én ud'-ordningen kommer fra flere sider. Modstandere af regeringens migrationspolitik mener, at få returneringer til en høj pris viser, at ordningen ikke fungerer som afskrækkelse. Organisationer, der arbejder med asylansøgere, kritiserer omvendt selve returneringerne og har rejst spørgsmål om blandt andet beskyttelsen af sårbare migranter.\n\nOrdningens fremtid er desuden usikker. Den nuværende pilot løber ind i oktober. Frankrig har ønsket, at den bilaterale model på længere sigt erstattes af en bredere aftale mellem Storbritannien og EU, mens Mahmood har advaret mod at tro, at en europæisk ordning i sig selv vil løse problemet med bådankomsterne.\n\nDermed står den britiske regering med et enkelt regnestykke, som oppositionen vil kunne bruge politisk: En returnering koster omkring en halv million danske kroner, og for hver person, der sendes til Frankrig under ordningen, modtager Storbritannien samtidig en asylansøger gennem den lovlige rute.",
+  "source_metadata": [
+    {
+      "url": "https://brusselssignal.eu/category/news/society/migration/",
+      "title": "UK migrant return deal with France is costing about €65,500 for each person sent back",
+      "source_type": "discovery"
+    },
+    {
+      "url": "https://www.theguardian.com/world/2026/sep/15/uk-paying-56000-for-each-person-returned-to-france-under-one-in-one-out-scheme",
+      "title": "UK paying £56,000 for each person returned to France under ‘one in one out’ scheme",
+      "source_type": "authoritative"
+    },
+    {
+      "url": "https://www.gov.uk/government/news/uk-and-france-agree-major-deal-to-crack-down-on-illegal-channel-crossings",
+      "title": "UK and France agree major deal to crack down on illegal Channel crossings",
+      "source_type": "primary"
+    },
+    {
+      "url": "https://www.reuters.com/world/uk/uk-pay-france-up-892-million-deal-reduce-migrant-crossings-2026-04-22/",
+      "title": "UK to pay France up to $892 million in deal to reduce migrant crossings",
+      "source_type": "authoritative"
+    }
+  ],
+  "editorial_metadata": {
+    "sagen_kort": [
+      "Den britiske indenrigsminister oplyser, at hver returnering til Frankrig under 'én ind, én ud'-ordningen koster omkring 56.000 pund – cirka 485.000 kroner.",
+      "Omkring 1.400 er sendt retur; for hver returneret migrant modtager Storbritannien samtidig en asylansøger fra Frankrig gennem en lovlig rute."
+    ],
+    "final_qa_duplicate": false,
+    "discovery_run_id": "news-20260917-0800-hel",
+    "hero_candidates": [
+      {
+        "rank": 1,
+        "source_url": "https://commons.wikimedia.org/wiki/File:2025_Shabana_Mahmood_(cropped).jpg",
+        "description": "Dokumentarisk portræt af den britiske indenrigsminister Shabana Mahmood, som oplyste beløbet under parlamentshøringen.",
+        "license": "CC BY 4.0",
+        "attribution": "UK Home Office / James Whatling / Parsons Media",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "width": 2907,
+        "height": 3869
+      },
+      {
+        "rank": 2,
+        "source_url": "https://commons.wikimedia.org/wiki/File:Official_portrait_of_Shabana_Mahmood_MP.jpg",
+        "description": "Frit licenseret officielt portræt af Shabana Mahmood.",
+        "license": "CC BY 3.0",
+        "attribution": "Richard Townshend / UK Parliament",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "rank": 3,
+        "source_url": "https://commons.wikimedia.org/wiki/File:Home_Secretary_Shabana_Mahmood_addresses_Home_Office_(54795924585).jpg",
+        "description": "Dokumentarisk foto af Shabana Mahmood som britisk indenrigsminister.",
+        "license": "CC BY 4.0",
+        "attribution": "UK Home Office / Andy Taylor",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true
+      }
+    ],
+    "discovery_audit": [
+      {
+        "candidate_id": "cand-uk-france-return-cost",
+        "source_pool": "discovery/brussels-signal",
+        "rank": 1,
+        "candidate_headline": "Britisk migrantordning koster 56.000 pund pr. returnering",
+        "deep_screened": true,
+        "downstream_sources": ["UK Home Office", "Guardian", "Reuters"],
+        "decision": "selected",
+        "reason": "Frisk, konkret og dokumenterbar migrations- og skatteyderhistorie. Beløbet blev oplyst af indenrigsministeren i en parlamentarisk høring 15. september og discovery-kilden publicerede historien 16. september. GitHub-søgning og den observerbare nyere [PUBLISH]-historik viste ingen næsten-identisk Morgentidende-artikel om 56.000-pund-regnestykket.",
+        "model_prompt_version": "canonical docs/automations/news-task.md@current-main"
+      }
+    ]
+  }
+}
