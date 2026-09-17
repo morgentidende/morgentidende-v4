@@ -104,6 +104,8 @@ const frontpageNews = resolvedLiveCenter
       </section>
     ) : null}
 
+    {!loadError ? <NewsletterSignup /> : null}
+
     {!loadError ? (
       <section class="v4-section v4-magazine v4-magazine--viden">
         <div class="v4-kicker">MAGASIN</div><h2 class="v4-section-title">Viden</h2>
@@ -124,8 +126,6 @@ const frontpageNews = resolvedLiveCenter
         <div class="v4-grid-4">{frontpageNews.slice(7, 15).map((article) => <V4Card article={article} categoryName={categoryById.get(article.category_id)} showDeck={false} />)}</div>
       </section>
     ) : null}
-
-    {!loadError ? <NewsletterSignup /> : null}
   </div>
 </V4Layout>
 
