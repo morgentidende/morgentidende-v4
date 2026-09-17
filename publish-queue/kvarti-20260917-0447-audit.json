@@ -1,0 +1,19 @@
+{
+  "payload_type": "discovery_audit",
+  "queue_id": "kvarti-20260917-0447-audit",
+  "terminal_reason": "DUPLICATE_RETRY_EXHAUSTED",
+  "editorial_metadata": {
+    "discovery_run_id": "kvarti-20260917-0447",
+    "source_pool": "discovery",
+    "candidates_tried": 4,
+    "duplicate_of": ["PR #611", "PR #606", "PR #607", "PR #615"],
+    "audit": [
+      {"candidate_id":"eu-migration-emergency","rank":1,"candidate_headline":"EU emergency framework for mass irregular arrivals","deep_screened":true,"downstream_sources":["European Commission"],"decision":"duplicate","reason":"Near-identical recent transport PR #611"},
+      {"candidate_id":"spain-regularisation","rank":2,"candidate_headline":"Spanish police union warns regularisation could reach four million","deep_screened":true,"downstream_sources":["Spanish parliamentary hearing","Spain Inclusion Ministry"],"decision":"duplicate","reason":"Near-identical recent transport PR #606"},
+      {"candidate_id":"piddington-vote","rank":3,"candidate_headline":"Piddington symbolic independence vote over asylum accommodation","deep_screened":true,"downstream_sources":["UK Government","Cherwell District Council"],"decision":"duplicate","reason":"Near-identical recent transport PR #607"},
+      {"candidate_id":"ai-slowdown","rank":4,"candidate_headline":"Von der Leyen backs slowing frontier AI development","deep_screened":true,"downstream_sources":["European Commission","Reuters"],"decision":"duplicate","reason":"Near-identical recent transport PR #615"}
+    ],
+    "breaking_scan":"No verified fresh high-Danish-impact breaking override established in the run budget.",
+    "final_qa_duplicate": true
+  }
+}
