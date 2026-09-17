@@ -1,0 +1,55 @@
+{
+  "queue_id": "kvarti-20260918-0145-jawbone",
+  "slug": "usa-vil-give-borgere-ret-til-at-sagsoge-embedsmaend-for-censurpres",
+  "headline": "USA vil give borgere ret til at sagsøge embedsmænd for censurpres",
+  "category_slug": "udland",
+  "deck": "Et tværpolitisk lovforslag er gået videre i Senatet. Det skal ramme statsligt pres på medier og teknologivirksomheder.",
+  "sagen_kort": [
+    "Senatets handelsudvalg har med stemmerne 18-10 sendt JAWBONE Act videre efter støtte fra alle republikanere og tre demokrater i udvalget.",
+    "Forslaget vil give borgere mulighed for at sagsøge føderale myndigheder og ansatte, hvis de presser private virksomheder til at begrænse ytringer beskyttet af forfatningen."
+  ],
+  "body_markdown": "Amerikanere skal kunne gå rettens vej mod føderale myndigheder og embedsmænd, hvis staten forsøger at få private virksomheder til at begrænse lovlige ytringer. Det er kernen i et tværpolitisk lovforslag, som onsdag blev vedtaget i Senatets handelsudvalg med stemmerne 18-10.\n\nForslaget hedder JAWBONE Act og er fremsat af den republikanske udvalgsformand Ted Cruz sammen med demokraten Ron Wyden. Alle udvalgets republikanere og tre demokrater stemte for at sende det videre. Det skal fortsat vedtages af både det samlede Senat og Repræsentanternes Hus, før det kan blive lov.\n\nLovforslaget retter sig mod det, amerikanerne kalder \"jawboning\": situationer, hvor en myndighed ikke selv forbyder en ytring, men bruger sin magt eller sit pres over for et privat medie, en platform eller en anden virksomhed for at få indhold ændret eller fjernet.\n\n## Kritik af både Trump og Biden\n\nDet usædvanlige ved forslaget er, at politikere fra begge partier begrunder det med eksempler fra regeringer, de politisk står over for.\n\nDemokraten Maria Cantwell pegede ifølge Reuters på sagen om tv-værten Jimmy Kimmel. Hun sagde, at loven kunne have givet Kimmel mulighed for at sagsøge, efter at chefen for den føderale medietilsynsmyndighed FCC, Brendan Carr, sidste år lagde pres på tv-stationer i forbindelse med Kimmels udtalelser.\n\nTed Cruz har omvendt fremhævet Biden-regeringens kontakt med store teknologivirksomheder. Han har anklaget den tidligere regering for at forsøge at få virksomheder til at lukke ned for amerikanere, der kritiserede vaccinekrav eller rejste spørgsmål om valg.\n\nDen tværpolitiske konstruktion er central: Forslaget skal ikke kun beskytte ytringer fra én politisk lejr, men gøre det vanskeligere for skiftende regeringer at bruge private virksomheder som mellemled, når staten selv er bundet af forfatningens beskyttelse af ytringsfriheden.\n\n## Kan udløse erstatningssager\n\nHvis forslaget bliver lov, kan en person anlægge sag mod en føderal myndighed eller ansat, der forsøger at presse en privat aktør til at undertrykke en forfatningsbeskyttet ytring. Det gælder også, selv om forsøget på at få ytringen fjernet ikke lykkes. Der kan kræves økonomisk erstatning.\n\nForslaget lægger samtidig op til større åbenhed om myndigheders kontakt med medier, internetplatforme og virksomheder, der leverer systemer baseret på kunstig intelligens.\n\nDet sidste punkt har skabt modstand. Cantwell advarede under behandlingen om, at reglerne kan blive så brede, at almindelig myndighedskontakt om sikkerhed i kunstig intelligens risikerer at blive ramt. Hun brugte som eksempel en embedsmand, der beder en virksomhed forhindre et system i at forklare, hvordan uran beriges. Cruz afviste hendes fortolkning, men lovede at arbejde videre med spørgsmålet.\n\nOgså borgerrettighedsorganisationer har blandet sig. American Civil Liberties Union har støttet hovedideen om at give borgere et retsmiddel mod ulovligt statsligt pres på private virksomheder.\n\nUdvalgets afstemning gør ikke forslaget til gældende ret. Men med støtte på tværs af partierne er spørgsmålet om indirekte statslig censur rykket et skridt længere ind i den amerikanske lovgivningsproces.",
+  "source_metadata": {
+    "primary": {"name": "U.S. Senate Committee on Commerce, Science, and Transportation", "url": "https://www.commerce.senate.gov/press/rep/release/boxing-reform-bill-heads-to-the-senate-floor/", "published_date": "2026-09-16", "registry_source": true},
+    "corroboration": [
+      {"name": "Reuters", "url": "https://www.reuters.com/world/us-senate-panel-approves-bill-bar-government-officials-pressuring-networks-free-2026-09-16/", "published_date": "2026-09-16"},
+      {"name": "Roll Call", "url": "https://rollcall.com/2026/09/16/push-to-restrict-jawboning-advanced-by-senate-commerce-panel/", "published_date": "2026-09-16"},
+      {"name": "U.S. Senate Commerce Committee - Cruz/Wyden introduction", "url": "https://www.commerce.senate.gov/press/rep/release/cruz-wyden-introduce-legislation-to-guard-first-amendment-speech-rights-against-government-jawboning/", "published_date": "2026-06-11"}
+    ]
+  },
+  "editorial_metadata": {
+    "article_type": "news",
+    "language": "da",
+    "source_pool": "breaking-major-media",
+    "candidates_tried": 1,
+    "frontpage_destination": "normal",
+    "final_check": "passed",
+    "profile": "canonical-news-task",
+    "sagen_kort": [
+      "Senatets handelsudvalg har med stemmerne 18-10 sendt JAWBONE Act videre efter støtte fra alle republikanere og tre demokrater i udvalget.",
+      "Forslaget vil give borgere mulighed for at sagsøge føderale myndigheder og ansatte, hvis de presser private virksomheder til at begrænse ytringer beskyttet af forfatningen."
+    ],
+    "dedupe_context": {
+      "checked_at": "2026-09-18T01:45:00+02:00",
+      "window_days": 7,
+      "publish_prs_seen": 100,
+      "include_closed_publish_prs": true,
+      "newest_publish_pr": 750,
+      "public_articles_seen": null,
+      "duplicate_of": null,
+      "note": "Primary GitHub [PUBLISH] ledger screened with state=all; no semantically overlapping JAWBONE Act transport observed."
+    }
+  },
+  "hero_candidates": [
+    {"provider": "Wikimedia Commons", "provider_page": "https://commons.wikimedia.org/wiki/File:Matthew_Anderson_Senate_Confirmation_Hearing_(NHQ202603050003).jpg", "license": "Public domain - U.S. federal government/NASA", "credit": "NASA/Bill Ingalls", "relevance": "Dokumentarisk foto af Senatets handelsudvalgs formand Ted Cruz under en udvalgshøring i 2026"},
+    {"provider": "Wikimedia Commons", "provider_page": "https://commons.wikimedia.org/wiki/File:East_Front_of_the_U.S._Capitol_at_Sunrise_(51854492373).jpg", "license": "Public domain - Architect of the Capitol/U.S. federal government", "credit": "Architect of the Capitol", "dimensions": "5760x8640", "relevance": "Dokumentarisk foto af den amerikanske kongresbygning"},
+    {"provider": "Wikimedia Commons", "provider_page": "https://commons.wikimedia.org/wiki/File:Aerial_view,_United_States_Capitol_building,_Washington,_D.C_LCCN2010630477.jpg", "license": "Public domain - Carol M. Highsmith Archive/Library of Congress", "credit": "Carol M. Highsmith", "dimensions": "5612x3832", "relevance": "Dokumentarisk oversigtsfoto af den amerikanske kongresbygning"}
+  ],
+  "audit": {
+    "discovery_run_id": "kvarti-20260918-0145",
+    "candidate_id": "us-jawbone-act-senate-commerce",
+    "research_date": "2026-09-18",
+    "hero_rights_checked": true,
+    "semantic_dedupe_performed_once": true
+  }
+}
