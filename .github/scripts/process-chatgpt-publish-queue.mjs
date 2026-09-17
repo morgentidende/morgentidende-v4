@@ -34,12 +34,6 @@ function normalizeDiscoveryAudit(value, editorialMetadata = {}) {
   if (Array.isArray(value)) return value;
   if (!value || typeof value !== 'object') fail('discovery_audit_candidates_must_be_array_or_object');
 
-  // Scheduled writers have historically emitted three equivalent shapes:
-  //   discovery_audit: [candidate, ...]
-  //   discovery_audit: { candidates: [candidate, ...], discovery_run_id, ... }
-  //   discovery_audit: { candidate_id, decision, ... }
-  // Normalize at the transport boundary so prompt/schema drift cannot discard
-  // an otherwise valid article. The database receives one canonical array.
   if (Array.isArray(value.candidates)) {
     if (!editorialMetadata.discovery_run_id && typeof value.discovery_run_id === 'string' && value.discovery_run_id.trim()) {
       editorialMetadata.discovery_run_id = value.discovery_run_id.trim();
@@ -63,6 +57,23 @@ function validateDiscoveryAudit(items) {
   for (const item of items) {
     if (!item || typeof item !== 'object' || Array.isArray(item)) fail('discovery_audit_candidate_must_be_object');
   }
+}
+
+function normalizeSlug(value) {
+  const original = String(value ?? '').trim().toLowerCase();
+  if (!original) return '';
+  const transliterated = original
+    .replace(/æ/g, 'ae')
+    .replace(/ø/g, 'oe')
+    .replace(/å/g, 'aa')
+    .normalize('NFKD')
+    .replace(/[\u0300-\u036f]/g, '');
+  return transliterated
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+    .replace(/-+/g, '-')
+    .slice(0, 180)
+    .replace(/-+$/g, '');
 }
 
 if (!file) fail('QUEUE_FILE_missing');
@@ -92,14 +103,15 @@ if (payloadType === 'discovery_audit') {
   for (const key of ['slug', 'headline', 'category_slug', 'body_markdown']) {
     if (typeof payload[key] !== 'string' || !payload[key].trim()) fail(`${key}_required`);
   }
+  const originalSlug = payload.slug;
+  payload.slug = normalizeSlug(payload.slug);
   if (!/^[a-z0-9][a-z0-9-]{1,179}$/.test(payload.slug)) fail('invalid_slug');
+  if (payload.slug !== originalSlug) console.log(`publish_bridge_slug_normalized from=${JSON.stringify(originalSlug)} to=${JSON.stringify(payload.slug)}`);
   if (payload.source_metadata !== undefined && !Array.isArray(payload.source_metadata)) fail('source_metadata_must_be_array');
   if (payload.editorial_metadata !== undefined && (typeof payload.editorial_metadata !== 'object' || Array.isArray(payload.editorial_metadata) || payload.editorial_metadata === null)) fail('editorial_metadata_must_be_object');
   if (payload.headline.length > 220) fail('headline_too_long');
   if (payload.deck && String(payload.deck).length > 300) fail('deck_too_long');
 
-  // Transport/alias shape only. Kind/category, magazine/followup semantics and
-  // cluster resolution are canonical in the ingest RPC/database invariants.
   try {
     validatePublishPayloadShape(payload);
   } catch (error) {
