@@ -1,15 +1,11 @@
 import fs from 'node:fs';
-import { normalizePublishKind } from './publish-kind.mjs';
 import { validatePublishPayloadShape } from './publish-payload-shape.mjs';
 
 const file = process.env.QUEUE_FILE;
 const projectRef = process.env.SUPABASE_PROJECT_REF || 'lfttxjxfggjcxmdfjndk';
-const validateOnly = process.env.VALIDATE_ONLY === '1';
 const oidcRequestUrl = process.env.ACTIONS_ID_TOKEN_REQUEST_URL;
 const oidcRequestToken = process.env.ACTIONS_ID_TOKEN_REQUEST_TOKEN;
 const audience = 'morgentidende-publish-bridge';
-const allowedMagazineStoryKinds = new Set(['evergreen_explainer', 'followup', 'new_study', 'update']);
-const allowedFollowupReasons = new Set(['new_fact', 'official_response', 'arrest', 'new_data', 'court_decision', 'material_update']);
 const allowedSourceClassifications = new Set(['authoritative', 'discovery_only']);
 
 function fail(message) {
@@ -69,22 +65,12 @@ if (payloadType === 'discovery_audit') {
   if (payload.headline.length > 220) fail('headline_too_long');
   if (payload.deck && String(payload.deck).length > 300) fail('deck_too_long');
 
+  // Transport/alias shape only. Kind/category, magazine/followup semantics and
+  // cluster resolution are canonical in the ingest RPC/database invariants.
   try {
     validatePublishPayloadShape(payload);
   } catch (error) {
     fail(error instanceof Error ? error.message : 'invalid_payload_shape');
-  }
-
-  try {
-    const kindResult = normalizePublishKind(payload.kind, payload.category_slug);
-    if (kindResult) {
-      payload.kind = kindResult.normalizedKind;
-      if (kindResult.normalizedKind !== kindResult.originalKind) {
-        console.log(`publish_bridge_kind_normalized from=${kindResult.originalKind} to=${kindResult.normalizedKind} category=${payload.category_slug}`);
-      }
-    }
-  } catch (error) {
-    fail(error instanceof Error ? error.message : 'invalid_article_kind');
   }
 
   payload.source_metadata ??= [];
@@ -95,27 +81,6 @@ if (payloadType === 'discovery_audit') {
     if (payload.editorial_metadata.discovery_audit.length > 50) fail('discovery_audit_too_many_candidates');
   }
 
-  if (payload.kind === 'magazine') {
-    const topicKey = String(payload.editorial_metadata.topic_key ?? '').trim();
-    if (!topicKey) fail('magazine_topic_key_required');
-
-    const storyKind = String(payload.editorial_metadata.story_kind ?? 'evergreen_explainer').trim();
-    if (!allowedMagazineStoryKinds.has(storyKind)) fail('magazine_story_kind_invalid');
-    payload.editorial_metadata.story_kind = storyKind;
-
-    if (storyKind === 'followup') {
-      const parentId = String(payload.editorial_metadata.followup_parent_article_id ?? '').trim();
-      const reason = String(payload.editorial_metadata.followup_reason ?? '').trim();
-      if (!parentId) fail('followup_requires_parent');
-      if (!allowedFollowupReasons.has(reason)) fail('followup_requires_reason');
-      const hasCluster = (
-        (typeof payload.story_cluster_id === 'string' && payload.story_cluster_id.trim())
-        || (typeof payload.story_cluster_key === 'string' && payload.story_cluster_key.trim())
-      );
-      if (!hasCluster) fail('followup_requires_cluster');
-    }
-  }
-
   payload.editorial_metadata = {
     ...payload.editorial_metadata,
     github_transport_file: file,
@@ -124,8 +89,7 @@ if (payloadType === 'discovery_audit') {
   };
 }
 
-console.log(`publish_bridge_validated type=${payloadType} queue_id=${payload.queue_id}${payload.slug ? ` slug=${payload.slug}` : ''}`);
-if (validateOnly) process.exit(0);
+console.log(`publish_bridge_transport_validated type=${payloadType} queue_id=${payload.queue_id}${payload.slug ? ` slug=${payload.slug}` : ''}`);
 if (!oidcRequestUrl || !oidcRequestToken) fail('github_oidc_unavailable');
 
 async function getOidcToken() {
