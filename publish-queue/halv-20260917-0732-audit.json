@@ -1,0 +1,52 @@
+{
+  "payload_type": "discovery_audit",
+  "queue_id": "halv-20260917-0732-audit",
+  "terminal_reason": "NO_PUBLISHABLE_CANDIDATE",
+  "editorial_metadata": {
+    "discovery_run_id": "halv-20260917-0732",
+    "final_qa_duplicate": false,
+    "audit": [
+      {
+        "candidate_id": "harald-schmidt-afd-democracy",
+        "source_pool": "discovery",
+        "rank": 1,
+        "candidate_headline": "Harald Schmidt gør grin med reaktionerne på AfD's valgsejr",
+        "deep_screened": true,
+        "downstream_sources": ["Deutschlandfunk Kultur, 11 September 2026", "WELT, 14 September 2026"],
+        "decision": "rejected",
+        "reason": "well documented but the underlying interview is six days old and the angle is not sufficiently fresh for the current ordinary-news slot"
+      },
+      {
+        "candidate_id": "canada-eu-associate-membership",
+        "source_pool": "discovery",
+        "rank": 2,
+        "candidate_headline": "Canada tilbudt ny status som EU's første associerede medlem",
+        "deep_screened": false,
+        "downstream_sources": [],
+        "decision": "rejected",
+        "reason": "recent canonical delivery already exists in the seven-day transport history"
+      },
+      {
+        "candidate_id": "turkey-family-safe",
+        "source_pool": "discovery",
+        "rank": 3,
+        "candidate_headline": "Tyrkiske myndigheder slår ned på LGBT-støttegrupper",
+        "deep_screened": false,
+        "downstream_sources": [],
+        "decision": "rejected",
+        "reason": "recent canonical delivery already exists in this automation series"
+      },
+      {
+        "candidate_id": "ceuta-security-followup",
+        "source_pool": "discovery",
+        "rank": 4,
+        "candidate_headline": "Sikkerhed og migration efter masseankomsten i Ceuta",
+        "deep_screened": false,
+        "downstream_sources": [],
+        "decision": "rejected",
+        "reason": "topic has recent Morgentidende coverage and no sufficiently strong new development was established in this run"
+      }
+    ],
+    "note": "Canonical news-task.md was read from current main for this run. Breaking scan found no verified high-Danish-impact override. Discovery scan produced no sufficiently fresh, strong, documented non-duplicate candidate within the normal run budget. No article payload was handed off."
+  }
+}
