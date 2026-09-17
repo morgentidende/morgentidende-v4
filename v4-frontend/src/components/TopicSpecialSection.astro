@@ -9,8 +9,9 @@ interface Props {
 }
 
 const { section, articles, categoryById } = Astro.props;
+const destination = `special_${section.slot}`;
 const visible = articles
-  .filter((article) => article.story_cluster_id === section.story_cluster_id)
+  .filter((article) => article.frontpage_destination === destination)
   .sort((a, b) => new Date(b.published_at).getTime() - new Date(a.published_at).getTime())
   .slice(0, 12);
 ---
@@ -32,7 +33,7 @@ const visible = articles
               article={article}
               categoryName={categoryById.get(article.category_id)}
               showDeck={false}
-              imageSizes="(max-width: 640px) 78vw, (max-width: 900px) 46vw, 30vw"
+              imageSizes="(max-width: 640px) 78vw, (max-width: 900px) 43vw, 292px"
             />
           </div>
         ))}
