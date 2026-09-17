@@ -1,0 +1,33 @@
+{
+  "payload_type": "discovery_audit",
+  "queue_id": "kvarti-20260917-1543-audit",
+  "terminal_reason": "NO_LEGAL_HERO",
+  "discovery_run_id": "kvarti-20260917-1543",
+  "source_pool": "discovery",
+  "candidates_tried": 2,
+  "duplicate_of": "PR #611",
+  "candidates": [
+    {
+      "candidate_id": "kvarti-1543-c1",
+      "rank": 1,
+      "headline_topic": "EU emergency framework for weaponised mass migration",
+      "deep_screened": true,
+      "downstream_sources": ["European Commission State of the Union material", "Reuters"],
+      "decision": "duplicate",
+      "reason": "Near-identical to fresh transport PR #611 covering the same European Emergency Response Framework and migration emergency development."
+    },
+    {
+      "candidate_id": "kvarti-1543-c2",
+      "rank": 1,
+      "headline_topic": "EU common return system for third-country nationals staying illegally",
+      "deep_screened": true,
+      "downstream_sources": ["Council legal-linguistic text PE-CONS 40/26"],
+      "decision": "hard_stop",
+      "reason": "Potentially publishable and no matching fresh [PUBLISH] transport found, but the run could not document 3-6 publication-ready documentary hero candidates with explicit commercial-use and local-storage rights within the canonical run budget."
+    }
+  ],
+  "audit": {
+    "model_prompt_version": "canonical docs/automations/news-task.md@45999fde9fcc849966ae94858f3671005bfe0756",
+    "notes": "After duplicate exclusion a new discovery pass selected the EU return-system legal text. No article payload was written because hero candidate contract could not be satisfied without guessing rights. Schedule/enabled state untouched."
+  }
+}
