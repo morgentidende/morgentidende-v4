@@ -2,6 +2,8 @@ import fs from 'node:fs';
 import { normalizePublishKind } from './publish-kind.mjs';
 
 const file = process.env.QUEUE_FILE;
+const HERO_MIN_WIDTH = 800;
+const HERO_MIN_HEIGHT = 450;
 
 function fail(message) {
   console.error(`news_hero_contract_error:${message}`);
@@ -43,6 +45,20 @@ for (const [index, candidate] of candidates.entries()) {
   if (typeof candidate.source_url !== 'string' || !candidate.source_url.trim()) fail(`news_hero_candidate_${index + 1}_source_url_required`);
   if (candidate.commercial_use_allowed !== true) fail(`news_hero_candidate_${index + 1}_commercial_rights_required`);
   if (candidate.local_storage_allowed !== true) fail(`news_hero_candidate_${index + 1}_storage_rights_required`);
+
+  const hasWidth = candidate.width !== undefined && candidate.width !== null;
+  const hasHeight = candidate.height !== undefined && candidate.height !== null;
+  if (hasWidth !== hasHeight) fail(`news_hero_candidate_${index + 1}_dimensions_must_be_paired`);
+  if (hasWidth && hasHeight) {
+    const width = Number(candidate.width);
+    const height = Number(candidate.height);
+    if (!Number.isFinite(width) || !Number.isFinite(height) || width <= 0 || height <= 0) {
+      fail(`news_hero_candidate_${index + 1}_invalid_dimensions`);
+    }
+    if (width < HERO_MIN_WIDTH || height < HERO_MIN_HEIGHT) {
+      fail(`news_hero_candidate_${index + 1}_known_dimensions_too_small`);
+    }
+  }
 }
 
 if (candidates.length < 3) {
