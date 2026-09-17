@@ -1,0 +1,30 @@
+{
+  "payload_type": "discovery_audit",
+  "queue_id": "hel-20260917-2300-audit",
+  "terminal_reason": "QA_HISTORY_UNAVAILABLE",
+  "discovery_run_id": "hel-20260917-2300",
+  "audit": {
+    "source_pool": "discovery",
+    "candidates": [
+      {
+        "candidate_id": "hel-20260917-2300-spain-regularisation",
+        "rank": 1,
+        "headline": "Spansk politiforbund advarer: Regularisering kan ende med papirer til fire millioner",
+        "deep_screened": true,
+        "downstream_sources": ["Brussels Signal", "Spain Ministry of Inclusion", "Europa Press"],
+        "decision": "rejected_before_write",
+        "reason": "Fresh discovery candidate is already represented by recent [PUBLISH] transport #606; additionally the mandatory separate seven-day public Morgentidende article-history corpus could not be established as demonstrably complete in this runtime."
+      }
+    ],
+    "model_prompt_version": "canonical docs/automations/news-task.md@main"
+  },
+  "dedupe_context": {
+    "checked_at": "2026-09-17T23:00:02+02:00",
+    "window_days": 7,
+    "public_articles_seen": null,
+    "publish_prs_seen": 100,
+    "include_closed_publish_prs": true,
+    "newest_publish_pr": 736,
+    "corpus_complete": false
+  }
+}
