@@ -28,25 +28,37 @@ const copenhagenDate = (date: Date) =>
     day: '2-digit'
   }).format(date);
 
+const redirectResult = (request: Request, result: string, extra: Record<string, string | number> = {}) => {
+  const url = new URL('/nyhedsbrev/test', request.url);
+  url.searchParams.set('result', result);
+  for (const [key, value] of Object.entries(extra)) url.searchParams.set(key, String(value));
+  return Response.redirect(url.toString(), 303);
+};
+
 export const POST: APIRoute = async ({ request, locals }) => {
   const runtime = cloudflareEnv as unknown as Record<string, string | undefined>;
   const expectedKey = String(runtime.NEWSLETTER_TEST_KEY || '').trim();
-  const suppliedKey = String(request.headers.get('x-newsletter-test-key') || '').trim();
+  const contentType = request.headers.get('content-type') || '';
+  const isFormPost = contentType.includes('application/x-www-form-urlencoded') || contentType.includes('multipart/form-data');
+  let formKey = '';
+  if (isFormPost) {
+    const form = await request.formData().catch(() => null);
+    formKey = String(form?.get('key') || '').trim();
+  }
+  const suppliedKey = String(request.headers.get('x-newsletter-test-key') || formKey).trim();
+  const reply = (status: number, body: Record<string, unknown>) =>
+    isFormPost ? redirectResult(request, String(body.error || (body.ok ? 'sent' : 'failed')), body.ok ? { articles: Number(body.articles || 0) } : {}) : json(status, body);
 
-  // Keep the temporary tool dark unless a dedicated secret is configured.
   if (!expectedKey || !suppliedKey || !safeEqual(expectedKey, suppliedKey)) {
-    return json(404, { ok: false });
+    return reply(404, { ok: false, error: 'invalid_key' });
   }
 
   const env = getNewsletterRuntimeEnv(locals);
   const supabase = getV4SupabaseServer(locals);
   if (!supabase || !hasSesEnv(env)) {
-    return json(503, { ok: false, error: 'runtime_not_ready' });
+    return reply(503, { ok: false, error: 'runtime_not_ready' });
   }
 
-  // Safety guard: this development endpoint is allowed to exist only while
-  // exactly one active daily subscriber exists. It can therefore never become
-  // an accidental broadcast endpoint as the list grows.
   const subscriberResult = await supabase
     .from('newsletter_subscribers')
     .select('email, unsubscribe_token')
@@ -56,12 +68,12 @@ export const POST: APIRoute = async ({ request, locals }) => {
     .limit(2);
 
   if (subscriberResult.error) {
-    return json(500, { ok: false, error: 'subscriber_lookup_failed' });
+    return reply(500, { ok: false, error: 'subscriber_lookup_failed' });
   }
 
   const subscribers = subscriberResult.data || [];
   if (subscribers.length !== 1) {
-    return json(409, {
+    return reply(409, {
       ok: false,
       error: 'test_send_requires_exactly_one_active_subscriber',
       active_subscribers_seen: subscribers.length
@@ -73,12 +85,12 @@ export const POST: APIRoute = async ({ request, locals }) => {
     p_now: now.toISOString()
   });
   if (articleResult.error) {
-    return json(500, { ok: false, error: 'article_lookup_failed' });
+    return reply(500, { ok: false, error: 'article_lookup_failed' });
   }
 
   const articles = articleResult.data || [];
   if (!articles.length) {
-    return json(409, { ok: false, error: 'no_articles' });
+    return reply(409, { ok: false, error: 'no_articles' });
   }
 
   const subscriber = subscribers[0];
@@ -97,10 +109,10 @@ export const POST: APIRoute = async ({ request, locals }) => {
   });
 
   if (!mail.ok) {
-    return json(502, { ok: false, error: 'ses_failed', status: mail.status });
+    return reply(502, { ok: false, error: 'ses_failed', status: mail.status });
   }
 
-  return json(200, {
+  return reply(200, {
     ok: true,
     articles: articles.length,
     recipient_count: 1,
