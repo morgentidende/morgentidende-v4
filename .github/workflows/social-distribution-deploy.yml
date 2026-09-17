@@ -57,33 +57,30 @@ jobs:
           echo "account_id=$account_id" >> "$GITHUB_OUTPUT"
           echo "worker_url=https://morgentidende-social-publisher.${subdomain}.workers.dev" >> "$GITHUB_OUTPUT"
 
-      - name: Rotate internal adapter token and deploy Cloudflare Worker
-        id: worker
+      - name: Deploy adapter and dispatcher with one rotated internal token
         working-directory: workers/social-publisher
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ steps.cf.outputs.account_id }}
-        shell: bash
-        run: |
-          set -euo pipefail
-          shared_token=$(openssl rand -hex 32)
-          printf '%s' "$shared_token" | npx wrangler secret put SOCIAL_PUBLISHER_TOKEN
-          npx wrangler deploy
-          echo "shared_token=$shared_token" >> "$GITHUB_OUTPUT"
-
-      - name: Configure and deploy Supabase dispatcher
-        env:
           SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
-          SHARED_TOKEN: ${{ steps.worker.outputs.shared_token }}
           WORKER_URL: ${{ steps.cf.outputs.worker_url }}
         shell: bash
         run: |
           set -euo pipefail
+          test -n "$CLOUDFLARE_API_TOKEN"
+          test -n "$CLOUDFLARE_ACCOUNT_ID"
           test -n "$SUPABASE_ACCESS_TOKEN"
-          test -n "$SHARED_TOKEN"
           test -n "$WORKER_URL"
+
+          shared_token=$(openssl rand -hex 32)
+          trap 'unset shared_token' EXIT
+
+          printf '%s' "$shared_token" | npx wrangler secret put SOCIAL_PUBLISHER_TOKEN
+          npx wrangler deploy
+
+          cd ../..
           supabase secrets set \
-            SOCIAL_PUBLISHER_TOKEN="$SHARED_TOKEN" \
+            SOCIAL_PUBLISHER_TOKEN="$shared_token" \
             SOCIAL_PUBLISHER_URL="$WORKER_URL" \
             --project-ref lfttxjxfggjcxmdfjndk
           supabase functions deploy social-dispatcher --project-ref lfttxjxfggjcxmdfjndk
