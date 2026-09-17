@@ -1,0 +1,29 @@
+{
+  "queue_id": "kvartover-20260917-0415-fpoe-poll",
+  "slug": "fpoe-38-procent-oestrig-regering-uden-flertal",
+  "headline": "FPÖ rammer 38 procent: Østrigs regeringspartier er uden flertal i ny måling",
+  "category_slug": "udland",
+  "deck": "Herbert Kickls indvandringskritiske FPÖ står klart stærkest, mens socialdemokraterne er faldet til 15 procent.",
+  "body_markdown": "Det indvandringskritiske Frihedsparti, FPÖ, står til 38 procent af stemmerne i en ny østrigsk måling fra analyseinstituttet OGM. Det er 17 procentpoint mere end det konservative regeringsparti ÖVP, der ligger nummer to med 21 procent.\n\nMålingen understreger en markant forskydning i østrigsk politik. Ved parlamentsvalget i 2024 fik FPÖ 28,8 procent. I den nye måling ligger partiet altså godt ni procentpoint højere.\n\nDe tre regeringspartier ÖVP, socialdemokratiske SPÖ og det liberale NEOS får tilsammen 43 procent. SPÖ står til 15 procent og NEOS til syv. De Grønne får 13 procent, mens kommunistpartiet KPÖ ligger på fire procent.\n\nOGM gennemførte målingen for avisen Kurier blandt 1.012 personer fra 8. til 10. september. Den statistiske usikkerhed betyder, at tallene ikke er et valgresultat, men målingen føjer sig til en længere periode, hvor FPÖ har ligget klart forrest i østrigske meningsmålinger.\n\nOgså internt ser partiformand Herbert Kickl ud til at stå stærkt. Ifølge Kurier svarer 78 procent af de adspurgte, at de opfatter hans position som FPÖ-leder som sikker. Blandt FPÖ-vælgere er tallet 95 procent.\n\nBilledet er næsten omvendt for SPÖ-formand Andreas Babler. Kun ni procent af alle adspurgte betragter hans position som sikker, mens 82 procent mener, at han ikke har partiet under kontrol. Blandt SPÖ's egne vælgere vurderer 31 procent hans position som sikker.\n\nOGM-chef Wolfgang Bachmayer peger på, at FPÖ's fremgang ikke længere primært ser ud til at komme fra ÖVP. Ifølge hans analyse henter partiet i stigende grad tidligere SPÖ-vælgere.\n\nEn særskilt OGM-måling foretaget 14.-15. september viser samtidig, at den tidligere socialdemokratiske forsvarsminister Hans Peter Doskozil af mange vælgere ses som en mulig vej ud af SPÖ's krise. OGM fremhæver, at Doskozil i årevis har ført en strammere linje på migration end den føderale partiledelse.\n\nDet betyder ikke, at Østrig står foran et valg nu. Næste ordinære parlamentsvalg ventes først i 2029, og vælgernes præferencer kan ændre sig betydeligt inden da. Men hvis den aktuelle styrkefordeling holdt ved et valg, ville den nuværende regeringskoalition være under kraftigt pres, mens FPÖ ville gå ind i regeringsforhandlinger fra en langt stærkere position end efter valget i 2024.",
+  "source_metadata": [
+    {"name":"OGM","url":"https://www.ogm.at/2026/09/15/ogm-kurier-umfrage-alternative-spitzenkandidaten-bei-oevp-und-spoe/","type":"primary","note":"OGM methodology and analysis of leadership alternatives, including migration context."},
+    {"name":"Kurier","url":"https://kurier.at/politik/inland/herbert-kickl-fpoe-oevp-spoe-gruene-andreas-babler-christian-stocker/403190712","type":"authoritative","note":"Commissioning outlet reporting OGM voting-intention and party-leadership results."},
+    {"name":"PolitPro","url":"https://politpro.eu/de/oesterreich/wahlumfragen/ogm-2026-09-10/parlamentswahl","type":"authoritative","note":"Poll field dates, sample size, party figures and comparison with 2024 election."}
+  ],
+  "editorial_metadata": {
+    "sagen_kort": [
+      "OGM måler FPÖ til 38 procent mod 21 procent til regeringspartiet ÖVP og 15 procent til SPÖ.",
+      "Regeringspartierne ÖVP, SPÖ og NEOS får tilsammen 43 procent og ville med den aktuelle styrkefordeling ikke have flertal."
+    ],
+    "final_qa_duplicate": false,
+    "discovery_run_id": "kvartover-20260917-0415",
+    "discovery_audit": [
+      {"candidate_id":"c1","source_pool":"discovery","source_path":"exxpress.at -> OGM/Kurier","rank":1,"headline_topic":"FPÖ at 38 percent; governing coalition without majority","deep_screened":true,"downstream_sources":["OGM","Kurier","PolitPro"],"decision":"selected","reason":"Fresh, documented poll with strong profile fit and no near-identical seven-day PUBLISH delivery found","model_prompt_version":"canonical-news-task-2026-09-17"}
+    ],
+    "hero_candidates": [
+      {"rank":1,"source_url":"https://commons.wikimedia.org/wiki/File:Herbert_Kickl_-_FP%C3%96-Neujahrstreffen_2019.JPG","commercial_use_allowed":true,"local_storage_allowed":true,"license":"CC BY-SA 4.0","credit":"C.Stadler/Bwag","known_dimensions":"2923x3898","reason":"Documentary photo of FPÖ leader Herbert Kickl at an FPÖ event."},
+      {"rank":2,"source_url":"https://commons.wikimedia.org/wiki/File:2018-02-15_Herbert_Kickl_FP%C3%96_8924.jpg","commercial_use_allowed":true,"local_storage_allowed":true,"license":"CC BY-SA 3.0 DE","credit":"Michael Lucan","known_dimensions":"1260x866","reason":"Documentary photo of Herbert Kickl; wide composition suitable for hero crop."},
+      {"rank":3,"source_url":"https://commons.wikimedia.org/wiki/File:2018-02-15_Herbert_Kickl_FP%C3%96_8896.jpg","commercial_use_allowed":true,"local_storage_allowed":true,"license":"CC BY-SA 3.0 DE","credit":"Michael Lucan","known_dimensions":"1260x902","reason":"Alternative documentary portrait of Herbert Kickl with adequate dimensions."}
+    ]
+  }
+}
