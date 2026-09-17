@@ -1,0 +1,81 @@
+{
+  "queue_id": "kvartover-20260917-0217-turkey-lgbt",
+  "slug": "tyrkiet-faengsler-otte-lgbt-aktivister-familien-er-sikker",
+  "headline": "Tyrkiet fængsler otte LGBT-aktivister efter landsdækkende razziaer",
+  "category_slug": "udland",
+  "deck": "Aktionen rammer ni foreninger og 13 virksomheder. Regeringen siger, at børn og familien skal beskyttes.",
+  "body_markdown": "En tyrkisk domstol har onsdag varetægtsfængslet otte medlemmer af LGBT-rettighedsgruppen Kaos GL. Fængslingerne er den seneste udvikling i en landsdækkende politiaktion, som regeringen har døbt »Min familie er sikker« og begrunder med beskyttelse af børn, familien og den offentlige orden.\n\nKaos GL er en af Tyrkiets mest kendte LGBT-rettighedsorganisationer. Ifølge Reuters blev yderligere syv personer, herunder en journalist, løsladt under retsligt tilsyn. Aktionen har siden weekenden ramt LGBT-foreninger, HIV-støttegrupper, aktivisters hjem og en række virksomheder.\n\nJustitsminister Akın Gürlek oplyser, at efterforskningerne omfatter 162 mistænkte, ni foreninger og 13 virksomheder i 15 provinser. Det statslige tyrkiske nyhedsbureau Anadolu bekræfter tallene og oplyser, at politi og gendarmeri arbejder under anklagemyndighederne i blandt andet Istanbul, Ankara og Izmir.\n\nDe 162 er ikke alle fængslet. Tallet dækker personer, som myndighederne har indledt retlige skridt imod. Reuters oplyser, at mindst 54 personer tidligere var blevet anholdt i den bredere aktion. Mandag blev 16 personer i Izmir varetægtsfængslet efter razziaerne.\n\nMyndighederne har blandt andet rejst mistanke om udbredelse af materiale, de betegner som uanstændigt, prostitution og andre lovovertrædelser. I sagen mod Kaos GL beskylder anklagemyndigheden aktivister for at have gjort uanstændigt materiale tilgængeligt og henviser blandt andet til deres roller i organisationen og aktivitet på sociale medier. Anklagerne er endnu ikke prøvet ved en endelig dom.\n\nGürlek siger, at staten efter forfatningen har pligt til at beskytte børn og familien. Aktionen indgår ifølge ministeren i præsident Recep Tayyip Erdoğans program for 2026-2035 om familie og befolkning. Regeringen har de senere år lagt stadig større vægt på traditionelle familieformer og på Tyrkiets faldende fødselstal.\n\nKritikken er samtidig skarp. Kaos GL kalder fængslingerne politisk motiverede og kræver de tilbageholdte løsladt. Den tyrkiske menneskerettighedsorganisation İHD har ifølge Associated Press beskrevet razziaerne som et forsøg på at presse civilsamfundet ind i én bestemt familiemodel.\n\nEuropa-Kommissionen har også udtrykt bekymring over anholdelserne og de retlige skridt mod rettighedsorganisationer og medier. Protester i Ankara og Istanbul har ført til yderligere anholdelser.\n\nHomoseksualitet er ikke ulovligt i Tyrkiet. Konflikten handler derfor ikke om et generelt forbud mod homoseksuelle forhold, men om regeringens behandling af organisationer, aktivister og materiale, som myndighederne hævder kan skade børn eller stride mod andre dele af straffeloven. Det bliver nu domstolene, der skal afgøre, om anklagerne mod de fængslede kan bære.",
+  "source_metadata": [
+    {
+      "url": "https://www.reuters.com/world/middle-east/turkey-jails-8-lgbtq-activists-pending-trial-part-sweeping-investigation-2026-09-16/",
+      "title": "Turkey jails 8 LGBTQ+ activists pending trial as part of sweeping investigation",
+      "source_type": "authoritative"
+    },
+    {
+      "url": "https://apnews.com/article/c782f5318613126fe072d29133e6bf5d",
+      "title": "Turkish authorities launch crackdown on LGBTQ+ and HIV support groups",
+      "source_type": "authoritative"
+    },
+    {
+      "url": "https://aa.com.tr/tr/gundem/ailem-guvende-operasyonlarinda-162-supheli-9-dernek-ve-13-isletmeye-adli-islem-yapildi/4055614",
+      "title": "Ailem Güvende operasyonlarında 162 şüpheli, 9 dernek ve 13 işletmeye adli işlem yapıldı",
+      "source_type": "authoritative"
+    }
+  ],
+  "editorial_metadata": {
+    "sagen_kort": [
+      "En tyrkisk domstol har varetægtsfængslet otte medlemmer af LGBT-rettighedsgruppen Kaos GL; syv andre er løsladt under retsligt tilsyn.",
+      "Den bredere aktion omfatter ifølge justitsministeren 162 mistænkte, ni foreninger og 13 virksomheder i 15 provinser."
+    ],
+    "final_qa_duplicate": false,
+    "discovery_run_id": "news-20260917-0217-kvartover",
+    "hero_candidates": [
+      {
+        "rank": 1,
+        "source_url": "https://commons.wikimedia.org/wiki/File:Istanbul_Turkey_LGBT_pride_2012_(75).jpg",
+        "description": "Dokumentarisk foto fra Istanbul Pride med regnbueflag; direkte relevant som miljøbillede til historien om tyrkiske LGBT-organisationer.",
+        "license": "CC BY-SA 3.0",
+        "attribution": "Lubunya / Wikimedia Commons",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "width": 960,
+        "height": 720
+      },
+      {
+        "rank": 2,
+        "source_url": "https://commons.wikimedia.org/wiki/File:Istanbul_Turkey_LGBT_pride_2012_(76).jpg",
+        "description": "Alternativt dokumentarisk motiv fra Istanbul Pride 2012.",
+        "license": "CC BY-SA 3.0",
+        "attribution": "Lubunya / Wikimedia Commons",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "width": 960,
+        "height": 720
+      },
+      {
+        "rank": 3,
+        "source_url": "https://commons.wikimedia.org/wiki/File:Istanbul_LGBT_Protest.jpg",
+        "description": "Tyrkiske LGBT- og menneskerettighedsaktivister demonstrerer på İstiklal Avenue i Istanbul; relevant historisk dokumentarisk miljøfoto.",
+        "license": "Public domain",
+        "attribution": "Turkish Flame / Wikimedia Commons",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "width": 915,
+        "height": 609
+      }
+    ],
+    "discovery_audit": [
+      {
+        "candidate_id": "cand-turkey-lgbt-crackdown",
+        "source_pool": "discovery/brussels-signal",
+        "rank": 1,
+        "candidate_headline": "Tyrkisk politiaktion mod LGBT- og HIV-grupper udvides; otte Kaos GL-medlemmer fængslet",
+        "deep_screened": true,
+        "downstream_sources": ["Reuters", "Associated Press", "Anadolu Agency"],
+        "decision": "selected",
+        "reason": "Frisk væsentlig videreudvikling 16. september med otte nye varetægtsfængslinger; centrale tal og anklager dokumenteret af Reuters, AP og tyrkisk statsligt nyhedsbureau. Ingen næsten-identisk historie fundet i observerbar syv-dages [PUBLISH]-historik.",
+        "model_prompt_version": "canonical-news-task-2026-09-17"
+      }
+    ]
+  }
+}
