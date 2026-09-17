@@ -36,11 +36,14 @@ begin
   end if;
 
   -- 2. Viden/Liv must use magazine kind under the current contract.
+  -- The legacy trigger also enforced the current-kind contract when category_id
+  -- was NULL (because SQL NULL made its early-return predicate non-true), so the
+  -- consolidated version preserves that edge-case instead of becoming looser.
   select lower(c.slug) into v_category_slug
   from public.categories c
   where c.id = new.category_id;
 
-  if v_category_slug in ('viden', 'liv') then
+  if v_category_slug is null or v_category_slug in ('viden', 'liv') then
     if tg_op = 'INSERT' then
       v_requires_current_contract := true;
     else
