@@ -1,0 +1,21 @@
+{
+  "payload_type": "discovery_audit",
+  "queue_id": "hel-20260917-1900-audit",
+  "terminal_reason": "QA_HISTORY_UNAVAILABLE",
+  "discovery_run_id": "hel-20260917-1900",
+  "candidates_tried": 1,
+  "source_pool": "discovery",
+  "duplicate_of": null,
+  "audit": {
+    "canonical_mandate_sha": "9e3bb3e3655d02b1c729237b35b46d58be56a7d2",
+    "candidate_id": "hel-20260917-1900-iom-sea-crossings",
+    "rank": 1,
+    "headline_topic": "IOM: færre migranter krydser havet til Europa, men flere dør eller savnes",
+    "deep_screened": true,
+    "downstream_sources": ["Reuters", "International Organization for Migration"],
+    "decision": "hard_stop_before_write",
+    "reason": "The canonical seven-day semantic dedupe requires a demonstrably complete public Morgentidende article-history corpus plus all recent [PUBLISH] transports. GitHub transports were enumerated with state=all, but the public seven-day article corpus could not be established as complete in this runtime. Stopped before Write as required.",
+    "observed_publish_transport_matches": ["#714", "#710"],
+    "model_prompt_version": "canonical docs/automations/news-task.md@9e3bb3e3655d02b1c729237b35b46d58be56a7d2"
+  }
+}
