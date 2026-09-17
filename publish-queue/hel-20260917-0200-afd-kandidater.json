@@ -1,0 +1,29 @@
+{
+  "queue_id": "hel-20260917-0200-afd-kandidater",
+  "slug": "myndigheder-ville-bremse-afd-kandidater-flere-kom-paa-stemmesedlen",
+  "headline": "Myndigheder ville bremse AfD-kandidater – flere kom alligevel på stemmesedlen",
+  "category_slug": "udland",
+  "deck": "Niedersachsen indførte skærpet kontrol af kandidaters forfatningstro. Valgudvalg traf forskellige afgørelser om AfD-politikere.",
+  "body_markdown": "Forud for kommunalvalget i den tyske delstat Niedersachsen blev flere kandidater fra det indvandringskritiske parti AfD undersøgt for, om de opfyldte kravet om at stå på den demokratiske forfatnings grund. Nogle blev udelukket, mens andre fik lov at stille op trods myndighedernes kontrol.\n\nReglerne fik særlig betydning ved valget 13. september. Ifølge den regionale public service-station NDR kunne lokale valgudvalg efter en lovændring fra maj inddrage oplysninger fra kommunaltilsynet og delstatens efterretningstjeneste, hvis der var begrundet tvivl om en kandidats forfatningstro. Det afgørende valgudvalg var ikke bundet af en anbefaling.\n\nI Hannover blev AfD-landdagsmedlemmet Jessica Schülke undersøgt før borgmestervalget. Hun afviste mistanken og sagde, at troskab mod den frie demokratiske grundorden var en selvfølge og et ikke-forhandlingsbart grundlag for hendes politiske arbejde. Schülke blev godkendt og stillede op. Ved valget fik hun 10,8 procent, mens den grønne borgmester Belit Onay og SPD-kandidaten Axel von der Ohe gik videre til anden valgrunde.\n\nAndre steder endte kontrollen modsat. I Landkreis Friesland blev AfD-politikeren Martin Sichert afvist som kandidat til posten som landråd. Valgudvalget stemte 5-1 imod hans kandidatur efter en anbefaling fra Niedersachsens indenrigsministerium. Ministeriet henviste både til hans medlemskab af delstatens AfD og til en række ytringer på sociale medier, som efter ministeriets vurdering gav anledning til tvivl om hans forfatningstro.\n\nOgså AfD-politikeren Stephan Bothe blev nægtet at stille op som landråd i Lüneburg. Det lokale valgudvalg vurderede, at der var begrundet tvivl om, hvorvidt han til enhver tid ville stå på den frie demokratiske grundordens grund. Bothe forsøgte at få udelukkelsen stoppet ved domstolene, men Niedersachsens øverste forvaltningsdomstol afviste hans forsøg før valget. Retten begrundede det med, at en udelukket kandidat først kan gøre indsigelse efter valget. Bothe har varslet, at valget vil blive anfægtet.\n\nSagen rammer en grundlæggende konflikt mellem demokratiets ret til at beskytte sig selv og vælgernes ret til at vælge mellem kandidater. Niedersachsen kræver, at kandidater til ledende kommunale poster kan forventes at stå på den frie demokratiske grundordens grund. Samtidig ligger den konkrete afgørelse hos valgudvalgene, og kontrollen førte derfor ikke automatisk til udelukkelse af AfD-kandidater.\n\nVed kommunalvalget voksede AfD markant og fik ifølge det foreløbige officielle resultat 15,9 procent ved kredsvalgene i Niedersachsen. Partiet blev dermed tredjestørst efter CDU og SPD. Resultatet betyder, at striden om kandidaternes adgang til valg ikke kun er juridisk: Den handler også om, hvem der får mulighed for at repræsentere en voksende del af vælgerne i lokale embeder.",
+  "source_metadata": [
+    {"url": "https://www.ndr.de/nachrichten/niedersachsen/kommunalwahl/niedersachsen-kommunalwahl-2026-wie-wird-die-verfassungstreue-der-kandidaten-ueberprueft%2Cfaq-140.html", "name": "NDR", "type": "authoritative", "note": "Regler og procedure for prøvelse af kandidaters forfatningstro"},
+    {"url": "https://www.ndr.de/nachrichten/niedersachsen/kommunalwahl/friesland-afd-politiker-sichert-nicht-fuer-landratswahl-zugelassen%2Csichert-100.html", "name": "NDR", "type": "authoritative", "note": "Afgørelsen om Martin Sichert og ministeriets begrundelse"},
+    {"url": "https://wahlen.statistik.niedersachsen.de/", "name": "Landesamt für Statistik Niedersachsen", "type": "primary", "note": "Foreløbige officielle kommunalvalgresultater"}
+  ],
+  "editorial_metadata": {
+    "sagen_kort": [
+      "Flere AfD-kandidater i Niedersachsen blev før kommunalvalget undersøgt for deres forfatningstro; nogle blev godkendt, andre udelukket.",
+      "AfD fik foreløbigt 15,9 procent ved kredsvalgene og blev tredjestørst efter CDU og SPD."
+    ],
+    "final_qa_duplicate": false,
+    "discovery_run_id": "hel-20260917-0200",
+    "discovery_audit": [
+      {"candidate_id":"hel-0200-1","source_pool":"discovery","source_path":"apollo-news.net","rank":1,"candidate_headline":"Diese AfD-Abgeordneten wollte das Innenministerium verhindern – so haben sie abgeschnitten","deep_screened":true,"downstream_sources":["ndr.de","wahlen.statistik.niedersachsen.de"],"decision":"selected","reason":"Frisk efter kommunalvalget, dokumenterbar og stærkt match med demokratisk deltagelse/statens magt","model_prompt_version":"canonical-news-task-2026-09-17"}
+    ],
+    "hero_candidates": [
+      {"rank":1,"source_url":"https://commons.wikimedia.org/wiki/File:28.05.2022_-_AfD_Landesparteitag_Hannover_(AfD_Niedersachsen)_(52105179793).jpg","license":"CC BY-SA 2.0","commercial_use_allowed":true,"local_storage_allowed":true,"width":6000,"height":4000,"description":"AfD Niedersachsens landsmøde i Hannover"},
+      {"rank":2,"source_url":"https://commons.wikimedia.org/wiki/File:28.05.2022_-_AfD_Landesparteitag_Hannover_(AfD_Niedersachsen)_(52104116447).jpg","license":"CC BY-SA 2.0","commercial_use_allowed":true,"local_storage_allowed":true,"width":6000,"height":4000,"description":"Andet dokumentarisk motiv fra AfD Niedersachsens landsmøde"},
+      {"rank":3,"source_url":"https://commons.wikimedia.org/wiki/File:AfD_Niedersachsen_Landesparteitag_2022_Gegenkundgebung_Fahnen.jpg","license":"CC BY-SA 4.0","commercial_use_allowed":true,"local_storage_allowed":true,"width":1568,"height":1074,"description":"Flag ved demonstration i forbindelse med AfD Niedersachsens landsmøde i Hannover"}
+    ]
+  }
+}
