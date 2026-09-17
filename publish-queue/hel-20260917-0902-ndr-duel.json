@@ -1,0 +1,29 @@
+{
+  "queue_id": "hel-20260917-0902-ndr-duel",
+  "slug": "ndr-moderator-afd-holm-falschbeholdninger-tv-duel",
+  "headline": "NDR-moderator afbrød AfD-kandidat: »Det er fuldstændig falske påstande«",
+  "category_slug": "udland",
+  "deck": "Fire dage før delstatsvalget endte NDR selv midt i valgduellen, da Leif-Erik Holm angreb public service-stationens dækning.",
+  "body_markdown": "Fire dage før valget i Mecklenburg-Vorpommern blev den nordtyske public service-station NDR selv en del af striden i den direkte tv-duel mellem ministerpræsident Manuela Schwesig fra SPD og Leif-Erik Holm fra det indvandringskritiske parti AfD.\n\nDa Holm kritiserede den offentligt finansierede radio og tv-dækning for at være dyr, ubalanceret og til tider misvisende, greb moderator Thilo Tautz ind. Ifølge den uafhængige netavis t-online afviste moderatoren Holms beskrivelse som »fuldstændig falske påstande« og sagde, at de ikke kunne stå uimodsagt.\n\nNDR's egen opsummering bekræfter, at public service blev et selvstændigt tema i den timelange duel. Holm sagde, at han vil reformere systemet, gøre det billigere og mere afbalanceret. Han har tidligere varslet, at han som ministerpræsident vil opsige delstatens aftale om public service-systemet.\n\nSchwesig forsvarede NDR. Hun sagde, at hun oplever stationen som til tider ekstremt kritisk og uafhængig, og fremhævede samtidig dens kulturelle rolle i landdistrikterne.\n\nStriden kommer på et følsomt tidspunkt. AfD står ifølge de seneste målinger til at blive største parti i Mecklenburg-Vorpommern. Reuters beskrev onsdag AfD som førende med 37 procent mod 35 procent til SPD, mens CDU lå helt nede omkring syv procent. Valget afholdes søndag 20. september.\n\nHolm og Schwesig er ikke kun rivaler om regeringsmagten. De stiller også direkte op mod hinanden i valgkreds 8 i Schwerin. NDR beskriver konfrontationen som usædvanlig i delstatens nyere valghistorie.\n\nDebatten spændte over uddannelse, økonomi, energi og migration. På migrationsområdet sagde Holm, at Tyskland fortsat har for mange mennesker uden ret til at blive i landet, og at AfD vil skelne mellem ønsket arbejdskraftindvandring og ulovlig indvandring. Schwesig svarede, at mennesker med indvandrerbaggrund, som arbejder og betaler skat, frygter en AfD-regering, og hun beskyldte partiet for at skabe et klima af frygt.\n\nNDR havde på forhånd meddelt, at stationen ville ledsage udsendelsen med faktatjek. Stationens egen efterfølgende gennemgang skriver, at begge kandidater undervejs beskyldte hinanden for vildledning eller løgn, og at flere tal og udsagn krævede kontrol.\n\nMen da emnet til sidst blev NDR selv, ændrede rollen sig: Stationens moderator nøjedes ikke med at stille spørgsmål, men afviste direkte Holms kritik. Det gør sammenstødet til mere end endnu en hård valgdebat. Det rejser også spørgsmålet om, hvor grænsen går mellem journalistisk faktakontrol og en public service-stations deltagelse i en politisk konflikt, når stationens egen rolle er emnet.",
+  "source_metadata": [
+    {"name":"NDR", "url":"https://www.ndr.de/nachrichten/mecklenburg-vorpommern/landtagswahl/tv-duell-so-lief-der-schlagabtausch-zwischen-schwesig-und-holm%2Cmvwahl-372.html", "type":"authoritative", "role":"primary_broadcaster_summary"},
+    {"name":"t-online", "url":"https://www.t-online.de/nachrichten/deutschland/innenpolitik/id_101438998/mecklenburg-ndr-moderator-ruegt-afd-mann-holm-bei-tv-duell.html", "type":"authoritative", "role":"independent_report"},
+    {"name":"Reuters", "url":"https://www.reuters.com/world/europe/merzs-fate-balance-second-eastern-german-state-goes-polls-2026-09-16/", "type":"authoritative", "role":"election_context"}
+  ],
+  "editorial_metadata": {
+    "sagen_kort": [
+      "NDR-moderator Thilo Tautz afviste direkte AfD-kandidat Leif-Erik Holms kritik af public service-stationen som »fuldstændig falske påstande«.",
+      "AfD fører før søndagens valg i Mecklenburg-Vorpommern, hvor Holm også udfordrer SPD-ministerpræsident Manuela Schwesig direkte i hendes valgkreds."
+    ],
+    "final_qa_duplicate": false,
+    "discovery_run_id": "hel-20260917-0902",
+    "discovery_audit": [
+      {"candidate_id":"hel0902-1", "source_pool":"discovery", "rank":1, "headline":"NDR becomes part of Schwesig-Holm TV duel", "deep_screened":true, "downstream_sources":["NDR","t-online","Reuters"], "decision":"selected", "reason":"fresh, documented public-service neutrality/free-speech angle with major election relevance", "model_prompt_version":"canonical-news-task-2026-09-17"}
+    ],
+    "hero_candidates": [
+      {"rank":1, "source_url":"https://commons.wikimedia.org/wiki/File:2024-05-28-Leif-Erik_Holm-Hart_aber_fair-5368.jpg", "description":"Leif-Erik Holm during a television debate", "license":"CC BY-SA 4.0", "author":"Superbass", "commercial_use_allowed":true, "local_storage_allowed":true, "width":3686, "height":5529},
+      {"rank":2, "source_url":"https://commons.wikimedia.org/wiki/File:18-05-2017-Leif-Erik_Holm-JonasR.jpg", "description":"Leif-Erik Holm in Mecklenburg-Vorpommern", "license":"CC BY-SA 4.0", "author":"Jonas Rogowski", "commercial_use_allowed":true, "local_storage_allowed":true, "width":3831, "height":2544},
+      {"rank":3, "source_url":"https://commons.wikimedia.org/wiki/File:Manuela_Schwesig_2023.jpg", "description":"Manuela Schwesig in 2023", "license":"CC BY-SA 4.0", "author":"Dr. Frank Gaeth", "commercial_use_allowed":true, "local_storage_allowed":true, "width":6000, "height":4000}
+    ]
+  }
+}
