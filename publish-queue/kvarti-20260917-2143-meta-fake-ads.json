@@ -1,0 +1,42 @@
+{
+  "queue_id": "kvarti-20260917-2143-meta-fake-ads",
+  "slug": "tysk-domstol-meta-haefter-for-falske-annoncer-paa-facebook-og-instagram",
+  "headline": "Tysk domstol: Meta hæfter for falske annoncer på Facebook og Instagram",
+  "category_slug": "udland",
+  "deck": "Svindlere misbrugte et finansmedies logo og stifterens billeder. Meta brugte i nogle tilfælde op til 62 dage på at fjerne annoncerne.",
+  "body_markdown": "En tysk domstol har afgjort, at Meta kan holdes ansvarlig for falske annoncer, som tredjeparter har lagt på Facebook og Instagram. Afgørelsen kan få betydning for, hvor langt de store platformes ansvar rækker, når deres egne systemer er med til at fordele og sælge annoncer.\n\nSagen blev anlagt af det tyske finansmedie Finanzfluss og dets medstifter Thomas Kehl. Ukendte personer brugte virksomhedens logo og billeder af Kehl uden tilladelse i annoncer for investeringer, som ifølge sagen havde et formodet bedragerisk formål.\n\nAlene i august 2024 anmeldte virksomheden næsten 260 overtrædelser til Meta. Ifølge retten gik der i nogle tilfælde op til 62 dage, før indholdet blev fjernet.\n\nLandgericht Frankfurt am Main fandt, at Meta ikke kunne nøjes med at henvise til, at selskabet ikke kendte til de enkelte annoncer. Retten lagde vægt på, at Meta gennem algoritmer og det automatiserede auktionssystem for annoncer selv har indflydelse på, hvilket indhold brugerne bliver præsenteret for. Derfor kunne selskabet efter rettens vurdering ikke bruge EU's lov om digitale tjenester som skjold mod ansvar i denne sag.\n\nMeta er blevet pålagt at standse de omstridte annoncer, betale erstatning og oplyse, hvor store indtægter selskabet har haft fra dem. Dommen er ikke endelig og kan ankes.\n\nMeta er uenig i afgørelsen. En talsmand siger, at selskabet overvejer de næste skridt, og fremhæver, at Meta allerede bruger blandt andet automatisk opsporing til at finde og fjerne svindelannoncer.\n\nSagen rammer et centralt spørgsmål i reguleringen af sociale medier: Hvornår er en platform blot vært for andres indhold, og hvornår bliver den selv medansvarlig, fordi dens algoritmer og annoncesystem aktivt bestemmer, hvad der bliver vist? Frankfurt-domstolens svar i denne sag er, at Metas rolle går længere end passiv opbevaring.",
+  "source_metadata": [
+    {"url":"https://www.reuters.com/legal/litigation/german-court-rules-meta-liable-fake-ads-instagram-facebook-2026-09-17/","publisher":"Reuters","class":"authoritative","role":"Dommen, de næsten 260 anmeldelser, fjernelsestid, Metas svar og ankeforbehold"},
+    {"url":"https://www.anews.com.tr/tech/2026/09/17/german-court-holds-meta-liable-for-fraudulent-ads-on-facebook-instagram/amp","publisher":"Anadolu Agency","class":"authoritative","role":"Uafhængig gengivelse af domstolens begrundelse og sagens faktiske omstændigheder"}
+  ],
+  "editorial_metadata": {
+    "sagen_kort": [
+      "Et tysk finansmedie anmeldte næsten 260 falske annoncer til Meta på én måned; nogle blev først fjernet efter op til 62 dage.",
+      "Retten mener, at Metas algoritmer og annonceauktion giver selskabet så stor kontrol, at det ikke kan behandles som en rent passiv vært i sagen."
+    ],
+    "frontpage_destination": "normal",
+    "story_cluster_key": "meta-platform-liability-scam-ads-2026",
+    "dedupe_context": {
+      "checked_at": "2026-09-17T21:48:00+02:00",
+      "window_days": 7,
+      "publish_prs_seen": 100,
+      "include_closed_publish_prs": true,
+      "newest_publish_pr": 732
+    },
+    "hero_candidates": [
+      {"rank":1,"source_url":"https://commons.wikimedia.org/wiki/File:Landgericht_Frankurt_am_Main_-_Gebaeude_B_-_Eingang.jpg","provider":"wikimedia_commons","width":2091,"height":3403,"commercial_use_allowed":true,"local_storage_allowed":true,"license":"CC0 1.0","attribution":"Genealogist","license_url":"https://creativecommons.org/publicdomain/zero/1.0/deed.en"},
+      {"rank":2,"source_url":"https://commons.wikimedia.org/wiki/File:Landgericht_Frankfurt_am_Main_(037).jpg","provider":"wikimedia_commons","width":4288,"height":2848,"commercial_use_allowed":true,"local_storage_allowed":true,"license":"CC0 1.0","attribution":"Genealogist","license_url":"https://creativecommons.org/publicdomain/zero/1.0/deed.en"},
+      {"rank":3,"source_url":"https://commons.wikimedia.org/wiki/File:Landgericht_Frankfurt_-_Rueckseite_Gebaeude_E.jpg","provider":"wikimedia_commons","width":4288,"height":2848,"commercial_use_allowed":true,"local_storage_allowed":true,"license":"CC0 1.0","attribution":"Genealogist","license_url":"https://creativecommons.org/publicdomain/zero/1.0/deed.en"}
+    ],
+    "discovery_audit": {
+      "discovery_run_id":"kvarti-20260917-2143",
+      "model_prompt_version":"canonical-news-task-2026-09-17",
+      "candidates":[
+        {"candidate_id":"c1-eu-kids-act","rank":1,"source_pool":"breaking-major-media","headline_topic":"EU Kids Act og forbud mod sociale medier for børn","deep_screened":false,"decision":"excluded","reason":"allerede dækket i flere friske PUBLISH-transporter, herunder #636 og #704"},
+        {"candidate_id":"c2-iom-sea-crossings","rank":2,"source_pool":"breaking-major-media","headline_topic":"Færre migranter krydser havet, men flere dør","deep_screened":false,"decision":"excluded","reason":"allerede dækket i friske PUBLISH-transporter #710 og #714"},
+        {"candidate_id":"c3-meta-fake-ads","rank":3,"source_pool":"major-media-fresh-discover","headline_topic":"Tysk domstol holder Meta ansvarlig for falske annoncer","deep_screened":true,"downstream_sources":["Reuters","Anadolu Agency"],"decision":"selected","reason":"frisk principiel platformansvarssag med dokumenterede fakta og intet semantisk overlap i den primære syvdages PUBLISH-ledger"}
+      ]
+    }
+  },
+  "duplicate_of": null
+}
