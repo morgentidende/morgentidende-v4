@@ -29,6 +29,42 @@ function validateSourceRegistryUpdates(updates) {
   }
 }
 
+function normalizeDiscoveryAudit(value, editorialMetadata = {}) {
+  if (value === undefined) return undefined;
+  if (Array.isArray(value)) return value;
+  if (!value || typeof value !== 'object') fail('discovery_audit_candidates_must_be_array_or_object');
+
+  // Scheduled writers have historically emitted three equivalent shapes:
+  //   discovery_audit: [candidate, ...]
+  //   discovery_audit: { candidates: [candidate, ...], discovery_run_id, ... }
+  //   discovery_audit: { candidate_id, decision, ... }
+  // Normalize at the transport boundary so prompt/schema drift cannot discard
+  // an otherwise valid article. The database receives one canonical array.
+  if (Array.isArray(value.candidates)) {
+    if (!editorialMetadata.discovery_run_id && typeof value.discovery_run_id === 'string' && value.discovery_run_id.trim()) {
+      editorialMetadata.discovery_run_id = value.discovery_run_id.trim();
+    }
+    const shared = {};
+    for (const key of ['source_pool', 'model_prompt_version']) {
+      if (value[key] !== undefined) shared[key] = value[key];
+    }
+    return value.candidates.map((candidate) => {
+      if (!candidate || typeof candidate !== 'object' || Array.isArray(candidate)) fail('discovery_audit_candidate_must_be_object');
+      return { ...shared, ...candidate };
+    });
+  }
+
+  return [value];
+}
+
+function validateDiscoveryAudit(items) {
+  if (!Array.isArray(items)) fail('discovery_audit_candidates_must_be_array');
+  if (items.length > 50) fail('discovery_audit_too_many_candidates');
+  for (const item of items) {
+    if (!item || typeof item !== 'object' || Array.isArray(item)) fail('discovery_audit_candidate_must_be_object');
+  }
+}
+
 if (!file) fail('QUEUE_FILE_missing');
 if (!fs.existsSync(file)) fail('queue_file_not_found');
 
@@ -50,11 +86,8 @@ validateSourceRegistryUpdates(payload.source_registry_updates);
 
 if (payloadType === 'discovery_audit') {
   if (payload.run_id !== undefined && (typeof payload.run_id !== 'string' || !payload.run_id.trim())) fail('invalid_run_id');
-  if (!Array.isArray(payload.discovery_audit)) fail('discovery_audit_candidates_must_be_array');
-  if (payload.discovery_audit.length > 50) fail('discovery_audit_too_many_candidates');
-  for (const item of payload.discovery_audit) {
-    if (!item || typeof item !== 'object' || Array.isArray(item)) fail('discovery_audit_candidate_must_be_object');
-  }
+  payload.discovery_audit = normalizeDiscoveryAudit(payload.discovery_audit, payload);
+  validateDiscoveryAudit(payload.discovery_audit);
 } else {
   for (const key of ['slug', 'headline', 'category_slug', 'body_markdown']) {
     if (typeof payload[key] !== 'string' || !payload[key].trim()) fail(`${key}_required`);
@@ -77,8 +110,11 @@ if (payloadType === 'discovery_audit') {
   payload.editorial_metadata ??= {};
 
   if (payload.editorial_metadata.discovery_audit !== undefined) {
-    if (!Array.isArray(payload.editorial_metadata.discovery_audit)) fail('discovery_audit_candidates_must_be_array');
-    if (payload.editorial_metadata.discovery_audit.length > 50) fail('discovery_audit_too_many_candidates');
+    payload.editorial_metadata.discovery_audit = normalizeDiscoveryAudit(
+      payload.editorial_metadata.discovery_audit,
+      payload.editorial_metadata,
+    );
+    validateDiscoveryAudit(payload.editorial_metadata.discovery_audit);
   }
 
   payload.editorial_metadata = {
