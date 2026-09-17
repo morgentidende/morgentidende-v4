@@ -8,7 +8,11 @@ Den kanoniske rækkefølge er:
 
 `Discover → Research → Semantisk 7-dages-dedupe → Write + final check → GitHub-handoff → Hero/media ready → Article QA → Publish`
 
-Dedupe køres **efter Research, men før Write**. På det tidspunkt er sagens substans kendt godt nok til at sammenligne hovedbegivenhed, hovedfaktum, centrale aktører, tal, geografi og den konkrete nye udvikling. Der bruges ikke deterministisk fingerprint som redaktionel dublet-gate.
+**Discover begynder med et kort forsideblik.** Forsideredaktør er ikke en selvstændig rolle eller fase.
+
+**Dedupe køres efter Research, men før Write.** På det tidspunkt er sagens substans kendt godt nok til at sammenligne hovedbegivenhed, hovedfaktum, centrale aktører, tal, geografi og den konkrete nye udvikling. Der bruges ikke deterministisk fingerprint som redaktionel dublet-gate.
+
+**Write afsluttes med Journalistens final check.** Der findes ikke en særskilt Producer-rolle. Final check er korrektur, forsideplacering og payload-kontrol — ikke ny research, ny dedupe eller backendens Article QA.
 
 **Hero/media skal være publication-ready før backend sender artiklen til Article QA.** Scheduled Task leverer hero-kandidater ved handoff; Media Worker resolver, validerer, arkiverer og attacher heroen. Først derefter må backend enqueue Article QA.
 
@@ -33,25 +37,26 @@ Hold tool-kæden kort. Et normalt run bør sigte mod højst ca. 15 eksterne kald
 
 Et run ender i én terminal GitHub-leverance: artikelpayload eller `payload_type=discovery_audit` med konkret `terminal_reason`. GitHub-write retryes højst én gang; derefter `BRIDGE_FAILED`. En fejl må aldrig ændre schedule eller enabled-status.
 
-## 1. Discover
+## 1. Discover — forsideblik + historievalg
 
-**Morgentidendes særkende er stærke, dokumenterbare nyheder, som andre danske medier overser eller prioriterer lavt.**
+Start med et **billigt snapshot** af den offentlige Morgentidende-forside og ved behov offentlig artikelhistorik/feed fra cirka de seneste 12–24 timer. Det er kun prioriteringskontekst, ikke en selvstændig researchrunde.
 
-Start Discover med ét billigt forsideblik på den offentlige Morgentidende-forside og ved behov offentlig artikelhistorik/feed fra cirka de seneste 12–24 timer. Vurdér kort:
+Vurdér kort:
 - hvilke emner/sager der allerede fylder meget,
 - kategori- og geografisk spredning,
-- gentagne personer, partier, konflikter eller kulturkampe,
-- tydeligt underrepræsenterede områder/vinkler,
-- de to aktive specialsektioner og hvilke sager de følger.
+- gentagelser af samme person, parti, konflikt eller kulturkamp,
+- tydeligt underrepræsenterede emner/vinkler,
+- hvilke to specialsektioner der aktuelt er aktive og hvilke sager de følger.
 
-Omsæt det direkte til én discovery-retning. Dette er en del af Discover, ikke en selvstændig rolle eller researchrunde. En klart større breaking-historie må tilsidesætte mixhensynet.
+Omsæt snapshot’et til én kort discovery-retning. En klart større breaking-historie må tilsidesætte mixhensynet.
 
+Historievalg:
 1. Lav et kort breaking-scan af store danske medier. Override kun ved en frisk, dokumenterbar hændelse med høj dansk betydning, fx terror, stor ulykke/katastrofe, krig/NATO med direkte dansk berøring, regeringskrise, større cyberangreb eller myndighedsindgreb med umiddelbar virkning for mange danskere.
 2. Ellers brug `docs/discovery-sources.md`. Lav én shortlist på højst 5 friske kandidater ud fra aktualitet, dokumenterbarhed, underdækning i danske medier, profilmatch og bidrag til et bedre samlet mix.
 3. Research kandidaterne i rangeret rækkefølge, én ad gangen.
-4. Hvis hele shortlisten falder af, må der laves højst én ny Discover-runde med dansk major-media fallback.
+4. Hvis hele shortlisten falder af, må der laves højst én ny historievalgsrunde med dansk major-media fallback.
 
-Der køres ikke semantisk dedupe på en tynd discovery-beskrivelse. Dedupe sker først efter Research i §3, så vurderingen bygger på sagens faktiske substans frem for rubrik- eller nøgleordslighed.
+Der køres ikke semantisk dedupe på en tynd discovery-beskrivelse. Dedupe sker først efter Research i §3.
 
 ## 2. Research og kildegulv
 
@@ -75,7 +80,7 @@ Sammenlign med:
 
 Følg regel 14 i `docs/editorial-core.md`. Vurdér mening og substans — ikke deterministisk fingerprint, ordlighed eller rubrikmatch alene.
 
-Hvis kandidaten er næsten-identisk uden væsentlig videreudvikling: registrér `duplicate_of`, ekskludér den konkrete sag resten af runnet, og gå tilbage til §1 med det ekskluderede tema kendt. Brug ikke blot næste kandidat fra den gamle shortlist.
+Hvis kandidaten er næsten-identisk uden væsentlig videreudvikling: registrér `duplicate_of`, ekskludér den konkrete sag resten af runnet, og gå tilbage til §1 med det ekskluderede tema kendt. Lav et nyt Discover frem for blot at tage næste kandidat fra den gamle shortlist.
 
 Hvis kandidaten er en legitim opfølger, behold den og brug samme `story_cluster_key` samt struktureret `Læs også`.
 
@@ -85,30 +90,30 @@ Følg `docs/editorial-core.md`, `docs/editorial-language-glossary.md` og `docs/n
 
 Skriv ikke links eller manuel kildeliste i brødteksten. `source_metadata` er en top-level array. Brug almindeligt etableret dansk.
 
-Afslut Write med ét frisk genlæs og payload-check. Dette er ikke en særskilt Producer-rolle, ikke en ny dedupe-runde og ikke backendens Article QA. Kontrollér, at artiklen og payloaden er redaktionelt komplette og konsistente med den allerede godkendte research/dedupe. Ret kun sikre tekst-/metadatafejl uden ny research.
+Afslut samme Write-fase med ét frisk genlæs efter final-check-reglerne i `docs/editorial-core.md`. Final check må rette sikre tekst-/metadatafejl, men må ikke starte ny research, skabe ny vinkel eller lave en ny dedupe-runde uden konkret ny information. Hvis substansen ændres, gå tilbage til relevant tidligere fase og genkør §3.
 
 Vælg samtidig artikelens forsideplacering semantisk:
 - `editorial_metadata.frontpage_destination = "special_1"`, hvis artiklen klart er en videreudvikling i den sag, som den aktive Specialsektion 1 følger.
 - `editorial_metadata.frontpage_destination = "special_2"`, hvis artiklen klart er en videreudvikling i den sag, som den aktive Specialsektion 2 følger.
 - Ellers `editorial_metadata.frontpage_destination = "normal"`.
 
-En specialsektion er et løbende sagsforløb, ikke en alternativ kategori. Artikler i specialsektionerne skal som udgangspunkt ikke ind i det almindelige top-down-flow; de kommer kronologisk ind længst til venstre i den relevante vandrette strøm. En reel breaking-historie kan stadig få særskilt breaking-behandling, men destination og breaking-status må ikke sættes modstridende uden en klar redaktionel grund.
+En specialsektion er et løbende sagsforløb, ikke en alternativ kategori. Artikler i specialsektionerne kommer som udgangspunkt kronologisk ind længst til venstre i den relevante vandrette strøm. En reel breaking-historie kan stadig få særskilt breaking-behandling.
 
-Hvis en rettelse kræver ny research eller ændrer sagens substans, returnér til relevant tidligere fase; ved substantiel ændring skal §3 køres igen, før artiklen færdiggøres.
+## 5. Hero/media — kandidatkontrakt
 
-## 5. Hero/media — producer-kontrakt
-
-Almindelige nyheder bruger ægte dokumentarisk materiale. Journalisten ejer motivvalg og kandidatlisten; Media Worker ejer URL-resolution, download, MIME/signatur, faktiske pixelmål, rettighedsgate, SHA-256, arkivering, fallback og retry.
+Almindelige nyheder bruger ægte dokumentarisk materiale. Journalisten ejer motivvalg og den rangerede kandidatliste; Media Worker ejer provider-resolution, download, MIME/signatur, faktiske pixelmål, rettighedsgate, SHA-256, arkivering, fallback og retry.
 
 Lever **3–6 rangerede, forskellige hero-kandidater** i `editorial_metadata.hero_candidates`. Hver kandidat skal have egen `source_url` og dokumenterede rettighedsfelter; mindst `commercial_use_allowed=true` og `local_storage_allowed=true`. Rettigheder må aldrig gættes eller arves.
 
-Søg aktivt efter store originaler. Når en kilde/API oplyser dimensioner, prioriter kandidater på mindst **1200×675**. Kendte kandidater under **800×450** må aldrig sendes. Hvis der ikke findes nok store kandidater, må kandidater med ukendte dimensioner bruges som fallback, men Media Worker måler altid den faktiske fil og håndhæver 800×450 som absolut teknisk minimum.
+Billedsøgningen skal målrettes **originaler på mindst 1200×675**, når dimensionsmetadata kan verificeres. Kendte kandidater under **800×450 er forbudt** og må ikke sendes. Kendte dimensioner afleveres som `width` og `height`. Kandidater med ukendt størrelse rangeres efter kandidater med verificeret tilstrækkelig størrelse, medmindre en klart bedre dokumentarisk kilde begrunder andet.
 
-`source_url` skal være en direkte downloadbar billedfil, medmindre Media Worker har en eksplicit resolver for kilden. Wikimedia Commons File-sider er understøttet. Almindelige HTML-galleri-/fotosider er ikke gyldige `source_url`-værdier. Undgå thumbnails, previews og kendte nedskaleringsparametre.
+`source_url` skal pege på den originale billedfil/download-URL eller på en provider-side, som Media Worker eksplicit har en resolver til, fx en Wikimedia Commons File-side. En almindelig HTML-landingsside er **ikke** en billedkandidat. Brug ikke thumbnail-/preview-URL'er eller kendte nedskaleringsparametre.
 
 Kun 1–2 lovlige kandidater kræver eksplicit `editorial_metadata.hero_exception.reason`. 0 kandidater → `NO_LEGAL_HERO` og audit-only.
 
-Efter handoff prøver Media Worker kandidaterne som **én** state machine. Permanent fejl går til næste kandidat; transient fejl retryer samme kandidat. Kandidatspecifik resolver-state må aldrig arves til næste kandidat. **Article QA må ikke enqueue, før et valideret asset er `ready` og attached som artikelhero.** Hvis alle kandidater terminalt fejler, terminaliserer Media Worker artiklen til redaktionel attention i stedet for at lade den stå som planlagt for evigt.
+Efter handoff prøver Media Worker kandidaterne som **én** state machine. Kandidat-specifik resolver-state må ikke arves til næste kandidat. Permanent fejl går direkte til næste kandidat; transient fejl retryer samme kandidat. Først når alle kandidater er udtømt, terminaliserer media-jobbet, og artiklen går til `draft` med `publication_attention=hero_candidates_exhausted` i stedet for at stå fast som `scheduled`.
+
+**Article QA må ikke enqueue, før et valideret asset er `ready` og attached som artikelhero.**
 
 ## 6. Discovery-audit
 
@@ -129,7 +134,7 @@ Tilladte stopkoder omfatter:
 
 `DUPLICATE_RETRY_EXHAUSTED` er ikke gyldig. Manglende kilde nummer to er ikke i sig selv hard stop, hvis én autoritativ kilde bærer de centrale fakta.
 
-## 8. Aflevering — producer-kontrakt
+## 8. Aflevering — transportkontrakt
 
 Scheduled Task skriver aldrig artiklen direkte til Supabase.
 
@@ -139,11 +144,11 @@ Scheduled Task skriver aldrig artiklen direkte til Supabase.
 4. Opret præcis én PR mod `main`; titlen starter `[PUBLISH] ` og body indeholder `<!-- morgentidende-chatgpt-publish -->`.
 5. Merge ikke transport-PR'en. Backend ejer idempotens, insert, media, Article QA og publication-gates og lukker transport-PR'en efter vellykket aflevering.
 
-Backendens normale rækkefølge efter handoff er:
+Backendens rækkefølge efter handoff er bindende:
 
-`scheduled article → media ingest/attach → hero ready → Article QA → safe publish`
+`scheduled article → media ingest/attach → hero ready → Article QA → Safe Publish → published`
 
-Efter bestået current-version QA forsøges Safe Publish direkte. Minut-jobbet er kun recovery for mistede callbacks/transiente driftsfejl; der er ingen kunstig fast QA-ventetid.
+Efter bestået current-version QA forsøges Safe Publish direkte. Den periodiske release-runner er kun recovery og må ikke være en kunstig ventefase.
 
 ## Minimal run-status
 
