@@ -1,0 +1,33 @@
+{
+  "queue_id": "hel-20260917-1657-landtag",
+  "slug": "afd-kraever-ny-magtfordeling-i-sachsen-anhalts-landdag",
+  "headline": "Efter valgsejren kræver AfD ny magtfordeling i Sachsen-Anhalts landdag",
+  "category_slug": "udland",
+  "deck": "AfD fik 43,8 procent af stemmerne. Nu vil partiet omsætte valgresultatet til mere plads og indflydelse i parlamentets daglige arbejde.",
+  "body_markdown": "AfD's markante valgsejr i Sachsen-Anhalt er nu ved at ændre de praktiske magtforhold i delstatens parlament. Partiet, der blev klart størst ved valget 6. september, stiller en række krav til organiseringen af den nye landdag før den første samling 6. oktober.\n\nIfølge MDR vil AfD blandt andet have 12 medlemmer i hvert udvalg, mens de øvrige partier skal have 11. Det sker efter et valg, hvor AfD fik 43,8 procent af stemmerne og 39 mandater. Partiet mangler tre mandater for at have absolut flertal alene.\n\nApollo News skriver med henvisning til Die Zeit, at AfD også ønsker en mere central placering i plenarsalen og har rejst spørgsmål om fordelingen af kontorer. En repræsentant for et af de øvrige partier beskriver kravene som et forsøg på at ydmyge de tidligere dominerende partier.\n\nStriden kommer efter flere år, hvor AfD selv har klaget over at blive holdt uden for centrale parlamentariske poster. Valgresultatet har vendt styrkeforholdet: CDU endte på 17,2 procent, mens SPD, De Grønne, Die Linke og BSW alle blev væsentligt mindre end AfD.\n\nDen første samling i den nye landdag er planlagt til 6. oktober. Her skal der blandt andet vælges en ny landdagspræsident. MDR oplyser, at politikere fra BSW har åbnet for muligvis at stemme på en AfD-kandidat til posten. Det kan give AfD en central parlamentarisk position, selv om partiet endnu ikke har fundet et flertal til at danne regering.\n\nDe øvrige partier står dermed over for et dilemma: De kan fortsat afvise regeringssamarbejde med AfD, men kan ikke ignorere, at næsten 44 procent af vælgerne gjorde partiet til landdagens klart største. De kommende forhandlinger om udvalg, poster og arbejdsforhold bliver den første konkrete prøve på, hvordan det nye styrkeforhold håndteres.",
+  "source_metadata": [
+    {"url":"https://www.mdr.de/nachrichten-leicht/leichte-sprache-sachsen-anhalt-erste-sitzung-landtag-100.html","class":"authoritative","publisher":"MDR","date":"2026-09-17"},
+    {"url":"https://www.mdr.de/nachrichten/sachsen-anhalt/landtagswahl/news-aktuelles-wahltag-wahlbeteiligung-120%2Cergebnisse-wahlkreise-gemeinden-100.html","class":"authoritative","publisher":"MDR","date":"2026-09-07"},
+    {"url":"https://apollo-news.net/war-zu-erwarten-dass-sie-uns-demtigen-afd-stellt-fr-den-neuen-landtag-zahlreiche-forderungen/","class":"discovery_only","publisher":"Apollo News","date":"2026-09-17"}
+  ],
+  "editorial_metadata": {
+    "sagen_kort": [
+      "AfD fik 43,8 procent og 39 mandater ved valget i Sachsen-Anhalt og blev klart største parti.",
+      "Partiet vil blandt andet have 12 medlemmer i hvert udvalg, mens de øvrige partier skal have 11."
+    ],
+    "frontpage_destination": "normal",
+    "story_cluster_key": "sachsen-anhalt-afd-2026",
+    "hero_candidates": [
+      {"rank":1,"source_url":"https://commons.wikimedia.org/wiki/File:Landtag_Sachsen-Anhalt_in_Magdeburg.jpg","provider":"wikimedia_commons","width":2048,"height":1536,"license":"CC BY-SA 2.0","commercial_use_allowed":true,"local_storage_allowed":true,"attribution_required":true,"author":"FalkoMD"},
+      {"rank":2,"source_url":"https://commons.wikimedia.org/wiki/File:Landtag-sachsen-anhalt-2012.jpg","provider":"wikimedia_commons","width":4288,"height":2848,"license":"CC BY-SA 3.0 DE","commercial_use_allowed":true,"local_storage_allowed":true,"attribution_required":true,"author":"Ralf Roletschek"},
+      {"rank":3,"source_url":"https://commons.wikimedia.org/wiki/File:Landtag_von_Sachsen-Anhalt_in_Magdeburg.jpg","provider":"wikimedia_commons","width":1686,"height":1196,"license":"CC BY-SA 2.0","commercial_use_allowed":true,"local_storage_allowed":true,"attribution_required":true,"author":"Torsten Maue"}
+    ],
+    "discovery_run_id":"hel-20260917-1657",
+    "discovery_audit":[
+      {"candidate_id":"c1-iom-sea","rank":1,"topic":"IOM: færre søankomster, flere døde","deep_screened":true,"decision":"duplicate","reason":"allerede i frisk [PUBLISH] PR #710"},
+      {"candidate_id":"c2-landtag","rank":1,"topic":"AfD kræver ny magtfordeling i Sachsen-Anhalts landdag","deep_screened":true,"downstream_sources":["MDR","Apollo News"],"decision":"publish","reason":"frisk konkret videreudvikling efter valgsejren"}
+    ],
+    "dedupe_checked": true,
+    "duplicate_of": "PR #710 (første kandidat, IOM-historien)"
+  }
+}
