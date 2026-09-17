@@ -112,3 +112,30 @@ Before a real test: review/deploy this change, verify OFF and empty ledger, veri
 media and MCP payload shape, execute a rollback-only reservation test, and obtain
 explicit approval of the two concrete test rows. Permanent activation is separate.
 
+## Executable consumer (PR follow-up)
+`tools/social/mcp-consumer.mjs` implements the reservation/send/receipt state machine.
+`tools/social/media.mjs` checks approved origin, HTTPS, redirects, bounded download,
+PNG/JPEG signatures and dimensions. Static images only; WebP/video fail closed.
+This is a structural preflight, not a full image decoder or proof of future URL
+availability. Visually verify the concrete media before the first real test.
+Requirements source: https://help.metricool.com/schedule-and-post-on-instagram-6b6q5
+
+Run offline safety tests with:
+`node --test tools/social/mcp-consumer.test.mjs`
+
+The consumer defaults to dry-run. Execution also requires enabled=true in the live
+policy, including at atomic reservation. It offers no OFF override. Do not enable
+production just to test. The first real test needs a separate narrowly scoped test
+permit design or an explicitly approved activation window; neither is added here.
+
+Remaining host boundary: provide `query(sql, values)` using parameter binding,
+`validateMedia` from the media module, and `schedule(args)` invoking the connected
+Metricool MCP tool. `schedule` must normalize verified success to
+`{accepted:true,id,plannerUrl,...}`; generic text is deliberately NOT accepted.
+Current MCP receipt shape must be verified before implementing this normalization.
+No REST/token fallback exists. No unattended host or scheduler is installed.
+
+If storing a receipt fails, the result contains id/claim/receipt for fenced recovery.
+Never call schedule again to recover a database failure. Raw unknown responses are
+preserved on the existing row; timeout leaves the prewritten unknown-outcome fence.
+
