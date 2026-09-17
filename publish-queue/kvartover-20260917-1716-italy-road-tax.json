@@ -1,0 +1,38 @@
+{
+  "queue_id": "kvartover-20260917-1716-italy-road-tax",
+  "slug": "italien-fjerner-bilskat-145-millioner-koeretoejer",
+  "headline": "Meloni fjerner bilskat for 14,5 millioner køretøjer",
+  "category_slug": "penge",
+  "deck": "Mere end 70 procent af Italiens biler omfattes i 2027. Regeringen afsætter omkring 17,6 milliarder kroner til lettelsen.",
+  "body_markdown": "Italiens regering har vedtaget at fritage millioner af bilejere og motorcyklister for den årlige køretøjsskat i 2027. Lettelsen gælder biler med en motoreffekt på højst 80 kilowatt samt motorcykler og knallerter.\n\nIfølge regeringen omfatter ordningen omkring 14,5 millioner køretøjer og mere end 70 procent af landets biler. Hver borger kan kun få fritagelsen for ét køretøj.\n\nPremierminister Giorgia Meloni kalder køretøjsskatten en af de skatter, italienerne hader mest. Regeringen fremstiller beslutningen som en del af en linje med lavere skatter og som hjælp til familier, der er presset af høje brændstofpriser.\n\nTiltaget ventes at koste omkring 2,36 milliarder euro, svarende til cirka 17,6 milliarder kroner. Staten vil kompensere regionerne, som normalt modtager indtægterne fra køretøjsskatten.\n\nSelve det vedtagne dekret gælder betalinger, der forfalder mellem 1. januar og 31. december 2027. Regeringen har sagt, at den vil gøre lettelsen permanent i forbindelse med næste finanslov, men den permanente finansiering er derfor endnu ikke endeligt på plads.\n\nOppositionen har kritiseret ordningen som en valggave frem mod parlamentsvalget i 2027. Kritikken får ekstra vægt af Italiens høje offentlige gæld, mens regeringen fastholder, at lettelsen er målrettet almindelige familier og pendlere.\n\nBeslutningen kommer samtidig med, at regeringen forlænger en midlertidig nedsættelse af afgifterne på diesel. For Meloni er den nye skattefritagelse et mere varigt svar på presset fra dyrere transport: mindre skat på selve ejerskabet af bilen frem for alene midlertidige rabatter på brændstof.",
+  "source_metadata": [
+    {"url":"https://www.ansa.it/amp/english/news/business/2026/09/16/govt-scraps-road-tax-for-small-and-mid-sized-cars_e620fc76-1346-4aef-88a6-19b8d190f5ef.html","publisher":"ANSA","source_class":"authoritative","published_date":"2026-09-16"},
+    {"url":"https://www.reuters.com/business/italy-scraps-road-tax-most-cars-election-nears-2026-09-16/","publisher":"Reuters","source_class":"authoritative","published_date":"2026-09-16"},
+    {"url":"https://www.rainews.it/articoli/2026/09/via-il-bollo-auto-e-moto-sotto-gli-80kw-per-il-2027-accise-scende-lo-sconto-dello-stato-c5c0ec51-fdd8-432b-992e-b8e30417fa41.html","publisher":"Rai News","source_class":"authoritative","published_date":"2026-09-17"}
+  ],
+  "editorial_metadata": {
+    "sagen_kort": [
+      "Italien fritager i 2027 biler på højst 80 kW samt motorcykler og knallerter for den årlige køretøjsskat.",
+      "Omkring 14,5 millioner køretøjer omfattes; ordningen koster cirka 2,36 milliarder euro, svarende til 17,6 milliarder kroner."
+    ],
+    "frontpage_destination": "normal",
+    "story_cluster_key": "italy-road-tax-2027",
+    "hero_candidates": [
+      {"rank":1,"source_url":"https://commons.wikimedia.org/wiki/File:Giorgia_Meloni_@_2026_Ris%C3%B2_02.jpg","provider":"wikimedia_commons","license":"CC-BY-SA-4.0","author":"Ivan Ruggiero","commercial_use_allowed":true,"local_storage_allowed":true,"width":5184,"height":3888},
+      {"rank":2,"source_url":"https://commons.wikimedia.org/wiki/File:Giorgia_Meloni_@_2026_Ris%C3%B2_01.jpg","provider":"wikimedia_commons","license":"CC-BY-SA-4.0","author":"Ivan Ruggiero","commercial_use_allowed":true,"local_storage_allowed":true,"width":3888,"height":5184},
+      {"rank":3,"source_url":"https://commons.wikimedia.org/wiki/File:Giorgia_Meloni_(2023).jpg","provider":"wikimedia_commons","license":"CC-BY-3.0-IT","author":"Presidenza del Consiglio dei Ministri","commercial_use_allowed":true,"local_storage_allowed":true}
+    ],
+    "discovery_audit": {
+      "discovery_run_id":"kvartover-20260917-1716",
+      "candidate_id":"italy-road-tax-2027",
+      "source_pool":"discovery",
+      "rank":1,
+      "headline_topic":"Italy abolishes road tax for most small and medium cars in 2027",
+      "deep_screened":true,
+      "downstream_sources":["ANSA","Reuters","Rai News"],
+      "decision":"publish",
+      "reason":"Fresh tax-cut decision with broad household impact; authoritative confirmation and material counterarguments available.",
+      "model_prompt_version":"canonical-news-task-2026-09-17"
+    }
+  }
+}
