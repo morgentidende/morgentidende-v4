@@ -2,7 +2,7 @@ type RuntimeBag = Record<string, string | undefined>;
 
 const readRuntimeEnv = (locals?: App.Locals): RuntimeBag => {
   const legacyRuntime = (locals as { runtime?: { env?: RuntimeBag } } | undefined)?.runtime?.env;
-  return legacyRuntime || {};
+  return legacyRuntime || ((globalThis as typeof globalThis & { __MORGENTIDENDE_ENV?: RuntimeBag }).__MORGENTIDENDE_ENV || {});
 };
 
 const pick = (runtime: RuntimeBag, key: string) => {
