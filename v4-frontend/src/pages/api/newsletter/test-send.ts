@@ -59,13 +59,7 @@ export const POST: APIRoute = async ({ request, locals }) => {
     return reply(503, { ok: false, error: 'runtime_not_ready' });
   }
 
-  const subscriberResult = await supabase
-    .from('newsletter_subscribers')
-    .select('email, unsubscribe_token')
-    .eq('newsletter', 'daily')
-    .eq('status', 'active')
-    .is('unsubscribed_at', null)
-    .limit(2);
+  const subscriberResult = await supabase.rpc('newsletter_test_recipient');
 
   if (subscriberResult.error) {
     return reply(500, { ok: false, error: 'subscriber_lookup_failed' });
