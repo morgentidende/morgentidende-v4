@@ -1,0 +1,78 @@
+{
+  "queue_id": "halv-20260917-0631-madrid-minors",
+  "slug": "madrid-hoejesteret-tvungen-fordeling-migrantboern",
+  "headline": "Madrid går til Højesteret mod tvungen fordeling af migrantbørn",
+  "category_slug": "udland",
+  "deck": "Den spanske hovedstadsregion vil bremse statens ordning og siger, at dens system til beskyttelse af børn allerede er overbelastet.",
+  "body_markdown": "Madrid-regionen har indbragt den spanske regerings ordning for fordeling af uledsagede udenlandske mindreårige mellem landets regioner for Højesteret. Sagen blev indgivet 1. september og er nu antaget til behandling, oplyser regionalregeringen.\n\nStriden gælder et kongeligt dekret fra 30. juni, som fastsætter, hvor mange uledsagede udenlandske mindreårige hver region og de to autonome byer Ceuta og Melilla normalt skal kunne tage sig af. Dekretet viderefører den fordelingsmekanisme, som blev indført i 2025 ved ekstraordinært store migrationsankomster.\n\nIfølge den officielle spanske lovtidende er Madrids beregnede normale kapacitet 2.471 mindreårige. På landsplan er tallet 17.081. Ordningen bygger på en formel, der blandt andet tager højde for befolkningstal og den hidtidige belastning af de regionale systemer.\n\nMadrid-regionens regering under Isabel Díaz Ayuso mener, at staten griber ind i regionernes egne beføjelser på området for beskyttelse af børn og social bistand. Regeringens talsmand Miguel Ángel García Martín siger, at Madrids system allerede er »helt overbelastet«, og kræver i stedet, at centralregeringen får bedre kontrol over Spaniens grænser.\n\nDet er ikke første gang, Madrid går rettens vej mod den spanske regerings migrationspolitik. Regionalregeringen oplyser, at dens juridiske afdeling nu har seks verserende eller igangsatte retlige skridt mod forskellige statslige beslutninger på migrationsområdet. Den oprindelige lovændring fra 2025 er også blevet anfægtet ved forfatningsdomstolen af Madrid og ni andre regioner.\n\nCentralregeringens begrundelse for systemet er en anden. I selve dekretet beskrives mekanismen som en måde at fordele ansvaret solidarisk mellem regionerne, når en del af landet rammes af en ekstraordinær migrationssituation. Beregningen skal samtidig tage hensyn til den indsats, som de enkelte områder allerede yder.\n\nAt Højesteret har antaget Madrids sag til behandling betyder ikke, at retten har givet regionen medhold. Det betyder, at domstolen vil behandle indsigelsen mod dekretet.\n\nKonflikten handler derfor både om migration og om, hvem der skal bestemme, hvordan ansvaret fordeles, når presset på Spaniens modtagelsessystem bliver stort. Madrid vil have domstolene til at sætte en grænse for centralregeringens mulighed for at pålægge regionerne flere mindreårige; regeringen har indrettet ordningen netop for at sprede belastningen mellem landets områder.",
+  "source_metadata": [
+    {
+      "title": "Comunidad de Madrid: recurso contra Real Decreto 556/2026",
+      "url": "https://www.comunidad.madrid/noticias/2026/09/16/comunidad-madrid-recurre-tribunal-supremo-real-decreto-pretende-prorrogar-reparto-forzoso-menores-no-acompanados",
+      "source_class": "authoritative",
+      "publisher": "Comunidad de Madrid",
+      "published_date": "2026-09-16"
+    },
+    {
+      "title": "Real Decreto 556/2026",
+      "url": "https://boe.es/diario_boe/txt.php?id=BOE-A-2026-14495",
+      "source_class": "authoritative",
+      "publisher": "Boletín Oficial del Estado",
+      "published_date": "2026-07-03"
+    }
+  ],
+  "editorial_metadata": {
+    "sagen_kort": [
+      "Madrid-regionens sag mod statens fordelingsordning for uledsagede udenlandske mindreårige er antaget til behandling ved Spaniens Højesteret.",
+      "Det officielle dekret fastsætter Madrids normale kapacitet til 2.471 mindreårige ud af 17.081 på landsplan."
+    ],
+    "final_qa_duplicate": false,
+    "hero_candidates": [
+      {
+        "rank": 1,
+        "source_url": "https://commons.wikimedia.org/wiki/File:Tribunal_Supremo,_Madrid.jpg",
+        "description": "Spaniens Højesteret i Madrid",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "license": "CC BY-SA 3.0",
+        "known_width": 3346,
+        "known_height": 2015
+      },
+      {
+        "rank": 2,
+        "source_url": "https://commons.wikimedia.org/wiki/File:Isabel_D%C3%ADaz_Ayuso_(47017634384).jpg",
+        "description": "Madrid-regionens præsident Isabel Díaz Ayuso",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "license": "CC BY 2.0",
+        "known_width": 2280,
+        "known_height": 3204
+      },
+      {
+        "rank": 3,
+        "source_url": "https://commons.wikimedia.org/wiki/File:Rueda_de_Prensa_Isabel_D%C3%ADaz_Ayuso_(29022286028).jpg",
+        "description": "Isabel Díaz Ayuso ved pressemøde",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "license": "CC BY 2.0",
+        "known_width": 4196,
+        "known_height": 2895
+      }
+    ],
+    "discovery_run_id": "halv-20260917-0631",
+    "discovery_audit": [
+      {
+        "candidate_id": "halv-0631-c1",
+        "source_pool": "discovery",
+        "source_path": "Libertad Digital -> Comunidad de Madrid -> BOE",
+        "rank": 1,
+        "candidate_headline": "Madrid challenges mandatory redistribution of unaccompanied foreign minors",
+        "deep_screened": true,
+        "downstream_sources": ["Comunidad de Madrid", "Boletín Oficial del Estado"],
+        "decision": "publish",
+        "reason": "Fresh 16 September development, strong migration/federalism angle, central facts confirmed by two primary authoritative sources.",
+        "model_prompt_version": "canonical-news-task-2026-09-17"
+      }
+    ]
+  }
+}
