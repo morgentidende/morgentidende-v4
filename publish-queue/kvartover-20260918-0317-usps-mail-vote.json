@@ -1,0 +1,60 @@
+{
+  "queue_id": "kvartover-20260918-0317-usps-mail-vote",
+  "slug": "usa-postvaesen-stopper-trumps-system-for-brevstemmer",
+  "headline": "USA's postvæsen stopper Trumps nye system for brevstemmer",
+  "category_slug": "udland",
+  "deck": "Højesteret har bremset reglerne før midtvejsvalget. Nu standser postvæsenet arbejdet med den centrale vælgerportal.",
+  "sagen_kort": [
+    "USA's postvæsen har stoppet arbejdet med den portal, der skulle kontrollere vælgeroplysninger, efter Højesteret afviste at lade de nye regler træde i kraft før midtvejsvalget.",
+    "Trumps plan krævede særlige stregkoder på brevstemmekuverter og oplysninger om modtagerne, mens regeringen argumenterede for, at kravene lå inden for postvæsenets lovlige beføjelser."
+  ],
+  "body_markdown": "USA's postvæsen har indstillet arbejdet med det computersystem, der skulle spille en central rolle i præsident Donald Trumps nye regler for brevstemmer. Beslutningen kommer, efter USA's Højesteret mandag afviste regeringens forsøg på at få reglerne sat i kraft før midtvejsvalget i november.\n\nPostchef David Steiner sagde torsdag til Associated Press, at arbejdet er standset, fordi der nu gælder et retsligt forbud. Internt har postvæsenet samtidig meddelt medarbejderne, at de nye krav ikke bliver håndhævet ved det føderale valg i 2026.\n\n## En ny rolle for postvæsenet\n\nPlanen udsprang af en bekendtgørelse fra Trump og en efterfølgende regel fra postvæsenet. Staterne skulle blandt andet bruge brevstemmekuverter med særlige stregkoder og sende oplysninger om vælgere til en føderal portal. Postvæsenet skulle kontrollere, om forsendelserne opfyldte kravene, før de blev accepteret.\n\nTrump-regeringen har argumenteret for, at kravene handler om postvæsenets behandling af post og om at styrke valgsikkerheden. I regeringens indlæg til Højesteret hed det, at postvæsenet allerede har brede lovbestemte beføjelser til at fastsætte regler for klargøring og levering af post, og at staterne fortsat selv ville afgøre, hvem der har stemmeret.\n\nModstanderne – herunder delstater og valgretsorganisationer – har derimod hævdet, at ændringen ville give den føderale regering en rolle i valgadministrationen, som forfatningen i vidt omfang lægger hos delstaterne og Kongressen. De advarede også om praktiske problemer, fordi brevstemmer allerede er på vej til vælgere flere steder.\n\n## Højesteret: Regeringen står svagt i sagen\n\nHøjesteret afviste 14. september regeringens anmodning om midlertidigt at ophæve det retslige forbud. Flertallet skrev kort, at regeringen næppe vil få medhold i sin anfægtelse af den foreløbige kendelse, og at hensynet til parterne heller ikke talte for at sætte reglerne i kraft nu.\n\nDommer Samuel Alito var uenig og argumenterede for, at postvæsenet sandsynligvis har myndighed til at stille krav til den post, det behandler. Dommer Brett Kavanaugh lod samtidig døren stå åben for, at spørgsmålet kan blive vurderet anderledes senere, selv om reglerne ikke bør ændres umiddelbart før dette års valg.\n\nDet betyder, at den principielle strid om postvæsenets beføjelser ikke nødvendigvis er afsluttet. Men for midtvejsvalget er den praktiske konsekvens klar: Postvæsenet fortsætter efter de hidtidige procedurer.\n\nSteiner understregede, at hans opgave er at drive et uafhængigt føderalt postvæsen og gennemføre de regler, som lovgivere og domstole ender med at fastlægge. Han opfordrede samtidig vælgere, der stemmer med posten, til at sende deres stemme mindst syv dage før fristen for at mindske risikoen for forsinkelse.",
+  "source_metadata": [
+    {"name":"Associated Press","url":"https://apnews.com/article/995f98147fbb49fb71696be824abff95","published_date":"2026-09-17","source_class":"authoritative","role":"primary"},
+    {"name":"Supreme Court of the United States","url":"https://www.supremecourt.gov/opinions/25pdf/26a305_4g15.pdf","published_date":"2026-09-14","source_class":"authoritative","role":"primary"},
+    {"name":"Reuters","url":"https://www.reuters.com/world/loss-trump-us-supreme-court-wont-let-postal-service-restrict-mail-ballots-2026-09-14/","published_date":"2026-09-14","source_class":"authoritative","role":"corroboration"}
+  ],
+  "editorial_metadata": {
+    "article_type":"news",
+    "language":"da",
+    "source_pool":"major_media_fallback",
+    "candidates_tried":2,
+    "frontpage_destination":"normal",
+    "final_check":"passed",
+    "profile":"canonical-news-task",
+    "story_cluster_key":"us-mail-voting-2026",
+    "sagen_kort":[
+      "USA's postvæsen har stoppet arbejdet med den portal, der skulle kontrollere vælgeroplysninger, efter Højesteret afviste at lade de nye regler træde i kraft før midtvejsvalget.",
+      "Trumps plan krævede særlige stregkoder på brevstemmekuverter og oplysninger om modtagerne, mens regeringen argumenterede for, at kravene lå inden for postvæsenets lovlige beføjelser."
+    ],
+    "dedupe_context": {
+      "checked_at":"2026-09-18T03:22:00+02:00",
+      "window_days":7,
+      "publish_prs_seen":100,
+      "include_closed_publish_prs":true,
+      "newest_publish_pr":756,
+      "public_articles_seen":null,
+      "duplicate_of":null,
+      "note":"Primary GitHub [PUBLISH] ledger screened with state=all. JAWBONE Act candidate was rejected as already represented by #746/#751/#756. No semantically overlapping transport on the fresh September 17 USPS decision to stop work on the mail-ballot portal was observed. Public history is best-effort supplement under the current canonical mandate."
+    },
+    "discovery_audit": {
+      "discovery_run_id":"kvartover-20260918-0317",
+      "candidates":[
+        {"candidate_id":"jawbone-act-committee","outcome":"duplicate","duplicate_of":"PR #756"},
+        {"candidate_id":"usps-mail-ballot-portal-stopped","outcome":"selected"}
+      ]
+    }
+  },
+  "hero_candidates": [
+    {"provider":"Wikimedia Commons","provider_page":"https://commons.wikimedia.org/wiki/File:United_States_Postal_Service_Headquarters_-_USPS_Washington_D.C..jpg","license":"CC BY 2.0","credit":"Tony Webster / Wikimedia Commons","dimensions":"8091x6173","relevance":"Dokumentarisk foto af USPS' hovedkvarter i Washington, hvor postchef David Steiner gav interviewet"},
+    {"provider":"Wikimedia Commons","provider_page":"https://commons.wikimedia.org/wiki/File:United_States_Postal_Service_(USPS)_Headquarters_in_Washington_D.C._(53830674849).jpg","license":"CC BY 2.0","credit":"Tony Webster / Wikimedia Commons","dimensions":"9504x6336","relevance":"Dokumentarisk foto af USPS' hovedkvarter"},
+    {"provider":"Wikimedia Commons","provider_page":"https://commons.wikimedia.org/wiki/File:Vote_Carefully.jpg","license":"CC BY-SA 4.0","credit":"Lbeaumont / Wikimedia Commons","dimensions":"unknown-above-minimum-to-be-verified-by-media-worker","relevance":"Dokumentarisk foto af en amerikansk vælger, der afgiver brevstemme"}
+  ],
+  "audit": {
+    "discovery_run_id":"kvartover-20260918-0317",
+    "candidate_id":"usps-mail-ballot-portal-stopped",
+    "research_date":"2026-09-18",
+    "hero_rights_checked":true,
+    "semantic_dedupe_performed_once":true
+  }
+}
