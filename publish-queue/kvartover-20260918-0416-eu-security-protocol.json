@@ -1,0 +1,92 @@
+{
+  "queue_id": "kvartover-20260918-0416-eu-security-protocol",
+  "slug": "eu-vil-have-eget-artikel-4-mod-sabotage-og-droner",
+  "headline": "EU vil have sit eget 'Artikel 4' mod sabotage og droneangreb",
+  "category_slug": "udland",
+  "deck": "Ét medlemsland skal kunne udløse et fælles europæisk svar på trusler under grænsen for væbnet angreb.",
+  "body_markdown": "EU-Kommissionens formand Ursula von der Leyen vil skabe en ny nødmekanisme, som skal gøre det muligt for ét EU-land at samle alle medlemslande, når sabotage, cyberangreb eller dronehændelser truer den nationale sikkerhed uden at være et egentligt væbnet angreb.\n\nForslaget blev fremlagt i hendes tale om Unionens tilstand i Europa-Parlamentet onsdag. Von der Leyen beskrev mekanismen som Europas eget svar på NATO's Artikel 4 og kaldte den en nødprotokol for sikkerhed.\n\nTanken er, at et enkelt medlemsland skal kunne aktivere protokollen. Derefter skal alle 27 lande mødes for at koordinere et europæisk svar, begrænse skaderne og forsøge at afskrække yderligere angreb.\n\nBaggrunden er en række hændelser med blandt andet droner, sabotage, brandstiftelse og cyberangreb. Von der Leyen fremhævede et forsøg på droneangreb i Leipzig, som tyske myndigheder har kædet sammen med russiske operatører. Rusland har afvist tyske beskyldninger og har beskyldt NATO-lande for fejlagtigt at give Moskva skylden for hændelser for at øge spændingerne.\n\nVon der Leyen sagde, at EU allerede har flere redskaber og styrker samarbejdet med NATO, men at Unionens beslutningssystemer ikke har fulgt med trusselsbilledet. Hun argumenterede derfor for et fælles europæisk regelsæt for såkaldte hybride angreb – altså handlinger, der ligger under tærsklen for traditionel krig.\n\nForslaget er endnu ikke en vedtaget ordning. Kommissionen skal først konkretisere, hvordan protokollen skal fungere, hvilke hændelser der kan udløse den, og hvad medlemslandene derefter faktisk forpligtes til at gøre.\n\nSamtidig vil von der Leyen arbejde videre med idéen om et europæisk sikkerhedsråd. Det skal efter hendes oplæg kunne inddrage lande uden for EU, blandt andre Storbritannien, Norge, Ukraine og Canada. Hun gav ikke en færdig model for rådets sammensætning eller beføjelser.\n\nReuters citerer både støtte og forbehold fra europæiske regeringer. Norge og Finland har reageret positivt på idéen, mens andre understreger, at nye EU-strukturer ikke må svække eller kopiere NATO unødigt.\n\nDet centrale spørgsmål bliver derfor, om EU kan omsætte idéen om hurtigere fælles handling til en mekanisme, der både kan træffe beslutninger hurtigt og respektere medlemslandenes ansvar for national sikkerhed. Foreløbig er der tale om et politisk forslag – ikke en ny gensidig forsvarsgaranti.",
+  "source_metadata": [
+    {
+      "url": "https://cyprus.representation.ec.europa.eu/news/2026-state-union-address-president-von-der-leyen-2026-09-16_en",
+      "publisher": "European Commission",
+      "source_class": "authoritative",
+      "role": "primary State of the Union speech",
+      "published_at": "2026-09-16"
+    },
+    {
+      "url": "https://www.reuters.com/world/americas/eus-von-der-leyen-backs-european-security-council-playbook-against-sabotage-2026-09-16/",
+      "publisher": "Reuters",
+      "source_class": "authoritative",
+      "role": "independent reporting and reactions",
+      "published_at": "2026-09-16"
+    },
+    {
+      "url": "https://apnews.com/article/4ce4fef2ba8e3866e436655075afc6d3",
+      "publisher": "Associated Press",
+      "source_class": "authoritative",
+      "role": "independent reporting and security context",
+      "published_at": "2026-09-16"
+    }
+  ],
+  "editorial_metadata": {
+    "sagen_kort": [
+      "Von der Leyen foreslår en nødprotokol, hvor ét EU-land kan indkalde alle 27 til et fælles svar på sabotage, cyberangreb og dronehændelser.",
+      "Ordningen er kun et forslag: Kommissionen har endnu ikke fastlagt udløsningskriterier, beføjelser eller medlemslandenes konkrete forpligtelser."
+    ],
+    "frontpage_destination": "normal",
+    "story_cluster_key": "eu-hybrid-security-2026",
+    "dedupe_context": {
+      "checked_at": "2026-09-18T04:20:00+02:00",
+      "window_days": 7,
+      "publish_prs_seen": 100,
+      "include_closed_publish_prs": true,
+      "newest_publish_pr": 760,
+      "public_articles_seen": null
+    },
+    "discovery_run_id": "kvartover-20260918-0416",
+    "discovery_audit": [
+      {
+        "candidate_id": "eu-emergency-security-protocol",
+        "rank": 1,
+        "status": "selected",
+        "source_pool": "major-media-fresh-discover",
+        "reason": "Fresh EU institutional proposal with direct implications for national sovereignty, NATO coordination and responses to sabotage and drone incidents; documented by Commission primary material, Reuters and AP."
+      }
+    ],
+    "hero_candidates": [
+      {
+        "rank": 1,
+        "source_url": "https://commons.wikimedia.org/wiki/File:State_of_the_Union_Address_2026_by_Ursula_von_der_Leyen,_President_of_the_EC_(P-070449-00-16).jpg",
+        "provider": "Wikimedia Commons",
+        "license": "CC BY 4.0",
+        "credit": "© European Union, 2026 / EC Audiovisual Service / Christophe Licoppe / Yügen",
+        "width": 4000,
+        "height": 2667,
+        "mime_hint": "image/jpeg",
+        "relevance": "Documentary photograph of Ursula von der Leyen at the podium during the exact September 16, 2026 State of the Union address in which the proposal was announced."
+      },
+      {
+        "rank": 2,
+        "source_url": "https://commons.wikimedia.org/wiki/File:State_of_the_Union_Address_2026_by_Ursula_von_der_Leyen,_President_of_the_EC_(P-070449-00-36).jpg",
+        "provider": "Wikimedia Commons",
+        "license": "CC BY 4.0",
+        "credit": "© European Union, 2026 / EC Audiovisual Service / Dati Bendo",
+        "width": 4000,
+        "height": 2667,
+        "mime_hint": "image/jpeg",
+        "relevance": "Documentary wide view of the European Parliament hemicycle during the exact State of the Union event."
+      },
+      {
+        "rank": 3,
+        "source_url": "https://commons.wikimedia.org/wiki/File:State_of_the_Union_Address_2026_by_Ursula_von_der_Leyen,_President_of_the_EC_(P-070449-00-21).jpg",
+        "provider": "Wikimedia Commons",
+        "license": "CC BY 4.0",
+        "credit": "© European Union, 2026 / EC Audiovisual Service",
+        "width": 4000,
+        "height": 2667,
+        "mime_hint": "image/jpeg",
+        "relevance": "Documentary photograph from the same State of the Union event; secondary option because it also includes Mark Carney and Roberta Metsola."
+      }
+    ]
+  }
+}
