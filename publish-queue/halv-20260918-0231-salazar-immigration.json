@@ -1,0 +1,80 @@
+{
+  "queue_id": "halv-20260918-0231-salazar-immigration",
+  "slug": "republikaner-advarer-trump-hispanic-vaelgere-foeler-sig-svigtet",
+  "headline": "Republikaner advarer Trump: Spansktalende vælgere føler sig svigtet",
+  "category_slug": "udland",
+  "deck": "María Elvira Salazar støtter fortsat udvisning af kriminelle, men siger, at Trumps migrationskurs er gået for langt.",
+  "sagen_kort": [
+    "Den republikanske kongrespolitiker María Elvira Salazar siger i en ny valgannonce, at dele af Donald Trumps håndhævelse af migrationsreglerne er gået for langt.",
+    "Salazar advarer om, at spansktalende vælgere, som hjalp Trump tilbage til Det Hvide Hus i 2024, nu føler sig svigtet."
+  ],
+  "body_markdown": "En republikansk kongrespolitiker fra Florida går nu offentligt i rette med præsident Donald Trump på et af hans vigtigste politiske områder: migration.\n\nMaría Elvira Salazar, republikansk medlem af Repræsentanternes Hus fra Miami-området, siger i en ny tosproget valgannonce, at dele af regeringens håndhævelse af migrationsreglerne er gået for langt. Hun advarer samtidig Trump om, at spansktalende vælgere, der støttede ham ved præsidentvalget i 2024, føler sig svigtet.\n\nUdmeldingen er bemærkelsesværdig, fordi Salazar selv støtter en stram kurs over for kriminelle udlændinge og tidligere har stemt for lovgivning, der skærper håndhævelsen. Hendes kritik retter sig især mod indgreb over for personer uden kriminel baggrund.\n\n## Halvdelen uden straffeattest\n\nI annoncen henviser Salazar til tal om omkring 50.000 frihedsberøvede i juli og siger, at omtrent halvdelen ikke havde en kriminel fortid. Hun opfordrer Trump til at være varsom med de råd, han får om migrationspolitikken.\n\nReuters beskriver annoncen som et tegn på, at migrationsspørgsmålet, der hjalp Trump tilbage til Det Hvide Hus, nu også kan skabe problemer for Republikanerne frem mod midtvejsvalget 3. november. En Reuters/Ipsos-måling omtalt af nyhedsbureauet viste 39 procents opbakning til Trumps håndtering af migration, mod 50 procent i begyndelsen af 2025.\n\nSalazar afviser samtidig, at hun ønsker amnesti. Hendes linje er, at personer, der har begået alvorlig kriminalitet, skal udvises, mens lovlydige udlændinge, der har opholdt sig længe i USA, bør kunne få en mere stabil juridisk status.\n\nHun har tidligere arbejdet for den tværpolitiske Dignity Act, et forslag om både stærkere grænsekontrol og mulighed for legalisering for visse udlændinge uden lovligt ophold.\n\n## Valgkamp i Miami\n\nSalazar er selv på valg i Floridas 27. kongresdistrikt, der omfatter dele af Miami-Dade og har en stor spansktalende befolkning. Hun møder demokraten Eliott Rodriguez ved valget i november.\n\nTrump har støttet Salazars genvalg. Derfor er hendes direkte kritik også et eksempel på den balance, republikanske kandidater i områder med mange latinamerikanske vælgere forsøger at finde mellem opbakning til præsidentens grænsepolitik og bekymring over, hvem der rammes af den praktiske håndhævelse.\n\nSalazars budskab er ikke et opgør med målet om at håndhæve migrationslovene. Det er en advarsel om, at metoden kan koste politisk støtte blandt netop nogle af de vælgere, som var med til at sikre Trump sejren i 2024.",
+  "source_metadata": {
+    "primary": {
+      "name": "Reuters",
+      "url": "https://www.reuters.com/business/media-telecom/republican-candidate-florida-warns-trump-his-immigration-agenda-has-gone-too-far-2026-09-17/",
+      "published_date": "2026-09-17",
+      "registry_source": true
+    },
+    "corroboration": [
+      {"name": "PBS NewsHour", "url": "https://www.pbs.org/newshour/politics/florida-congresswoman-running-for-reelection-breaks-with-trump-on-immigration", "published_date": "2026-09-17"},
+      {"name": "The Washington Post", "url": "https://www.washingtonpost.com/elections/2026/09/17/new-ad-republican-warns-trump-he-went-too-far-immigration-enforcement/", "published_date": "2026-09-17"}
+    ]
+  },
+  "editorial_metadata": {
+    "article_type": "news",
+    "language": "da",
+    "source_pool": "breaking-major-media",
+    "candidates_tried": 1,
+    "frontpage_destination": "normal",
+    "final_check": "passed",
+    "profile": "canonical-news-task",
+    "sagen_kort": [
+      "Den republikanske kongrespolitiker María Elvira Salazar siger i en ny valgannonce, at dele af Donald Trumps håndhævelse af migrationsreglerne er gået for langt.",
+      "Salazar advarer om, at spansktalende vælgere, som hjalp Trump tilbage til Det Hvide Hus i 2024, nu føler sig svigtet."
+    ],
+    "dedupe_context": {
+      "checked_at": "2026-09-18T02:35:00+02:00",
+      "window_days": 7,
+      "publish_prs_seen": 100,
+      "include_closed_publish_prs": true,
+      "newest_publish_pr": 753,
+      "public_articles_seen": null,
+      "duplicate_of": null,
+      "note": "Primary GitHub [PUBLISH] ledger screened with state=all. No semantically overlapping transport on Salazar's September 17 immigration warning was observed; public history is best-effort supplement under the current canonical mandate."
+    }
+  },
+  "hero_candidates": [
+    {
+      "provider": "Wikimedia Commons",
+      "provider_page": "https://commons.wikimedia.org/wiki/File:Maria_Elvira_Salazar.jpg",
+      "license": "Public domain — U.S. Congress",
+      "credit": "Office of Congresswoman Maria Elvira Salazar / U.S. Congress",
+      "dimensions": "1536x1920",
+      "relevance": "Officielt dokumentarisk portræt af María Elvira Salazar"
+    },
+    {
+      "provider": "Wikimedia Commons",
+      "provider_page": "https://commons.wikimedia.org/wiki/File:REP.MES_Headshot.jpg",
+      "license": "Public domain — U.S. Congress",
+      "credit": "Office of Congresswoman Maria Elvira Salazar / U.S. Congress",
+      "dimensions": "2731x4096",
+      "relevance": "Officielt kongresportræt af María Elvira Salazar"
+    },
+    {
+      "provider": "Wikimedia Commons",
+      "provider_page": "https://commons.wikimedia.org/wiki/File:U.S._Rep._Mar%C3%ADa_Elvira_Salazar_with_Elon_Musk,_2024.jpg",
+      "license": "Public domain — U.S. Congress",
+      "credit": "Rep. María Elvira Salazar Press Office / U.S. Congress",
+      "dimensions": "1290x1861",
+      "relevance": "Dokumentarisk foto af Salazar i hendes offentlige rolle; alternativ kandidat"
+    }
+  ],
+  "audit": {
+    "discovery_run_id": "halv-20260918-0231",
+    "candidate_id": "salazar-trump-immigration-warning",
+    "research_date": "2026-09-18",
+    "hero_rights_checked": true,
+    "semantic_dedupe_performed_once": true
+  }
+}
