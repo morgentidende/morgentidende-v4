@@ -1,0 +1,72 @@
+{
+  "queue_id": "hel-20260918-0159-thales-ai",
+  "slug": "europaeisk-forsvarsgigant-vil-have-ai-under-politisk-kontrol",
+  "headline": "Europæisk forsvarsgigant vil have militær AI under politisk kontrol",
+  "category_slug": "udland",
+  "deck": "Thales efterlyser internationale regler for kunstig intelligens, mens europæiske lande samtidig søger alternativer til amerikansk militærteknologi.",
+  "sagen_kort": [
+    "Franske Thales, Europas største forsvarsteknologivirksomhed, opfordrer regeringer til at skabe en international ramme for udviklingen af kunstig intelligens.",
+    "Samtidig markedsfører selskabet et europæisk kommandosystem uden amerikansk eksportkontrol, mens Tyskland undersøger alternativer til Palantirs system."
+  ],
+  "body_markdown": "Europas største forsvarsteknologivirksomhed, franske Thales, efterlyser en international politisk ramme for udviklingen af kunstig intelligens. Udmeldingen kommer samtidig med, at europæiske lande forsøger at mindske deres afhængighed af amerikansk teknologi på slagmarken.\n\nThales' administrerende direktør Patrice Caine sagde torsdag, at de tekniske muligheder for at holde kunstig intelligens under kontrol allerede findes, men at spørgsmålet i sidste ende ligger hos regeringerne. Han mener derfor, at verden har brug for fælles regler oven på de tekniske sikkerhedsforanstaltninger.\n\nDebatten er blevet mere presserende, fordi kunstig intelligens spiller en voksende rolle i moderne krigsførelse. Systemerne kan blandt andet analysere optagelser fra droner og satellitter, udpege mulige mål og give militære chefer et hurtigere beslutningsgrundlag.\n\n## Europa vil kunne stå på egne ben\n\nThales præsenterer samtidig sit eget AI-baserede kommando- og kontrolsystem, Hexaforce, som et europæisk alternativ uden amerikanske ITAR-eksportbegrænsninger. Det er et følsomt spørgsmål for europæiske regeringer, der i stigende grad diskuterer, hvor afhængige deres væbnede styrker bør være af amerikanske leverandører.\n\nNATO valgte tidligere amerikanske Palantir Technologies' Maven Smart System til operationer på hovedkvartersniveau. Ifølge Reuters er Tyskland imidlertid i gang med at vurdere omkring 30 AI-værktøjer, efter at det tyske militær foreløbig har fravalgt Maven.\n\nBekymringen handler både om kontrol med militære data og om risikoen for, at Washington i en fremtidig konflikt kan begrænse adgangen til amerikansk teknologi. Thales fremhæver derfor Hexaforce som et såkaldt suverænt system.\n\n## To hensyn trækker hver sin vej\n\nUdmeldingen viser et dilemma i den europæiske AI-debat. På den ene side ønsker Frankrig og andre europæiske lande at udvikle teknologien hurtigere for ikke at sakke yderligere bagud i forhold til USA. Frankrigs finansminister Roland Lescure har netop argumenteret for højere tempo for at mindske afhængigheden af amerikanske udbydere.\n\nPå den anden side ønsker Thales politiske rammer, der skal sikre, at teknologien forbliver under menneskelig og statslig kontrol. Caine gør dermed regulering til et regeringsansvar snarere end et spørgsmål, som teknologivirksomheder alene skal afgøre.\n\nThales afviste at gøre diskussionen til et direkte opgør med Palantir. Caine sagde dog, at den amerikanske virksomheds løsning kun dækker en lille del af NATO's samlede behov. Også franske Mistral AI og Comand AI arbejder med militære kommando- og kontrolsystemer.\n\nStriden handler derfor ikke kun om, hvor hurtigt kunstig intelligens skal udvikles. Den handler også om, hvem der skal kontrollere teknologien, hvem der opbevarer Europas militære data, og hvor afhængige europæiske lande vil være af USA i en fremtidig krise.",
+  "source_metadata": {
+    "primary": {
+      "name": "Reuters",
+      "url": "https://www.reuters.com/business/aerospace-defense/frances-thales-urges-international-framework-ai-development-2026-09-17/",
+      "published_date": "2026-09-17",
+      "registry_source": true
+    },
+    "corroboration": []
+  },
+  "editorial_metadata": {
+    "article_type": "news",
+    "language": "da",
+    "source_pool": "discovery",
+    "candidates_tried": 2,
+    "frontpage_destination": "normal",
+    "final_check": "passed",
+    "profile": "canonical-news-task",
+    "dedupe_context": {
+      "checked_at": "2026-09-18T01:59:00+02:00",
+      "window_days": 7,
+      "publish_prs_seen": 100,
+      "include_closed_publish_prs": true,
+      "public_articles_seen": null,
+      "duplicate_of": null,
+      "note": "Primary GitHub publish ledger screened. Migration candidate rejected because the IOM sea-crossing story was already transported in PR #710/#714; no matching Thales/Hexaforce military-AI transport found."
+    }
+  },
+  "hero_candidates": [
+    {
+      "provider": "Wikimedia Commons",
+      "provider_page": "https://commons.wikimedia.org/wiki/File:ThalesMassy_(3).JPG",
+      "license": "CC BY-SA 3.0",
+      "credit": "Cyrilb1881",
+      "dimensions": "2592x1944",
+      "relevance": "Thales-anlæg i Frankrig"
+    },
+    {
+      "provider": "Wikimedia Commons",
+      "provider_page": "https://commons.wikimedia.org/wiki/File:Brussels_NATO_Headquarters.jpg",
+      "license": "CC BY-SA 4.0",
+      "credit": "Ad Meskens",
+      "dimensions": "3061x1638",
+      "relevance": "NATOs hovedkvarter, hvor militære kommandosystemer anvendes"
+    },
+    {
+      "provider": "Wikimedia Commons",
+      "provider_page": "https://commons.wikimedia.org/wiki/File:Thales_Mirador_Mk2_on_FGS_Emden_2025.JPG",
+      "license": "CC BY-SA 3.0 DE",
+      "credit": "Boevaya mashina",
+      "dimensions": "1024x768",
+      "relevance": "Thales militærteknologi i operativ forsvarskontekst"
+    }
+  ],
+  "audit": {
+    "discovery_run_id": "hel-20260918-0159",
+    "candidate_id": "thales-ai-framework",
+    "research_date": "2026-09-18",
+    "hero_rights_checked": true,
+    "semantic_dedupe_performed_once": true
+  }
+}
