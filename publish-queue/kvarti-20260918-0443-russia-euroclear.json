@@ -1,0 +1,37 @@
+{
+  "payload_type": "article",
+  "queue_id": "kvarti-20260918-0443-russia-euroclear",
+  "slug": "russisk-centralbank-sagsoeger-eu-euroclear",
+  "headline": "Ruslands centralbank sagsøger EU i kamp om 1.400 milliarder kroner",
+  "category_slug": "penge",
+  "deck": "En ny EU-regel skal beskytte europæiske virksomheder mod russiske domme. Nu angriber Moskvas centralbank reglen ved EU's egen domstol.",
+  "body_markdown": "Ruslands centralbank har åbnet en ny juridisk front i striden om de enorme russiske formuer, der er fastlåst i Europa. Banken oplyser, at den 15. september anlagde sag ved EU's Ret i Luxembourg mod en del af EU's seneste sanktionsregler.\n\nSagen handler om artikel 1, stk. 28, i en EU-forordning fra 23. juli. Reglen giver mulighed for at beskytte europæiske aktører mod virkningen af visse afgørelser fra russiske domstole. EU-Rådet beskrev i august ændringen som en styrkelse af den juridiske beskyttelse af EU-virksomheder i retssager, der udspringer af sanktionerne mod Rusland.\n\nCentralbanken mener derimod, at EU går for langt. Ifølge banken kan reglerne forhindre russiske parter i at få russiske domme anerkendt og håndhævet uden for EU og dermed gribe ind i en igangværende sag i Belgien. Banken hævder, at ordningen strider mod blandt andet adgang til domstolene, retssikkerhed og staters og centralbankers immunitet. Det er bankens juridiske påstande; EU's Ret har ikke taget stilling til dem.\n\n### En strid om enorme beløb\n\nI centrum står Euroclear, det belgiske værdipapircentral- og afviklingsselskab, hvor omkring 200 milliarder euro i russiske aktiver ifølge Reuters er fastlåst. Det svarer til omtrent 1.500 milliarder kroner.\n\nRuslands centralbank gik sidste år til en domstol i Moskva med et krav mod Euroclear. En russisk domstol tilkendte banken 18,2 billioner rubler, omkring 1.400 milliarder kroner efter den daværende kurs. Euroclear fik i juli afvist sin appel. Euroclear bestrider den russiske jurisdiktion og har samtidig anlagt sag i Belgien for at forhindre håndhævelse af den russiske afgørelse.\n\nDen nye sag ved EU's Ret handler derfor ikke om, hvorvidt Rusland straks skal have de fastlåste reserver tilbage. Den handler om EU's juridiske værn mod russiske domstolsafgørelser og om, hvor langt EU kan gå for at forhindre, at sådanne afgørelser får virkning i andre lande.\n\n### EU vil beskytte virksomheder mod russiske domme\n\nEU vedtog den omstridte bestemmelse som del af sin 21. sanktionspakke mod Rusland. Rådet begrundede pakken med Ruslands krig mod Ukraine og skrev, at den skulle øge presset på russisk økonomi og krigsførelse.\n\nDen russiske centralbank kalder derimod bestemmelsen et direkte indgreb i dens mulighed for at forfølge sine krav. Banken har samtidig forbeholdt sig retten til yderligere krav og forsvar mod EU og medlemslandene.\n\nStriden kan få betydning langt ud over den konkrete retssag. De fastlåste russiske aktiver har i flere år været et centralt spørgsmål i diskussionen om finansiering af Ukraine. Samtidig har Belgien været tilbageholdende med løsninger, der kan efterlade landet eller Euroclear med store juridiske risici.\n\nEU's Ret skal nu først behandle centralbankens søgsmål. At sagen er anlagt, betyder ikke, at banken får medhold.",
+  "source_metadata": [
+    {"url":"https://www.reuters.com/business/russian-central-bank-appeals-eu-top-court-amid-euroclear-dispute-2026-09-17/","title":"Russian central bank appeals to EU top court amid Euroclear dispute","publisher":"Reuters","published_at":"2026-09-17","source_class":"authoritative"},
+    {"url":"https://www.consilium.europa.eu/en/press/press-releases/2026/08/18/statement-by-the-high-representative-on-behalf-of-the-european-union-on-the-alignment-of-certain-countries-concerning-restrictive-measures-in-view-of-russia-s-actions-destabilising-the-situation-in-ukraine-23-july-2026/","title":"EU statement on restrictive measures adopted 23 July 2026","publisher":"Council of the European Union","published_at":"2026-08-18","source_class":"authoritative"},
+    {"url":"https://ebs.publicnow.com/view/C19AD9406077841E624D777BAD68019C50DF5C23","title":"Bank of Russia files claim with EU General Court","publisher":"Bank of Russia via Public","published_at":"2026-09-17","source_class":"authoritative"}
+  ],
+  "editorial_metadata": {
+    "sagen_kort": [
+      "Ruslands centralbank har anlagt sag ved EU's Ret mod en ny regel, der skal beskytte mod håndhævelse af visse russiske domme.",
+      "Striden udspringer af Euroclear-sagen, hvor en russisk domstol har tilkendt centralbanken 18,2 billioner rubler i erstatning."
+    ],
+    "frontpage_destination": "normal",
+    "story_cluster_key": "russia-euroclear-frozen-assets",
+    "dedupe_context": {
+      "checked_at": "2026-09-18T04:46:00+02:00",
+      "window_days": 7,
+      "publish_prs_seen": 100,
+      "include_closed_publish_prs": true,
+      "newest_publish_pr": 762
+    },
+    "discovery_audit": [
+      {"discovery_run_id":"kvarti-20260918-0443","candidate_id":"russia-euroclear-eu-court","rank":1,"status":"selected","source_pool":"major-media-fresh","note":"Fresh September 17 legal development; central facts verified against Reuters, EU Council and Bank of Russia statement."}
+    ],
+    "hero_candidates": [
+      {"rank":1,"provider":"wikimedia_commons","source_url":"https://commons.wikimedia.org/wiki/File:Brussels_-_Euroclear_HQ.jpg","license":"CC BY-SA 4.0","width":3818,"height":5295,"description":"Euroclear headquarters in Brussels; directly relevant documentary exterior."},
+      {"rank":2,"provider":"wikimedia_commons","source_url":"https://commons.wikimedia.org/wiki/File:Brussels-Baudouin_Tower_(1).jpg","license":"CC BY-SA 4.0","width":4032,"height":2268,"description":"Euroclear/Baudouin Tower in Brussels; directly relevant documentary exterior."},
+      {"rank":3,"provider":"wikimedia_commons","source_url":"https://commons.wikimedia.org/wiki/File:Tour_Baudouin_-_Euroclear.jpg","license":"CC BY-SA 4.0","width":4016,"height":6016,"description":"Euroclear office building in Brussels; directly relevant documentary exterior."}
+    ]
+  }
+}
