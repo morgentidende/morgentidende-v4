@@ -1,0 +1,37 @@
+{
+  "payload_type": "article",
+  "queue_id": "hel-20260918-0502-niger-uranium",
+  "slug": "usa-satser-milliarder-uran-niger",
+  "headline": "USA satser 2,6 milliarder kroner på uran i Niger",
+  "category_slug": "udland",
+  "deck": "To år efter de amerikanske soldaters exit går Washington ind i et strategisk mineprojekt i det vestafrikanske land.",
+  "body_markdown": "USA er på vej tilbage i Niger – denne gang med milliarder til uran i stedet for soldater. Den amerikanske udviklingsbank DFC har godkendt finansiering på op til 414,2 millioner dollar til Dasa-projektet i det nordlige Niger. Det svarer til cirka 2,6 milliarder kroner.\n\nBeslutningen blev truffet 16. september som del af en større pakke af amerikanske investeringer. DFC siger, at investeringerne skal sikre kritisk infrastruktur og ressourcer og styrke amerikanske virksomheders position på strategisk vigtige markeder.\n\nDasa drives af det canadiske mineselskab Global Atomic gennem det lokale selskab SOMIDA. Global Atomic ejer 80 procent, mens staten Niger ejer de resterende 20 procent. Selskabet beskriver Dasa som Afrikas højest graderede uranforekomst under udvikling.\n\n### Tilbage efter militær exit\n\nTimingen gør aftalen geopolitisk bemærkelsesværdig. Niger bad i 2024 de amerikanske styrker forlade landet efter militærkuppet året før. USA havde blandt andet haft en stor dronebase i landet som led i kampen mod jihadistiske grupper i Sahel.\n\nNu vender Washington tilbage gennem økonomisk engagement. Reuters beskriver finansieringen som en gevinst for USA i konkurrencen om strategiske råstoffer. Uran kom i 2025 på USA's liste over kritiske mineraler og er centralt som brændsel til atomkraftværker.\n\nNiger har samtidig bevæget sig væk fra sin tidligere tætte forbindelse til Frankrig. Den franske statskontrollerede minekoncern Orano, som i årtier har været en hovedaktør i landets uranindustri, er havnet i en alvorlig strid med de nigerske myndigheder om sine aktiver.\n\n### Pengene er ikke udbetalt endnu\n\nDFC's godkendelse betyder ikke, at hele beløbet allerede er sendt til mineprojektet. Finansieringen er en gældsramme og er fortsat betinget af, at en række krav bliver opfyldt og de endelige finansieringsdokumenter falder på plads.\n\nDet er en vigtig forskel, fordi projektet ligger i en region med betydelige politiske og sikkerhedsmæssige risici. Reuters peger blandt andet på jihadistiske angreb og politisk uro som udfordringer. Global Atomic arbejder desuden med alternative eksportruter for uran fra det indlandsbeliggende Niger.\n\nSelve Dasa-forekomsten ligger omkring 105 kilometer syd for minebyen Arlit. Global Atomic oplyser, at den underjordiske udvikling allerede er i gang, og at selskabet sigter mod kommerciel produktion i anden halvdel af 2028.\n\nFor USA handler projektet derfor om mere end én mine. Det giver Washington en mulighed for at sikre en fremtidig forsyning af uran og samtidig genetablere økonomisk indflydelse i et land, hvor vestlige magter har mistet terræn siden kuppet i 2023. Om investeringen også bliver en varig politisk åbning mellem USA og Niger, er endnu uvist.",
+  "source_metadata": [
+    {"url":"https://www.reuters.com/world/africa/us-seals-big-uranium-investment-niger-two-years-after-troops-left-2026-09-17/","title":"US seals big uranium investment in Niger, two years after troops left","publisher":"Reuters","published_at":"2026-09-17","source_class":"authoritative"},
+    {"url":"https://www.dfc.gov/media/press-releases/dfc-announces-more-8-billion-investments-fuel-american-economic-and-national","title":"DFC Announces More Than $8 Billion in Investments to Fuel American Economic and National Security Interests","publisher":"U.S. International Development Finance Corporation","published_at":"2026-09-16","source_class":"authoritative"},
+    {"url":"https://globalatomiccorp.com/Operations/Uranium/Dasa-Project/default.aspx","title":"Dasa Project","publisher":"Global Atomic Corporation","source_class":"authoritative"}
+  ],
+  "editorial_metadata": {
+    "sagen_kort": [
+      "USA's udviklingsbank DFC har godkendt op til 414,2 millioner dollar – cirka 2,6 milliarder kroner – i finansiering til Dasa-uranprojektet i Niger.",
+      "Aftalen kommer to år efter USA's militære exit fra Niger og kan give Washington adgang til en strategisk råvare, som USA har klassificeret som kritisk."
+    ],
+    "frontpage_destination": "normal",
+    "story_cluster_key": "niger-uranium-us-dasa",
+    "dedupe_context": {
+      "checked_at": "2026-09-18T05:05:00+02:00",
+      "window_days": 7,
+      "publish_prs_seen": 100,
+      "include_closed_publish_prs": true,
+      "newest_publish_pr": 763
+    },
+    "discovery_audit": [
+      {"discovery_run_id":"hel-20260918-0502","candidate_id":"niger-us-dasa-uranium","rank":1,"status":"selected","source_pool":"major-media-fresh","note":"Fresh September 17 Reuters report; financing and project context checked against DFC and Global Atomic primary material."}
+    ],
+    "hero_candidates": [
+      {"rank":1,"provider":"wikimedia_commons","source_url":"https://commons.wikimedia.org/wiki/File:Niger,_Arlit_(9),_street_scene.jpg","license":"CC BY-SA 4.0","width":4288,"height":2848,"description":"Documentary photograph of Arlit, the uranium-mining town roughly 105 km north of Dasa; contextual rather than the Dasa site itself."},
+      {"rank":2,"provider":"wikimedia_commons","source_url":"https://commons.wikimedia.org/wiki/File:Niger,_Arlit_(18),_street_scene.jpg","license":"CC BY-SA 4.0","width":4288,"height":2848,"description":"Documentary photograph from Arlit in northern Niger, directly relevant regional mining context."},
+      {"rank":3,"provider":"wikimedia_commons","source_url":"https://commons.wikimedia.org/wiki/File:Niger,_Arlit_(26),_desertscape.jpg","license":"CC BY-SA 4.0","width":3264,"height":2448,"description":"Documentary desert landscape south of Arlit in Niger's uranium-mining region; contextual image, not the Dasa mine itself."}
+    ]
+  }
+}
