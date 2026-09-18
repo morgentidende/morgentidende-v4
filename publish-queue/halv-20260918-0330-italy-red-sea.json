@@ -1,0 +1,59 @@
+{
+  "queue_id": "halv-20260918-0330-italy-red-sea",
+  "slug": "italien-vil-sende-flaaden-til-bab-el-mandeb-uden-at-vente-paa-eu",
+  "headline": "Italien vil sende flåden til Bab el-Mandeb – vil ikke vente på EU",
+  "category_slug": "udland",
+  "deck": "Houthiernes fremmarch truer en af verdens vigtigste handelsruter. Italien forbereder nu sin egen beskyttelse af handelsskibe.",
+  "sagen_kort": [
+    "Italiens forsvarsminister Guido Crosetto har bedt flåden forberede en plan, der kan sikre italienske handelsskibes passage gennem Bab el-Mandeb-strædet.",
+    "Crosetto siger, at Italien ikke vil vente på EU-operationen Aspides, men omfanget af en eventuel italiensk udsendelse skal fortsat afklares med regering og parlament."
+  ],
+  "body_markdown": "Italien forbereder en selvstændig flådeindsats for at beskytte landets handelsskibe gennem Bab el-Mandeb-strædet ved Yemen. Forsvarsminister Guido Crosetto siger, at landet ikke vil vente på, at EU's flådeoperation Aspides træffer beslutning om passagen.\n\nMeldingen kommer, efter den Iran-støttede muslimske Houthi-bevægelse har rykket frem langs Yemens Rødehavskyst og erobret strategiske områder omkring strædet. Bab el-Mandeb forbinder Det Røde Hav med Adenbugten og er dermed en afgørende del af søvejen mellem Asien, Suezkanalen og Europa.\n\nCrosetto sagde torsdag på et maritimt forum i La Spezia, at han sammen med forsvarschefen har besluttet at aktivere den italienske flåde, så den kan forberede det nødvendige til at sikre italienske skibes passage.\n\n## Vil ikke vente på Bruxelles\n\nIfølge det italienske nyhedsbureau ANSA sagde Crosetto, at Italien sandsynligvis vil handle, så italienske skibe kan begynde at sejle gennem strædet uden at vente på europæisk bureaukrati.\n\nDet er dog endnu ikke en færdig militær operation med et fast antal skibe. Crosetto understregede, at en konkret beslutning om yderligere udsendelser skal træffes sammen med regeringen og parlamentet. Hvis skibe sendes, vil opgaven være at beskytte handelsskibe og bidrage til at genoprette trafikken.\n\nReuters skriver, at ministeren har bedt flåden forberede de nødvendige muligheder for sikker passage. Han fremhævede samtidig, at længere forsinkelser på søvejene kan ramme almindelige borgere gennem dyrere transport, forsinkede leverancer og højere priser.\n\n## Houthiernes fremmarch øger presset\n\nSikkerheden omkring Bab el-Mandeb er blevet forværret efter Houthiernes seneste fremmarch i Yemen. Associated Press beskrev 11. september erobringen af havnebyen Mokha og den strategiske Mayun-ø som en udvikling, der øger risikoen omkring den smalle passage.\n\nDen militære bevægelse er allieret med Iran. Den har siden 2023 angrebet skibsfarten i og omkring Det Røde Hav og begrundet mange af angrebene med krigen i Gaza. Den seneste territoriale fremmarch har givet bevægelsen en stærkere position tæt på selve sejlruten.\n\nEU har allerede operationen Aspides i området med det erklærede formål at beskytte fri sejlads. Crosettos udmelding viser imidlertid, at Rom ikke mener, at den eksisterende europæiske beslutningsgang nødvendigvis er hurtig nok til den aktuelle situation.\n\nItalien har ikke oplyst, hvornår en selvstændig eskorte kan begynde, eller præcis hvilke enheder der i givet fald skal deltage. Det centrale nye skridt er derfor, at flåden nu skal have en national plan klar, mens den politiske beslutning om selve udsendelsen færdiggøres.",
+  "source_metadata": [
+    {"name":"Reuters","url":"https://www.reuters.com/world/italy-readies-navy-protect-its-shipping-amid-bab-el-mandeb-tensions-2026-09-17/","published_date":"2026-09-17","source_class":"authoritative","role":"primary"},
+    {"name":"ANSA","url":"https://www.ansa.it/amp/english/newswire/english_service/2026/09/17/italy-wont-wait-for-eu-to-ensure-its-ships-can-get-through_a73b8059-8374-4074-830b-b38e9ef219c0.html","published_date":"2026-09-17","source_class":"authoritative","role":"corroboration"},
+    {"name":"Associated Press","url":"https://apnews.com/article/ab2e69eb2959979bae44eb4d45ae637e","published_date":"2026-09-11","source_class":"authoritative","role":"context"}
+  ],
+  "editorial_metadata": {
+    "article_type":"news",
+    "language":"da",
+    "source_pool":"major_media_fallback",
+    "candidates_tried":1,
+    "frontpage_destination":"normal",
+    "final_check":"passed",
+    "profile":"canonical-news-task",
+    "story_cluster_key":"bab-el-mandeb-shipping-2026",
+    "sagen_kort":[
+      "Italiens forsvarsminister Guido Crosetto har bedt flåden forberede en plan, der kan sikre italienske handelsskibes passage gennem Bab el-Mandeb-strædet.",
+      "Crosetto siger, at Italien ikke vil vente på EU-operationen Aspides, men omfanget af en eventuel italiensk udsendelse skal fortsat afklares med regering og parlament."
+    ],
+    "dedupe_context": {
+      "checked_at":"2026-09-18T03:34:00+02:00",
+      "window_days":7,
+      "publish_prs_seen":100,
+      "include_closed_publish_prs":true,
+      "newest_publish_pr":757,
+      "public_articles_seen":null,
+      "duplicate_of":null,
+      "note":"Primary GitHub [PUBLISH] ledger screened with state=all. No semantically overlapping transport on Italy's September 17 decision to prepare a national naval protection plan for Italian merchant shipping through Bab el-Mandeb was observed. Public history is best-effort supplement under the current canonical mandate."
+    },
+    "discovery_audit": {
+      "discovery_run_id":"halv-20260918-0330",
+      "candidates":[
+        {"candidate_id":"italy-bab-el-mandeb-navy","outcome":"selected"}
+      ]
+    }
+  },
+  "hero_candidates": [
+    {"provider":"Wikimedia Commons","provider_page":"https://commons.wikimedia.org/wiki/File:ITS_Carabiniere_(F_593)_steams_near_USS_Harry_S_Truman_(8600782).jpg","license":"Public domain (U.S. Navy)","credit":"Lt.Cmdr. Matthew Stroup / U.S. Navy / Wikimedia Commons","dimensions":"2048x1463","relevance":"Dokumentarisk foto af en moderne italiensk Bergamini-klasse fregat til søs"},
+    {"provider":"Wikimedia Commons","provider_page":"https://commons.wikimedia.org/wiki/File:Italian_frigate_Alpino_(F594)_underway_in_the_Ionian_Sea,_9_May_2023_(230509-N-NU642-0004)_(cropped).jpg","license":"Public domain (U.S. federal government)","credit":"Cdr. Fernando Estrella / U.S. Navy / Wikimedia Commons","dimensions":"2169x1058","relevance":"Dokumentarisk foto af italiensk Bergamini-klasse fregat under sejlads"},
+    {"provider":"Wikimedia Commons","provider_page":"https://commons.wikimedia.org/wiki/File:Italian_frigate_Carlo_Margottini_(F592)_underway_in_the_Mediterranean_Sea_on_2_January_2022_(220102-N-UP745-1976).JPG","license":"Public domain (U.S. Navy)","credit":"MC3 Theoplis Stewart II / U.S. Navy / Wikimedia Commons","dimensions":"publication-ready original; Media Worker to verify exact pixels","relevance":"Dokumentarisk foto af italiensk Bergamini-klasse fregat i Middelhavet"}
+  ],
+  "audit": {
+    "discovery_run_id":"halv-20260918-0330",
+    "candidate_id":"italy-bab-el-mandeb-navy",
+    "research_date":"2026-09-18",
+    "hero_rights_checked":true,
+    "semantic_dedupe_performed_once":true
+  }
+}
