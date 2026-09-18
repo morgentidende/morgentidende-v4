@@ -1,0 +1,42 @@
+{
+  "queue_id": "hel-20260918-0600-jawbone",
+  "slug": "usa-senat-jawbone-lovforslag-censur",
+  "headline": "Tværpolitisk flertal vil lade amerikanere sagsøge embedsmænd for censurpres",
+  "category_slug": "udland",
+  "deck": "Et amerikansk senatsudvalg har med 18 mod 10 stemmer sendt et nyt værn mod statsligt pres på private medier videre.",
+  "body_markdown": "Et flertal i det amerikanske Senats handelsudvalg vil give borgere mulighed for at sagsøge føderale myndigheder og embedsmænd, hvis staten presser private virksomheder til at undertrykke ytringer, der er beskyttet af USA's forfatning.\n\nUdvalget vedtog onsdag lovforslaget JAWBONE Act med 18 stemmer mod 10. Forslaget er tværpolitisk og fremsat af den republikanske udvalgsformand Ted Cruz og den demokratiske senator Ron Wyden. Det skal fortsat vedtages af hele Senatet og Repræsentanternes Hus, før det kan blive lov.\n\nForslaget retter sig mod det, amerikanerne kalder »jawboning«: at myndigheder forsøger at få private selskaber til at fjerne eller begrænse lovlig tale, som staten ikke selv må censurere direkte. Efter forslaget kan en borger kræve erstatning, selv hvis myndighedernes pres ikke ender med, at ytringen faktisk bliver fjernet. Myndigheder skal desuden indberette visse kontakter med virksomheder til Kongressen.\n\nCruz peger især på Biden-regeringens kontakter med teknologivirksomheder om blandt andet vacciner og påstande om valgsvindel. Wyden fremhæver samtidig, at problemet ikke følger partiskel: Han har brugt Trump-regeringens pres på tv-stationer og programmer som eksempel på, hvorfor borgere bør have et retsmiddel mod regeringspres.\n\nNetop den tværpolitiske konstruktion gør forslaget usædvanligt. Demokraten Maria Cantwell, der er den ledende demokrat i udvalget, sagde under behandlingen, at en taler bør have et reelt retsmiddel, når staten lægger pres på en platform for at få vedkommende gjort tavs. Hun støtter målet, men advarer om en anden konsekvens af den nuværende tekst.\n\nCantwell frygter, at loven kan gøre det risikabelt for føderale eksperter at kontakte virksomheder om farligt indhold fra kunstig intelligens. Hun nævnte som eksempel en myndighedsansat, der beder et AI-selskab forhindre en model i at forklare, hvordan uran beriges. Fordi USA endnu ikke har en samlet føderal AI-lov, kan sådan en kontakt efter hendes vurdering risikere at blive opfattet som ulovligt pres.\n\nCruz har lovet at arbejde videre med den bekymring. Striden står derfor ikke længere kun mellem tilhængere og modstandere af lovforslaget. Den handler også om, hvor grænsen skal trækkes mellem ulovligt statsligt censurpres og legitim kontakt mellem myndigheder og private virksomheder om sikkerhed.\n\nForslaget er endnu langt fra gældende ret. Men afstemningen viser et sjældent tværpolitisk ønske om at gøre det lettere for borgere at gå rettens vej, når en regering forsøger at opnå gennem private virksomheder, hvad den ikke selv må gøre direkte.",
+  "source_metadata": [
+    {"url":"https://www.reuters.com/world/us-senate-panel-approves-bill-bar-government-officials-pressuring-networks-free-2026-09-16/","name":"Reuters","source_class":"authoritative","published_date":"2026-09-16","note":"Afstemningen 18-10, lovforslagets aktuelle status og tværpolitiske argumenter."},
+    {"url":"https://www.commerce.senate.gov/press/rep/release/cruz-wyden-introduce-legislation-to-guard-first-amendment-speech-rights-against-government-jawboning/","name":"U.S. Senate Committee on Commerce, Science, & Transportation","source_class":"authoritative","published_date":"2026-06-11","note":"Primærkilde om JAWBONE Act, dens retsmiddel, rapporteringskrav og Cruz/Wydens begrundelser."},
+    {"url":"https://www.commerce.senate.gov/press/dem/release/cantwell-receives-commitment-to-refine-jawbone-act-at-markup-of-legislation/","name":"U.S. Senate Committee on Commerce, Science, & Transportation — Democrats","source_class":"authoritative","published_date":"2026-09-17","note":"Primærkilde til Cantwells støtte til målet, AI-indvendingen og Cruz' tilsagn om videre arbejde."}
+  ],
+  "editorial_metadata": {
+    "frontpage_destination": "normal",
+    "sagen_kort": [
+      "Senatets handelsudvalg vedtog JAWBONE Act med 18 stemmer mod 10; hele Kongressen skal stadig behandle forslaget.",
+      "Forslaget vil give borgere mulighed for at sagsøge føderale myndigheder og embedsmænd for pres på private virksomheder om at undertrykke forfatningsbeskyttet tale."
+    ],
+    "story_cluster_key": "us-government-jawboning-free-speech-2026",
+    "dedupe_context": {
+      "checked_at": "2026-09-18T06:03:00+02:00",
+      "window_days": 7,
+      "publish_prs_seen": 100,
+      "include_closed_publish_prs": true,
+      "newest_publish_pr": 767,
+      "public_articles_seen": null,
+      "result": "no_semantic_overlap_found_after_duplicate_restart"
+    },
+    "discovery_audit": {
+      "discovery_run_id": "hel-20260918-0600",
+      "candidates": [
+        {"candidate_id":"europe-sea-crossings-iom","rank":1,"status":"duplicate","source_pool":"major-media-fresh","reason":"Research matched the same September 17 IOM development already transported in PR #710.","duplicate_of":"PR #710"},
+        {"candidate_id":"us-jawbone-act","rank":1,"status":"selected","source_pool":"major-media-fresh","reason":"Fresh bipartisan committee passage on government censorship pressure; verified by Reuters and both sides of the Senate Commerce Committee."}
+      ]
+    }
+  },
+  "hero_candidates": [
+    {"rank":1,"provider":"Wikimedia Commons","source_url":"https://commons.wikimedia.org/wiki/File:Ted_Cruz_official_116th_portrait_(crop_2).jpg","width":1675,"height":2736,"mime":"image/jpeg","license":"Public domain — U.S. Congress","author":"United States Congress","rights_note":"U.S. federal government/Congress work in the public domain; commercial reuse permitted. Central sponsor Ted Cruz."},
+    {"rank":2,"provider":"Wikimedia Commons","source_url":"https://commons.wikimedia.org/wiki/File:Ron_Wyden_official_portrait.jpg","width":1471,"height":2070,"mime":"image/jpeg","license":"Public domain — U.S. Congress","author":"United States Congress","rights_note":"U.S. Congress image in the public domain; commercial reuse permitted. Democratic co-sponsor Ron Wyden."},
+    {"rank":3,"provider":"Wikimedia Commons","source_url":"https://commons.wikimedia.org/wiki/File:Ted_Cruz_senatorial_portrait.jpeg","width":1362,"height":1817,"mime":"image/jpeg","license":"Public domain — U.S. Congress","author":"United States Congress","rights_note":"U.S. Congress image in the public domain; commercial reuse permitted. Alternate documentary portrait of central sponsor Ted Cruz."}
+  ]
+}
