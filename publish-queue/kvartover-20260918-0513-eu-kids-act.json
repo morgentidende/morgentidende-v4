@@ -1,0 +1,29 @@
+{
+  "payload_type": "article",
+  "queue_id": "kvartover-20260918-0513-eu-kids-act",
+  "slug": "eu-vil-forbyde-sociale-medier-boern-under-13",
+  "headline": "EU vil forbyde sociale medier for børn under 13 år",
+  "category_slug": "udland",
+  "deck": "13- og 14-årige skal kun kunne få begrænsede konti gennem deres forældre, mens platformene får nye krav til børnesikkerhed.",
+  "body_markdown": "Europa-Kommissionen vil indføre fælles aldersgrænser for sociale medier i hele EU. I et nyt forslag skal børn under 13 år ikke kunne have en konto på sociale medier, mens unge først fra 15 år skal kunne åbne deres egen konto.\n\nForslaget hedder EU KIDS Act og blev fremlagt 17. september. For 13- og 14-årige lægger Kommissionen op til en mellemform, hvor adgang sker gennem begrænsede konti oprettet og styret af en forælder eller værge.\n\nReglerne stopper ikke ved sociale medier. Forslaget omfatter også videotjenester, onlinespil samt digitale tjenester med chatrobotter og digitale ledsagere rettet mod børn.\n\n### Platformene skal bevise, at de er sikre\n\nEt centralt princip er, at ansvaret flyttes over på tjenesterne. Europa-Kommissionen siger, at udbyderne skal kunne vise, at deres tjenester er alderssvarende og sikre allerede i deres udformning.\n\nKommissionsformand Ursula von der Leyen begrunder forslaget med, at børn bruger meget avanceret teknologi, som ikke oprindeligt blev udviklet med deres trivsel for øje. Målet er samtidig at give forældre større kontrol over børnenes digitale adgang.\n\nReuters oplyser, at forslaget blandt andet retter sig mod vanedannende funktioner, personligt tilpassede strømme af indhold og uønsket kontakt fra fremmede. For tjenester omfattet af reglerne kan manglende efterlevelse i sidste ende udløse bøder på op til seks procent af den globale årlige omsætning.\n\n### Sikkerhed møder privatliv\n\nForslaget rammer en voksende europæisk debat om, hvor langt myndigheder bør gå for at beskytte børn på nettet. Danmark har allerede meldt ud, at regeringen ønsker en aldersgrænse på 15 år for sociale medier, med mulighed for forældresamtykke fra 13 år. Flere andre lande har enten indført eller foreslået egne begrænsninger.\n\nModargumentet handler især om privatliv og kontrol. Teknologibranchen har advaret om, at omfattende alderskontrol kan kræve indsamling eller behandling af flere oplysninger om brugerne. Det betyder, at EU både skal gøre aldersgrænserne effektive og undgå, at kontrollen i sig selv bliver en ny risiko for børns og voksnes privatliv.\n\nKIDS Act er et forslag og dermed ikke gældende lov endnu. Det skal behandles af EU-landene og Europa-Parlamentet, før de endelige regler kan træde i kraft.",
+  "source_metadata": [
+    {"url":"https://digital-strategy.ec.europa.eu/en/news/eu-kids-act-restrict-social-media-platforms-access-children-eu","title":"EU KIDS Act to restrict social media platforms’ access to children in the EU","publisher":"European Commission","published_at":"2026-09-17","source_class":"authoritative"},
+    {"url":"https://commission.europa.eu/news-and-media/news/eu-kids-act-helping-children-navigate-safer-online-world-2026-09-17_en","title":"EU KIDS Act: helping children navigate a safer online world","publisher":"European Commission","published_at":"2026-09-17","source_class":"authoritative"},
+    {"url":"https://www.reuters.com/world/eu-commission-proposes-social-media-ban-children-under-13-2026-09-17/","title":"EU Commission proposes under-13s social media ban","publisher":"Reuters","published_at":"2026-09-17","source_class":"authoritative"}
+  ],
+  "editorial_metadata": {
+    "sagen_kort": [
+      "Europa-Kommissionen foreslår, at børn under 13 år ikke må have konti på sociale medier, og at egen konto først kan åbnes fra 15 år.",
+      "Udbyderne skal efter forslaget bevise, at deres tjenester er sikre for børn; reglerne skal først godkendes af EU-landene og Europa-Parlamentet."
+    ],
+    "frontpage_destination": "normal",
+    "story_cluster_key": "eu-kids-act-social-media-age-limits",
+    "dedupe_context": {"checked_at":"2026-09-18T05:16:00+02:00","window_days":7,"publish_prs_seen":100,"include_closed_publish_prs":true,"newest_publish_pr":764},
+    "discovery_audit": [{"discovery_run_id":"kvartover-20260918-0513","candidate_id":"eu-kids-act-social-media","rank":1,"status":"selected","source_pool":"major-media-breaking-scan","note":"Fresh September 17 Commission proposal verified against two Commission pages and Reuters; no semantic overlap found in the seven-day PUBLISH ledger screened before writing."}],
+    "hero_candidates": [
+      {"rank":1,"provider":"wikimedia_commons","source_url":"https://commons.wikimedia.org/wiki/File:State_of_the_Union_Address_2026_by_Ursula_von_der_Leyen,_President_of_the_EC_(P-070449-00-45).jpg","license":"CC BY 4.0","width":2667,"height":4000,"description":"Documentary photograph of Commission President Ursula von der Leyen speaking in Strasbourg on 16 September 2026, one day before the KIDS Act proposal; EU Audiovisual Service, admin-reviewed on Commons."},
+      {"rank":2,"provider":"wikimedia_commons","source_url":"https://commons.wikimedia.org/wiki/File:Visit_of_Ursula_von_der_Leyen,_President_of_the_European_Commission,_to_Greenland_(P-070390-00-76).jpg","license":"CC BY 4.0","width":2667,"height":4000,"description":"Recent documentary portrait of Commission President Ursula von der Leyen from 7 September 2026; EU Audiovisual Service, admin-reviewed on Commons."},
+      {"rank":3,"provider":"wikimedia_commons","source_url":"https://commons.wikimedia.org/wiki/File:Visit_of_Ursula_von_der_Leyen,_President_of_the_European_Commission,_to_Sweden_(P-069760-00-12).jpg","license":"CC BY 4.0","width":2667,"height":4000,"description":"Documentary portrait of Ursula von der Leyen with European flag context; EU Audiovisual Service, admin-reviewed on Commons."}
+    ]
+  }
+}
