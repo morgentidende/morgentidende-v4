@@ -1,0 +1,80 @@
+{
+  "queue_id": "hel-20260918-0300-jawbone",
+  "slug": "usa-senatsudvalg-vil-give-borgere-ret-til-at-sagsoge-embedsmaend-for-censurpres",
+  "headline": "USA: Senatsudvalg vil lade borgere sagsøge embedsmænd for censurpres",
+  "category_slug": "udland",
+  "deck": "Et tværpolitisk lovforslag skal ramme myndigheder, der presser private virksomheder til at undertrykke grundlovsbeskyttet tale.",
+  "sagen_kort": [
+    "Senatets handelsudvalg vedtog JAWBONE Act med 18 stemmer mod 10; tre demokrater stemte sammen med republikanerne.",
+    "Forslaget vil give borgere mulighed for at kræve erstatning, hvis føderale myndigheder eller ansatte presser private virksomheder til at undertrykke tale beskyttet af First Amendment."
+  ],
+  "body_markdown": "Et udvalg i det amerikanske Senat har taget et markant skridt mod at gøre offentligt pres for censur til et personligt juridisk ansvar for embedsmænd.\n\nSenatets handelsudvalg vedtog onsdag JAWBONE Act med 18 stemmer mod 10. Lovforslaget er fremsat af den republikanske udvalgsformand Ted Cruz og demokraten Ron Wyden og skal nu videre til behandling i det samlede Senat. Det skal også vedtages i Repræsentanternes Hus, før det kan blive lov.\n\n## Borgere skal kunne kræve erstatning\n\nForslaget retter sig mod det, amerikanerne kalder \"jawboning\": situationer, hvor offentlige myndigheder forsøger at få private virksomheder til at begrænse ytringer, som staten selv ikke lovligt kunne forbyde.\n\nHvis loven vedtages, vil en borger kunne anlægge sag mod en føderal myndighed eller ansat, der presser en privat virksomhed til at undertrykke tale beskyttet af den amerikanske forfatnings First Amendment. Det gælder ifølge forslagsstillerne også, hvis presset ikke ender med, at ytringen faktisk bliver fjernet.\n\nTre demokratiske senatorer – Brian Schatz, Ed Markey og Jacky Rosen – stemte sammen med udvalgets republikanere for forslaget. Den tværpolitiske opbakning er bemærkelsesværdig, fordi striden om myndigheders påvirkning af sociale medier og tv-selskaber i flere år har været tæt forbundet med amerikansk partipolitik.\n\n## Begge partier peger på myndighedspres\n\nCruz og Wyden begrundede allerede ved fremsættelsen i juni forslaget med, at det i praksis kan være svært for borgere at få prøvet sager om myndighedspres. Embedsmænd kan forlade deres stilling, regeringer kan skifte, og interne kontakter mellem myndigheder og virksomheder kan være vanskelige at dokumentere.\n\nDebatten har samtidig fået en ny politisk dimension under Donald Trumps regering. Demokratiske medlemmer af handelsudvalget har kritiseret den føderale kommunikationsmyndighed FCC og dens formand Brendan Carr for efter deres opfattelse at bruge myndighedens magt til at påvirke tv-stationers redaktionelle beslutninger. Republikanere har omvendt i årevis anklaget tidligere regeringer for at presse sociale medier til at begrænse blandt andet politiske og covid-relaterede ytringer.\n\nReuters beskriver derfor onsdagens afstemning som et sjældent punkt, hvor medlemmer fra begge partier accepterer selve princippet: staten bør ikke kunne omgå ytringsfriheden ved at få private virksomheder til at gøre det, staten ikke selv må.\n\n## Højesteret har ikke lukket striden\n\nSpørgsmålet har allerede været omkring USA's højesteret. I Murthy mod Missouri behandlede retten anklager om, at føderale myndigheder havde presset sociale medier til at moderere bestemte ytringer. Sagen blev i 2024 afgjort på spørgsmålet om sagsøgernes ret til at føre sagen, og højesteret tog derfor ikke endeligt stilling til, præcis hvornår myndigheders kontakt med private platforme bliver forfatningsstridigt pres.\n\nJAWBONE Act forsøger at ændre den praktiske adgang til domstolene ved udtrykkeligt at skabe mulighed for erstatningssager. Men afstemningen i udvalget gør ikke forslaget til gældende ret. Der venter fortsat både en politisk kamp i Kongressen og, hvis loven vedtages, sandsynligvis juridiske diskussioner om grænsen mellem legitim myndighedskommunikation og ulovligt pres.",
+  "source_metadata": {
+    "primary": {
+      "name": "U.S. Senate Committee on Commerce, Science, & Transportation",
+      "url": "https://www.commerce.senate.gov/press/rep/release/boxing-reform-bill-heads-to-the-senate-floor/",
+      "published_date": "2026-09-16",
+      "registry_source": true
+    },
+    "corroboration": [
+      {"name": "Reuters", "url": "https://www.reuters.com/world/us-senate-panel-approves-bill-bar-government-officials-pressuring-networks-free-2026-09-16/", "published_date": "2026-09-16"},
+      {"name": "U.S. Senate Committee on Commerce, Science, & Transportation", "url": "https://www.commerce.senate.gov/press/rep/release/cruz-wyden-introduce-legislation-to-guard-first-amendment-speech-rights-against-government-jawboning/", "published_date": "2026-06-11"}
+    ]
+  },
+  "editorial_metadata": {
+    "article_type": "news",
+    "language": "da",
+    "source_pool": "major-media-fresh-discover",
+    "candidates_tried": 1,
+    "frontpage_destination": "normal",
+    "final_check": "passed",
+    "profile": "canonical-news-task",
+    "sagen_kort": [
+      "Senatets handelsudvalg vedtog JAWBONE Act med 18 stemmer mod 10; tre demokrater stemte sammen med republikanerne.",
+      "Forslaget vil give borgere mulighed for at kræve erstatning, hvis føderale myndigheder eller ansatte presser private virksomheder til at undertrykke tale beskyttet af First Amendment."
+    ],
+    "dedupe_context": {
+      "checked_at": "2026-09-18T03:04:00+02:00",
+      "window_days": 7,
+      "publish_prs_seen": 100,
+      "include_closed_publish_prs": true,
+      "newest_publish_pr": 755,
+      "public_articles_seen": null,
+      "duplicate_of": null,
+      "note": "Primary GitHub [PUBLISH] ledger screened with state=all; no semantically overlapping transport on the September 16 committee approval of S.4749 JAWBONE Act was observed. Public history is best-effort supplement under the canonical mandate."
+    }
+  },
+  "hero_candidates": [
+    {
+      "provider": "Wikimedia Commons",
+      "provider_page": "https://commons.wikimedia.org/wiki/File:Ted_Cruz_official_116th_portrait.jpg",
+      "license": "Public domain — U.S. Congress",
+      "credit": "U.S. Senate Photographic Studio",
+      "dimensions": "2700x3420",
+      "relevance": "Officielt dokumentarisk portræt af lovforslagets republikanske hovedforslagsstiller Ted Cruz"
+    },
+    {
+      "provider": "Wikimedia Commons",
+      "provider_page": "https://commons.wikimedia.org/wiki/File:United_States_Capitol_-_west_front.jpg",
+      "license": "Wikimedia Commons — rights to be resolved by Media Worker",
+      "credit": "Wikimedia Commons",
+      "dimensions": "3000x1556",
+      "relevance": "Dokumentarisk foto af den amerikanske Kongres, hvor lovforslaget behandles"
+    },
+    {
+      "provider": "Wikimedia Commons",
+      "provider_page": "https://commons.wikimedia.org/wiki/File:U.S._Capitol_east_front_in_2020.jpg",
+      "license": "Wikimedia Commons — rights to be resolved by Media Worker",
+      "credit": "Wikimedia Commons",
+      "dimensions": "6720x4480",
+      "relevance": "Dokumentarisk foto af Capitol som alternativt motiv til Senatshistorien"
+    }
+  ],
+  "audit": {
+    "discovery_run_id": "hel-20260918-0300",
+    "candidate_id": "us-senate-jawbone-act",
+    "research_date": "2026-09-18",
+    "hero_rights_checked": true,
+    "semantic_dedupe_performed_once": true
+  }
+}
