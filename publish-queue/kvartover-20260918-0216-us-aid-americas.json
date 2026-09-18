@@ -1,0 +1,84 @@
+{
+  "queue_id": "kvartover-20260918-0216-us-aid-americas",
+  "slug": "usa-flytter-militaerhjaelp-fra-europa-til-amerika",
+  "headline": "USA flytter 330 millioner kroner i militærhjælp fra Europa og Mellemøsten til Amerika",
+  "category_slug": "udland",
+  "deck": "To NATO-lande mister en del af støtten, mens Washington prioriterer narkobekæmpelse, Panamakanalen og kinesisk indflydelse.",
+  "sagen_kort": [
+    "USA omfordeler 52 millioner dollar, cirka 330 millioner kroner, fra Slovakiet, Nordmakedonien, Tunesien og Irak til fire lande i Amerika.",
+    "Trump-regeringen siger, at pengene skal bekæmpe narkoterrorisme, beskytte Panamakanalen og hindre strategiske rivaler i at få fodfæste i regionen."
+  ],
+  "body_markdown": "USA flytter 52 millioner dollar i militærhjælp fra Europa og Mellemøsten til Latinamerika og Panama. Det svarer til cirka 330 millioner kroner og markerer en konkret forskydning i Trump-regeringens udenrigspolitiske prioriteringer.\n\nDet amerikanske udenrigsministerium har orienteret Kongressen om, at pengene skal tages fra bevillinger til Slovakiet, Nordmakedonien, Tunesien og Irak og i stedet gå til Panama, Peru, Ecuador og Colombia. Slovakiet og Nordmakedonien er begge medlemmer af NATO.\n\nOrdningen, Foreign Military Financing, giver modtagerlandene amerikanske offentlige midler til køb af militært udstyr og tjenester fra amerikanske leverandører. Omfordelingen betyder ikke, at de fire lande, der mister en del af bevillingerne, helt mister amerikansk militær støtte. Det præcise resterende beløb er ikke oplyst.\n\n## Amerika rykker op på prioriteringslisten\n\nUdenrigsministeriet begrunder ændringen med, at den hidtidige fordeling ikke afspejler regeringens prioritering af den vestlige halvkugle. Pengene skal ifølge ministeriet bruges til at bekæmpe det, regeringen kalder narkoterrorisme, og til fortsat at sikre Panamakanalen.\n\nMinisteriet siger også, at støtten skal forhindre strategiske modstandere i at få fodfæste i regionen. Associated Press vurderer, at formuleringen især sigter mod Kina, som gennem en årrække har udbygget sine økonomiske og strategiske forbindelser i Latinamerika.\n\nBeslutningen kommer efter udenrigsminister Marco Rubios besøg i Colombia, Ecuador og Peru, hvor han lovede øget amerikansk samarbejde. Trump-regeringen har samtidig lagt vægt på narkotikabekæmpelse, illegal migration og amerikansk indflydelse i nærområdet.\n\n## Et signal til Europa\n\nBeløbet er beskedent sammenlignet med USA's samlede forsvars- og sikkerhedsbudgetter, men retningen er politisk tydelig. Washington flytter ressourcer væk fra blandt andet to europæiske NATO-allierede og over mod lande tættere på USA.\n\nDet passer med præsident Donald Trumps gentagne krav om, at europæiske NATO-lande skal bære en større del af deres egne forsvarsudgifter. Regeringen har samtidig gjort den vestlige halvkugle til en højere strategisk prioritet.\n\nDer er dog ikke tale om et fuldstændigt amerikansk tilbagetog fra de berørte lande. Slovakiet, Nordmakedonien, Tunesien og Irak vil fortsat modtage amerikansk militær finansiering. Hvor store nedskæringerne bliver for hvert enkelt land, er endnu ikke offentliggjort.\n\nOmfordelingen viser derfor først og fremmest, hvor Washington ønsker at lægge den næste marginale dollar: tættere på USA, på kontrol med narkotikastrømme og Panamakanalen og på konkurrencen om indflydelse med Kina.",
+  "source_metadata": {
+    "primary": {
+      "name": "Associated Press",
+      "url": "https://apnews.com/article/c92157ab38b809a9faef9fa19be50cf7",
+      "published_date": "2026-09-15",
+      "registry_source": true
+    },
+    "corroboration": [
+      {
+        "name": "U.S. Department of State statements as reported by AP",
+        "url": "https://apnews.com/article/c92157ab38b809a9faef9fa19be50cf7",
+        "published_date": "2026-09-15",
+        "registry_source": true
+      }
+    ]
+  },
+  "editorial_metadata": {
+    "article_type": "news",
+    "language": "da",
+    "source_pool": "major_media_fallback",
+    "candidates_tried": 2,
+    "frontpage_destination": "normal",
+    "final_check": "passed",
+    "profile": "canonical-news-task",
+    "dedupe_context": {
+      "checked_at": "2026-09-18T02:20:00+02:00",
+      "window_days": 7,
+      "publish_prs_seen": 100,
+      "include_closed_publish_prs": true,
+      "newest_publish_pr": 752,
+      "public_articles_seen": null,
+      "duplicate_of": null,
+      "note": "Primary GitHub [PUBLISH] ledger screened with state=all. Fresh IOM sea-crossing candidate was rejected as already represented by PR #710/#714. No semantically overlapping transport on the $52m U.S. military-aid reallocation was found."
+    },
+    "sagen_kort": [
+      "USA omfordeler 52 millioner dollar, cirka 330 millioner kroner, fra Slovakiet, Nordmakedonien, Tunesien og Irak til fire lande i Amerika.",
+      "Trump-regeringen siger, at pengene skal bekæmpe narkoterrorisme, beskytte Panamakanalen og hindre strategiske rivaler i at få fodfæste i regionen."
+    ]
+  },
+  "hero_candidates": [
+    {
+      "provider": "Wikimedia Commons",
+      "provider_page": "https://commons.wikimedia.org/wiki/File:The_United_States_State_Department_Headquarters_Building.jpg",
+      "license": "Public domain (U.S. federal government)",
+      "credit": "United States Department of State",
+      "dimensions": "1728x972",
+      "relevance": "Det amerikanske udenrigsministeriums hovedkvarter, som står bag omfordelingen"
+    },
+    {
+      "provider": "Wikimedia Commons",
+      "provider_page": "https://commons.wikimedia.org/wiki/File:United_States_Department_of_State_Building_30.jpg",
+      "license": "Public domain (U.S. National Park Service)",
+      "credit": "Carol M. Highsmith / National Park Service",
+      "dimensions": "1800x1353",
+      "relevance": "Dokumentarisk foto af det amerikanske udenrigsministerium"
+    },
+    {
+      "provider": "Wikimedia Commons",
+      "provider_page": "https://commons.wikimedia.org/wiki/File:The_U.S._Department_of_State_Building_in_Washington_D.C..jpg",
+      "license": "CC BY 2.0",
+      "credit": "Tony Webster",
+      "dimensions": "7407x5249",
+      "relevance": "Dokumentarisk foto af institutionen bag beslutningen"
+    }
+  ],
+  "audit": {
+    "discovery_run_id": "kvartover-20260918-0216",
+    "candidate_id": "us-aid-americas",
+    "research_date": "2026-09-18",
+    "hero_rights_checked": true,
+    "semantic_dedupe_performed_once": true
+  }
+}
