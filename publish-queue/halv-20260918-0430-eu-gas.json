@@ -1,0 +1,95 @@
+{
+  "queue_id": "halv-20260918-0430-eu-gas",
+  "slug": "eu-gaslagre-kun-69-procent-fulde-foer-vinter",
+  "headline": "EU's gaslagre er kun 69 procent fulde før vinteren",
+  "category_slug": "penge",
+  "deck": "Gaslagrene ligger langt under normalen, mens ECB har fordoblet sit prisestimat. Tyskland er nede på 56 procent.",
+  "body_markdown": "Europa går ind i efteråret med markant mindre gas på lager end normalt. Nye tal fra Gas Infrastructure Europe viser, at EU's lagre 17. september var 68,84 procent fulde. Det svarer til knap 779 terawatt-timer gas.\n\nDet er især Europas to store lagerlande, Tyskland og Holland, der trækker ned. De tyske lagre var 56,02 procent fulde, mens de hollandske stod på 53,65 procent. Til sammen råder de to lande over en stor del af EU's lagerkapacitet. Danmark lå højere med 77,58 procent.\n\nReuters peger på, at EU's lagre på denne tid af året normalt ligger omkring 85 procent. Den lave fyldningsgrad kommer samtidig med højere energipriser og fortsat uro om forsyningerne som følge af krigen i Mellemøsten.\n\nDen Europæiske Centralbank har allerede ændret sine forventninger markant. I bankens septemberprognose er den forventede gaspris i tredje kvartal hævet med 20 procent i forhold til juni og ligger nu omkring dobbelt så højt som det niveau, banken regnede med i december 2025. ECB knytter en væsentlig del af stigningen direkte til Europas lave gaslagre.\n\nOgså elpriserne er blevet opjusteret. ECB har hævet sit skøn for engrosprisen på elektricitet i tredje kvartal med 50 procent siden juni. Banken venter nu en gennemsnitlig inflation i euroområdet på 3,0 procent i 2026.\n\nDet betyder ikke, at Europa står foran en akut gasmangel. Kontinentet har siden energikrisen efter Ruslands invasion af Ukraine udbygget sin mulighed for at importere flydende naturgas, LNG, og gasnettet kan flytte forsyninger mellem landene. Men de mindre lagre giver mindre stødpude, hvis vinteren bliver kold eller nye forsyninger falder bort.\n\nGas Infrastructure Europe advarede allerede i foråret om, at markedets priser ikke nødvendigvis gav stærke nok incitamenter til at fylde lagrene hurtigt. Organisationen fremhævede LNG-import og sommerens indsprøjtningsperiode som afgørende for vinterberedskabet.\n\nSituationen er meget forskellig fra land til land. Polen har eksempelvis fyldt 98,28 procent af sine lagre, Italien 85,1 procent og Frankrig 78,01 procent. Men Tyskland, der har Europas største økonomi, ligger på blot 56,02 procent.\n\nReuters vurderer, at et koldt vinterforløb kan tvinge Europa til at købe mere gas på et presset verdensmarked. Det kan igen holde energipriser og inflation oppe og gøre det vanskeligere for ECB at sænke renterne.\n\nDen afgørende usikkerhed er derfor ikke alene, hvor meget gas der ligger på lager nu, men hvor hurtigt Europa kan fortsætte med at fylde lagrene, og hvor hård vinteren bliver.",
+  "source_metadata": [
+    {
+      "name": "Gas Infrastructure Europe",
+      "url": "https://www.gie.eu/",
+      "source_class": "authoritative",
+      "role": "primary",
+      "note": "AGSI storage status 17 September 2026: EU 68.84%, Germany 56.02%, Netherlands 53.65%, Denmark 77.58%."
+    },
+    {
+      "name": "European Central Bank",
+      "url": "https://www.ecb.europa.eu/press/projections/html/ecb.projections202609_ecbstaff~8e340fc69d.en.html",
+      "source_class": "authoritative",
+      "role": "primary",
+      "note": "September 2026 projections: gas-price assumption +20% versus June and roughly double December 2025 assumption; electricity +50% versus June."
+    },
+    {
+      "name": "Reuters",
+      "url": "https://www.reuters.com/business/energy/europes-low-gas-stocks-pile-economic-political-pressure-2026-09-17/",
+      "source_class": "authoritative",
+      "role": "independent",
+      "note": "Independent reporting on low European gas stocks, energy-price pressure and winter risks."
+    }
+  ],
+  "editorial_metadata": {
+    "sagen_kort": [
+      "EU's gaslagre var 17. september 68,84 procent fulde; Tyskland lå på 56,02 procent.",
+      "ECB har hævet sit gasprisskøn for tredje kvartal med 20 procent siden juni og elprisskønnet med 50 procent."
+    ],
+    "frontpage_destination": "normal",
+    "story_cluster_key": "eu-energy-gas-storage-2026",
+    "dedupe_context": {
+      "checked_at": "2026-09-18T04:34:00+02:00",
+      "window_days": 7,
+      "publish_prs_seen": 100,
+      "include_closed_publish_prs": true,
+      "newest_publish_pr": 761,
+      "public_articles_seen": null
+    },
+    "discovery_audit": [
+      {
+        "discovery_run_id": "halv-20260918-0430",
+        "candidate_id": "eu-gas-stocks",
+        "rank": 1,
+        "status": "selected",
+        "source_pool": "major_media_fallback",
+        "summary": "EU gas storage at 68.84%, far below seasonal norm, with ECB sharply higher energy-price assumptions."
+      }
+    ],
+    "hero_candidates": [
+      {
+        "rank": 1,
+        "source_url": "https://commons.wikimedia.org/wiki/File:FSRU-Schiff_%22H%C3%B6egh_Esperanza%22_in_Wilhelmshaven_(2024).jpg",
+        "provider": "wikimedia_commons",
+        "license": "Creative Commons license documented on provider page",
+        "width": 5184,
+        "height": 2074,
+        "description": "Höegh Esperanza LNG storage and regasification vessel at Wilhelmshaven."
+      },
+      {
+        "rank": 2,
+        "source_url": "https://commons.wikimedia.org/wiki/File:LNG-Terminal_Wilhelmshaven_2_5160.jpg",
+        "provider": "wikimedia_commons",
+        "license": "CC BY-SA 4.0",
+        "width": 5673,
+        "height": 3754,
+        "description": "Second LNG terminal at Wilhelmshaven."
+      },
+      {
+        "rank": 3,
+        "source_url": "https://commons.wikimedia.org/wiki/File:Baustelle_LNG_Leitung.jpg",
+        "provider": "wikimedia_commons",
+        "license": "CC BY-SA 4.0",
+        "width": 4608,
+        "height": 3456,
+        "description": "Gas pipeline from Wilhelmshaven LNG terminal toward Etzel storage caverns."
+      },
+      {
+        "rank": 4,
+        "source_url": "https://commons.wikimedia.org/wiki/File:Hoegh_Gannet_in_Brunsb%C3%BCttel_13.jpg",
+        "provider": "wikimedia_commons",
+        "license": "Creative Commons license documented on provider page",
+        "width": 4000,
+        "height": 3000,
+        "description": "FSRU Höegh Gannet at Brunsbüttel."
+      }
+    ]
+  }
+}
