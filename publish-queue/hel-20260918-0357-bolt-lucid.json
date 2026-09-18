@@ -1,0 +1,92 @@
+{
+  "queue_id": "hel-20260918-0357-bolt-lucid",
+  "slug": "bolt-lucid-25000-selvkoerende-biler-europa",
+  "headline": "Bolt vil sætte mindst 25.000 selvkørende biler på Europas veje",
+  "category_slug": "penge",
+  "deck": "Samarbejdet med amerikanske Lucid skal bringe førerløse taxier ud i europæiske storbyer i stor skala.",
+  "body_markdown": "Den estiske kørselsplatform Bolt vil sammen med den amerikanske elbilproducent Lucid udvikle og indsætte mindst 25.000 fuldt selvkørende biler i europæiske byer. Aftalen blev offentliggjort torsdag og er et af de større konkrete bud på at flytte førerløse taxier i Europa fra forsøg til drift i stor skala.\n\nBolt har samtidig et langsigtet mål om at have 100.000 selvkørende biler på sin platform i 2035. De to selskaber har ikke oplyst, hvornår de første 25.000 biler skal være i drift, eller hvor stor investeringen bliver.\n\nDe kommende biler skal bygges på Lucids planlagte mellemstore elbilplatform og forberedes til såkaldt niveau 4-kørsel. Det betyder, at bilen inden for bestemte områder og betingelser kan køre uden, at et menneske behøver at gribe ind. Systemet ventes at bruge Nvidias Hyperion-platform til computerkraft og sensorer.\n\nBolt skal efter planen eje og drive bilflåden. Selskabets afdeling for selvkørende transport skal blandt andet være med til at fastlægge krav til biler, software, sikkerhed og passageroplevelse samt opbygge den nødvendige drift og samarbejder med europæiske byer.\n\nBolt-stifter Markus Villig sagde til Reuters, at Europas strengere sikkerhedsregler end i USA og Kina er den største hindring for en hurtig udrulning. Han vurderer samtidig, at Europa på længere sigt kan få plads til millioner af førerløse taxier.\n\nAftalen betyder dog ikke, at 25.000 biler allerede er bestilt. Selskaberne beskriver tallet som Bolts mål, og der er endnu ingen offentlig tidsplan for udrulningen. Det gør forskellen mellem ambition og faktisk levering væsentlig.\n\nKonkurrencen er allerede i gang. Reuters skriver, at andre selskaber har startet eller planlagt førerløse taxitjenester i Europa, mens Bolt selv tidligere har indgået samarbejder om selvkørende køretøjer med blandt andre Stellantis.\n\nFor Bolt er den nye aftale derfor både et teknologisk væddemål og et forsøg på at sikre sig en stor position, hvis førerløse taxier bliver almindelige i europæiske byer. For passagererne er den afgørende ubekendte fortsat, hvornår teknologien og myndighedernes godkendelser gør planerne til almindelig hverdag.",
+  "source_metadata": [
+    {
+      "url": "https://www.reuters.com/business/bolt-lucid-target-least-25000-self-driving-vehicles-europe-2026-09-17/",
+      "publisher": "Reuters",
+      "source_class": "authoritative",
+      "role": "independent reporting",
+      "published_at": "2026-09-17"
+    },
+    {
+      "url": "https://ir.lucidmotors.com/news-releases/news-release-details/lucid-and-bolt-partner-develop-and-deploy-autonomous-mobility",
+      "publisher": "Lucid Group",
+      "source_class": "authoritative",
+      "role": "primary company announcement",
+      "published_at": "2026-09-17"
+    },
+    {
+      "url": "https://bolt.eu/en/blog/",
+      "publisher": "Bolt",
+      "source_class": "authoritative",
+      "role": "primary company announcement index",
+      "published_at": "2026-09-17"
+    }
+  ],
+  "editorial_metadata": {
+    "sagen_kort": [
+      "Bolt sigter mod mindst 25.000 fuldt selvkørende Lucid-biler i flere europæiske byer og lande.",
+      "Der er endnu ingen offentlig tidsplan eller investeringssum, og de 25.000 biler er et mål – ikke en offentliggjort bindende ordre."
+    ],
+    "frontpage_destination": "normal",
+    "story_cluster_key": "europe-autonomous-transport-2026",
+    "dedupe_context": {
+      "checked_at": "2026-09-18T03:59:00+02:00",
+      "window_days": 7,
+      "publish_prs_seen": 100,
+      "include_closed_publish_prs": true,
+      "newest_publish_pr": 759,
+      "public_articles_seen": null
+    },
+    "discovery_run_id": "hel-20260918-0357",
+    "discovery_audit": [
+      {
+        "candidate_id": "bolt-lucid-25000",
+        "rank": 1,
+        "status": "selected",
+        "source_pool": "major-media-fresh-discover",
+        "reason": "Fresh large-scale European autonomous-transport plan with concrete 25,000-vehicle target, independent Reuters verification and primary company documentation."
+      }
+    ],
+    "hero_candidates": [
+      {
+        "rank": 1,
+        "source_url": "https://commons.wikimedia.org/wiki/File:Bolt_company_taxi.jpg",
+        "provider": "Wikimedia Commons",
+        "license": "CC BY-SA 4.0",
+        "credit": "Davidi Vardi / Wikimedia Commons",
+        "width": 5342,
+        "height": 3005,
+        "mime_hint": "image/jpeg",
+        "relevance": "Documentary photograph of Bolt taxis in Budapest; illustrative, not the announced autonomous Lucid vehicle."
+      },
+      {
+        "rank": 2,
+        "source_url": "https://commons.wikimedia.org/wiki/File:2024_Lucid_Air_-_02.jpg",
+        "provider": "Wikimedia Commons",
+        "license": "CC BY-SA 4.0",
+        "credit": "Oleg Yunakov / Wikimedia Commons",
+        "width": 8064,
+        "height": 6048,
+        "mime_hint": "image/jpeg",
+        "relevance": "Documentary photograph of a Lucid vehicle; illustrative because the announced fleet will use Lucid's future Midsize platform."
+      },
+      {
+        "rank": 3,
+        "source_url": "https://commons.wikimedia.org/wiki/File:Bolt_TAKSO_-_Opel_Zafira.JPG",
+        "provider": "Wikimedia Commons",
+        "license": "Public domain",
+        "credit": "Dmitry G / Wikimedia Commons",
+        "width": 4096,
+        "height": 2304,
+        "mime_hint": "image/jpeg",
+        "relevance": "Documentary photograph of a Bolt taxi in Tallinn; illustrative of Bolt's ride-hailing operation."
+      }
+    ]
+  }
+}
