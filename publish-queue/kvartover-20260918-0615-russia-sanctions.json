@@ -1,0 +1,42 @@
+{
+  "queue_id": "kvartover-20260918-0615-russia-sanctions",
+  "slug": "usa-rusland-sanktioner-100-procent-told",
+  "headline": "USA's Kongres giver Trump mulighed for 100 procent told mod købere af russisk energi",
+  "category_slug": "udland",
+  "deck": "Lovpakken er sendt til Trump efter et bredt flertal. Indien advarer om konsekvenser for handel og energimarked.",
+  "body_markdown": "USA's Kongres har vedtaget en omfattende sanktionspakke mod Rusland og Iran, som blandt andet giver præsident Donald Trump mulighed for at lægge told på op til 100 procent på varer fra de største købere af russisk olie og gas. Lovforslaget er nu sendt til Trump, som har sagt, at han vil underskrive det.\n\nRepræsentanternes Hus vedtog pakken med 262 stemmer mod 159. Senatet havde allerede godkendt den med 86 mod 11. Dermed er den politiske uenighed ikke først og fremmest, om Rusland skal mødes med hårdere økonomisk pres, men hvor store handelsbeføjelser præsidenten samtidig skal have.\n\nLovpakken retter sig mod russiske embedsmænd, finansielle institutioner, energisektoren og den såkaldte skyggeflåde af tankskibe, der beskyldes for at hjælpe Rusland med at omgå sanktioner. Den giver desuden præsidenten mulighed for målrettet told på op til 100 procent mod de største importører af russisk olie og gas samt centrale lande, der hjælper med sanktionsomgåelse.\n\nDet betyder ikke, at en told på 100 procent automatisk træder i kraft. Beføjelsen ligger hos præsidenten, hvis loven underskrives. Men muligheden rammer direkte ind i forholdet til store energikøbere som Kina og Indien.\n\nIndiens regering har allerede advaret om, at de nye amerikanske muligheder kan skade forholdet mellem Indien og USA og påvirke det internationale energimarked. New Delhi siger samtidig, at landet vil beskytte sine handels- og energiinteresser.\n\nTilhængerne ser netop presset på Ruslands energikunder som lovens styrke. Den republikanske senator Roger Wicker har argumenteret for, at de største købere er med til at finansiere Vladimir Putins krigsmaskine, og at økonomisk pres derfor skal ramme både Rusland og dem, der holder energiindtægterne oppe.\n\nModstanden går på, at værktøjet også kan ramme amerikanerne. Den republikanske senator Rand Paul forsøgte tidligere at fjerne toldbeføjelsen og kaldte den i praksis en meget stor skattestigning, fordi told på import betales gennem amerikanske importører, virksomheder og forbrugere. I Repræsentanternes Hus stemte 58 demokrater for pakken, mens 152 stemte imod.\n\nLovforslaget er opkaldt efter den afdøde republikanske senator Lindsey Graham, som i mere end et år arbejdede for en tværpolitisk sanktionspakke. Ud over Rusland-delen forlænger pakken også amerikanske sanktioner mod Iran.\n\nHvis Trump underskriver, får han dermed et nyt redskab, der kan flytte presset fra russiske virksomheder til nogle af verdens største økonomier. Hvor hårdt redskabet faktisk bliver brugt, bliver næste afgørende spørgsmål.",
+  "source_metadata": [
+    {"url":"https://www.reuters.com/legal/government/us-house-takes-up-russia-sanctions-bill-backed-by-late-senator-graham-2026-09-16/","name":"Reuters","source_class":"authoritative","published_date":"2026-09-16","note":"Husets 262-159-afstemning, Senatets tidligere vedtagelse, pakkens hovedindhold og politiske modstand."},
+    {"url":"https://www.wicker.senate.gov/2026/07/16/wicker-darline-graham-blumenthal-and-shaheen-introduce-legislation-to-hold-purchasers-of-russian-oil-accountable/","name":"Senator Roger Wicker","source_class":"authoritative","published_date":"2026-07-16","note":"Primærkilde om sanktionernes mål, skyggeflåden og toldbeføjelsen på op til 100 procent."},
+    {"url":"https://www.paul.senate.gov/senator-rand-paul-offers-amendment-to-strip-half-trillion-dollar-tax-increase-from-russia-sanctions-bill/","name":"Senator Rand Paul","source_class":"authoritative","published_date":"2026-08-07","note":"Primærkilde for modargumentet mod den brede toldbeføjelse."},
+    {"url":"https://www.foreign.senate.gov/press/rep/release/chairman-risch-statement-on-house-passage-of-russia-sanctions-bill","name":"Senatets udenrigsudvalg","source_class":"authoritative","published_date":"2026-09-17","note":"Primær bekræftelse af Husets vedtagelse og pakkens formål."}
+  ],
+  "editorial_metadata": {
+    "frontpage_destination": "normal",
+    "sagen_kort": [
+      "Repræsentanternes Hus vedtog pakken 262-159; Senatet havde tidligere stemt 86-11 for.",
+      "Trump får mulighed for told på op til 100 procent mod de største købere af russisk olie og gas, hvis han underskriver loven."
+    ],
+    "story_cluster_key": "us-russia-sanctions-2026",
+    "dedupe_context": {
+      "checked_at": "2026-09-18T06:17:00+02:00",
+      "window_days": 7,
+      "publish_prs_seen": 100,
+      "include_closed_publish_prs": true,
+      "newest_publish_pr": 768,
+      "public_articles_seen": null,
+      "result": "no_semantic_overlap_found"
+    },
+    "discovery_audit": {
+      "discovery_run_id": "kvartover-20260918-0615",
+      "candidates": [
+        {"candidate_id":"us-russia-sanctions","rank":1,"status":"selected","source_pool":"major-media-breaking-scan","reason":"Fresh congressional passage with major geopolitical, energy and trade consequences; documented by Reuters and Senate primary sources."}
+      ]
+    }
+  },
+  "hero_candidates": [
+    {"rank":1,"provider":"Wikimedia Commons","source_url":"https://commons.wikimedia.org/wiki/File:Flickr_-_USCapitol_-_The_West_Front_of_the_U.S._Capitol.jpg","width":2000,"height":1262,"mime":"image/jpeg","license":"Public domain (US federal government work)","author":"Architect of the Capitol","rights_note":"Public-domain U.S. federal government work; documentary image of the U.S. Capitol."},
+    {"rank":2,"provider":"Wikimedia Commons","source_url":"https://commons.wikimedia.org/wiki/File:United_States_Capitol_Building_2024.jpg","mime":"image/jpeg","license":"CC BY-SA 4.0","author":"Raydann","rights_note":"Commercial reuse permitted with attribution and share-alike; documentary 2024 image of the U.S. Capitol."},
+    {"rank":3,"provider":"Wikimedia Commons","source_url":"https://commons.wikimedia.org/wiki/File:House_of_Representatives_Chamber_in_the_United_States_Capitol_building,_1868_(27603231870).jpg","width":2846,"height":1406,"mime":"image/jpeg","license":"No known copyright restrictions","author":"DC Public Library Commons source","rights_note":"Commons documents no known copyright restrictions; historic documentary image of the House chamber."}
+  ]
+}
