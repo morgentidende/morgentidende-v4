@@ -1,0 +1,43 @@
+{
+  "queue_id": "kvarti-20260918-0543-iran-monitoring",
+  "slug": "rusland-kina-veto-iran-sanktionskontrol",
+  "headline": "Rusland og Kina stopper FN's uafhængige kontrol med Iran-sanktioner",
+  "category_slug": "udland",
+  "deck": "Sanktionerne består, men et russisk-kinesisk veto fjerner ekspertpanelet, der skulle kontrollere, om de bliver overholdt.",
+  "body_markdown": "Rusland og Kina har nedlagt veto mod at forlænge mandatet for det FN-panel, der skulle overvåge de internationale sanktioner mod Iran. Dermed består sanktionerne, men den uafhængige ekspertkontrol under FN's Sikkerhedsråd forsvinder.\n\nEt amerikansk forslag ville have forlænget ekspertpanelets mandat med et år. 11 af Sikkerhedsrådets 15 medlemmer stemte for, Rusland og Kina stemte imod, mens Pakistan og Somalia undlod at stemme. Fordi Rusland og Kina er permanente medlemmer med vetoret, faldt forslaget.\n\nSanktionerne blev genindført i september 2025, efter at Frankrig, Storbritannien og Tyskland aktiverede den såkaldte snapback-mekanisme fra atomaftalen med Iran. De omfatter blandt andet indefrysning af iranske aktiver i udlandet, begrænsninger på våbenhandel og sanktioner knyttet til Irans ballistiske missilprogram.\n\nDet afgørende nye er derfor ikke, at sanktionerne ophæves. Det gør de ikke. Men Sikkerhedsrådet mister sit ekspertpanel til uafhængigt at undersøge og rapportere om mulige brud. USA advarede efter afstemningen om, at det vil gøre det vanskeligere at få upartisk dokumentation af sanktionsomgåelse.\n\nRusland og Kina afviser samtidig selve det juridiske grundlag for den vestlige linje. Kina har tidligere sagt i Sikkerhedsrådet, at resolution 2231 udløb i oktober 2025, og at den fortsatte behandling af Irans atomprogram derfor mangler grundlag. Rusland har fremført en tilsvarende indvending.\n\nStorbritannien, Frankrig og USA fastholder derimod, at genindførelsen af sanktionerne skete efter reglerne i atomaftalen, og at de genaktiverede FN-resolutioner fortsat er bindende.\n\nStriden handler dermed både om Iran og om, hvem der i praksis kan kontrollere sanktionerne. Formelt består restriktionerne. Men uden ekspertpanelet bliver den internationale overvågning mindre samlet netop på et tidspunkt, hvor stormagterne allerede er dybt uenige om, hvilke regler der gælder.",
+  "source_metadata": [
+    {"url":"https://apnews.com/article/united-nations-iran-sanctions-russia-china-c509e344bc45ba87670b9a668afbbb49","name":"Associated Press","source_class":"authoritative","published_date":"2026-09-17","note":"Afstemning, sanktionernes status, stemmetal og parternes reaktioner."},
+    {"url":"https://www.reuters.com/world/china/russia-china-end-mandate-independent-monitoring-un-sanctions-iran-2026-09-17/","name":"Reuters","source_class":"authoritative","published_date":"2026-09-17","note":"Uafhængig rapportering om vetoet og konsekvenserne for overvågningen."},
+    {"url":"https://main.un.org/securitycouncil/en/events/programme-work-16","name":"FN's Sikkerhedsråd","source_class":"authoritative","published_date":"2026-09-17","note":"Primærkilde, der dokumenterer Sikkerhedsrådets møde om ekspertpanelet 17. september."},
+    {"url":"https://transcripts.un.org/en/sc/10192","name":"FN-transkript","source_class":"authoritative","published_date":"2026-07-10","note":"Primær dokumentation af Ruslands/Kinas og Storbritanniens modsatrettede juridiske positioner om Iran-sanktionerne."}
+  ],
+  "editorial_metadata": {
+    "frontpage_destination": "normal",
+    "sagen_kort": [
+      "11 medlemmer stemte for at forlænge ekspertpanelet, men Rusland og Kina brugte deres veto.",
+      "FN-sanktionerne mod Iran består; det er den uafhængige overvågning af deres efterlevelse, der nu bortfalder."
+    ],
+    "story_cluster_key": "iran-un-sanctions-monitoring-2026",
+    "dedupe_context": {
+      "checked_at": "2026-09-18T05:47:00+02:00",
+      "window_days": 7,
+      "publish_prs_seen": 100,
+      "include_closed_publish_prs": true,
+      "newest_publish_pr": 766,
+      "public_articles_seen": null,
+      "result": "no_semantic_overlap_found"
+    },
+    "discovery_audit": {
+      "discovery_run_id": "kvarti-20260918-0543",
+      "candidates": [
+        {"candidate_id":"iran-monitoring-veto","rank":1,"status":"selected","source_pool":"major-media-fresh","reason":"Fresh September 17 veto; sanctions, great-power conflict and enforcement consequences; verified by AP, Reuters and UN material."}
+      ]
+    }
+  },
+  "hero_candidates": [
+    {"rank":1,"provider":"Wikimedia Commons","source_url":"https://commons.wikimedia.org/wiki/File:United_Nations_Headquarters_-_Security_Council_chamber,_angled_view_(cropped).jpg","width":5626,"height":3376,"mime":"image/jpeg","license":"CC BY 4.0","author":"Jdforrester","rights_note":"Commercial reuse and adaptation permitted with attribution; documentary image of the actual UN Security Council chamber."},
+    {"rank":2,"provider":"Wikimedia Commons","source_url":"https://commons.wikimedia.org/wiki/File:United_Nations_Headquarters_-_Security_Council_chamber,_straight-on_view.jpg","width":3780,"height":3024,"mime":"image/jpeg","license":"CC BY 4.0","author":"Jdforrester","rights_note":"Commercial reuse and adaptation permitted with attribution; documentary image of the actual UN Security Council chamber."},
+    {"rank":3,"provider":"Wikimedia Commons","source_url":"https://commons.wikimedia.org/wiki/File:United_Nations_Headquarters_-_Security_Council_chamber,_angled_view.jpg","width":7032,"height":5626,"mime":"image/jpeg","license":"CC BY 4.0","author":"Jdforrester","rights_note":"Commercial reuse and adaptation permitted with attribution; documentary image of the actual UN Security Council chamber."},
+    {"rank":4,"provider":"Wikimedia Commons","source_url":"https://commons.wikimedia.org/wiki/File:United_Nations_Security_Council.jpg","width":2824,"height":1417,"mime":"image/jpeg","license":"CC BY-SA 2.0","author":"Patrick Gruban","rights_note":"Commercial reuse permitted with attribution and share-alike; documentary image of the actual UN Security Council chamber."}
+  ]
+}
