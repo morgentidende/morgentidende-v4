@@ -1,0 +1,57 @@
+{
+  "queue_id": "kvarti-20260918-0347-public-charge",
+  "slug": "trump-strammer-green-card-regler-offentlig-hjaelp-kan-tale-imod-ansoegere",
+  "headline": "Trump strammer green card-regler: Offentlig hjælp kan tale imod ansøgere",
+  "category_slug": "udland",
+  "deck": "Den nye regel træder i kraft fredag. Demokratiske delstater og storbyer forsøger at få domstolene til at bremse den.",
+  "sagen_kort": [
+    "Fra 18. september kan amerikanske immigrationsmyndigheder igen lægge bredere vægt på brug af offentlige ydelser, når de vurderer visse ansøgninger om permanent ophold.",
+    "En koalition af demokratiske delstater og storbyer har sagsøgt regeringen og mener, at reglen er uklar og kan få familier til at fravælge ydelser, de lovligt har ret til."
+  ],
+  "body_markdown": "USA strammer fredag reglerne for, hvornår en udlænding kan få permanent opholdstilladelse – det såkaldte green card. Trump-regeringen genopliver en bredere udgave af den gamle regel om, at en ansøger kan afvises, hvis myndighederne vurderer, at personen sandsynligvis vil blive afhængig af offentlig forsørgelse.\n\nÆndringen træder i kraft 18. september og betyder, at immigrationsmyndighederne igen får større mulighed for at inddrage brug af offentlige ydelser i den samlede vurdering. Reuters har blandt andet nævnt fødevarehjælp og Medicaid, den offentlige amerikanske sundhedsordning for personer med lav indkomst, som eksempler på ydelser, der kan få betydning.\n\n## Et opgør med Bidens snævrere regel\n\nReglen genopliver centrale dele af en politik fra Donald Trumps første præsidentperiode. I 2019 udvidede regeringen begrebet \"public charge\" – en person, der forventes at blive en byrde for det offentlige – så flere former for offentlig støtte kunne tælle imod en ansøger.\n\nJoe Bidens regering opgav den brede tilgang og indførte i 2022 en snævrere regel, hvor især kontant offentlig forsørgelse og længerevarende institutionsophold kunne få betydning. Trump-regeringen har argumenteret for, at immigrationsloven skal bruges til at fremme selvforsørgelse og forhindre, at nye permanente indvandrere bliver afhængige af skattefinansierede ydelser.\n\nDet er ikke det samme som et automatisk forbud mod green card for enhver, der har modtaget offentlig hjælp. Myndighederne foretager en samlet vurdering af den enkelte ansøger, og hvilke ydelser der konkret kan tillægges vægt, er netop et af stridspunkterne i de retssager, der nu er anlagt.\n\n## Delstater går i retten\n\nMandag anlagde en gruppe demokratisk ledede delstater samt storbyer og lokale myndigheder sager ved en føderal domstol i New York for at få reglen stoppet. Blandt sagsøgerne er New York, Californien og Illinois samt byer som New York City, Chicago og San Francisco.\n\nSagsøgerne mener ifølge Reuters, at regeringen har gjort kriterierne så uklare, at familier kan blive bange for at bruge lovlige sundheds- og velfærdsydelser. De hævder desuden, at ændringen er i strid med de amerikanske regler for, hvordan føderale myndigheder må indføre nye bestemmelser.\n\nNew Yorks borgmester Zohran Mamdani sagde ved offentliggørelsen af byernes søgsmål, at familier allerede er begyndt at fravælge ydelser af frygt for følgerne for deres immigrationssag. Han understregede samtidig, at selve retten til ydelserne ikke er ændret.\n\nTrump-regeringens modsvar er, at amerikansk immigrationsret længe har indeholdt princippet om, at personer, der får permanent ophold, som udgangspunkt skal kunne forsørge sig selv. Den nye regel ændrer, hvor bredt myndighederne kan bruge dette princip i praksis.\n\nDomstolene kan fortsat gribe ind. Men medmindre en dommer bremser reglen, er 18. september datoen, hvor den nye vurdering begynder at gælde.",
+  "source_metadata": [
+    {"name":"Reuters","url":"https://www.reuters.com/legal/government/states-cities-sue-block-trump-immigration-rule-public-benefits-2026-09-14/","published_date":"2026-09-14","source_class":"authoritative","role":"primary"},
+    {"name":"Reuters","url":"https://www.reuters.com/legal/government/us-revive-rule-that-could-deny-green-cards-immigrants-using-public-benefits-2026-07-16/","published_date":"2026-07-16","source_class":"authoritative","role":"background"},
+    {"name":"Associated Press","url":"https://apnews.com/article/immigrants-residency-trump-2d631ee59e141da4cf471817ef414829","published_date":"2026-07-16","source_class":"authoritative","role":"corroboration"}
+  ],
+  "editorial_metadata": {
+    "article_type":"news",
+    "language":"da",
+    "source_pool":"major_media_fresh",
+    "candidates_tried":1,
+    "frontpage_destination":"normal",
+    "final_check":"passed",
+    "profile":"canonical-news-task",
+    "story_cluster_key":"us-public-charge-2026",
+    "sagen_kort":[
+      "Fra 18. september kan amerikanske immigrationsmyndigheder igen lægge bredere vægt på brug af offentlige ydelser, når de vurderer visse ansøgninger om permanent ophold.",
+      "En koalition af demokratiske delstater og storbyer har sagsøgt regeringen og mener, at reglen er uklar og kan få familier til at fravælge ydelser, de lovligt har ret til."
+    ],
+    "dedupe_context": {
+      "checked_at":"2026-09-18T03:50:00+02:00",
+      "window_days":7,
+      "publish_prs_seen":100,
+      "include_closed_publish_prs":true,
+      "newest_publish_pr":758,
+      "public_articles_seen":null,
+      "duplicate_of":null,
+      "note":"Primary GitHub [PUBLISH] ledger screened with state=all. No semantically overlapping transport on the September 18 effective date of the revived U.S. public-charge rule was observed. Public history is best-effort supplement under the current canonical mandate."
+    },
+    "discovery_audit": {
+      "discovery_run_id":"kvarti-20260918-0347",
+      "candidates":[{"candidate_id":"us-public-charge-effective","outcome":"selected"}]
+    }
+  },
+  "hero_candidates": [
+    {"provider":"Wikimedia Commons","provider_page":"https://commons.wikimedia.org/wiki/File:210908-H-NI589-089.jpg","license":"Public domain (U.S. Department of Homeland Security)","credit":"Glenn Fawcett / U.S. Customs and Border Protection / Wikimedia Commons","dimensions":"6509x4339","relevance":"Dokumentarisk luftfoto af Department of Homeland Securitys hovedkvarter, den myndighed der ejer immigrationspolitikken"},
+    {"provider":"Wikimedia Commons","provider_page":"https://commons.wikimedia.org/wiki/File:Department_of_Homeland_Security%E2%80%99s_new_headquarters_is_ceremoniously_opened.jpg","license":"Public domain (U.S. Department of Homeland Security)","credit":"Tara Molle / DHS / Wikimedia Commons","dimensions":"5504x8256","relevance":"Dokumentarisk foto fra Department of Homeland Securitys hovedkvarter"},
+    {"provider":"Wikimedia Commons","provider_page":"https://commons.wikimedia.org/wiki/File:USCIS_HQ_Groundbreaking_Ceremony_(38096348641).jpg","license":"Public domain (U.S. Department of Homeland Security)","credit":"U.S. Department of Homeland Security / Wikimedia Commons","dimensions":"publication-ready original; Media Worker to verify exact pixels","relevance":"Dokumentarisk foto fra USCIS' hovedkvarter, myndigheden der behandler green card-sager"}
+  ],
+  "audit": {
+    "discovery_run_id":"kvarti-20260918-0347",
+    "candidate_id":"us-public-charge-effective",
+    "research_date":"2026-09-18",
+    "hero_rights_checked":true,
+    "semantic_dedupe_performed_once":true
+  }
+}
