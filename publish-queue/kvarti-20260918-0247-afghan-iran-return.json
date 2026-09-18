@@ -1,0 +1,80 @@
+{
+  "queue_id": "kvarti-20260918-0247-afghan-iran-return",
+  "slug": "irans-krise-sender-afghanere-tilbage-til-taliban",
+  "headline": "Irans krise sender afghanere tilbage til Taliban – mange vender hjem næsten uden opsparing",
+  "category_slug": "udland",
+  "deck": "Krig, inflation og manglende arbejde presser afghanske familier ud af Iran og tilbage til et land med få muligheder.",
+  "sagen_kort": [
+    "Kun 29 procent af nyligt hjemvendte afghanere fra Iran havde nogen opsparing tilbage, viser undersøgelser fra FN's migrationsorganisation omtalt af Reuters.",
+    "Ved Islam Qala-grænsen vender mindst 20 til 40 familier frivilligt tilbage om dagen, mens især kvinder og piger møder Talibans omfattende begrænsninger."
+  ],
+  "body_markdown": "Irans økonomiske krise og krigen i landet presser afghanske familier tilbage over grænsen til Afghanistan – også familier, som oprindeligt flygtede fra Talibans magtovertagelse i 2021.\n\nVed grænseovergangen Islam Qala i det vestlige Afghanistan vender mindst 20 til 40 familier frivilligt tilbage hver dag, oplyser en lokal Taliban-embedsmand til Reuters. Mange kommer tilbage med meget få penge og udsigt til et arbejdsmarked, hvor mulighederne er begrænsede.\n\n## Opsparingen er væk\n\nKun 29 procent af de nyligt hjemvendte fra Iran havde nogen opsparing tilbage, viser undersøgelser fra FN's migrationsorganisation IOM, som Reuters henviser til.\n\nPresset kommer fra flere sider. Forbrugerpriserne i Iran er ifølge landets statistiske myndighed steget næsten 90 procent på et år, mens krig, sanktioner og en svækket valuta har gjort hverdagen dyrere. Afghanske arbejdere fortæller samtidig om mangel på arbejde og løn, der enten ikke rækker eller slet ikke bliver udbetalt.\n\nFor nogle familier er valget derfor blevet at vende tilbage til Afghanistan, selv om de forlod landet netop på grund af Taliban.\n\nFN's flygtningeorganisation UNHCR yder ved Islam Qala hjælp til visse hjemvendte og deporterede. Organisationen tilbyder blandt andet basal sundhedshjælp, midlertidig overnatning og en kontant engangsydelse til personer, der opfylder betingelserne. UNHCR fastholder samtidig sin anbefaling til stater om ikke at tvangsreturnere afghanere og understreger, at frivillig tilbagevenden skal være informeret og ske under forsvarlige forhold.\n\n## Kvinder vender tilbage til langt færre rettigheder\n\nKonsekvenserne er særligt store for kvinder og piger. Siden Taliban igen overtog magten, er kvinders adgang til uddannelse, arbejde og en række dele af det offentlige liv blevet stærkt begrænset.\n\nReuters har ved Islam Qala talt med familier, hvor piger, der gik i skole i Iran, nu står uden tilsvarende mulighed efter hjemkomsten. For familierne bliver den økonomiske krise i Iran dermed ikke blot et spørgsmål om at flytte hjem. Den kan også betyde et markant tab af frihed og fremtidsmuligheder.\n\nTilbagevandringen er del af en langt større bevægelse. IOM har tidligere opgjort, at mere end seks millioner afghanere vendte tilbage fra Iran og Pakistan fra september 2023 til maj 2026. Den nye strøm fra Iran viser, hvordan krigen og den økonomiske nedtur dér fortsat skubber mennesker mod et Afghanistan, som selv kæmper med fattigdom, mangel på arbejde og international isolation.",
+  "source_metadata": {
+    "primary": {
+      "name": "Reuters",
+      "url": "https://www.reuters.com/world/asia-pacific/impoverished-by-war-iran-afghan-migrants-return-taliban-rule-2026-09-17/",
+      "published_date": "2026-09-17",
+      "registry_source": true
+    },
+    "corroboration": [
+      {"name": "UNHCR Afghanistan", "url": "https://help.unhcr.org/afghanistan/support/returning-to-afghanistan/help-if-youre-returning-from-iran/", "published_date": "2026-03-23"},
+      {"name": "UNHCR Iran", "url": "https://help.unhcr.org/iran/en/how-can-i-seek-asylum-in-iran/voluntary-repatriation1/voluntary-repatriation-unhcr-facilitated-return/", "published_date": "2026-09-17"}
+    ]
+  },
+  "editorial_metadata": {
+    "article_type": "news",
+    "language": "da",
+    "source_pool": "breaking-major-media",
+    "candidates_tried": 1,
+    "frontpage_destination": "normal",
+    "final_check": "passed",
+    "profile": "canonical-news-task",
+    "sagen_kort": [
+      "Kun 29 procent af nyligt hjemvendte afghanere fra Iran havde nogen opsparing tilbage, viser undersøgelser fra FN's migrationsorganisation omtalt af Reuters.",
+      "Ved Islam Qala-grænsen vender mindst 20 til 40 familier frivilligt tilbage om dagen, mens især kvinder og piger møder Talibans omfattende begrænsninger."
+    ],
+    "dedupe_context": {
+      "checked_at": "2026-09-18T02:51:00+02:00",
+      "window_days": 7,
+      "publish_prs_seen": 100,
+      "include_closed_publish_prs": true,
+      "newest_publish_pr": 754,
+      "public_articles_seen": null,
+      "duplicate_of": null,
+      "note": "Primary GitHub [PUBLISH] ledger screened with state=all. No semantically overlapping transport on the September 17 Reuters development about Afghan families returning from Iran's war/economic crisis was observed; public history is best-effort supplement under the current canonical mandate."
+    }
+  },
+  "hero_candidates": [
+    {
+      "provider": "Wikimedia Commons",
+      "provider_page": "https://commons.wikimedia.org/wiki/File:Islam_Qala_in_Herat_Province_of_Afghanistan-cropped.jpg",
+      "license": "Public domain — U.S. Department of State",
+      "credit": "U.S. Embassy Kabul / U.S. Department of State",
+      "dimensions": "2848x2034",
+      "relevance": "Dokumentarisk foto af Islam Qala ved grænsen mellem Afghanistan og Iran"
+    },
+    {
+      "provider": "Wikimedia Commons",
+      "provider_page": "https://commons.wikimedia.org/wiki/File:Qala1.JPG",
+      "license": "CC BY-SA 4.0",
+      "credit": "Diktat38 / Wikimedia Commons",
+      "dimensions": "3264x2448",
+      "relevance": "Dokumentarisk foto fra Islam Qala-grænseområdet"
+    },
+    {
+      "provider": "Wikimedia Commons",
+      "provider_page": "https://commons.wikimedia.org/wiki/File:Qala2.JPG",
+      "license": "CC BY-SA 4.0",
+      "credit": "Diktat38 / Wikimedia Commons",
+      "dimensions": "3264x2448",
+      "relevance": "Dokumentarisk foto af ankomst til Islam Qala i Afghanistan"
+    }
+  ],
+  "audit": {
+    "discovery_run_id": "kvarti-20260918-0247",
+    "candidate_id": "afghan-returnees-iran-crisis",
+    "research_date": "2026-09-18",
+    "hero_rights_checked": true,
+    "semantic_dedupe_performed_once": true
+  }
+}
