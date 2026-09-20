@@ -1,0 +1,27 @@
+{
+  "payload_type": "discovery_audit",
+  "queue_id": "news-20260916-0931-brazil-audit",
+  "terminal_reason": "NO_LEGAL_HERO",
+  "editorial_metadata": {
+    "discovery_run_id": "news-20260916-0931",
+    "final_qa_duplicate": false,
+    "candidates": [
+      {
+        "candidate_id": "brazil-eu-antimicrobial-imports",
+        "source_pool": "discovery",
+        "source_path": "Brussels Signal -> EUR-Lex / Reuters",
+        "rank": 1,
+        "candidate_headline": "EU stopper brasiliansk kød og andre animalske varer efter manglende garanti om antibiotikaregler",
+        "deep_screened": true,
+        "downstream_sources": [
+          "https://eur-lex.europa.eu/eli/reg_impl/2026/1189/oj/eng/pdf",
+          "https://www.reuters.com/business/retail-consumer/eu-ban-animal-products-affects-18-billion-brazilian-exports-2026-09-03/",
+          "https://www.reuters.com/world/americas/brazil-warns-reciprocal-measures-against-eu-if-talks-lift-meat-ban-stall-2026-09-03/"
+        ],
+        "decision": "hard_stop",
+        "reason": "NO_LEGAL_HERO: central facts were documented, but no sufficiently relevant hero candidate with documented commercial-use and local-storage rights was established within the run budget",
+        "model_prompt_version": "canonical docs/automations/news-task.md @ 2aed590f7b342eb8aea0c60c7974bcec6ee7d9a1"
+      }
+    ]
+  }
+}
