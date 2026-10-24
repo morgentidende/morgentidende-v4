@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "queue_id": "halv-20260917-1329-canada-eu",
+  "type": "article",
+  "source_pool": "discovery",
+  "status": "queued",
+  "article": {
+    "category": "Udland",
+    "headline": "Canada søger tættere EU-bånd efter Trumps toldpres",
+    "dek": "Premierminister Mark Carney åbner for et markant tættere forhold til EU, mens handelskonflikten med USA presser Canada til at sprede sine økonomiske og sikkerhedspolitiske forbindelser.",
+    "sagen_kort": [
+      "Canada undersøger et tættere samarbejde med EU på handel, sikkerhed og forsvar.",
+      "Tilnærmelsen sker, mens amerikanske toldsatser har øget presset på canadisk økonomi og handel."
+    ],
+    "body_markdown": "Canada bevæger sig tættere på EU, mens forholdet til landets klart største handelspartner, USA, er blevet mere usikkert under præsident Donald Trumps toldpolitik.\n\nPremierminister Mark Carney har i europæiske samtaler åbnet for et bredere og mere formaliseret samarbejde med EU. Det gælder både handel, investeringer, forsvar og sikkerhed.\n\nUdviklingen er bemærkelsesværdig, fordi Canada historisk har været økonomisk tæt bundet til USA. Når Washington hæver handelsbarriererne, får Ottawa et stærkere incitament til at sprede sine forbindelser.\n\nEU og Canada har allerede frihandelsaftalen CETA, men den nye politiske tilnærmelse går videre end almindelig varehandel. Canada har også søgt tættere adgang til europæiske forsvars- og industrisamarbejder.\n\nFor EU er Canada en attraktiv partner: et stort råvareland, NATO-medlem og en vestlig økonomi med tætte historiske forbindelser til Europa. For Canada handler det samtidig om at mindske sårbarheden over for beslutninger i Washington.\n\nTilnærmelsen betyder ikke, at Canada kan erstatte USA som handelspartner fra den ene dag til den anden. De geografiske og økonomiske bånd over den amerikansk-canadiske grænse er enorme. Men den viser, at amerikansk toldpolitik kan få langsigtede geopolitiske følger, hvis traditionelle allierede søger nye markeder og institutionelle forbindelser.\n\nDet afgørende spørgsmål bliver derfor, hvor langt Ottawa og Bruxelles konkret vil gå. Et tættere partnerskab kan give Canada større handlefrihed, men vil også stille krav om kompromiser med EU-regler og europæiske politiske prioriteter.",
+    "sources": [
+      {"name":"Brussels Signal","url":"https://brusselssignal.eu/","role":"discovery source"},
+      {"name":"European Commission","url":"https://commission.europa.eu/","role":"primary institutional verification"}
+    ],
+    "editorial_notes": "Fresh discovery candidate. Verify every time-sensitive formulation and exact Carney/EU wording against cited source material before publication. No claim that Canada has obtained EU membership or formal associate-member status unless primary documentation supports it. Hero required before QA/publication per canonical pipeline. Final QA must run seven-day semantic duplicate check."
+  }
+}
