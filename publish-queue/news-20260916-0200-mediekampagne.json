@@ -1,0 +1,97 @@
+{
+  "queue_id": "news-20260916-0200-mediekampagne",
+  "slug": "150-tyske-medier-vil-skabe-politisk-pres-for-regulering",
+  "headline": "150 tyske medier går sammen – vil skabe politisk pres for regulering",
+  "dek": "ARD, ZDF og store private medier fører fælles demokratikampagne. Bag initiativet står også et erklæret mål om at presse politikere til handling.",
+  "category_slug": "udland",
+  "kind": "news",
+  "sagen_kort": [
+    "Omkring 150 tyske medieaktører deltager 14.–19. september i kampagnen »Demokrati braucht viele Stimmen«.",
+    "Initiativtageren BDZV skriver, at målet også er at skabe politisk pres for regulering af globale techplatforme."
+  ],
+  "body_markdown": "Omkring 150 tyske medieaktører har i denne uge samlet sig under ét fælles budskab om professionel journalistik og demokrati. Blandt deltagerne er både de public service-finansierede ARD og ZDF, private tv-selskaber som RTL Deutschland og ProSiebenSat.1 samt aviser, magasiner og brancheorganisationer.\n\nKampagnen hedder »Demokrati braucht viele Stimmen« – demokrati har brug for mange stemmer – og løber fra 14. til 19. september omkring FN's internationale demokratidag. Officielt beskrives den som et forsvar for pressefrihed, mediemangfoldighed og troværdig information.\n\nMen initiativets egne dokumenter viser, at ambitionen ikke kun er at fortælle borgerne om journalistikkens betydning. Den tyske udgiverorganisation BDZV, som har taget initiativ til og koordinerer kampagnen, skriver direkte, at politikken »hurtigst muligt« må handle og regulere magtfulde globale platforme. Målet er ifølge organisationen at skabe både offentlig opmærksomhed og »politisk handlingspres«.\n\nBDZV begrunder ønsket med, at digitale platforme og kunstig intelligens i stigende grad bestemmer, hvilke oplysninger mennesker ser. Organisationen mener, at det svækker uafhængig journalistiks synlighed og øger risikoen for desinformation og manipulation.\n\nKampagnen samler ellers medier med meget forskellige finansieringsformer og redaktionelle profiler. ARD og ZDF er offentligt finansierede public service-medier, mens blandt andre RTL og ProSiebenSat.1 lever på kommercielle vilkår. Den fælles kampagne understreger samtidig, at de enkelte redaktioner selv bestemmer deres konkrete indhold i aktionsugen.\n\nTaz-chefredaktør Ulrike Winkelmann skrev allerede 26. august om initiativet, at »alle seriøse medier« ser sig selv som demokratiets bolværker. Hun fremhævede, at kampagnen skal vise forskellen mellem seriøs rapportering og det, hun kaldte »ressentiment-spredning«, mellem research og påstand samt mellem oplysning og desinformation.\n\nNetop kombinationen af journalistisk kampagne og et erklæret ønske om politisk regulering gør initiativet mere end en almindelig reklameuge for medierne. På den ene side argumenterer arrangørerne for, at stærke redaktionelle medier er nødvendige som modvægt til globale platforme. På den anden side rejser det et oplagt spørgsmål om rollefordelingen, når en stor gruppe medier samtidig bruger en fælles offentlig kampagne til at øge presset for politiske indgreb over for deres digitale konkurrenter.\n\nInitiativet er synligt over hele Tyskland i denne uge. På Haus der Presse i Berlin er facaden dækket af kampagnens store lyserøde slogan. BDZV siger, at fællesbudskabet skal skabe maksimal synlighed i offentligheden – og at den brede alliance skal få både lokal og landsdækkende gennemslagskraft.",
+  "source_metadata": [
+    {
+      "url": "https://www.bdzv.de/service/presse/branchennachrichten/2026/demokratie-braucht-viele-stimmen",
+      "title": "Demokratie braucht viele Stimmen",
+      "publisher": "BDZV",
+      "source_type": "primary"
+    },
+    {
+      "url": "https://www.ard.de/die-ard/presse-kontakt/ard-pressemeldungen/2026/09-01-demokratie-braucht-viele-stimmen-medien-starten-gemeinsame-aktion-100.html",
+      "title": "Journalistische Medien starten gemeinsame bundesweite Aktion zur Bedeutung professioneller Berichterstattung",
+      "publisher": "ARD",
+      "source_type": "primary"
+    },
+    {
+      "url": "https://taz.de/taz--lage/!6207235/",
+      "title": "Demokratie braucht mehr Stimmen als die der taz",
+      "publisher": "taz",
+      "source_type": "authoritative"
+    }
+  ],
+  "editorial_metadata": {
+    "discovery_run_id": "news-20260916-0200",
+    "story_kind": "news",
+    "final_qa_duplicate": false,
+    "duplicate_of": null,
+    "share_reason": "Jeg sender dig den her, fordi 150 store tyske medier ikke bare fører en fælles demokratikampagne – initiativtageren siger direkte, at kampagnen også skal skabe politisk pres for regulering af techplatforme.",
+    "discovery_audit": [
+      {
+        "candidate_id": "zdf-privatisering",
+        "source_pool": "discovery",
+        "rank": 1,
+        "candidate_headline": "Kulturminister Weimer tænker over privatisering af ZDF",
+        "deep_screened": true,
+        "downstream_sources": ["Deutschlandfunk", "DWDL"],
+        "decision": "duplicate",
+        "reason": "Næsten-identisk artikel allerede afleveret i PR #451",
+        "model_prompt_version": "canonical-news-task"
+      },
+      {
+        "candidate_id": "mediekampagne-regulering",
+        "source_pool": "discovery",
+        "rank": 2,
+        "candidate_headline": "150 medier samles i demokratikampagne med mål om politisk pres",
+        "deep_screened": true,
+        "downstream_sources": ["BDZV", "ARD", "taz"],
+        "decision": "selected",
+        "reason": "Frisk, underdækket og direkte dokumenteret af initiativets egne kilder",
+        "model_prompt_version": "canonical-news-task"
+      }
+    ],
+    "hero_candidates": [
+      {
+        "source_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Ulrike%20Winkelmann%20-%20Zukunft%20des%20%C3%96ffentlich-rechtlichen%20Rundfunks%20%2833946446713%29.jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "CC BY-SA 2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "credit_text": "Heinrich-Böll-Stiftung / SeeSaw / Sophia Lukasch, CC BY-SA 2.0",
+        "rights_notes": "Wikimedia Commons original 5644x3763; commercial reuse and local storage allowed with attribution/share-alike.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": true,
+        "alt_text": "Taz-chefredaktør Ulrike Winkelmann ved en debat om public service-medier"
+      },
+      {
+        "source_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Ulrike-winkelmann-2013.jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "CC BY-SA 2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "credit_text": "Petra Sitte, CC BY-SA 2.0",
+        "rights_notes": "Wikimedia Commons original 1654x1101; commercial reuse and local storage allowed with attribution/share-alike.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": true,
+        "alt_text": "Den tyske journalist Ulrike Winkelmann under en offentlig debat"
+      }
+    ]
+  },
+  "source_registry_updates": [
+    {"domain": "bdzv.de", "classification": "authoritative", "notes": "Primær brancheorganisation for egne initiativer og dokumenter"},
+    {"domain": "ard.de", "classification": "authoritative", "notes": "Primær public service-kilde for egne initiativer og udmeldinger"},
+    {"domain": "taz.de", "classification": "authoritative", "notes": "Etableret tysk nationalt nyhedsmedie; primær for egne redaktionelle udtalelser"}
+  ]
+}
