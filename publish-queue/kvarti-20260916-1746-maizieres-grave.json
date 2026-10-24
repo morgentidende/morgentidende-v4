@@ -1,0 +1,93 @@
+{
+  "queue_id": "kvarti-20260916-1746-maizieres-grave",
+  "slug": "96-katolske-grave-vandaliseret-frankrig-kvinde-indlagt",
+  "headline": "96 katolske grave vandaliseret i Frankrig – mistænkt kvinde tvangsindlagt",
+  "category_slug": "udland",
+  "kind": "news",
+  "manchet": "Kors, krucifikser og Jesus-statuer blev ødelagt nær Metz. En 32-årig kvinde meldte sig selv og er nu indlagt.",
+  "sagen_kort": [
+    "Fransk politi fandt skader på 96 grave i Maizières-lès-Metz, hvor kors og krucifikser var brækket af og samlet på jorden.",
+    "En 32-årig kvinde sagde selv, at hun stod bag hærværket; hendes varetægt blev senere ophævet, fordi hendes tilstand krævede tvangsindlæggelse."
+  ],
+  "body_markdown": "En kirkegård i den franske by Maizières-lès-Metz blev tirsdag ramt af omfattende hærværk mod katolske gravsymboler. Efterforskere registrerede skader på 96 grave, hvor kors og krucifikser var blevet ødelagt eller brækket af og flere steder samlet på jorden.\n\nSagen efterforskes som krænkelse eller skænding af grave begået på grund af de afdødes virkelige eller formodede religiøse tilhørsforhold. Det oplyste anklagemyndigheden i Metz ifølge franske medier.\n\n## Kvinde meldte sig selv\n\nBeboere i området slog alarm omkring klokken 6.50 tirsdag morgen efter at have opdaget ødelæggelserne på den gamle kirkegård. Vidner fortalte politiet, at de havde set en kvinde beskadige en grav og derefter forlade stedet.\n\nSenere samme dag mødte en 32-årig kvinde selv op hos politiet på kirkegården og sagde, at hun havde begået hærværket. Hun blev anholdt og afhørt.\n\nHendes frihedsberøvelse blev siden ophævet, fordi hendes helbredstilstand ifølge anklagemyndigheden ikke var forenelig med fortsat tilbageholdelse. Hun blev i stedet tvangsindlagt. Efterforskningen fortsætter, og hendes forklaring kan genoptages, hvis hendes tilstand tillader det.\n\n## Borgmester: Katolske symboler blev målrettet\n\nByens borgmester, Julien Freyburger, sagde efter ødelæggelserne, at de katolske symboler efter hans vurdering var blevet ramt præcist og systematisk. Han kaldte hærværket skammeligt og krævede, at de ansvarlige bliver identificeret og straffet.\n\nDen juridiske efterforskning peger også på religion som en mulig del af motivet, fordi sagen er åbnet efter den skærpede bestemmelse om skænding af grave på grund af religiøst tilhørsforhold. Det er dog ikke det samme som, at et endeligt motiv er fastslået. Den mistænktes helbredstilstand gør det særligt vigtigt ikke at gå længere end de oplysninger, anklagemyndigheden har offentliggjort.\n\nHærværket skete mindre end to uger før pave Leo XIV efter planen besøger Metz. Borgmesteren har knyttet de to begivenheder sammen i sin offentlige reaktion, men myndighederne har ikke fremlagt dokumentation for, at det kommende pavebesøg var motivet.\n\nMaizières-lès-Metz ligger omkring ti kilometer nord for Metz. Den gamle kirkegård har 1.472 grave, og kommunens to kirkegårde blev lukket, mens politi og teknikere arbejdede på stedet.",
+  "source_metadata": [
+    {
+      "source_name": "TF1 Info",
+      "url": "https://www.tf1info.fr/justice-faits-divers/maizieres-les-metz-un-vandalisme-lache-un-cimetiere-profane-pres-de-metz-a-dix-jours-de-la-visite-du-pape-une-femme-en-garde-a-vue-2464364.html",
+      "domain": "tf1info.fr",
+      "source_type": "authoritative"
+    },
+    {
+      "source_name": "Libération / AFP",
+      "url": "https://www.staging.libe.io/societe/police-justice/une-femme-profane-une-centaine-de-tombes-en-banlieue-de-metz-20260915_OJHJEQSUCVFQHKWKHSXV6DZAQM/",
+      "domain": "libe.io",
+      "source_type": "authoritative"
+    },
+    {
+      "source_name": "Radio Mélodie",
+      "url": "https://www.radiomelodie.com/a/flash/18934-96-tombes-ont-ete-degradees-dans-un-cimetiere-de-maizieres-les-metz",
+      "domain": "radiomelodie.com",
+      "source_type": "authoritative"
+    }
+  ],
+  "source_registry_updates": [],
+  "story_cluster_id": "maizieres-les-metz-cemetery-vandalism-2026",
+  "editorial_metadata": {
+    "discovery_run_id": "kvarti-20260916-1746",
+    "final_qa_duplicate": false,
+    "discovery_audit": [
+      {
+        "candidate_id": "document-maizieres-96-graves",
+        "source_pool": "discovery",
+        "rank": 1,
+        "candidate_headline": "Frankrig: 96 grave med kors og statuer vandaliseret på kirkegård",
+        "deep_screened": true,
+        "downstream_sources": ["tf1info.fr", "libe.io", "radiomelodie.com"],
+        "decision": "selected",
+        "reason": "Frisk, underdækket historie med klar religions- og samfundsvinkel. Centrale fakta er uafhængigt dokumenteret af franske medier med oplysninger fra anklagemyndigheden. Vinklen fastholder forbehold om motiv og den mistænktes helbred. GitHub 7-dages [PUBLISH]-historik og repository-søgning gav ingen observerbar næsten-identisk Maizières/96-grave-historie.",
+        "model_prompt_version": "news-task-canonical-2026-09-16"
+      }
+    ],
+    "hero_candidates": [
+      {
+        "source_url": "https://commons.wikimedia.org/wiki/File:MAIZIERES_LES_METZ_(3).jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "CC BY 4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "credit_text": "WCOMFR",
+        "rights_notes": "Wikimedia Commons; CC BY 4.0; original 1998x1499; depicts Église Saint-Martin in Maizières-lès-Metz; commercial reuse and local storage permitted with attribution.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": true,
+        "alt_text": "Saint-Martin-kirken i Maizières-lès-Metz"
+      },
+      {
+        "source_url": "https://commons.wikimedia.org/wiki/File:Maizi%C3%A8res-l%C3%A8s-Metz_vue_du_ciel.jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "credit_text": "Rémi Krizaj",
+        "rights_notes": "Wikimedia Commons; CC BY-SA 4.0; original 4000x2672; aerial view of Maizières-lès-Metz; commercial reuse and local storage permitted with attribution and share-alike requirements.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": true,
+        "alt_text": "Maizières-lès-Metz set fra luften"
+      },
+      {
+        "source_url": "https://commons.wikimedia.org/wiki/File:Gare-maizieres-les-metz.jpg",
+        "source_provider": "wikimedia_commons",
+        "license_name": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "credit_text": "Jgaland57",
+        "rights_notes": "Wikimedia Commons; CC BY-SA 4.0; original 2646x1896; railway station in Maizières-lès-Metz; commercial reuse and local storage permitted with attribution and share-alike requirements.",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "modifications_allowed": true,
+        "attribution_required": true,
+        "alt_text": "Jernbanestationen i Maizières-lès-Metz"
+      }
+    ]
+  }
+}
