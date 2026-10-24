@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "queue_id": "kvartover-20260917-0316-audit",
+  "kind": "discovery_audit",
+  "source_pool": "discovery",
+  "status": "skipped",
+  "terminal_reason": "DUPLICATE_RETRY_EXHAUSTED",
+  "candidates_tried": 3,
+  "duplicate_of": "PR #580/#586; PR #581/#605; PR #582",
+  "candidates": [
+    {
+      "source": "Brussels Signal",
+      "topic": "24 of 27 EU states likely to miss European Digital Identity Wallet deadline",
+      "disposition": "rejected",
+      "reason": "Semantic duplicate of recent [PUBLISH] PR #580 and PR #586."
+    },
+    {
+      "source": "NIUS / German government follow-up",
+      "topic": "German terror-plan and tougher knife penalties after Islamist CSD attack",
+      "disposition": "rejected",
+      "reason": "Semantic duplicate of recent [PUBLISH] PR #581 and later ordinary-news delivery PR #605."
+    },
+    {
+      "source": "Brussels Signal / Spain regularisation follow-up",
+      "topic": "Spanish migrant regularisation scale and consequences",
+      "disposition": "rejected",
+      "reason": "Semantic duplicate of recent [PUBLISH] PR #582 and related recent ordinary-news coverage."
+    }
+  ],
+  "breaking_scan": {
+    "performed": true,
+    "result": "No verified high-Danish-impact breaking override established in the run."
+  },
+  "dedupe": {
+    "checked": true,
+    "window_days": 7,
+    "observable_surface": "GitHub [PUBLISH] pull-request history"
+  },
+  "notes": "Canonical ordinary-news audit-only delivery. Fresh discovery leads found in the run were already represented by recent publication history; no nearly-identical article was emitted. Backend owns transport handling and PR closure."
+}
