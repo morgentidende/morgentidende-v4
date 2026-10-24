@@ -1,0 +1,58 @@
+{
+  "payload_type": "discovery_audit",
+  "queue_id": "audit-news-20260916-1602-hel",
+  "terminal_reason": "INSUFFICIENT_DOCUMENTATION",
+  "editorial_metadata": {
+    "discovery_run_id": "news-20260916-1602-hel",
+    "source_pool": "discovery",
+    "candidates": [
+      {
+        "candidate_id": "ceuta-guardia-civil-july-alerts",
+        "rank": 1,
+        "candidate_headline": "Guardia Civil advarede om kraftigt stigende indrejseforsøg før Ceuta-krisen",
+        "source_path": "Libertad Digital",
+        "deep_screened": true,
+        "downstream_sources": ["RTVE", "EFE", "El País", "Ceuta al Día"],
+        "decision": "rejected",
+        "reason": "De afklassificerede dokumenter og autoritative medier dokumenterer forudgående advarsler og stigende migrationspres, men den friske discovery-vinkels konkrete 900-procenttal bygger på en sammenligning af meget små dagstal og kunne ikke verificeres direkte i en tilgængelig primærkilde inden for run-budgettet. En rubrik på 900 procent ville derfor risikere at overdrive dokumentationen."
+      },
+      {
+        "candidate_id": "eu-canada-associate",
+        "rank": 2,
+        "candidate_headline": "Canada som EU's første associerede medlem",
+        "source_path": "Brussels Signal",
+        "deep_screened": false,
+        "decision": "rejected",
+        "reason": "Semantisk dublet af PR #553."
+      },
+      {
+        "candidate_id": "eu-mass-arrival-emergency",
+        "rank": 3,
+        "candidate_headline": "EU-nødregler ved pludselig masseankomst af migranter",
+        "source_path": "Brussels Signal",
+        "deep_screened": false,
+        "decision": "rejected",
+        "reason": "Semantisk dublet af PR #555/#562."
+      },
+      {
+        "candidate_id": "ceuta-ceti-security",
+        "rank": 4,
+        "candidate_headline": "Tre vagter såret ved slagsmål på migrantcenter i Ceuta",
+        "source_path": "Libertad Digital",
+        "deep_screened": false,
+        "decision": "rejected",
+        "reason": "Semantisk dublet af PR #556."
+      },
+      {
+        "candidate_id": "south-africa-us-visas",
+        "rank": 5,
+        "candidate_headline": "USA's visumrestriktioner mod sydafrikanere",
+        "source_path": "international discovery",
+        "deep_screened": false,
+        "decision": "rejected",
+        "reason": "Semantisk dublet af PR #561."
+      }
+    ],
+    "model_prompt_version": "canonical docs/automations/news-task.md@a4f3b70f2df354f3710dfd6481dbf88437c4535b"
+  }
+}
