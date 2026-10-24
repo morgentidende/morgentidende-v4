@@ -1,0 +1,20 @@
+{
+  "payload_type": "discovery_audit",
+  "queue_id": "halv-20260917-0427-audit",
+  "terminal_reason": "DUPLICATE_RETRY_EXHAUSTED",
+  "source_metadata": [],
+  "editorial_metadata": {
+    "discovery_run_id": "halv-20260917-0427",
+    "source_pool": "discovery",
+    "candidates_tried": 4,
+    "duplicate_of": ["PR #607", "PR #617", "PR #609/#616", "PR #615"],
+    "breaking_scan": "No verified fresh high-Danish-impact breaking override established; direct DR/TV2 access was unavailable in web scan.",
+    "candidates": [
+      {"candidate_id":"piddington","rank":1,"candidate_headline":"Piddington votes symbolically for independence over proposed asylum accommodation","deep_screened":true,"downstream_sources":["GOV.UK urgent Crown development application","Cherwell District Council","The Independent"],"decision":"duplicate","reason":"Nearly identical recent delivery PR #607"},
+      {"candidate_id":"fpoe-poll","rank":2,"candidate_headline":"FPÖ reaches 38 percent in Austrian poll","deep_screened":false,"downstream_sources":[],"decision":"duplicate","reason":"Recent delivery PR #617"},
+      {"candidate_id":"turkey-lgbt","rank":3,"candidate_headline":"Turkey detains LGBT activists in nationwide operation","deep_screened":false,"downstream_sources":[],"decision":"duplicate","reason":"Recent deliveries PR #609 and #616"},
+      {"candidate_id":"ai-slowdown","rank":4,"candidate_headline":"Von der Leyen backs slowing frontier AI race","deep_screened":false,"downstream_sources":[],"decision":"duplicate","reason":"Recent delivery PR #615"}
+    ],
+    "model_prompt_version": "canonical docs/automations/news-task.md @ a005454dc4bb0b1e81c86a1576bf8abd00179b02"
+  }
+}
