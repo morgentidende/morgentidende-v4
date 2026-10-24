@@ -1,0 +1,29 @@
+{
+  "payload_type": "discovery_audit",
+  "queue_id": "halv-20260916-1228-audit",
+  "slug": "audit-halv-20260916-1228",
+  "headline": "Discovery audit",
+  "category_slug": "udland",
+  "body_markdown": "",
+  "source_metadata": [],
+  "editorial_metadata": {
+    "discovery_run_id": "halv-20260916-1228",
+    "terminal_reason": "INSUFFICIENT_DOCUMENTATION",
+    "final_qa_duplicate": false,
+    "candidates": [
+      {
+        "candidate_id": "halv-20260916-1228-c1",
+        "source_pool": "discovery",
+        "source_path": "apollo-news.net",
+        "rank": 1,
+        "candidate_headline": "Mann erhält Strafbefehl wegen Kommentar über Grünenpolitikerin",
+        "topic": "ytringsfrihed / fornærmelse / Tyskland",
+        "deep_screened": true,
+        "downstream_sources": ["Amtsgericht Westerburg"],
+        "decision": "rejected",
+        "reason": "Discovery-kilden oplyser, at den har set et ikke-retskraftigt strafpåbud og citerer rettens medierepræsentant, men den konkrete sags centrale fakta kunne ikke dokumenteres gennem en tilgængelig primær eller anden authoritative slutkilde inden for run-budgettet.",
+        "model_prompt_version": "canonical-news-task-2026-09-16"
+      }
+    ]
+  }
+}
