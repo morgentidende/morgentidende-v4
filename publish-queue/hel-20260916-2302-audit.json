@@ -1,0 +1,18 @@
+{
+  "payload_type": "discovery_audit",
+  "queue_id": "hel-20260916-2302-audit",
+  "terminal_reason": "DUPLICATE_RETRY_EXHAUSTED",
+  "discovery_run_id": "hel-20260916-2302",
+  "editorial_metadata": {
+    "source_pool": "discovery",
+    "candidates_tried": 4,
+    "final_qa_duplicate": true,
+    "duplicate_of": ["PR #594/#589", "PR #551", "PR #593/#576", "PR #516/#548"],
+    "audit": [
+      {"candidate_id":"merz-klarnavn","rank":1,"topic":"Friedrich Merz vil have klarnavne på nettet og afviser Free Speech-indvending","deep_screened":true,"downstream_sources":["Bundesregierung","WELT"],"decision":"duplicate","reason":"Næsten identisk med PR #594 og #589","model_prompt_version":"canonical-news-task-2026-09-16"},
+      {"candidate_id":"piddington-migrantprotest","rank":2,"topic":"Piddington holder symbolsk uafhængighedsafstemning i protest mod migrantindkvartering","deep_screened":false,"downstream_sources":["GB News"],"decision":"duplicate","reason":"Samme Piddington-sag allerede leveret i PR #551","model_prompt_version":"canonical-news-task-2026-09-16"},
+      {"candidate_id":"canada-eu-associeret","rank":3,"topic":"Canada som EU's første associerede medlem","deep_screened":false,"downstream_sources":["Brussels Signal"],"decision":"duplicate","reason":"Næsten identisk med PR #593 og #576","model_prompt_version":"canonical-news-task-2026-09-16"},
+      {"candidate_id":"neubrandenburg-14aarig","rank":4,"topic":"14-årig i Neubrandenburg mishandlet i timevis af gruppe børn og unge","deep_screened":true,"downstream_sources":["Polizeipräsidium Neubrandenburg","NDR"],"decision":"duplicate","reason":"Næsten identisk med PR #516 og #548","model_prompt_version":"canonical-news-task-2026-09-16"}
+    ]
+  }
+}
