@@ -1,0 +1,37 @@
+{
+  "queue_id": "halv-20260917-1432-balearics",
+  "slug": "balearerne-205-migranter-paa-et-doegn",
+  "headline": "205 migranter nåede Balearerne på ét døgn – øerne har passeret 5.600 i år",
+  "category_slug": "udland",
+  "deck": "Den spanske øgruppes leder kræver handling fra Madrid, mens ruten fra Algeriet fylder stadig mere i Middelhavet.",
+  "body_markdown": "205 migranter nåede onsdag frem til forskellige dele af Balearerne, oplyser den spanske regerings delegation på øerne ifølge Europa Press. De seneste ankomster bringer årets samlede antal over 5.600, ifølge Balearernes regeringsleder Marga Prohens.\n\nDe 205 kom i flere både. Blandt de sidste registrerede ankomster onsdag blev 29 personer fra Afrika syd for Sahara reddet fem sømil syd for Cabrera, mens 17 personer fra Nordafrika senere blev standset ved Playa Migjorn på Formentera. De blev beskrevet som værende i tilsyneladende god helbredstilstand. Spaniens søredningstjeneste og Guardia Civil deltog i operationerne.\n\nProhens siger, at udviklingen har gjort Balearerne til en central indgang for irregulær migration til Europa. Hun kræver, at den spanske regering handler og siger, at øerne ikke bør vænne sig til de nuværende tal. Påstanden om, at Balearerne er Europas største indgang, er hendes politiske vurdering og ikke et officielt EU-rangtal.\n\nUdviklingen er del af en længere forskydning af migrationsruterne i det vestlige Middelhav. Spaniens migrationsministerium beskrev allerede i juli 2025 en vedvarende stigning i ankomster til Balearerne og iværksatte en særlig plan for modtagelsen på øerne. EU-materiale har siden peget på, at smuglere i stigende grad har flyttet aktiviteter fra Marokko til Algeriet, og at Balearerne er blevet et vigtigt mål på denne rute.\n\nDen spanske centralregering har tidligere afvist, at den skjulte en særlig advarsel om en masseankomst til øerne. Regeringen sagde tidligere i september, at et omstridt dokument var en rutinemæssig overvågning af migrationsruter og afspejlede en allerede kendt stigning i afgange fra Algeriet.\n\nDermed står den politiske strid ikke kun om antallet af ankomster, men også om hvorvidt Madrid har reageret hurtigt nok på en migrationsrute, der gennem længere tid er blevet mere trafikeret.",
+  "source_metadata": [
+    {"url": "https://www.europapress.es/illes-balears/noticia-llegan-46-migrantes-islas-cabrera-formentera-ya-son-205-llegaron-miercoles-baleares-20260917085919.html", "publisher": "Europa Press", "source_class": "authoritative", "role": "arrival_count_and_rescue_details"},
+    {"url": "https://www.inclusion.gob.es/en/w/migraciones-articula-un-plan-de-respuesta-ante-el-incremento-y-cambio-de-perfil-de-personas-migrantes-que-llegan-a-las-costas-baleares", "publisher": "Ministerio de Inclusión, Seguridad Social y Migraciones", "source_class": "authoritative", "role": "official_route_context"},
+    {"url": "https://www.europapress.es/illes-balears/noticia-prohens-lamenta-baleares-convirtiendo-puerta-entrada-inmigracion-irregular-europa-20260917104733.html", "publisher": "Europa Press", "source_class": "authoritative", "role": "prohens_statement_and_annual_total"}
+  ],
+  "editorial_metadata": {
+    "sagen_kort": [
+      "205 migranter nåede onsdag frem til forskellige dele af Balearerne.",
+      "Balearernes regeringsleder siger, at årets antal nu er over 5.600 og kræver handling fra Madrid."
+    ],
+    "frontpage_destination": "normal",
+    "story_cluster_key": "spain-balearics-irregular-migration-2026",
+    "hero_candidates": [
+      {"rank": 1, "source_url": "https://commons.wikimedia.org/wiki/File:Salvamento_Mar%C3%ADtimo_(2853402597).jpg", "provider": "wikimedia_commons", "license": "CC BY-SA 2.0", "commercial_use_allowed": true, "local_storage_allowed": true, "width": 2816, "height": 1880, "description": "Spansk søredningsfartøj fra Salvamento Marítimo"},
+      {"rank": 2, "source_url": "https://commons.wikimedia.org/wiki/File:Salvamento_mar%C3%ADtimo_en_el_Puerto_de_C%C3%A1diz.jpg", "provider": "wikimedia_commons", "license": "CC BY-SA 2.5/2.0/1.0", "commercial_use_allowed": true, "local_storage_allowed": true, "width": 2560, "height": 1920, "description": "Spansk søredningsskib i Cádiz"},
+      {"rank": 3, "source_url": "https://commons.wikimedia.org/wiki/File:Augusta_Westland_AW-139_EC-KXA_de_Helimer,_Salvamento_Mar%C3%ADtimo_(14728561762).jpg", "provider": "wikimedia_commons", "license": "CC BY-SA 2.0", "commercial_use_allowed": true, "local_storage_allowed": true, "width": 2000, "height": 1333, "description": "Helikopter fra Spaniens maritime redningstjeneste"}
+    ],
+    "discovery_audit": {
+      "discovery_run_id": "halv-20260917-1432",
+      "candidate_id": "balearics-arrivals-20260917",
+      "source_pool": "discovery",
+      "rank": 1,
+      "topic": "Balearerne: 205 migrantankomster på et døgn",
+      "deep_screened": true,
+      "decision": "publish",
+      "reason": "fresh_documented_development",
+      "model_prompt_version": "canonical-news-task-20260917"
+    }
+  }
+}
