@@ -1,0 +1,37 @@
+{
+  "queue_id": "hel-20260917-1500-kristersson-resigns",
+  "slug": "ulf-kristersson-gaar-af-efter-svensk-valgnederlag",
+  "headline": "Ulf Kristersson går af efter svensk valgnederlag",
+  "category_slug": "udland",
+  "deck": "Den rødgrønne opposition ender med 176 mandater mod regeringsblokkens 173. Nu begynder en vanskelig regeringsdannelse.",
+  "body_markdown": "Sveriges statsminister Ulf Kristersson har torsdag bedt om at blive afskediget, efter at den sidste optælling slog fast, at hans regeringsblok har tabt det svenske valg.\n\nDen rødgrønne opposition står efter optællingen til 176 af Riksdagens 349 mandater. Kristerssons blok med Moderaterna, Sverigedemokraterna, Kristdemokraterna og Liberalerna får tilsammen 173. Dermed har oppositionen et flertal på tre mandater.\n\nKristersson meddelte sin afgang kort efter, at de sidste stemmer var talt. Han skrev, at Riksdagens formand nu skal lede de næste skridt frem mod en ny regering, og at han derfor bad om at blive afskediget med det samme.\n\nValgnederlaget betyder ikke automatisk, at Socialdemokraternas leder Magdalena Andersson straks kan danne regering. Partierne på oppositionssiden er enige om at afløse Kristersson, men har betydelige indbyrdes uenigheder. Regeringsforhandlingerne kan derfor blive vanskelige.\n\nKristersson pegede selv på problemet i sin meddelelse. Valgresultatet kan ifølge ham have skabt komplicerede betingelser for regeringsdannelsen, fordi partiernes udmeldinger før valget kan stå i vejen for flere mulige koalitioner.\n\nResultatet afslutter fire år med Kristersson som statsminister. Hans regering har siden 2022 været afhængig af Sverigedemokraternas støtte og har blandt andet ført en markant strammere migrations- og kriminalpolitik.\n\nIfølge Reuters er den endelige formelle godkendelse af valgresultatet endnu ikke afsluttet, men optællingen giver oppositionen 176 mandater mod 173 til den afgående regeringsblok. Magdalena Andersson står dermed først i køen til at forsøge at samle et nyt flertal.\n\nDet næste afgørende spørgsmål er ikke længere, hvem der vandt valget, men om Andersson kan få partier med forskellige krav til blandt andet økonomi og energi til at støtte den samme regering.",
+  "source_metadata": [
+    {"name":"Reuters","url":"https://www.reuters.com/world/europe/swedens-centre-left-opposition-wins-election-count-completed-2026-09-17/","class":"authoritative","published_date":"2026-09-17"},
+    {"name":"SVT Nyheter","url":"https://www.svt.se/nyheter/inrikes/uppgifter-ulf-kristersson-vantas-avga-som-statsminister","class":"authoritative","published_date":"2026-09-17"}
+  ],
+  "editorial_metadata": {
+    "sagen_kort": [
+      "Ulf Kristersson har bedt om at blive afskediget som Sveriges statsminister, efter at oppositionens valgsejr stod fast.",
+      "Den rødgrønne opposition får 176 mandater mod 173 til M, SD, KD og L, men en ny regering kan blive vanskelig at samle."
+    ],
+    "frontpage_destination": "special_1",
+    "story_cluster_key": "sweden-election-2026",
+    "hero_candidates": [
+      {"rank":1,"source_url":"https://commons.wikimedia.org/wiki/File:Ulf_Kristersson_Gothenburg_2026-08-07_01.jpg","source_page":"https://commons.wikimedia.org/wiki/File:Ulf_Kristersson_Gothenburg_2026-08-07_01.jpg","description":"Ulf Kristersson i Göteborg i august 2026","license":"CC BY 4.0","author":"Axadem","commercial_use_allowed":true,"local_storage_allowed":true,"width":4032,"height":2688},
+      {"rank":2,"source_url":"https://commons.wikimedia.org/wiki/File:Prime_Minister_Petteri_Orpo_and_Prime_Minister_of_Sweden_Ulf_Kristersson_met_in_Helsinki_25_March_2026_(55168629794).jpg","source_page":"https://commons.wikimedia.org/wiki/File:Prime_Minister_Petteri_Orpo_and_Prime_Minister_of_Sweden_Ulf_Kristersson_met_in_Helsinki_25_March_2026_(55168629794).jpg","description":"Ulf Kristersson ved møde i Helsinki i marts 2026","license":"CC BY 4.0","author":"Finnish Government","commercial_use_allowed":true,"local_storage_allowed":true,"width":3500,"height":2334},
+      {"rank":3,"source_url":"https://commons.wikimedia.org/wiki/File:Ulf_Kristersson_Gothenburg_2026-08-07_02.jpg","source_page":"https://commons.wikimedia.org/wiki/File:Ulf_Kristersson_Gothenburg_2026-08-07_02.jpg","description":"Ulf Kristersson i Göteborg i august 2026","license":"CC BY 4.0","author":"Axadem","commercial_use_allowed":true,"local_storage_allowed":true,"width":2688,"height":4032}
+    ],
+    "discovery_audit": {
+      "discovery_run_id":"hel-20260917-1500",
+      "source_pool":"discovery",
+      "candidate_id":"sweden-kristersson-resignation-20260917",
+      "rank":1,
+      "headline_topic":"Ulf Kristersson går af efter svensk valgnederlag",
+      "deep_screened":true,
+      "downstream_sources":["Reuters","SVT Nyheter"],
+      "decision":"publish",
+      "reason":"Frisk væsentlig videreudvikling i det svenske valg: den siddende statsminister har formelt bedt om at blive afskediget efter færdig optælling. Ingen næsten-identisk frisk PUBLISH-transport fundet.",
+      "prompt_version":"docs/automations/news-task.md@45999fde"
+    }
+  }
+}
