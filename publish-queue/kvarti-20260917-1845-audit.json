@@ -1,0 +1,29 @@
+{
+  "payload_type": "discovery_audit",
+  "queue_id": "kvarti-20260917-1845-audit",
+  "terminal_reason": "QA_HISTORY_UNAVAILABLE",
+  "discovery_run_id": "kvarti-20260917-1845",
+  "source_pool": "discovery",
+  "candidates_tried": 1,
+  "candidates": [
+    {
+      "candidate_id": "kvarti-20260917-1845-france-cemetery",
+      "rank": 1,
+      "headline_topic": "Frankrig: 96 katolske grave vandaliseret ved Maizieres-les-Metz; 32-aarig kvinde erkendte og blev siden indlagt",
+      "source_path": "Document.no -> franske autoritative/nationale kilder",
+      "deep_screened": true,
+      "downstream_sources": [
+        "https://www.estrepublicain.fr/faits-divers-justice/2026/09/15/un-acte-scandaleux-une-femme-en-garde-a-vue-apres-la-degradation-de-tombes-dans-un-cimetiere",
+        "https://www.tf1info.fr/justice-faits-divers/maizieres-les-metz-un-vandalisme-lache-un-cimetiere-profane-pres-de-metz-a-dix-jours-de-la-visite-du-pape-une-femme-en-garde-a-vue-2464364.html",
+        "https://moselle.tv/ca-ma-perce-le-coeur-cest-incomprehensible-les-habitants-de-maizieres-les-metz-profondement-choques-apres-la-profanation-de-lancien-cimetiere/"
+      ],
+      "decision": "stopped_before_write",
+      "reason": "QA_HISTORY_UNAVAILABLE"
+    }
+  ],
+  "audit": {
+    "canonical_sha": "9e3bb3e3655d02b1c729237b35b46d58be56a7d2",
+    "model_prompt_version": "canonical-news-task",
+    "note": "Research produced a documented story brief, but the canonical seven-day semantic dedupe requires both complete public article history and all recent [PUBLISH] transports. GitHub transports were enumerable with state=all, but the public seven-day article corpus could not be established as complete in this runtime. Stopped before Write as required. Schedule/enabled state untouched."
+  }
+}
