@@ -1,0 +1,43 @@
+{
+  "payload_type": "discovery_audit",
+  "queue_id": "halv-20260916-1832-audit",
+  "terminal_reason": "INSUFFICIENT_DOCUMENTATION",
+  "discovery_run_id": "halv-20260916-1832",
+  "source_pool": "discovery",
+  "candidates": [
+    {
+      "candidate_id": "euskadi-arrests-foreign-born",
+      "rank": 1,
+      "candidate_headline": "59 procent af anholdelser i Baskerlandet gjaldt personer født i udlandet",
+      "source_pool": "discovery",
+      "source_path": "theobjective.com",
+      "deep_screened": true,
+      "downstream_sources": [
+        "Eustat / Baskerlandets sikkerhedsministerium, Detenciones e investigaciones ... II/2026"
+      ],
+      "decision": "rejected_duplicate",
+      "reason": "Semantisk 7-dages-QA fandt samme hovedhistorie i PR #519 og igen i PR #570. Kandidaten er næsten-identisk uden væsentlig videreudvikling.",
+      "duplicate_of": "PR #519; PR #570",
+      "model_prompt_version": "canonical docs/automations/news-task.md @ a005454dc4bb0b1e81c86a1576bf8abd00179b02"
+    },
+    {
+      "candidate_id": "austria-blackwork-wksta",
+      "rank": 2,
+      "candidate_headline": "Østrigsk anklagemyndighed efterforsker 22 personer og syv virksomheder for organiseret sort arbejde",
+      "source_pool": "discovery",
+      "source_path": "exxpress.at",
+      "deep_screened": true,
+      "downstream_sources": [
+        "Østrigs parlament, søgning efter den omtalte parlamentariske forespørgsel/svar",
+        "WKStA / justiz.gv.at, søgning efter offentlig sagsmeddelelse"
+      ],
+      "decision": "rejected",
+      "reason": "INSUFFICIENT_DOCUMENTATION: discovery-kilden gengiver et svar fra justitsminister Anna Sporrer, men den konkrete aktuelle parlamentariske besvarelse eller anden direkte primær/autoritative dokumentation for de 22 personer og syv virksomheder kunne ikke lokaliseres sikkert inden for runbudgettet. Kandidaten må derfor ikke publiceres.",
+      "model_prompt_version": "canonical docs/automations/news-task.md @ a005454dc4bb0b1e81c86a1576bf8abd00179b02"
+    }
+  ],
+  "editorial_metadata": {
+    "final_qa_duplicate": null,
+    "notes": "Breaking-scan gav ingen verificeret override med høj dansk betydning. Første stærke discovery-kandidat faldt på semantisk 7-dages-dedupe; næste kandidat faldt på kildegulvet. Ingen artikelpayload afleveret."
+  }
+}
