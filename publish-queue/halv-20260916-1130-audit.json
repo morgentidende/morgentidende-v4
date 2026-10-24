@@ -1,0 +1,29 @@
+{
+  "payload_type": "discovery_audit",
+  "queue_id": "halv-20260916-1130-audit",
+  "terminal_reason": "INSUFFICIENT_DOCUMENTATION",
+  "slug": "audit-halv-20260916-1130",
+  "headline": "Discovery audit — utilstrækkelig dokumentation",
+  "category_slug": "indland",
+  "body_markdown": "",
+  "source_metadata": [],
+  "editorial_metadata": {
+    "discovery_run_id": "halv-20260916-1130",
+    "final_qa_duplicate": false,
+    "candidates_tried": 1,
+    "source_pool": "discovery",
+    "candidates": [
+      {
+        "candidate_id": "apollo-stammbaum-westerburg-20260916",
+        "rank": 1,
+        "candidate_headline": "Tysk mand fik strafordre på 800 euro efter Facebook-kommentar om grøn lokalpolitiker",
+        "source_path": "discovery/Apollo News -> attempted independent verification",
+        "deep_screened": true,
+        "downstream_sources": ["Amtsgericht Westerburg media spokesman as quoted by Apollo News", "Hanna Hüwe official site", "Billerbeck municipal records"],
+        "decision": "rejected",
+        "reason": "The central claim about the September 2026 penal order could not be independently documented by an authoritative or primary source within the run budget; the discovery outlet says it holds the order, but no accessible court document or independent authoritative report was found."
+      }
+    ],
+    "model_prompt_version": "canonical docs/automations/news-task.md@a4f3b70f2df354f3710dfd6481dbf88437c4535b"
+  }
+}
