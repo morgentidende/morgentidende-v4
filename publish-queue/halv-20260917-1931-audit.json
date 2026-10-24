@@ -1,0 +1,29 @@
+{
+  "payload_type": "discovery_audit",
+  "queue_id": "halv-20260917-1931-audit",
+  "terminal_reason": "QA_HISTORY_UNAVAILABLE",
+  "discovery_run_id": "halv-20260917-1931",
+  "candidates_tried": 1,
+  "source_pool": "discovery",
+  "audit": [
+    {
+      "candidate_id": "iom-sea-crossings-20260917",
+      "rank": 1,
+      "headline_topic": "IOM: færre migranter krydser havet til Europa, men flere dør eller savnes",
+      "deep_screened": true,
+      "downstream_sources": ["Reuters", "Associated Press", "IOM"],
+      "decision": "duplicate_and_history_gate_unavailable",
+      "reason": "Fresh Reuters/AP/IOM development is already represented by recent canonical transports PR #710 and #714. The mandatory separate seven-day public Morgentidende article-history corpus could not be established as demonstrably complete in this runtime, so Write was not started.",
+      "model_prompt_version": "docs/automations/news-task.md@9e3bb3e3655d02b1c729237b35b46d58be56a7d2"
+    }
+  ],
+  "dedupe_context": {
+    "checked_at": "2026-09-17T19:31:00+02:00",
+    "window_days": 7,
+    "public_articles_seen": null,
+    "publish_prs_seen": 100,
+    "include_closed_publish_prs": true,
+    "newest_publish_pr": 723,
+    "public_history_complete": false
+  }
+}
