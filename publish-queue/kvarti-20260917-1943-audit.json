@@ -1,0 +1,26 @@
+{
+  "payload_type": "discovery_audit",
+  "queue_id": "kvarti-20260917-1943-audit",
+  "terminal_reason": "QA_HISTORY_UNAVAILABLE",
+  "discovery_run_id": "kvarti-20260917-1943",
+  "source_pool": "discovery",
+  "candidates_tried": 1,
+  "candidates": [
+    {
+      "candidate_id": "eu-kids-act-social-media",
+      "rank": 1,
+      "headline_topic": "EU-Kommissionen foreslår socialmedieforbud for børn under 13 år",
+      "deep_screened": true,
+      "downstream_sources": ["Reuters"],
+      "decision": "hard_stop_before_write",
+      "reason": "QA_HISTORY_UNAVAILABLE"
+    }
+  ],
+  "audit": {
+    "canonical_source": "docs/automations/news-task.md",
+    "canonical_sha": "9e3bb3e3655d02b1c729237b35b46d58be56a7d2",
+    "github_publish_prs_state_all_attempted": true,
+    "public_7_day_history_complete": false,
+    "note": "A complete enough public seven-day Morgentidende article-history corpus could not be established in this runtime, so the mandatory semantic dedupe gate cannot be passed safely. Stopped before Write."
+  }
+}
