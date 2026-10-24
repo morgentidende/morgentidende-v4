@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0",
+  "queue_id": "halv-20260917-0230-audit",
+  "kind": "discovery_audit",
+  "source_pool": "discovery",
+  "status": "skipped",
+  "terminal_reason": "INSUFFICIENT_DOCUMENTATION",
+  "candidates_tried": 1,
+  "duplicate_of": null,
+  "candidate": {
+    "source": "Brussels Signal / canonical discovery scan",
+    "topic": "Fresh national-conservative/libertarian discovery leads at the 17 September overnight run",
+    "disposition": "rejected",
+    "reason": "The fresh discovery scan did not yield a sufficiently current non-duplicate lead whose central claims could be established with authoritative or primary documentation within the canonical run budget. Search results surfaced older free-speech and migration items rather than a fresh publishable development."
+  },
+  "breaking_scan": {
+    "performed": true,
+    "result": "No verified fresh high-Danish-impact breaking override was established; direct scans of DR and TV 2 were inaccessible to the search runtime."
+  },
+  "dedupe": {
+    "checked": true,
+    "window_days": 7,
+    "observable_surface": "GitHub [PUBLISH] pull-request history",
+    "notes": "Recent transport history includes Turkey LGBT detentions, AfD candidate eligibility, Piddington asylum-centre protest, Spain regularisation, German anti-terror plan, Basque arrest statistics, Canada-EU association, Merz real-name proposal and related recent stories."
+  },
+  "notes": "Canonical ordinary-news audit-only delivery. No article payload was emitted because no fresh candidate cleared the documentation and non-duplicate gates. Backend owns transport handling and PR closure."
+}
