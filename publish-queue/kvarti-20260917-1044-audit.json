@@ -1,0 +1,43 @@
+{
+  "payload_type": "discovery_audit",
+  "queue_id": "kvarti-20260917-1044-audit",
+  "terminal_reason": "INSUFFICIENT_DOCUMENTATION",
+  "discovery_run_id": "kvarti-20260917-1044",
+  "editorial_metadata": {
+    "source_pool": "discovery",
+    "final_qa_duplicate": false,
+    "candidates": [
+      {
+        "candidate_id": "eu-staff-cost-cuts-20260915",
+        "source_pool": "discovery",
+        "source_path": "Brussels Signal -> reported Irish Council presidency paper / POLITICO",
+        "rank": 1,
+        "candidate_headline": "EU-lande vil skære i løn og personaleudgifter i næste langtidsbudget",
+        "deep_screened": true,
+        "downstream_sources": [
+          "Council of the EU: 2028-2034 long-term budget overview",
+          "European Commission: 2028-2034 MFF proposal",
+          "European Parliament research on EU administration costs"
+        ],
+        "decision": "rejected",
+        "reason": "Den aktuelle påstand om bred medlemsstatsopbakning til konkrete nedskæringer hviler på et ikke-offentligt irsk formandskabsdokument gengivet af medier. De tilgængelige primærkilder dokumenterer budgetrammen og tidligere personalereformer, men ikke den centrale aktuelle opbakning til løn/personalenedskæringer. Discovery-kilden må ikke bruges som faktuel slutkilde.",
+        "model_prompt_version": "canonical-news-task@4cd9ca7d6eccbac1992a01b685802df1f657572e"
+      },
+      {
+        "candidate_id": "eu-official-fallback-20260917",
+        "source_pool": "major-media-fallback",
+        "source_path": "EU Council / Commission fresh official scan",
+        "rank": 2,
+        "candidate_headline": "Frisk EU-officiel fallback",
+        "deep_screened": true,
+        "downstream_sources": [
+          "Council of the EU press and policy pages",
+          "European Commission press and policy pages"
+        ],
+        "decision": "rejected",
+        "reason": "Ingen frisk historie med tilstrækkelig nyhedsværdi og dokumentation blev fundet inden for run-budgettet efter den første kandidats dokumentationsstop.",
+        "model_prompt_version": "canonical-news-task@4cd9ca7d6eccbac1992a01b685802df1f657572e"
+      }
+    ]
+  }
+}
