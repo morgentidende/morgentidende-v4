@@ -10,10 +10,11 @@ const nepaliDigits = new Map([
   ['५', '5'], ['६', '6'], ['७', '7'], ['८', '8'], ['९', '9'],
 ]);
 
-const headers = (env: LivecenterMetricsEnv) => ({
+const headers = (env: LivecenterMetricsEnv, extra: Record<string, string> = {}) => ({
   apikey: env.SUPABASE_SERVICE_ROLE_KEY,
   authorization: `Bearer ${env.SUPABASE_SERVICE_ROLE_KEY}`,
   'content-type': 'application/json',
+  ...extra,
 });
 
 async function dbGet(env: LivecenterMetricsEnv, path: string) {
@@ -32,6 +33,29 @@ async function dbRpc(env: LivecenterMetricsEnv, name: string, payload: Json) {
   const text = await response.text();
   if (!response.ok) throw new Error(`livecenter rpc ${name} ${response.status}: ${text.slice(0, 400)}`);
   return text ? JSON.parse(text) : null;
+}
+
+async function event(
+  env: LivecenterMetricsEnv,
+  stage: string,
+  options: { centerId?: string | null; adapterId?: string | null; status?: string; detail?: Json } = {},
+) {
+  try {
+    const response = await fetch(`${env.SUPABASE_URL}/rest/v1/live_metric_poll_events`, {
+      method: 'POST',
+      headers: headers(env, { Prefer: 'return=minimal' }),
+      body: JSON.stringify({
+        stage,
+        live_center_id: options.centerId || null,
+        adapter_id: options.adapterId || null,
+        status: options.status || 'ok',
+        detail: options.detail || {},
+      }),
+    });
+    if (!response.ok) console.error('livecenter_metric_event_failed', stage, response.status, (await response.text()).slice(0, 250));
+  } catch (error) {
+    console.error('livecenter_metric_event_failed', stage, error);
+  }
 }
 
 function htmlToText(html: string) {
@@ -206,20 +230,51 @@ async function processCenter(env: LivecenterMetricsEnv, center: Json) {
   const configs = center.adapter_config || {};
   const results: Json[] = [];
   const failures: Json[] = [];
+  await event(env, 'center_started', { centerId: center.id, detail: { slug: center.slug, adapters: ids } });
 
   for (const adapterId of ids) {
+    const started = Date.now();
     try {
       const result = await fetchAdapter(adapterId, configs[adapterId]);
       results.push(result);
-      await snapshot(env, center, result, false);
+      const snapshotResult = await snapshot(env, center, result, false);
+      await event(env, 'adapter_completed', {
+        centerId: center.id,
+        adapterId,
+        detail: {
+          duration_ms: Date.now() - started,
+          extracted_fields: Object.keys(result.metrics),
+          parser_errors: result.errors,
+          snapshot: snapshotResult,
+        },
+      });
     } catch (error) {
-      failures.push({ adapter: adapterId, error: String(error) });
+      const message = error instanceof Error ? error.message : String(error);
+      failures.push({ adapter: adapterId, error: message });
+      await event(env, 'adapter_failed', {
+        centerId: center.id,
+        adapterId,
+        status: 'failed',
+        detail: { duration_ms: Date.now() - started, error: message.slice(0, 500) },
+      });
     }
   }
 
   const composed: any = compose(center, results);
-  if (!composed.ok) return { slug: center.slug, status: composed.reason, missing: composed.missing, failures };
+  if (!composed.ok) {
+    await event(env, 'composition_rejected', {
+      centerId: center.id,
+      status: 'warning',
+      detail: { reason: composed.reason, missing: composed.missing, failures },
+    });
+    return { slug: center.slug, status: composed.reason, missing: composed.missing, failures };
+  }
+
   if (center?.cadence?.metrics_writer !== 'worker') {
+    await event(env, 'composition_observed', {
+      centerId: center.id,
+      detail: { fields: Object.keys(composed.metrics).filter((key) => key !== '_provenance'), failures },
+    });
     return { slug: center.slug, status: 'observed', metrics: composed.metrics, failures };
   }
 
@@ -236,21 +291,50 @@ async function processCenter(env: LivecenterMetricsEnv, center: Json) {
     metrics: composed.metrics,
   };
   const projection = await snapshot(env, center, composite, true, composed.metrics);
+  await event(env, 'composition_projected', {
+    centerId: center.id,
+    detail: { projection, fields: Object.keys(composed.metrics).filter((key) => key !== '_provenance'), failures },
+  });
   return { slug: center.slug, status: 'projected', projection, failures };
 }
 
 export async function pollLivecenterMetrics(env: LivecenterMetricsEnv) {
+  const runStarted = Date.now();
   if (!env.SUPABASE_URL || !env.SUPABASE_SERVICE_ROLE_KEY) {
     throw new Error('Livecenter metrics missing Supabase bindings');
   }
-  const select = [
-    'id','slug','status','homepage_active','starts_at','ends_at','cadence','adapters','primary_source',
-    'adapter_config','source_policy','metrics','source_checked_at'
-  ].join(',');
-  const centers = await dbGet(env, `/rest/v1/live_centers?homepage_active=eq.true&select=${encodeURIComponent(select)}`);
-  const now = Date.now();
-  const dueCenters = (centers || []).filter((center: Json) => active(center, now) && due(center, now));
-  const outcomes = [];
-  for (const center of dueCenters) outcomes.push(await processCenter(env, center));
-  return { checked_at: new Date().toISOString(), centers_due: dueCenters.length, outcomes };
+
+  await event(env, 'poll_started', { detail: { runtime: 'media_ingest_cron' } });
+  try {
+    const select = [
+      'id','slug','status','homepage_active','starts_at','ends_at','cadence','adapters','primary_source',
+      'adapter_config','source_policy','metrics','source_checked_at'
+    ].join(',');
+    const centers = await dbGet(env, `/rest/v1/live_centers?homepage_active=eq.true&select=${encodeURIComponent(select)}`);
+    const now = Date.now();
+    const activeCenters = (centers || []).filter((center: Json) => active(center, now));
+    const dueCenters = activeCenters.filter((center: Json) => due(center, now));
+    await event(env, 'centers_loaded', {
+      detail: {
+        rows: Array.isArray(centers) ? centers.length : 0,
+        active: activeCenters.length,
+        due: dueCenters.length,
+      },
+    });
+
+    const outcomes = [];
+    for (const center of dueCenters) outcomes.push(await processCenter(env, center));
+    const result = { checked_at: new Date().toISOString(), centers_due: dueCenters.length, outcomes };
+    await event(env, 'poll_completed', {
+      detail: { duration_ms: Date.now() - runStarted, centers_due: dueCenters.length, outcomes },
+    });
+    return result;
+  } catch (error) {
+    const message = error instanceof Error ? error.message : String(error);
+    await event(env, 'poll_failed', {
+      status: 'failed',
+      detail: { duration_ms: Date.now() - runStarted, error: message.slice(0, 700) },
+    });
+    throw error;
+  }
 }
