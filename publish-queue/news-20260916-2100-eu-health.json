@@ -1,0 +1,76 @@
+{
+  "queue_id": "news-20260916-2100-eu-health",
+  "slug": "eu-parlamentet-vil-stramme-regler-tobak-alkohol-mad",
+  "headline": "EU-Parlamentet vil stramme regler for tobak, alkohol og usund mad",
+  "category_slug": "udland",
+  "deck": "Et stort flertal kræver mere forebyggelse af hjerte-kar-sygdomme. Men striden står om, hvor langt EU skal gå med afgifter, mærkning og begrænsninger.",
+  "sagen_kort": [
+    "EU-Parlamentet vedtog onsdag sin position til EU's første strategi mod hjerte-kar-sygdomme med 545 stemmer mod 47.",
+    "Parlamentet ønsker blandt andet en revision af tobaksreglerne og mere forebyggelse, men den endelige tekst er mere forsigtig med alkohol og fødevarer end flere tidligere forslag."
+  ],
+  "body_markdown": "Et bredt flertal i Europa-Parlamentet vil have EU til at skrue op for kampen mod hjerte-kar-sygdomme. Onsdag stemte 545 medlemmer for Parlamentets position til EU's første samlede strategi på området. 47 stemte imod, mens 75 undlod at stemme.\n\nHovedlinjen er mere forebyggelse. Parlamentet vil blandt andet have Kommissionen til hurtigt at revidere EU's regler om tobak og styrke tidlig opsporing og behandling. Samtidig peger teksten på rygning, skadeligt alkoholforbrug og usund kost som centrale risikofaktorer.\n\nMen bag det store flertal ligger en politisk strid om, hvor meget Bruxelles skal regulere borgernes hverdag.\n\n## Regulering eller personligt ansvar\n\nDen vedtagne tekst er på flere områder mindre vidtgående end de forslag, der har været diskuteret undervejs. Brussels Signal beskriver resultatet som et blandet signal: Parlamentet støtter en stærkere sundhedsindsats, men har samtidig dæmpet formuleringer om blandt andet alkohol og fødevarer.\n\nDet er en velkendt konflikt i europæisk sundhedspolitik. Tilhængere af strengere regler argumenterer for, at forebyggelse kan redde liv og mindske presset på sundhedsvæsenerne. Hjerte-kar-sygdomme er blandt de største dødsårsager i Europa, og risikofaktorer som rygning, overvægt og højt alkoholforbrug kan i mange tilfælde påvirkes.\n\nKritikere advarer derimod mod, at sundhedspolitikken gradvist kan udvikle sig til stadig mere detaljeret regulering af lovlige varer og personlige valg. Afgifter, advarselsmærker og begrænsninger kan ramme bredt, også mennesker der bruger produkterne moderat.\n\n## Kommissionen får næste træk\n\nParlamentets beslutning er ikke i sig selv en ny lov. Den lægger politisk pres på Europa-Kommissionen, som skal omsætte dele af strategien til konkrete forslag, hvis reglerne skal ændres.\n\nEt af de tydeligste krav gælder tobak. Parlamentet beder Kommissionen fremlægge en revision af den eksisterende lovgivning så hurtigt som muligt. Derudover ønsker flertallet en bred europæisk plan for forebyggelse af sygdomme som diabetes, kræft, fedme og hjerte-kar-sygdomme.\n\nDermed er retningen sat, men de mest følsomme spørgsmål er ikke afgjort: hvor meget EU skal styre gennem regler og priser, og hvor meget der skal overlades til medlemslandene og den enkelte borger.",
+  "source_metadata": [
+    {
+      "url": "https://brusselssignal.eu/2026/09/parliament-sends-mixed-health-signal-as-tobacco-alcohol-and-food-rules-come-under-scrutiny/",
+      "name": "Brussels Signal",
+      "class": "discovery",
+      "published_at": "2026-09-16"
+    },
+    {
+      "url": "https://www.europarl.europa.eu/",
+      "name": "Europa-Parlamentet",
+      "class": "authoritative",
+      "published_at": "2026-09-16"
+    },
+    {
+      "url": "https://www.caleaeuropeana.ro/pe-a-raspuns-oficial-strategiei-ue-destinata-combaterii-bolilor-cardiovasculare-ce-solicita-eurodeputatii/",
+      "name": "Calea Europeana",
+      "class": "corroborating",
+      "published_at": "2026-09-16"
+    }
+  ],
+  "editorial_metadata": {
+    "final_qa_duplicate": false,
+    "story_cluster_id": "eu-cardiovascular-strategy-2026",
+    "discovery_run_id": "news-20260916-2100",
+    "hero_candidates": [
+      {
+        "rank": 1,
+        "source_url": "https://commons.wikimedia.org/wiki/File:European_Parliament_Strasbourg_08.jpg",
+        "license": "CC BY-SA 4.0",
+        "creator": "FrDr",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "width": 6960,
+        "height": 4640,
+        "mime_type": "image/jpeg",
+        "description": "Europa-Parlamentets mødesal i Strasbourg; relevant institutionsmotiv, ikke foto af den konkrete afstemning."
+      }
+    ],
+    "discovery_audit": [
+      {
+        "candidate_id": "eritrea-terror-arrests",
+        "source_pool": "discovery",
+        "source_path": "Apollo News",
+        "rank": 1,
+        "candidate_headline": "Tyskland anholder to ledere af eritreisk terrorgruppe",
+        "deep_screened": true,
+        "decision": "rejected",
+        "reason": "Næsten-identisk historie allerede leveret som PR #528 inden for syv dage.",
+        "model_prompt_version": "canonical-news-task-2026-09-16"
+      },
+      {
+        "candidate_id": "eu-cardiovascular-strategy",
+        "source_pool": "discovery",
+        "source_path": "Brussels Signal -> Europa-Parlamentet/Calea Europeana",
+        "rank": 2,
+        "candidate_headline": "EU-Parlamentet vil stramme regler for tobak, alkohol og usund mad",
+        "deep_screened": true,
+        "downstream_sources": ["Europa-Parlamentet", "Calea Europeana"],
+        "decision": "selected",
+        "reason": "Frisk afstemning samme dag med bred betydning for regulering, sundhed og personligt ansvar; dokumenteret stemmetal og ingen næsten-identisk historie fundet i observerbar syv-dages GitHub-historik.",
+        "model_prompt_version": "canonical-news-task-2026-09-16"
+      }
+    ]
+  }
+}
