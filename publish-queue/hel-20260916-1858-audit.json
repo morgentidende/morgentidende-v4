@@ -1,0 +1,65 @@
+{
+  "payload_type": "discovery_audit",
+  "queue_id": "hel-20260916-1858-audit",
+  "terminal_reason": "DUPLICATE_RETRY_EXHAUSTED",
+  "discovery_run_id": "hel-20260916-1858",
+  "source_pool": "discovery",
+  "candidates": [
+    {
+      "candidate_id": "maizieres-96-graves",
+      "rank": 1,
+      "candidate_headline": "96 katolske grave vandaliseret i Maizières-lès-Metz",
+      "source_pool": "discovery",
+      "source_path": "document.no",
+      "deep_screened": true,
+      "downstream_sources": ["TF1 Info", "AFP/Libération", "Metz prosecutor reporting"],
+      "decision": "rejected_duplicate",
+      "reason": "Semantisk 7-dages-QA fandt samme hovedhistorie i PR #571 og PR #572. Ingen væsentlig videreudvikling, der kan bære en ny artikel.",
+      "duplicate_of": "PR #571; PR #572",
+      "model_prompt_version": "canonical docs/automations/news-task.md @ a005454dc4bb0b1e81c86a1576bf8abd00179b02"
+    },
+    {
+      "candidate_id": "italy-slovenia-schengen",
+      "rank": 2,
+      "candidate_headline": "Italien overvejer at droppe grænsekontrol mod Slovenien",
+      "source_pool": "discovery",
+      "source_path": "brusselssignal.eu",
+      "deep_screened": false,
+      "downstream_sources": [],
+      "decision": "rejected_duplicate",
+      "reason": "Samme hovedhistorie er allerede afleveret i PR #568.",
+      "duplicate_of": "PR #568",
+      "model_prompt_version": "canonical docs/automations/news-task.md @ a005454dc4bb0b1e81c86a1576bf8abd00179b02"
+    },
+    {
+      "candidate_id": "eu-migrant-emergency-framework",
+      "rank": 3,
+      "candidate_headline": "EU vil kunne fravige normale regler ved pludselig masseankomst af migranter",
+      "source_pool": "discovery",
+      "source_path": "brusselssignal.eu",
+      "deep_screened": false,
+      "downstream_sources": [],
+      "decision": "rejected_duplicate",
+      "reason": "Samme hovedhistorie er allerede afleveret flere gange, senest PR #574.",
+      "duplicate_of": "PR #555; PR #562; PR #574",
+      "model_prompt_version": "canonical docs/automations/news-task.md @ a005454dc4bb0b1e81c86a1576bf8abd00179b02"
+    },
+    {
+      "candidate_id": "canada-eu-associate",
+      "rank": 4,
+      "candidate_headline": "Von der Leyen vil gøre Canada til EU's første associerede medlem",
+      "source_pool": "discovery",
+      "source_path": "brusselssignal.eu",
+      "deep_screened": false,
+      "downstream_sources": [],
+      "decision": "rejected_duplicate",
+      "reason": "Samme hovedhistorie er allerede afleveret i PR #553 og PR #576.",
+      "duplicate_of": "PR #553; PR #576",
+      "model_prompt_version": "canonical docs/automations/news-task.md @ a005454dc4bb0b1e81c86a1576bf8abd00179b02"
+    }
+  ],
+  "editorial_metadata": {
+    "final_qa_duplicate": null,
+    "notes": "Breaking-scan gav ingen verificeret override med høj dansk betydning. Den stærkeste friske discovery-kandidat var veldokumenteret, men allerede dækket i to nylige transport-PR'er. De øvrige stærke kandidater i den korte shortlist var ligeledes allerede afleveret inden for 7 dage. Ingen artikelpayload afleveret."
+  }
+}
