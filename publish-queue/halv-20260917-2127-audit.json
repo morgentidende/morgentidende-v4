@@ -1,0 +1,32 @@
+{
+  "payload_type": "discovery_audit",
+  "queue_id": "halv-20260917-2127-audit",
+  "terminal_reason": "QA_HISTORY_UNAVAILABLE",
+  "discovery_run_id": "halv-20260917-2127",
+  "audit": {
+    "canonical_source": "docs/automations/news-task.md@main",
+    "source_pool": "discovery",
+    "breaking_scan": "No verified high-Danish-impact breaking override established in bounded scan.",
+    "candidates": [
+      {
+        "candidate_id": "halv-20260917-2127-1",
+        "rank": 1,
+        "headline_topic": "Fresh European migration / EU policy developments",
+        "deep_screened": true,
+        "downstream_sources": ["Reuters", "Associated Press"],
+        "decision": "stop_before_write",
+        "reason": "Mandatory separate seven-day public Morgentidende article-history/feed corpus could not be established as demonstrably complete; recent GitHub [PUBLISH] transports were enumerated with state=all."
+      }
+    ],
+    "model_prompt_version": "canonical-news-task-current-main"
+  },
+  "dedupe_context": {
+    "checked_at": "2026-09-17T21:27:29+02:00",
+    "window_days": 7,
+    "public_articles_seen": null,
+    "publish_prs_seen": 100,
+    "include_closed_publish_prs": true,
+    "newest_publish_pr": 731,
+    "corpus_complete": false
+  }
+}
