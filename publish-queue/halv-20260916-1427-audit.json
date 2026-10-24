@@ -1,0 +1,29 @@
+{
+  "payload_type": "discovery_audit",
+  "queue_id": "halv-20260916-1427-audit",
+  "slug": "discovery-audit-20260916-1427",
+  "headline": "Discovery audit",
+  "category_slug": "udland",
+  "body_markdown": "",
+  "source_metadata": [],
+  "editorial_metadata": {
+    "discovery_run_id": "news-20260916-1427",
+    "terminal_reason": "INSUFFICIENT_DOCUMENTATION",
+    "final_qa_duplicate": false,
+    "candidates": [
+      {
+        "candidate_id": "apollo-westerburg-huewe",
+        "source_pool": "discovery",
+        "source_path": "apollo-news.net",
+        "rank": 1,
+        "candidate_headline": "Tysk mand fik bødeforlæg på 800 euro efter Facebook-kommentar om grøn lokalpolitiker",
+        "topic": "ytringsfrihed / fornærmelse / Tyskland",
+        "deep_screened": true,
+        "downstream_sources": ["Amtsgericht Westerburg / Justiz Rheinland-Pfalz"],
+        "decision": "rejected",
+        "reason": "Discovery-kilden oplyser, at den har set bødeforlægget og citerer rettens direktør, men den konkrete sag kunne ikke verificeres i en tilgængelig primær eller anden autoritativ slutkilde inden for run-budgettet.",
+        "model_prompt_version": "canonical docs/automations/news-task.md@a4f3b70"
+      }
+    ]
+  }
+}
