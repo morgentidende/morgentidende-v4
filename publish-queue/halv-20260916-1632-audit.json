@@ -1,0 +1,28 @@
+{
+  "payload_type": "discovery_audit",
+  "queue_id": "halv-20260916-1632-audit",
+  "terminal_reason": "INSUFFICIENT_DOCUMENTATION",
+  "discovery_run_id": "halv-20260916-1632",
+  "source_pool": "discovery",
+  "candidates": [
+    {
+      "candidate_id": "spirina-klinikum-lippe-afd",
+      "rank": 1,
+      "candidate_headline": "Kommunalt hospital opsiger overlæge efter AfD-kandidatur",
+      "source_pool": "discovery",
+      "source_path": "apollo-news.net",
+      "deep_screened": true,
+      "downstream_sources": [
+        "Neue Westfälische (refereret af Apollo News; original kunne ikke verificeres direkte i runnet)",
+        "SVOA Paediatrics, 1 June 2026 (bekræfter Spirinas stilling ved Klinikum Lippe før sagen)"
+      ],
+      "decision": "rejected",
+      "reason": "INSUFFICIENT_DOCUMENTATION: den centrale nye oplysning om selve opsigelsen kunne i dette run kun spores til discovery-kilden Apollo News' gengivelse af Neue Westfälische; ingen direkte autoritativ/primær kilde til opsigelsen blev tilgængelig. Kandidaten må derfor ikke publiceres.",
+      "model_prompt_version": "canonical docs/automations/news-task.md @ a4f3b70f2df354f3710dfd6481dbf88437c4535b"
+    }
+  ],
+  "editorial_metadata": {
+    "final_qa_duplicate": null,
+    "notes": "Breaking-scan gav ingen verificeret override med høj dansk betydning. Runnet stoppede efter den højest rangerede friske discovery-kandidat faldt på kildegulvet; ingen artikelpayload afleveret."
+  }
+}
