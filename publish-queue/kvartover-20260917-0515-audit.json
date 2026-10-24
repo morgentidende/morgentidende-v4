@@ -1,0 +1,52 @@
+{
+  "payload_type": "discovery_audit",
+  "queue_id": "kvartover-20260917-0515-audit",
+  "terminal_reason": "DUPLICATE_RETRY_EXHAUSTED",
+  "editorial_metadata": {
+    "discovery_run_id": "kvartover-20260917-0515",
+    "final_qa_duplicate": true,
+    "audit": [
+      {
+        "candidate_id": "eu-migration-emergency-framework",
+        "source_pool": "discovery",
+        "rank": 1,
+        "candidate_headline": "EU migration emergency framework",
+        "deep_screened": true,
+        "downstream_sources": [],
+        "decision": "rejected",
+        "reason": "semantic duplicate of recent [PUBLISH] history including PR #611"
+      },
+      {
+        "candidate_id": "spain-regularisation",
+        "source_pool": "discovery",
+        "rank": 2,
+        "candidate_headline": "Spain regularisation",
+        "deep_screened": true,
+        "downstream_sources": [],
+        "decision": "rejected",
+        "reason": "semantic duplicate of recent [PUBLISH] history including PR #606"
+      },
+      {
+        "candidate_id": "austria-fpoe-poll",
+        "source_pool": "discovery",
+        "rank": 3,
+        "candidate_headline": "Austrian FPÖ poll",
+        "deep_screened": true,
+        "downstream_sources": [],
+        "decision": "rejected",
+        "reason": "semantic duplicate of recent [PUBLISH] history including PR #617"
+      },
+      {
+        "candidate_id": "von-der-leyen-ai-slowdown",
+        "source_pool": "discovery",
+        "rank": 4,
+        "candidate_headline": "von der Leyen AI slowdown",
+        "deep_screened": true,
+        "downstream_sources": [],
+        "decision": "rejected",
+        "reason": "semantic duplicate of recent [PUBLISH] history including PR #615"
+      }
+    ],
+    "note": "Fresh canonical run. No verified high-Danish-impact breaking override was established. The immediately preceding canonical run had already exhausted the strongest fresh discovery shortlist; a fresh scan did not establish a materially new non-duplicate candidate within the run budget."
+  }
+}
