@@ -1,0 +1,33 @@
+{
+  "payload_type": "discovery_audit",
+  "queue_id": "hel-20260917-0700-audit",
+  "terminal_reason": "NO_PUBLISHABLE_CANDIDATE",
+  "discovery_run_id": "hel-20260917-0700",
+  "candidates_tried": 2,
+  "source_pool": "discovery",
+  "editorial_metadata": {
+    "candidates": [
+      {
+        "candidate_id": "c1",
+        "source_pool": "discovery",
+        "rank": 1,
+        "candidate_headline": "Østrigs kansler vil have forfatningsforbud mod politisk islam",
+        "deep_screened": true,
+        "downstream_sources": ["Brussels Signal"],
+        "decision": "reject",
+        "reason": "Ikke frisk nok til dette run; discovery-artiklen er fra 1. september 2026 og der blev ikke fundet en ny væsentlig udvikling."
+      },
+      {
+        "candidate_id": "c2",
+        "source_pool": "major_media_breaking_scan",
+        "rank": 2,
+        "candidate_headline": "Dansk breaking-scan",
+        "deep_screened": true,
+        "downstream_sources": ["Ritzau/kommunale mediesyndikeringer", "DR/TV 2 scan"],
+        "decision": "reject",
+        "reason": "Ingen frisk dokumenterbar breaking-hændelse med høj dansk betydning fundet inden for run-budgettet."
+      }
+    ],
+    "model_prompt_version": "canonical docs/automations/news-task.md@4cd9ca7d6eccbac1992a01b685802df1f657572e"
+  }
+}
