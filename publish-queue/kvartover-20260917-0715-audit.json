@@ -1,0 +1,52 @@
+{
+  "payload_type": "discovery_audit",
+  "queue_id": "kvartover-20260917-0715-audit",
+  "terminal_reason": "NO_PUBLISHABLE_CANDIDATE",
+  "editorial_metadata": {
+    "discovery_run_id": "kvartover-20260917-0715",
+    "final_qa_duplicate": false,
+    "audit": [
+      {
+        "candidate_id": "eu-migration-emergency-framework",
+        "source_pool": "discovery",
+        "rank": 1,
+        "candidate_headline": "EU vil kunne suspendere normale returprocedurer ved pludselig masseankomst",
+        "deep_screened": true,
+        "downstream_sources": ["Reuters, 16 September 2026", "European Commission SOTEU, 16 September 2026"],
+        "decision": "rejected",
+        "reason": "semantic duplicate of recent [PUBLISH] history, PR #611"
+      },
+      {
+        "candidate_id": "canada-eu-associate-membership",
+        "source_pool": "discovery",
+        "rank": 2,
+        "candidate_headline": "Canada tilbudt ny status som EU's første associerede medlem",
+        "deep_screened": true,
+        "downstream_sources": ["Reuters, 16 September 2026", "European Commission, 16 September 2026"],
+        "decision": "rejected",
+        "reason": "semantic duplicate of recent canonical delivery already queued in this automation series (PR #593)"
+      },
+      {
+        "candidate_id": "austria-stocker-fpoe-festung",
+        "source_pool": "discovery",
+        "rank": 3,
+        "candidate_headline": "Østrigs kansler afviser FPÖ's 'Festung Österreich'",
+        "deep_screened": false,
+        "downstream_sources": [],
+        "decision": "rejected",
+        "reason": "not sufficiently fresh or strong for a new ordinary-news slot"
+      },
+      {
+        "candidate_id": "portugal-pcp-price-protest",
+        "source_pool": "discovery",
+        "rank": 4,
+        "candidate_headline": "Portugisiske kommunister indleder protestdag mod renter og priser",
+        "deep_screened": false,
+        "downstream_sources": [],
+        "decision": "rejected",
+        "reason": "low profile match and insufficient news value for Morgentidende"
+      }
+    ],
+    "note": "Canonical run read news-task.md from current main. Breaking scan found no verified high-Danish-impact override. A fresh discovery selection was performed after duplicate findings; remaining candidates did not clear freshness/news-value thresholds within the normal run budget. No article payload was handed off."
+  }
+}
