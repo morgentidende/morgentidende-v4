@@ -1,0 +1,60 @@
+{
+  "queue_id": "hel-20260917-1401-australia-migration",
+  "slug": "australien-strammer-migration-udenlandske-studerende-familie",
+  "headline": "Australien strammer migrationen: De fleste udenlandske studerende må ikke længere tage familien med",
+  "category_slug": "udland",
+  "deck": "Regeringen vil ned på 225.000 nettoindvandrere om året og lukker samtidig flere veje til at forlænge midlertidige ophold.",
+  "body_markdown": "Australien vil gøre det markant sværere for udenlandske studerende at tage partner og børn med til landet. Ændringen er en del af en bred pakke, som regeringen bruger til at presse nettoindvandringen ned efter flere år med høje tal.\n\nIndenrigsminister Tony Burke fremlagde torsdag ændringerne i Canberra. De fleste fremtidige internationale studerende vil ikke længere kunne knytte familiemedlemmer til deres studievisum. Der bliver dog undtagelser blandt andet for studerende fra Stillehavslande og ASEAN-landene samt for visse længere uddannelser som ph.d.-forløb. Familier, der allerede er i Australien på de nuværende regler, skal ikke skilles ad.\n\nSidste år udstedte Australien mere end 337.000 internationale studievisa. Omkring 45.000 af dem gik ifølge australske medier til partnere eller børn til den studerende.\n\nSamtidig vil regeringen slå ned på det, den kalder visumhop. Studerende, der vil fortsætte på en ny uddannelse, skal som udgangspunkt bevæge sig op på et højere uddannelsesniveau. En bachelor kan eksempelvis fortsætte på en kandidatuddannelse, mens gentagne skift mellem uddannelser på samme eller lavere niveau skal begrænses.\n\nOgså turist- og arbejdsferievisa bliver strammet. Nye besøgsvisa skal som hovedregel have en betingelse om, at opholdet ikke kan forlænges ved at søge et andet visum inde fra Australien. For unge på arbejdsferie indføres der lodtrækning om en del af forlængelserne.\n\nRegeringen skruer desuden op for kontrollen med personer, der bliver i landet efter deres visum er udløbet. Der skal ansættes 100 ekstra kontrolmedarbejdere og oprettes 250 nye pladser i udrejsecentre.\n\nMålet er at få nettoindvandringen ned på 245.000 i det indeværende finansår og 225.000 næste år. Nye officielle tal viser, at nettoindvandringen allerede er faldet til omkring 292.000 i året frem til marts efter et højdepunkt på 518.000 i 2023. Burke sagde, at presset på boligmarkedet betyder, at regeringens prognoser nu skal behandles som mål, der skal nås.\n\nStramningerne kommer samtidig med en hård politisk kamp om migration. One Nation ønsker langt større reduktioner, mens oppositionen også arbejder med et lavere niveau end regeringen. Burke afviser, at regeringens linje skyldes One Nations fremgang, og siger, at Australien fortsat støtter indvandring, men vil forhindre misbrug af systemet.\n\nUniversiteter og erhvervsorganisationer advarer om, at for kraftige begrænsninger kan ramme både uddannelseseksporten og brancher, der mangler arbejdskraft. Den internationale uddannelsessektor er en af Australiens største eksportindtægter. Regeringen fastholder samtidig familieadgangen for kvalificerede udenlandske arbejdstagere, fordi blandt andre læger, sygeplejersker og bygningsarbejdere ellers kan vælge Australien fra.\n\nPakken viser dermed den balance, regeringen forsøger at ramme: færre midlertidige migranter og færre muligheder for at forlænge opholdet ad omveje, men fortsat adgang for arbejdskraft, som landet vurderer, at det har brug for.",
+  "source_metadata": [
+    {"name":"Reuters","url":"https://www.reuters.com/business/media-telecom/australia-bar-foreign-students-bringing-partners-children-while-they-study-2026-09-17/","class":"authoritative","published_date":"2026-09-17"},
+    {"name":"ABC News Australia","url":"https://www.abc.net.au/news/2026-09-17/labor-immigration-crackdown-students-backpackers-overstay-visa/107164354","class":"authoritative","published_date":"2026-09-17"},
+    {"name":"The Guardian Australia","url":"https://www.theguardian.com/australia-news/2026/sep/17/labor-immigration-students-families-overstay-visa-tony-burke","class":"authoritative","published_date":"2026-09-17"}
+  ],
+  "editorial_metadata": {
+    "sagen_kort": [
+      "De fleste nye internationale studerende skal ikke længere kunne tage partner og børn med til Australien; eksisterende familier i landet rammes ikke.",
+      "Regeringen vil sænke nettoindvandringen til 225.000 næste finansår og strammer samtidig reglerne for studie-, turist- og arbejdsferievisa."
+    ],
+    "frontpage_destination": "normal",
+    "story_cluster_key": "australia-migration-visa-reform-2026",
+    "hero_candidates": [
+      {
+        "rank": 1,
+        "source_url": "https://commons.wikimedia.org/wiki/File:2025_Tony_Burke_(cropped).jpg",
+        "source_page": "https://commons.wikimedia.org/wiki/File:2025_Tony_Burke_(cropped).jpg",
+        "description": "Australiens indenrigsminister Tony Burke i 2025",
+        "license": "CC BY 4.0",
+        "author": "UK Home Office / Ryan Jenkinson / Parsons Media",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "known_width": 905,
+        "known_height": 1204
+      },
+      {
+        "rank": 2,
+        "source_url": "https://commons.wikimedia.org/wiki/File:Home_Secretary_attends_Five_Country_Ministerial_2025_-_Day_One_-_54773851367.jpg",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Home_Secretary_attends_Five_Country_Ministerial_2025_-_Day_One_-_54773851367.jpg",
+        "description": "Tony Burke sammen med den britiske indenrigsminister Shabana Mahmood i 2025",
+        "license": "CC BY 4.0",
+        "author": "UK Home Office / Andrew Parsons / Parsons Media",
+        "commercial_use_allowed": true,
+        "local_storage_allowed": true,
+        "known_width": 5017,
+        "known_height": 3411
+      }
+    ],
+    "hero_exception": {"reason":"Kun to tilstrækkeligt relevante, dokumenteret kommercielt genanvendelige Commons-billeder af den centrale aktør blev verificeret inden for runnets researchramme; ældre protestfotos blev fravalgt som potentielt vildledende kontekst."},
+    "discovery_audit": {
+      "discovery_run_id": "hel-20260917-1401",
+      "source_pool": "discovery",
+      "candidate_id": "australia-student-family-visa-20260917",
+      "rank": 1,
+      "headline_topic": "Australien strammer studie- og midlertidige visa for at reducere migration",
+      "deep_screened": true,
+      "downstream_sources": ["Reuters","ABC News Australia","The Guardian Australia"],
+      "decision": "publish",
+      "reason": "Frisk, dokumenteret migrationsstramning med konkrete tal og stor politisk betydning; ingen næsten-identisk Morgentidende-transport fundet i GitHub-søgning.",
+      "prompt_version": "docs/automations/news-task.md@43d3fd79"
+    }
+  }
+}
