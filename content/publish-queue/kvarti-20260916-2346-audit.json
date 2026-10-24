@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0",
+  "queue_id": "kvarti-20260916-2346-audit",
+  "kind": "discovery_audit",
+  "source_pool": "discovery",
+  "status": "skipped",
+  "terminal_reason": "INSUFFICIENT_DOCUMENTATION",
+  "candidates_tried": 1,
+  "duplicate_of": null,
+  "candidate": {
+    "source": "Apollo News",
+    "topic": "Stuttgart insult prosecution / reported 32,000 euro proceeding costs",
+    "disposition": "rejected",
+    "reason": "The fresh discovery lead could not be independently verified against an accessible authoritative or primary source within the run budget; search surfaced only historical Pimmelgate context, which is insufficient to substantiate the new Stuttgart proceeding and cost figure."
+  },
+  "breaking_scan": {
+    "performed": true,
+    "result": "No verified high-Danish-impact breaking override established in the run."
+  },
+  "dedupe": {
+    "checked": true,
+    "window_days": 7,
+    "observable_surface": "GitHub [PUBLISH] pull-request history"
+  },
+  "notes": "Canonical ordinary-news audit-only delivery. No article payload was emitted because the strongest fresh non-duplicate lead failed the documentation gate. Backend owns transport handling and PR closure."
+}
